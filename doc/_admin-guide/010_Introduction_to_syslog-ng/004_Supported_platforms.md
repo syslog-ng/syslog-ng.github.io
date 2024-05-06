@@ -9,10 +9,6 @@ portable and is known to run on a wide range of hardware architectures
 systems, including Linux, BSD, Solaris, IBM AIX, HP-UX, macOS,
 Cygwin, and others.
 
-- The source code of syslog-ng Open Source Edition is released under
-    the GPLv2 license and is [available on
-    GitHub](https://github.com/syslog-ng/syslog-ng).
+- The [[source code|gh-syslog-ng]] of syslog-ng Open Source Edition is released under the GPLv2 license
 
-- For the available binary installation packages, see [syslog-ng Open
-    Source Edition installation
-    packages](https://www.syslog-ng.com/products/open-source-log-management/3rd-party-binaries.aspx).
+- For the available binary installation packages, see syslog-ng Open Source Edition installation packages.

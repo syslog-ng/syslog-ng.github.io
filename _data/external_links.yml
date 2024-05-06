@@ -1,11 +1,11 @@
-gh-pages: 
+gh-pages:
   id: gh-pages
   url: https://syslog-ng.github.io/doc/
   title: [ "syslog-ng documentation center" ]
 
 gh-syslog-ng:
   id: gh-syslog-ng
-  url: http://www.github.com/balabit/syslog-ng
+  url: https://github.com/syslog-ng/syslog-ng
   title: [ "syslog-ng on GitHub" ]
 
 gh-syslog-ng-issue-tracker:
@@ -28,12 +28,12 @@ bb-syslog-ng-mail-list:
   url: https://lists.balabit.hu/mailman/listinfo/syslog-ng
   title: [ "syslog-ng mailing list" ]
 
-pe-product: 
+pe-product:
   id: pe-product
   url: https://www.syslog-ng.com/products/log-management-software/
   title: [ "syslog-ng Premium Edition product" ]
 
-oi-llc: 
+oi-llc:
   id: oi-llc
   url: https://www.oneidentity.com/
   title: [ "One Identity LLC" ]
@@ -53,32 +53,27 @@ sn-ccanndw-license:
   url: https://www.syslog-ng.com/technical-documents/doc/syslog-ng-open-source-edition/3.33/administration-guide/104
   title: [ "Creative Commons Attribution-Noncommercial-No Derivative Works (by-nc-nd) 3.0 license" ]
 
-sn-doc-entity-cla:
-  id: sn-doc-entity-cla
-  url: FIXME
-  title: [ "syslog-ng Open Source Edition Documentation Entity Contributor License Agreement" ]
-
-sn-doc-individual-cla:
-  id: sn-doc-individual-cla
-  url: FIXME
-  title: [ "syslog-ng Open Source Edition Documentation Individual Contributor License Agreement" ]
+sn-prod-binaries-dl:
+  id: sn-prod-binaries-dl
+  url: https://www.syslog-ng.com/products/open-source-log-management/3rd-party-binaries.aspx
+  title: [ "syslog-ng Open Source Edition installation packages" ]
 
 mm-javascripts:
   id: mm-javascripts
   url: https://mmistakes.github.io/minimal-mistakes/docs/javascript/
   title: [ "Minimal Mistakes JavaScript" ]
 
-mm-js-update: 
+mm-js-update:
   id: mm-js-update
   url: https://mmistakes.github.io/minimal-mistakes/docs/javascript/#build-process
   title: [ "Minimal Mistakes build" ]
 
-mm-dir-struct: 
+mm-dir-struct:
   id: mm-dir-struct
   url: https://mmistakes.github.io/minimal-mistakes/docs/structure/
   title: [ "Minimal Mistakes doc structure" ]
 
-jekyll-dir-struct: 
+jekyll-dir-struct:
   id: jekyll-dir-struct
   url: https://jekyllrb.com/docs/structure/
   title: [ "Jekyll doc structure" ]
@@ -98,22 +93,22 @@ jekyll-ruby-gems:
   url: https://jekyllrb.com/docs/ruby-101/
   title: [ "Jekyll Ruby Gems" ]
 
-criterion: 
+criterion:
   id: criterion
   url: https://github.com/Snaipe/Criterion
   title: [ "Criterion" ]
 
-homebrew: 
+homebrew:
   id: homebrew
   url: http://brew.sh
   title: [ "Homebrew" ]
 
-homebrew-inst-detailed: 
+homebrew-inst-detailed:
   id: homebrew-inst-detailed
   url: https://mac.install.guide/homebrew/3.html
   title: [ "Homebrew" ]
 
-freepascal-launchd: 
+freepascal-launchd:
   id: freepascal-launchd
   url: https://wiki.freepascal.org/macOS_daemons_and_agents
   title: [ "macOS daemons and agents" ]
@@ -126,4 +121,4 @@ apple-launchd:
 soc-macos-module-testing:
   id: soc-macos-module-testing
   url: https://syslog-macos-testing.gitbook.io/syslog-macos-testing/
-  title: [ "SOC macOS mudule testing" ] 
+  title: [ "SOC macOS mudule testing" ]
