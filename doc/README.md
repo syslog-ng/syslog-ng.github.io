@@ -11,7 +11,7 @@ id: doc-center
 
 If you would like to help us to make our documentation better, here you can find information about {% include markdown_link id="doc-guide#how-to-contribute-to-the-documentation" title="how to contribute" outOfFrame=true %}.
 
-[![Deploy Jekyll site to Pages](https://github.com/syslog-ng/doc/actions/workflows/jekyll-gh-pages.yml/badge.svg)](https://github.com/syslog-ng/doc/actions/workflows/jekyll-gh-pages.yml)
+[![Deploy Jekyll site to Pages](https://github.com/syslog-ng/syslog-ng.github.io/actions/workflows/jekyll-gh-pages.yml/badge.svg)](https://github.com/syslog-ng/syslog-ng.github.io/actions/workflows/jekyll-gh-pages.yml)
 
 ## {% include markdown_link id="adm-guide" title="Administration guide" outOfFrame=true %}
 
