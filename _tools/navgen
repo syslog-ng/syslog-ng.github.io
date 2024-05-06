@@ -1,0 +1,240 @@
+#!/bin/bash
+
+BASE_INDENT="  "
+INDEX_FILE_PATTERNS="^(index\.md|README\.md)$"
+FRONT_MATTER_HEADER_FOOTER="---"
+
+USE_INDEX_FILE_FOR_FOLDER_LINKS="yes"
+REMOVE_UNDERLINE_FROM_DOC_DIR_NAMES="yes"
+JEKYLL_BUILD_LINKS="yes"
+
+
+trim_trailing_slashes()
+{
+    local INPUT_STRING="$1"
+    echo "${INPUT_STRING%/}"
+}
+
+trim() 
+{
+    local VAR="${1}"
+    local TO_TRIM="${2}"
+
+    VAR="${VAR%%[${TO_TRIM}]}"
+    VAR="${VAR##[${TO_TRIM}]}"
+
+    printf '%s' "$VAR"
+}
+
+print_entry()
+{
+	echo "${1}  - title: ${2}"
+	echo "${1}    url: ${3}"
+	if [ "$#" -eq 4 ]; then
+		echo "${1}    ${4}"
+	fi
+}
+
+check_directory_content()
+{
+    /bin/ls -1 -p "${1}" | grep -Ev "${INDEX_FILE_PATTERNS}" >/dev/null
+}
+
+add_file_entry () {
+	local FILE_TITLE=$(read_file_title "${1}")
+    local URL="${2}"
+	
+	[ -n "$FILE_TITLE" ] && TITLE="$FILE_TITLE"
+
+	print_entry "${INDENT}" "${TITLE}" "${URL}"
+}
+
+add_dir_entry()
+{
+	local DIR="${1}"
+	local EXCLUDED_FILES=("${DIR}/index.md" "${DIR}/README.md")
+    local URL="${2}"
+	local INDEX_FILE="index"
+
+	for EXCLUDED_FILE in "${EXCLUDED_FILES[@]}"; do
+		if [ -f "${EXCLUDED_FILE}" ]; then
+			local DIR_TITLE=$(read_file_title "${EXCLUDED_FILE}")
+            local BASE_NAME=$(basename "${EXCLUDED_FILE}")
+
+            INDEX_FILE=${BASE_NAME%.*}
+			[ -n "${DIR_TITLE}" ] && TITLE="${DIR_TITLE}"
+			break
+		fi
+	done
+
+    if [ "${USE_INDEX_FILE_FOR_FOLDER_LINKS}x" != "x" ]; then
+        URL=$(url_for_file "" "${DIR}" "${INDEX_FILE}")
+    fi
+
+	print_entry "${INDENT}" "${TITLE}" "${URL}" "subnav:${3}"
+}
+
+url_for_file()
+{
+    local ITEM_PATH="$1"
+    local DIR=$(trim_trailing_slashes "$2")
+    local ITEM_NAME="$3"
+    local RELATIVE_PATH=$(trim_trailing_slashes "${DIR#${START_DIR}}")    
+    [ "$RELATIVE_PATH" == "${DIR}" ] && RELATIVE_PATH=""
+    local URL="${ROOT_DIR_NAME}${RELATIVE_PATH}/${ITEM_NAME%.md}"
+
+    if [ -f "${ITEM_PATH}" ]; then
+        local PERMALINK=$(read_file_permalink "${ITEM_PATH}")
+        [ "${PERMALINK}x" != "x" ] && URL="${PERMALINK}"
+    fi
+
+    # Adding now the leadign / to support proper root references as well everywhere
+    # links must be used via the markdown_link include (or with the '| relative_url' filter) that will handle this 
+    echo "/${URL}"
+}
+
+generate_yaml()
+{
+    local DIR="$1"
+    local INDENT="$2"
+    
+    for ITEM in $(/bin/ls -1 "${DIR}" | grep -Ev "${INDEX_FILE_PATTERNS}" | sort); do
+        local ITEM_PATH="${DIR}/${ITEM}"
+        local ITEM_NAME=$(basename "$ITEM")
+        local TITLE="\"${ITEM_NAME}\""
+        local URL=$(url_for_file "${ITEM_PATH}" "${DIR}" "${ITEM_NAME}")
+        
+        if [ -f "${ITEM_PATH}" ]; then
+			add_file_entry "${ITEM_PATH}" "${URL}"
+        elif [ -d "${ITEM_PATH}" ]; then
+			add_dir_entry "${ITEM_PATH}" "${URL}" "" # "$(check_directory_content "$ITEM_PATH" || echo " true")"
+			generate_yaml "${ITEM_PATH}" "${INDENT}${BASE_INDENT}"
+        fi
+    done
+}
+
+read_file_header_item()
+{
+    local FILE=$1
+    shift
+    local ITEMS_REGEXES=("$@")
+    local DELIMITER_FOUND=false
+    local TITLE=""
+    
+    while IFS= read -r LINE; do
+        if [ "${LINE}" == "${FRONT_MATTER_HEADER_FOOTER}" ]; then
+            if ${DELIMITER_FOUND}; then
+                # Stop if front matter is finished
+                break
+            else
+                DELIMITER_FOUND=true
+            fi
+        elif ${DELIMITER_FOUND}; then
+            if [[ "${LINE}" =~ ${ITEMS_REGEXES[0]} ]]; then
+                TITLE="${BASH_REMATCH[1]}"
+                # Can break here, first patter always has the top precedence now
+                break
+            elif [ ${#ITEMS_REGEXES[@]} -gt 1 ] && [[ "${LINE}" =~ ${ITEMS_REGEXES[1]} ]]; then
+                TITLE="${BASH_REMATCH[1]}"
+                # Do not break here the order can be anything
+            fi
+        else
+            # First line was not a front matter header
+            break;
+        fi
+    done < "${FILE}"
+    
+    echo "${TITLE}"
+}
+
+read_file_id()
+{
+    read_file_header_item "$1" '^id: (.*)$'
+}
+
+read_file_title()
+{
+    TITLE=$(read_file_header_item "$1" '^short_title: (.*)$' '^title: (.*)$')
+
+  	if [[ -n "${TITLE}" ]]; then
+        TITLE=$(trim "${TITLE}" "\"'")
+        TITLE="\"${TITLE}\""
+    fi
+
+    echo "${TITLE}"
+}
+
+read_file_permalink()
+{
+    read_file_header_item "$1" '^permalink: (.*)$'
+}
+
+add_warning_header ()
+{
+    local FILE=$1
+
+    echo "# --------------------------------------" >> "${FILE}"
+    echo "# This file is auto generated           " >> "${FILE}"
+    echo "#      - DO NOT EDIT -                  " >> "${FILE}"
+    echo "# Use the _tools/navgen script instead  " >> "${FILE}"
+    echo "# --------------------------------------" >> "${FILE}"
+    echo "" >> "${FILE}"
+}
+
+gen_navigation()
+{    
+    > "${OUTPUT_FILE}"
+    add_warning_header "${OUTPUT_FILE}"
+
+    for DOC_PROJECT_ITEM in $(find -L "${DOC_FOLDER}" -mindepth 1 -maxdepth 1 -type d | sort); do
+        START_DIR=$(trim_trailing_slashes "${DOC_PROJECT_ITEM}")
+        ROOT_DIR_NAME=$(basename "${START_DIR}")
+        [ "${REMOVE_UNDERLINE_FROM_DOC_DIR_NAMES}x" != "x" ] && ROOT_DIR_NAME=${ROOT_DIR_NAME#_}
+
+        echo "" >> "${OUTPUT_FILE}"
+        echo "# ${ROOT_DIR_NAME}" >> "${OUTPUT_FILE}"
+        echo "${ROOT_DIR_NAME}-nav:" >> "${OUTPUT_FILE}"
+        add_dir_entry "${START_DIR}" "${START_DIR}" "" >> "${OUTPUT_FILE}"
+
+        generate_yaml "${START_DIR}" "" >> "${OUTPUT_FILE}"
+
+        shift
+    done
+    echo "YAML navigation structure is generated and saved to $OUTPUT_FILE"
+}
+
+gen_links()
+{
+    rm -Rf _data/links
+    JEKYLL_BUILD_LINKS='yes' JEKYLL_BUILD_TOOLTIPS='no'  bundle exec jekyll build
+    echo "Jekyll page links are generated and saved to _data/links"
+}
+
+gen_tooltips()
+{
+    JEKYLL_BUILD_LINKS='no' JEKYLL_BUILD_TOOLTIPS='yes' bundle exec jekyll build
+    echo "Jekyll tooltips are generated and saved"
+}
+
+process_params()
+{
+    gen_navigation
+    [ "${JEKYLL_BUILD_LINKS}" == "yes" ] && gen_links
+    [ "${JEKYLL_BUILD_TOOLTIPS}" == "yes" ] && gen_tooltips
+}
+
+
+# Check for the correct number of command-line parameters
+if [ "$#" -lt 2 ]; then
+    echo "Usage: $0 <doc_folder> <output_nav_file> [yes:no, default:yes] [yes:no, default:no] (Where 3rd param will set JEKYLL_BUILD_LINKS, 4th set JEKYLL_BUILD_TOOLTIPS)"
+    exit 1
+fi
+
+DOC_FOLDER="${1}"
+OUTPUT_FILE="${2}"
+[ "$#" -gt 2 ] && JEKYLL_BUILD_LINKS="${3}"
+[ "$#" -gt 3 ] && JEKYLL_BUILD_TOOLTIPS="${4}"
+
+process_params "$@"
+
+exit 0

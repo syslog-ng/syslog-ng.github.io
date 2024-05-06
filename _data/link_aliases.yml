@@ -1,0 +1,16 @@
+#
+# You can use only the id currently to create an alias
+#
+# TODO: Add title support as well 
+#   - but, what about then with the duplicated titles again?!?
+#   - using the id has a much better link generation performance
+#
+adm-temp-macro-ose:
+  aliases: [ "Macros", "macros" ]
+
+adm-temp-macro-ose#sdata-sdatasdidsdname: 
+  aliases: [ "SDATA" ] 
+
+adm-temp-macro-ose#priority-or-level:
+  aliases: [ "PRIORITY", "LEVEL" ]
+

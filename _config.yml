@@ -1,0 +1,229 @@
+# Base configuration
+
+remote_theme: mmistakes/minimal-mistakes@4.24.0
+#theme: minimal-mistakes-jekyll
+minimal_mistakes_skin: "midnight" # "default" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
+
+# Disable caching of content to disk in order to skip creating a .jekyll-cache or similar directory
+disable_disk_cache: true
+
+# If you’re publishing on GitHub Pages you should update only your _config.yml as GitHub Pages doesn’t load plugins via Bundler.
+plugins:
+  - jekyll-remote-theme
+  - jekyll-sitemap        # Jekyll plugin to silently generate a sitemaps.org compliant sitemap for your Jekyll site.
+  - jekyll-gist 	        # Liquid tag for displaying GitHub Gists in Jekyll sites.
+  - jekyll-include-cache  # Liquid tag that caches Liquid includes.
+
+# Whitelist plugins under safe mode.
+whitelist:
+  - jekyll-remote-theme
+  - jekyll-sitemap
+  - jekyll-gist
+  - jekyll-include-cache
+
+# NOTE: Overiding theme defaults https://jekyllrb.com/docs/themes/#overriding-theme-defaults
+#       Jekyll will look first to your site’s content before looking to the theme’s defaults for any requested file in the following folders:
+#         /assets
+#         /_data
+#         /_layouts
+#         /_includes
+#         /_sass
+#source: doc
+
+# Reading Files
+#
+# Every file or directory beginning with the following characters: 
+#     ., _ , # or ~ 
+# in the source directory will not be included in the destination folder. Such paths will have to be explicitly specified via the config file in the 
+# include directive to make sure they’re copied over
+# In Jekyll 3, the `exclude` configuration option replaces the default exclusion list.
+# In Jekyll 4, user-provided entries get added to the default exclusion list instead and the `include` option can be used to override the default exclusion list entries.
+#
+# DANGER: This one above is a big lie, does not work that way at all
+#         Add everything explicitely instead to excluded: but DO NOT if it must be, and presented in included:
+#
+include:
+  - .htaccess
+  - assets/css
+  - assets/images
+  - assets/js/main.min.js
+  # Only lunr is not included now to main.min.js
+  - assets/js/lunr
+  # site.data.links input
+  - _data/links/
+exclude:
+  - .reftime
+  - .bundle/
+  - .vendor/
+  - .vscode/
+  - .git
+  - .github
+  - README.md # The one in the root belongs to the GitHub repository page, not to the generated final site, use index.md
+  # TODO: These are now packed into assets/js/main.min.js, not needed, but the _site building still adds them, double check the references why
+  #       Also the doc snippet above is lieing, if this is presented the include: will not add e.g. assets/js/lunr even it is presented over there
+  #- assets/js
+  - _js/ 
+  - _tools/
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  # Shell we add to the generated _site as well?
+  - LICENSE.minimal-mistakes
+  - LICENSE.midnight
+
+# Sass/SCSS
+sass:
+  sass_dir: _sass/minimal-mistakes
+  style: compressed # https://sass-lang.com/documentation/file.SASS_REFERENCE.html#output_style
+
+# Note: If you assign footer_scripts the theme’s /assets/js/main.min.js file will be deactivated. 
+#       This script includes jQuery and various other plugins that you’ll need to find replacements for and include separately.
+#       https://mmistakes.github.io/minimal-mistakes/docs/javascript/
+#
+#footer_scripts:
+
+# ------------------------------------------------------------
+
+# Title
+title: syslog-ng documentation
+masthead_title: syslog-ng documentation
+
+# Author/Organization info to be displayed in the templates
+author:
+  name: OpenSource Community
+  url: https://github.com/syslog-ng/syslog-ng
+
+
+# When using this template with a project (repository) page set the baseurl to '/project-name'
+# For user/organization pages set this to an empty string
+# When working locally use jekyll serve --baseurl '' so that you can view everything at localhost:4000
+# See http://jekyllrb.com/docs/github-pages/ or https://byparker.com/blog/2014/clearing-up-confusion-around-baseurl/ for more info
+baseurl: /doc
+
+# Point the logo URL at a file in your repo or hosted elsewhere by your organization
+logourl: /assets/images/favicons/mstile-150x150.png
+# logoalt: The D.C. flag
+
+collections_dir: doc
+
+collections:
+  doc-guide:
+    name: Documentation
+    output: true
+
+  admin-guide:
+    name: Administration
+    output: true
+
+  dev-guide:
+    name: Development
+    output: true
+
+
+# Global defult permalink format
+# https://jekyllrb.com/docs/permalinks/
+# GitHub project name we use as collection name and root
+#permalink: /:path/
+# NOTE: the above is always expanded like this, for collections it seems (not mentioned correctly in the documentataion)
+#permalink: /:collection/:path/:basename
+
+# Defaults
+defaults:
+  # All pages
+  - scope:
+      path: "" # an empty string here means all files in the project
+    values:
+      layout: single
+      toc: true
+      toc_sticky: true
+      toc_hide_empty: true
+      sidebar:
+        nav: ""
+
+  # Documentation guide pages
+  - scope:
+      # NOTE: type can be a collection name
+      type: doc-guide
+    values:
+      sidebar:
+        nav: "doc-guide-nav"
+
+  # Administrator guide pages
+  - scope:
+      type: admin-guide
+    values:
+      sidebar:
+        nav: "admin-guide-nav"
+
+  # Developer guide pages
+  - scope:
+      type: dev-guide 
+    values:
+      sidebar:
+        nav: "dev-guide-nav"
+
+# Search settings
+search: true
+search_full_content: true
+
+search_provider: lunr
+lunr:
+  search_within_pages: true
+  # Setting search_full_content to true could impact page load performance!
+  search_full_content: true
+
+# search_provider: algolia
+# algolia:
+#   application_id: # YOUR_APPLICATION_ID
+#   index_name: # YOUR_INDEX_NAME
+#   search_only_api_key: # YOUR_SEARCH_ONLY_API_KEY
+#   powered_by: # true (default), false
+ 
+# Markdown and sytax higlighting
+# https://jekyllrb.com/docs/configuration/markdown/
+markdown_ext: "markdown,mkdown,mkdn,mkd,md"
+# https://kramdown.gettalong.org/options.html
+markdown: kramdown
+kramdown:
+  syntax_highlighter: rouge # default
+  syntax_highlighter_opts:
+    default_lang: c
+    guess_lang: true
+    block:
+      line_numbers: false
+  input: GFM # default
+  hard_wrap: false
+  auto_ids: true
+  toc_levels: 1..6
+  smart_quotes: lsquo,rsquo,ldquo,rdquo
+  footnote_nr: 1
+  # entity_output: as_char
+  # enable_coderay: false
+
+atom_feed:
+  hide: true
+
+compress_html:
+  clippings: all
+  ignore:
+    envs: development  # disable compression in dev environment
+
+# These are introduced with our customized theme source, not part of mmistakes/minimal-mistakes
+
+# Option to set the width of the page inner content part
+# Any max-with css value, theme default is $max-width that is $x-large: 1280px in _variables.scss
+page_content_width: 95%
+
+sidebar:
+  sticky: true
+  nav_sub_items_scaled: true
+  nav_sub_items_ident: 0.5em
+
+masthead:
+  # Option to hide masthead navigator in the page top bar
+  hide_navigator: true
+  # Option to make the masthead page top bar sticky
+  sticky: true
+
+footer:
+  top_margin: 2em # originally 3em, needed if there are visible prev/next navigator buttons

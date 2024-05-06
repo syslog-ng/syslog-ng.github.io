@@ -1,0 +1,27 @@
+{%- assign md_link_id = include.id -%}
+{%- assign md_link_title = include.title -%}
+{%- assign md_link_with_toltip = include.withTooltip -%}
+{%- assign md_link_new_page = include.newPage -%}
+{%- assign md_link_out_of_frame = include.outOfFrame -%}
+{%- assign md_link_decl = include.decl -%}
+
+{%- assign md_link_style = "nav-link" -%}
+{%- if md_link_out_of_frame -%}{%- assign md_link_style = '' -%}{%- endif -%}
+{%- if md_link_with_toltip -%}{%- assign md_link_style = md_link_style | append: " content-tooltip" -%}{%- endif -%}
+{%- assign md_link_style = 'class="' | append: md_link_style | append: '"' -%}
+
+{%- if md_link_new_page -%}{%- assign md_link_style = ' target="_blank"' -%}{%- endif -%}
+
+
+{% comment %} NOTE: the final '| first' fiter is mandatory even if only one matching item is found {% endcomment %}
+{%- assign md_link_data = site.data.links | where: "id", md_link_id | first -%}
+{%- if md_link_data == nil -%}{%- assign md_link_data = site.data.external_links | where: "id", md_link_id | first -%}{%- endif -%}
+{%- assign md_link_url = md_link_data.url -%}
+{%- if md_link_title == nil -%}{%- assign md_link_title = md_link_data.title -%}{%- endif -%}
+{%- if md_link_title == nil -%}{%- assign md_link_title = 'No title was given!!!' -%}{%- endif -%}
+
+{%- if md_link_decl -%}
+[ref:{{ md_link_id }}]: {{ md_link_url | relative_url }}
+{%- else -%}
+[{{ md_link_title }}]({{ md_link_url | relative_url }}){: {{md_link_style}} }
+{%- endif -%}

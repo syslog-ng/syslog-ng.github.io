@@ -1,0 +1,1236 @@
+# --------------------------------------
+# This file is auto generated           
+#      - DO NOT EDIT -                  
+# Use the _tools/navgen script instead  
+# --------------------------------------
+
+
+# admin-guide
+admin-guide-nav:
+  - title: "syslog-ng Open Source Edition Administration Guides"
+    url: /admin-guide/README
+    subnav:
+  - title: "Introduction to syslog-ng"
+    url: /admin-guide/010_Introduction_to_syslog-ng/README
+    subnav:
+    - title: "What syslog-ng is"
+      url: /admin-guide/010_Introduction_to_syslog-ng/000_What_syslog-ng_is
+    - title: "What syslog-ng is not"
+      url: /admin-guide/010_Introduction_to_syslog-ng/001_What_syslog-ng_is_not
+    - title: "Why is syslog-ng needed?"
+      url: /admin-guide/010_Introduction_to_syslog-ng/002_Why_is_syslog-ng_needed
+    - title: "Who uses syslog-ng?"
+      url: /admin-guide/010_Introduction_to_syslog-ng/003_Who_uses_syslog-ng
+    - title: "Supported platforms"
+      url: /admin-guide/010_Introduction_to_syslog-ng/004_Supported_platforms
+  - title: "The concepts of syslog-ng"
+    url: /admin-guide/020_The_concepts_of_syslog-ng/README
+    subnav:
+    - title: "The philosophy of syslog-ng"
+      url: /admin-guide/020_The_concepts_of_syslog-ng/000_The_philosophy_of_syslog-ng
+    - title: "Logging with syslog-ng"
+      url: /admin-guide/020_The_concepts_of_syslog-ng/001_Logging_with_syslog-ng
+    - title: "Modes of operation"
+      url: /admin-guide/020_The_concepts_of_syslog-ng/002_Modes_of_operation
+    - title: "Global objects"
+      url: /admin-guide/020_The_concepts_of_syslog-ng/003_Global_objects
+    - title: "Timezones and daylight saving"
+      url: /admin-guide/020_The_concepts_of_syslog-ng/004_Timezones_and_daylight_saving
+    - title: "Product licensing"
+      url: /admin-guide/020_The_concepts_of_syslog-ng/005_Licensing
+    - title: "High availability support"
+      url: /admin-guide/020_The_concepts_of_syslog-ng/006_High_availability
+    - title: "The structure of a log message"
+      url: /admin-guide/020_The_concepts_of_syslog-ng/007_The_structure_of_a_log_message/README
+      subnav:
+      - title: "BSD-syslog or legacy-syslog messages"
+        url: /admin-guide/020_The_concepts_of_syslog-ng/007_The_structure_of_a_log_message/000_BSD_syslog_messages
+      - title: "IETF-syslog messages"
+        url: /admin-guide/020_The_concepts_of_syslog-ng/007_The_structure_of_a_log_message/001_IETF_syslog_messages
+      - title: "Enterprise-wide message model (EWMM)"
+        url: /admin-guide/020_The_concepts_of_syslog-ng/007_The_structure_of_a_log_message/002_EWMM_messages
+    - title: "Message representation in syslog-ng OSE"
+      url: /admin-guide/020_The_concepts_of_syslog-ng/008_Message_representation
+    - title: "Structuring macros, metadata, and other value-pairs"
+      url: /admin-guide/020_The_concepts_of_syslog-ng/009_Structuring_macros/README
+      subnav:
+      - title: "Specifying data types in value-pairs"
+        url: /admin-guide/020_The_concepts_of_syslog-ng/009_Structuring_macros/000_Specifying_data_types
+    - title: "Things to consider when forwarding messages between syslog-ng OSE hosts"
+      url: /admin-guide/020_The_concepts_of_syslog-ng/010_Things_to_consider
+    - title: "Commercial version of syslog-ng"
+      url: /admin-guide/020_The_concepts_of_syslog-ng/011_Commercial_version
+  - title: "Installing syslog-ng"
+    url: /admin-guide/030_Installing_syslog-ng/README
+    subnav:
+    - title: "Compiling syslog-ng from source"
+      url: /admin-guide/030_Installing_syslog-ng/000_Compiling_syslog-ng_from_source
+    - title: "Compiling options of syslog-ng OSE"
+      url: /admin-guide/030_Installing_syslog-ng/001_Compiling_options
+    - title: "Uninstalling syslog-ng OSE"
+      url: /admin-guide/030_Installing_syslog-ng/002_Uninstalling_syslog-ng
+    - title: "Configuring MSSQL Server"
+      url: /admin-guide/030_Installing_syslog-ng/003_Configuring_MSSQL_server
+  - title: "Quick-start guide"
+    url: /admin-guide/040_Quick-start_guide/README
+    subnav:
+    - title: "Configuring syslog-ng on client hosts"
+      url: /admin-guide/040_Quick-start_guide/000_Configuring_syslog-ng_on_client_hosts
+    - title: "Configuring syslog-ng on server hosts"
+      url: /admin-guide/040_Quick-start_guide/001_Configuring_syslog-ng_on_server_hosts
+    - title: "Configuring syslog-ng relays"
+      url: /admin-guide/040_Quick-start_guide/002_Configuring_syslog-ng_relays/README
+      subnav:
+      - title: "Configuring syslog-ng on relay hosts"
+        url: /admin-guide/040_Quick-start_guide/002_Configuring_syslog-ng_relays/000_Configuring_syslog-ng_on_relay_hosts
+      - title: "How relaying log messages works"
+        url: /admin-guide/040_Quick-start_guide/002_Configuring_syslog-ng_relays/001_How_relaying_works
+    - title: "Managing and checking syslog-ng OSE service on Linux"
+      url: /admin-guide/040_Quick-start_guide/003_Managing_and_checking_syslog-ng_OSE_service_on_Linux
+  - title: "The configuration file"
+    url: /admin-guide/050_The_configuration_file/README
+    subnav:
+    - title: "Location of the syslog-ng configuration file"
+      url: /admin-guide/050_The_configuration_file/000_Location_of_the_config_file
+    - title: "The configuration syntax in detail"
+      url: /admin-guide/050_The_configuration_file/001_Configuration_syntax
+    - title: "Notes about the configuration syntax"
+      url: /admin-guide/050_The_configuration_file/002_Syntax_notes
+    - title: "Defining configuration objects inline"
+      url: /admin-guide/050_The_configuration_file/003_Defining_configuration_objects_inline
+    - title: "Using channels in configuration objects"
+      url: /admin-guide/050_The_configuration_file/004_Using_channels_in_configuration_objects
+    - title: "Global and environmental variables"
+      url: /admin-guide/050_The_configuration_file/005_Global_and_environmental_variables
+    - title: "Modules in syslog-ng"
+      url: /admin-guide/050_The_configuration_file/006_Modules_in_syslog-ng/README
+      subnav:
+      - title: "Loading modules"
+        url: /admin-guide/050_The_configuration_file/006_Modules_in_syslog-ng/000_Loading_modules
+      - title: "Listing configuration options"
+        url: /admin-guide/050_The_configuration_file/006_Modules_in_syslog-ng/001_Listing_configuration_options
+      - title: "Visualize the configuration"
+        url: /admin-guide/050_The_configuration_file/006_Modules_in_syslog-ng/002_Visualize_the_configuration
+    - title: "Managing complex configurations"
+      url: /admin-guide/050_The_configuration_file/007_Managing_complex_syslog-ng_configurations/README
+      subnav:
+      - title: "Including configuration files"
+        url: /admin-guide/050_The_configuration_file/007_Managing_complex_syslog-ng_configurations/000_Including_config_files
+      - title: "Reusing configuration blocks"
+        url: /admin-guide/050_The_configuration_file/007_Managing_complex_syslog-ng_configurations/001_Reusing_config_blocks
+      - title: "Generating configuration blocks from a script"
+        url: /admin-guide/050_The_configuration_file/007_Managing_complex_syslog-ng_configurations/002_Generating_config_blocks
+    - title: "Python code in external files"
+      url: /admin-guide/050_The_configuration_file/008_Python_code_in_external_files
+    - title: "Logging from your Python code"
+      url: /admin-guide/050_The_configuration_file/009_Logging_from_your_Python_code
+  - title: "Sources"
+    url: /admin-guide/060_Sources/README
+    subnav:
+    - title: "default-network-drivers"
+      url: /admin-guide/060_Sources/000_Default-network-drivers/README
+      subnav:
+      - title: "default-network-drivers() source options"
+        url: /admin-guide/060_Sources/000_Default-network-drivers/000_Default-network-drivers_options
+    - title: "internal"
+      url: /admin-guide/060_Sources/010_Internal/README
+      subnav:
+      - title: "internal() source options"
+        url: /admin-guide/060_Sources/010_Internal/000_Internal_options
+    - title: "file"
+      url: /admin-guide/060_Sources/020_File/README
+      subnav:
+      - title: "Notes on reading kernel messages"
+        url: /admin-guide/060_Sources/020_File/000_Notes_on_reading_kernel_messages
+      - title: "file() source options"
+        url: /admin-guide/060_Sources/020_File/001_File_source_options
+    - title: "wildcard-file"
+      url: /admin-guide/060_Sources/030_Wildcard-file/README
+      subnav:
+      - title: "wildcard-file() source options"
+        url: /admin-guide/060_Sources/030_Wildcard-file/000_Wildcard-file_options
+    - title: "kubernetes"
+      url: /admin-guide/060_Sources/040_Kubernetes/README
+      subnav:
+      - title: "kubernetes() source options"
+        url: /admin-guide/060_Sources/040_Kubernetes/000_Kubernetes_options
+    - title: "linux_audit"
+      url: /admin-guide/060_Sources/050_Linux-audit/README
+      subnav:
+      - title: "linux-audit() source options"
+        url: /admin-guide/060_Sources/050_Linux-audit/000_Linux-audit_options
+    - title: "mqtt"
+      url: /admin-guide/060_Sources/060_mqtt/README
+      subnav:
+      - title: "Prerequisites to using the mqtt() source"
+        url: /admin-guide/060_Sources/060_mqtt/000_mqtt_source_prerequisites
+      - title: "Limitations to using the mqtt() source"
+        url: /admin-guide/060_Sources/060_mqtt/001_mqtt_source_limitations
+      - title: "Options of the mqtt() source"
+        url: /admin-guide/060_Sources/060_mqtt/002_mqtt_source_options
+    - title: "network"
+      url: /admin-guide/060_Sources/070_Network/README
+      subnav:
+      - title: "network() source options"
+        url: /admin-guide/060_Sources/070_Network/000_Network_source_options
+      - title: "Proxy Protocol support"
+        url: /admin-guide/060_Sources/070_Network/001_Proxy_protocol_support/README
+        subnav:
+        - title: "The working mechanism behind the Proxy Protocol"
+          url: /admin-guide/060_Sources/070_Network/001_Proxy_protocol_support/000_Proxy_protocol_working_mechanism
+        - title: "Proxy Protocol configuration and output examples"
+          url: /admin-guide/060_Sources/070_Network/001_Proxy_protocol_support/001_Proxy_protocol_configuration
+    - title: "nodejs"
+      url: /admin-guide/060_Sources/080_nodejs/README
+      subnav:
+      - title: "nodejs() source options"
+        url: /admin-guide/060_Sources/080_nodejs/000_nodejs_options
+    - title: "MacOS sources"
+      url: /admin-guide/060_Sources/085_macOS/README
+      subnav:
+      - title: "darwin-oslog() source options"
+        url: /admin-guide/060_Sources/085_macOS/000_darwin_oslog_options
+      - title: "darwin-oslog-stream() source options"
+        url: /admin-guide/060_Sources/085_macOS/001_darwin_oslog_stream_options
+    - title: "mbox"
+      url: /admin-guide/060_Sources/090_mbox/README
+      subnav:
+      - title: "mbox() source options"
+        url: /admin-guide/060_Sources/090_mbox/000_mbox_options
+    - title: "osquery"
+      url: /admin-guide/060_Sources/100_osquery/README
+      subnav:
+      - title: "osquery() source options"
+        url: /admin-guide/060_Sources/100_osquery/000_osquery_source_options
+    - title: "pipe"
+      url: /admin-guide/060_Sources/110_Pipe/README
+      subnav:
+      - title: "pipe() source options"
+        url: /admin-guide/060_Sources/110_Pipe/000_Pipe_source_options
+    - title: "pacct"
+      url: /admin-guide/060_Sources/120_pacct/README
+      subnav:
+      - title: "pacct() options"
+        url: /admin-guide/060_Sources/120_pacct/000_pacct_options
+    - title: "program"
+      url: /admin-guide/060_Sources/130_Program/README
+      subnav:
+      - title: "program() source options"
+        url: /admin-guide/060_Sources/130_Program/000_Program_source_options
+    - title: "python"
+      url: /admin-guide/060_Sources/140_Python/README
+      subnav:
+      - title: "Server-style Python sources"
+        url: /admin-guide/060_Sources/140_Python/000_Server_style_Python_sources
+      - title: "Python LogMessage API"
+        url: /admin-guide/060_Sources/140_Python/001_Python_logmessage_API
+      - title: "python() and python-fetcher() source options"
+        url: /admin-guide/060_Sources/140_Python/002_Python_source_options
+      - title: "Fetcher-style Python sources"
+        url: /admin-guide/060_Sources/140_Python/003_Fetcher_style_Python_sources
+    - title: "qBittorrent"
+      url: /admin-guide/060_Sources/145_qBittorrent/README
+      subnav:
+    - title: "snmptrap"
+      url: /admin-guide/060_Sources/150_snmptrap/README
+      subnav:
+      - title: "snmptrap() source options"
+        url: /admin-guide/060_Sources/150_snmptrap/000_snmptrap_options
+    - title: "sun-streams"
+      url: /admin-guide/060_Sources/160_sun-streams/README
+      subnav:
+      - title: "sun-streams() source options"
+        url: /admin-guide/060_Sources/160_sun-streams/000_sun-streams_options
+    - title: "syslog"
+      url: /admin-guide/060_Sources/170_Syslog/README
+      subnav:
+      - title: "syslog() source options"
+        url: /admin-guide/060_Sources/170_Syslog/000_syslog_source_options
+    - title: "system"
+      url: /admin-guide/060_Sources/180_System/README
+      subnav:
+      - title: "system() source options"
+        url: /admin-guide/060_Sources/180_System/000_System_options
+    - title: "systemd-journal"
+      url: /admin-guide/060_Sources/190_systemd-journal/README
+      subnav:
+      - title: "systemd-journal() source options"
+        url: /admin-guide/060_Sources/190_systemd-journal/000_systemd-journal_options
+    - title: "systemd-syslog"
+      url: /admin-guide/060_Sources/200_systemd-syslog/README
+      subnav:
+      - title: "systemd-syslog() source options"
+        url: /admin-guide/060_Sources/200_systemd-syslog/000_systemd-syslog_options
+    - title: "tcp / udp (OBSOLETE)"
+      url: /admin-guide/060_Sources/210_tcp_tcp6_udp_udp6/README
+      subnav:
+      - title: "Change an old source driver to the network() driver"
+        url: /admin-guide/060_Sources/210_tcp_tcp6_udp_udp6/000_Convert_tcp_udp_to_network_source
+    - title: "unix-stream, unix-dgram"
+      url: /admin-guide/060_Sources/220_unix-stream_unix-dgram/README
+      subnav:
+      - title: "UNIX credentials and other metadata"
+        url: /admin-guide/060_Sources/220_unix-stream_unix-dgram/000_Unix_credentials
+      - title: "unix-stream() and unix-dgram() source options"
+        url: /admin-guide/060_Sources/220_unix-stream_unix-dgram/001_unixstream_source_options
+    - title: "stdin"
+      url: /admin-guide/060_Sources/230_stdin/README
+      subnav:
+      - title: "stdin() source options"
+        url: /admin-guide/060_Sources/230_stdin/000_stdin_options
+  - title: "Destinations"
+    url: /admin-guide/070_Destinations/README
+    subnav:
+    - title: "amqp"
+      url: /admin-guide/070_Destinations/000_amqp/README
+      subnav:
+      - title: "amqp() destination options"
+        url: /admin-guide/070_Destinations/000_amqp/000_amqp_options
+    - title: "collectd"
+      url: /admin-guide/070_Destinations/010_collectd/README
+      subnav:
+      - title: "collectd() destination options"
+        url: /admin-guide/070_Destinations/010_collectd/000_collectd_options
+    - title: "Discord"
+      url: /admin-guide/070_Destinations/020_Discord/README
+      subnav:
+      - title: "Discord destination options"
+        url: /admin-guide/070_Destinations/020_Discord/000_Discord_options
+    - title: "elasticsearch-http"
+      url: /admin-guide/070_Destinations/030_Elasticsearch-http/README
+      subnav:
+      - title: "Batch mode and load balancing with ElasticSearch"
+        url: /admin-guide/070_Destinations/030_Elasticsearch-http/000_Batch_mode_and_load_balancing
+      - title: "elasticsearch-http() destination options"
+        url: /admin-guide/070_Destinations/030_Elasticsearch-http/001_Elasticsearch-http_options
+    - title: "file"
+      url: /admin-guide/070_Destinations/040_File/README
+      subnav:
+      - title: "file() destination options"
+        url: /admin-guide/070_Destinations/040_File/000_File_destination_options
+    - title: "Google BigQuery"
+      url: /admin-guide/070_Destinations/045_Google_bigQuery/README
+      subnav:
+      - title: "bigquery() destination options"
+        url: /admin-guide/070_Destinations/045_Google_bigQuery/000_bigquery_dest_options
+    - title: "Google PubSub"
+      url: /admin-guide/070_Destinations/047_Google_PubSub/README
+      subnav:
+      - title: "pubsub() destination options"
+        url: /admin-guide/070_Destinations/047_Google_PubSub/000_pubsub_dest_options
+    - title: "graphite"
+      url: /admin-guide/070_Destinations/050_Graphite/README
+      subnav:
+      - title: "graphite() destination options"
+        url: /admin-guide/070_Destinations/050_Graphite/000_Graphite_options
+    - title: "Graylog"
+      url: /admin-guide/070_Destinations/060_Graylog/README
+      subnav:
+      - title: "graylog2() destination options"
+        url: /admin-guide/070_Destinations/060_Graylog/000_Graylog_options
+    - title: "HDFS"
+      url: /admin-guide/070_Destinations/070_HDFS/README
+      subnav:
+      - title: "Prerequisites"
+        url: /admin-guide/070_Destinations/070_HDFS/000_hdfs_prerequisites
+      - title: "How syslog-ng OSE interacts with HDFS"
+        url: /admin-guide/070_Destinations/070_HDFS/001_hdfs_interaction
+      - title: "Storing messages with MapR-FS"
+        url: /admin-guide/070_Destinations/070_HDFS/002_hdfs_maprfs
+      - title: "Kerberos authentication with syslog-ng hdfs() destination"
+        url: /admin-guide/070_Destinations/070_HDFS/003_hdfs_kerberos_authentication
+      - title: "HDFS destination options"
+        url: /admin-guide/070_Destinations/070_HDFS/004_hdfs_options
+    - title: "http"
+      url: /admin-guide/070_Destinations/080_http/README
+      subnav:
+      - title: "HTTP destination options"
+        url: /admin-guide/070_Destinations/080_http/000_http_options
+    - title: "http-nonjava"
+      url: /admin-guide/070_Destinations/090_http_nonjava/README
+      subnav:
+      - title: "Batch mode and load balancing with HTTP"
+        url: /admin-guide/070_Destinations/090_http_nonjava/000_Batch_mode_and_load_balancing
+      - title: "HTTP-nonjava destination options"
+        url: /admin-guide/070_Destinations/090_http_nonjava/001_http_nonjava_options
+      - title: "The Azure auth header plugin"
+        url: /admin-guide/070_Destinations/090_http_nonjava/002_Azure_auth_header_plugin
+      - title: "The Python HTTP header plugin"
+        url: /admin-guide/070_Destinations/090_http_nonjava/003_Python_http_header_plugin
+    - title: "kafka-c"
+      url: /admin-guide/070_Destinations/100_Kafka-c/README
+      subnav:
+      - title: "Shifting from Java implementation to C implementation"
+        url: /admin-guide/070_Destinations/100_Kafka-c/000_Shifting_from_Java_to_C
+      - title: "Before you begin"
+        url: /admin-guide/070_Destinations/100_Kafka-c/001_Before_you_begin
+      - title: "Flow control in syslog-ng OSE and the Kafka client"
+        url: /admin-guide/070_Destinations/100_Kafka-c/002_Flow_control
+      - title: "Options of the kafka() destination's C implementation"
+        url: /admin-guide/070_Destinations/100_Kafka-c/003_Kafka-c_options
+    - title: "Loggly"
+      url: /admin-guide/070_Destinations/110_Loggly/README
+      subnav:
+      - title: "loggly() destination options"
+        url: /admin-guide/070_Destinations/110_Loggly/000_Loggly_options
+    - title: "Logmatic"
+      url: /admin-guide/070_Destinations/120_Logmatic_io/README
+      subnav:
+      - title: "logmatic() destination options"
+        url: /admin-guide/070_Destinations/120_Logmatic_io/000_Logmatic_options
+    - title: "mongodb"
+      url: /admin-guide/070_Destinations/130_MongoDB/README
+      subnav:
+      - title: "How syslog-ng OSE connects the MongoDB server"
+        url: /admin-guide/070_Destinations/130_MongoDB/000_Connecting_to_mongodb
+      - title: "mongodb() destination options"
+        url: /admin-guide/070_Destinations/130_MongoDB/001_Mongodb_options
+    - title: "mqtt"
+      url: /admin-guide/070_Destinations/140_mqtt/README
+      subnav:
+      - title: "Prerequisites to using the mqtt() destination"
+        url: /admin-guide/070_Destinations/140_mqtt/000_mqtt_destination_prerequisites
+      - title: "Limitations to using the mqtt() destination"
+        url: /admin-guide/070_Destinations/140_mqtt/001_mqtt_destination_limitations
+      - title: "Options of the mqtt() destination"
+        url: /admin-guide/070_Destinations/140_mqtt/002_mqtt_destination_options
+      - title: "Possible error messages"
+        url: /admin-guide/070_Destinations/140_mqtt/003_mqtt_possible_error_messages
+    - title: "network"
+      url: /admin-guide/070_Destinations/150_Network/README
+      subnav:
+      - title: "network() destination options"
+        url: /admin-guide/070_Destinations/150_Network/000_Network_destination_options
+    - title: "OpenObserve"
+      url: /admin-guide/070_Destinations/153_OpenObserve/README
+      subnav:
+      - title: "openobserve-log() destination options "
+        url: /admin-guide/070_Destinations/153_OpenObserve/001_OpenObserve-destination-options
+    - title: "opensearch"
+      url: /admin-guide/070_Destinations/155_opensearch/README
+      subnav:
+      - title: "Batch mode and load balancing with OpenSearch"
+        url: /admin-guide/070_Destinations/155_opensearch/000_batch-mode
+      - title: "OpenSearch() destination options "
+        url: /admin-guide/070_Destinations/155_opensearch/001_opensearch()-destination-options
+    - title: "osquery"
+      url: /admin-guide/070_Destinations/160_osquery/README
+      subnav:
+      - title: "osquery() destination options"
+        url: /admin-guide/070_Destinations/160_osquery/000_osquery_destination_options
+    - title: "Pipe"
+      url: /admin-guide/070_Destinations/170_Pipe/README
+      subnav:
+      - title: "pipe() destination options"
+        url: /admin-guide/070_Destinations/170_Pipe/000_Pipe_destination_options
+    - title: "program"
+      url: /admin-guide/070_Destinations/180_Program/README
+      subnav:
+      - title: "program() destination options"
+        url: /admin-guide/070_Destinations/180_Program/000_Program_destination_options
+    - title: "pseudofile"
+      url: /admin-guide/070_Destinations/190_Pseudofile/README
+      subnav:
+      - title: "pseudofile() destination options"
+        url: /admin-guide/070_Destinations/190_Pseudofile/000_Pseudofile_options
+    - title: "Python"
+      url: /admin-guide/070_Destinations/200_Python/README
+      subnav:
+      - title: "python() destination options"
+        url: /admin-guide/070_Destinations/200_Python/000_Python_destination_options
+    - title: "redis"
+      url: /admin-guide/070_Destinations/210_Redis/README
+      subnav:
+      - title: "Batch mode and load balancing with Redis"
+        url: /admin-guide/070_Destinations/210_Redis/000_Batch_mode_in_Redis
+      - title: "redis() destination options"
+        url: /admin-guide/070_Destinations/210_Redis/001_Redis_options
+    - title: "riemann"
+      url: /admin-guide/070_Destinations/220_Riemann/README
+      subnav:
+      - title: "riemann() destination options"
+        url: /admin-guide/070_Destinations/220_Riemann/000_Riemann_options
+    - title: "s3"
+      url: /admin-guide/070_Destinations/225_Amazon-s3/README
+      subnav:
+      - title: "Amazon s3 options"
+        url: /admin-guide/070_Destinations/225_Amazon-s3/000_amazon_s3_options
+    - title: "slack"
+      url: /admin-guide/070_Destinations/230_Slack/README
+      subnav:
+      - title: "Slack destination options"
+        url: /admin-guide/070_Destinations/230_Slack/000_Slack_options
+    - title: "smtp"
+      url: /admin-guide/070_Destinations/240_SMTP/README
+      subnav:
+      - title: "smtp() destination options"
+        url: /admin-guide/070_Destinations/240_SMTP/000_SMTP_options
+    - title: "snmp"
+      url: /admin-guide/070_Destinations/250_snmp/README
+      subnav:
+      - title: "Converting Cisco messages"
+        url: /admin-guide/070_Destinations/250_snmp/000_Converting_Cisco_messages
+      - title: "snmp() destination options"
+        url: /admin-guide/070_Destinations/250_snmp/001_snmp_options
+    - title: "Splunk"
+      url: /admin-guide/070_Destinations/260_Splunk/README
+      subnav:
+      - title: "splunk-hec-event: Send log messages to Splunk HEC"
+        url: /admin-guide/070_Destinations/260_Splunk/000_Splunk-hec-event
+    - title: "sql"
+      url: /admin-guide/070_Destinations/270_sql/README
+      subnav:
+      - title: "Using the sql() driver with an Oracle database"
+        url: /admin-guide/070_Destinations/270_sql/000_Using_sql_driver_with_Oracle
+      - title: "Using the sql() driver with a Microsoft SQL database"
+        url: /admin-guide/070_Destinations/270_sql/001_Using_sql_driver_with_MSSQL
+      - title: "The way syslog-ng interacts with the database"
+        url: /admin-guide/070_Destinations/270_sql/002_Interaction/README
+        subnav:
+        - title: "MySQL-specific interaction methods"
+          url: /admin-guide/070_Destinations/270_sql/002_Interaction/000_mysql_specific_interaction_methods
+        - title: "MSSQL-specific interaction methods"
+          url: /admin-guide/070_Destinations/270_sql/002_Interaction/001_mssql_specific_interaction_methods
+      - title: "sql() destination options"
+        url: /admin-guide/070_Destinations/270_sql/003_sql_destination_options
+    - title: "stdout"
+      url: /admin-guide/070_Destinations/275_stdout/README
+      subnav:
+      - title: "stdout() options"
+        url: /admin-guide/070_Destinations/275_stdout/000_stdout_options
+    - title: "Stomp"
+      url: /admin-guide/070_Destinations/280_Stomp/README
+      subnav:
+      - title: "stomp() destination options"
+        url: /admin-guide/070_Destinations/280_Stomp/000_Stomp_options
+    - title: "sumologic"
+      url: /admin-guide/070_Destinations/290_Sumologic/README
+      subnav:
+      - title: "sumologic-http()"
+        url: /admin-guide/070_Destinations/290_Sumologic/000_sumologic_http
+      - title: "sumologic-syslog()"
+        url: /admin-guide/070_Destinations/290_Sumologic/001_sumologic_syslog
+      - title: "sumologic-http() destination options"
+        url: /admin-guide/070_Destinations/290_Sumologic/003_sumologic_http_options
+      - title: "sumologic-syslog() destination options"
+        url: /admin-guide/070_Destinations/290_Sumologic/004_sumologic_syslog_options
+    - title: "syslog"
+      url: /admin-guide/070_Destinations/300_syslog/README
+      subnav:
+      - title: "syslog() destination options"
+        url: /admin-guide/070_Destinations/300_syslog/000_syslog_destination_options
+    - title: "syslog-ng"
+      url: /admin-guide/070_Destinations/310_syslog-ng/README
+      subnav:
+      - title: "syslog-ng() destination options "
+        url: /admin-guide/070_Destinations/310_syslog-ng/000_syslog-ng_destination_options
+    - title: "tcp / udp (OBSOLETE)"
+      url: /admin-guide/070_Destinations/320_tcp_tcp6_udp_udp6/README
+      subnav:
+      - title: "Change an old destination driver to the network() driver"
+        url: /admin-guide/070_Destinations/320_tcp_tcp6_udp_udp6/000_Convert_tcp_udp_to_network_destination
+    - title: "Telegram"
+      url: /admin-guide/070_Destinations/330_Telegram/README
+      subnav:
+      - title: "telegram() destination options"
+        url: /admin-guide/070_Destinations/330_Telegram/000_Telegram_options
+    - title: "unix-stream, unix-dgram"
+      url: /admin-guide/070_Destinations/340_unix-stream_unix-dgram/README
+      subnav:
+      - title: "unix-stream() and unix-dgram() destination options"
+        url: /admin-guide/070_Destinations/340_unix-stream_unix-dgram/000_unixstream_options
+    - title: "usertty"
+      url: /admin-guide/070_Destinations/350_usertty
+    - title: "Custom destinations"
+      url: /admin-guide/070_Destinations/360_Custom_destinations
+    - title: "Client-side failover"
+      url: /admin-guide/070_Destinations/370_Client_side_failover
+  - title: "Log - Filter and route log messages"
+    url: /admin-guide/080_Log/README
+    subnav:
+    - title: "Log paths"
+      url: /admin-guide/080_Log/000_Log_paths/README
+      subnav:
+      - title: "Embedded log statements"
+        url: /admin-guide/080_Log/000_Log_paths/000_Embedded_log_statements/README
+        subnav:
+        - title: "Using embedded log statements"
+          url: /admin-guide/080_Log/000_Log_paths/000_Embedded_log_statements/000_Using_embedded_log_statements
+      - title: "if-else-elif - Conditional expressions"
+        url: /admin-guide/080_Log/000_Log_paths/001_if_else_elif
+      - title: "Junctions and channels"
+        url: /admin-guide/080_Log/000_Log_paths/002_Junctions_and_channels
+      - title: "Log path flags"
+        url: /admin-guide/080_Log/000_Log_paths/003_Log_path_flags
+    - title: "Managing incoming and outgoing messages"
+      url: /admin-guide/080_Log/010_Flow_control/README
+      subnav:
+      - title: "Flow-control and multiple destinations"
+        url: /admin-guide/080_Log/010_Flow_control/000_Flow_control_multiple_destinations
+      - title: "Configuring flow-control"
+        url: /admin-guide/080_Log/010_Flow_control/001_Configuring_flow_control
+    - title: "Using disk-based and memory buffering"
+      url: /admin-guide/080_Log/020_Buffering/README
+      subnav:
+      - title: "Enabling reliable disk-based buffering"
+        url: /admin-guide/080_Log/020_Buffering/000_Enabling_reliable_diskbuffer
+      - title: "Enabling normal disk-based buffering"
+        url: /admin-guide/080_Log/020_Buffering/001_Enabling_normal_diskbuffer
+      - title: "How to get information about disk-buffer files"
+        url: /admin-guide/080_Log/020_Buffering/002_How_to_get_information/README
+        subnav:
+        - title: "Information about disk-buffer files"
+          url: /admin-guide/080_Log/020_Buffering/002_How_to_get_information/000_Information
+        - title: "Getting the status information of disk-buffer files"
+          url: /admin-guide/080_Log/020_Buffering/002_How_to_get_information/001_Status_information
+        - title: "Getting the list of disk-buffer files"
+          url: /admin-guide/080_Log/020_Buffering/002_How_to_get_information/002_List
+        - title: "Printing the content of disk-buffer files"
+          url: /admin-guide/080_Log/020_Buffering/002_How_to_get_information/003_Content
+        - title: "Orphan disk-buffer files"
+          url: /admin-guide/080_Log/020_Buffering/002_How_to_get_information/004_Orphan
+        - title: "How to process messages from an orphan disk-buffer file"
+          url: /admin-guide/080_Log/020_Buffering/002_How_to_get_information/005_How_to_process_orphan_diskbuffer
+      - title: "Enabling memory buffering"
+        url: /admin-guide/080_Log/020_Buffering/003_Enabling_memory_buffering
+      - title: "About disk queue files"
+        url: /admin-guide/080_Log/020_Buffering/004_About_diskbuffer_files
+    - title: "Filters"
+      url: /admin-guide/080_Log/030_Filters/README
+      subnav:
+      - title: "Using filters"
+        url: /admin-guide/080_Log/030_Filters/000_Using_filters
+      - title: "Combining filters with boolean operators"
+        url: /admin-guide/080_Log/030_Filters/001_Combining_filters_with_boolean
+      - title: "Comparing macro values in filters"
+        url: /admin-guide/080_Log/030_Filters/002_Comparing_macro_values
+      - title: "Using wildcards in filters"
+        url: /admin-guide/080_Log/030_Filters/003_Using_wildcard_and_regexp
+      - title: "Tagging messages"
+        url: /admin-guide/080_Log/030_Filters/004_Tagging_messages
+      - title: "Filter functions"
+        url: /admin-guide/080_Log/030_Filters/005_Filter_functions/README
+        subnav:
+        - title: "facility()"
+          url: /admin-guide/080_Log/030_Filters/005_Filter_functions/000_facility
+        - title: "filter()"
+          url: /admin-guide/080_Log/030_Filters/005_Filter_functions/001_filter
+        - title: "host()"
+          url: /admin-guide/080_Log/030_Filters/005_Filter_functions/002_host
+        - title: "in-list()"
+          url: /admin-guide/080_Log/030_Filters/005_Filter_functions/003_inlist
+        - title: "level() or priority()"
+          url: /admin-guide/080_Log/030_Filters/005_Filter_functions/004_level_priority
+        - title: "match()"
+          url: /admin-guide/080_Log/030_Filters/005_Filter_functions/005_match
+        - title: "message()"
+          url: /admin-guide/080_Log/030_Filters/005_Filter_functions/006_message
+        - title: "netmask()"
+          url: /admin-guide/080_Log/030_Filters/005_Filter_functions/007_netmask
+        - title: "netmask6()"
+          url: /admin-guide/080_Log/030_Filters/005_Filter_functions/008_netmask6
+        - title: "program()"
+          url: /admin-guide/080_Log/030_Filters/005_Filter_functions/009_program
+        - title: "rate-limit()"
+          url: /admin-guide/080_Log/030_Filters/005_Filter_functions/010_rate-limit
+        - title: "source()"
+          url: /admin-guide/080_Log/030_Filters/005_Filter_functions/011_source
+        - title: "tags()"
+          url: /admin-guide/080_Log/030_Filters/005_Filter_functions/012_tags
+    - title: "Dropping messages"
+      url: /admin-guide/080_Log/040_Dropping_messages
+  - title: "Global options of syslog-ng OSE"
+    url: /admin-guide/090_Global_options/README
+    subnav:
+    - title: "Global options"
+      url: /admin-guide/090_Global_options/000_Global_options
+  - title: "TLS-encrypted message transfer"
+    url: /admin-guide/100_TLS-encrypted_message_transfer/README
+    subnav:
+    - title: "Encrypting log messages with TLS"
+      url: /admin-guide/100_TLS-encrypted_message_transfer/001_Encrypting_log_messages_with_TLS/README
+      subnav:
+      - title: "Configuring TLS on the syslog-ng clients"
+        url: /admin-guide/100_TLS-encrypted_message_transfer/001_Encrypting_log_messages_with_TLS/000_Configuring_TLS_client
+      - title: "Configuring TLS on the syslog-ng server"
+        url: /admin-guide/100_TLS-encrypted_message_transfer/001_Encrypting_log_messages_with_TLS/001_Configuring_TLS_server
+    - title: "Mutual authentication using TLS"
+      url: /admin-guide/100_TLS-encrypted_message_transfer/002_Mutual_authentication_using_TLS/README
+      subnav:
+      - title: "Configuring syslog-ng clients with mutual authentication"
+        url: /admin-guide/100_TLS-encrypted_message_transfer/002_Mutual_authentication_using_TLS/000_Configuring_mutual_TLS_client
+      - title: "Configuring syslog-ng servers with mutual authentication"
+        url: /admin-guide/100_TLS-encrypted_message_transfer/002_Mutual_authentication_using_TLS/001_Configuring_mutual_TLS_server
+    - title: "Password-protected keys"
+      url: /admin-guide/100_TLS-encrypted_message_transfer/003_Password_protected_keys
+    - title: "TLS options"
+      url: /admin-guide/100_TLS-encrypted_message_transfer/004_TLS_options
+  - title: "Template and rewrite"
+    url: /admin-guide/110_Template_and_rewrite/README
+    subnav:
+    - title: "Customize message format using macros and templates"
+      url: /admin-guide/110_Template_and_rewrite/000_Customize_message_format/README
+      subnav:
+      - title: "Formatting messages, filenames, directories, and tablenames"
+        url: /admin-guide/110_Template_and_rewrite/000_Customize_message_format/000_Formatting_messages
+      - title: "Templates and macros"
+        url: /admin-guide/110_Template_and_rewrite/000_Customize_message_format/001_Templates_and_macros
+      - title: "Date-related macros"
+        url: /admin-guide/110_Template_and_rewrite/000_Customize_message_format/002_Date_related_macros
+      - title: "Hard versus soft macros"
+        url: /admin-guide/110_Template_and_rewrite/000_Customize_message_format/003_Hard_vs_soft_macros
+      - title: "Macros of syslog-ng OSE"
+        url: /admin-guide/110_Template_and_rewrite/000_Customize_message_format/004_Macros_of_syslog-ng
+      - title: "Example use case"
+        url: /admin-guide/110_Template_and_rewrite/000_Customize_message_format/005_Example
+      - title: "Using template functions"
+        url: /admin-guide/110_Template_and_rewrite/000_Customize_message_format/006_Using_template_functions
+      - title: "Template functions of syslog-ng OSE"
+        url: /admin-guide/110_Template_and_rewrite/000_Customize_message_format/007_Template_functions_of_syslog-ng
+      - title: "Modifying the on-the-wire message format"
+        url: /admin-guide/110_Template_and_rewrite/000_Customize_message_format/008_Modifying_the_on-the-wire_message_format
+    - title: "Modifying messages using rewrite rules"
+      url: /admin-guide/110_Template_and_rewrite/001_Modifying_messages/README
+      subnav:
+      - title: "Replacing message parts"
+        url: /admin-guide/110_Template_and_rewrite/001_Modifying_messages/000_Replace
+      - title: "Setting message fields to specific values"
+        url: /admin-guide/110_Template_and_rewrite/001_Modifying_messages/001_Setting_fields
+      - title: "Setting severity"
+        url: /admin-guide/110_Template_and_rewrite/001_Modifying_messages/002_Setting_severity
+      - title: "Setting facility"
+        url: /admin-guide/110_Template_and_rewrite/001_Modifying_messages/003_Setting_facility
+      - title: "Setting priority"
+        url: /admin-guide/110_Template_and_rewrite/001_Modifying_messages/004_Setting_priority
+      - title: "Setting match variables"
+        url: /admin-guide/110_Template_and_rewrite/001_Modifying_messages/005_Setting_match
+      - title: "Unsetting message fields"
+        url: /admin-guide/110_Template_and_rewrite/001_Modifying_messages/006_Unsetting_fields
+      - title: "Renaming message fields"
+        url: /admin-guide/110_Template_and_rewrite/001_Modifying_messages/007_Rename
+      - title: "Creating custom SDATA fields"
+        url: /admin-guide/110_Template_and_rewrite/001_Modifying_messages/008_Custom_SDATA_fields
+      - title: "Setting multiple message fields to specific values"
+        url: /admin-guide/110_Template_and_rewrite/001_Modifying_messages/009_Setting_multiple_fields
+      - title: "map-value pairs"
+        url: /admin-guide/110_Template_and_rewrite/001_Modifying_messages/010_map-value_pairs
+      - title: "Conditional rewrites"
+        url: /admin-guide/110_Template_and_rewrite/001_Modifying_messages/011_Conditional_rewrite
+      - title: "Adding and deleting tags"
+        url: /admin-guide/110_Template_and_rewrite/001_Modifying_messages/012_Adding_deleting_tags
+      - title: "Rewrite the timezone of a message"
+        url: /admin-guide/110_Template_and_rewrite/001_Modifying_messages/013_Rewrite_timezone
+      - title: "Anonymizing credit card numbers"
+        url: /admin-guide/110_Template_and_rewrite/001_Modifying_messages/014_Anonymizing_credit_card_numbers
+    - title: "Regular expressions"
+      url: /admin-guide/110_Template_and_rewrite/002_Regular_expressions/README
+      subnav:
+      - title: "Options of regular expressions"
+        url: /admin-guide/110_Template_and_rewrite/002_Regular_expressions/000_Options_of_regular_expressions/README
+        subnav:
+        - title: "The type() options of regular expressions"
+          url: /admin-guide/110_Template_and_rewrite/002_Regular_expressions/000_Options_of_regular_expressions/000_type_options
+        - title: "The flags() options of regular expressions"
+          url: /admin-guide/110_Template_and_rewrite/002_Regular_expressions/000_Options_of_regular_expressions/001_flags_options
+      - title: "Optimizing regular expressions"
+        url: /admin-guide/110_Template_and_rewrite/002_Regular_expressions/001_Optimizing_regexp
+  - title: "Parse and segment structured messages"
+    url: /admin-guide/120_Parser/README
+    subnav:
+    - title: "Parsing syslog messages"
+      url: /admin-guide/120_Parser/000_Parsing_syslog_messages/README
+      subnav:
+      - title: "Options of syslog-parser() parsers"
+        url: /admin-guide/120_Parser/000_Parsing_syslog_messages/000_Syslog_parser_options
+    - title: "CSV parser"
+      url: /admin-guide/120_Parser/001_Parsing_messages_with_comma/README
+      subnav:
+      - title: "Options of CSV parsers"
+        url: /admin-guide/120_Parser/001_Parsing_messages_with_comma/000_CSV_parser_options
+    - title: "Parsing key=value pairs"
+      url: /admin-guide/120_Parser/002_Parsing_key-value_pairs/README
+      subnav:
+      - title: "Options of key=value parsers"
+        url: /admin-guide/120_Parser/002_Parsing_key-value_pairs/000_kv_parser_options
+    - title: "JSON parser"
+      url: /admin-guide/120_Parser/003_JSON_parser/README
+      subnav:
+      - title: "Options of JSON parsers"
+        url: /admin-guide/120_Parser/003_JSON_parser/000_JSON_parser_options
+    - title: "XML parser"
+      url: /admin-guide/120_Parser/004_XML_parser/README
+      subnav:
+      - title: "Limitations of the XML parsers"
+        url: /admin-guide/120_Parser/004_XML_parser/000_Limitations
+      - title: "Options of the XML parsers"
+        url: /admin-guide/120_Parser/004_XML_parser/001_XML_Parser_options
+    - title: "Parsing dates and timestamps"
+      url: /admin-guide/120_Parser/005_Parsing_dates/README
+      subnav:
+      - title: "Options of date-parser() parsers"
+        url: /admin-guide/120_Parser/005_Parsing_dates/000_Date_parser_options
+    - title: "Python parser"
+      url: /admin-guide/120_Parser/006_Python_parser
+    - title: "Parsing tags"
+      url: /admin-guide/120_Parser/007_Parsing_tags
+    - title: "Apache access log parser"
+      url: /admin-guide/120_Parser/008_Apache_access_log_parser/README
+      subnav:
+      - title: "Options of apache-accesslog-parser() parsers"
+        url: /admin-guide/120_Parser/008_Apache_access_log_parser/000_Apache_parser_options
+    - title: "Linux audit parser"
+      url: /admin-guide/120_Parser/009_Linux_audit_parser/README
+      subnav:
+      - title: "Options of linux-audit-parser() parsers"
+        url: /admin-guide/120_Parser/009_Linux_audit_parser/000_Linux_audit_parser_options
+    - title: "Cisco parser"
+      url: /admin-guide/120_Parser/010_Cisco_parser
+    - title: "Parsing EWWM messages"
+      url: /admin-guide/120_Parser/011_EWMM_parser
+    - title: "iptables parser"
+      url: /admin-guide/120_Parser/012_iptables_parser
+    - title: "Netskope parser"
+      url: /admin-guide/120_Parser/013_netskope_parser
+    - title: "panos-parser()"
+      url: /admin-guide/120_Parser/014_panos_parser/README
+      subnav:
+      - title: "Message format parsed by panos-parser()"
+        url: /admin-guide/120_Parser/014_panos_parser/000_Message_format
+      - title: "PAN-OS parser options"
+        url: /admin-guide/120_Parser/014_panos_parser/001_Panos_parser_options
+    - title: "Sudo parser"
+      url: /admin-guide/120_Parser/015_sudo_parser
+    - title: "PostgreSQL parser"
+      url: /admin-guide/120_Parser/016_PostgreSQL_csvlog_parser/README
+      subnav:
+      - title: "PostgreSQL csvlog parser options"
+        url: /admin-guide/120_Parser/016_PostgreSQL_csvlog_parser/001_PostgreSQL_parser_options
+    - title: "MariaDB parser"
+      url: /admin-guide/120_Parser/016_mariadb_parser
+    - title: "metrics-probe()"
+      url: /admin-guide/120_Parser/017_metrics_probe_parser/README
+      subnav:
+      - title: "metrics-probe options"
+        url: /admin-guide/120_Parser/017_metrics_probe_parser/000_metrics_probe_options
+    - title: "Websense parser"
+      url: /admin-guide/120_Parser/018_websense_parser
+    - title: "Windows XML Event Log (EVTX) parser"
+      url: /admin-guide/120_Parser/019_windows_xml_parser
+    - title: "Fortigate parser"
+      url: /admin-guide/120_Parser/020_Fortigate_parser/README
+      subnav:
+      - title: "Fortigate parser options"
+        url: /admin-guide/120_Parser/020_Fortigate_parser/000_Fortigate_parser_options
+    - title: "Check Point Log Exporter parser"
+      url: /admin-guide/120_Parser/021_Checkpoint_parser
+    - title: "Regular expression parser"
+      url: /admin-guide/120_Parser/022_regexp_parser/README
+      subnav:
+      - title: "Options of Regular expression parsers"
+        url: /admin-guide/120_Parser/022_regexp_parser/000_regex_parser_options
+    - title: "db-parser"
+      url: /admin-guide/120_Parser/023_db_parser/README
+      subnav:
+      - title: "Classifying log messages"
+        url: /admin-guide/120_Parser/023_db_parser/000_Classifying_log_messages/README
+        subnav:
+        - title: "The structure of the pattern database"
+          url: /admin-guide/120_Parser/023_db_parser/000_Classifying_log_messages/000_Structure_of_a_patterndb
+        - title: "How pattern matching works"
+          url: /admin-guide/120_Parser/023_db_parser/000_Classifying_log_messages/001_How_pattern_matching_works
+        - title: "Artificial ignorance"
+          url: /admin-guide/120_Parser/023_db_parser/000_Classifying_log_messages/002_Artificial_ignorance
+      - title: "Using pattern databases"
+        url: /admin-guide/120_Parser/023_db_parser/001_Using_pattern_databases/README
+        subnav:
+        - title: "Using parser results in filters and templates"
+          url: /admin-guide/120_Parser/023_db_parser/001_Using_pattern_databases/000_Using_parser_results
+        - title: "Downloading sample pattern databases"
+          url: /admin-guide/120_Parser/023_db_parser/001_Using_pattern_databases/001_Downloading_sample_patterndb
+        - title: "Correlating log messages using pattern databases"
+          url: /admin-guide/120_Parser/023_db_parser/001_Using_pattern_databases/002_Correlating_log_messages
+      - title: "Triggering actions for identified messages"
+        url: /admin-guide/120_Parser/023_db_parser/002_Triggering_actions/README
+        subnav:
+        - title: "Conditional actions"
+          url: /admin-guide/120_Parser/023_db_parser/002_Triggering_actions/000_Conditional_actions
+        - title: "External actions"
+          url: /admin-guide/120_Parser/023_db_parser/002_Triggering_actions/001_External_actions
+        - title: "Actions and message correlation"
+          url: /admin-guide/120_Parser/023_db_parser/002_Triggering_actions/002_Actions_and_message_correlation
+      - title: "Creating pattern databases"
+        url: /admin-guide/120_Parser/023_db_parser/003_Creating_pattern_databases/README
+        subnav:
+        - title: "Using pattern parsers"
+          url: /admin-guide/120_Parser/023_db_parser/003_Creating_pattern_databases/000_Using_pattern_parsers
+        - title: "Pattern parsers of syslog-ng OSE"
+          url: /admin-guide/120_Parser/023_db_parser/003_Creating_pattern_databases/001_Pattern_parsers
+        - title: "What's new in the syslog-ng pattern database format V5"
+          url: /admin-guide/120_Parser/023_db_parser/003_Creating_pattern_databases/002_Whatsnew_in_patterndb_v5
+      - title: "The syslog-ng pattern database format"
+        url: /admin-guide/120_Parser/023_db_parser/004_The_syslog-ng_patterndb_format/README
+        subnav:
+        - title: "patterndb"
+          url: /admin-guide/120_Parser/023_db_parser/004_The_syslog-ng_patterndb_format/000_patterndb/README
+          subnav:
+          - title: "ruleset"
+            url: /admin-guide/120_Parser/023_db_parser/004_The_syslog-ng_patterndb_format/000_patterndb/000_ruleset/README
+            subnav:
+            - title: "patterns"
+              url: /admin-guide/120_Parser/023_db_parser/004_The_syslog-ng_patterndb_format/000_patterndb/000_ruleset/000_patterns/README
+              subnav:
+            - title: "rules"
+              url: /admin-guide/120_Parser/023_db_parser/004_The_syslog-ng_patterndb_format/000_patterndb/000_ruleset/001_rules/README
+              subnav:
+              - title: "rule"
+                url: /admin-guide/120_Parser/023_db_parser/004_The_syslog-ng_patterndb_format/000_patterndb/000_ruleset/001_rules/000_rule/README
+                subnav:
+                - title: "patterns"
+                  url: /admin-guide/120_Parser/023_db_parser/004_The_syslog-ng_patterndb_format/000_patterndb/000_ruleset/001_rules/000_rule/000_patterns/README
+                  subnav:
+                  - title: "urls"
+                    url: /admin-guide/120_Parser/023_db_parser/004_The_syslog-ng_patterndb_format/000_patterndb/000_ruleset/001_rules/000_rule/000_patterns/000_urls/README
+                    subnav:
+                  - title: "values"
+                    url: /admin-guide/120_Parser/023_db_parser/004_The_syslog-ng_patterndb_format/000_patterndb/000_ruleset/001_rules/000_rule/000_patterns/001_values/README
+                    subnav:
+                  - title: "examples"
+                    url: /admin-guide/120_Parser/023_db_parser/004_The_syslog-ng_patterndb_format/000_patterndb/000_ruleset/001_rules/000_rule/000_patterns/002_examples/README
+                    subnav:
+                    - title: "example"
+                      url: /admin-guide/120_Parser/023_db_parser/004_The_syslog-ng_patterndb_format/000_patterndb/000_ruleset/001_rules/000_rule/000_patterns/002_examples/000_example/README
+                      subnav:
+            - title: "actions"
+              url: /admin-guide/120_Parser/023_db_parser/004_The_syslog-ng_patterndb_format/000_patterndb/000_ruleset/002_actions/README
+              subnav:
+              - title: "action"
+                url: /admin-guide/120_Parser/023_db_parser/004_The_syslog-ng_patterndb_format/000_patterndb/000_ruleset/002_actions/000_action/README
+                subnav:
+                - title: "create-context"
+                  url: /admin-guide/120_Parser/023_db_parser/004_The_syslog-ng_patterndb_format/000_patterndb/000_ruleset/002_actions/000_action/000_create_context/README
+                  subnav:
+            - title: "tags"
+              url: /admin-guide/120_Parser/023_db_parser/004_The_syslog-ng_patterndb_format/000_patterndb/000_ruleset/003_tags/README
+              subnav:
+  - title: "Correlating log messages"
+    url: /admin-guide/130_Correlating_log_messages/README
+    subnav:
+    - title: "Correlating messages using the grouping-by() parser"
+      url: /admin-guide/130_Correlating_log_messages/000_Correlating_messages_with_grouping-by
+    - title: "Referencing earlier messages of the context"
+      url: /admin-guide/130_Correlating_log_messages/001_Referencing_previous_messages_grouping-by
+    - title: "Options of grouping-by parsers"
+      url: /admin-guide/130_Correlating_log_messages/002_grouping-by_options
+  - title: "Enriching log messages with external data"
+    url: /admin-guide/140_Enriching_log_messages_with_external_data/README
+    subnav:
+    - title: "Adding metadata from an external file"
+      url: /admin-guide/140_Enriching_log_messages_with_external_data/000_Adding_metadata_from_external_file/README
+      subnav:
+      - title: "Using filters as selector"
+        url: /admin-guide/140_Enriching_log_messages_with_external_data/000_Adding_metadata_from_external_file/000_Using_filters_as_selector
+      - title: "Shell-style globbing in the selector"
+        url: /admin-guide/140_Enriching_log_messages_with_external_data/000_Adding_metadata_from_external_file/001_Shell_style_globbing
+      - title: "Options of add-contextual-data()"
+        url: /admin-guide/140_Enriching_log_messages_with_external_data/000_Adding_metadata_from_external_file/002_add-contextual-data_options
+    - title: "Looking up GeoIP2 data from IP addresses"
+      url: /admin-guide/140_Enriching_log_messages_with_external_data/001_Looking_up_geoip2_data/README
+      subnav:
+      - title: "Referring to parts of the message as a macro"
+        url: /admin-guide/140_Enriching_log_messages_with_external_data/001_Looking_up_geoip2_data/000_Referring_to_parts_of_the_message_as_a_macro
+      - title: "Using the GeoIP2 parser"
+        url: /admin-guide/140_Enriching_log_messages_with_external_data/001_Looking_up_geoip2_data/001_Using_the_geoip2_parser
+      - title: "Transferring your logs to Elasticsearch using GeoIP2"
+        url: /admin-guide/140_Enriching_log_messages_with_external_data/001_Looking_up_geoip2_data/002_Transferring_your_logs_to_elasticsearch_using_geoip2
+      - title: "Options of geoip2 parsers"
+        url: /admin-guide/140_Enriching_log_messages_with_external_data/001_Looking_up_geoip2_data/003_geoip2_parser_options
+  - title: "Statistics of syslog-ng"
+    url: /admin-guide/150_Statistics_of_syslog-ng/README
+    subnav:
+    - title: "Metrics and counters of syslog-ng OSE"
+      url: /admin-guide/150_Statistics_of_syslog-ng/000_Metrics_and_counters
+    - title: "Log statistics from the internal() source"
+      url: /admin-guide/150_Statistics_of_syslog-ng/001_Log_statistic_from_internal_source
+  - title: "Multithreading and scaling"
+    url: /admin-guide/160_Multithreading_and_scaling/README
+    subnav:
+    - title: "Multithreading concepts of syslog-ng OSE"
+      url: /admin-guide/160_Multithreading_and_scaling/000_Multithreading_concepts
+    - title: "Configuring multithreading"
+      url: /admin-guide/160_Multithreading_and_scaling/001_Configuring_multithreading
+    - title: "Optimizing multithreaded performance"
+      url: /admin-guide/160_Multithreading_and_scaling/002_Optimizing_performance
+  - title: "Troubleshooting syslog-ng"
+    url: /admin-guide/170_Troubleshooting_syslog-ng/README
+    subnav:
+    - title: "Possible causes of losing log messages"
+      url: /admin-guide/170_Troubleshooting_syslog-ng/000_Possible_causes_of_losing_log_messages
+    - title: "Creating syslog-ng core files"
+      url: /admin-guide/170_Troubleshooting_syslog-ng/001_Creating_core_files
+    - title: "Collecting debugging info"
+      url: /admin-guide/170_Troubleshooting_syslog-ng/002_Collecting_debug_info
+    - title: "Running a failure script"
+      url: /admin-guide/170_Troubleshooting_syslog-ng/003_Running_a_failure_script
+    - title: "Stopping syslog-ng"
+      url: /admin-guide/170_Troubleshooting_syslog-ng/004_Stopping_syslog-ng
+    - title: "Reporting bugs and finding help"
+      url: /admin-guide/170_Troubleshooting_syslog-ng/005_Reporting_bugs
+    - title: "Recover data from orphaned diskbuffer files"
+      url: /admin-guide/170_Troubleshooting_syslog-ng/006_Recovering_orphaned_diskbuffers
+    - title: "Unusual storage directory"
+      url: /admin-guide/170_Troubleshooting_syslog-ng/007_Unusual_storage_directory
+    - title: "Unusual port number"
+      url: /admin-guide/170_Troubleshooting_syslog-ng/008_Unusual_port_number
+    - title: "Error messages"
+      url: /admin-guide/170_Troubleshooting_syslog-ng/009_Error_messages
+    - title: "Using execmem prevented by SELinux"
+      url: /admin-guide/170_Troubleshooting_syslog-ng/010_SELinux
+  - title: "Best practices and examples"
+    url: /admin-guide/180_Best_practices_and_examples/README
+    subnav:
+    - title: "General recommendations"
+      url: /admin-guide/180_Best_practices_and_examples/000_General_recommendations
+    - title: "Handling large message load"
+      url: /admin-guide/180_Best_practices_and_examples/001_Handling_large_message_load
+    - title: "Using name resolution in syslog-ng"
+      url: /admin-guide/180_Best_practices_and_examples/002_Using_name_resolution/README
+      subnav:
+      - title: "Resolving hostnames locally"
+        url: /admin-guide/180_Best_practices_and_examples/002_Using_name_resolution/000_Resolving_hostnames_locally
+    - title: "Collecting logs from chroot"
+      url: /admin-guide/180_Best_practices_and_examples/003_Collecting_logs_from_chroot
+    - title: "Configuring log rotation"
+      url: /admin-guide/180_Best_practices_and_examples/004_Configuring_log_rotation
+    - title: "Load balancing logs between multiple destinations"
+      url: /admin-guide/180_Best_practices_and_examples/005_Load_balancing_logs/README
+      subnav:
+      - title: "Load balancing with round robin"
+        url: /admin-guide/180_Best_practices_and_examples/005_Load_balancing_logs/000_Round_robin
+      - title: "Configuration generator"
+        url: /admin-guide/180_Best_practices_and_examples/005_Load_balancing_logs/001_msec_hashing
+  - title: "The syslog-ng manual pages"
+    url: /admin-guide/190_The_syslog-ng_manual_pages/README
+    subnav:
+    - title: "The dqtool tool manual page"
+      url: /admin-guide/190_The_syslog-ng_manual_pages/000_dqtool
+    - title: "The loggen manual page"
+      url: /admin-guide/190_The_syslog-ng_manual_pages/001_loggen
+    - title: "The pdbtool manual page"
+      url: /admin-guide/190_The_syslog-ng_manual_pages/002_pdbtool
+    - title: "The secure-logging manual page"
+      url: /admin-guide/190_The_syslog-ng_manual_pages/003_secure_logging_manual
+    - title: "The slogencrypt manual page"
+      url: /admin-guide/190_The_syslog-ng_manual_pages/004_slogencrypt_manual
+    - title: "The slogkey manual page"
+      url: /admin-guide/190_The_syslog-ng_manual_pages/005_slogkey_manual
+    - title: "The slogverify manual page"
+      url: /admin-guide/190_The_syslog-ng_manual_pages/006_slogverify_manual
+    - title: "The syslog-ng control tool manual page"
+      url: /admin-guide/190_The_syslog-ng_manual_pages/007_syslog-ng_control_tool
+    - title: "The syslog-debun manual page"
+      url: /admin-guide/190_The_syslog-ng_manual_pages/008_syslog_debun_tool
+    - title: "The syslog-ng manual page"
+      url: /admin-guide/190_The_syslog-ng_manual_pages/009_syslog-ng_manual
+    - title: "The syslog-ng.conf manual page"
+      url: /admin-guide/190_The_syslog-ng_manual_pages/010_syslog-ng_conf
+  - title: "About us"
+    url: /admin-guide/200_About/README
+    subnav:
+    - title: "CC by-nc-nd License"
+      url: /admin-guide/200_About/000_CC_license
+    - title: "Documentation license"
+      url: /admin-guide/200_About/001_Documentation_license
+    - title: "Glossary"
+      url: /admin-guide/200_About/002_Glossary
+    - title: "Contributor License Agreement"
+      url: /admin-guide/200_About/003_CLA
+
+# dev-guide
+dev-guide-nav:
+  - title: "Developer guide"
+    url: /dev-guide/README
+    subnav:
+  - title: "Install syslog-ng on different platforms"
+    url: /dev-guide/chapter_0/README
+    subnav:
+    - title: "Debian and Ubuntu"
+      url: /dev-guide/chapter_0/section_1
+    - title: "openSUSE"
+      url: /dev-guide/chapter_0/section_2
+    - title: "macOS"
+      url: /dev-guide/chapter_0/section_3
+    - title: "FeeBSD"
+      url: /dev-guide/chapter_0/section_4
+  - title: "Get familiar with the structure"
+    url: /dev-guide/chapter_1/README
+    subnav:
+    - title: "Project structure"
+      url: /dev-guide/chapter_1/section_1
+    - title: "Git structure"
+      url: /dev-guide/chapter_1/section_2
+  - title: "Compile first"
+    url: /dev-guide/chapter_2/README
+    subnav:
+    - title: "Fetching dependencies"
+      url: /dev-guide/chapter_2/section_1
+    - title: "Compiling"
+      url: /dev-guide/chapter_2/section_2/README
+      subnav:
+      - title: "Compiling options of syslog-ng"
+        url: /dev-guide/chapter_2/section_2/compile-options
+    - title: "Testing"
+      url: /dev-guide/chapter_2/section_3
+    - title: "Install"
+      url: /dev-guide/chapter_2/section_4
+  - title: "run first"
+    url: /dev-guide/chapter_3/README
+    subnav:
+    - title: "Debugging"
+      url: /dev-guide/chapter_3/section_3
+  - title: "Create platform specific builds"
+    url: /dev-guide/chapter_4/README
+    subnav:
+    - title: "macOS"
+      url: /dev-guide/chapter_4/section_2/README
+      subnav:
+      - title: "macOS module support status"
+        url: /dev-guide/chapter_4/section_2/macos-testing-status/README
+        subnav:
+        - title: "affile"
+          url: /dev-guide/chapter_4/section_2/macos-testing-status/affile/README
+          subnav:
+          - title: "file() Destination Driver"
+            url: /dev-guide/chapter_4/section_2/macos-testing-status/affile/file-destination-driver
+          - title: "file() Source Driver"
+            url: /dev-guide/chapter_4/section_2/macos-testing-status/affile/file-source-driver
+          - title: "pipe() Destination Driver"
+            url: /dev-guide/chapter_4/section_2/macos-testing-status/affile/pipe-destination-driver
+          - title: "pipe() Source Driver"
+            url: /dev-guide/chapter_4/section_2/macos-testing-status/affile/pipe-source-driver
+          - title: "stdin() Source Driver"
+            url: /dev-guide/chapter_4/section_2/macos-testing-status/affile/stdin-source-driver
+          - title: "wildcard\_file() Source Driver"
+            url: /dev-guide/chapter_4/section_2/macos-testing-status/affile/wildcard_file-source-driver
+        - title: "afmongodb"
+          url: /dev-guide/chapter_4/section_2/macos-testing-status/afmongodb
+        - title: "afprog"
+          url: /dev-guide/chapter_4/section_2/macos-testing-status/afprog/README
+          subnav:
+          - title: "program() Destination Driver"
+            url: /dev-guide/chapter_4/section_2/macos-testing-status/afprog/program-destination-driver
+          - title: "program() Source Driver"
+            url: /dev-guide/chapter_4/section_2/macos-testing-status/afprog/program-source-driver
+        - title: "afsmtp"
+          url: /dev-guide/chapter_4/section_2/macos-testing-status/afsmtp
+        - title: "afsocket"
+          url: /dev-guide/chapter_4/section_2/macos-testing-status/afsocket/README
+          subnav:
+          - title: "network() Destination Driver"
+            url: /dev-guide/chapter_4/section_2/macos-testing-status/afsocket/network-destination-driver
+          - title: "network() Source Driver"
+            url: /dev-guide/chapter_4/section_2/macos-testing-status/afsocket/network-source-driver
+          - title: "syslog() Source/Destination Driver"
+            url: /dev-guide/chapter_4/section_2/macos-testing-status/afsocket/syslog-source-destination-driver
+          - title: "TLS-Encryption"
+            url: /dev-guide/chapter_4/section_2/macos-testing-status/afsocket/tls-encryption/README
+            subnav:
+            - title: "Using network()"
+              url: /dev-guide/chapter_4/section_2/macos-testing-status/afsocket/tls-encryption/using-network
+            - title: "Using syslog()"
+              url: /dev-guide/chapter_4/section_2/macos-testing-status/afsocket/tls-encryption/using-syslog
+          - title: "unix-dgram() Source/Destination Driver"
+            url: /dev-guide/chapter_4/section_2/macos-testing-status/afsocket/unix-dgram-source-destination-driver
+          - title: "unix-stream() Destination Driver"
+            url: /dev-guide/chapter_4/section_2/macos-testing-status/afsocket/unix-stream-destination-driver
+          - title: "unix-stream() Source Driver"
+            url: /dev-guide/chapter_4/section_2/macos-testing-status/afsocket/unix-stream-source-driver
+        - title: "afsql"
+          url: /dev-guide/chapter_4/section_2/macos-testing-status/afsql
+        - title: "afuser"
+          url: /dev-guide/chapter_4/section_2/macos-testing-status/afuser
+        - title: "elasticsearch-http"
+          url: /dev-guide/chapter_4/section_2/macos-testing-status/elasticsearch-http
+        - title: "http"
+          url: /dev-guide/chapter_4/section_2/macos-testing-status/http
+        - title: "mod-python"
+          url: /dev-guide/chapter_4/section_2/macos-testing-status/mod-python/README
+          subnav:
+          - title: "python() Destination Driver"
+            url: /dev-guide/chapter_4/section_2/macos-testing-status/mod-python/python-destination-driver
+          - title: "python-fetcher() Source Driver"
+            url: /dev-guide/chapter_4/section_2/macos-testing-status/mod-python/python-fetcher-source-driver
+          - title: "python() Source Driver"
+            url: /dev-guide/chapter_4/section_2/macos-testing-status/mod-python/python-source-driver
+        - title: "pseudofile"
+          url: /dev-guide/chapter_4/section_2/macos-testing-status/pseudofile
+        - title: "redis"
+          url: /dev-guide/chapter_4/section_2/macos-testing-status/redis
+        - title: "riemann"
+          url: /dev-guide/chapter_4/section_2/macos-testing-status/riemann
+        - title: "system"
+          url: /dev-guide/chapter_4/section_2/macos-testing-status/system-source/README
+          subnav:
+          - title: "Collecting native macOS logs"
+            url: /dev-guide/chapter_4/section_2/macos-testing-status/system-source/01_collecting-native-logs
+          - title: "Collecting local macOS logs"
+            url: /dev-guide/chapter_4/section_2/macos-testing-status/system-source/02_collecting-local-logs
+  - title: "Contribution"
+    url: /dev-guide/chapter_5/README
+    subnav:
+    - title: "Tools"
+      url: /dev-guide/chapter_5/section_1
+    - title: "Issues"
+      url: /dev-guide/chapter_5/section_2
+    - title: "Commits"
+      url: /dev-guide/chapter_5/section_4
+    - title: "Features"
+      url: /dev-guide/chapter_5/section_5
+    - title: "Bugs"
+      url: /dev-guide/chapter_5/section_6
+    - title: "Process"
+      url: /dev-guide/chapter_5/section_7
+  - title: "Tutorials"
+    url: /dev-guide/chapter_6/README
+    subnav:
+    - title: "Getting started with implementing Python destinations"
+      url: /dev-guide/chapter_6/section_1
+    - title: "Getting started with implementing Java destinations"
+      url: /dev-guide/chapter_6/section_2
+    - title: "Writing an Apache Kafka module in Python"
+      url: /dev-guide/chapter_6/section_3
+    - title: "Osquery and Elasticsearch"
+      url: /dev-guide/chapter_6/section_4
+    - title: "Simple Threaded C Destination"
+      url: /dev-guide/chapter_6/section_5
+    - title: "Simple Python Source"
+      url: /dev-guide/chapter_6/section_6
+  - title: "Docker images for syslog-ng"
+    url: /dev-guide/chapter_7/README
+    subnav:
+  - title: "Plugin Development Guide"
+    url: /dev-guide/chapter_8/README
+    subnav:
+    - title: "Modules and Plugins"
+      url: /dev-guide/chapter_8/section_1
+    - title: "Source Driver"
+      url: /dev-guide/chapter_8/section_2
+    - title: "Parser"
+      url: /dev-guide/chapter_8/section_3
+    - title: "Filter Function"
+      url: /dev-guide/chapter_8/section_4
+    - title: "Template Function"
+      url: /dev-guide/chapter_8/section_5
+
+# doc-guide
+doc-guide-nav:
+  - title: "Documentation Guide"
+    url: /doc-guide/README
+    subnav:
+  - title: "Storage Structure"
+    url: /doc-guide/01_Structure/README
+    subnav:
+  - title: "Development Tools"
+    url: /doc-guide/02_Tools/README
+    subnav:
+    - title: "Self made helper tools"
+      url: /doc-guide/02_Tools/01_Our_helpers

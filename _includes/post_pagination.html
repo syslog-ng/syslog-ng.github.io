@@ -1,0 +1,41 @@
+{% if page.previous or page.next %}
+<nav class="pagination">
+  <div class="pagination--pager-container">
+
+    {% if page.previous %}
+    <a href="{{ page.previous.url | relative_url | remove: '.html' }}" class="pagination--pager nav-link">
+
+      <svg class="pager-image-container" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 16" preserveAspectRatio="xMidYMid meet" data-rnwibasecard--1ghhsy9-hover="true" data-rnwi-handle="nearest">
+        <path fill="currentColor" fill-rule="evenodd" d="M6.924 3.576a.6.6 0 0 1 0 .848L3.95 7.4H13.5a.6.6 0 1 1 0 1.2H3.949l2.975 2.976a.6.6 0 0 1-.848.848l-4-4a.6.6 0 0 1 0-.848l4-4a.6.6 0 0 1 .848 0Z" clip-rule="evenodd"></path>
+      </svg>
+
+      <div class="pager-text-container">
+        <div class="pager-btn-title">{{ site.data.ui-text[site.locale].pagination_previous | default: "Previous" }}</div>
+        <div class="pager-title">{{ page.previous.title | markdownify | strip_html }}</div>
+      </div>
+
+    </a>
+    {% endif %}
+
+    {% if page.previous and page.next %}
+    <div class="pagination--pager-separator"></div>
+    {% endif %}
+
+    {% if page.next %}
+    <a href="{{ page.next.url | relative_url | remove: '.html'}}" class="pagination--pager nav-link">
+      
+      <div class="pager-text-container">
+        <div class="pager-btn-title">{{ site.data.ui-text[site.locale].pagination_next | default: "Next" }}</div>
+        <div class="pager-title">{{ page.next.title | markdownify | strip_html }}</div>
+      </div>
+      
+      <svg class="pager-image-container" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 16" preserveAspectRatio="xMidYMid meet" data-rnwibasecard--1ghhsy9-hover="true" data-rnwi-handle="nearest">
+        <path fill="currentColor" fill-rule="evenodd" d="M9.076 3.576a.6.6 0 0 1 .848 0l4 4a.6.6 0 0 1 0 .848l-4 4a.6.6 0 0 1-.848-.848L12.052 8.6H2.5a.6.6 0 0 1 0-1.2h9.552L9.076 4.424a.6.6 0 0 1 0-.848Z" clip-rule="evenodd"></path>
+      </svg>
+
+    </a>
+    {% endif %}
+
+  </div>
+</nav>
+{% endif %}

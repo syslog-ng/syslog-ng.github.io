@@ -1,0 +1,34 @@
+
+## macOS
+.DS_Store
+
+# Jekyll generated files
+.jekyll-cache
+.jekyll-metadata
+.sass-cache
+_asset_bundler_cache
+_site
+
+## Ruby Gem
+# excluded in _config.yml instead
+#.bundle
+*.gem
+.vendor
+Gemfile.lock
+
+## Node.js and NPM
+node_modules
+npm-debug.log*
+package-lock.json
+codekit-config.json
+
+## Misc
+.reftime
+
+# Generated files, must be regenerated during distribution always
+# These added back with warning headers to aid instant usage
+#_data/navigation.yml
+_data/links
+# _js/main.min.js
+assets/js
+_tools/package.json

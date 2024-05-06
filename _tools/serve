@@ -1,0 +1,166 @@
+#!/bin/bash
+
+REF_FILE="./.reftime"
+NAV_DATA_FILE="./_data/navigation.yml"
+ALL_PARAMS=$@
+WATCHER_PID=
+
+start_dir_watcher() {
+    echo -e "Starting dir watcher...\n"
+
+    .vendor/bundle/ruby/3.3.0/gems/rb-fsevent-0.11.2/bin/fsevent_watch --format=otnetstring --latency 0.25 "${PWD}" &
+    WATCH_PID=$!
+
+    # Trap SIGINT to gracefully stop the background process when the script is interrupted
+    trap 'kill ${WATCH_PID}; exit' SIGINT
+}
+
+stop_dir_watcher() {
+    if [[ ${WATCH_PID} != "" ]]; then
+        echo -e "Stopping dir watcher...\n"
+        kill -SIGTERM ${WATCH_PID}
+    else
+        echo -e "Dir watcher is not running\n"
+    fi
+}
+
+# Function to start to serve in the background
+start_process() {
+    # FIXME:This would report al the file changes, must parse and filter out waht we are really interested in
+    #start_dir_watcher
+
+    echo -e "\nStarting to serve...\n"
+
+    reset_watcher
+
+    rm -Rf _site
+    rm -Rf .jekyll-cache
+
+    update_js_files
+
+    # Either use navgen or build once with JEKYLL_BUILD_LINKS manually in a separate run
+    # as the output of it must already be presented to be able to serve a valid content
+    #
+    JEKYLL_BUILD_LINKS='no' bundle exec jekyll serve ${ALL_PARAMS} &
+    PROC_PID=$!
+
+    echo -e "\n\n\n"
+}
+
+stop_process() {
+    stop_dir_watcher
+
+    echo -e "\nStopping to serve...\n"
+    kill -SIGTERM ${PROC_PID}
+    wait ${PROC_PID}  >/dev/null 2>&1  # Wait for the process to terminate
+    rm -f "${REF_FILE}"
+}
+
+check_watched_file_changed() {
+    RES="$(find "$1" -newer "${REF_FILE}")"
+    if [ "${RES}x" == "x" ]; then
+        return 1
+    else
+        return 0
+    fi
+}
+
+reset_watcher() {
+    touch "${REF_FILE}"
+}
+
+generate_js_files() {
+    ./_tools/pack debug
+}
+
+update_js_files() {
+    # if generate_js_files did not run this might not yet exists
+    mkdir -p "assets/js/lunr" 2>/dev/null
+    cp -f "_js/main.min.js" "assets/js/"
+
+    # pack handles this already. prevent double site rebuild!
+    if [ "${JEKYLL_USE_AUTO_PACK}" != "yes" ]; then
+        cp -f "_js/lunr/"* "assets/js/lunr/"
+    fi
+}
+
+# Function to handle file changes
+handle_file_changes() {
+    # Space separated list of files to watch
+    # TODO: add lunr files watching
+    FILES_TO_WATCH=("./_config.yml" "_js/main.min.js") 
+
+    for FILE in "${FILES_TO_WATCH[@]}"; do
+        if check_watched_file_changed "${FILE}" ; then
+            local FILE_NAME=$(basename "${FILE}")
+            local BASENAME="${FILE_NAME%.*}"
+            local EXT="${FILE_NAME##*.}"
+            FILE_NAME=${BASENAME}.${EXT}
+            echo -e "\nFile ${FILE} (${FILE_NAME}) has changed, processing."
+
+            case "${FILE_NAME}" in
+                "_config.yml")
+                    echo -e ". Restarting to serve...\n"
+                    stop_process
+                    start_process
+
+                    reset_watcher
+                    ;;
+
+                "main.min.js")
+                    echo -e ". Updating js files...\n"
+                    if [ "${JEKYLL_USE_AUTO_PACK}" == "yes" ]; then
+                        # TODO: ./_tools/pack can generate broken man.min.js on some machines :S
+                        generate_js_files                        
+                    fi
+                    update_js_files
+
+                    reset_watcher
+                    ;;
+
+                *)
+                    echo "Unknown file: $FILE"
+                    ;;
+            esac
+
+
+
+        fi
+    done
+}
+
+handle_dir_changes() {
+    LINE=""
+    # Check for keyboard input without blocking
+    read -t 1 -r LINE
+
+    if [[ ${LINE} != "" ]]; then
+        echo "\nDir $PWD has changed, processing."
+        echo -e ". Regenerating ${NAV_DATA_FILE}\n"
+        ./_tools/navgen ./doc "${NAV_DATA_FILE}"
+    fi
+}
+
+# Main loop
+start_process
+
+while true; do
+    KEY=0
+    # Check for keyboard input without blocking
+    read -t 1 -n 1 KEY
+
+    case ${KEY} in
+        s)
+            stop_process
+            exit 0
+            ;;
+        r)
+            stop_process
+            start_process
+            ;;
+    esac
+
+    handle_file_changes
+
+    sleep 1
+done

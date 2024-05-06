@@ -1,0 +1,28 @@
+{% comment %} 
+<!-- included common_snippets start 
+
+This file is included to each layout, page and document using generate_helper.rb - GeneratorHelpers Jekyll plugin
+that allows referencing all the variables defined here and in the subsequent includes 
+in each of the above mentioned site page types
+
+This is needed as the content of a simply included snippet will be seen only in the given layout, page, etc.
+that contains the include tag, further inherited e.g. layouts will not see the included variables, etc.
+-->
+{% endcomment %}
+
+{% assign img_folder = '/assets/images' | relative_url %}
+
+{% include doc/dev-guide/common_snippets %}
+
+{% include doc/admin-guide/common_snippets %}
+
+{% comment %}
+<!-- FIXME: This, and any other includes with none purely variable assignements, will cause trouble now 
+     because of the actual implementation of the generate_helper.rb GeneratorHelpers plugin
+     The inclusion order must be corrected first
+
+{ include doc/common_links } 
+-->
+
+<!-- included common_snippets end -->
+{% endcomment %}

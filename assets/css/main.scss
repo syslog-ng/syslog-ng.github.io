@@ -1,0 +1,19 @@
+---
+search: false
+---
+// Only the main Sass file needs front matter (the dashes are enough)
+
+@charset "utf-8";
+
+// Seems only the main scss is processed, @included files are not, so the above is not true !!!
+// https: //stackoverflow.com/questions/34293733/jekyll-using-values-from-config-yml-in-scss-partial
+// https: //stackoverflow.com/questions/34274368/jekyll-using-values-from-config-yml-in-scss?rq=3
+//
+$max-width: {% if site.page_content_width %} {{ site.page_content_width }} {% else %} 1280px {% endif %} !default;
+$sidebar-sticky: {% if site.sidebar.sticky == true %} 1 {% else %} 0 {% endif %} !default;
+$sidebar-nav-item-left-margin: {% if site.sidebar.nav_sub_items_ident %} {{ site.sidebar.nav_sub_items_ident }} {% else %} 0px {% endif %} !default;
+$masthead-sticky: {% if site.masthead.sticky == true %} 1 {% else %} 0 {% endif %} !default;
+$footer-top-margin: {% if site.footer.top_margin %} {{ site.footer.top_margin }} {% else %} 3em {% endif %} !default; // 3em is huge, but that was the theme default
+
+@import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}"; // skin
+@import "minimal-mistakes"; // main partials

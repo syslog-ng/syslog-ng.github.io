@@ -1,0 +1,5 @@
+{% for script in site.static_files %}
+  {% if script.path contains '/assets/js/custom/' and script.extname == '.js' %}
+    <script src="{{ script.path | relative_url }}"></script>
+  {% endif %}
+{% endfor %}

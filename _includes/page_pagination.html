@@ -1,0 +1,75 @@
+{% comment %}<!-- https://talk.jekyllrb.com/t/previous-and-next-links-with-a-collections/3171/6 -->{% endcomment %}
+
+{% if page.collection %}
+  {% capture pagecollection %}{{page.collection}}{% endcapture %}
+  {% assign document = site[pagecollection] | sort: "nav_ndx" %}
+  {% comment %}<div>pagecollection = {{ pagecollection }}</div>{% endcomment %}
+{% endif %}
+
+{% for links in document %}
+  {% comment %}<div>collection = {{ links.collection }}, ndx = {{ links.nav_ndx }}, title = {{ links.title }}</div>{% endcomment %}
+
+  {% if links.nav_ndx == page.nav_ndx %}
+    {% unless forloop.first %}
+      {% assign prevurl = prev.url %}
+
+      {% assign prevtitle = prev.title %}
+      {% comment %}<div>prevtitle = {{ prevtitle }}</div>{% endcomment %}
+    {% endunless %}
+
+    {% comment %}<div>pagetitle = {{ page.title }}</div>{% endcomment %}
+
+    {% unless forloop.last %}
+      {% assign next = document[forloop.index] %}
+      {% assign nexturl = next.url %}
+
+      {% assign nexttitle = next.title %}
+      {% comment %}<div>nexttitle = {{ nexttitle }}</div>{% endcomment %}
+    {% endunless %}
+
+  {% endif %}
+
+  {% assign prev = links %}
+{% endfor %}
+
+{% if prevurl or nexturl %}
+<nav class="pagination">
+  <div class="pagination--pager-container">
+
+    {% if prevurl %}
+    <a href="{{ prevurl | relative_url | remove: '.html' }}" class="pagination--pager nav-link">
+
+      <svg class="pager-image-container" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 16" preserveAspectRatio="xMidYMid meet" data-rnwibasecard--1ghhsy9-hover="true" data-rnwi-handle="nearest">
+        <path fill="currentColor" fill-rule="evenodd" d="M6.924 3.576a.6.6 0 0 1 0 .848L3.95 7.4H13.5a.6.6 0 1 1 0 1.2H3.949l2.975 2.976a.6.6 0 0 1-.848.848l-4-4a.6.6 0 0 1 0-.848l4-4a.6.6 0 0 1 .848 0Z" clip-rule="evenodd"></path>
+      </svg>
+
+      <div class="pager-text-container">
+        <div class="pager-btn-title">{{ site.data.ui-text[site.locale].pagination_previous | default: "Previous" }}</div>
+        <div class="pager-title">{{ prevtitle | markdownify | strip_html }}</div>
+      </div>
+
+    </a>
+    {% endif %}
+
+    {% if prevurl and nexturl %}
+    <div class="pagination--pager-separator"></div>
+    {% endif %}
+
+    {% if nexturl %}
+    <a href="{{ nexturl | relative_url | remove: '.html'}}" class="pagination--pager nav-link">
+      
+      <div class="pager-text-container">
+        <div class="pager-btn-title">{{ site.data.ui-text[site.locale].pagination_next | default: "Next" }}</div>
+        <div class="pager-title">{{ nexttitle | markdownify | strip_html }}</div>
+      </div>
+      
+      <svg class="pager-image-container" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 16" preserveAspectRatio="xMidYMid meet" data-rnwibasecard--1ghhsy9-hover="true" data-rnwi-handle="nearest">
+        <path fill="currentColor" fill-rule="evenodd" d="M9.076 3.576a.6.6 0 0 1 .848 0l4 4a.6.6 0 0 1 0 .848l-4 4a.6.6 0 0 1-.848-.848L12.052 8.6H2.5a.6.6 0 0 1 0-1.2h9.552L9.076 4.424a.6.6 0 0 1 0-.848Z" clip-rule="evenodd"></path>
+      </svg>
+
+    </a>
+    {% endif %}
+
+  </div>
+</nav>
+{% endif %}

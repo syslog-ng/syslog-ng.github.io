@@ -1,0 +1,2 @@
+
+{% assign dev_img_folder = img_folder | append: '/dev-guide' %}

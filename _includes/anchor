@@ -1,0 +1,3 @@
+{% comment %} Creates an anchor similar to addPageAnchors() func in navigation.js {% endcomment %}
+{% assign name = include.name | replace: " ", "-" %}
+<a class="header-link" title="Permalink" href="#{{name}}"/>

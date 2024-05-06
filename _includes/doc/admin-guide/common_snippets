@@ -1,0 +1,2 @@
+
+{% assign adm_img_folder = img_folder | append: '/admin-guide/' %}
