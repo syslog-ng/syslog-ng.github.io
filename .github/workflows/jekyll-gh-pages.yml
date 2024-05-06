@@ -9,7 +9,7 @@ name: Deploy Jekyll site to Pages
 on:
   # Runs on pushes targeting the default branch
   push:
-    branches: ["master", "develop"]
+    branches: ["master"]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -49,23 +49,23 @@ jobs:
         run: |
           echo "Updating navigation.yml"
           pwd
-          
-          # Last param turns off jekyll build for the links, let it be done in the next step 
+
+          # Last param turns off jekyll build for the links, let it be done in the next step
           # with the same parameters we use for the real site build
           #
           ./_tools/navgen "./doc" "./_data/navigation.yml" "no"
-          
+
           ls -Al _data/navigation.yml
 
-          # This one is just for sure to have our final scripts result inplace 
+          # This one is just for sure to have our final scripts result inplace
           # as in the following _site build step the assets/js folder will be modified unfortunately
           # Theoretically, the site build will not hurt the already presented files
           # See bellow for more
           #
           echo "Updating main.min.js and re-pack js scripts"
           pwd
-          
-          ./_tools/pack debug         
+
+          ./_tools/pack debug
           ls -AlR assets/js
 
       - name: Build with Jekyll
@@ -78,7 +78,7 @@ jobs:
 
           JEKYLL_BUILD_TOOLTIPS=yes bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path }}"
 
-          ls -AlR ./_site/assets/js          
+          ls -AlR ./_site/assets/js
         env:
           JEKYLL_ENV: production
 
@@ -92,7 +92,7 @@ jobs:
         run: |
           echo "Updating main.min.js and re-pack js scripts"
           pwd
-          
+
           ./_tools/pack debug
           ls -AlR _site/assets/js
 

@@ -32,9 +32,9 @@ whitelist:
 
 # Reading Files
 #
-# Every file or directory beginning with the following characters: 
-#     ., _ , # or ~ 
-# in the source directory will not be included in the destination folder. Such paths will have to be explicitly specified via the config file in the 
+# Every file or directory beginning with the following characters:
+#     ., _ , # or ~
+# in the source directory will not be included in the destination folder. Such paths will have to be explicitly specified via the config file in the
 # include directive to make sure they’re copied over
 # In Jekyll 3, the `exclude` configuration option replaces the default exclusion list.
 # In Jekyll 4, user-provided entries get added to the default exclusion list instead and the `include` option can be used to override the default exclusion list entries.
@@ -62,7 +62,7 @@ exclude:
   # TODO: These are now packed into assets/js/main.min.js, not needed, but the _site building still adds them, double check the references why
   #       Also the doc snippet above is lieing, if this is presented the include: will not add e.g. assets/js/lunr even it is presented over there
   #- assets/js
-  - _js/ 
+  - _js/
   - _tools/
   - Gemfile
   - Gemfile.lock
@@ -76,7 +76,7 @@ sass:
   sass_dir: _sass/minimal-mistakes
   style: compressed # https://sass-lang.com/documentation/file.SASS_REFERENCE.html#output_style
 
-# Note: If you assign footer_scripts the theme’s /assets/js/main.min.js file will be deactivated. 
+# Note: If you assign footer_scripts the theme’s /assets/js/main.min.js file will be deactivated.
 #       This script includes jQuery and various other plugins that you’ll need to find replacements for and include separately.
 #       https://mmistakes.github.io/minimal-mistakes/docs/javascript/
 #
@@ -98,7 +98,7 @@ author:
 # For user/organization pages set this to an empty string
 # When working locally use jekyll serve --baseurl '' so that you can view everything at localhost:4000
 # See http://jekyllrb.com/docs/github-pages/ or https://byparker.com/blog/2014/clearing-up-confusion-around-baseurl/ for more info
-baseurl: /doc
+baseurl:
 
 # Point the logo URL at a file in your repo or hosted elsewhere by your organization
 logourl: /assets/images/favicons/mstile-150x150.png
@@ -157,7 +157,7 @@ defaults:
 
   # Developer guide pages
   - scope:
-      type: dev-guide 
+      type: dev-guide
     values:
       sidebar:
         nav: "dev-guide-nav"
@@ -178,7 +178,7 @@ lunr:
 #   index_name: # YOUR_INDEX_NAME
 #   search_only_api_key: # YOUR_SEARCH_ONLY_API_KEY
 #   powered_by: # true (default), false
- 
+
 # Markdown and sytax higlighting
 # https://jekyllrb.com/docs/configuration/markdown/
 markdown_ext: "markdown,mkdown,mkdn,mkd,md"

@@ -144,6 +144,9 @@ admin-guide-nav:
         url: /admin-guide/060_Sources/020_File/000_Notes_on_reading_kernel_messages
       - title: "file() source options"
         url: /admin-guide/060_Sources/020_File/001_File_source_options
+    - title: "Arr logs"
+      url: /admin-guide/060_Sources/025_Arr_logs/README
+      subnav:
     - title: "wildcard-file"
       url: /admin-guide/060_Sources/030_Wildcard-file/README
       subnav:
@@ -202,6 +205,9 @@ admin-guide-nav:
       subnav:
       - title: "osquery() source options"
         url: /admin-guide/060_Sources/100_osquery/000_osquery_source_options
+    - title: "Pi-hole FTL"
+      url: /admin-guide/060_Sources/105_pi-hole-FTL/README
+      subnav:
     - title: "pipe"
       url: /admin-guide/060_Sources/110_Pipe/README
       subnav:
