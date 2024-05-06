@@ -25,6 +25,6 @@ Do you like adding your idea, bug-fix to the fabolous syslog-ng? Help others to 
 
 ## [Generated document][gh:gh-doc-pages]
 
-[![Deploy Jekyll site to Pages](https://github.com/syslog-ng/doc/actions/workflows/jekyll-gh-pages.yml/badge.svg)](https://github.com/syslog-ng/doc/actions/workflows/jekyll-gh-pages.yml)
+[![Deploy Jekyll site to Pages](https://github.com/syslog-ng/syslog-ng.github.io/actions/workflows/jekyll-gh-pages.yml/badge.svg)](https://github.com/syslog-ng/syslog-ng.github.io/actions/workflows/jekyll-gh-pages.yml)
 
 We use github to track all of the [documentation issues][gh:gh-syslog-ng-doc-issue-tracker]
