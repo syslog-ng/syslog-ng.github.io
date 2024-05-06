@@ -76,7 +76,7 @@ jobs:
           #
           JEKYLL_BUILD_LINKS=yes bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path }}"
 
-          JEKYLL_BUILD_TOOLTIPS=yes bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path }}"
+          #JEKYLL_BUILD_TOOLTIPS=yes bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path }}"
 
           ls -AlR ./_site/assets/js
         env:
