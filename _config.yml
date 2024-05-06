@@ -98,7 +98,7 @@ author:
 # For user/organization pages set this to an empty string
 # When working locally use jekyll serve --baseurl '' so that you can view everything at localhost:4000
 # See http://jekyllrb.com/docs/github-pages/ or https://byparker.com/blog/2014/clearing-up-confusion-around-baseurl/ for more info
-baseurl:
+baseurl: ""
 
 # Point the logo URL at a file in your repo or hosted elsewhere by your organization
 logourl: /assets/images/favicons/mstile-150x150.png
