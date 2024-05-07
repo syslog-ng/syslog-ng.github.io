@@ -45,7 +45,7 @@ oi-patents:
 
 oi-trademark:
   id: oi-trademark
-  url: www.OneIdentity.com/legal/trademark-information.aspx
+  url: https://www.OneIdentity.com/legal/trademark-information.aspx
   title: [ "One Identity Trademark" ]
 
 sn-ccanndw-license:
