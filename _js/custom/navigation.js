@@ -347,6 +347,7 @@ $(function () {
   const toolTipArrowSize = 10;
   var tooltip = null;
   var tooltipTarget = null;
+  var elementUnderCursor = null;
   var shouldShowTooltip = false;
   var showTimeoutFuncID;
   var hideTimeoutFuncID;
@@ -469,6 +470,17 @@ $(function () {
         shouldShowTooltip = true;
       }
     });
+
+    document.addEventListener('scroll', (event) => {
+      if (elementUnderCursor == null || shouldHideTooltip(elementUnderCursor)) {
+        if (tooltipTarget)
+          hideTooltip(true);
+      }
+    });
+
+    document.addEventListener("mouseover", function (event) {
+      elementUnderCursor = event.target;
+    });
   }
 
   // -------------
@@ -530,6 +542,9 @@ $(function () {
       // set focus back to the initial content otherwise the focus will not get back to the search input once again
       $(".initial-content").find("input").focus();
     }
+
+    if (tooltipTarget)
+      hideTooltip(true);
   }
 
   $(".search__toggle").on("click", toggleSearch);
