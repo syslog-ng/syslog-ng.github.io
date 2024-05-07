@@ -190,7 +190,7 @@ $(function () {
   // Function to handle link clicks
   function handleNavLinkClick(event) {
     if (!event.shiftKey && !event.ctrlKey && !event.altKey && !event.metaKey) {
-
+      var updated = false;
       // Get the relative URL value and update the browser URL
       // Use originalTarget or explicitTarget to get the correct one even for clicks from the tooltips
       var anchorElement = event.originalTarget.closest('a');
@@ -201,25 +201,25 @@ $(function () {
         // Try to load into the inner content frame only if the collection has not changed
         // Otherwise let the original click flow take effect, as the nav bar must be reloaded too
         // for a different collection
-        if (sameCollection(url, window.location)) {
+        if (url.origin == window.location.origin && sameCollection(url, window.location)) {
           // Prevent default navigation behavior, we will use our content load method
           event.preventDefault();
 
           var urlStr = url.pathname + url.hash;
-          var changed = (urlStr != window.location.pathname + window.location.hash);
+          updated = (urlStr != window.location.pathname + window.location.hash);
 
           // Update the browser URL
           history.pushState(null, null, url);
 
           // Load content based on the updated relative URL
           // but only if the url has changed
-          if (changed)
+          if (updated)
             updateContentFromUrl(url);
         }
         // Clear focus from the clicked element, as we have other visualization for the selected items
         event.target.blur();
       }
-      else
+      if (false == updated)
         console.debug("Different collection item requested, loading full page...")
     }
   }
@@ -342,7 +342,7 @@ $(function () {
   var hideTimeoutFuncID;
 
   function getTooltipPos(event, tooltipTarget) {
-    const mouseX = event.clientX; 
+    const mouseX = event.clientX;
     const rect = tooltipTarget.getBoundingClientRect();
     var computedStyle = window.getComputedStyle(tooltipTarget);
     var lineHeight = parseFloat(computedStyle.getPropertyValue('line-height'));
@@ -361,13 +361,13 @@ $(function () {
     var newPosition = position + 'px';
     tooltip.style.setProperty(posName, newPosition);
   }
-  
+
   function showTooltip(event, tooltipText) {
     tooltip.innerHTML = tooltipText.innerHTML;
 
     var tooltipPos = getTooltipPos(event, tooltipTarget)
     var tooltipArrowLeftShift = 2 * toolTipArrowSize;
-      
+
     setArrowPosition('--tooltip-arrow-top', -1 * toolTipArrowSize);
     setArrowPosition('--tooltip-arrow-left', tooltipArrowLeftShift + toolTipArrowSize / 2);
 
@@ -393,14 +393,14 @@ $(function () {
   function shouldHideTooltip(activeTarget) {
     return ((tooltipTarget == null || activeTarget != tooltipTarget) && (tooltip == null || (activeTarget != tooltip && activeTarget.closest('.tooltip') == null)));
   }
-  
+
   function hideTooltip(withDelay) {
     function doHideTooltip() {
       if (false == shouldShowTooltip && tooltip)
         tooltip.classList.remove('visible');
       tooltipTarget = null;
     }
-    
+
     shouldShowTooltip = false;
 
     if (withDelay) {
