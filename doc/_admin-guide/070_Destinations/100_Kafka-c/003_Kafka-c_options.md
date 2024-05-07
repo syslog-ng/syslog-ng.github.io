@@ -136,7 +136,7 @@ To avoid losing messages, we recommend you use the disk-buffer option.
 *Description:* The key of the partition under which the message is
 published. You can use templates to change the topic dynamically based
 on the source or the content of the message, for example,
-key(\"\${PROGRAM}\").
+key(\"${PROGRAM}\").
 
 {% include doc/admin-guide/options/log-fifo-size.md %}
 
@@ -218,11 +218,11 @@ delivers messages to the Kafka client more reliably.
 ## template()
 
 |  Type:|      template or template function|
-  |Default:|   \$ISODATE \$HOST \$MSGHDR\$MSG\\n|
+  |Default:|   ${ISODATE} ${HOST} ${MSGHDR}${MSG}\\n|
 
 *Description:* The message as published to Apache Kafka. You can use
 templates and template functions (for example, format-json()) to format
-the message, for example, template(\"\$(format-json \--scope rfc5424
+the message, for example, template(\"$(format-json \--scope rfc5424
 \--exclude DATE \--key ISODATE)\").
 
 For details on formatting messages in JSON format, see

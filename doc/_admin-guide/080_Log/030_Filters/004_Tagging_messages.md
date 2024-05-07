@@ -29,10 +29,10 @@ Currently syslog-ng OSE can tag a message at two different places:
 - Tags are available locally, that is, if you add tags to a message on
     the client, these tags will not be available on the server.
 
-- To include the tags in the message, use the **\${TAGS}** macro in a
+- To include the tags in the message, use the **${TAGS}** macro in a
     template. Alternatively, if you are using the IETF-syslog message
-    format, you can include the \${TAGS} macro in the .SDATA.meta part
-    of the message. Note that the \${TAGS} macro is available only in
+    format, you can include the ${TAGS} macro in the .SDATA.meta part
+    of the message. Note that the ${TAGS} macro is available only in
     syslog-ng OSE 3.1.1 and later.
 
 For an example on tagging, see Example: Adding tags and filtering messages

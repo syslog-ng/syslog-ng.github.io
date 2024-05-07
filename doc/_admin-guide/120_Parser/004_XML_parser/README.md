@@ -13,7 +13,7 @@ description: >-
 ---
 
 To create an XML parser, define an xml\_parser that has the xml()
-option. By default, the parser will process the \${MESSAGE} part of the
+option. By default, the parser will process the ${MESSAGE} part of the
 log message. To process other parts of a log message using the XML
 parser, use the template() option. You can also define the parser inline
 in the log path.
@@ -161,6 +161,6 @@ document.
 **NOTE:** If your log messages are entirely in .xml format, make sure to
 disable any message parsing on the source side by including the
 flags(\"no-parse\") option in your source statement. This will put the
-entire log message in the \$MESSAGE macro, which is the field that the
+entire log message in the ${MESSAGE} macro, which is the field that the
 XML parser parses by default.
 {: .notice--info}

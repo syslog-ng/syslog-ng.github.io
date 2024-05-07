@@ -224,7 +224,7 @@ in syslog-ng and is instantaneous.
 default. For example:
 
 ```config
-template t_isostamp { template("$ISODATE $HOST $MSGHDR$MSG\n"); };
+template t_isostamp { template("${ISODATE} ${HOST} ${MSGHDR}${MSG}\n"); };
 options { file-template(t_isostamp); };
 ```
 
@@ -331,7 +331,7 @@ globally, or separately for each source.
 example, network() and syslog()) use by default. For example:
 
 ```config
-template t_isostamp { template("$ISODATE $HOST $MSGHDR$MSG\n"); };
+template t_isostamp { template("${ISODATE} ${HOST} ${MSGHDR}${MSG}\n"); };
 options { proto-template(t_isostamp); };
 ```
 
@@ -500,7 +500,7 @@ of the poll() iteration.
 *Description:* When the use-rcptid global option is set to **yes**,
 syslog-ng OSE automatically assigns a unique reception ID to every
 received message. You can access this ID and use it in templates via the
-\${RCPTID} macro. The reception ID is a monotonously increasing 48-bit
+${RCPTID} macro. The reception ID is a monotonously increasing 48-bit
 integer number, that can never be zero (if the counter overflows, it
 restarts with 1).
 

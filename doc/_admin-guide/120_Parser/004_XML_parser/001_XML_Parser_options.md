@@ -26,7 +26,7 @@ If there is a match, the given subtree of the XML will be omitted.
 ```config
 parser xml_parser {
     xml(
-        template("$MSG")
+        template("${MSG}")
         exclude-tags("tag1", "tag2", "inner*")
     );
 };
@@ -62,7 +62,7 @@ them to the message.
 ```config
 parser xml_parser {
     xml(
-        template("$MSG")
+        template("${MSG}")
         strip-whitespaces(yes)
     );
 };

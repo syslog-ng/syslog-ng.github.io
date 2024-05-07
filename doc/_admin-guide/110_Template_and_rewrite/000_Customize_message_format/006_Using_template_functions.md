@@ -14,9 +14,9 @@ Template functions use the following syntax:
 $(function-name parameter1 parameter2 parameter3 ...)
 ```
 
-For example, the \$(echo) template function simply returns the value of
-the macro it receives as a parameter, thus \$(echo \${HOST}) is
-equivalent to \${HOST}.
+For example, the $(echo) template function simply returns the value of
+the macro it receives as a parameter, thus $(echo ${HOST}) is
+equivalent to ${HOST}.
 
 The parameters of template functions are separated by a whitespace
 character. A template function can have maximum 64 parameters. If you

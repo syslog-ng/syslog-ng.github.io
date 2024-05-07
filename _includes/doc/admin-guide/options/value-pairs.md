@@ -22,7 +22,7 @@ value-pairs(
     exclude("R_*")
     exclude("S_*")
     key(".SDATA.meta.sequenceId")
-    pair("MSGHDR" "$PROGRAM[$PID]: ")
+    pair("MSGHDR" "${PROGRAM}[${PID}]: ")
 )
 ```
 
@@ -32,7 +32,7 @@ example, but converts it into JSON format.
 ```bash
 $(format-json --scope nv_pairs,core,syslog,all_macros,selected_macros,everything \
     --exclude R_* --exclude S_* --key .SDATA.meta.sequenceId \
-    --pair MSGHDR="$PROGRAM[$PID]: ")
+    --pair MSGHDR="${PROGRAM}[${PID}]: ")
 ```
 
 **NOTE:** Every macro is included in the selection only once, but redundant
@@ -71,7 +71,7 @@ value-pairs(
 | Type:                            | Space-separated list of macros to be included in selection |
 | Default:                         | empty string                     |
 
-*Description:* This option selects the specified macros. The selected macros will be included as MACRONAME=MACROVALUE, that is using key(\"HOST\" will result in HOST = \$HOST. You can use wildcards (\*, ?) to select multiple macros.
+*Description:* This option selects the specified macros. The selected macros will be included as MACRONAME=MACROVALUE, that is using key(\"HOST\" will result in HOST = ${HOST}. You can use wildcards (\*, ?) to select multiple macros.
 
 For example:  
 
@@ -121,8 +121,8 @@ For example:
 ```config
 value-pairs(                 
     scope(rfc3164)           
-    pair("TIME" "$HOUR:$MIN") 
-    pair("MSGHDR" "$PROGRAM[$PID]: ") 
+    pair("TIME" "${HOUR}:${MIN}") 
+    pair("MSGHDR" "${PROGRAM}[${PID}]: ") 
 )                            
 ```
 
@@ -196,21 +196,21 @@ The rekey() option can be used with the format-json template-function as well, u
 
 - *all-nv-pairs*: Include every soft macro (name-value pair). Equivalent to using both nv-pairs and dot-nv-pairs.
 
-- *rfc3164*: The macros that correspond to the RFC3164 (legacy or BSD-syslog) message format: \$FACILITY, \$PRIORITY, \$HOST, \$PROGRAM, \$PID,\$MESSAGE, and \$DATE.
+- *rfc3164*: The macros that correspond to the RFC3164 (legacy or BSD-syslog) message format: ${FACILITY}, ${PRIORITY}, ${HOST}, ${PROGRAM}, ${PID},${MESSAGE}, and ${DATE}.
 
-- *rfc5424*: The macros that correspond to the RFC5424 (IETF-syslog) message format: \$FACILITY, \$PRIORITY, \$HOST, \$PROGRAM, \$PID, \$MESSAGE,   \$MSGID, \$R\_DATE, and the metadata from the structured-data (SDATA) part of RFC5424-formatted messages, that is, every macro that starts with .SDATA..
+- *rfc5424*: The macros that correspond to the RFC5424 (IETF-syslog) message format: ${FACILITY}, ${PRIORITY}, ${HOST}, ${PROGRAM}, ${PID}, ${MESSAGE},   ${MSGID}, ${R_DATE}, and the metadata from the structured-data (SDATA) part of RFC5424-formatted messages, that is, every macro that starts with .SDATA..
   
-  The rfc5424 group also has the following alias: syslog-proto. Note that the value of \$R\_DATE will be listed under the DATE key. The rfc5424 group does not contain any metadata about the message, only information that was present in the original message. To include the most commonly used metadata (for example, the \$SOURCEIP macro), use the selected-macros group instead.
+  The rfc5424 group also has the following alias: syslog-proto. Note that the value of ${R_DATE} will be listed under the DATE key. The rfc5424 group does not contain any metadata about the message, only information that was present in the original message. To include the most commonly used metadata (for example, the ${SOURCEIP} macro), use the selected-macros group instead.
 
 - *all-macros*: Include every hard macro. This group is mainly useful for debugging, as it contains redundant information (for example, the date-related macros include the date-related information several times in various formats).
 
-- *selected-macros*: Include the macros of the rfc3164 groups, and the most commonly used metadata about the log message: the \$TAGS, \$SOURCEIP, and \$SEQNUM macros.
+- *selected-macros*: Include the macros of the rfc3164 groups, and the most commonly used metadata about the log message: the ${TAGS}, ${SOURCEIP}, and ${SEQNUM} macros.
 
 - *sdata*: The metadata from the structured-data (SDATA) part of RFC5424-formatted messages, that is, every macro that starts with .SDATA.
 
 - *everything*: Include every hard and soft macros. This group is mainly useful for debugging, as it contains redundant information (for example, the date-related macros include the date-related information several times in various formats).
 
-- *none*: Reset previously added scopes, for example, to delete automatically-added name-value pairs. The following example deletes every value-pair from the scope, and adds only the ones starting with iptables: \$(format-welf \--scope none .iptables.\*)
+- *none*: Reset previously added scopes, for example, to delete automatically-added name-value pairs. The following example deletes every value-pair from the scope, and adds only the ones starting with iptables: $(format-welf \--scope none .iptables.\*)
 
 For example:
 

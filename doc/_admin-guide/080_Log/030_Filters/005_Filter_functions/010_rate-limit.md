@@ -3,12 +3,12 @@ title: rate-limit()
 id: adm-log-filters-ratelimit
 ---
 
-*Synopsis:* rate-limit(template(\$HOST) rate(5000))
+*Synopsis:* rate-limit(template(${HOST}) rate(5000))
 
 *Description:* Limits messages rate based on arbitrary keys in each
 message. The key will be resolved using the template() option. Each
 resolution will be allowed to have the number of messages each second,
-set by the rate() option. For example if template(\$HOST) and rate(5000)
+set by the rate() option. For example if template(${HOST}) and rate(5000)
 are set, and there are 2 hosts sending messages to syslog-ng OSE, a
 total of **10000** messages will be allowed by the rate-limit() filter,
 **5000** from the first and **5000** from the second host. If template()
@@ -36,7 +36,7 @@ part of this section.
 ```config
 filter f_rate_limit {
     rate-limit(
-    template("$HOST")
+    template("${HOST}")
     rate(5000)
     );
 };

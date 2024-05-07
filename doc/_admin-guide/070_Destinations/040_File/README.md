@@ -61,5 +61,5 @@ state is freed. Exploiting this, a DoS attack can be mounted against the system.
 If the number of possible destination files and its needed memory is more than
 the amount available on the syslog-ng server. The most suspicious macro is
 ${PROGRAM}, where the number of possible variations is rather high.
-Do not use the \${PROGRAM} macro in insecure environments.
+Do not use the ${PROGRAM} macro in insecure environments.
 {: .notice--warning}

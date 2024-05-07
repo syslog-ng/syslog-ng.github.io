@@ -20,16 +20,16 @@ N/A
 ## Children
 
 - *pattern*: The name of the application --- syslog-ng matches this
-    value to the \${PROGRAM} header of the syslog message to find the
+    value to the ${PROGRAM} header of the syslog message to find the
     rulesets applicable to the syslog message.
 
     Specifying multiple patterns is useful if two or more applications
-    have different names (that is, different \${PROGRAM} fields), but
+    have different names (that is, different ${PROGRAM} fields), but
     otherwise send identical log messages.
 
     It is not necessary to use multiple patterns if only the end of the
-    \${PROGRAM} fields is different, use only the beginning of the
-    \${PROGRAM} field as the pattern. For example, the Postfix email
+    ${PROGRAM} fields is different, use only the beginning of the
+    ${PROGRAM} field as the pattern. For example, the Postfix email
     server sends messages using different process names, but all of them
     begin with the postfix string.
 

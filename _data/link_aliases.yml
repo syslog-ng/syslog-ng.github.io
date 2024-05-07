@@ -12,5 +12,9 @@ adm-temp-macro-ose#sdata-sdatasdidsdname:
   aliases: [ "SDATA" ] 
 
 adm-temp-macro-ose#priority-or-level:
-  aliases: [ "PRIORITY", "LEVEL" ]
+  aliases: [ "${PRIORITY}", "${LEVEL}" ]
+
+adm-temp-macro-ose#date-c_date-r_date-s_date:
+  aliases: [ "DATE", "C_DATE", "R_DATE", "S_DATE"]
+
 

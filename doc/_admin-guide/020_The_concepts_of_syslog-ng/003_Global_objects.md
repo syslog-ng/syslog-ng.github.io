@@ -38,7 +38,7 @@ For details, see [[Customize message format using macros and templates]].
 ## Macro
 
 An identifier that refers to a part of the log message. For example,
-the `\${HOST}` macro returns the name of the host that sent the message.
+the `${HOST}` macro returns the name of the host that sent the message.
 Macros are often used in templates and filenames.  
 
 For details, see [[Customize message format using macros and templates]].

@@ -17,10 +17,10 @@ description: >-
 You can refer to the separated parts of the JSON message using the key
 of the JSON object as a macro. For example, if the JSON contains
 {\"KEY1\":\"value1\",\"KEY2\":\"value2\"}, you can refer to the values
-as **\${KEY1}** and **\${KEY2}**. If the JSON content is structured,
+as **${KEY1}** and **${KEY2}**. If the JSON content is structured,
 syslog-ng OSE converts it to dot-notation-format. For example, to access
 the value of the following structure {\"KEY1\": {\"KEY2\": \"VALUE\"}},
-use the **\${KEY1.KEY2}** macro.
+use the **${KEY1.KEY2}** macro.
 
 {% include doc/admin-guide/warnings/macro-overwrite.md %}
 
@@ -40,7 +40,7 @@ messages, therefore acting as a JSON-filter as well.
 
 To create a JSON parser, define a parser that has the json-parser()
 option. Defining the prefix and the marker are optional. By default, the
-parser will process the \${MESSAGE} part of the log message. To process
+parser will process the ${MESSAGE} part of the log message. To process
 other parts of a log message with the JSON parser, use the template()
 option. You can also define the parser inline in the log path.
 

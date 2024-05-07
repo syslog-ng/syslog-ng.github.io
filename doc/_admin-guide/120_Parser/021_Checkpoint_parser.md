@@ -26,7 +26,7 @@ improve the parser.
 
 By default, the Check Point-specific fields are extracted into
 name-value pairs prefixed with **.checkpoint**. For example, the
-**action** in the previous message becomes **\${.checkpoint.action}**.
+**action** in the previous message becomes **${.checkpoint.action}**.
 You can change the prefix using the prefix option of the parser.
 
 **Declaration**
@@ -42,7 +42,7 @@ log {
 ```
 
 Note that the parser expects that the entire incorrectly formatted
-syslog message (starting with its \<PRI\> value) is in \$MSG, which you
+syslog message (starting with its \<PRI\> value) is in ${MSG}, which you
 can achieve by using **flags(no-parse)** on the input driver.
 
 The checkpoint-parser() is actually a reusable configuration snippet

@@ -148,7 +148,7 @@ compiling options.
     syslog-ng OSE Makefile will install the modules.
 
 - *\--module-install-dir* Specifies syslog-ng OSE\'s module
-    installation directory (normally \$prefix/lib/syslog-ng). All
+    installation directory (normally $prefix/lib/syslog-ng). All
     Java-based SCLs use this option.
 
 - *\--with-module-path* Specifies a colon-separated (:) list of

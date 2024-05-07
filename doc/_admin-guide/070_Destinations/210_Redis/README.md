@@ -30,7 +30,7 @@ destination d_redis {
     redis(
         host("localhost")
         port(6379)
-        command("HINCRBY", "hosts", "$HOST", "1")
+        command("HINCRBY", "hosts", "${HOST}", "1")
     );
 };
 ```

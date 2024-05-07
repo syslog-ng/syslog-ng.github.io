@@ -20,11 +20,11 @@ If you find a message that the netskope-parser() cannot properly parse,
 [contact Support](https://www.syslog-ng.com/support/), so we can improve
 the parser.
 
-The syslog-ng OSE application sets the \${PROGRAM} field to Netskope.
+The syslog-ng OSE application sets the ${PROGRAM} field to Netskope.
 
 By default, the Netskope-specific fields are extracted into name-value
 pairs prefixed with .netskope. For example, the organization\_unit in
-the previous message becomes \${.netskope.organization\_unit}. You can
+the previous message becomes ${.netskope.organization\_unit}. You can
 change the prefix using the **prefix** option of the parser.
 
 **Declaration**

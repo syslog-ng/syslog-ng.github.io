@@ -59,7 +59,7 @@ database.
 - \--program \<programname\> or -P \<programname\>
 
     List only the name-value pairs that can be set for the messages of
-    the specified \$PROGRAM application.
+    the specified ${PROGRAM} application.
 
 ## The dump command
 
@@ -81,11 +81,11 @@ for matching the PROGRAM or the MSG parts.
 - \--program or -P
 
     Displays the RADIX tree built from the patterns belonging to the
-    \${PROGRAM} application.
+    ${PROGRAM} application.
 
 - \--program-tree or -T
 
-    Display the \${PROGRAM} tree.
+    Display the ${PROGRAM} tree.
 
 - \--verbose or -v
 
@@ -172,7 +172,7 @@ The match command has the following options:
 
 - \--message or -M
 
-    The text of the log message to match (only the \${MESSAGE} part
+    The text of the log message to match (only the ${MESSAGE} part
     without the syslog headers).
 
 - \--pdb or -p
@@ -181,7 +181,7 @@ The match command has the following options:
 
 - \--program or -P
 
-    Name of the program to use, as contained in the \${PROGRAM} part of
+    Name of the program to use, as contained in the ${PROGRAM} part of
     the syslog message.
 
 - \--template=\<template-expression\> or -T

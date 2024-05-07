@@ -63,7 +63,7 @@ description: >-
     ```
 
     If you want to create separate logfiles for every client host, use
-    the **\${HOST}** macro when specifying the filename, for example:
+    the **${HOST}** macro when specifying the filename, for example:
 
     ```config
     destination d_local {

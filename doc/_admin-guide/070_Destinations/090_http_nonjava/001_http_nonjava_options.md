@@ -26,7 +26,7 @@ following options.
   |Default:|   |
 
 *Description:* The body of the HTTP request, for example,
-body(\"\${ISODATE} \${MESSAGE}\"). You can use strings, macros, and
+body(\"${ISODATE} ${MESSAGE}\"). You can use strings, macros, and
 template functions in the body. If not set, it will contain the message
 received from the source by default.
 

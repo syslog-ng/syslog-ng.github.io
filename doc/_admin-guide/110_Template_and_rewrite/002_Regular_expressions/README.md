@@ -24,7 +24,7 @@ description: >-
     simply the letter a. Therefore special characters like \\(backslash)
     or \"(quotation mark) must be escaped (\\\\ and \\\"). The following
     expressions are interpreted: \\a, \\n, \\r, \\t, \\v. For example,
-    the \\\$40 expression matches the \$40 string. Backslashes have to
+    the \\$40 expression matches the $40 string. Backslashes have to
     be escaped as well if they are meant literally, for example, the
     \\\\d expression matches the \\d string.
 
@@ -41,7 +41,7 @@ description: >-
 
     >**NOTE:** Only strings containing alphanumerical characters can be used  
     >without quotes or double quotes. If the string contains whitespace  
-    >or any special characters (()\[\].\*?+\^\$\|\\ or ;:\#), you must  
+    >or any special characters (()\[\].\*?+\^$\|\\ or ;:\#), you must  
     >use quotes or double quotes.  
     >  
     >When using the ;:\# characters, you must use quotes or double  
@@ -63,7 +63,7 @@ filter demo_regexp_insensitive {
 disable case sensitivity.
 {: .notice--info}
 
-The regular expressions can use up to 255 regexp matches (**\${1} \...
-\${255}**), but only from the last filter and only if the
+The regular expressions can use up to 255 regexp matches (**${1} \...
+${255}**), but only from the last filter and only if the
 **flags(\"store-matches\")** flag was set for the filter. For
 case-insensitive searches, use the **flags(\"ignore-case\")** option.

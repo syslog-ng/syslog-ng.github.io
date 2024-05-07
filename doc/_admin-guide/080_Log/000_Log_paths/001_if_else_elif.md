@@ -60,11 +60,11 @@ log{
     
 if (message("STRING-TO-MATCH")) 
     {   
-    destination { file(/dev/stdout template("matched: $MSG\n") persist-name("1")); };
+    destination { file(/dev/stdout template("matched: ${MSG}\n") persist-name("1")); };
     }
 else    
     {
-    destination { file(/dev/stdout template("unmatched: $MSG\n") persist-name("2")); };
+    destination { file(/dev/stdout template("unmatched: ${MSG}\n") persist-name("2")); };
     };
 };
 ```

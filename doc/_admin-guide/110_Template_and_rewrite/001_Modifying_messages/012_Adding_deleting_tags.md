@@ -21,4 +21,4 @@ rewrite <name_of_the_rule> {
 ```
 
 Templates (macros, template functions) can be used when specifying tags,
-for example, **set-tag(\"dyn::\$HOST\");**.
+for example, **set-tag(\"dyn::$HOST\");**.

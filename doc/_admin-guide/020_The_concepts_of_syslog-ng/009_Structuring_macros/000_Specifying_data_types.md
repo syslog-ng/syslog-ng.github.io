@@ -14,7 +14,7 @@ description: >-
 
 From syslog-ng OSE version 4.0 onwards, name-value pairs are now
 triplets (name, type, value). Typing support is available for several
-other components, for example, json-parser() and the \$(format-json)
+other components, for example, json-parser() and the $(format-json)
 template function. For more information, see [[Components supported by
 data types]].
 
@@ -27,7 +27,7 @@ data-conversion errors, see [[on-error()]].
 
 To use type-hinting, enclose the macro or template containing the data
 with the type: **\<datatype\>(\"\<macro\>\")**, for example:
-**int(\"\$PID\")**.
+**int(\"${PID}\")**.
 
 Currently the mongodb() destination and the format-json template
 function supports data types.
@@ -41,21 +41,21 @@ stored as numbers instead of strings.
 ```config
 mongodb(
     value-pairs(
-        pair("date", datetime("$UNIXTIME"))
-        pair("pid", int64("$PID"))
-        pair("program", "$PROGRAM"))
-        pair("message", "$MESSAGE"))
+        pair("date", datetime("${UNIXTIME}"))
+        pair("pid", int64("${PID}"))
+        pair("program", "${PROGRAM}"))
+        pair("message", "${MESSAGE}"))
     )
 );
 ```
 
 Use the following example to format the same fields into JSON.
 
-`$(format-json date=datetime("$UNIXTIME") pid=int64("$PID") program="$PROGRAM" message="$MESSAGE")`
+`$(format-json date=datetime("${UNIXTIME}") pid=int64("${PID}") program="${PROGRAM}" message="${MESSAGE}")`
 
 Use the following example to format the MESSAGE field as a JSON list.
 
-`$$(format-json message=list($MESSAGE))`
+`$$(format-json message=list(${MESSAGE}))`
 
 The syslog-ng OSE application currently supports the following data-types.
 
@@ -65,7 +65,7 @@ The syslog-ng OSE application currently supports the following data-types.
 
 - datetime: Use it only with UNIX timestamps, anything else will
     likely result in an error. This means that currently you can use
-    only the \$UNIXTIME macro for this purpose.
+    only the ${UNIXTIME} macro for this purpose.
 
 - double: A floating-point number.
 
@@ -129,9 +129,9 @@ db-parser() rules can pair types with values using the type attribute.
 
 #### Example: Using the type attribute
 
-`<value name="foobar" type="integer">$PID</value>`
+`<value name="foobar" type="integer">${PID}</value>`
 
-The integer is a type-cast that couples \$foobar with an integer
+The integer is a type-cast that couples $foobar with an integer
 type. The internal parsers of db-parser() (for example, @NUMBER@)
 automatically couple type information to the parsed name-value
 pair. For more information, see [[Using pattern databases]].

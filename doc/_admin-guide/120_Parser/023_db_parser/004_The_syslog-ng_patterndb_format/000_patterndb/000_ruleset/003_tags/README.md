@@ -15,7 +15,7 @@ messages matching the patterns. The tags can be used to label specific
 events (for example, user logons). It is also possible to filter on
 these tags later (for details, see Tagging messages). Starting with
 syslog-ng Open Source Edition 3.2, the list of tags assigned to a
-message can be referenced with the \${TAGS} macro.
+message can be referenced with the ${TAGS} macro.
 
 ## Attributes
 

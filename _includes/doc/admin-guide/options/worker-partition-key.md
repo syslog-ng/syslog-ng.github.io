@@ -8,5 +8,5 @@
 ### Example: partitioning messages based on destination host
 
 ```config
-worker-partition-key("$HOST")
+worker-partition-key("${HOST}")
 ```

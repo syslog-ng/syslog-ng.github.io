@@ -16,8 +16,8 @@ parser parser_name {
 ```
 
 In the following example, syslog-ng OSE retrieves the GeoIP2 data of the
-IP address contained in the \${HOST} field of the incoming message
-(assuming that in this case the \${HOST} field contains an IP address),
+IP address contained in the ${HOST} field of the incoming message
+(assuming that in this case the ${HOST} field contains an IP address),
 and includes the data (prefixed with the geoip2 string) in the output
 JSON message.
 

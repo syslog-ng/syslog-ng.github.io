@@ -37,7 +37,7 @@ If the resolved topic() template is not a valid topic, syslog-ng OSE
 will use the fallback-topic() option to send messages.
 
 **NOTE:** If instead of strings, you use actual templates (that is, a macro
-like \${MESSAGE}, or a template function like \$(format-json)) in the
+like ${MESSAGE}, or a template function like $(format-json)) in the
 topic() option, configuring the fallback-topic() option is required.
 {: .notice--info}
 
@@ -59,7 +59,7 @@ that originate from templates.
 ## template()
 
 |Type:|      string|
-|Default:|   \$ISODATE \$HOST \$MSGHDR\$MSG|
+|Default:|   ${ISODATE} ${HOST} ${MSGHDR}${MSG}|
 
 *Description:* Specifies the message template that syslog-ng OSE sends
 to the MQTT broker.

@@ -6,7 +6,7 @@ description: >-
     as a syslog message, and fills the macros with values of the message.
     The syslog-parser does not discard messages: the message cannot be
     parsed as a syslog message, the entire message (including its header) is
-    stored in the $MSG macro. If you do not want to parse the message as a
+    stored in the ${MSG} macro. If you do not want to parse the message as a
     syslog message, use the flags(no-parse) option of the source.
 ---
 

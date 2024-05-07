@@ -79,7 +79,7 @@ into database.
 
 ## Macros
 
-The value of \${SEQNUM} macro will be overrided by sql driver regardless
+The value of ${SEQNUM} macro will be overrided by sql driver regardless
 of local or relayed incoming message.
 
 It will be grown continously.

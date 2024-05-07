@@ -44,8 +44,8 @@ destination d_smtp {
         port(25)
         from("syslog-ng alert service" "noreply@example.com")
         to("Admin #1" "admin1@example.com")
-        subject("[ALERT] Important log message of $LEVEL condition received from $HOST/$PROGRAM!")
-        body("Hi!\nThe syslog-ng alerting service detected the following important log message:\n $MSG\n-- \nsyslog-ng\n")
+        subject("[ALERT] Important log message of ${LEVEL} condition received from ${HOST}/${PROGRAM}!")
+        body("Hi!\nThe syslog-ng alerting service detected the following important log message:\n ${MSG}\n-- \nsyslog-ng\n")
     );
 };
 ```
@@ -62,9 +62,9 @@ destination d_smtp {
         to("Admin #2" "admin2@example.com")
         cc("Admin BOSS" "admin.boss@example.com")
         bcc("Blind CC" "blindcc@example.com")
-        subject("[ALERT] Important log message of $LEVEL condition received from $HOST/$PROGRAM!")
-        body("Hi!\nThe syslog-ng alerting service detected the following important log message:\n $MSG\n-- \nsyslog-ng\n")
-        header("X-Program", "$PROGRAM")
+        subject("[ALERT] Important log message of ${LEVEL} condition received from ${HOST}/${PROGRAM}!")
+        body("Hi!\nThe syslog-ng alerting service detected the following important log message:\n ${MSG}\n-- \nsyslog-ng\n")
+        header("X-Program", "${PROGRAM}")
         );
 };
 ```
@@ -86,7 +86,7 @@ destination d_alert {
         reply-to("Admins" "root@localhost")
         to("Ennekem" "me@localhost")
         subject("[SYSLOG ALERT]: eth0 link down")
-        body("Syslog received an alert:\n$MSG")
+        body("Syslog received an alert:\n${MSG}")
         );
 };
 

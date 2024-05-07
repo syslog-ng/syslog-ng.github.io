@@ -31,7 +31,7 @@ and the pair separator is **;**. However, before the last key-value pair
 process these, specify a name-value pair to store them in the
 extract-stray-words-into() option, for example,
 **extract-stray-words-into(\"my-stray-words\")**. The value of
-\${my-stray-words} for this message will be
+${my-stray-words} for this message will be
 **interzone-emtn\_s1\_vpn-enodeb\_om, inbound**
 
 {% include doc/admin-guide/options/prefix.md %}

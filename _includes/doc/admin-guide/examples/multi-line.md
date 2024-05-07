@@ -2,7 +2,7 @@
 >the following:
 >  
 >- To make multi-line messages more readable when written to a file,
->    use a template in the destination and instead of the \${MESSAGE}
+>    use a template in the destination and instead of the ${MESSAGE}
 >    macro, use the following: **$(indent-multi-line ${MESSAGE})**.
 >    This expression inserts a tab after every newline character (except
 >    when a tab is already present), indenting every line of the message

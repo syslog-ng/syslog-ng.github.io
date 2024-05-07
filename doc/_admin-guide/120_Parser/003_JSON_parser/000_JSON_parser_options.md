@@ -23,7 +23,7 @@ json-parser(extract-prefix(\"\[5\]\")), which is equivalent to msg\[5\].
 
 In addition to alphanumeric characters, the key of the JSON object can
 contain the following characters:
-!\"\#\$%&\'()\*+,-/:;\<=\>?@\\\^\_\`{\|}\~
+!\"\#$%&\'()\*+,-/:;\<=\>?@\\\^\_\`{\|}\~
 
 It cannot contain the following characters: .\]\[
 

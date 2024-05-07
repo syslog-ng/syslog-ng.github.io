@@ -48,7 +48,7 @@ and other platforms, see [syslog-ng Open Source Edition installation packages](h
             or newer.
 
         - Set **LD\_LIBRARY\_PATH** to include the libjvm.so file, for
-            example:LD\_LIBRARY\_PATH=/usr/lib/jvm/java-7-openjdk-amd64/jre/lib/amd64/server:\$LD\_LIBRARY\_PATH
+            example:LD\_LIBRARY\_PATH=/usr/lib/jvm/java-7-openjdk-amd64/jre/lib/amd64/server:$LD\_LIBRARY\_PATH
 
             Note that many platforms have a simplified links for Java
             libraries. Use the simplified path if available. If you use

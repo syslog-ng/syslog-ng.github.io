@@ -43,7 +43,7 @@ To create a sample failure script, complete the following steps.
 
     ```bash
     ./syslog-ng --process-mode=safe-background; sleep 0.5; ps aux |
-    grep './syslog-ng' | grep -v grep | awk '{print \$2}' | xargs
+    grep './syslog-ng' | grep -v grep | awk '{print $2}' | xargs
     kill -KILL; sleep 0.5; cat /tmp/test.txt
     ```
 

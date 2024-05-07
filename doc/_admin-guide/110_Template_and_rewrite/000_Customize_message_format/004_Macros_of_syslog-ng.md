@@ -64,7 +64,7 @@ When used, the output specifies the local IP address of the
 source from which the message originates.
 
 For an example use case when using the macro is recommended, see
-[[Example use case: using the $DESTIP, the $DESTPORT, and the $PROTO macros]]
+[[Example use case: using the ${DESTIP}, the ${DESTPORT}, and the ${PROTO} macros]]
 
 ## ${DESTPORT}
 
@@ -72,7 +72,7 @@ When used, the output specifies the local port of the
 source from which the message originates.
 
 For an example use case when using the macro is recommended, see
-[[Example use case: using the $DESTIP, the $DESTPORT, and the $PROTO macros]].
+[[Example use case: using the ${DESTIP}, the ${DESTPORT}, and the ${PROTO} macros]].
 
 ## ${FACILITY}
 
@@ -101,11 +101,11 @@ example: **2006 Jun 13 15:58:00**.
 
 ## ${FULLHOST}
 
-{% include doc/admin-guide/host-macro.md macro = '$FULLHOST' %}
+{% include doc/admin-guide/host-macro.md macro = '${FULLHOST}' %}
 
 ## ${FULLHOST_FROM}
 
-{% include doc/admin-guide/host-from-macro.md macro = '$FULLHOST' %}
+{% include doc/admin-guide/host-from-macro.md macro = '${FULLHOST}' %}
 
 ## ${HOUR}, ${C_HOUR}, ${R_HOUR}, ${S_HOUR}
 
@@ -119,11 +119,11 @@ syslog-ng OSE 3.4 and later.
 
 ## ${HOST}
 
-{% include doc/admin-guide/host-macro.md macro = '$HOST' %}
+{% include doc/admin-guide/host-macro.md macro = '${HOST}' %}
 
 ## ${HOST_FROM}
 
-{% include doc/admin-guide/host-from-macro.md macro = '$HOST' %}
+{% include doc/admin-guide/host-from-macro.md macro = '${HOST}' %}
 
 ## ${ISODATE}, ${C_ISODATE}, ${R_ISODATE}, ${S_ISODATE}
 
@@ -275,7 +275,7 @@ Description: When used, the output specifies the protocol used on the
 source from which the message originates.
 
 For an example use case when using the macro is recommended, see
-[[Example use case: using the $DESTIP, the $DESTPORT, and the $PROTO macros]].
+[[Example use case: using the ${DESTIP}, the ${DESTPORT}, and the ${PROTO} macros]].
 
 ## ${RAWMSG}
 
@@ -320,7 +320,7 @@ the ${.SDATA.SDID.SDNAME} macro.
 >  
 {: .notice--info}
 
-### Example: Using SDATA macros
+### Example: Using ${SDATA} macros
 
 For example, if a log message contains the following structured data:
 **\[exampleSDID@0 iut=\"3\" eventSource=\"Application\"
@@ -415,13 +415,14 @@ hexadecimal number.
 A comma-separated list of the tags assigned to the
 message.
 
-NOTE: Note that the tags are not part of the log message and are not
+**NOTE:** Note that the tags are not part of the log message and are not
 automatically transferred from a client to the server. For example, if a
 client uses a pattern database to tag the messages, the tags are not
 transferred to the server. A way of transferring the tags is to
 explicitly add them to the log messages using a template and the
 ${TAGS} macro, or to add them to the structured metadata part of
 messages when using the IETF-syslog message format.
+{: .notice--info}
 
 When sent as structured metadata, it is possible to reference to the
 list of tags on the central server, and for example, to add them to a

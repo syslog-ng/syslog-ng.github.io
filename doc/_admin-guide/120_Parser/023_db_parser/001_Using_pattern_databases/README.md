@@ -44,7 +44,7 @@ log {
 ```
 
 By default, syslog-ng tries to apply the patterns to the body of the
-incoming messages, that is, to the value of the \$MESSAGE macro. If you
+incoming messages, that is, to the value of the ${MESSAGE} macro. If you
 want to apply patterns to a specific field, or to an expression created
 from the log message (for example, using template functions or other
 parsers), use the message-template() option. For example:
@@ -59,8 +59,8 @@ parser pattern_db {
 ```
 
 By default, syslog-ng uses the name of the application (content of the
-\${PROGRAM} macro) to select which rules to apply to the message. If the
-content of the \${PROGRAM} macro is not the proper name of the
+${PROGRAM} macro) to select which rules to apply to the message. If the
+content of the ${PROGRAM} macro is not the proper name of the
 application, you can use the program-template() option to specify it.
 For example:
 
@@ -102,7 +102,7 @@ destination di_messages_class {
 
 Note that if you chain pattern databases, that is, use multiple
 databases in the same log path, the class assigned to the message (the
-value of \${.classifier.class}) will be the one assigned by the last
+value of ${.classifier.class}) will be the one assigned by the last
 pattern database. As a result, a message might be classified as unknown
 even if a previous parser successfully classified it. For example,
 consider the following configuration:
@@ -117,7 +117,7 @@ log {
 ```
 
 Even if db\_parser1 matches the message, db\_parser2 might set
-\${.classifier.class} to unknown. To avoid this problem, you can use an
+${.classifier.class} to unknown. To avoid this problem, you can use an
 \'if\' statement to apply the second parser only if the first parser
 could not classify the message:
 

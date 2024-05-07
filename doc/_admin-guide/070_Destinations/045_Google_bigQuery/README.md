@@ -32,11 +32,11 @@ destination d_bigquery {
         workers(8)
 
         schema(
-            "message" => "$MESSAGE"
-            "app" STRING => "$PROGRAM"
-            "host" STRING => "$HOST"
-            "time" DATETIME => "$ISODATE"
-            "pid" INTEGER => int("$PID")
+            "message" => "${MESSAGE}"
+            "app" STRING => "${PROGRAM}"
+            "host" STRING => "${HOST}"
+            "time" DATETIME => "${ISODATE}"
+            "pid" INTEGER => int("${PID}")
         )
 
         on-error("drop-property")

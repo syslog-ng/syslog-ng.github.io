@@ -28,7 +28,7 @@ processors, use the following methods:
 
 - On the destination side, when writing the log messages to files, use
     macros in the filename to split the messages to separate files (for
-    example, using the \${HOST} macro). Files with macros in their
+    example, using the ${HOST} macro). Files with macros in their
     filenames are processed in separate writer threads.
 
 - On the destination side, when sending messages to a syslog-ng

@@ -35,7 +35,7 @@ destination d_redis {
     redis(
         host("localhost")
         port(6379)
-        command("HINCRBY", "hosts", "$HOST", "1")
+        command("HINCRBY", "hosts", "${HOST}", "1")
         batch-lines(100)
         batch-timeout(10000)
         log-fifo-size(100000)

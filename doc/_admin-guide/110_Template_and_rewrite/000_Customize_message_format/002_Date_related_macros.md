@@ -3,10 +3,10 @@ title: Date-related macros
 id: adm-temp-date-macro
 ---
 
-The macros related to the date of the message (for example: \${ISODATE},
-\${HOUR}, and so on) have three further variants each:
+The macros related to the date of the message (for example: ${ISODATE},
+${HOUR}, and so on) have three further variants each:
 
-- S\_ prefix, for example, \${S\_DATE}: The \${S\_DATE} macro
+- S\_ prefix, for example, ${S\_DATE}: The ${S\_DATE} macro
     represents the date found in the log message, that is, when the
     message was sent by the original application.
 
@@ -15,14 +15,14 @@ The macros related to the date of the message (for example: \${ISODATE},
     (this is the default behavior of syslog-ng OSE).
     {: .notice--warning}
 
-- R\_ prefix, for example, \${R\_DATE}: \${R\_DATE} is the date when
+- R\_ prefix, for example, ${R\_DATE}: ${R\_DATE} is the date when
     syslog-ng OSE has received the message.
 
-- C\_ prefix, for example, \${C\_DATE}: \${C\_DATE} is the current
+- C\_ prefix, for example, ${C\_DATE}: ${C\_DATE} is the current
     date, that is when syslog-ng OSE processes the message and resolves
     the macro.
 
-The \${DATE} macro equals the \${S\_DATE} macro.
+The ${DATE} macro equals the ${S\_DATE} macro.
 
 The values of the date-related macros are calculated using the original
 timezone information of the message. To convert it to a different

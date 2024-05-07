@@ -61,7 +61,7 @@ description: >-
     including the beginning and end date.
 
     ```xml
-    <value name="MESSAGE">An SSH session for ${SSH_USERNAME} from ${SSH_CLIENT_ADDRESS} closed. Session lasted from ${DATE}@2 to $DATE pid: $PID.</value>
+    <value name="MESSAGE">An SSH session for ${SSH_USERNAME} from ${SSH_CLIENT_ADDRESS} closed. Session lasted from ${DATE}@2 to ${DATE} pid: ${PID}.</value>
     ```
 
     The following is a detailed rule for this purpose.
@@ -97,7 +97,7 @@ description: >-
                             <action>
                                 <message inherit-properties='context'>
                                     <values>
-                                        <value name="MESSAGE">An SSH session for ${SSH_USERNAME} from ${SSH_CLIENT_ADDRESS} closed. Session lasted from ${DATE}@2 to $DATE pid: $PID.</value>
+                                        <value name="MESSAGE">An SSH session for ${SSH_USERNAME} from ${SSH_CLIENT_ADDRESS} closed. Session lasted from ${DATE}@2 to ${DATE} pid: ${PID}.</value>
                                         <value name="TRIGGER">yes</value>
                                         <!-- This is the new log message
                                         that is generated when the logout

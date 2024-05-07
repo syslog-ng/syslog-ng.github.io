@@ -39,7 +39,7 @@ description: >-
     automatically replaces all consecutive : characters with a single
     underscore (_) character. For example, you can reference the value
     of the NET-SNMP-EXAMPLES-MIB::netSnmpExampleString key using the
-    **\${NET-SNMP-EXAMPLES-MIB\_netSnmpExampleString}** macro.
+    **${NET-SNMP-EXAMPLES-MIB\_netSnmpExampleString}** macro.
 
     Note that this affects only name-value pairs (macros). The generated
     message always contains the original name of the key.

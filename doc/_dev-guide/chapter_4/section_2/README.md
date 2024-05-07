@@ -123,12 +123,12 @@ brew install \
    export HOMEBREW_REPOSITORY=${HOMEBREW_PREFIX}
    export MANPATH=${HOMEBREW_PREFIX}/share/man:${MANPATH}
    export INFOPATH=${HOMEBREW_PREFIX}/share/info:${INFOPATH}
-   export PATH=${HOMEBREW_PREFIX}/bin:${HOMEBREW_PREFIX}/sbin:${HOMEBREW_PREFIX}/opt/python/libexec/bin:$PATH
+   export PATH=${HOMEBREW_PREFIX}/bin:${HOMEBREW_PREFIX}/sbin:${HOMEBREW_PREFIX}/opt/python/libexec/bin:${PATH}
    ```
 
 2. Force the building process to use bison, net-snmp (and libnet if) installed through homebrew instead of provided by Apple Developer Tools and macOS.
 
-   Add them to the `$PATH`
+   Add them to the `${PATH}`
 
    ```shell
    export PATH=${HOMEBREW_PREFIX}/opt/bison/bin:${HOMEBREW_PREFIX}/opt/libnet/bin:${HOMEBREW_PREFIX}/opt/net-snmp/bin:${PATH}

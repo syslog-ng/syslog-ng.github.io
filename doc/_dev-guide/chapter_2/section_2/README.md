@@ -35,7 +35,7 @@ cd build
 1. Run the `configure` scipt:
 
 ``` shell
-../configure --enable-debug --prefix=$HOME/install/syslog-ng
+../configure --enable-debug --prefix=${HOME}/install/syslog-ng
 ```
 
 **Warning:** By a good chance, you might want to install the self built instance first to a custom location to prevent overwriting a possibly already existing installation version. In that case always pass `--prefix /full_path_of/installdir/` to the `configure` script.
