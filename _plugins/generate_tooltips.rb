@@ -9,10 +9,10 @@ module Jekyll
 
       def add_matching_files(file_names, folder_path, pattern)
         fullPattern = File.join(folder_path, '*') #pattern
-                
+
         # NOTE: This is not a real reg-exp https://docs.ruby-lang.org/en/master/Dir.html#method-c-glob
         #       and actually, how it works is a mess
-        #       Trying to use a manual solution instead, filtering * with useable regex 
+        #       Trying to use a manual solution instead, filtering * with useable regex
         Dir.glob(fullPattern, File::FNM_EXTGLOB).each do |file|
           if file.match?(pattern)
             #puts "match: " + file
@@ -33,7 +33,7 @@ module Jekyll
         text = text.gsub(/\|/, "&#124;")    # |
        end
 
-      def is_external_url?(url)
+      def is_prefixed_url?(url)
         if url =~ %r{^\w+://}
           return true
         end
@@ -41,7 +41,7 @@ module Jekyll
       end
 
       def prefixed_url(url, base_url)
-          if false == is_external_url?(url)
+          if false == is_prefixed_url?(url)
             url = base_url + url
           end
           return url
@@ -58,12 +58,15 @@ module Jekyll
           url = page_links[id]["url"]
           url = prefixed_url(url, page.site.config["baseurl"])
         end
-        
-        external_url = is_external_url?(url)
+
+        # NOTE: Now we treat every link that has protocol prefix part as an external one
+        #       that allows usage of direct links anywhere if needed (not recommended, plz use external_links.yml instead)
+        #       but, at the same time requires e.g. all the really external links to be fully qualified (even in external_links.yml as well)
+        external_url = is_prefixed_url?(url)
         match = save_from_markdownify(match)
         replacement_text = '<a href="' + url + '" class="nav-link' + (needs_tooltip ? ' content-tooltip' : '') + '"' + (external_url ? ' target="_blank"' : '') + '>' + match + '</a>'
         puts "replacement_text: " + replacement_text
-        
+
         return replacement_text
       end
 
@@ -97,14 +100,14 @@ module Jekyll
         # Split the content by special Markdown blocks
         markdown_parts = markdown.split(special_markdown_blocks_pattern)
         #puts markdown_parts
-        markdown_parts.each_with_index do |markdown_part, markdown_index|            
+        markdown_parts.each_with_index do |markdown_part, markdown_index|
           #puts "---------------\nmarkdown_index: " + markdown_index.to_s + "\n" + (markdown_index.even? ? "NONE " : "") + "markdown_part: " + markdown_part
 
           page.data["page_links_ids_sorted_by_title"].each do |page_titles_data|
             #puts "page_titles_data:  #{page_titles_data}"
-            
+
             id = page_titles_data["id"]
-            
+
             link_data = page_links[id]
             # id = link_data["id"] these must match too
             title = page_titles_data["title"]  # link_data["title"] is an array of titles that all must be already in the page_links_ids_sorted_by_title array
@@ -118,14 +121,14 @@ module Jekyll
             pattern = pattern.gsub('\ ', '[\s]+')
             #puts "searching for #{pattern}"
 
-            if markdown_index.even? 
+            if markdown_index.even?
               # Content outside of special Markdown blocks, aka. pure text (NOTE: Also excludes the reqursively self added <a ...>title</a> tooltips/links)
 
               # Search for known link titles
               # NOTE: Using multi line matching here will not help either if the pattern itself is in the middle broken/spaned to multiple lines, so using whitespace replacements now inside the patter to handle this, see above!
               full_pattern = /(^|[\s.,;:&'(])(#{pattern})([\s.,;:&')]|\z)(?![^<]*?<\/a>)/
               markdown_part = process_markdown_part(page, markdown_part, page_links, full_pattern, id, url, needs_tooltip, true)
-            else 
+            else
               # Content inside of special Markdown blocks
 
               # Handle own auto tooltip links [[ ]], [[ | ]], [[ |id ]]
@@ -168,7 +171,7 @@ module Jekyll
           file.write(content)
         end
       end
-      
+
       def process_nav_link_items(items, ndx, nav_links_dictionary)
         items.each do |item|
           item['nav_ndx'] = ndx
@@ -182,14 +185,14 @@ module Jekyll
         return ndx
       end
 
-      def is_excluded_title?(excluded_titles, page_title) 
+      def is_excluded_title?(excluded_titles, page_title)
         if excluded_titles and false == excluded_titles.empty?
           # exluded list items can be a regex patters here
           excluded_titles.each do |title|
             title = title.gsub(/\A'|'\z/, '')
             pattern = /^#{title}$/
             #pattern = Regexp.escape(title)
-            if page_title.match?(pattern) 
+            if page_title.match?(pattern)
               return true
             end
           end
@@ -239,7 +242,7 @@ module Jekyll
         #page_links_dictionary = {}
         link_file_names = []
         add_matching_files(link_file_names, links_dir, link_files_pattern)
-                            
+
         link_file_names.each do |file_name|
           #puts file_name
           yaml_content = YAML.load_file(file_name)
@@ -271,7 +274,7 @@ module Jekyll
           }
 
           # Add the page_link_data object to the ID dictionary
-          # NOTE: Title duplications are allowed now [[title|id]] format must be used 
+          # NOTE: Title duplications are allowed now [[title|id]] format must be used
           #       to get the propwer matching tooltip for duplicated title items
           page_links_dictionary[page_id] = page_link_data
         end
@@ -341,8 +344,8 @@ end
 def JekyllTooltipGen_debug_filter_pages?(page)
   debug_pages = {
     # "doc/README.md" => true,
-  }
-  debug_ok = true  
+}
+  debug_ok = true
   # Comment this line out if not debugging!!!
   # debug_ok = (debug_pages[page.relative_path] != nil && debug_pages[page.relative_path])
   return debug_ok
@@ -362,7 +365,7 @@ def JekyllTooltipGen_hack_description_in(page_has_subtitle, page_has_description
   if page_has_description || page_has_subtitle
     # NOTE: Additional line breaks are essential here otherwise special constructs like tables, liquid notice or code block, etc. might break
     #       Added double \n\n just to be prepared for the case if there's no \n at all at the file ending
-    page.content = page.content + "\n\n" + desc_hack_separator + description 
+    page.content = page.content + "\n\n" + desc_hack_separator + description
   end
 end
 
@@ -370,7 +373,7 @@ def JekyllTooltipGen_hack_description_out(page_has_subtitle, page_has_descriptio
   description = nil
 
   content_parts = page.content.split(desc_hack_separator)
-  content_parts.each_with_index do |content_part, content_part_index|            
+  content_parts.each_with_index do |content_part, content_part_index|
     #puts "---------------\ncontent_part_index: " + content_part_index.to_s + "\ncontent_part: " + content_part
     if content_part_index.even?
       page.content = content_part
@@ -412,7 +415,7 @@ $JekyllTooltipGen_should_build_persistent_tooltips = nil
 
 # 1st pass
 #
-# This is used now to 
+# This is used now to
 #       - set the page nav_ndx correctly to support our custom bottom collection elements navigator
 #       - set additional page data elements that will be used during all the passes
 #
@@ -424,7 +427,7 @@ Jekyll::Hooks.register :site, :pre_render do |site|
     $JekyllTooltipGen_should_build_tooltips = (ENV['JEKYLL_BUILD_TOOLTIPS'] == 'yes')
     $JekyllTooltipGen_should_build_persistent_tooltips = (ENV['JEKYLL_BUILD_PERSISTENT_TOOLTIPS'] == 'yes')
   end
-  next if false == $JekyllTooltipGen_should_build_tooltips    
+  next if false == $JekyllTooltipGen_should_build_tooltips
 
   if $JekyllTooltipGen_markdown_extensions == nil
     $JekyllTooltipGen_markdown_extensions = site.config['markdown_ext'].split(',').map { |ext| ".#{ext.strip}" }
@@ -443,25 +446,25 @@ Jekyll::Hooks.register :site, :pre_render do |site|
 
       next if false == $JekyllTooltipGen_markdown_extensions.include?(File.extname(page.relative_path)) && File.extname(page.relative_path) != ".html"
 
-      page_url = page.url.gsub(/\.[^.]+$/, '')    
+      page_url = page.url.gsub(/\.[^.]+$/, '')
       if (link_data = $JekyllTooltipGen_nav_links[page_url]) != nil
         page.data['nav_ndx'] = link_data['nav_ndx'] # page_pagination.html will use this as sort value for navigation ordering
       end
       page.data["page_links"] = $JekyllTooltipGen_page_links
       page.data["page_links_ids_sorted_by_title"] = $JekyllTooltipGen_page_links_ids_sorted_by_title
-      # puts "collection: " + (page.respond_to?(:collection) ? page.collection.label : "") + ", nav_ndx: " + (link_data != nil ? link_data['nav_ndx'].to_s : "") + ", page_url: #{page_url}, page: #{page.relative_path}"    
+      # puts "collection: " + (page.respond_to?(:collection) ? page.collection.label : "") + ", nav_ndx: " + (link_data != nil ? link_data['nav_ndx'].to_s : "") + ", page_url: #{page_url}, page: #{page.relative_path}"
     end
   end
 end
 
 # 2nd pass
 #
-# This is used now to 
+# This is used now to
 #     - add the description to the page end to get it rendred correclty the same way, together with the page content (will be removed/handled in the 3rd pass)
 #     - render the page content manually and create the autolinks and tooltips
 #
 Jekyll::Hooks.register [:pages, :documents], :pre_render do |page, payload|
-  next if false == $JekyllTooltipGen_should_build_tooltips    
+  next if false == $JekyllTooltipGen_should_build_tooltips
   next if false == $JekyllTooltipGen_markdown_extensions.include?(File.extname(page.relative_path)) && File.extname(page.relative_path) != ".html"
   next if false == JekyllTooltipGen_debug_filter_pages?(page)
 
@@ -487,14 +490,14 @@ end
 
 # 3rd pass
 #
-# This is used now to 
+# This is used now to
 #     - remove the added hackish description block from the page end and replace the description with the now correctly rendered one
 #
 Jekyll::Hooks.register [:pages, :documents], :post_convert do |page|
   next if false == $JekyllTooltipGen_should_build_tooltips
   next if false == $JekyllTooltipGen_markdown_extensions.include?(File.extname(page.relative_path)) && File.extname(page.relative_path) != ".html"
   next if false == JekyllTooltipGen_debug_filter_pages?(page)
-  
+
   page_has_subtitle = (page.data["subtitle"] && false == page.data["subtitle"].empty?)
   page_has_description = (page.data["description"] && false == page.data["description"].empty?)
   JekyllTooltipGen_hack_description_out(page_has_subtitle, page_has_description, page, JekyllTooltipGen_desc_hack_separator)
