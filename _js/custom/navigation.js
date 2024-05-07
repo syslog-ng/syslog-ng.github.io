@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Sidebar navigation and visualization helper scripts
+   Sidebar, page, etc. navigation and visualization helper scripts
    ========================================================================== */
 
 $(function () {
@@ -68,28 +68,9 @@ $(function () {
     }
   }
 
-  // Function to apply all of our custom modifications on the self loaded pages
-  function finalizeContent(anchorId) {
-    // Sync the sidebar with the current page url, migth be out of sync when the page is loaded initially from an inner url
-    adjustSidebars();
-    // There might be nav-links in the loaded new content as well (e.g.Next / Prev buttons
-    // so, handle the links here as the last action
-    updateNavLinks();
-    // Add page heading anchors
-    addPageAnchors();
-    // Add toc to anchor scrolling
-    addTOCScrolling();
-    // Add code block enhancements
-    if (ClipboardJS.isSupported())
-      addCodeBlocksTitle();
-    // Add content tooltips
-    addContentTooltips();
-    // Try to scroll to a giben anchor, if any
-    if (anchorId)
-      scrollToAnchor(anchorId);
-  }
-
+  // -------------
   // Function to load content based on relative URL
+  // -------------
   function loadContentFromUrl(url, onSuccess, onError) {
     fetch(url)
       .then(response => {
@@ -133,6 +114,27 @@ $(function () {
     return anchorId;
   }
 
+  // Function to apply all of our custom modifications on the self loaded pages
+  function finalizeContent(anchorId) {
+    // Sync the sidebar with the current page url, migth be out of sync when the page is loaded initially from an inner url
+    adjustSidebars();
+    // There might be nav-links in the loaded new content as well (e.g.Next / Prev buttons
+    // so, handle the links here as the last action
+    updateNavLinks();
+    // Add page heading anchors
+    addPageAnchors();
+    // Add toc to anchor scrolling
+    addTOCScrolling();
+    // Add code block enhancements
+    if (ClipboardJS.isSupported())
+      addCodeBlocksTitle();
+    // Add content tooltips
+    addContentTooltips();
+    // Try to scroll to a giben anchor, if any
+    if (anchorId)
+      scrollToAnchor(anchorId);
+  }
+
   function updateContentFromUrl(url) {
     var currContent = document.querySelector(contentID);
 
@@ -168,6 +170,9 @@ $(function () {
     );
   }
 
+  // -------------
+  // Functions to handle link clicks
+  // -------------
   function getCollectionFromDocPath(url) {
     var parts = url.href.split('/');
     var docIndex = parts.indexOf(docRootName);
@@ -187,7 +192,6 @@ $(function () {
     return collection1 === collection2;
   }
 
-  // Function to handle link clicks
   function handleNavLinkClick(event) {
     if (!event.shiftKey && !event.ctrlKey && !event.altKey && !event.metaKey) {
       var updated = false;
@@ -232,6 +236,9 @@ $(function () {
     });
   }
 
+  // -------------
+  // TOC smooth scrolling
+  // -------------
   const smoothScrollTopOffset = 100;
   var smoothScroll = new SmoothScroll('a[href*="#"]', {
     offset: smoothScrollTopOffset,
@@ -240,7 +247,6 @@ $(function () {
     durationMax: 500
   });
 
-  // TOC smooth scrolling
   function addTOCScrolling() {
     // Gumshoe scroll spy init
     if ($("nav.toc a").length > 0) {
@@ -263,7 +269,9 @@ $(function () {
     }
   }
 
+  // -------------
   // Add anchors for headings
+  // -------------
   function addPageAnchors() {
     // FIXME: This magic 6 must be maintained together now with generate_links.rb (and other places ?!)
     $('.page__content').find('h1, h2, h3, h4, h5, h6').each(function () {
@@ -333,7 +341,9 @@ $(function () {
     );
   }
 
+  // -------------
   // Tooltip generation and handling
+  // -------------
   const toolTipArrowSize = 10;
   var tooltip = null;
   var tooltipTarget = null;
@@ -452,7 +462,7 @@ $(function () {
     document.addEventListener('mousemove', (event) => {
       if (shouldHideTooltip(event.target)) {
         if (tooltipTarget)
-          hideTooltip(true)
+          hideTooltip(true);
       }
       else {
         clearTimeout(hideTimeoutFuncID);
@@ -460,6 +470,75 @@ $(function () {
       }
     });
   }
+
+  // -------------
+  // Sticky sidebar
+  // -------------
+
+  var initiallySticky = $(".sidebar").hasClass("sticky");
+  var stickySideBar = function () {
+    var show =
+      $(".author__urls-wrapper").find("button").length === 0
+        ? $(window).width() > 1024 // width should match $large Sass variable
+        : !$(".author__urls-wrapper").find("button").is(":visible");
+    if (show) {
+      if (initiallySticky) {
+        $(".sidebar").addClass("sticky");
+      }
+    } else {
+      $(".sidebar").removeClass("sticky");
+    }
+  };
+
+  $(window).on("resize", function () {
+    stickySideBar();
+  });
+
+  // -------------
+  // Search
+  // -------------
+
+  // Close search screen with Esc key or toggle with predefined hotKey
+  $(document).on("keyup", function (event) {
+    // Define the desired hotkey (in this case, Ctrl + Shift + F)
+    var searchHotkey = { ctrlKey: true, shiftKey: true, key: 'F' };
+
+    if (event.keyCode === 27) {
+      if ($(".initial-content").hasClass("is--hidden"))
+        toggleSearch();
+    }
+    else if (event.ctrlKey === searchHotkey.ctrlKey &&
+      event.shiftKey === searchHotkey.shiftKey &&
+      event.key === searchHotkey.key) {
+      toggleSearch();
+    }
+  });
+
+  function toggleSearch() {
+    $(".search-content").toggleClass("is--visible");
+    $(".initial-content").toggleClass("is--hidden");
+
+    if ($(".initial-content").hasClass("is--hidden")) {
+      // set focus on input
+      setTimeout(function () {
+        var input = $(".search-content").find("input");
+        input.trigger("focus");
+        input.trigger("select");
+      }, 250);
+    }
+    else {
+      // set focus back to the initial content otherwise the focus will not get back to the search input once again
+      $(".initial-content").find("input").focus();
+    }
+  }
+
+  $(".search__toggle").on("click", toggleSearch);
+
+  // -------------
+  // Startup
+  // -------------
+
+  stickySideBar();
 
   // Make sure everything is initialized correctly on an initial load as well
   // (e.g. when an inner embedded page link is opened directly in a new tab, not via the internal navigational links)
