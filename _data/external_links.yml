@@ -1,6 +1,6 @@
 gh-pages:
   id: gh-pages
-  url: https://syslog-ng.github.io/doc/
+  url: https://syslog-ng.github.io
   title: [ "syslog-ng documentation center" ]
 
 gh-syslog-ng:
@@ -15,12 +15,12 @@ gh-syslog-ng-issue-tracker:
 
 gh-syslog-ng-doc-issue-tracker:
   id: gh-syslog-ng-doc-issue-tracker
-  url: https://github.com/syslog-ng/doc/issues
+  url: https://github.com/syslog-ng/syslog-ng.github.io/issues
   title: [ "syslog-ng documentation issue tracker on GitHub" ]
 
 gh-syslog-ng-doc:
   id: gh-syslog-ng-doc
-  url: https://github.com/syslog-ng/doc
+  url: https://github.com/syslog-ng/syslog-ng.github.io
   title: [ "syslog-ng Doc on GitHub" ]
 
 bb-syslog-ng-mail-list:
