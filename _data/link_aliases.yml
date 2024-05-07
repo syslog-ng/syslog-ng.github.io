@@ -8,13 +8,83 @@
 adm-temp-macro-ose:
   aliases: [ "Macros", "macros" ]
 
-adm-temp-macro-ose#sdata-sdatasdidsdname: 
-  aliases: [ "SDATA" ] 
+adm-temp-macro-ose#date-c_date-r_date-s_date:
+  aliases: [ "${DATE}", "${C_DATE}", "${R_DATE}", "${S_DATE}" ]
+
+adm-temp-macro-ose#day-c_day-r_day-s_day:
+  aliases: [ "${DAY}", "${C_DAY}", "${R_DAY}", "${S_DAY}" ]
+
+adm-temp-macro-ose#fulldate-c_fulldate-r_fulldate-s_fulldate:
+  aliases: [ "${FULLDATE}", "${C_FULLDATE}", "${R_FULLDATE}", "${S_FULLDATE}" ]
+
+adm-temp-macro-ose#hour-c_hour-r_hour-s_hour:
+  aliases: [ "${HOUR}", "${C_HOUR}", "${R_HOUR}", "${S_HOUR}" ]
+
+adm-temp-macro-ose#hour12-c_hour12-r_hour12-s_hour12:
+  aliases: [ "${HOUR12}", "${C_HOUR12}", "${R_HOUR12}", "${S_HOUR12}" ]
+
+adm-temp-macro-ose#isodate-c_isodate-r_isodate-s_isodate:
+  aliases: [ "${ISODATE}", "${C_ISODATE}", "${R_ISODATE}", "${S_ISODATE}" ]
+
+adm-temp-macro-ose#isoweek-c_isoweek-r_isoweek-s_isoweek:
+  aliases: [ "${ISOWEEK}", "${C_ISOWEEK}", "${R_ISOWEEK}", "${S_ISOWEEK}" ]
+
+adm-temp-macro-ose#min-c_min-r_min-s_min:
+  aliases: [ "${MIN}", "${C_MIN}", "${R_MIN}", "${S_MIN}" ]
+
+adm-temp-macro-ose#month_abbrev-c_month_abbrev-r_month_abbrev-s_month_abbrev:
+  aliases: [ "${MONTH_ABBREV}", "${C_MONTH_ABBREV}", "${R_MONTH_ABBREV}", "${S_MONTH_ABBREV}" ]
+
+adm-temp-macro-ose#month-c_month-r_month-s_month:
+  aliases: [ "${MONTH}", "${C_MONTH}", "${R_MONTH}", "${S_MONTH}" ]
+
+adm-temp-macro-ose#month_name-c_month_name-r_month_name-s_month_name:
+  aliases: [ "${MONTH_NAME}", "${C_MONTH_NAME}", "${R_MONTH_NAME}", "${S_MONTH_NAME}" ]
+
+adm-temp-macro-ose#month_week-c_month_week-r_month_week-s_month_week:
+  aliases: [ "${MONTH_WEEK}", "${C_MONTH_WEEK}", "${R_MONTH_WEEK}", "${S_MONTH_WEEK}" ]
+
+adm-temp-macro-ose#msec-c_msec-r_msec-s_msec:
+  aliases: [ "${MSEC}", "${C_MSEC}", "${R_MSEC}", "${S_MSEC}" ]
 
 adm-temp-macro-ose#priority-or-level:
   aliases: [ "${PRIORITY}", "${LEVEL}" ]
 
-adm-temp-macro-ose#date-c_date-r_date-s_date:
-  aliases: [ "DATE", "C_DATE", "R_DATE", "S_DATE"]
+adm-temp-macro-ose#sdata-sdatasdidsdname: 
+  aliases: [ "${SDATA}" ]
 
+adm-temp-macro-ose#sec-c_sec-r_sec-s_sec:
+  aliases: [ "${SEC}", "${C_SEC}", "${R_SEC}", "${S_SEC}" ]
 
+adm-temp-macro-ose#stamp-r_stamp-s_stamp:
+  aliases: [ "${STAMP}", "${R_STAMP}", "${S_STAMP}" ]
+
+adm-temp-macro-ose#tz-c_tz-r_tz-s_tz:
+  aliases: [ "${TZ}", "${C_TZ}", "${R_TZ}", "${S_TZ}" ]
+
+adm-temp-macro-ose#tzoffset-c_tzoffset-r_tzoffset-s_tzoffset:
+  aliases: [ "${TZOFFSET}", "${C_TZOFFSET}", "${R_TZOFFSET}", "${S_TZOFFSET}" ]
+
+adm-temp-macro-ose#unixtime-c_unixtime-r_unixtime-s_unixtime:
+  aliases: [ "${UNIXTIME}", "${C_UNIXTIME}", "${R_UNIXTIME}", "${S_UNIXTIME}" ]
+
+adm-temp-macro-ose#usec-c_usec-r_usec-s_usec:
+  aliases: [ "${USEC}", "${C_USEC}", "${R_USEC}", "${S_USEC}" ]
+
+adm-temp-macro-ose#week-c_week-r_week-s_week:
+  aliases: [ "${WEEK}", "${C_WEEK}", "${R_WEEK}", "${S_WEEK}" ]
+
+adm-temp-macro-ose#week_day_abbrev-c_week_day_abbrev-r_week_day_abbrev-s_week_day_abbrev:
+  aliases: [ "${WEEK_DAY_ABBREV}", "${C_WEEK_DAY_ABBREV}", "${R_WEEK_DAY_ABBREV}", "${S_WEEK_DAY_ABBREV}" ]
+
+adm-temp-macro-ose#week_day-c_week_day-r_week_day-s_week_day:
+  aliases: [ "${WEEK_DAY}", "${C_WEEK_DAY}", "${R_WEEK_DAY}", "${S_WEEK_DAY}" ]
+
+adm-temp-macro-ose#weekday-c_weekday-r_weekday-s_weekday:
+  aliases: [ "${WEEKDAY}", "${C_WEEKDAY}", "${R_WEEKDAY}", "${S_WEEKDAY}" ]
+
+adm-temp-macro-ose#week_day_name-c_week_day_name-r_week_day_name-s_week_day_name:
+  aliases: [ "${WEEK_DAY_NAME}", "${C_WEEK_DAY_NAME}", "${R_WEEK_DAY_NAME}", "${S_WEEK_DAY_NAME}" ]
+
+adm-temp-macro-ose#year-c_year-r_year-s_year:
+  aliases: [ "${YEAR}", "${C_YEAR}", "${R_YEAR}", "${S_YEAR}" ]

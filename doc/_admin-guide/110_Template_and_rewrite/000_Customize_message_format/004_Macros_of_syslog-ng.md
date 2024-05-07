@@ -101,11 +101,11 @@ example: **2006 Jun 13 15:58:00**.
 
 ## ${FULLHOST}
 
-{% include doc/admin-guide/host-macro.md macro = '${FULLHOST}' %}
+{% include doc/admin-guide/host-macro.md macro = 'FULLHOST' %}
 
 ## ${FULLHOST_FROM}
 
-{% include doc/admin-guide/host-from-macro.md macro = '${FULLHOST}' %}
+{% include doc/admin-guide/host-from-macro.md macro = 'FULLHOST' %}
 
 ## ${HOUR}, ${C_HOUR}, ${R_HOUR}, ${S_HOUR}
 
@@ -119,11 +119,11 @@ syslog-ng OSE 3.4 and later.
 
 ## ${HOST}
 
-{% include doc/admin-guide/host-macro.md macro = '${HOST}' %}
+{% include doc/admin-guide/host-macro.md macro = '${HOST}' from = '${HOST_FROM}' %}
 
 ## ${HOST_FROM}
 
-{% include doc/admin-guide/host-from-macro.md macro = '${HOST}' %}
+{% include doc/admin-guide/host-from-macro.md macro = '${HOST}' from = '${HOST_FROM}' %}
 
 ## ${ISODATE}, ${C_ISODATE}, ${R_ISODATE}, ${S_ISODATE}
 
