@@ -122,3 +122,13 @@ soc-macos-module-testing:
   id: soc-macos-module-testing
   url: https://syslog-macos-testing.gitbook.io/syslog-macos-testing/
   title: [ "SOC macOS mudule testing" ]
+
+bsd-syslog-proto:
+  id: bsd-syslog-proto
+  url: https://www.ietf.org/rfc/rfc3164.txt
+  title: [ "legacy syslog (BSD-syslog) protocol" ]
+
+ietf-syslog-proto:
+  id: ietf-syslog-proto
+  url: https://tools.ietf.org/html/rfc5424
+  title: [ "new syslog (IETF-syslog) protocol" ]

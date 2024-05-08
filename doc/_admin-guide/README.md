@@ -28,10 +28,8 @@ syslog-ng administrator:
 - In-depth knowledge of the logging process of various platforms and
     applications.
 
-- An understanding of the [legacy syslog (BSD-syslog)
-    protocol](https://www.ietf.org/rfc/rfc3164.txt) and the [new syslog
-    (IETF-syslog) protocol](https://tools.ietf.org/html/rfc5424)
-    standard.
+- An understanding of the legacy syslog (BSD-syslog) protocol
+    and the new syslog (IETF-syslog) protocol standard.
 
 ## Acknowledgements
 
