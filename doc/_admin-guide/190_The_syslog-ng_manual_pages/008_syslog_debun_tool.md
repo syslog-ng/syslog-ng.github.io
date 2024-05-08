@@ -47,7 +47,7 @@ you ask help about your syslog-ng OSE related problem.
 
     Set the working directory, where the debug bundle will be saved.
     Default value: /tmp. The name of the created file is
-    syslog.debun.\${host}.\${date}.\${3-random-characters-or-pid}.tgz
+    syslog.debun.${host}.${date}.${3-random-characters-or-pid}.tgz
 
 ## Debug mode options
 

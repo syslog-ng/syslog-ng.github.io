@@ -24,8 +24,8 @@ format, where each line contains the following information:
 
 - The value of the name-value pairs. Starting with syslog-ng OSE
     version 3.22, the value of the name-value pair can be a template or
-    a template function, for example, \"selector3,name,\$(echo
-    \$HOST\_FROM)\";
+    a template function, for example, \"selector3,name,$(echo
+    ${HOST_FROM})\";
 
 For example, the following csv-file contains three lines identified with
 the IP address, and adds the host-role field to the log message.
@@ -90,10 +90,10 @@ source s_network {
 
 destination d_local {
     file("/tmp/test-msgs.log"
-    template("$MSG Additional metadata:[${.metadata.host-role}]")};
+    template("${MSG} Additional metadata:[${.metadata.host-role}]")};
 
 parser p_add_context_data {
-    add-contextual-data(selector("$SOURCEIP"), database("context-info-db.csv"), default-selector("unknown"), prefix(".metadata."));
+    add-contextual-data(selector("${SOURCEIP}"), database("context-info-db.csv"), default-selector("unknown"), prefix(".metadata."));
 };
 
 log {

@@ -29,7 +29,7 @@
 
 - *no-header*: The no-header flag triggers syslog-ng OSE to parse only
     the PRI field of incoming messages, and put the rest of the message
-    contents into $MSG.
+    contents into ${MSG}.
 
     Its functionality is similar to that of the no-parse flag, except
     the no-header flag does not skip the PRI field.
@@ -37,7 +37,7 @@
     **NOTE:** Essentially, the no-header flag signals syslog-ng OSE that the
     syslog header is not present (or does not adhere to the conventions
     / RFCs), so the entire message (except from the PRI field) is put
-    into $MSG.
+    into ${MSG}.
     {: .notice--info}
 
     Example: using the no-header flag with the syslog-parser() parser

@@ -62,7 +62,7 @@ operators for strings as well.
 ### Example: Comparing macro values in filters
 
 The following expression selects log messages containing a PID (that is,
-\${PID} macro is not empty):
+${PID} macro is not empty):
 
 ```config
 filter f_pid {"${PID}" !=""};
@@ -86,10 +86,10 @@ Note that:
 
 - The macro or template must be enclosed in double-quotes.
 
-- The \$ character must be used before macros.
+- The $ character must be used before macros.
 
 - Using comparator operators can be equivalent to using filter
-    functions, but is somewhat slower. For example, using **\"\${HOST}\"
+    functions, but is somewhat slower. For example, using **\"${HOST}\"
     eq \"myhost\"** is equivalent to using **host(\"myhost\"
     type(string))**.
 

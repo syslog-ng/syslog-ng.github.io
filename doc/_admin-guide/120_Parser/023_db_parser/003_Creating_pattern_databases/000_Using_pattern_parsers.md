@@ -60,7 +60,7 @@ much faster than the other parsers.
 For example, look at the following message: user=joe96 group=somegroup.
 
 - @STRING:mytext:@ parses only to the first non-alphanumeric
-    character (=), parsing only user, so the value of the \${mytext}
+    character (=), parsing only user, so the value of the ${mytext}
     macro will be user
 
 - @STRING:mytext:=@ parses the equation mark as well, and proceeds to

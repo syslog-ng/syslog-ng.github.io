@@ -5,7 +5,7 @@ id: adm-temp-facility
 description: >-
   It is possible to set the facility field with the set-facility() rewrite
   function. When set, the set-facility() rewrite function will only
-  rewrite the $PRIORITY field in the message to the first parameter value
+  rewrite the ${PRIORITY} field in the message to the first parameter value
   specified in the function.
 ---
 

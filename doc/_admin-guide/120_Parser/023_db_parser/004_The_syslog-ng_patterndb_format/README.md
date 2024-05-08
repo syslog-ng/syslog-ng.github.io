@@ -44,7 +44,7 @@ The following is a simple pattern database containing a matching rule.
 ```
 
 Note that the rule uses macros that refer to parts of the message, for
-example, you can use the **\${SSH\_USERNAME}** macro refer to the
+example, you can use the **${SSH\_USERNAME}** macro refer to the
 username used in the connection.
 
 The following is the same example, but with a test message and test

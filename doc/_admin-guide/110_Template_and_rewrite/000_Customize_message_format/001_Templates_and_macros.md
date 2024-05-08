@@ -52,18 +52,18 @@ destination d_file {
 };
 ```
 
-Macros can be included by prefixing the macro name with a \$ sign, just
+Macros can be included by prefixing the macro name with a $ sign, just
 like in Bourne compatible shells. Although using braces around macro
-names is not mandatory, and the \"\$MESSAGE\" and \"\${MESSAGE}\"
-formats are equivalent, using the \"\${MESSAGE}\" format is recommended
+names is not mandatory, and the "${MESSAGE}" and "$MESSAGE"
+formats are equivalent, using the "${MESSAGE}" format is recommended
 for clarity.
 
-Macro names are case-sensitive, that is, \"\$message\" and \"\$MESSAGE\"
+Macro names are case-sensitive, that is, "$message" and "${MESSAGE}"
 are not the same.
 
-To use a literal \$ character in a template, you have to escape it. In
-syslog-ng OSE versions 3.4 and earlier, use a backslash (**\\\$**). In
-version 3.5 and later, use **\$\$**.
+To use a literal $ character in a template, you have to escape it. In
+syslog-ng OSE versions 3.4 and earlier, use a backslash (**\\$**). In
+version 3.5 and later, use **$$**.
 
 **NOTE:** To use a literal @ character in a template, use **@@**.
 {: .notice--info}
@@ -80,8 +80,8 @@ ${HOST:-default_hostname}
 ```
 
 By default, syslog-ng sends messages using the following template:
-\${ISODATE} \${HOST} \${MSGHDR}\${MESSAGE}\\n. (The
-\${MSGHDR}\${MESSAGE} part is written together because the \${MSGHDR}
+${ISODATE} ${HOST} ${MSGHDR}${MESSAGE}\\n. (The
+${MSGHDR}${MESSAGE} part is written together because the ${MSGHDR}
 macro includes a trailing whitespace.)
 
 ### Example: Using templates and macros

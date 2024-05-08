@@ -69,7 +69,7 @@ Available in syslog-ng OSE 4.5 and later versions.
 *Description:* Defines the schema syntax of the BigQuery table from a protobuf schema file.
 
 ```config
-protobuf-schema("/tmp/test.proto" => "$MESSAGE", "$PROGRAM", "$HOST", "$PID")
+protobuf-schema("/tmp/test.proto" => "${MESSAGE}", "${PROGRAM}", "${HOST}", "${PID}")
 ```
 ### Example: using the protobuf-schema() option
 
@@ -97,11 +97,11 @@ message CustomRecord {
 
 ```config
 schema(
-    "message" => "$MESSAGE"
-    "app" STRING => "$PROGRAM"
-    "host" STRING => "$HOST"
-    "time" DATETIME => "$ISODATE"
-    "pid" INTEGER => int("$PID")
+    "message" => "${MESSAGE}"
+    "app" STRING => "${PROGRAM}"
+    "host" STRING => "${HOST}"
+    "time" DATETIME => "${ISODATE}"
+    "pid" INTEGER => int("${PID}")
 )
 ```
 {% include doc/admin-guide/options/send-time-zone.md %}

@@ -10,7 +10,7 @@ id: adm-man-sec-log
 ## Synopsis
 
 ```config
-$(slog --key-file <host key file> --mac-file <MAC file> $RAWMSG)
+$(slog --key-file <host key file> --mac-file <MAC file> ${RAWMSG})
 ```
 
 ## Description
@@ -78,7 +78,7 @@ Secure logging is implemented as a template and is configured accordingly. Apart
 Secure logging is activated by adding the following statement in the configuration file:
 
 ```config
-template("$(slog --key-file  <host key file> --mac-file <MAC file> $RAWMSG)\n");
+template("$(slog --key-file  <host key file> --mac-file <MAC file> ${RAWMSG})\n");
 ```
 
 The purpose of the elements within the statement:
@@ -94,9 +94,9 @@ The purpose of the elements within the statement:
 
     The MAC file. `<MAC file>` is the full path of the MAC file on the log host. The file is automatically created upon the initial start. If the path is not correct, syslog-ng does not start and a displays a corresponding error message.
 
-* `$RAWMSG`
+* `${RAWMSG}`
 
-    `$RAWMSG` provides access to the original log message received at the source. This macro is only available if the store-raw-message flag was set for the source. Otherwise, an empty string is passed to the secure logging template. If access to the original message is not available, for example, if the source does not support the `store-raw-message` flag, then the `$MSG` macro can also be used. In this case, however, the integrity guarantee provided by secure logging is limited to the content that this macro provides and does not protect the complete original message.
+    `${RAWMSG}` provides access to the original log message received at the source. This macro is only available if the store-raw-message flag was set for the source. Otherwise, an empty string is passed to the secure logging template. If access to the original message is not available, for example, if the source does not support the `store-raw-message` flag, then the `${MSG}` macro can also be used. In this case, however, the integrity guarantee provided by secure logging is limited to the content that this macro provides and does not protect the complete original message.
 
 * `\n`
 
@@ -105,7 +105,7 @@ The purpose of the elements within the statement:
 The secure logging template can be combined with any source or destination with the following limitations:
 
 * Sources must be line-oriented. Secure logging uses a line separator in order to distinguish between individual log entries. Sources which provide data in a different format, for example, in the form of raw data obtained directly from a database system, cannot currently be used with the secure logging template, as the separation of log entries is not clearly defined for this type of data.
-* Only sources for which the store-raw-message flag is implemented and set do benefit from the integrity guarantee provided by the secure logging template. Secure logging aims at protecting the integrity of complete log messages including all associated meta-data, such as timestamps and host names. syslog-ng parses the log message into its internal format and provide easy access to parts of a message through macros. While this is convenient when rewriting log messages, it is not helpful for secure logging. syslog-ng provides the store-raw-message flag which provides access to a copy of the original log message after parsing. This is the log message processed and protected by the secure logging template. If the source does not support the `store-raw-message flag`, then the `$MSG` macro can also be used. However, in this case the integrity guarantee provided by secure logging is limited to the content that this macro provides.
+* Only sources for which the store-raw-message flag is implemented and set do benefit from the integrity guarantee provided by the secure logging template. Secure logging aims at protecting the integrity of complete log messages including all associated meta-data, such as timestamps and host names. syslog-ng parses the log message into its internal format and provide easy access to parts of a message through macros. While this is convenient when rewriting log messages, it is not helpful for secure logging. syslog-ng provides the store-raw-message flag which provides access to a copy of the original log message after parsing. This is the log message processed and protected by the secure logging template. If the source does not support the `store-raw-message flag`, then the `${MSG}` macro can also be used. However, in this case the integrity guarantee provided by secure logging is limited to the content that this macro provides.
 * Log rotation of any kind cannot be used with destinations using secure logging, because log rotate overwrites or deletes previous log files. This compromises the cryptographic chain of trust of the log entries preve recovery. To efficiently handle log files, the secure logging environment features iterative verification. Using iterative verification, a log file can be verified in steps. For this to work, the log file must first be downloaded from the log host, together with the corresponding host key and MAC file to a verification host. After downloading, the log file can be safely deleted from the log host. Verification is then performed on the verification host using the iterative mode of the slogverify utility.
 
 ### Example: secure logging template on a file destination
@@ -134,7 +134,7 @@ source s_network {
 
 # Secure logging template definition
 template secure_logging { 
-    template("$(slog --key-file /etc/syslog-ng/host.key --mac-file /etc/syslog-ng/mac.dat $RAWMSG)\n");
+    template("$(slog --key-file /etc/syslog-ng/host.key --mac-file /etc/syslog-ng/mac.dat ${RAWMSG})\n");
 };
 
 # This configures a secure logging destination

@@ -38,10 +38,10 @@ destination d_riemann {
                 server("localhost")
                 port(5555)
                 ttl("300.5")
-                metric(int("$SEQNUM"))
+                metric(int("${SEQNUM}"))
                 description("syslog-ng riemann test")
                 state("ok")
-                attributes(x-ultimate-answer("$(+ $PID 42)")
+                attributes(x-ultimate-answer("$(+ ${PID} 42)")
                                 key("MESSAGE", rekey(add-prefix("x-")) )
                                 )
         );

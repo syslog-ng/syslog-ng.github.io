@@ -37,7 +37,7 @@ event.
 ## event-time()
 
 |  Type:|      template, macro, or string|
-  |Default:|   \${UNIXTIME}|
+  |Default:|   ${UNIXTIME}|
 
 *Description:* Instead of the arrival time into Riemann, syslog-ng OSE
 can also send its own timestamp value.
@@ -53,7 +53,7 @@ The event-time() option takes an optional parameter specifying whether
 the time format is in seconds or microseconds. For example:
 
 ```config
-event-time("$(* $UNIXTIME 1000000)" microseconds)
+event-time("$(* ${UNIXTIME} 1000000)" microseconds)
 event-time("12345678" microseconds)
 event-time("12345678" seconds)
 event-time("12345678")
@@ -61,7 +61,7 @@ event-time("12345678")
 
 In case the parameter is omitted, syslog-ng OSE defaults to the seconds
 version. In case the event-time() option is omitted altogether,
-syslog-ng OSE defaults to the seconds version with \$UNIXTIME.
+syslog-ng OSE defaults to the seconds version with ${UNIXTIME}.
 
 Note that the time format parameter requires:
 
@@ -114,7 +114,7 @@ destination d_riemann {
 ## host()
 
 |  Type:|      template, macro, or string|
-  |Default:|   \${HOST}|
+  |Default:|   ${HOST}|
 
 *Description:* The value to add as the host field of the Riemann event.
 
@@ -131,7 +131,7 @@ Riemann server will interpret the value as a floating-point number. The
 following example specifies the SEQNUM macro as an integer.
 
 ```config
-metric(int("$SEQNUM"))
+metric(int("${SEQNUM}"))
 ```
 
 {% include doc/admin-guide/options/port.md %}
@@ -148,7 +148,7 @@ metric(int("$SEQNUM"))
 ## service()
 
 |  Type:|      template, macro, or string|
-  |Default:|   \${PROGRAM}|
+  |Default:|   ${PROGRAM}|
 
 *Description:* The value to add as the service field of the Riemann
 event.

@@ -63,7 +63,7 @@ destination d_sql {
     database("logs")
     table("messages_${HOST}_${R_YEAR}${R_MONTH}${R_DAY}")
     columns("datetime", "host", "program", "pid", "message")
-    values("{$R_DATE}", "${HOST}", "${PROGRAM}", "${PID}", "${MSGONLY}")
+    values("{${R_DATE}}", "${HOST}", "${PROGRAM}", "${PID}", "${MSGONLY}")
     indexes("datetime", "host", "program", "pid", "message"));
 };
 ```

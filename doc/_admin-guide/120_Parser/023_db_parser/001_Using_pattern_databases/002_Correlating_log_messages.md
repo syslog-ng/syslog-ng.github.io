@@ -32,8 +32,8 @@ information that was stored previously in the context.
 There are two attributes for pattern database rules that determine if a
 message matching the rule is added to a context: context-scope and
 context-id. The context-scope attribute acts as an early filter,
-selecting messages sent by the same process (\${HOST}\${PROGRAM}\${PID}
-is identical), application (\${HOST}\${PROGRAM} is identical), or host,
+selecting messages sent by the same process (${HOST}${PROGRAM}${PID}
+is identical), application (${HOST}${PROGRAM} is identical), or host,
 while the context-id actually adds the message to the context specified
 in the id. The context-id can be a simple string, or can contain macros
 or values extracted from the log messages for further filtering.

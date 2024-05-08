@@ -33,7 +33,7 @@ The message has the following parts:
 
 - The MESSAGE part is in JSON format, and contains the actual message,
     as well as any name-value pairs that syslog-ng OSE has attached to
-    or extracted from the message. The \${.\_TAGS} field contains the
+    or extracted from the message. The ${.\_TAGS} field contains the
     identifier of the syslog-ng source that has originally received the
     message on the first syslog-ng node.
 

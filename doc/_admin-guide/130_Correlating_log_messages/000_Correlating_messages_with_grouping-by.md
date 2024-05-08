@@ -34,8 +34,8 @@ The grouping-by() parser has three options that determine if a message
 is added to a context: scope(), key(), and where().
 
 - The scope() option acts as an early filter, selecting messages sent
-    by the same process (\${HOST}\${PROGRAM}\${PID} is identical),
-    application (\${HOST}\${PROGRAM} is identical), or host.
+    by the same process (${HOST}${PROGRAM}${PID} is identical),
+    application (${HOST}${PROGRAM} is identical), or host.
 
 - The key() identifies the context the message belongs to. (The value
     of the key must be the same for every message of the context.)

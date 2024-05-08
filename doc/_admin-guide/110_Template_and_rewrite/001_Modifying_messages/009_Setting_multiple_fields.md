@@ -21,7 +21,7 @@ description: >-
 - Note that groupset() does not create new fields, it only modifies
     existing fields.
 
-- You can refer to the old value of the field using the **\$\_**
+- You can refer to the old value of the field using the **$\_**
     macro. This is resolved to the value of the current field, and is
     available only in groupset() rules.
 

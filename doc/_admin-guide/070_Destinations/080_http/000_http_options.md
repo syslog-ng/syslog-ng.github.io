@@ -69,4 +69,4 @@ port number of the web service that can receive log data via HTTP. Use a
 colon (**:**) after the address to specify the port number of the
 server. You can also use macros, templates, and template functions in
 the URL, for example:
-http://host.example.com:8080/\${MACRO1}/\${MACRO2}/script\")
+http://host.example.com:8080/${MACRO1}/${MACRO2}/script\")

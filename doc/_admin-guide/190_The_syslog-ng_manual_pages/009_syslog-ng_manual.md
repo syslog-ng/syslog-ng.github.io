@@ -109,9 +109,9 @@ syslog-ng OSE server, where the server sorts and stores them.
 - \--foreground or -F
 
     Do not daemonize, run in the foreground. When running in the
-    foreground, syslog-ng OSE starts from the current directory (\$CWD)
+    foreground, syslog-ng OSE starts from the current directory (${CWD})
     so it can create core files (normally, syslog-ng OSE starts
-    from \>\$PREFIX/var).
+    from \>${PREFIX}/var).
 
 - \--group \<group\> or -g \<group\>
 

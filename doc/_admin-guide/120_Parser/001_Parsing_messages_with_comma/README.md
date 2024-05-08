@@ -56,7 +56,7 @@ log {
     source { tcp(port(2000) flags(no-parse)); };
 
     parser { csv-parser(delimiters(',') dialect(escape-backslash)); };
-    destination { stdout(template("$ISODATE $*\n")); };
+    destination { stdout(template("${ISODATE} $*\n")); };
 };
 ```
 

@@ -4,7 +4,7 @@ If the names of keys in the {{ page.message | default: 'message' }} is the same 
 syslog-ng OSE soft macros, the value from the parsed message
 will overwrite the value of the macro. For example, the
 {{ page.macro_content | default: 'PROGRAM=value1, MESSAGE=value2' }} content will overwrite the
-\${PROGRAM} and \${MESSAGE} macros. To avoid overwriting such  
+${PROGRAM} and ${MESSAGE} macros. To avoid overwriting such  
 macros, use the **prefix()** option.
 {: .notice--warning}
 

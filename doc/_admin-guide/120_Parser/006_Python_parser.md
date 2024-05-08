@@ -88,7 +88,7 @@ False, or raises an exception, syslog-ng OSE will drop the message.
     you create a new name-value pair called new-macro-name in Python,
     and want to reference it in another part of the syslog-ng OSE
     configuration file (for example, in a template), use the
-    **\${new-macro-name}** macro.
+    **${new-macro-name}** macro.
 
 {% include doc/admin-guide/notes/hard-macros.md %}
 

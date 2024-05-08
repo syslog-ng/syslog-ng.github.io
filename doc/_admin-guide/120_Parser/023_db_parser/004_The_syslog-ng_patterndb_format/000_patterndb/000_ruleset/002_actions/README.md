@@ -48,7 +48,7 @@ they will override the values of the original message.
 ### Example: Generating messages with inherited values
 
 The following action generates a message that is identical to the
-original message, but its \$PROGRAM field is set to
+original message, but its ${PROGRAM} field is set to
 overriding-original-program-name
 
 ```xml

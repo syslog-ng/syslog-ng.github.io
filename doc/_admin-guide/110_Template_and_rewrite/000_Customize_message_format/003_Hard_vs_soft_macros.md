@@ -29,7 +29,7 @@ The following macros can be modified:FULLHOST\_FROM, FULLHOST,
 HOST\_FROM, HOST, LEGACY\_MSGHDR, MESSAGE, MSG,MSGID, MSGONLY, PID,
 PROGRAM, SOURCE. Custom values created using rewrite rules or parsers
 can be modified as well, just like stored matches of regular expressions
-(\$0 \... \$255).
+($0 \... $255).
 
 Note that you can modify the timezone of the message, and change the
 timezone-related macros that way. For details, see

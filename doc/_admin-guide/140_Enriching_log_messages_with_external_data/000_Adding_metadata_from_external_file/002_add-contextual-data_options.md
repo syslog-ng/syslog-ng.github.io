@@ -25,7 +25,7 @@ binary.
 *Description:* Specifies the ID of the entry (line) that is corresponds
 to log messages that do not have a selector that matches an entry in the
 database. For example, if you add name-value pairs from the database
-based on the hostname from the log message (selector(\"\${HOST}\")),
+based on the hostname from the log message (selector(\"${HOST}\")),
 then you can include a line for unknown hosts in the database, and set
 default-selector() to the ID of the line for unknown hosts. In the CSV
 file:
@@ -38,7 +38,7 @@ In the syslog-ng OSE configuration file:
 
 ```config
 add-contextual-data(
-    selector("$HOST")
+    selector("${HOST}")
     database("context-info-db.csv")
     default-selector("unknown-hostname")
 );
@@ -69,7 +69,7 @@ the selector() option.
 
 - Strings
 
-- A single macro (for example, selector(\"\${HOST}\"))
+- A single macro (for example, selector(\"${HOST}\"))
 
 - To use filters as selectors, see
     [[Using filters as selector]].

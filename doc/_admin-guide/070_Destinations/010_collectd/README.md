@@ -28,7 +28,7 @@ destination d_collectd {
 ### Example: Using the collectd() driver
 
 The following example uses the name of the application sending the log
-message as the plugin name, and the value of the \${SEQNUM} macro as the
+message as the plugin name, and the value of the ${SEQNUM} macro as the
 value of the metric sent to collectd.
 
 ```config

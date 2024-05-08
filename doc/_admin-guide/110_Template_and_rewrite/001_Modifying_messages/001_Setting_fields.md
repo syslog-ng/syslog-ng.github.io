@@ -42,7 +42,7 @@ field:
 
 ```config
 rewrite r_rewrite_set{
-    set("$MESSAGE suffix", value("MESSAGE"));
+    set("${MESSAGE} suffix", value("MESSAGE"));
 };
 ```
 

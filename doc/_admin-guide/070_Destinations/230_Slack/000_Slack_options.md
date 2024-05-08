@@ -10,7 +10,7 @@ following options.
 ## author-name()
 
 |  Type: |     string or template|
-|  Default:|   \'host: \${HOST} \| program: \${PROGRAM}(\${PID}) \| severity: \${PRIORITY}\'|
+|  Default:|   \'host: ${HOST} \| program: ${PROGRAM}(${PID}) \| severity: ${PRIORITY}\'|
 
 *Description:* The sender of the message as displayed in Slack. For
 details, see the [author\_name option in the Slack
@@ -71,7 +71,7 @@ importance levels.
 ## color-chooser()
 
 |  Type: |     integer or template|
-|  Default: |  \'\${LEVEL\_NUM}\'|
+|  Default: |  \'${LEVEL\_NUM}\'|
 
 *Description:* An integer that assigns a color to the message from the
 list of colors set in the colors() option.
@@ -81,7 +81,7 @@ list of colors set in the colors() option.
 ## fallback()
 
 |  Type:     | string or template|
-|  Default: |  \'\${MSG} - host: \${HOST} \| program: \${PROGRAM}(\${PID}) \| severity: \${PRIORITY}\'|
+|  Default: |  \'${MSG} - host: ${HOST} \| program: ${PROGRAM}(${PID}) \| severity: ${PRIORITY}\'|
 
 *Description:* The plain-text summary of the Slack attachment. For
 details, see the [fallback option in the Slack

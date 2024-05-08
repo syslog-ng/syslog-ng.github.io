@@ -29,7 +29,7 @@ following ports:
 
 In addition to receiving messages on different ports and in different
 formats, this source tries to parse the messages automatically. If
-successful, it sets the \${.app.name} name-value pair to the name of the
+successful, it sets the ${.app.name} name-value pair to the name of the
 application that sent the log message. Currently it uses the following
 procedures.
 

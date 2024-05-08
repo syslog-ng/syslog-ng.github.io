@@ -3,10 +3,10 @@ title: Date-related macros
 id: adm-temp-date-macro
 ---
 
-The macros related to the date of the message (for example: \${ISODATE},
-\${HOUR}, and so on) have three further variants each:
+The macros related to the date of the message (for example: ${ISODATE},
+${HOUR}, and so on) have three further variants each:
 
-- S\_ prefix, for example, \${S\_DATE}: The \${S\_DATE} macro
+- S_ prefix, for example, ${S_DATE}: The ${S_DATE} macro
     represents the date found in the log message, that is, when the
     message was sent by the original application.
 
@@ -15,14 +15,14 @@ The macros related to the date of the message (for example: \${ISODATE},
     (this is the default behavior of syslog-ng OSE).
     {: .notice--warning}
 
-- R\_ prefix, for example, \${R\_DATE}: \${R\_DATE} is the date when
+- R_ prefix, for example, ${R_DATE}: ${R_DATE} is the date when
     syslog-ng OSE has received the message.
 
-- C\_ prefix, for example, \${C\_DATE}: \${C\_DATE} is the current
+- C_ prefix, for example, ${C_DATE}: ${C_DATE} is the current
     date, that is when syslog-ng OSE processes the message and resolves
     the macro.
 
-The \${DATE} macro equals the \${S\_DATE} macro.
+The ${DATE} macro equals the ${S_DATE} macro.
 
 The values of the date-related macros are calculated using the original
 timezone information of the message. To convert it to a different
@@ -55,11 +55,11 @@ macros (macros MSEC and USEC are not changed):
 
 - MONTH
 
-- MONTH\_ABBREV
+- MONTH_ABBREV
 
-- MONTH\_NAME
+- MONTH_NAME
 
-- MONTH\_WEEK
+- MONTH_WEEK
 
 - SEC
 
@@ -73,12 +73,12 @@ macros (macros MSEC and USEC are not changed):
 
 - WEEK
 
-- WEEK\_DAY
+- WEEK_DAY
 
-- WEEK\_DAY\_ABBREV
+- WEEK_DAY_ABBREV
 
-- WEEK\_DAY\_NAME
+- WEEK_DAY_NAME
 
 - YEAR
 
-- YEAR\_DAY
+- YEAR_DAY

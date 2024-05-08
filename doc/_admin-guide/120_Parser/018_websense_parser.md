@@ -21,11 +21,11 @@ If you find a message that the websense-parser() cannot properly parse,
 [contact Support](https://www.syslog-ng.com/support/), so we can improve
 the parser.
 
-The syslog-ng OSE application sets the \${PROGRAM} field to Websense.
+The syslog-ng OSE application sets the ${PROGRAM} field to Websense.
 
 By default, the websense-specific fields are extracted into name-value
 pairs prefixed with .websense. For example, the product\_version in the
-previous message becomes \${.websense.product\_version}. You can change
+previous message becomes ${.websense.product\_version}. You can change
 the prefix using the **prefix** option of the parser.
 
 **Declaration**

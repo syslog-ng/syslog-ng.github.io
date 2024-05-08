@@ -70,7 +70,7 @@ that the message is formatted in markdown style.
 ## template()
 
 |  Type:     | string|
-|  Default:  | \${MESSAGE} \\\")
+|  Default:  | ${MESSAGE} \\\")
 
 *Description:* Specifies the content of the message. The syslog-ng OSE
 application will automatically encode the content of this option using

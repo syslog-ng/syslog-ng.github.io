@@ -44,7 +44,7 @@ Note the following points when using globbing in the selector:
 - In debug mode, syslog-ng OSE sends log messages to its internal()
     destination to help troubleshooting. For example:
 
-    >[2019-09-21T06:01:10.748237] add-contextual-data(): Evaluating glob against message; glob-template='$PROGRAM', string='postfix/smtpd', pattern='example-glob-entry1*', matched='0'
-    >[2019-09-21T06:01:10.748562] add-contextual-data(): Evaluating glob against message; glob-template='$PROGRAM', string='postfix/smtpd', pattern='example-glob-entry2*', matched='0'
-    >[2019-09-21T06:01:10.748697] add-contextual-data(): Evaluating glob against message; glob-template='$PROGRAM', string='postfix/smtpd', pattern='postfix*', matched='1'
+    >[2019-09-21T06:01:10.748237] add-contextual-data(): Evaluating glob against message; glob-template='${PROGRAM}', string='postfix/smtpd', pattern='example-glob-entry1*', matched='0'
+    >[2019-09-21T06:01:10.748562] add-contextual-data(): Evaluating glob against message; glob-template='${PROGRAM}', string='postfix/smtpd', pattern='example-glob-entry2*', matched='0'
+    >[2019-09-21T06:01:10.748697] add-contextual-data(): Evaluating glob against message; glob-template='${PROGRAM}', string='postfix/smtpd', pattern='postfix*', matched='1'
     >[2019-09-21T06:01:10.750084] add-contextual-data(): message lookup finished; message='almafa', resolved_selector='postfix*', selector='postfix*', msg='0x8e15320'

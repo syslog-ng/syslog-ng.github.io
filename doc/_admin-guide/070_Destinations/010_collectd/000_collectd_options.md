@@ -18,7 +18,7 @@ the underlying unix-stream() driver (for example, socket buffer size).
 ## host()
 
 |Type:| string, macro, or template|
-|Default:|   \${HOST}|
+|Default:|   ${HOST}|
 
 *Description:* The hostname that is passed to collectd. By default,
 syslog-ng OSE uses the host from the log message as the hostname.

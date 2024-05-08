@@ -64,7 +64,7 @@ filter demo_filter { host("example") and match("deny" value("MESSAGE")); };
 
 The value() parameter of the match function limits the scope of the
 function to the text part of the message (that is, the part returned by
-the \${MESSAGE} macro), or optionally to the content of any other macro.
+the ${MESSAGE} macro), or optionally to the content of any other macro.
 The template() parameter of the match function can be used to run a
 filter against a combination of macros. For details on using the match()
 filter function, see [[match()]].  

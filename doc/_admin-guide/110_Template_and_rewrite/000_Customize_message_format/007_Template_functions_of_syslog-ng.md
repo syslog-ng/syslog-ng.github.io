@@ -13,8 +13,8 @@ description: >-
 [base64-encode](https://tools.ietf.org/html/rfc4648) strings and macros.
 The template function can receive multiple parameters (maximum 64). In
 this case, syslog-ng OSE joins the parameters into a single string and
-encodes this string. For example, \$(base64-encode string1 string2) is
-equivalent to \$(base64-encode string1string2).
+encodes this string. For example, $(base64-encode string1 string2) is
+equivalent to $(base64-encode string1string2).
 
 Available in syslog-ng OSE version 3.18 and later.
 
@@ -23,7 +23,7 @@ Available in syslog-ng OSE version 3.18 and later.
 |*Syntax:*|$(basename argument)|
 
 *Description:* Returns the filename from an argument (for example, a
-macro) that contains a filename with a path. For example, \$(basename
+macro) that contains a filename with a path. For example, $(basename
 \"/var/log/messages.log\") returns messages.log. To extract the path,
 use the dirname template function.
 
@@ -35,7 +35,7 @@ Available in syslog-ng OSE version 3.10 and later.
 
 *Description:* Returns the path (without the filename) from an argument
 (for example, a macro) that contains a filename with a path. For
-example, \$(dirname \"/var/log/messages.log\") returns /var/log path. To
+example, $(dirname \"/var/log/messages.log\") returns /var/log path. To
 extract the filename, use the basename template function.
 
 Available in syslog-ng OSE version 3.10 and later.
@@ -44,8 +44,8 @@ Available in syslog-ng OSE version 3.10 and later.
 
 |*Syntax:*|$(echo argument)|
 
-*Description:* Returns the value of its argument. Using \$(echo
-\${HOST}) is equivalent to \${HOST}.
+*Description:* Returns the value of its argument. Using $(echo
+${HOST}) is equivalent to ${HOST}.
 
 ## $(env)
 
@@ -114,7 +114,7 @@ template, you must escape the double-quotes).
 ```config
 $(format-cef-extension --scope syslog,all_macros,selected_macros \
     --exclude R_* --exclude S_* --key .SDATA.meta.sequenceId \
-    --pair MSGHDR=\"$PROGRAM[$PID]: \")
+    --pair MSGHDR=\"${PROGRAM}[${PID}]: \")
 ```
 
 The following example selects every value-pair that has a name beginning
@@ -190,7 +190,7 @@ format-flat-json template function.
 The following example shows the difference between nested and flattened
 JSON objects.
 
-- The output of \$(format-json a.b.c=1) is a nested JSON object
+- The output of $(format-json a.b.c=1) is a nested JSON object
     (whitespace added for better readability):
 
     ```json
@@ -203,7 +203,7 @@ JSON objects.
     }
     ```
 
-- The output of \$(format-flat-json a.b.c=1) is a flattened JSON
+- The output of $(format-flat-json a.b.c=1) is a flattened JSON
     object (whitespace added for better readability):
 
     ```json
@@ -260,7 +260,7 @@ template, you must escape the double-quotes).
 ```config
 $(format-json --scope syslog,all_macros,selected_macros \
     --exclude R_* --exclude S_* --key .SDATA.meta.sequenceId \
-    --pair MSGHDR=\"$PROGRAM[$PID]: \")
+    --pair MSGHDR=\"${PROGRAM}[${PID}]: \")
 ```
 
 The following example shows how to use this template function to store
@@ -317,7 +317,7 @@ template, you must escape the double-quotes).
 ```config
 $(format-welf --scope syslog,all_macros,selected_macros \
     --exclude R_* --exclude S_* --key .SDATA.meta.sequenceId \
-    --pair MSGHDR=\"$PROGRAM[$PID]: \")
+    --pair MSGHDR=\"${PROGRAM}[${PID}]: \")
 ```
 
 The following example shows how to use this template function to store
@@ -389,7 +389,7 @@ when correlating messages (for example, when you use a
 [[grouping-by parser|adm-cor-grouping-by]].
 The context-lookup template function requires a condition (a filter or a string),
 and returns a specific macro or template of the matching message (for
-example, the \${MESSAGE} field of the message).
+example, the ${MESSAGE} field of the message).
 
 ### Example: Using the grep template function
 
@@ -443,26 +443,26 @@ The following example calculates the SHA1 hash of the hostname of the
 message:
 
 ```config
-$(sha1 $HOST)
+$(sha1 ${HOST})
 ```
 
 The following example calculates the SHA256 hash of the hostname, using
 the salted string to salt the result:
 
 ```config
-$(sha1 $HOST salted)
+$(sha1 ${HOST} salted)
 ```
 
 To use shorter hashes, set the \--length:
 
 ```config
-$(sha1 --length 6 $HOST)
+$(sha1 --length 6 ${HOST})
 ```
 
 To replace the hostname with its hash, use a rewrite rule:
 
 ```config
-rewrite r_rewrite_hostname{set("$(sha1 $HOST)", value("HOST"));};
+rewrite r_rewrite_hostname{set("$(sha1 ${HOST})", value("HOST"));};
 ```
 
 {% include doc/admin-guide/examples/anon-ip.md %}
@@ -569,7 +569,7 @@ with zero, so the index of the first element is 0, the second element is
 
 *Description:* Returns a list and appends the values of the specified
 name-value pairs to the end of the list. You can also append elements to
-an empty list, for example, \$(list-append \'\' \'element-to-add\')
+an empty list, for example, $(list-append \'\' \'element-to-add\')
 
 ### $(list-concat)
 
@@ -579,10 +579,10 @@ The commas between the parameters are optional.
 
 *Description:* This template function creates (concatenates) a list of
 the values it receives as parameter. The values can be single values
-(for example, \${HOST}) or lists.
+(for example, ${HOST}) or lists.
 
-For example, the value of the \$(list-concat \${HOST}, \${PROGRAM},
-\${PID}) is a comma-separated list.
+For example, the value of the $(list-concat ${HOST}, ${PROGRAM},
+${PID}) is a comma-separated list.
 
 You can concatenate existing lists into a single list using:
 
@@ -607,7 +607,7 @@ $(list-concat ${list1} ${list2})
 |*Syntax:*|$(list-nth \<index-number\> ${list} )|
 
 *Description:* Returns the nth element of the list, unquoted. Note that
-the list index starts with zero, so (list-nth 1 \${list} ) returns the
+the list index starts with zero, so (list-nth 1 ${list} ) returns the
 second element, and so on.
 
 ### $(list-tail)
@@ -615,15 +615,15 @@ second element, and so on.
 |*Syntax:*|$(list-tail ${list} )|
 
 *Description:* Returns the list without the first element. For example,
-if the \${mylist} list contains the one, two, three elements, then
-\$(list-tail \${mylist} ) returns two, three.
+if the ${mylist} list contains the one, two, three elements, then
+$(list-tail ${mylist} ) returns two, three.
 
 ### $(list-slice)
 
 |*Syntax:*|$(list-slice \<from\>:\<to\> ${list} )|
 
 *Description:* Returns the specified subset of the list. Note that the
-list index starts with zero, for example, \$(list-slice 1:2 \${list} )
+list index starts with zero, for example, $(list-slice 1:2 ${list} )
 returns the second and third element of the list, and so on.
 
 You can omit the from or to index if you want to start the subset from
@@ -712,7 +712,7 @@ The default padding character is \' \' (space). For example:
 
 ### Example: Using the padding template function
 
-If the value of the \${MESSAGE} macro is mymessage, then the output of
+If the value of the ${MESSAGE} macro is mymessage, then the output of
 the padding() template function is the following:
 
 ```config
@@ -900,7 +900,7 @@ The function has the following options:
     foobar:
 
     ```config
-    $(sanitize -i @ $PROGRAM)
+    $(sanitize -i @ ${PROGRAM})
     ```
 
 - \--no-ctrl-chars or -C
@@ -917,7 +917,7 @@ The function has the following options:
     foo/bar becomes foo;bar:
 
     ```config
-    $(sanitize -r ; $PROGRAM)
+    $(sanitize -r ; ${PROGRAM})
     ```
 
 ### Example: Using the sanitize template function
@@ -926,11 +926,11 @@ The following example uses the sanitize function on two macros, and the
 results are used as directory names in a file destination.
 
 ```config
-file("/var/log/$(sanitize $HOST $PROGRAM)/messages");
+file("/var/log/$(sanitize ${HOST} ${PROGRAM})/messages");
 ```
 
-This is equivalent to file(\"/var/log/\$HOST/\$PROGRAM/messages\");, but
-any slashes in the values of the \$HOST and \$PROGRAM macros are
+This is equivalent to file(\"/var/log/${HOST}/${PROGRAM}/messages\");, but
+any slashes in the values of the ${HOST} and ${PROGRAM} macros are
 replaced with underscores.
 
 ## $(strip)
@@ -954,7 +954,7 @@ $(strip "${MESSAGE}" "${PROGRAM}")
 - argument
 
 - The string to extract the substring from, for example,
-    \"\${MESSAGE}\"
+    \"${MESSAGE}\"
 
 - offset
 
@@ -998,7 +998,7 @@ truncates the messages to 1023 characters:
 
 ```config
 template t_truncate_messages {
-    template("$(substr \"<$PRI>$DATE $HOST $MSGHDR$MESSAGE\" \"0\" \"1023\")\n");
+    template("$(substr \"<${PRI}>${DATE} ${HOST} ${MSGHDR}${MESSAGE}\" \"0\" \"1023\")\n");
     template-escape(no);
 };
 ```
@@ -1058,7 +1058,7 @@ Available in syslog-ng OSE 3.5 and later.
 |*Syntax:*|$(url-decode \<string-pr-macro-1\> \<string-pr-macro-2\> ... )|
 
 *Description:* You can use the url-decode template function to decode
-url-encoded strings and macros. For example, \$(url-decode %3C%3E)
+url-encoded strings and macros. For example, $(url-decode %3C%3E)
 yields \<\>. The url-decode can receive multiple parameters (maximum
 64). In this case, each parameter is decoded separately, and simply
 concatenated.
@@ -1102,7 +1102,7 @@ rewrite r_add_uuid { set("$(uuid)" value("MESSAGE_UUID")); };
 
 destination d_file {
     file ("/var/log/messages"
-            template("$MESSAGE_UUID $ISODATE $HOST $MSG\n")
+            template("${MESSAGE_UUID} ${ISODATE} ${HOST} ${MSG}\n")
             template-escape(no)
     );
 };

@@ -23,7 +23,7 @@ applications. The smtp() destination has the following options:
 the string. Use **\\n** to start a new line. For example:
 
 ```config
-body("syslog-ng OSE received the following alert from $HOST:\n$MSG")
+body("syslog-ng OSE received the following alert from ${HOST}:\n${MSG}")
 ```
 
 ## bcc()
@@ -92,7 +92,7 @@ one its value. The value of the header can contain macros. Set the
 **header** option multiple times to add multiple headers. For example:
 
 ```config
-header("X-Program", "$PROGRAM")
+header("X-Program", "${PROGRAM}")
 ```
 
 When using the header option, note the following points:
@@ -140,7 +140,7 @@ You can also use macros to set the value of this parameter.
 For example:
 
 ```config
-subject("[SYSLOG ALERT]: Critical error message received from $HOST")
+subject("[SYSLOG ALERT]: Critical error message received from ${HOST}")
 ```
 
 If you specify the subject() option multiple times, the last value will

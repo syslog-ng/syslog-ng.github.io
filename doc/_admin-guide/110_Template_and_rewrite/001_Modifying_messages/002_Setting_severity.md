@@ -5,7 +5,7 @@ id: adm-temp-severity
 description: >-
     It is possible to configure the severity field with the set-severity()
     rewrite function. When configured, the set-severity() rewrite function
-    will only rewrite the $SEVERITY field in the message to the first
+    will only rewrite the ${SEVERITY} field in the message to the first
     parameter value specified in the function.
 ---
 

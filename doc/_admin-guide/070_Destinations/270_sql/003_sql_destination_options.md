@@ -231,7 +231,7 @@ following sections.
 ## values()
 
 |  Type:  |    string list|
-|Default: |  \"\${R\_YEAR}-\${R\_MONTH}-\${R\_DAY}, \${R\_HOUR}:\${R\_MIN}:\${R\_SEC}\", \"\${FACILITY}\", \"\${LEVEL}\", \"\${HOST}\", \"\${PROGRAM}\", \"\${PID}\", \"\${MSGONLY}\"|
+|Default: |  "${R_YEAR}-${R_MONTH}-${R_DAY}, ${R_HOUR}:${R_MIN}:${R_SEC}", "${FACILITY}", "${LEVEL}", "${HOST}", "${PROGRAM}", "${PID}", "${MSGONLY}"|
 
 *Description:* The parts of the message to store in the fields specified
 in the columns() parameter.

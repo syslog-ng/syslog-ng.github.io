@@ -43,7 +43,7 @@ You can set the install location before the compilation process, just pass a
 $ ./autogen.sh
 $ mkdir build
 $ cd build
-$ ../configure --enable-debug --prefix=$HOME/install/syslog-ng
+$ ../configure --enable-debug --prefix=${HOME}/install/syslog-ng
 $ make
 $ make install
 ```

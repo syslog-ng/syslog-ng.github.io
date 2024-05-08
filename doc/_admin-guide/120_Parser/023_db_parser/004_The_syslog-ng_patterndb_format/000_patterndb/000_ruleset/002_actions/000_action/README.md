@@ -19,10 +19,10 @@ when a message matching the rule is received.
     only if the message matches the filter. The filter can include
     macros and name-value pairs extracted from the message. When using
     actions together with message-correlation, you can also use the
-    **\$(context-length)** macro, which returns the number of messages
+    **$(context-length)** macro, which returns the number of messages
     in the current context. For example, this can be used to determine
     if the expected number of messages has arrived to the context:
-    condition=\'\"\$(context-length)\" \>= \"5\"\'
+    condition=\'\"$(context-length)\" \>= \"5\"\'
 
 - *rate*: Specifies maximum how many messages should be generated in
     the specified time period in the following format:
@@ -150,7 +150,7 @@ they will override the values of the original message.
 ### Example: Generating messages with inherited values
 
 The following action generates a message that is identical to the
-original message, but its \$PROGRAM field is set to
+original message, but its ${PROGRAM} field is set to
 overriding-original-program-name
 
 ```xml

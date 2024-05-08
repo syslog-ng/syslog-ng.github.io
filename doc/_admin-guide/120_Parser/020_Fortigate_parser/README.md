@@ -22,7 +22,7 @@ the parser.
 
 By default, the Fortigate-specific fields are extracted into name-value
 pairs prefixed with .fortigate. For example, the devname in the previous
-message becomes \${.fortigate.devname}. You can change the prefix using
+message becomes ${.fortigate.devname}. You can change the prefix using
 the prefix option of the parser.
 
 **Declaration**

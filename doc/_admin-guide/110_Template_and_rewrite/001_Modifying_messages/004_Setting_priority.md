@@ -30,7 +30,7 @@ parameter, for example:
 
 - set-pri(\"42\");
 
-- set-pri(\"\$.json.priority\");
+- set-pri(\"$.json.priority\");
 
 ## Accepted values
 
