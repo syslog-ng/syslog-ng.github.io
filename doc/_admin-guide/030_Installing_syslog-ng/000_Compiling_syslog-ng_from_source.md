@@ -47,13 +47,13 @@ and other platforms, see [syslog-ng Open Source Edition installation packages](h
         - Install [gradle](https://gradle.org/install) version 2.2.1
             or newer.
 
-        - Set **LD\_LIBRARY\_PATH** to include the libjvm.so file, for
-            example:LD\_LIBRARY\_PATH=/usr/lib/jvm/java-7-openjdk-amd64/jre/lib/amd64/server:$LD\_LIBRARY\_PATH
+        - Set **LD_LIBRARY_PATH** to include the libjvm.so file, for
+            example:LD_LIBRARY_PATH=/usr/lib/jvm/java-7-openjdk-amd64/jre/lib/amd64/server:$LD_LIBRARY_PATH
 
             Note that many platforms have a simplified links for Java
             libraries. Use the simplified path if available. If you use
             a startup script to start syslog-ng OSE set
-            **LD\_LIBRARY\_PATH** in the script as well.
+            **LD_LIBRARY_PATH** in the script as well.
 
         - If you are behind an HTTP proxy, create a gradle.properties
             under the modules/java-modules/ directory. Set the proxy
