@@ -132,3 +132,13 @@ ietf-syslog-proto:
   id: ietf-syslog-proto
   url: https://tools.ietf.org/html/rfc5424
   title: [ "new syslog (IETF-syslog) protocol" ]
+
+lunr-site:
+  id: lunr-site
+  url: https://lunrjs.com
+  title: [ "Lunar site" ]
+
+lunr-search-help:
+  id: lunr-search-help
+  url: https://lunrjs.com/guides/searching.html
+  title: [ "Lunar search help" ]

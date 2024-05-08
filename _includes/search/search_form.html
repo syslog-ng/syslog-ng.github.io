@@ -7,6 +7,7 @@
       {{ site.data.ui-text[site.locale].search_label_text | default: 'Enter your search term...' }}
     </label>
     <input type="search" id="search" class="search-input" tabindex="-1" placeholder="{{ site.data.ui-text[site.locale].search_placeholder_text | default: 'Enter your search term...' }}" />
+    <a class="search-help content-tooltip full-content-tooltip nav-link" href="/lunr_search_help.html">[ Hover or click for search help ]</a>
   </form>
   <div id="results" class="results"></div>
   {%- when "google" -%}
