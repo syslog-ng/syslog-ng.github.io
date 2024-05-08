@@ -289,7 +289,7 @@ module Jekyll
           end
           _, aliases = alias_data.first
           page_link_data["title"] = aliases.concat(page_link_data["title"])
-          puts "page_link_data: #{page_link_data}"
+          #puts "page_link_data: #{page_link_data}"
         end
 
         # Just for debugging
