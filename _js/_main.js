@@ -7,31 +7,6 @@ $(function () {
   $("#main").fitVids();
 
   // -------------
-  // Sticky sidebar
-  // -------------
-
-  var initiallySticky = $(".sidebar").hasClass("sticky");
-  var stickySideBar = function () {
-    var show =
-      $(".author__urls-wrapper").find("button").length === 0
-        ? $(window).width() > 1024 // width should match $large Sass variable
-        : !$(".author__urls-wrapper").find("button").is(":visible");
-    if (show) {
-      if (initiallySticky) {
-        $(".sidebar").addClass("sticky");
-      }
-    } else {
-      $(".sidebar").removeClass("sticky");
-    }
-  };
-
-  stickySideBar();
-
-  $(window).resize(function () {
-    stickySideBar();
-  });
-
-  // -------------
   // Follow menu drop down
   // -------------
 
@@ -39,44 +14,6 @@ $(function () {
     $(".author__urls").toggleClass("is--visible");
     $(".author__urls-wrapper").find("button").toggleClass("open");
   });
-
-  // -------------
-  // Search
-  // -------------
-
-  // Close search screen with Esc key or toggle with predefined hotKey
-  $(document).keyup(function (event) {
-    // Define the desired hotkey (in this case, Ctrl + Shift + F)
-    var searchHotkey = { ctrlKey: true, shiftKey: true, key: 'F' };
-
-    if (event.keyCode === 27) {
-      if ($(".initial-content").hasClass("is--hidden"))
-        toggleSearch();
-    }
-    else if (event.ctrlKey === searchHotkey.ctrlKey &&
-             event.shiftKey === searchHotkey.shiftKey &&
-             event.key === searchHotkey.key) {
-      toggleSearch();
-    }
-  });
-
-  function toggleSearch() {
-    $(".search-content").toggleClass("is--visible");
-    $(".initial-content").toggleClass("is--hidden");
-
-    if ($(".initial-content").hasClass("is--hidden")) {
-      // set focus on input
-      setTimeout(function () {
-        $(".search-content").find("input").focus();
-      }, 400);
-    }
-    else {
-      // set focus back to the initial content otherwise the focus will not get back to the search input once again
-      $(".initial-content").find("input").focus();
-    }
-  }
-
-  $(".search__toggle").on("click", toggleSearch);
 
   // -------------
   // Magnific-Popup
