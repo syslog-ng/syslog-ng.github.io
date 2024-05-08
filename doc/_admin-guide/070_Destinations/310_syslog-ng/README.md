@@ -7,7 +7,7 @@ description: >-
     syslog-ng node in EWMM format.
 ---
 
-The [[Enterprise-wide message model (EWMM)]] 
+The [[Enterprise-wide message model (EWMM)]]
 allows you to deliver structured messages from the initial
 receiving syslog-ng component right up to the central log server,
 through any number of hops. It does not matter if you parse the messages
@@ -18,11 +18,12 @@ component in your infrastructure has received it, which is important if
 you want to forward a message for example, to a SIEM system. To make use
 of the enterprise-wide message model, you have to use the syslog-ng()
 destination on the sender side, and the
-[[default-network-drivers() source]] on the receiver side.
+[[default-network-drivers() source|adm-src-def-netw]]
+on the receiver side.
 
 The syslog-ng() destination driver is available in version 3.16 and
 later. The node that receives this message must use the
-[[default-network-drivers() source]]
+[[default-network-drivers() source|adm-src-def-netw]]
 to properly handle the messages.
 
 The following is a sample log message in EWMM format.

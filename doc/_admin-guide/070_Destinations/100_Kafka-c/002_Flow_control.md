@@ -18,4 +18,4 @@ You can specify a "high water mark" limit for the Kafka client in the
 properties-file().
 
 For more information about how the C implementation of the kafka()
-destination works with syslog-ng OSE, click [[here]].
+destination works with syslog-ng OSE, click [[here|adm-dest-kafkac]].

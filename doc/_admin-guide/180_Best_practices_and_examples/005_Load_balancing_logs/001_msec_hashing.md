@@ -11,14 +11,14 @@ description: >-
 ![]({{ site.baseurl}}/assets/images/caution.png) **CAUTION:**
 Consider that network-load-balancer() is not a destination, only a script that
 generates the example configuration described in
-[[Load balancing with round robin]].
+[[Load balancing with round robin|adm-pract-round-robin]].
 Also consider that the configuration generator script may change incompatibly
 in the future. As a result, One Identity does not officially support using
 this script, and recommends that you only use this script at your own risk.
 {: .notice--warning}
 
 As an alternative to using the example configuration described in
-[[Load balancing with round robin]], a
+[[Load balancing with round robin|adm-pract-round-robin]], a
 configuration generator script is also available in syslog-ng OSE:
 
 ```config
