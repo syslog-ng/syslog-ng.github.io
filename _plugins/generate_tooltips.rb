@@ -126,7 +126,7 @@ module Jekyll
 
               # Search for known link titles
               # NOTE: Using multi line matching here will not help either if the pattern itself is in the middle broken/spaned to multiple lines, so using whitespace replacements now inside the patter to handle this, see above!
-              full_pattern = /(^|[\s.,;:&'(])(#{pattern})([\s.,;:&')]|\z)(?![^<]*?<\/a>)/
+			  full_pattern = /(^|[\s.,;:&'"\-(])(#{pattern})([\s.,;:&'"\-)]|\z)(?![^<]*?<\/a>)/
               markdown_part = process_markdown_part(page, markdown_part, page_links, full_pattern, id, url, needs_tooltip, true)
             else
               # Content inside of special Markdown blocks
