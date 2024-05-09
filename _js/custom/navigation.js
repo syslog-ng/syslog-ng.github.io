@@ -504,7 +504,7 @@ $(function () {
       });
     });
 
-    document.addEventListener('mousemove', (event) => {
+    document.addEventListener('mousemove', function (event) {
       if (shouldHideTooltip(event.target)) {
         if (tooltipTarget)
           hideTooltip(true);
@@ -515,7 +515,7 @@ $(function () {
       }
     });
 
-    document.addEventListener('scroll', (event) => {
+    document.addEventListener('scroll', function (event) {
       if (elementUnderCursor == null || shouldHideTooltip(elementUnderCursor)) {
         if (tooltipTarget)
           hideTooltip(true);
