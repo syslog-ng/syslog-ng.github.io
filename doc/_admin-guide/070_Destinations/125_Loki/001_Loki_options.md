@@ -3,7 +3,7 @@ title: loki() destination options
 id: adm-dest-loki-opt
 ---
 
-The `loki()` driver sends messages to a Loki Grafna database and has the following options:
+The `loki()` driver sends messages to a Loki Grafana database and has the following options:
 
 ## auth()
 
@@ -13,7 +13,7 @@ The following sub-options are available for `auth()`.
 
 ### adc()
 
-This option is an authentication method that is only available for destinations. For more information, see [Application Default Credentials](https://cloud.google.com/docs/authentication/application-default-credentials).
+This option is an authentication method that is only available for destinations. For more information, see Application Default Credentials.
 
 ### alts()
 
@@ -82,15 +82,15 @@ labels(
 
 ## template()
 
-|  Type:|     template or template-function|
-|Default:| $ISODATE $HOST $MSGHDR$MSG|
+|   Type:|       template or template-function|
+|Default:| ${ISODATE} ${HOST} ${MSGHDR} ${MSG}|
 
 *Description:* This option specifies a template that defines the logformat to be used in the destination. For more information on macros and template functions, see Macros of syslog-ng OSE and Template functions of syslog-ng OSE.
 
 ## tenant-id()
 
-|  Type:|     string|
-|Default:| -|
+|   Type:|     string|
+|Default:|           |
 
 Available in syslog-ng OSE 4.7 and later versions.
 
@@ -112,8 +112,8 @@ loki(
 
 ## timestamp()
 
-|  Type:|     `current`, `received`, `msg`|
-|Default:| current|
+|   Type:|     `current`, `received`, `msg`|
+|Default:|                        `current`|
 
 *Description:* This option sets the timestamp type to be used for messages sent to a Loki destination.
 
@@ -128,7 +128,7 @@ The timestamp types are the following.
 
 ## url()
 
-|  Type:|     string|
+|   Type:|         string|
 |Default:| localhost:9095|
 
 *Description:* This option specifies the URL of the Loki endpoint.
