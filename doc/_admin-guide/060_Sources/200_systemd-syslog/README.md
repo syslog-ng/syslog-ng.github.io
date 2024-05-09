@@ -10,7 +10,7 @@ description: >-
 Note the following points about this driver:
 
 - If possible, use the more reliable
-    [[systemd-journal()]] driver instead.
+    [[systemd-journal() driver|adm-src-systemd-journal]] instead.
 
 - The socket activation of systemd is buggy, causing some log messages
     to get lost during system startup.

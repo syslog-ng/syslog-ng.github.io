@@ -222,7 +222,7 @@ source s_example {
 ### Example: Using arguments in blocks
 
 The following example is the code of the
-[[pacct() source driver]], which is actually a block that
+[[pacct() source driver|adm-src-pacct]], which is actually a block that
 can optionally receive two arguments.
 
 ```config
