@@ -57,6 +57,8 @@ function getCookie(name) {
   return null;
 }
 
+
+
 $(document).ready(function() {
 
   // Function to restore input field value from cookie
@@ -81,20 +83,26 @@ $(document).ready(function() {
     var resultdiv = $('#results');
     var searchInput = document.getElementById('search');
     var query = searchInput.value.toLowerCase();
-    var result =
-      idx.query(function (q) {
-        query.split(lunr.tokenizer.separator).forEach(function (term) {
-          q.term(term, { boost: 100 })
-          if (query.lastIndexOf(" ") != query.length - 1) {
-            q.term(term, { usePipeline: false, wildcard: lunr.Query.wildcard.TRAILING, boost: 10 })
-          }
-          if (term != "") {
-            q.term(term, { usePipeline: false, editDistance: 1, boost: 1 })
-          }
-        })
-      });
+    var result = query !== '' ? idx.search(query) : [];
+    // NOTE: Turned off this Minimal Mistakes version, as
+    //    - we want to support the original search expressions
+    //    - seems the original version gives much natural results
+    //
+    // var result = idx.query(function (q) {
+    //   query.split(lunr.tokenizer.separator).forEach(function (term) {
+    //     q.term(term, { boost: 100 })
+    //     if (query.lastIndexOf(" ") != query.length - 1) {
+    //       q.term(term, { usePipeline: false, wildcard: lunr.Query.wildcard.TRAILING, boost: 10 })
+    //     }
+    //     if (term != "") {
+    //       q.term(term, { usePipeline: false, editDistance: 1, boost: 1 })
+    //     }
+    //   })
+    // });
+
     resultdiv.empty();
-    resultdiv.prepend('<p class="results__found">' + result.length + ' {{ site.data.ui-text[site.locale].results_found | default: "Result(s) found" }}</p>');
+    if (query !== '')
+      resultdiv.prepend('<p class="results__found">' + result.length + ' {{ site.data.ui-text[site.locale].results_found | default: "Result(s) found" }}</p>');
     for (var item in result) {
       var ref = result[item].ref;
       if (store[ref].teaser) {
