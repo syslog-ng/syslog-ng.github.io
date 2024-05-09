@@ -9,8 +9,7 @@ description: >-
 - You can install syslog-ng OSE on many platforms using the package
     manager and official repositories of the platform. For a list of
     third-party packages available for various Linux, UNIX, and other
-    platforms, see [syslog-ng Open Source Edition installation
-    packages](https://www.syslog-ng.com/products/open-source-log-management/3rd-party-binaries.aspx).
+    platforms, see syslog-ng Open Source Edition installation packages.
 
 - For instructions on compiling syslog-ng Open Source Edition from the
     source code, see [[Compiling syslog-ng from source]]

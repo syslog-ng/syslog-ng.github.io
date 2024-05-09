@@ -58,6 +58,11 @@ sn-prod-binaries-dl:
   url: https://www.syslog-ng.com/products/open-source-log-management/3rd-party-binaries.aspx
   title: [ "syslog-ng Open Source Edition installation packages" ]
 
+sn-blogs:
+  id: sn-blogs
+  url: https://syslog-ng.com/blog/
+  title: [ "syslog-ng blogs" ]
+
 mm-javascripts:
   id: mm-javascripts
   url: https://mmistakes.github.io/minimal-mistakes/docs/javascript/
