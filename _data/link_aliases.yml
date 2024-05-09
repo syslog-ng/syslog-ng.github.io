@@ -88,3 +88,6 @@ adm-temp-macro-ose#week_day_name-c_week_day_name-r_week_day_name-s_week_day_name
 
 adm-temp-macro-ose#year-c_year-r_year-s_year:
   aliases: [ "${YEAR}", "${C_YEAR}", "${R_YEAR}", "${S_YEAR}" ]
+
+adm-temp-macro-ose#year-c_year-r_year-s_year:
+  aliases: [ "[Ff]ully-qualified domain name", "FQDN" ]
