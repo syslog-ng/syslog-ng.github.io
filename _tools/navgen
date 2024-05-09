@@ -186,7 +186,7 @@ gen_navigation()
     > "${OUTPUT_FILE}"
     add_warning_header "${OUTPUT_FILE}"
 
-    for DOC_PROJECT_ITEM in $(find -L "${DOC_FOLDER}" -mindepth 1 -maxdepth 1 -type d | sort); do
+    for DOC_PROJECT_ITEM in $(find -L "${DOC_FOLDER}" -mindepth 1 -maxdepth 1 -type d -and -not -name "site-internal" | sort); do
         START_DIR=$(trim_trailing_slashes "${DOC_PROJECT_ITEM}")
         ROOT_DIR_NAME=$(basename "${START_DIR}")
         [ "${REMOVE_UNDERLINE_FROM_DOC_DIR_NAMES}x" != "x" ] && ROOT_DIR_NAME=${ROOT_DIR_NAME#_}

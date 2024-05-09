@@ -289,7 +289,7 @@ module Jekyll
           end
           _, aliases = alias_data.first
           page_link_data["title"] = aliases.concat(page_link_data["title"])
-          puts "page_link_data: #{page_link_data}"
+          #puts "page_link_data: #{page_link_data}"
         end
 
         # Just for debugging
@@ -432,7 +432,7 @@ Jekyll::Hooks.register :site, :pre_render do |site|
   if $JekyllTooltipGen_markdown_extensions == nil
     $JekyllTooltipGen_markdown_extensions = site.config['markdown_ext'].split(',').map { |ext| ".#{ext.strip}" }
     # Skip shorter than 3 letter long (e.g. Glossary header) anchor items (for testing: https://rubular.com/)
-    $JekyllTooltipGen_page_links = Jekyll::TooltipGen.gen_page_link_data(JekyllTooltipGen_links_folder, /\/(adm|dev|doc)-(([^#]+)|(.*\#{1}.{3,}))\.yml\z/)   # /\/(adm|dev|doc)-(([^#]+)|(.*\#{1}.{3,}))\.yml\z/       'adm-temp-macro-ose#message.yml'
+    $JekyllTooltipGen_page_links = Jekyll::TooltipGen.gen_page_link_data(JekyllTooltipGen_links_folder, /\/(adm|dev|doc|site)-(([^#]+)|(.*\#{1}.{3,}))\.yml\z/)   # /\/(adm|dev|doc)-(([^#]+)|(.*\#{1}.{3,}))\.yml\z/       'adm-temp-macro-ose#message.yml'
     # Sort the $JekyllTooltipGen_page_links dictionary keys based on the "title" values in reverse order case insensitive
     $JekyllTooltipGen_page_links_ids_sorted_by_title = Jekyll::TooltipGen.page_links_ids_sorted_by_title($JekyllTooltipGen_page_links)
     # Create $JekyllTooltipGen_nav_links dictionary using "url" as key and add nav_ndx to all items based on we can adjust navigation order (in page_pagination.html)

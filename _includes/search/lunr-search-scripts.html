@@ -1,10 +1,16 @@
-{% assign lang = site.locale | slice: 0,2 | default: "en" %}
+{% comment %}
+<!-- {% assign lang = site.locale | slice: 0,2 | default: "en" %}
+
+  NOTE: currently only EN is supported
+
 {% case lang %}
 {% when "gr" %}
   {% assign lang = "gr" %}
 {% else %}
   {% assign lang = "en" %}
-{% endcase %}
+{% endcase %} -->
+{% endcomment %}
+{% assign lang = "en" %}
 <script src="{{ '/assets/js/lunr/lunr.min.js' | relative_url }}"></script>
 <script src="{{ '/assets/js/lunr/lunr-store.js' | relative_url }}"></script>
 <script src="{{ '/assets/js/lunr/lunr-' | append: lang | append: '.js' | relative_url }}"></script>

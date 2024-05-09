@@ -733,7 +733,7 @@
 }
 
 /*
-  Tootltip content navigation
+  Tooltip content navigation
   ========================================================================== */
 
 // @font-face {
@@ -767,6 +767,15 @@
   }
   @include breakpoint($x-large) {
     max-width: $right-sidebar-width + 125px;
+  }
+  &.full-content-tooltip {
+    max-width: 400px;
+    @include breakpoint($large) {
+      max-width: 2 * $right-sidebar-width-narrow + 100px;
+    }
+    @include breakpoint($x-large) {
+      max-width: 2 * $right-sidebar-width + 125px;
+    }
   }
   height: auto;
   

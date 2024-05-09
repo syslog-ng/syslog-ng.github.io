@@ -164,13 +164,14 @@ defaults:
 
 # Search settings
 search: true
+# Setting search_full_content to true could impact page load performance!
 search_full_content: true
 
 search_provider: lunr
 lunr:
-  search_within_pages: true
-  # Setting search_full_content to true could impact page load performance!
-  search_full_content: true
+  # No we have all the valuable content in collections
+  # Standalone pages like, sitemap.xml, 404, etc. should not be searched
+  search_within_pages: false
 
 # search_provider: algolia
 # algolia:
