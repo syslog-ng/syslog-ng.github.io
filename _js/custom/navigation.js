@@ -495,6 +495,11 @@ $(function () {
     document.addEventListener("mouseover", function (event) {
       elementUnderCursor = event.target;
     });
+
+    window.addEventListener('blur', function () {
+      if (tooltipTarget)
+        hideTooltip(true);
+    });
   }
 
   // -------------
