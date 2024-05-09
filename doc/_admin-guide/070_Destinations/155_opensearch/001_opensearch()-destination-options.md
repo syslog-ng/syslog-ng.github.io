@@ -13,12 +13,12 @@ This destination is available in syslog-ng OSE version 4.4 and later versions.
 {% include doc/admin-guide/options/batch-lines.md %}
 
 For details on how this option influences batch mode, see
-[[Batch mode and load balancing]]
+Batch mode and load balancing with OpenSearch.
 
 {% include doc/admin-guide/options/batch-timeout.md %}
 
 For details on how this option influences batch mode, see
-[[Batch mode and load balancing]]
+Batch mode and load balancing with OpenSearch.
 
 {% include doc/admin-guide/options/ca-dir.md %}
 
@@ -37,7 +37,7 @@ For details on how this option influences batch mode, see
 
 {% include doc/admin-guide/options/delimiter.md %}
 
-For details on how this option influences batch mode, see [[Batch mode and load balancing]].
+For details on how this option influences batch mode, see Batch mode and load balancing with OpenSearch.
 
 {% include doc/admin-guide/options/disk-buffer.md %}
 

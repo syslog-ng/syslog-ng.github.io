@@ -30,8 +30,7 @@ for the changes to take effect.
     authentication.
 
 - You have a keytab file and a principal for the host running
-    syslog-ng OSE. For details, see the [Kerberos
-    documentation](http://web.mit.edu/Kerberos/krb5-1.5/krb5-1.5.4/doc/krb5-install/The-Keytab-File.html).
+    syslog-ng OSE. For details, see the [Kerberos documentation](http://web.mit.edu/Kerberos/krb5-1.5/krb5-1.5.4/doc/krb5-install/The-Keytab-File.html).
 
 - You have installed and configured the Kerberos client packages on
     the host running syslog-ng OSE. (That is, Kerberos authentication
