@@ -36,7 +36,7 @@ description: >-
     options for more-detailed log messages. You can enable these
     messages without restarting syslog-ng using the **syslog-ng-ctl
     verbose \--set=on** command. For details, see the syslog-ng-ctl man
-    page at [[The syslog-ng control tool manual page]].
+    page at The syslog-ng control tool manual page.
 
 - Build up encrypted connections step-by-step. First create a working,
     unencrypted (for example, TCP) connection, then add TLS encryption,
@@ -47,7 +47,7 @@ description: >-
     everything should work as expected. Unfortunately, there are some
     other combinations, that may seem to work, but result in losing
     parts of the messages. For details on the working combinations, see
-    [[Things to consider when forwarding messages between syslog-ng OSE hosts]].
+    Things to consider when forwarding messages between syslog-ng OSE hosts.
 
 - In case you experience a problem that is not covered in this guide,
     send it to our [mailing list](https://lists.balabit.hu/mailman/listinfo/syslog-ng/).

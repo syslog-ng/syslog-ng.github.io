@@ -31,7 +31,7 @@ N/A
     When used together with message correlation, the \<value\> element
     of name-value pairs can include references to the values of earlier
     messages from the same context. For details, see
-    [[Correlating log messages using pattern databases]].
+    Correlating log messages using pattern databases.
 
 - *name*: The name of the name-value pair. It can also be used as a
     macro to reference the assigned value.

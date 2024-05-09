@@ -72,8 +72,8 @@ the selector() option.
 - A single macro (for example, selector(\"${HOST}\"))
 
 - To use filters as selectors, see
-    [[Using filters as selector]].
+    Using filters as selector.
 - To use shell-style globbing (wildcards) in selectors, see
-    [[Shell-style globbing in the selector]].
+    Shell-style globbing in the selector.
 
 - Using templates as selectors is not supported.

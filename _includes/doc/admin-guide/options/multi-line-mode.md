@@ -3,7 +3,7 @@
 | Type:  |  indented \| regexp|
 |Default: |  empty string|
 
-*Description:* Use the [[multi-line-mode()]] option when processing
+*Description:* Use the multi-line-mode() option when processing
 multi-line messages. The syslog-ng OSE application provides the
 following methods to process multi-line messages:
 

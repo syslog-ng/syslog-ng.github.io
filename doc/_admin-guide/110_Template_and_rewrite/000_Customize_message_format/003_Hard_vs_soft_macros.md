@@ -33,4 +33,4 @@ can be modified as well, just like stored matches of regular expressions
 
 Note that you can modify the timezone of the message, and change the
 timezone-related macros that way. For details, see
-[[Rewrite the timezone of a message]].
+Rewrite the timezone of a message.

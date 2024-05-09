@@ -111,7 +111,7 @@ The following output is generated:
 >[2017-09-04T13:20:27.417266] Setting value; msg='0x7f2fd8002df0', name='.xml.b', value='|Test\x0a\x0a   Test2|'
 
 However, note that users can choose to strip whitespaces using the
-[[Options of the XML parsers]] option.
+Options of the XML parsers option.
 
 ## Configuration hints
 

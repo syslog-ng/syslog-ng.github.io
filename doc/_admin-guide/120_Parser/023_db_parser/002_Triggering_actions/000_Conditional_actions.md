@@ -15,7 +15,7 @@ the message was sent by the host called myhost.
 ```
 
 You can use the same operators in the condition that can be used in
-filters. For details, see [[Comparing macro values in filters]].
+filters. For details, see Comparing macro values in filters.
 
 The following action can be used to log the length of an SSH session
 (the time difference between a login and a logout message in the

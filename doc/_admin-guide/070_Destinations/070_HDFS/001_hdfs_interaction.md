@@ -22,7 +22,7 @@ description: >-
     writes the message into the file. After the file is created,
     syslog-ng OSE will write all incoming messages into the hdfs
     destination.NOTE: When the
-    [[hdfs-append-enabled()]] option
+    hdfs-append-enabled() option
     is set to **true**, syslog-ng OSE will not assign a new UUID suffix
     to an existing file, because it is then possible to open a closed
     file and append data to that.NOTE:You cannot set when log messages

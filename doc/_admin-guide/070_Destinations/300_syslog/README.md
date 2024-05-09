@@ -17,7 +17,7 @@ The required arguments of the driver are the address of the destination
 host (where messages should be sent). The transport method (networking
 protocol) is optional, syslog-ng uses the TCP protocol by default. For
 the list of available optional parameters, see
-[[syslog() destination options]].
+syslog() destination options.
 
 **Declaration**
 
@@ -53,7 +53,7 @@ destination d_tcp { syslog("target_host" transport("tcp") port(1999) localport(9
 
 Send the log messages using TLS encryption and use mutual
 authentication. For details on the encryption and authentication
-options, see [[TLS options]].  
+options, see TLS options.  
 
 ```config
 destination d_syslog_tls {

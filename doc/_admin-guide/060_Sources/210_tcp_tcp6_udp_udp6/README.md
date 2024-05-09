@@ -18,4 +18,4 @@ protocols. The tcp6() and udp6() drivers use the IPv6 network protocol,
 while tcp() and udp() use IPv4.
 
 To convert your existing tcp(), tcp6(), udp(), udp6() source drivers to
-use the network() driver, see [[Change an old source driver to the network() driver]].
+use the network() driver, see Change an old source driver to the network() driver.

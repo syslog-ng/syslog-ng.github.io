@@ -35,7 +35,7 @@ rewrite <name_of_the_rule> {
 The type() and flags() options are optional. The type() specifies the
 type of regular expression to use, while the flags() are the flags of
 the regular expressions. For details on regular expressions, see
-[[Regular expressions]].
+Regular expressions.
 A single substitution rule can include multiple substitutions that are
 applied sequentially to the message. Note that rewriting rules must be
 included in the log statement to have any effect.

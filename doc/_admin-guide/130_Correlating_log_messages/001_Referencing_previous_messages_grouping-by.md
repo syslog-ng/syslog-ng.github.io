@@ -56,4 +56,4 @@ $(grep ("${username}" == "root") ${auth_method})
 ```
 
 To perform calculations on fields that have numerical values, see
-[[Numerical operations]].
+Numerical operations.

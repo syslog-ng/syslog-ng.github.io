@@ -2,7 +2,7 @@
 
 *Description:* Available only in syslog-ng Open Source Edition version
 3.17 and later. For details about how client-side failover works, see
-[[Client-side failover]].  
+Client-side failover.  
 
 ### servers()
 

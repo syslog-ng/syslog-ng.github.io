@@ -7,7 +7,7 @@ To configure syslog-ng on a relay host, complete the following steps:
 
 1. Install the syslog-ng application on the host. For details on
     installing syslog-ng on specific operating systems, see
-    [[Installing syslog-ng]].
+    Installing syslog-ng.
 2. Configure the network sources that collect the log messages sent by
     the clients.
 
@@ -24,7 +24,7 @@ To configure syslog-ng on a relay host, complete the following steps:
 
 7. Enable the keep-hostname() and disable the chain-hostnames()
     options. (For details on how these options work, see
-    [[chain-hostnames()]]
+    chain-hostnames()
 
     **NOTE:** It is recommended to use these options on your syslog-ng OSE
     server as well.

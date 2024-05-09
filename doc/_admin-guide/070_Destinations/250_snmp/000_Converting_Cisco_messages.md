@@ -76,7 +76,7 @@ version of the snmp() destination driver.
 
 **NOTE:** The cisco-snmp() driver is actually a reusable configuration
 snippet. For details on using or writing SCLs, see
-[[Reusing configuration blocks]].
+Reusing configuration blocks.
 The cisco-snmp() driver has the same requirements and options as the
 snmp() destination driver, but automatically fills the
 clogMessageGenerated-specific fields with the data received from parsing

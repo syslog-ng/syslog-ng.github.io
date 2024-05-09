@@ -35,7 +35,7 @@ characters. For example, the NUMBER parser matches on any integer or
 hexadecimal number (for example, 1, 123, 894054, 0xFFFF, and so on).
 Other pattern parsers match on various strings and IP addresses. For the
 details of available pattern parsers, see
-[[Using pattern parsers]].  
+Using pattern parsers.  
 The functionality of the pattern database is similar to that of the
 logcheck project, but it is much easier to write and maintain the
 patterns used by syslog-ng, than the regular expressions used by
@@ -60,4 +60,4 @@ A syslog-ng database pattern for this message: Accepted
 @QSTRING:client\_addr: @port @NUMBER:port:@ ssh2
 
 For details on using pattern databases to classify log messages, see
-[[Using pattern databases]].
+Using pattern databases.

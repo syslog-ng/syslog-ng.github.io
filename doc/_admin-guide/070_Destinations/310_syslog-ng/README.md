@@ -7,7 +7,7 @@ description: >-
     syslog-ng node in EWMM format.
 ---
 
-The [[Enterprise-wide message model (EWMM)]]
+The Enterprise-wide message model (EWMM)
 allows you to deliver structured messages from the initial
 receiving syslog-ng component right up to the central log server,
 through any number of hops. It does not matter if you parse the messages

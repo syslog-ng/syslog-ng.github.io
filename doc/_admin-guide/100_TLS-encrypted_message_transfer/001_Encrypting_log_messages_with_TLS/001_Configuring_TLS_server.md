@@ -85,9 +85,9 @@ Complete the following steps on the syslog-ng server:
 
     If you want to authenticate the clients, you have to configure
     mutual authentication. For details, see
-    [[Mutual authentication using TLS]].
+    Mutual authentication using TLS.
     For the details of the available tls() options, see
-    [[TLS options]].
+    TLS options.
 
     Example: Disabling mutual authentication
 

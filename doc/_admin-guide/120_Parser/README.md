@@ -20,50 +20,50 @@ parse the messages, or parts of the messages:
     To disable message parsing, use the **flags(no-parse)** option of
     the source. To explicitly parse a message as a syslog message, use
     the **syslog** parser. For details, see
-    [[Parsing syslog messages]].
+    Parsing syslog messages.
 - To segment a message into columns using a CSV-parser, see
-    [[Parsing messages with comma-separated and similar values]].
+    Parsing messages with comma-separated and similar values.
 
 - To segment a message consisting of whitespace or comma-separated
     key=value pairs (for example, Postfix log messages), see
     [[Parsing key=value pairs]].
-- To parse JSON-formatted messages, see [[JSON parser]].
+- To parse JSON-formatted messages, see JSON parser.
 
-- To parse XML-formatted messages, see [[XML parser]].
+- To parse XML-formatted messages, see XML parser.
 
 - To identify and parse the messages using a pattern database, see
     [[db-parser: Process message content with a pattern database (patterndb)]].
 
 - To parse a specially-formatted date or timestamp, see
-    [[Parsing dates and timestamps]].
+    Parsing dates and timestamps.
 - To write a custom parser in Python or Hy, see
-    [[Python parser]].
+    Python parser.
 - To parse the tags sent by another syslog-ng host. For details, see
-    [[Parsing tags]].
+    Parsing tags.
 
 The syslog-ng OSE application provides built-in parsers for the
 following application logs:
 
 - Apache HTTP server access logs. For details, see
-    [[Apache access log parser]].
-- Cisco devices. For details, see [[Cisco parser]]Cisco     parser.
+    Apache access log parser.
+- Cisco devices. For details, see Cisco parserCisco     parser.
 
 - Messages formatted using the enterprise-wide message model (EWMM) of
     syslog-ng OSE. For details, see
-    [[Parsing enterprise-wide message model (EWMM) messages]].
+    Parsing enterprise-wide message model (EWMM) messages.
 
-- Iptables logs. For details, see [[iptables parser]].
+- Iptables logs. For details, see iptables parser.
 
 - Linux Audit (auditd) logs. For details, see
-    [[Linux audit parser]].
+    Linux audit parser.
 - Netskope log messages. For details, see
-    [[Netskope parser]].
+    Netskope parser.
 - [osquery](https://osquery.io) result logs. For details, see
     [[osquery: Collect and parse osquery result logs]].
 
 - SNMP traps of the [Net-SNMP](http://www.net-snmp.org)\'s snmptrapd
     application. For details, see
     [[snmptrap: Read Net-SNMP traps]].
-- sudo logs. For details, see [[Sudo parser]].
+- sudo logs. For details, see Sudo parser.
 - Websense Content Gateway (Raytheon\|Websense, now Forcepoint) log
-    messages. For details, see [[Websense parser]].
+    messages. For details, see Websense parser.

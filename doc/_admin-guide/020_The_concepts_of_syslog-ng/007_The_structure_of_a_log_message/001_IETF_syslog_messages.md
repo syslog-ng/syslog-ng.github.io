@@ -84,7 +84,7 @@ The HEADER part contains the following elements:
 **NOTE:** The syslog-ng application supports other timestamp formats as
 well, like ISO, or the PIX extended format. The timestamp used in the
 IETF-syslog protocol is derived from RFC3339, which is based on ISO8601.
-For details, see the ts-format() option in [[Global options]].
+For details, see the ts-format() option in Global options.
 {: .notice--info}
 
 The syslog-ng OSE application will truncate the following fields:
@@ -109,7 +109,7 @@ counters or IP addresses. STRUCTURED-DATA consists of data blocks
 enclosed in brackets (*\[\]*). Every block includes the ID of the block,
 and one or more *name=value* pairs. The syslog-ng application
 automatically parses the STRUCTURED-DATA part of syslog messages, which
-can be referenced in macros (for details, see [[Macros of syslog-ng OSE]].
+can be referenced in macros (for details, see Macros of syslog-ng OSE.
 
 An example STRUCTURED-DATA block looks like:
 

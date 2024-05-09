@@ -5,7 +5,7 @@ id: adm-dest-discord
 description: >-
     The discord() destination driver sends messages to [Discord](https://discord.com/)
     using [Discord Webhook](https://discord.com/developers/docs/resources/webhook).
-    For the list of available optional parameters, see [[Discord destination options]].
+    For the list of available optional parameters, see Discord destination options.
 
     Available in syslog-ng OSE version 3.33 and later.
 ---

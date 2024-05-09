@@ -28,4 +28,4 @@ destination d_BSD {
 ```
 
 For details on the differences between normal and reliable disk-based
-buffering, see also [[About disk queue files]].
+buffering, see also About disk queue files.

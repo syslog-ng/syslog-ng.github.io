@@ -12,14 +12,14 @@ The destination filename may include macros which get expanded when the
 message is written, thus a simple file() driver may create several
 files: for example, syslog-ng OSE can store the messages of client hosts
 in a separate file for each host. For more information on available
-macros see [[Macros of syslog-ng OSE]].  
+macros see Macros of syslog-ng OSE.  
 If the expanded filename refers to a directory which does not exist, it
 will be created depending on the create-dirs() setting (both global and
 a per destination option).
 
 The file() has a single required parameter that specifies the filename
 that stores the log messages. For the list of available optional
-parameters, see [[file() destination options]].
+parameters, see file() destination options.
 
 **Declaration**
 

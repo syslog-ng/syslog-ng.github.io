@@ -83,7 +83,7 @@ This json parser parses log messages which use the \"@cee:\" marker in
 front of the json payload. It inserts \".cee.\" in front of the name of
 name-value pairs, so later on it is easier to find name-value pairs that
 were parsed using this parser. (For details on selecting name-value
-pairs, see [[value-pairs()]]
+pairs, see value-pairs()
 
 ```config
 parser {

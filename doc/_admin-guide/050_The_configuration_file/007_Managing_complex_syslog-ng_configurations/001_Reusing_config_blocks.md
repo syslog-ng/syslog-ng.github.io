@@ -114,7 +114,7 @@ configuration identical.
 If you want to reuse more than a single configuration object, for
 example, a logpath and the definitions of its sources and destinations,
 use the include feature to reuse the entire snippet. For details, see
-[[Including configuration files]].  
+Including configuration files.  
 
 ## Mandatory parameters
 

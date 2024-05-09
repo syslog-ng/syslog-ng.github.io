@@ -68,20 +68,20 @@ destination d_hdfs {
 ```
 
 - To install the software required for the hdfs destination, see
-    [[Prerequisites]].
+    Prerequisites.
 - For details on how the hdfs destination works, see
-    [[How syslog-ng OSE interacts with HDFS]].
+    How syslog-ng OSE interacts with HDFS.
 - For details on using MapR-FS, see
-    [[Storing messages with MapR-FS]].
+    Storing messages with MapR-FS.
 - For details on using Kerberos authentication, see
-    [[Kerberos authentication with syslog-ng hdfs() destination]].
+    Kerberos authentication with syslog-ng hdfs() destination.
 - For the list of options, see
-    [[HDFS destination options]].
+    HDFS destination options.
 
 The hdfs() driver is actually a reusable configuration snippet
 configured to receive log messages using the Java language-binding of
 syslog-ng OSE. For details on using or writing such configuration
-snippets, see [[Reusing configuration blocks]].
+snippets, see Reusing configuration blocks.
 You can find the source of the hdfs configuration snippet on
 [GitHub](https://github.com/syslog-ng/syslog-ng/blob/master/scl/hdfs/plugin.conf).
 For details on extending syslog-ng OSE in Java, see the [Getting started

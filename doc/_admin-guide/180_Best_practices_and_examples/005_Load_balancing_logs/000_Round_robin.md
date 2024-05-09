@@ -13,7 +13,7 @@ description: >-
 {: .notice--info}
 
 For more information about the R_MSEC macro and further macros of
-syslog-ng OSE, see [[Macros of syslog-ng OSE]].
+syslog-ng OSE, see Macros of syslog-ng OSE.
 
 ## Example: round robin load balancing between multiple destinations
 
@@ -62,4 +62,4 @@ any other syslog-ng OSE destinations).
 
 For an alternative method to use the round robin load balancing method
 based on the R_MSEC macro, see
-[[Configuration generator for the load balancing method based on MSEC hashing]].
+Configuration generator for the load balancing method based on MSEC hashing.

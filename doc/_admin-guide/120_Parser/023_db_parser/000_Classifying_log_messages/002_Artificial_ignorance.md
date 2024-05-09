@@ -25,4 +25,4 @@ required. The radix-tree matching method used for message classification
 is very effective, can be performed very fast, and scales very well.
 Basically the time required to perform a pattern matching is independent
 from the number of patterns in the database. For sample pattern
-databases, see [[Downloading sample pattern databases]].
+databases, see Downloading sample pattern databases.

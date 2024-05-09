@@ -8,9 +8,9 @@ description: >-
 ---
 
 - Disable DNS resolution, or resolve hostnames locally. For details,
-    see [[Using name resolution in syslog-ng]].
+    see Using name resolution in syslog-ng.
 - Enable flow-control for the TCP sources. For details, see
-    [[Managing incoming and outgoing messages with flow-control]].
+    Managing incoming and outgoing messages with flow-control.
 
 - Do not use the usertty() destination driver. Under heavy load, the
     users are not be able to read the messages from the console, and it
@@ -19,7 +19,7 @@ description: >-
 - Do not use regular expressions in our filters. Evaluating general
     regular expressions puts a high load on the CPU. Use simple filter
     functions and logical operators instead. For details, see
-    [[Regular expressions]].
+    Regular expressions.
 
 {% include doc/admin-guide/warnings/udp-buffer.md %}
 

@@ -82,4 +82,4 @@ date-parser(format(
 ```
 
 If you need to modify or correct the timezone of the message after
-parsing, see [[Rewrite the timezone of a message]].
+parsing, see Rewrite the timezone of a message.

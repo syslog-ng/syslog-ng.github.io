@@ -21,4 +21,4 @@ python(
 );
 ```
 
-For details, see [[Python code in external files]]
+For details, see Python code in external files

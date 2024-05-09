@@ -26,8 +26,8 @@ syslog-ng OSE (for example, a destination or a source driver).
     option of syslog-ng OSE.
 
 - To request loading a module from the syslog-ng OSE configuration
-    file, see [[Loading modules]].  
+    file, see Loading modules.  
 
 For details on the command-line parameters of syslog-ng OSE mentioned in
 the previous list, see the syslog-ng OSE man page at
-[[The syslog-ng manual page]].
+The syslog-ng manual page.

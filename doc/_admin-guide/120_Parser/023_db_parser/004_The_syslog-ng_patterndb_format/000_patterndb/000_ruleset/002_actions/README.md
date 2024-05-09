@@ -12,7 +12,7 @@ id: adm-parser-db-elem-actions
 
 OPTIONAL --- A container element for actions that are performed if a
 message is recognized by the pattern. For details on actions, see
-[[Triggering actions for identified messages]].
+Triggering actions for identified messages.
 
 ## Attributes
 

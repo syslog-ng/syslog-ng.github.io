@@ -116,7 +116,7 @@
 - *validate-utf8*: The validate-utf8 flag enables
     encoding-verification for messages formatted according to the new
     IETF syslog standard (for details, see
-    [[IETF-syslog messages]].
+    IETF-syslog messages.
     If the BOM[^1] character is missing, but the message is otherwise UTF-8
     compliant, syslog-ng automatically adds the BOM character to the
     message.

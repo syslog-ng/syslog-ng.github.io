@@ -13,7 +13,7 @@ description: >-
     packages](https://www.syslog-ng.com/products/open-source-log-management/3rd-party-binaries.aspx).
 
 - For instructions on compiling syslog-ng Open Source Edition from the
-    source code, see [[Compiling syslog-ng from source]]
+    source code, see Compiling syslog-ng from source
 
 - You can use a [syslog-ng docker image](https://syslog-ng.com/blog/central-log-server-docker/).
 

@@ -15,7 +15,7 @@ description: >-
     fields and values of earlier messages of the context by adding the
     @\<distance-of-referenced-message-from-the-current\> suffix to the
     macro. For details, see
-    [[Referencing earlier messages of the context]].
+    Referencing earlier messages of the context.
 
     Example: Referencing values from an earlier message
 

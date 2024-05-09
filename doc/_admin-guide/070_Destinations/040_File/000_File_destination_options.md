@@ -29,7 +29,7 @@ of your operating system.
 
 - *threaded*: The threaded flag enables multithreading for the
     destination. For details on multithreading, see
-    [[Multithreading and scaling in syslog-ng OSE]].
+    Multithreading and scaling in syslog-ng OSE.
 
     **NOTE:** The file destination uses multiple threads only if the
     destination filename contains macros.

@@ -15,9 +15,9 @@ format, where each line contains the following information:
 
 - A selector or ID that appears in the log messages, for example, the
     hostname. To use shell-style globbing (wildcards) in selectors, see
-    [[Shell-style globbing in the selector]].
+    Shell-style globbing in the selector.
     You can also reference the name of a filter that matches
-    the messages, see [[Using filters as selector]].
+    the messages, see Using filters as selector.
 
 - The name of the name-value pair that syslog-ng OSE adds to matching
     log messages.

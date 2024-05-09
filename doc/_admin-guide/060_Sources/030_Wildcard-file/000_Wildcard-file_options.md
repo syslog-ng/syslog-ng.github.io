@@ -14,7 +14,7 @@ The wildcard-file() driver has the following options:
 *Description:* The path to the directory that contains the log files to
 monitor, for example, **base-dir(\"/var/log\")**. To monitor also the
 subdirectories of the base directory, use the **recursive(yes)** option.
-For details, see [[recursive()]].
+For details, see recursive().
 
 {% include doc/admin-guide/warnings/multiple-wildcards.md %}
 
@@ -134,7 +134,7 @@ available, set this option to **poll**.
 |Default: |  no|
 
 *Description:* When enabled, syslog-ng OSE monitors every subdirectory
-of the path set in the [[base-dir()]]
+of the path set in the base-dir()
 option, and reads log messages from files with matching filenames. The
 recursive option can be used together with wildcards in the filename.
 

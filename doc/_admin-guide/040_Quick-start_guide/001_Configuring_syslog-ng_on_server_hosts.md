@@ -9,7 +9,7 @@ description: >-
 
 1. Install the syslog-ng application on the host. For details
     installing syslog-ng on specific operating systems, see
-    [[Installing syslog-ng]].
+    Installing syslog-ng.
 2. Starting with version 3.2, syslog-ng OSE automatically collects the
     log messages that use the native system logging method of the
     platform, for example, messages from /dev/log on Linux, or /dev/klog

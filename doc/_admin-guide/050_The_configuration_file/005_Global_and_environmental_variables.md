@@ -15,7 +15,7 @@ To define a global variable, use the following syntax:
 ```
 
 The value can be any string, but special characters must be escaped (for
-details, see [[Regular expressions]]).  
+details, see Regular expressions).  
 To use the variable, insert the name of the variable enclosed between backticks
 (like, `` `global-variable` ``, similarly to using variables in Linux or UNIX shells) anywhere in
 the configuration file. If backticks are meant literally, repeat the

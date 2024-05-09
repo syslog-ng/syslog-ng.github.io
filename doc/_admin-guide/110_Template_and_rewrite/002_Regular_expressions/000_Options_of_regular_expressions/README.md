@@ -18,4 +18,4 @@ type() options:
 
 - Literal string searches (string)
 
-- [[Glob patterns without regular expression support (glob)]]
+- Glob patterns without regular expression support (glob)

@@ -201,4 +201,4 @@ The syslog-ng application handles outgoing messages the following way:
     the overflow queue, unless flow-control is enabled. When dynamic
     flow-control is enabled, syslog-ng sets the size of the overflow
     queue automatically. For details on sizing the log-fifo-size()
-    parameter, see [[Configuring flow-control]].
+    parameter, see Configuring flow-control.

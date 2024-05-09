@@ -1,7 +1,7 @@
 ## See also
 
-[[The syslog-ng.conf manual page]]  
-[[The syslog-ng manual page]]
+The syslog-ng.conf manual page  
+The syslog-ng manual page
 
 >**NOTE:** For the detailed documentation of syslog-ng OSE see
 >[syslog-ng OSE Documentation page](https://www.syslog-ng.com/).

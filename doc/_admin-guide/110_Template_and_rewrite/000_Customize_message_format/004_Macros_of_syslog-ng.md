@@ -45,7 +45,7 @@ can extract the username from a login message and create a macro that
 references the username. For details on using custom macros created with
 CSV parsers and pattern databases, see
 [[parser: Parse and segment structured messages]] and
-[[Using parser results in filters and templates]], respectively.
+Using parser results in filters and templates, respectively.
 
 ## ${DATE}, ${C_DATE}, ${R_DATE}, ${S_DATE}
 
@@ -395,7 +395,7 @@ several relays, this macro contains the IP of the last relay.
 ## ${STAMP}, ${R_STAMP}, ${S_STAMP}
 
 A timestamp formatted according to the
-[[Global options]] global or per-destination option.
+Global options global or per-destination option.
 
 ## ${SYSUPTIME}
 

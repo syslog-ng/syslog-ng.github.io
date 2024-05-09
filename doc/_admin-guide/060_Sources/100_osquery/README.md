@@ -45,7 +45,7 @@ later.
 The osquery() driver is actually a reusable configuration snippet
 configured to read the osquery log file using the file() driver, and
 process its JSON contents. For details on using or writing such
-configuration snippets, see [[Reusing configuration blocks]].
+configuration snippets, see Reusing configuration blocks.
 You can find the source of this configuration snippet on
 [GitHub](https://github.com/syslog-ng/syslog-ng/blob/master/scl/osquery/plugin.conf).
 

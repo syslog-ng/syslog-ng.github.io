@@ -29,7 +29,7 @@ log {
 ```
 
 You can also define the filter inline. For details, see
-[[Defining configuration objects inline]].  
+Defining configuration objects inline.  
 
 ## Example: A simple filter statement
 

@@ -21,7 +21,7 @@ template function. For more information, see Components supported by data types.
 **CAUTION:** Hazard of data loss!  
 If syslog-ng OSE cannot convert the data into the specified type, an error occurs,
 and syslog-ng OSE drops the message by default. To change how syslog-ng OSE handles
-data-conversion errors, see [[on-error()]].
+data-conversion errors, see on-error().
 {: .notice--danger}
 
 To use type-hinting, enclose the macro or template containing the data
@@ -98,8 +98,8 @@ onwards:
 
 ### json-parser() and the format-json template function
 
-For more information, see [[JSON parser]] and
-[[Template functions of syslog-ng OSE]].
+For more information, see JSON parser and
+Template functions of syslog-ng OSE.
 
 syslog-ng OSE converts all elements in a JSON object to name-value
 pairs, when using json-parser(). Any type related data present in
@@ -118,8 +118,8 @@ The type of the field can be set. Type-casting can be executed using
 the set() and groupset() template functions, to properly promote the
 type information.
 
-For more information, see [[Creating custom SDATA fields]] and
-[[Setting multiple message fields to specific values]].  
+For more information, see Creating custom SDATA fields and
+Setting multiple message fields to specific values.  
 
 ### db-parser()
 
@@ -132,7 +132,7 @@ db-parser() rules can pair types with values using the type attribute.
 The integer is a type-cast that couples $foobar with an integer
 type. The internal parsers of db-parser() (for example, @NUMBER@)
 automatically couple type information to the parsed name-value
-pair. For more information, see [[Using pattern databases]].
+pair. For more information, see Using pattern databases.
 
 ### add-contextual-data()  
 
@@ -146,7 +146,7 @@ map-value-pairs() propagates type information.
 ### SQL type support
 
 Columns with specific type information are stored with this
-information kept intact. For more information, see [[sql() destination options]].
+information kept intact. For more information, see sql() destination options.
 
 ### Template type support
 

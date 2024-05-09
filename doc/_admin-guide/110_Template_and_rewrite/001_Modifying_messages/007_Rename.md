@@ -10,7 +10,7 @@ description: >-
 
 The rename() rewrite rule uses positional arguments and they are both
 required. It supports condition rewrite. For more information, see
-[[Conditional rewrites]].
+Conditional rewrites.
 
 **Declaration**
 

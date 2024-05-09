@@ -54,6 +54,6 @@ log { source(s_pacct); destination(...); };
 The pacct() driver is actually a reusable configuration snippet
 configured to handle Linux accounting logs. For details on using or
 writing such configuration snippets, see
-[[Reusing configuration blocks]].  
+Reusing configuration blocks.  
 You can find the source of the pacct configuration snippet on
 [GitHub](https://github.com/syslog-ng/syslog-ng/blob/master/scl/pacct/plugin.conf).

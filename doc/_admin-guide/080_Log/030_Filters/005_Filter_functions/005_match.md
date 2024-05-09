@@ -18,9 +18,9 @@ option.
 
 The value() parameter accepts both built-in macros and user-defined ones
 created with a parser or using a pattern database. For details on macros
-and parsers, see [[Templates and macros]],
-[[Parsing messages with comma-separated and similar values]],
-and [[Using parser results in filters and templates]].
+and parsers, see Templates and macros,
+Parsing messages with comma-separated and similar values,
+and Using parser results in filters and templates.
 
 Starting with version 3.22, the match() filter can work on templates as
 well. This means that you can a match against an expression combined of

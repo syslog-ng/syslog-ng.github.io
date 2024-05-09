@@ -11,7 +11,7 @@ Using the sumologic-syslog() destination, you can send data (both in
 JSON and in non-JSON format) to the Sumo Logic service.
 
 For more information about the sumologic-http() destination, see
-[[sumologic-http()]].
+sumologic-http().
 
 ## Sending data using the sumologic-syslog() destination
 

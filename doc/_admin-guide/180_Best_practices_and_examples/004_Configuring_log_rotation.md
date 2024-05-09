@@ -33,7 +33,7 @@ syslog-ng OSE for log rotation, consider the following approaches:
 
 - It can be done by using macros in the destination name (in the
     filename, directory name, or the database table name). (For details
-    on using macros, see [[Templates and macros]]
+    on using macros, see Templates and macros
 
 ### Example: File destination for log rotation
 

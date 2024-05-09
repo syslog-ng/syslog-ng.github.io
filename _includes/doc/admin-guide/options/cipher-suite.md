@@ -22,7 +22,7 @@ TLSv1.2). That way, the cipher-suite() also determines the encryption
 protocol used in the connection: to disable SSLv3, use an algorithm that
 is available only in TLSv1.2, and that both the client and the server
 supports. You can also specify the encryption protocols using
-[[ssl-options()]].
+ssl-options().
 
 You can also use the following command to automatically list only
 ciphers permitted in a specific encryption protocol, for example,

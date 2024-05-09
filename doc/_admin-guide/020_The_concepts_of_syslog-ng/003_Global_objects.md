@@ -33,7 +33,7 @@ A named collection of configured destination drivers.
 An expression to select messages. For example, a simple filter can select the
 messages received from a specific host.  
 
-For details, see [[Customize message format using macros and templates]].
+For details, see Customize message format using macros and templates.
 
 ## Macro
 
@@ -41,7 +41,7 @@ An identifier that refers to a part of the log message. For example,
 the `${HOST}` macro returns the name of the host that sent the message.
 Macros are often used in templates and filenames.  
 
-For details, see [[Customize message format using macros and templates]].
+For details, see Customize message format using macros and templates.
 
 ## Parser
 
@@ -58,7 +58,7 @@ and [[db-parser: Process message content with a pattern database (patterndb)]].
 A rule modifies a part of the message, for example, replaces a string, or sets
 a field to a specified value.  
 
-For details, see [[Modifying messages using rewrite rules]].
+For details, see Modifying messages using rewrite rules.
 
 ## Log paths
 
@@ -78,12 +78,12 @@ A template is a set of macros that can be used to restructure log messages or
 automatically generate file names. For example, a template can add the hostname
 and the date to the beginning of every log message.  
 
-For details, see [[Customize message format using macros and templates]].
+For details, see Customize message format using macros and templates.
 
 ## Option
 
 Options set global parameters of syslog-ng, like the parameters of name
 resolution and timezone handling.  
-For details, see [[Global options of syslog-ng OSE]].
+For details, see Global options of syslog-ng OSE.
 
-For details on the above objects, see [[The configuration syntax in detail]].
+For details on the above objects, see The configuration syntax in detail.

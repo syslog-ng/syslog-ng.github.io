@@ -17,7 +17,7 @@ systemctl start syslog-ng
 If the service starts successfully, no output will be displayed.
 
 The following message indicates that syslog-ng OSE can not start (see
-[[Checking syslog-ng OSE status]]):
+Checking syslog-ng OSE status):
 
 Job for syslog-ng.service failed because the control process exited with
 error code. See **systemctl status syslog-ng.service** and **journalctl
@@ -33,7 +33,7 @@ To stop syslog-ng OSE
     systemctl stop syslog-ng
     ```
 
-2. Check the status of syslog-ng OSE service (see [[Checking syslog-ng OSE status]]).
+2. Check the status of syslog-ng OSE service (see Checking syslog-ng OSE status).
 
 ## Restarting syslog-ng OSE
 

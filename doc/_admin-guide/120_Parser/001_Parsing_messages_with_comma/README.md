@@ -41,7 +41,7 @@ Names starting with a dot (for example, .example) are reserved for use
 by syslog-ng OSE. If you use such a macro name as the name of a parsed
 value, it will attempt to replace the original value of the macro (note
 that only soft macros can be overwritten, see
-[[Hard versus soft macros]].
+Hard versus soft macros.
 To avoid such problems, use a prefix when naming the parsed values, for
 example, prefix(my-parsed-data.)
 

@@ -54,7 +54,7 @@ filter demo_filter { not (host("example1") or host("example2")); };
 ```
 
 For a complete description on filter functions, see
-[[Filter functions]].  
+Filter functions.  
 The following filter statement selects the messages that contain the
 word deny and come from the host example.
 
@@ -67,8 +67,8 @@ function to the text part of the message (that is, the part returned by
 the ${MESSAGE} macro), or optionally to the content of any other macro.
 The template() parameter of the match function can be used to run a
 filter against a combination of macros. For details on using the match()
-filter function, see [[match()]].  
+filter function, see match().  
 
 **TIP:** Filters are often used together with log path flags. For details,
-see [[Log path flags]].
+see Log path flags.
 {: .notice--info}

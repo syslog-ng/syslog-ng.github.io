@@ -10,10 +10,10 @@ description: >-
 - To group or correlate log messages that match a set of filters, use
     the **group-by** parser. This works similarly to SQL GROUP BY
     statements. For details, see
-    [[Correlating messages using the grouping-by() parser]].
+    Correlating messages using the grouping-by() parser.
 
 - You can correlate log messages identified using pattern databases.
-    For details, see [[Correlating log messages using pattern databases]].
+    For details, see Correlating log messages using pattern databases.
 
 Log messages are supposed to describe events, but applications often
 separate information about a single event into different log messages.

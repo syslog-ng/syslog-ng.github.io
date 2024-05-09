@@ -17,7 +17,7 @@ only using the UDP transport protocol.
 The snmp() driver requires the host(), trap-obj(), and snmp-obj()
 options to be set, as well as the engine-id() and version() options when
 using the SNMPv3 protocol. For the list of available optional
-parameters, see [[snmp() destination options]].
+parameters, see snmp() destination options.
 
 **Declaration**
 

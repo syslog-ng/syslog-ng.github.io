@@ -34,7 +34,7 @@ Depending on the settings of syslog-ng-relay, the following can happen.
 
     **NOTE:** It is also possible to resolve IP addresses locally, without
     relying on the DNS server. For details on local name resolution, see
-    [[Resolving hostnames locally]].  
+    Resolving hostnames locally.  
     {: .notice--info}
 
 - The above points apply to the syslog-ng OSE server

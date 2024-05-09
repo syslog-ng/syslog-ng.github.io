@@ -15,9 +15,9 @@ size of the value of an SDATA field is 64 KiB.
 {: .notice--info}
 
 For details on how encoding affects the size of the message, see
-[[Message size and encoding]].
+Message size and encoding.
 
 You can use human-readable units when setting configuration options. For
-details, see [[Notes about the configuration syntax]].
+details, see Notes about the configuration syntax.
 
 Uses the value of the [[global option|adm-global-options]] if not specified.

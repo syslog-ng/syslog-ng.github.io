@@ -16,7 +16,7 @@ least one filter, though that is not enforced. Otherwise, channels are
 identical to log statements, and can include any kind of objects, for
 example, parsers, rewrite rules, destinations, and so on. (For details
 on using channels, as well as on using channels outside junctions, see
-[[Using channels in configuration objects]]
+Using channels in configuration objects
 
 >**NOTE:** Certain parsers can also act as filters:  
 >  
@@ -35,7 +35,7 @@ the subsequent channels of the junction will not receive the message,
 but this does not affect any other log path or junction of the
 configuration. The only exception is the flow-control flag: if you
 enable flow-control in a junction, it affects the entire log path. For
-details on log-path flags, see [[Log path flags]].
+details on log-path flags, see Log path flags.
 
 ```config
 junction {

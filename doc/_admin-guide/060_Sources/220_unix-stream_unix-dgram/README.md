@@ -20,7 +20,7 @@ increase it on a busy system.
 Both unix-stream and unix-dgram have a single required argument that
 specifies the filename of the socket to create. For the list of
 available optional parameters, see
-[[unix-stream() and unix-dgram() source options]]
+unix-stream() and unix-dgram() source options
 
 **Declaration**
 

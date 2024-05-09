@@ -135,7 +135,7 @@ option that is used to identify the SNMP trap object. The type of the
 trap object is always Objectid. The \<oid\_of\_the\_object\> and the
 \<value\_of\_the\_object\> parameters are identical to the respective
 parameters of the snmp-obj() option. For details on these parameters,
-see [[snmp-obj()]].
+see snmp-obj().
 
 **NOTE:** Using the trap-obj() object is equivalent to using the snmp-obj()
 with the Objectid type.

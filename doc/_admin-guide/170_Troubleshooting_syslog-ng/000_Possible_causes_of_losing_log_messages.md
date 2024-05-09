@@ -24,14 +24,14 @@ losing messages:
     syslog-ng will drop messages.
 
     Use flags (flow-control) to avoid this (for details, see
-    [[Configuring flow-control]].  
+    Configuring flow-control.  
 
     For more information about the error caused by the missing flow-control,
-    see Destination queue full in [[Error messages]].
+    see Destination queue full in Error messages.
 
     The number of dropped messages is displayed per destination in the
     log message statistics of syslog-ng (for details, see
-    [[Statistics of syslog-ng]].
+    Statistics of syslog-ng.
 
 - On the network: When transferring messages using the UDP protocol,
     messages may be lost without any notice or feedback --- such is the
@@ -53,7 +53,7 @@ losing messages:
         relay) may drop messages if the fifo of the destination file
         gets full. The number of dropped messages is displayed per
         destination in the log message statistics of syslog-ng (for
-        details, see [[Statistics of syslog-ng]].
+        details, see Statistics of syslog-ng.
 
 - When the destination cannot handle large load: When syslog-ng is
     sending messages at a high rate into an SQL database, a file, or

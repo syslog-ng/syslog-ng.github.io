@@ -20,7 +20,7 @@ description: >-
     the internal() source of syslog-ng OSE.
 
 - If you used the Java implementation before, see
-    [[Shifting from Java implementation to C implementation]].
+    Shifting from Java implementation to C implementation.
 
 - The syslog-ng OSE kafka destination supports all properties of the
     official Kafka producer. For details, see [the librdkafka

@@ -78,7 +78,7 @@ valid syslog-ng OSE configuration snippet.
     automatically includes the *.conf files from the
     `<directory-where-syslog-ng-is-installed>/scl/*/` directories. For
     details on including configuration files, see
-    [[Including configuration files]].
+    Including configuration files.
 
 6. Add the block you defined in the plugin.conf file to your syslog-ng
     OSE configuration file. You can reference the block using the value

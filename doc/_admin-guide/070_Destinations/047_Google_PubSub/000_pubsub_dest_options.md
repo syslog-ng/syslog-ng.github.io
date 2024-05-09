@@ -5,7 +5,7 @@ description: >-
   The following options are specific to the google-pubsub() destination.
 ---
 
-**NOTE:** Since this destination is based on the http() destination, the [[HTTP destination options]] can also be used. The `google-pubsub()` destination automatically configures some of these `http()` destination options as required by the Google Pub/Sub AP.
+**NOTE:** Since this destination is based on the http() destination, the HTTP destination options can also be used. The `google-pubsub()` destination automatically configures some of these `http()` destination options as required by the Google Pub/Sub AP.
 {: .notice--info}
 
 ## attributes()

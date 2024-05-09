@@ -54,7 +54,7 @@ syslog-ng OSE instance,
 
 1. Identify the orphan disk-buffer files and make a record of them. For
     more information, see
-    [[How to get information about disk-buffer files]].
+    How to get information about disk-buffer files.
 
     It is important to know the type of the disk-buffer file.
     Disk-buffer file types can be normal (.qf) or reliable (.rqf).
@@ -66,7 +66,7 @@ syslog-ng OSE instance,
 2. Determine the destination of the logs. The content of the
     disk-buffer may help you determine the logs\' destination. For more
     information, see
-    [[How to get information about disk-buffer files]].
+    How to get information about disk-buffer files.
 
     In the examples during this process, the destination 10.21.10.20 is
     used with the standard network() port 514.
@@ -209,7 +209,7 @@ syslog-ng OSE instance,
 
 12. Check the state of the orphan disk-buffer file. For more
     information, see
-    [[How to get information about disk-buffer files]].
+    How to get information about disk-buffer files.
 
 13. If you have more than one orphan disk-buffer file, repeat the steps
     following the syslog-ng OSE stop (that is,

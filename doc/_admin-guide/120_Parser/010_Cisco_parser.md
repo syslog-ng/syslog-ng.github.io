@@ -55,7 +55,7 @@ Note that you have to disable message parsing in the source using the
 
 The cisco-parser() is actually a reusable configuration snippet
 configured to parse Cisco messages. For details on using or writing such
-configuration snippets, see [[Reusing configuration blocks]].
+configuration snippets, see Reusing configuration blocks.
 You can find the source of this configuration
 snippet on [GitHub](https://github.com/syslog-ng/syslog-ng/blob/master/scl/cisco/plugin.conf).
 

@@ -138,7 +138,7 @@ and other platforms, see [syslog-ng Open Source Edition installation packages](h
     feature and override autodetection. For example, to disable the
     TCP-wrapper support, use the *\--disable-tcp-wrapper* option. For
     the list of available compiling options, see
-    [[Compiling options of syslog-ng OSE]].
+    Compiling options of syslog-ng OSE.
     {: .notice--info}
 
 ![]({{ site.baseurl}}/assets/images/caution.png) **CAUTION:**

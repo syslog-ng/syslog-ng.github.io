@@ -7,7 +7,7 @@ description: >-
         a [Riemann](http://riemann.io/) monitoring system.
 
         For the list of available parameters, see
-        [[riemann() destination options]].  
+        riemann() destination options.  
 ---
 
 **Declaration**

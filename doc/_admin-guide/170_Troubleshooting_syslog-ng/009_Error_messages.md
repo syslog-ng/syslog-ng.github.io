@@ -11,7 +11,7 @@ This section describes the most common error messages.
 | Description:   | This message indicates message loss. Flow-control must be enabled in the log path. When flow-control is enabled, syslog-ng will stop   reading messages from the sources of the log  statement if the destinations are not able to   process the messages at the required speed. If flow-control is enabled, syslog-ng will only drop messages if the destination queues/window sizes are improperly sized.
 | Solution:      | Enable flow-control in the log path. If flow-control is disabled, syslog-ng will drop messages if the destination queues are full. Note that syslog-ng will drop messages even if the server is alive. If the remote server accepts logs at a slower rate than the sender syslog-ng receives them, the sender syslog-ng will fill up the destination queue, then drop the newer messages. Sometimes this error occurs only at a specific time interval, for example, only between`7:00`AM and`8:00`AM or between`16:00`PM and`17:00`PM when your users log in or log off and that generates a lot of messages within a short interval.                             |
 
-For more information, see [[Managing incoming and outgoing messages with flow-control]]
+For more information, see Managing incoming and outgoing messages with flow-control
 
 ## Alert unknown CA
 

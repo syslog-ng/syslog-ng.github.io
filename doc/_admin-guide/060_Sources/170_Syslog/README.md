@@ -11,14 +11,14 @@ description: >-
 
 NOTE: The syslog() driver can also receive BSD-syslog-formatted messages
 (described in RFC 3164, see
-[[BSD-syslog or legacy-syslog messages]]
+BSD-syslog or legacy-syslog messages
 if they are sent using the IETF-syslog protocol.
 
 In syslog-ng OSE versions 3.1 and earlier, the syslog() driver could
 handle only messages in the IETF-syslog (RFC 5424-26) format.
 
 For the list of available optional parameters, see
-[[syslog() source options]].
+syslog() source options.
 
 **Declaration**
 
@@ -41,7 +41,7 @@ source s_udp { syslog( transport("udp")); };
 ```
 
 Encrypted source where the client is also authenticated. For details on
-the encryption settings, see [[TLS options]].  
+the encryption settings, see TLS options.  
 
 ```config
 source s_syslog_tls{ 

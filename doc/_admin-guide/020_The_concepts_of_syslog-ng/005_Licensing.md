@@ -18,4 +18,4 @@ For details about the LGPL and GPL licenses, see
 [[GNU General Public License|gpl-license]], respectively.
 
 For clarity, the Documentation is licensed separately.
-For details, see [[The syslog-ng Open Source Edition Documentation License]].
+For details, see The syslog-ng Open Source Edition Documentation License.

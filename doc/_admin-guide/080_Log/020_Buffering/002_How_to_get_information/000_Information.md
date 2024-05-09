@@ -14,7 +14,7 @@ used in syslog-ng OSE:
 
     For more information about an example of configuring disk-buffer()
     for a remote destination in the destination() statement, see
-    [[disk-buffer()]].
+    disk-buffer().
 
 - By default, syslog-ng OSE creates disk-buffer files under
     /opt/syslog-ng/var directory, unless dir() option is set in

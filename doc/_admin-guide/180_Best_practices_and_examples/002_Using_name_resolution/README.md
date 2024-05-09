@@ -26,7 +26,7 @@ If you must use name resolution from syslog-ng, consider the following:
     ```
 
 - If possible, resolve the hostnames locally. For details, see
-    [[Resolving hostnames locally]].
+    Resolving hostnames locally.
 
 **NOTE:** Domain name resolution is important mainly in relay and server
 mode.

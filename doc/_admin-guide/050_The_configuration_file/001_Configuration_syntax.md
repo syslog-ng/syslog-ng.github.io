@@ -147,7 +147,7 @@ As a syslog-ng user described on a [mailing list](https://lists.gt.net/gentoo/us
 - Some options are global options, or can be set globally, for
     example, whether syslog-ng OSE should use DNS resolution to resolve
     IP addresses. Global options are detailed in
-    [[Global options of syslog-ng OSE]].  
+    Global options of syslog-ng OSE.  
 
     ```config
     options {

@@ -390,14 +390,14 @@ The following sub-options are available within the stats() option:
 
 - Level 3 contains detailed statistics based on various message parameters like facility, severity, or tags.
 
-**NOTE:** Level 2 and 3 increase the memory requirements and CPU load. For details on message statistics, see [[Statistics of syslog-ng]].
+**NOTE:** Level 2 and 3 increase the memory requirements and CPU load. For details on message statistics, see Statistics of syslog-ng.
 
 - max-dynamics()
 
 |  Accepted values:|   number|
 |Default:|           N/A|
 
-*Description:* To avoid performance issues or even overloading syslog-ng OSE (for example, if a script starts to send logs from different IP addresses to syslog-ng OSE), you might want to limit the number of registered dynamic counters in the message statistics. For details on message statistics, see [[Statistics of syslog-ng]].
+*Description:* To avoid performance issues or even overloading syslog-ng OSE (for example, if a script starts to send logs from different IP addresses to syslog-ng OSE), you might want to limit the number of registered dynamic counters in the message statistics. For details on message statistics, see Statistics of syslog-ng.
 
 - **Unlimited dynamic counters:**
 
@@ -468,7 +468,7 @@ This is a deprecated legacy option. Use the stats() option.
 multiple CPUs. Available only in syslog-ng Open Source Edition 3.3 and
 later. Note that setting **threaded(no)** does not mean that syslog-ng
 OSE will use only a single thread. For details, see
-[[Multithreading and scaling in syslog-ng OSE]].
+Multithreading and scaling in syslog-ng OSE.
 
 {% include doc/admin-guide/options/time-reap.md %}
 

@@ -145,7 +145,7 @@ your syslog-ng OSE configuration:
 **NOTE:** The sumologic() driver is actually a reusable configuration
 snippet configured to send log messages using the network() and http()
 destination by using a template. For details on using or writing such
-configuration snippets, see [[Reusing configuration blocks]].
+configuration snippets, see Reusing configuration blocks.
 You can find the source of this configuration snippet on
 [GitHub](https://github.com/syslog-ng/syslog-ng/blob/master/scl/sumologic/sumologic.conf).
 {: .notice--info}

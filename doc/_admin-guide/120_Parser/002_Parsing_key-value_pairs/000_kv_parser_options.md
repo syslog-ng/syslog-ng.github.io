@@ -13,7 +13,7 @@ The kv-parser has the following options.
 
 *Description:* Specifies the name-value pair where syslog-ng OSE stores
 any stray words that appear before or between the parsed key-value pairs
-(mainly when the [[pair-separator()]]. If multiple
+(mainly when the pair-separator(). If multiple
 stray words appear in a message, then syslog-ng OSE stores them as a
 comma-separated list. Note that the prefix() option does not affect the
 name-value pair storing the stray words. Default value:**N/A**

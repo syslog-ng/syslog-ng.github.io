@@ -25,13 +25,13 @@ to the message using the following algorithm.
     includes a timezone it is associated with the message. Otherwise,
     the local timezone is assumed.
 
-2. Specify the [[time-zone()]] parameter for the source driver that reads
+2. Specify the time-zone() parameter for the source driver that reads
     the message. This timezone will be associated with the messages only
     if no timezone is specified within the message itself. Each source
     defaults to the value of the
-    [[recv-time-zone()]] global option. It is not
+    recv-time-zone() global option. It is not
     possible to override only the timezone information of the
-    incoming message, but setting the [[keep-timestamp()]] option to **no**
+    incoming message, but setting the keep-timestamp() option to **no**
     allows syslog-ng OSE to replace the full timestamp (timezone
     included) with the time the message was received.
 
@@ -49,12 +49,12 @@ to the message using the following algorithm.
     timezone is +02:00.
     {: .notice--info}
 
-3. Specify the timezone in the destination driver using the [[time-zone()]]
+3. Specify the timezone in the destination driver using the time-zone()
     parameter. Each destination driver might have an associated timezone
     value: syslog-ng converts message timestamps to this timezone before
     sending the message to its destination (file or network socket).
     Each destination defaults to the value of the
-    [[send-time-zone()]] global option.
+    send-time-zone() global option.
 
     **NOTE:** A message can be sent to multiple destination zones. The syslog-ng
     application converts the timezone information properly for every individual
@@ -78,14 +78,14 @@ to the message using the following algorithm.
 
     **NOTE:** You can modify the timezone of the message using timezone-specific
     rewrite rules.  
-    For details, see [[Rewrite the timezone of a message]].
+    For details, see Rewrite the timezone of a message.
     {: .notice--info}
 
 ## A note on timezones and timestamps
 
 If the clients run syslog-ng, then use the ISO timestamp, because it
 includes timezone information. That way you do not need to adjust the
-[[recv-time-zone()]] parameter of syslog-ng.
+recv-time-zone() parameter of syslog-ng.
 
 If you want syslog-ng to output timestamps in Unix (POSIX) time format,
 use the `S_UNIXTIME` and `R_UNIXTIME` macros. You do not need to

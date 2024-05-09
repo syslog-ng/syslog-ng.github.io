@@ -15,7 +15,7 @@
     parameter is set to **yes** and the IP address can be resolved to a
     hostname) of the host sending the message to syslog-ng OSE. For
     details on using name resolution in syslog-ng OSE, see
-    [[Using name resolution in syslog-ng]].
+    Using name resolution in syslog-ng.
 
 **NOTE:** If the log message does not contain a hostname in its HOST field,
 syslog-ng OSE automatically adds a hostname to the message.

@@ -5,4 +5,4 @@
 
 *Description:* The size of the dynamic control window used during
 flow-control. For details on flow-control, see
-[[Managing incoming and outgoing messages with flow-control]].
+Managing incoming and outgoing messages with flow-control.

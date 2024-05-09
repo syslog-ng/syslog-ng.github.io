@@ -18,7 +18,7 @@ documentation](https://www.pcre.org/current/doc/html/pcre2pattern.html#SEC16).
 {: .notice--info}
 
 For more information about regular expressions in syslog-ng OSE, see
-[[Regular expressions]].
+Regular expressions.
 For example:
 
 **Declaration**

@@ -50,7 +50,7 @@ following points:
     ```
 
 - For notes on using regular expressions, see
-    [[Regular expressions]].
+    Regular expressions.
 - You can use if {}, elif {}, and else {} blocks to configure
     conditional expressions. For details, see
     [[if-else-elif: Conditional expressions]].

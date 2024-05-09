@@ -80,7 +80,7 @@ The data extracted from the log messages using named pattern parsers
 in the pattern database are also soft macros.
 
 **TIP:** For the list of hard and soft macros, see
-[[Hard versus soft macros]].  
+Hard versus soft macros.  
 {: .notice--info}
 
 ## Message size and encoding

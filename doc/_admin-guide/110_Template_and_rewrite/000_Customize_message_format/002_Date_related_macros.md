@@ -31,7 +31,7 @@ option as a global option, or per destination. For sources, it applies
 only if the original message does not contain timezone information.
 Alternatively, you can modify the timezone of the message using
 timezone-specific rewrite rules. For details, see
-[[Rewrite the timezone of a message]].
+Rewrite the timezone of a message.
 Converting the timezone changes the values of the following date-related
 macros (macros MSEC and USEC are not changed):
 
