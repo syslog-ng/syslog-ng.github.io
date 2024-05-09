@@ -483,7 +483,7 @@ The week number of the year, prefixed with a zero for the
 first nine weeks of the year. (The first Monday in the year marks the
 first week.)
 
-See also [[ISOWEEK, C_ISOWEEK, R_ISOWEEK, S_ISOWEEK]].
+See also ${ISOWEEK}, ${C_ISOWEEK}, ${R_ISOWEEK}, ${S_ISOWEEK}.
 
 ## ${WEEK_DAY_ABBREV}, ${C_WEEK_DAY_ABBREV}, ${R_WEEK_DAY_ABBREV}, ${S_WEEK_DAY_ABBREV}
 

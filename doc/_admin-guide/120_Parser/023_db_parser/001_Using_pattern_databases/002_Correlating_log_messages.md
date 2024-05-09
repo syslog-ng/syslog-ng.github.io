@@ -96,5 +96,5 @@ Note the following points about timeout values:
 ```
 
 For details on configuring message correlation, see the
-[[context-id, context-timeout, and context-scope]]
+[[context-id, context-timeout, and context-scope|adm-parser-db-elem-rule#attributes]]
 attributes of pattern database rules.

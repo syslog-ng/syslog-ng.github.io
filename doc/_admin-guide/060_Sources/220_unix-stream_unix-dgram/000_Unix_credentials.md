@@ -10,7 +10,7 @@ description: >-
 The syslog-ng OSE application can extract the following information on 
 Linux and FreeBSD platforms (examples show the value of the macro for the `su - myuser`
 command). Similar information is available for the
-[[systemd-journal source]].  
+[[systemd-journal source|adm-src-systemd-journal]].  
 
 | Macro             | Description                                     |
 |---|---|

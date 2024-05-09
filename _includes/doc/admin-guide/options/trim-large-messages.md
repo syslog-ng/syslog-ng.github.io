@@ -30,4 +30,4 @@ drivers ignore the trim-large-messages() option.
 
 Available in syslog-ng OSE version 3.21 and later.
 
-Uses the value of the [[global option]] if not specified.
+Uses the value of the global option if not specified.

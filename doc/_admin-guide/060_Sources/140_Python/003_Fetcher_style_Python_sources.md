@@ -17,7 +17,7 @@ the log path. This object references a Python class, which is the second
 part of the Python source. The Python class receives or fetches the log
 messages, and can do virtually anything that you can code in Python. You
 can either embed the Python class into your syslog-ng OSE configuration
-file, or [[store it in an external Python file]].
+file, or [[store it in an external Python file|adm-conf-python]].
 
 ```config
 source <name_of_the_python_source>{

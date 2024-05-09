@@ -72,6 +72,6 @@ destination d_splunk_hec_raw {
 };
 ```
 
-The options of the `splunk-hec-raw()` destination are similar to the [[splunk-hec-event()]] destination, however, the `channel()` option is mandatory. The `channel()` option must be a globally unique channel identifier (GUID), this ID differentiates the data from different clients. Note that Splunk does not generate this ID, you must create it for yourself. When Splunk sees a new channel identifier, it creates a new channel.
+The options of the `splunk-hec-raw()` destination are similar to the [[splunk-hec-event()|adm-dest-splunk-hec-event]] destination, however, the `channel()` option is mandatory. The `channel()` option must be a globally unique channel identifier (GUID), this ID differentiates the data from different clients. Note that Splunk does not generate this ID, you must create it for yourself. When Splunk sees a new channel identifier, it creates a new channel.
 
-Use the `template()` option to set the content of the log message sent to Splunk. Avoid using the `event()` option, that is used in the [[splunk-hec-event()]] destination.
+Use the `template()` option to set the content of the log message sent to Splunk. Avoid using the `event()` option, that is used in the [[splunk-hec-event()|adm-dest-splunk-hec-event]] destination.

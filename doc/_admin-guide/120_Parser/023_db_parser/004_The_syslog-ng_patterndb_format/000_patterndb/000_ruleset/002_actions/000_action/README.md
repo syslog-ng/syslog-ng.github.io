@@ -43,7 +43,7 @@ when a message matching the rule is received.
         the rule is received.
 
   - *timeout*: Execute the action when the correlation timer
-        ([[context-timeout]] of the
+        ([[context-timeout|adm-parser-db-elem-rule#attributes]] of the
         pattern database rule expires. This is available only if actions
         are used together with correlating messages.
 

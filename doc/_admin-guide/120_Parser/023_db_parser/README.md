@@ -1,6 +1,5 @@
 ---
-title: 'db-parser: Process message content with a pattern database
-  (patterndb)'
+title: 'db-parser: Process message content with a pattern database (patterndb)'
 short_title: db-parser
 id: adm-parser-db
 ---

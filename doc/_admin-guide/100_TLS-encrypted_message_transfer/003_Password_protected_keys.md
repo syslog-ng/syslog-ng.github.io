@@ -22,7 +22,7 @@ description: >-
     destination, and you use this destination in a log path that has
     multiple destinations, neither destinations will receive log
     messages until you provide the password. In this cases, always
-    [[use disk-based buffering to avoid data loss]].
+    use disk-based buffering to avoid data loss.
 
 - The path and the filename of the private key cannot contain
     whitespaces.

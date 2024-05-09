@@ -13,8 +13,7 @@ The following sections describe how to select and filter log messages.
 - [[Comparing macro values in filters]]
     explains how to evaluate macros in filters.
 
-- [[Using wildcards, special characters, and regular expressions in
-    filters]] provides tips on using
+- [[Using wildcards, special characters, and regular expressions in filters]] provides tips on using
     regular expressions.
 
 - [[Tagging messages]] explains

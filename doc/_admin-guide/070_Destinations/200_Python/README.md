@@ -23,7 +23,7 @@ the second part of the Python destination. The Python class processes
 the log messages it receives, and can do virtually anything that you can
 code in Python. You can either embed the Python class into your
 syslog-ng OSE configuration file, or
-[[store it in an external Python file]].
+[[store it in an external Python file|adm-conf-python]].
 
 ```config
 destination <name_of_the_python_destination>{
@@ -102,9 +102,8 @@ Error handling in the python() destination.
 
 The send method sends a message to the target service. It should return
 True to indicate success, or self.QUEUED when using batch mode. For
-other possible return values, see the description of the [[flush()
-method|adm-dest-python#flushself-method-optional]]. Note that for batch mode, the
-flush() method must be implemented as well.
+other possible return values, see the description of the [[flush() method|adm-dest-python#flushself-method-optional]].
+Note that for batch mode, the flush() method must be implemented as well.
 
 This is the only mandatory method of the destination.
 
@@ -208,7 +207,7 @@ The Python destination handles errors as follows.
 
 The purpose of this example is only to demonstrate the basics of the
 Python destination, if you really want to write log messages into text
-files, use the [[file destination]] instead.
+files, use the [[file destination|adm-dest-file]] instead.
 
 The following sample code writes the body of log messages into the
 /tmp/example.txt file. Only the send() method is implemented, meaning
@@ -273,9 +272,8 @@ class TextDestination(object):
 ```
 
 For a more detailed example about sending log messages to an MQTT
-(Message Queuing Telemetry Transport) server, see the [Writing Python
-destination in syslog-ng: how to send log messages to MQTT blog
-post](https://www.syslog-ng.com/community/b/blog/posts/writing-python-destination-in-syslog-ng-how-to-send-log-messages-to-mqtt).
+(Message Queuing Telemetry Transport) server, see the
+[Writing Python destination in syslog-ng: how to send log messages to MQTT](https://www.syslog-ng.com/community/b/blog/posts/writing-python-destination-in-syslog-ng-how-to-send-log-messages-to-mqtt) blog post.
 
 ### Example: Print logs in batch mode
 
@@ -299,4 +297,4 @@ class MyDestination(object):
 ```
 
 For the list of available optional parameters, see
-[[python() destination options]].
+python() destination options.

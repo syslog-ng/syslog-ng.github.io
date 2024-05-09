@@ -15,8 +15,7 @@ description: >-
 From syslog-ng OSE version 4.0 onwards, name-value pairs are now
 triplets (name, type, value). Typing support is available for several
 other components, for example, json-parser() and the $(format-json)
-template function. For more information, see [[Components supported by
-data types]].
+template function. For more information, see Components supported by data types.
 
 ![]({{ site.baseurl}}/assets/images/caution.png)
 **CAUTION:** Hazard of data loss!  
@@ -111,8 +110,7 @@ destination.
 Elements without type data are handled as strings.
 
 JSON lists (arrays) are converted to syslog-ng OSE lists, and can be
-manipulated using the [[list-append]]
-template functions.  
+manipulated using the $(list-append) template functions.  
 
 ### set() and groupset() rewrite rules
 

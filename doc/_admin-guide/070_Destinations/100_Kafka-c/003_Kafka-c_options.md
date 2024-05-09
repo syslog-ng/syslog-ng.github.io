@@ -226,7 +226,7 @@ the message, for example, template(\"$(format-json \--scope rfc5424
 \--exclude DATE \--key ISODATE)\").
 
 For details on formatting messages in JSON format, see
-[[format-json]].
+[[format-json|adm-temp-func#format-json]].
 
 {% include doc/admin-guide/options/throttle.md %}
 

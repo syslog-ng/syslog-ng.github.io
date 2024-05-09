@@ -74,7 +74,7 @@ destination d_hdfs {
 - For details on using MapR-FS, see
     [[Storing messages with MapR-FS]].
 - For details on using Kerberos authentication, see
-    [[Kerberos authentication with syslog-ng hdfs()destination]].
+    [[Kerberos authentication with syslog-ng hdfs() destination]].
 - For the list of options, see
     [[HDFS destination options]].
 

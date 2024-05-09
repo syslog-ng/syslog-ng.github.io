@@ -143,8 +143,7 @@ hdfs-uri(\"hdfs://\[FEDC:BA98:7654:3210:FEDC:BA98:7654:3210\]:8020\").
 
 {% include doc/admin-guide/options/jvm-options.md %}
 
-You can set this option only as a
-[[global option]], by adding it
+You can set this option only as a global option, by adding it
 to the options statement of the syslog-ng configuration file.
 
 ## kerberos-keytab-file()
