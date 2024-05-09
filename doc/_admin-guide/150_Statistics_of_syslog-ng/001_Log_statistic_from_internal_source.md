@@ -27,8 +27,7 @@ messages are sent to both destinations.
 
 The statistics include a list of source groups and destinations, as well
 as the number of processed messages for each. You can control the
-verbosity of the statistics using the
-[[stats-level()]] global option.  
+verbosity of the statistics using the level parameter of stats() global option.  
 
 The following is an example output.
 

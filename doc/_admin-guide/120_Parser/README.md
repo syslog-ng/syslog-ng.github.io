@@ -32,7 +32,7 @@ parse the messages, or parts of the messages:
 - To parse XML-formatted messages, see [[XML parser]].
 
 - To identify and parse the messages using a pattern database, see
-    [[db-parser: Process message content with a pattern database]].
+    [[db-parser: Process message content with a pattern database (patterndb)]].
 
 - To parse a specially-formatted date or timestamp, see
     [[Parsing dates and timestamps]].

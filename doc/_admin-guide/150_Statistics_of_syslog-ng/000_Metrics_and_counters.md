@@ -60,8 +60,7 @@ The displayed metrics have the following structure.
         To avoid performance issues or even overloading syslog-ng OSE,
         you might want to limit the number of registered dynamic
         counters in the message statistics. To do this, configure the
-        [[stats-max-dynamics()]]
-        global option.
+        max-dynamics() parameter of the stats() global option.
 
     - **o** - This object was once active, but stopped receiving messages.
         (For example, a dynamic object may disappear and become orphan.)
@@ -249,7 +248,7 @@ The displayed metrics have the following structure.
 ## Availability of statistics
 
 Certain statistics are available only if the
-[[stats-level()]] global option is set to a higher value.
+level parameter of stats() global option is set to a higher value.
 
 - Level 0 collects only statistics about the sources and destinations.
 
