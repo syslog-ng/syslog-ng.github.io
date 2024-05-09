@@ -81,18 +81,29 @@
     display: block;
     margin-bottom: 0;
     padding: 0;
+    padding-bottom: 0.5em;
     border: none;
     outline: none;
     box-shadow: none;
     background-color: transparent;
     font-size: $type-size-3;
-
+    
     @include breakpoint($large) {
       font-size: $type-size-2;
     }
 
     @include breakpoint($x-large) {
       font-size: $type-size-1;
+    }
+  }
+
+  a:not(.btn) {
+    &:hover {
+      text-decoration: underline;
+
+      img {
+        box-shadow: 0 0 10px rgba(#000, 0.25);
+      }
     }
   }
 

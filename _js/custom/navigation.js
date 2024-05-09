@@ -8,6 +8,14 @@ $(function () {
   const notFoundPageName = '404.html';
   const contentID = 'article';
 
+  function trimCharFromString(str, char) {
+    // Create a regular expression to match the given character at the beginning or end of the string
+    const regex = new RegExp(`^${char}|${char}$`, 'g');
+
+    // Use replace() to trim the character from the string
+    return str.replace(regex, '');
+  }
+
   function hideTocIfNotNeeded(docObject, forceHide) {
     var shouldHide = forceHide;
     var tocElement = docObject.querySelector('.toc');
@@ -208,6 +216,9 @@ $(function () {
 
   function handleNavLinkClick(event) {
     if (!event.shiftKey && !event.ctrlKey && !event.altKey && !event.metaKey) {
+      if (tooltipTarget)
+        hideTooltip(true);
+
       var updated = false;
       // Get the relative URL value and update the browser URL
       // Use originalTarget or explicitTarget to get the correct one even for clicks from the tooltips
@@ -219,7 +230,7 @@ $(function () {
         // Try to load into the inner content frame only if the collection has not changed
         // Otherwise let the original click flow take effect, as the nav bar must be reloaded too
         // for a different collection
-        if (url.origin == window.location.origin && sameCollection(url, window.location)) {
+        if (url.origin === window.location.origin && anchorElement.target !== '_blank' && sameCollection(url, window.location)) {
           // Prevent default navigation behavior, we will use our content load method
           event.preventDefault();
 
@@ -238,7 +249,7 @@ $(function () {
         event.target.blur();
       }
       if (false == updated)
-        console.debug("Different collection item requested, loading full page...")
+        console.debug("Different collection item or new tab/page requested, loading full page...")
     }
   }
 
@@ -301,9 +312,12 @@ $(function () {
     });
   }
 
-  function alterPageTitle(content) {
+  function alterPageForTooltip(content, fullPageContent) {
     let tempContainer = document.createElement('div');
     tempContainer.innerHTML = content;
+
+    if (fullPageContent)
+      hideTocIfNotNeeded(tempContainer, true);
 
     // Remove/Override some default title style formatting to look better in the tooltip
     const pageTitle = tempContainer.querySelector('#page-title');
@@ -314,7 +328,11 @@ $(function () {
     if (pageSubtitle)
       pageSubtitle.style.borderBottom = '0px';
 
-    return tempContainer.innerHTML;
+    var newContent = tempContainer.innerHTML
+    // remove unnecessary, reqursive inner content tooltips
+    newContent = newContent.replace(/\bcontent-tooltip\b/g, '');
+
+    return newContent;
   }
 
   function loadContentPartFrom(url, onSuccess, onError) {
@@ -333,17 +351,14 @@ $(function () {
         var startHeading = newContent.querySelector('#' + startHeadingId);
         if (startHeading) {
           var content = startHeading.outerHTML; // Include the starting <h> element itself
-
           var nextSibling = startHeading.nextElementSibling;
+
           // Collect all siblings until the next heading or the end of the document
           // FIXME: This magic 6 must be maintained together now with generate_links.rb (and other places ?!)
           while (nextSibling && nextSibling.tagName !== 'H1' && nextSibling.tagName !== 'H2' && nextSibling.tagName !== 'H3' && nextSibling.tagName !== 'H4' && nextSibling.tagName !== 'H5' && nextSibling.tagName !== 'H6') {
             content += nextSibling.outerHTML;
             nextSibling = nextSibling.nextElementSibling;
           }
-          if (false == hasAnchor)
-            content = alterPageTitle(content);
-
           onSuccess(content);
         }
         else
@@ -387,8 +402,13 @@ $(function () {
     tooltip.style.setProperty(posName, newPosition);
   }
 
-  function showTooltip(event, tooltipText) {
+  function showTooltip(event, tooltipText, fullPageContent) {
     tooltip.innerHTML = tooltipText.innerHTML;
+
+    if (fullPageContent)
+      tooltip.classList.add("full-content-tooltip");
+    else
+      tooltip.classList.remove("full-content-tooltip");
 
     var tooltipPos = getTooltipPos(event, tooltipTarget)
     var tooltipArrowLeftShift = 2 * toolTipArrowSize;
@@ -450,27 +470,37 @@ $(function () {
       element.appendChild(tooltipText);
 
       element.addEventListener('mouseover', function (event) {
+        var fullPageContent = element.classList.contains('full-content-tooltip');
+
         tooltipTarget = element;
 
         // Load only once per page load
         if (tooltipText.innerHTML === '') {
           var url = element.href;
-          loadContentPartFrom(
-            url,
-            newContent => {
-              // remove unnecessary inner content tooltips
-              newContent = newContent.replace(/\bcontent-tooltip\b/g, '');
-              // cache for reuse
-              tooltipText.innerHTML = newContent;
-              showTooltip(event, tooltipText);
-            },
-            error => {
-              console.error('Error loading the tooltip content!' + error);
-            }
-          );
+
+          function onSuccess(newContent) {
+            if (typeof (newContent) === 'object' && 'innerHTML' in newContent)
+              newContent = newContent.innerHTML;
+            newContent = alterPageForTooltip(newContent, fullPageContent);
+
+            // cache for reuse
+            tooltipText.innerHTML = newContent;
+            showTooltip(event, tooltipText, fullPageContent);
+          }
+
+          function onError(error) {
+            console.error('Error loading the tooltip content!' + error);
+          }
+          
+          if (fullPageContent) {
+            loadContentFromUrl(url, newContent => onSuccess(newContent), error => onError(error));
+          }
+          else {
+            loadContentPartFrom(url, newContent => onSuccess(newContent), error => onError(error));
+          }
         }
         else
-          showTooltip(event, tooltipText);
+          showTooltip(event, tooltipText, fullPageContent);
       });
     });
 
