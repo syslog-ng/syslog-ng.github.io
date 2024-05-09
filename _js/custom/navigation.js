@@ -4,7 +4,7 @@
 
 $(function () {
   // FIXME: How to get the real base URL (without using Liquid and Front Matter) ?!?!
-  const docRootName = 'doc';
+  const docRoot = '';
   const notFoundPageName = '404.html';
   const contentID = 'article';
 
@@ -158,7 +158,7 @@ $(function () {
       error => {
         if (error == "Error: 404") {
           var baseURL = window.location.origin;
-          var notFoundURL = baseURL + '/' + docRoot + '/' + notFoundPageName;
+          var notFoundURL = baseURL + '/' + (docRoot != '' ? docRoot + '/' : '') + notFoundPageName;
 
           updateContentFromUrl(notFoundURL);
         }
@@ -174,15 +174,20 @@ $(function () {
   // Functions to handle link clicks
   // -------------
   function getCollectionFromDocPath(url) {
-    var parts = url.href.split('/');
-    var docIndex = parts.indexOf(docRootName);
+    var collection = '';
+    var parts = trimCharFromString(url.pathname, '/').split('/');
 
-    // If 'doc' is not found or it's the last segment, return an empty string
-    if (docIndex === -1 || docIndex === parts.length - 1) {
-      return '';
+    if (docRoot == '') {
+      collection = parts[0];
     }
+    else {
+      var docIndex = parts.indexOf(docRoot);
 
-    return parts[docIndex + 1];
+      // If 'docRoot' is found or it is not the last segment, return the next part after it as the collection name
+      if (docIndex !== -1 && docIndex !== parts.length - 1)
+        collection = parts[docIndex + 1];
+    }    
+    return collection;
   }
 
   function sameCollection(url1, url2) {
