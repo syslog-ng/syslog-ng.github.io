@@ -1239,4 +1239,8 @@ doc-guide-nav:
     url: /doc-guide/02_Tools/README
     subnav:
     - title: "Self made helper tools"
-      url: /doc-guide/02_Tools/01_Our_helpers
+      url: /doc-guide/02_Tools/01_Self_made_tools/README
+      subnav:
+      - title: "Self made tools testing"
+        url: /doc-guide/02_Tools/01_Self_made_tools/01_Tests/README
+        subnav:
