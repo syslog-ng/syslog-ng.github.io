@@ -126,7 +126,7 @@ module Jekyll
 
               # Search for known link titles
               # NOTE: Using multi line matching here will not help either if the pattern itself is in the middle broken/spaned to multiple lines, so using whitespace replacements now inside the patter to handle this, see above!
-			  full_pattern = /(^|[\s.,;:&'"\-(])(#{pattern})([\s.,;:&'"\-)]|\z)(?![^<]*?<\/a>)/
+			  full_pattern = /(^|[\s.,;:&'"(])(#{pattern})([\s.,;:&'")]|\z)(?![^<]*?<\/a>)/
               markdown_part = process_markdown_part(page, markdown_part, page_links, full_pattern, id, url, needs_tooltip, true)
             else
               # Content inside of special Markdown blocks
@@ -232,7 +232,11 @@ module Jekyll
           end
         end
 
-        sorted_arr.sort_by { |page| page["title"].downcase }.reverse
+        # With this reversed length sort order we try to guarantie that
+        # the autolink/tooltip title pattern matching finds titles like
+        # 'Soft macros' before 'macros'
+        # In most of the cases matching the longer titles first will eliminate such issues
+        sorted_arr.sort_by { |page| page["title"].length }.reverse
       end
 
       def gen_page_link_data(links_dir, link_files_pattern)
@@ -287,16 +291,15 @@ module Jekyll
             puts "Unknow ID (#{alias_id}) in alias definition"
             exit 4
           end
-          _, aliases = alias_data.first
-          page_link_data["title"] = aliases.concat(page_link_data["title"])
-          #puts "page_link_data: #{page_link_data}"
+          page_link_data["title"].concat(alias_data["aliases"])
+          # puts "page_link_data: #{page_link_data}"
         end
 
         # Just for debugging
         # pp page_links_dictionary
-        page_links_ids_sorted_by_title(page_links_dictionary).each do |data|
-          #puts data
-        end
+        # page_links_ids_sorted_by_title(page_links_dictionary).each do |data|
+        #   puts data
+        # end
 
         #pp page_links_dictionary
         return page_links_dictionary
