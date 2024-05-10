@@ -21,7 +21,6 @@ module Jekyll
           file.write("id: " + data["id"] + "\n")
           file.write("url: " + data["url"] + "\n")
           file.write("title: " + data["title"] + "\n")
-          file.write("description: " + data["description"] + "\n")
         end
         #puts file_path
       end
@@ -65,10 +64,7 @@ module Jekyll
           # links must be used via the markdown_link include (or with the '| relative_url' filter) that will handle this 
           page_url = page.url.sub(/\.[^.]+$/, "") # page.url.sub(/^\//, "").sub(/\.[^.]+$/, "")
           page_path = page.destination("").split("_site/").last  # Get the path to the generated HTML file
-          page_description = page['subtitle']&.strip
-          page_description = page_description ? page_description : page['description']&.strip
-          page_description = page_description ? page_description : ""
-          #puts "page_id: " + page_id + "\npage_url :" + page_url + "\npage_path: " + page_path + "\npage_description: " + page_description
+          #puts "page_id: " + page_id + "\npage_url :" + page_url + "\npage_path: " + page_path
 
           # Find all heading elements (now from h1 to h6)
           # FIXME: This magic 6 must be maintained together now with navigation.js (and other places?!)
@@ -86,7 +82,6 @@ module Jekyll
                 "id" => page_id + "##{heading_id}",
                 "url" => page_url + "##{heading_id}",
                 "title" => '"' + heading.text + '"',
-                "description" => '""'
               }
               #register_id(page, link_data["id"], link_data["title"], ids, titles)
 
@@ -110,7 +105,6 @@ module Jekyll
               "id" => anchor_id,
               "url" => page_url + "##{anchor_name}",
               "title" => '"' + (anchor_text.empty? ? anchor_id : anchor_text) + '"',
-              "description" => '""'
             }
             #register_id(page, link_data["id"], link_data["title"], ids, titles)
 
@@ -125,7 +119,6 @@ module Jekyll
             "id" => page_id,
             "url" => page_url,
             "title" => '"' + page_title + '"',
-            "description" => '"' + page_description + '"'
           }
           register_id(page, page_link_data["id"], page_link_data["title"], ids, titles)
 
