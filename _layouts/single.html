@@ -31,10 +31,16 @@ layout: default
       {% unless page.header.overlay_color or page.header.overlay_image %}
         <header>
           {% if page.title %}
-          <h1 id="page-title" class="page__title p-name {% if page.subtitle == null and page.description == null %} page__title_decoration{% endif %}" itemprop="headline">
+          {% comment %}<!-- <h1 id="page-title" class="page__title p-name {% if page.subtitle == null and page.description == null %} page__title_decoration{% endif %}" itemprop="headline"> -->{% endcomment %}
+          <h1 id="page-title" class="page__title p-name page__title_decoration" itemprop="headline">
             <a href="{{ page.url | absolute_url }}" class="u-url nav-link" itemprop="url">{{ page.title | markdownify | remove: "<p>" | remove: "</p>" }}</a>
           </h1>
           {% endif %}
+          {% comment %}<!--            
+          DO NOT ADD page.subtitle and page.description !!! 
+          It will be added by aour Jekyll plugin as simple text paragraph right at the beggining of the content, before the first heading instead, that will be used as description in the tooltips.
+          This eliminates markdown and liquid rendering differences in the description part.
+
           {% if page.subtitle or page.description %}
             {% if page.subtitle %}
               {% assign subtitle = page.subtitle %}
@@ -42,7 +48,7 @@ layout: default
               {% assign subtitle = page.description %}
             {% endif %}
             <p id="page-subtitle" class="page__subtitle p-name page__title_decoration" itemprop="headline">{{ subtitle | liquify | markdownify | remove: "<p>" | remove: "</p>" }}</p>
-          {% endif %}
+          {% endif %} -->{% endcomment %}
           {% include page__meta.html %}
         </header>
       {% endunless %}
