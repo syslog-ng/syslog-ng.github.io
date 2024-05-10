@@ -47,7 +47,7 @@ module Jekyll
           return url
       end
 
-      def make_tooltip(page, page_links, id, url, needs_tooltip, match)
+      def make_tooltip(page, page_links, id, url, match)
         match_parts = match.split(/\|/)
         # If the text has an '|' it means it comes from our special autolink/tooltip [[text|id]] markdown block
         # We have to reparse it a bit and get the id  we must use
@@ -64,13 +64,13 @@ module Jekyll
         #       but, at the same time requires e.g. all the really external links to be fully qualified (even in external_links.yml as well)
         external_url = is_prefixed_url?(url)
         match = save_from_markdownify(match)
-        replacement_text = '<a href="' + url + '" class="nav-link' + (needs_tooltip ? ' content-tooltip' : '') + '"' + (external_url ? ' target="_blank"' : '') + '>' + match + '</a>'
+        replacement_text = '<a href="' + url + '" class="nav-link content-tooltip"' + (external_url ? ' target="_blank"' : '') + '>' + match + '</a>'
         puts "replacement_text: " + replacement_text
 
         return replacement_text
       end
 
-      def process_markdown_part(page, markdown_part, page_links, full_pattern, id, url, needs_tooltip, add_separator)
+      def process_markdown_part(page, markdown_part, page_links, full_pattern, id, url, add_separator)
 
         markdown_part = markdown_part.gsub(full_pattern) do |match|
           left_separator = $1
@@ -78,7 +78,7 @@ module Jekyll
           right_separator = $3
           #puts "\nmatch: #{match}\nleft_separator: #{left_separator}\nmatched_text: #{matched_text}\nright_separator: #{right_separator}"
 
-          replacement_text = make_tooltip(page, page_links, id, url, needs_tooltip, matched_text)
+          replacement_text = make_tooltip(page, page_links, id, url, matched_text)
           if add_separator
             replacement_text = left_separator + replacement_text + right_separator
           end
@@ -112,7 +112,6 @@ module Jekyll
             # id = link_data["id"] these must match too
             title = page_titles_data["title"]  # link_data["title"] is an array of titles that all must be already in the page_links_ids_sorted_by_title array
             url = prefixed_url(link_data["url"], base_url)
-            needs_tooltip = (link_data["description"] || has_anchor?(url))
 
             #puts "searching for #{title}"
             pattern = Regexp.escape(title)
@@ -126,14 +125,14 @@ module Jekyll
 
               # Search for known link titles
               # NOTE: Using multi line matching here will not help either if the pattern itself is in the middle broken/spaned to multiple lines, so using whitespace replacements now inside the patter to handle this, see above!
-			  full_pattern = /(^|[\s.,;:&'"(])(#{pattern})([\s.,;:&'")]|\z)(?![^<]*?<\/a>)/
-              markdown_part = process_markdown_part(page, markdown_part, page_links, full_pattern, id, url, needs_tooltip, true)
+              full_pattern = /(^|[\s.,;:&'"(])(#{pattern})([\s.,;:&'")]|\z)(?![^<]*?<\/a>)/
+              markdown_part = process_markdown_part(page, markdown_part, page_links, full_pattern, id, url, true)
             else
               # Content inside of special Markdown blocks
 
               # Handle own auto tooltip links [[ ]], [[ | ]], [[ |id ]]
               full_pattern = /(\[\[)(#{pattern}|#{pattern}\|.+|.*\|#{id})(\]\])/
-              markdown_part = process_markdown_part(page, markdown_part, page_links, full_pattern, id, url, needs_tooltip, false)
+              markdown_part = process_markdown_part(page, markdown_part, page_links, full_pattern, id, url, false)
             end
           end
 
