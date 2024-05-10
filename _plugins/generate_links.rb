@@ -71,8 +71,8 @@ module Jekyll
           #puts "page_id: " + page_id + "\npage_url :" + page_url + "\npage_path: " + page_path + "\npage_description: " + page_description
 
           # Find all heading elements (now from h1 to h6)
-          # NOTE: This will not contain the <h1 id="page-title"> page title, as that is out of the page.content
           # FIXME: This magic 6 must be maintained together now with navigation.js (and other places?!)
+          # NOTE: This will not contain the <h1 id="page-title"> page title, as that is out of the page.content
           (1..6).each do |level|
             headings = doc.css("h#{level}")
 
@@ -97,8 +97,8 @@ module Jekyll
           end
 
           # Enumerate all named anchor elements too
-          # This way we can referenve not automatically created links via our
-          # [[title|id]] or {# include markdown_link ...$} extensions
+          # This way we can reference not automatically created links via our
+          # [[title|id]] or {% include markdown_link ... %} extensions as well
           doc.xpath('//a[@name]').each do |anchor|
             anchor_name = anchor['name']
             anchor_text = anchor.text
@@ -119,7 +119,7 @@ module Jekyll
             write_yaml_file(file_path, link_data)
           end
 
-          # Create links data for the page
+          # Create links data for the page itself too
           page_title = page.data["title"]
           page_link_data = {
             "id" => page_id,
