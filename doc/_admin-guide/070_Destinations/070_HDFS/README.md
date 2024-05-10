@@ -68,7 +68,7 @@ destination d_hdfs {
 ```
 
 - To install the software required for the hdfs destination, see
-    Prerequisites.
+    [[Prerequisites|adm-dest-hdfs-pre]].
 - For details on how the hdfs destination works, see
     How syslog-ng OSE interacts with HDFS.
 - For details on using MapR-FS, see

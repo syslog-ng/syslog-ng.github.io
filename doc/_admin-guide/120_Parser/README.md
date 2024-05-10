@@ -46,7 +46,7 @@ following application logs:
 
 - Apache HTTP server access logs. For details, see
     Apache access log parser.
-- Cisco devices. For details, see Cisco parserCisco     parser.
+- Cisco devices. For details, see Cisco parser.
 
 - Messages formatted using the enterprise-wide message model (EWMM) of
     syslog-ng OSE. For details, see

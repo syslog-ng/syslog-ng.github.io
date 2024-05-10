@@ -15,7 +15,7 @@ sql(database_type host_parameters database_parameters [options]);
 ```
 
 The sql() driver has the following required parameters:
-type(), database(), table(), columns()
+type(), [[database()|adm-dest-sql-opt#database]], table(), [[columns()|adm-dest-sql-opt#columns]]
 and values().
 
 >![]({{ site.baseurl}}/assets/images/caution.png) **CAUTION:**
