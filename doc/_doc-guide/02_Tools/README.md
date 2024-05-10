@@ -12,4 +12,4 @@ id: doc-tools
 2. Install bundler\
    It's just a ruby gem itself too, so simply run `gem install bundle`
 3. [[Install node.js|mm-javascripts]] \
-   It's needed only if you have to [[modify and re-pack|doc-own-tools#modify-and-repack-js]] the site wide .js script files
+   It's needed only if you have to [[modify and re-pack|doc-own-tools#pack]] the site wide .js script files

@@ -63,6 +63,11 @@ sn-blogs:
   url: https://syslog-ng.com/blog/
   title: [ "syslog-ng blogs" ]
 
+mm-site:
+  id: mm-site
+  url: https://mademistakes.com/work/minimal-mistakes-jekyll-theme/
+  title: [ "Minimal Mistakes" ]
+
 mm-javascripts:
   id: mm-javascripts
   url: https://mmistakes.github.io/minimal-mistakes/docs/javascript/
