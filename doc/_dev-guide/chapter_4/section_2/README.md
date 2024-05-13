@@ -20,7 +20,7 @@ Like every project syslog-ng also uses different libraries and build-systems tha
 
 ### Dependencies
 
-1. [[Install Homebrew|dev-inst-macos#Homebrew]] on your system.
+1. [[Install Homebrew|dev-inst-macos#homebrew]] on your system.
 
    **Hint:** Don't forget to set up the homebrew environment, follow the instructions in your terminal! [[Here|homebrew-inst-detailed]] you can find an even more detailed instruction about the topic.
    {: .notice--info}
