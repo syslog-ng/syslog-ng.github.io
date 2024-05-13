@@ -55,8 +55,23 @@ module Jekyll
           #puts "match_parts: #{match_parts}"
           match = match_parts[0]
           id = match_parts[1]
-          url = page_links[id]["url"]
+          link_data = page_links[id]
+          if link_data != nil
+            url = link_data["url"]
           url = prefixed_url(url, page.site.config["baseurl"])
+          else
+            puts "Error: Unknown ID in matching part: #{match_parts}"
+            return match
+          end
+        end
+
+        if id == nil or id.length <= 0
+          puts "Error: Empty ID in matching part: #{match}"
+          return match
+        end
+        if url == nil or url.length <= 0
+          puts "Error: Empty URL for ID: #{id} in matching part: #{match}"
+          return match
         end
 
         # NOTE: Now we treat every link that has protocol prefix part as an external one
@@ -65,7 +80,7 @@ module Jekyll
         external_url = is_prefixed_url?(url)
         match = save_from_markdownify(match)
         replacement_text = '<a href="' + url + '" class="nav-link content-tooltip"' + (external_url ? ' target="_blank"' : '') + '>' + match + '</a>'
-        puts "replacement_text: " + replacement_text
+        # puts "replacement_text: " + replacement_text
 
         return replacement_text
       end
@@ -101,39 +116,45 @@ module Jekyll
         markdown_parts = markdown.split(special_markdown_blocks_pattern)
         #puts markdown_parts
         markdown_parts.each_with_index do |markdown_part, markdown_index|
-          #puts "---------------\nmarkdown_index: " + markdown_index.to_s + "\n" + (markdown_index.even? ? "NONE " : "") + "markdown_part: " + markdown_part
+          # puts "---------------\nmarkdown_index: " + markdown_index.to_s + "\n" + (markdown_index.even? ? "NOT " : "") + "markdown_part: " + markdown_part
 
-          page.data["page_links_ids_sorted_by_title"].each do |page_titles_data|
+          page.data["filtered_page_ids_sorted_by_title_len"].each do |page_titles_data|
             #puts "page_titles_data:  #{page_titles_data}"
 
             id = page_titles_data["id"]
 
-            link_data = page_links[id]
-            # id = link_data["id"] these must match too
-            title = page_titles_data["title"]  # link_data["title"] is an array of titles that all must be already in the page_links_ids_sorted_by_title array
+            link_data = page_links[id]          # id and link_data["id"] must match always at this point
+            title = page_titles_data["title"]   # link_data["title"] is an array of titles that all must be represented by ID already in the filtered_page_ids_sorted_by_title_len array
             url = prefixed_url(link_data["url"], base_url)
 
-            #puts "searching for #{title}"
             pattern = Regexp.escape(title)
-            #puts "searching for #{pattern}"
-            # TODO: Even though this one helps finding the pattern e.g. if it spans to multiple line or separated inside with different whitespaces, but can cause unwanted sideffects and has generation time penalities, revise later!
+            # TODO: Even though this one helps finding the pattern e.g. if it spans to multiple line or separated inside with different whitespaces, but 
+            #       also can cause unwanted sideffects and has generation time penalities, revise later!
             pattern = pattern.gsub('\ ', '[\s]+')
-            #puts "searching for #{pattern}"
+            #puts "searching for #{title} with pattern #{pattern}"
 
             if markdown_index.even?
               # Content outside of special Markdown blocks, aka. pure text (NOTE: Also excludes the reqursively self added <a ...>title</a> tooltips/links)
 
               # Search for known link titles
-              # NOTE: Using multi line matching here will not help either if the pattern itself is in the middle broken/spaned to multiple lines, so using whitespace replacements now inside the patter to handle this, see above!
+              # NOTE: Using multi line matching here will not help either if the pattern itself is in the middle broken/spaned to multiple lines, so 
+              #       using whitespace replacements now inside the patter to handle this, see above!
               full_pattern = /(^|[\s.,;:&'"(])(#{pattern})([\s.,;:&'")]|\z)(?![^<]*?<\/a>)/
               markdown_part = process_markdown_part(page, markdown_part, page_links, full_pattern, id, url, true)
             else
               # Content inside of special Markdown blocks
 
-              # Handle own auto tooltip links [[ ]], [[ | ]], [[ |id ]]
-              full_pattern = /(\[\[)(#{pattern}|#{pattern}\|.+|.*\|#{id})(\]\])/
+              # Handle own auto\tooltip links [[title]], but NOT [[title|id]], see bellow why
+              full_pattern = /(\[\[)(#{pattern})(\]\])/
               markdown_part = process_markdown_part(page, markdown_part, page_links, full_pattern, id, url, false)
             end
+          end
+
+          if markdown_index.odd?
+            # Handle own auto\tooltip links [[title|id]]
+            # This must be a separate run, as independent from the given title, if ID is presented it will always override title, and title exclusion as well
+            full_pattern = /(\[\[)(.+\|.+)(\]\])/
+            markdown_part = process_markdown_part(page, markdown_part, page_links, full_pattern, nil, nil, false)
           end
 
           #puts "new markdown_part: " + markdown_part
@@ -216,7 +237,8 @@ module Jekyll
         return nav_links_dictionary
       end # gen_nav_link_data
 
-      def page_links_ids_sorted_by_title(page_links)
+      def filtered_page_ids_sorted_by_title_len(page_links)
+        excluded_titles = YAML.load_file(JekyllTooltipGen_excluded_yaml)
         sorted_arr = []
 
         page_links.each do |page_id, page_data|
@@ -224,6 +246,9 @@ module Jekyll
           titles = page_data["title"]
 
           titles.each do |title|
+            # Skip excluded titles
+            next if is_excluded_title?(excluded_titles, title)
+
             sorted_arr << page_link_data = {
               "id" => page_id,
               "title" => title,
@@ -236,11 +261,15 @@ module Jekyll
         # 'Soft macros' before 'macros'
         # In most of the cases matching the longer titles first will eliminate such issues
         sorted_arr.sort_by { |page| page["title"].length }.reverse
+
+        # Just for debugging
+        # sorted_arr.each do |data|
+        #   puts data
+        # end
       end
 
       def gen_page_link_data(links_dir, link_files_pattern)
         link_aliases = YAML.load_file(JekyllTooltipGen_link_aliases_yaml)
-        excluded_titles = YAML.load_file(JekyllTooltipGen_excluded_yaml)
         page_links_dictionary = YAML.load_file(JekyllTooltipGen_external_yaml)
         #page_links_dictionary = {}
         link_file_names = []
@@ -258,12 +287,9 @@ module Jekyll
           page_title = page_title.gsub(/\A[#{Regexp.escape(chars_to_remove)}]+|[#{Regexp.escape(chars_to_remove)}]+\z/, '')
           #puts "page_title: " + page_title
           if page_title.length == 0
-            puts "Page title is empty, ID: #{page_id}"
+            puts "Error: Page title is empty, ID: #{page_id}"
             exit 3
           end
-
-          # Skip excluded titles
-          next if is_excluded_title?(excluded_titles, page_title)
 
           # Create a new page_link_data object
           page_link_data = {
@@ -283,25 +309,18 @@ module Jekyll
 
           page_link_data = page_links_dictionary[alias_id]
           if page_link_data == nil
-            puts "Unknow ID (#{alias_id}) in alias definition"
+            puts "Error: Unknow ID (#{alias_id}) in alias definition"
             exit 4
           end
           page_link_data["title"].concat(alias_data["aliases"])
           # puts "page_link_data: #{page_link_data}"
         end
 
-        # Just for debugging
-        # pp page_links_dictionary
-        # page_links_ids_sorted_by_title(page_links_dictionary).each do |data|
-        #   puts data
-        # end
-
         #pp page_links_dictionary
         return page_links_dictionary
       end # gen_page_link_data
 
       def generate_tooltips(page, write_back)
-        puts "------------------------------------"
         puts "collection: " + (page.respond_to?(:collection) ? page.collection.label : "") + ", ndx: #{page.data["nav_ndx"]}, relative_path: #{page.relative_path}"
         puts "------------------------------------"
 
@@ -383,7 +402,7 @@ JekyllTooltipGen_external_yaml = '_data/external_links.yml'
 
 $JekyllTooltipGen_markdown_extensions = nil
 $JekyllTooltipGen_page_links = nil
-$JekyllTooltipGen_page_links_ids_sorted_by_title = nil
+$JekyllTooltipGen_filtered_page_ids_sorted_by_title_len = nil
 $JekyllTooltipGen_nav_links = nil
 $JekyllTooltipGen_should_build_tooltips = nil
 $JekyllTooltipGen_should_build_persistent_tooltips = nil
@@ -399,6 +418,7 @@ $JekyllTooltipGen_should_build_persistent_tooltips = nil
 #       as that needs proper per-page payload data (or TODO: figure out how to get it in that case properly)
 #
 Jekyll::Hooks.register :site, :pre_render do |site|
+  puts "------------------------------------"
   if $JekyllTooltipGen_should_build_tooltips == nil
     $JekyllTooltipGen_should_build_tooltips = (ENV['JEKYLL_BUILD_TOOLTIPS'] == 'yes')
     $JekyllTooltipGen_should_build_persistent_tooltips = (ENV['JEKYLL_BUILD_PERSISTENT_TOOLTIPS'] == 'yes')
@@ -408,9 +428,9 @@ Jekyll::Hooks.register :site, :pre_render do |site|
   if $JekyllTooltipGen_markdown_extensions == nil
     $JekyllTooltipGen_markdown_extensions = site.config['markdown_ext'].split(',').map { |ext| ".#{ext.strip}" }
     # Skip shorter than 3 letter long (e.g. Glossary header) anchor items (for testing: https://rubular.com/)
-    $JekyllTooltipGen_page_links = Jekyll::TooltipGen.gen_page_link_data(JekyllTooltipGen_links_folder, /\/(adm|dev|doc|site)-(([^#]+)|(.*\#{1}.{3,}))\.yml\z/)   # /\/(adm|dev|doc)-(([^#]+)|(.*\#{1}.{3,}))\.yml\z/       'adm-temp-macro-ose#message.yml'
+    $JekyllTooltipGen_page_links = Jekyll::TooltipGen.gen_page_link_data(JekyllTooltipGen_links_folder, /\/(adm|dev|doc|site)-(([^#]+)|(.*\#{1}.{3,}))\.yml\z/)
     # Sort the $JekyllTooltipGen_page_links dictionary keys based on the "title" values in reverse order case insensitive
-    $JekyllTooltipGen_page_links_ids_sorted_by_title = Jekyll::TooltipGen.page_links_ids_sorted_by_title($JekyllTooltipGen_page_links)
+    $JekyllTooltipGen_filtered_page_ids_sorted_by_title_len = Jekyll::TooltipGen.filtered_page_ids_sorted_by_title_len($JekyllTooltipGen_page_links)
     # Create $JekyllTooltipGen_nav_links dictionary using "url" as key and add nav_ndx to all items based on we can adjust navigation order (in page_pagination.html)
     # TODO: We can replace the nav_gen shell tool now to handle everything related to link generation at a single place
     $JekyllTooltipGen_nav_links = Jekyll::TooltipGen.gen_nav_link_data(JekyllTooltipGen_navigation_yaml)
@@ -418,7 +438,7 @@ Jekyll::Hooks.register :site, :pre_render do |site|
 
   [site.pages, site.documents].each do |pages|
     pages.each do |page|
-      #JekyllTooltipGen_debug_page_info(page, true)
+      # JekyllTooltipGen_debug_page_info(page, false)
 
       next if false == $JekyllTooltipGen_markdown_extensions.include?(File.extname(page.relative_path)) && File.extname(page.relative_path) != ".html"
 
@@ -427,7 +447,7 @@ Jekyll::Hooks.register :site, :pre_render do |site|
         page.data['nav_ndx'] = link_data['nav_ndx'] # page_pagination.html will use this as sort value for navigation ordering
       end
       page.data["page_links"] = $JekyllTooltipGen_page_links
-      page.data["page_links_ids_sorted_by_title"] = $JekyllTooltipGen_page_links_ids_sorted_by_title
+      page.data["filtered_page_ids_sorted_by_title_len"] = $JekyllTooltipGen_filtered_page_ids_sorted_by_title_len
       # puts "collection: " + (page.respond_to?(:collection) ? page.collection.label : "") + ", nav_ndx: " + (link_data != nil ? link_data['nav_ndx'].to_s : "") + ", page_url: #{page_url}, page: #{page.relative_path}"
 
       page_has_subtitle = (page.data["subtitle"] && false == page.data["subtitle"].empty?)
