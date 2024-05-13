@@ -69,6 +69,13 @@ Developer guide is a double (page title amd section heading) example with a desc
 
 [[Self page link|doc-testing-page]] test.
 
+Test of forced link with anchored ID part [[Install Homebrew|dev-inst-macos#homebrew]].
+
+1. Same test like above in an enumeration [[Install Homebrew|dev-inst-macos#homebrew]].
+
+**Hint:** Same again in a notice block [[Install Homebrew|dev-inst-macos#homebrew]]. If you you have syslog-ng [[installed via brew|dev-inst-macos#installation]], as a reference, you can check the dependencies of the brew built version using `brew deps syslog-ng`
+{: .notice--info}
+
 The severity of the message. `time-zone()` teszt
 
 parser: Parse and segment structured messages
@@ -93,25 +100,27 @@ Slack :destination options
 
 Slack 'destination' options
 
-`Options of the mqtt() destination`
-
-[Parse bar]
-
-Alma [[parser]] korte
-
-[[destination]]
+[[[[destination]]]]
 
 [[destination id=bom|adm-about-glossary#bom]]
 
 [[destination|adm-about-glossary#bom]] id=bom
 
-[[destination||]]
+[[destination|]] - \[\[destination\|\]\]
 
-[destination|]
+[[destination||]] - \[\[destination\|\|\]\]
 
-destination|
+[destination|] - \[destination\|\]
 
-[destination]
+destination| - destination\|
+
+[destination] - \[destination\]
+
+`Options of the mqtt() destination`
+
+[Parse bar]
+
+Alma [[parser]] korte
 
 <a href="/admin-guide/200_About/002_Glossary#destination" class="nav-link content-tooltip">that is a direct, html link destination test</a>
 
@@ -121,14 +130,18 @@ destination|
 
 {% include markdown_link id="adm-about-glossary#destination" title="destination quote" withTooltip="yes" %}
 
-message
-
-[[message]]
+option
 
 Options is an excluded word.
 
+[[Option]] is excluded
+
+[[option|adm-about-glossary#bom]] is excluded, but overidden
+
 For more information, see
-[[Options of the kafka() destination's C implementation]].
+[[Options of the kafka() destination's C implementation]] or
+Options of the kafka() destination's C implementation.
+
 
 For details, see [[The syslog-ng.conf manual page]].
 
