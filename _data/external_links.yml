@@ -141,7 +141,7 @@ bsd-syslog-proto:
 ietf-syslog-proto:
   id: ietf-syslog-proto
   url: https://tools.ietf.org/html/rfc5424
-  title: [ "new syslog (IETF-syslog) protocol" ]
+  title: [ "IETF-syslog" ]
 
 lunr-site:
   id: lunr-site
@@ -173,22 +173,439 @@ grpc-core:
   url: https://grpc.github.io/grpc/core/group__grpc__arg__keys.html
   title: [ "GRPC Core library documentation" ]
 
-gh-jellyfin:
-  id: gh-jellyfin
-  url: https://github.com/syslog-ng/syslog-ng/blob/master/scl/jellyfin/jellyfin.conf
-  title: [ "Jellyfish config file on GitHub" ]
- 
-jellyfin-logs:
-  id: jellyfin-logs
-  url: https://jellyfin.org/
-  title: [ "Jellyfin logs" ]
- 
-jellyfin-main:
-  id: jellyfin-main
-  url: https://jellyfin.org/docs/general/administration/configuration/#main-configuration
-  title: [ "Jellyfin Main Configuration" ]
- 
-jellyfin-log-dir:
-  id: jellyfin-log-dir
-  url: https://jellyfin.org/docs/general/administration/configuration/#log-directory
-  title: [ "Jellyfin Log Directory" ]
+sn-selinux:
+  id: sn-selinux
+  url: https://syslog-ng.com/blog/using-syslog-ng-with-selinux-in-enforcing-mode/
+  title: [ "Using syslog-ng with SELinux in enforcing mode" ]
+
+
+rfc-4180:
+  id: rfc-4180
+  url: https://tools.ietf.org/html/rfc4180
+  title: [ "RFC4180 CSV format" ]
+
+
+geoip2:
+  id: geoip2
+  url: https://www.maxmind.com/en/geoip2-databases
+  title: [ "GeoIP2" ]
+
+
+geo-city:
+  id: geo-city
+  url: https://dev.maxmind.com/geoip/geoip2/geoip2-city-country-csv-databases/
+  title: [ "GeoIP2 City and Country CSV Databases" ]
+
+
+oi-sn-pe:
+  id: oi-sn-pe
+  url: https://support.oneidentity.com/syslog-ng-premium-edition/
+  title: [ "The syslog-ng Premium Edition Administration Guide" ]
+
+
+linux-ha:
+  id: linux-ha
+  url: https://web.archive.org/web/20230422234943/http://www.linux-ha.org/wiki/Main_Page
+  title: [ "archived page of Linux-HA" ]
+
+
+sn-ose-upgrade:
+  id: sn-ose-upgrade
+  url: https://syslog-ng.com/blog/upgrading-from-syslog-ng-open-source-to-premium-edition/
+  title: [ "Upgrading from syslog-ng OSE to syslog-ng PE" ]
+
+
+gh-sudo:
+  id: gh-sudo
+  url: https://github.com/syslog-ng/syslog-ng/blob/master/scl/sudo/sudo.conf
+  title: [ "sudo configuration snippet on GitHub" ]
+
+
+osquery:
+  id: osquery
+  url: https://osquery.io
+  title: [ "osquery" ]
+
+
+sn-con-sup:
+  id: sn-con-sup
+  url: https://www.syslog-ng.com/support/
+  title: [ "contact Support" ]
+
+
+gh-iptables:
+  id: gh-iptables
+  url: https://github.com/syslog-ng/syslog-ng/blob/master/scl/iptables/iptables.conf
+  title: [ "iptables configuration snippet on GitHub" ]
+
+
+gh-cisco:
+  id: gh-cisco
+  url: https://github.com/syslog-ng/syslog-ng/blob/master/scl/cisco/plugin.conf
+  title: [ "Cisco configuration snippet on GitHub" ]
+
+
+gh-apache:
+  id: gh-apache
+  url: https://github.com/syslog-ng/syslog-ng/blob/master/scl/apache/apache.conf
+  title: [ "Apache configuration snippet on GitHub" ]
+
+
+postgresql:
+  id: postgresql
+  url: https://www.postgresql.org/docs/current/runtime-config-logging.html#RUNTIME-CONFIG-LOGGING-CSVLOG
+  title: [ "PostgreSQL" ]
+
+
+rfc-4627:
+  id: rfc-4627
+  url: https://tools.ietf.org/html/rfc4627
+  title: [ "RFC 4627" ]
+
+
+pan-os:
+  id: pan-os
+  url: https://docs.paloaltonetworks.com/pan-os.html
+  title: [ "PAN-OS" ]
+
+
+patterndb-todo:
+  id: patterndb-todo
+  url: https://my.balabit.com/downloads/patterndb-snapshot/
+  title: [ "here" ]
+
+
+sn-docker:
+  id: sn-docker
+  url: https://syslog-ng.com/blog/central-log-server-docker/
+  title: [ "syslog-ng docker image" ]
+
+
+sn-ose-adminguide:
+  id: sn-ose-adminguide
+  url: https://syslog-ng.github.io/admin-guide/README
+  title: [ "The syslog-ng OSE Administration Guide" ]
+
+
+kafka:
+  id: kafka
+  url: http://kafka.apache.org
+  title: [ "Apache Kafka" ]
+
+
+sn-intro-python:
+  id: sn-intro-python
+  url: https://www.syslog-ng.com/community/b/blog/posts/introduction-to-the-python-http-header
+  title: [ "Introduction to the Python HTTP header" ]
+
+
+goo-bigq:
+  id: goo-bigq
+  url: https://cloud.google.com/bigquery
+  title: [ "Google Cloud BigQuery" ]
+
+
+mongodb:
+  id: mongodb
+  url: https://www.mongodb.com/
+  title: [ "MongoDB" ]
+
+
+sn-python-mqtt:
+  id: sn-python-mqtt
+  url: https://www.syslog-ng.com/community/b/blog/posts/writing-python-destination-in-syslog-ng-how-to-send-log-messages-to-mqtt
+  title: [ "Writing Python destination in syslog-ng: how to send log messages to MQTT" ]
+
+
+cisco-syslog-mib:
+  id: cisco-syslog-mib
+  url: http://tools.cisco.com/ITDIT/MIBS/servlet/index
+  title: [ "CISCO-SYSLOG-MIB" ]
+
+
+gradle:
+  id: gradle
+  url: https://gradle.org/install
+  title: [ "gradle" ]
+
+
+hadoop:
+  id: hadoop
+  url: http://hadoop.apache.org/
+  title: [ "Hadoop Distributed File System (HDFS)" ]
+
+
+kerberos-doc:
+  id: kerberos-doc
+  url: http://web.mit.edu/Kerberos/krb5-1.5/krb5-1.5.4/doc/krb5-install/The-Keytab-File.html
+  title: [ "Kerberos documentation" ]
+
+
+graphite:
+  id: graphite
+  url: http://graphite.readthedocs.io/en/latest/index.html
+  title: [ "Graphite" ]
+
+
+opensearch:
+  id: opensearch
+  url: https://opensearch.org
+  title: [ "OpenSearch" ]
+
+
+mqtt-prot:
+  id: mqtt-prot
+  url: https://www.hivemq.com/mqtt-protocol/
+  title: [ "MQTT protocol" ]
+
+
+unixsock:
+  id: unixsock
+  url: https://collectd.org/documentation/manpages/collectd-unixsock.5.shtml
+  title: [ "unixsock plugin of the collectd application" ]
+
+
+graylog:
+  id: graylog
+  url: http://docs.graylog.org
+  title: [ "Graylog" ]
+
+
+openobserve:
+  id: openobserve
+  url: https://openobserve.ai/docs/api/ingestion/logs/json/
+  title: [ "OpenObserve Log Ingestion - JSON API" ]
+
+
+openobserve-org:
+  id: openobserve-org
+  url: https://openobserve.ai/docs/user-guide/organizations/
+  title: [ "OpenObserve organization" ]
+
+
+openobserve-stream:
+  id: openobserve-stream
+  url: https://openobserve.ai/docs/user-guide/streams/
+  title: [ "OpenObserve stream" ]
+
+
+goo-pub:
+  id: goo-pub
+  url: https://cloud.google.com/pubsub?hl=en
+  title: [ "Google Cloud Pub/Sub" ]
+
+
+gcp-ser:
+  id: gcp-ser
+  url: https://cloud.google.com/iam/docs/service-account-overview
+  title: [ "GCP Service Account authentication" ]
+
+
+logmatic:
+  id: logmatic
+  url: https://logmatic.io/
+  title: [ "Logmatic.io" ]
+
+
+aws-s3:
+  id: aws-s3
+  url: https://aws.amazon.com/s3/
+  title: [ "Amazon Simple Storage Service (Amazon S3)" ]
+
+
+libcurl:
+  id: libcurl
+  url: https://curl.haxx.se/libcurl/c/CURLOPT_PROXY.html
+  title: [ "the libcurl documentation" ]
+
+
+redis:
+  id: redis
+  url: https://redis.io/
+  title: [ "Redis" ]
+
+
+redis-com:
+  id: redis-com
+  url: https://redis.io/commands
+  title: [ "Redis command" ]
+
+
+gh-redis-pipe:
+  id: gh-redis-pipe
+  url: https://github.com/redis/hiredis#pipelining
+  title: [ "Redis's pipelining feature" ]
+
+
+telegram:
+  id: telegram
+  url: https://core.telegram.org/
+  title: [ "Telegram" ]
+
+
+riemann:
+  id: riemann
+  url: http://riemann.io/
+  title: [ "Riemann" ]
+
+
+loggly:
+  id: loggly
+  url: https://www.loggly.com/
+  title: [ "Loggly" ]
+
+
+sumologic:
+  id: sumologic
+  url: https://www.sumologic.com/
+  title: [ "Sumo Logic" ]
+
+
+sumo-cfg:
+  id: sumo-cfg
+  url: https://help.sumologic.com/03Send-Data/Sources/02Sources-for-Hosted-Collectors/Cloud-Syslog-Source#configure-a-cloud%C2%A0syslog%C2%A0source
+  title: [ "configuring your cloud syslog source" ]
+
+
+discord:
+  id: discord
+  url: https://discord.com/
+  title: [ "Discord" ]
+
+
+discord-rate:
+  id: discord-rate
+  url: https://discord.com/developers/docs/topics/rate-limits#global-rate-limit
+  title: [ "Discord: Rate Limits" ]
+
+
+slack:
+  id: slack
+  url: https://slack.com/
+  title: [ "Slack" ]
+
+
+sn-splunk-hec:
+  id: sn-splunk-hec
+  url: https://www.splunk.com/blog/2017/03/30/syslog-ng-and-hec-scalable-aggregated-data-collection-in-splunk.html
+  title: [ "syslog-ng and HEC: Scalable Aggregated Data Collection in Splunk" ]
+
+
+splunk-setup:
+  id: splunk-setup
+  url: https://docs.splunk.com/Documentation/Splunk/latest/Data/UsetheHTTPEventCollector
+  title: [ "Set up and use HTTP Event Collector in Splunk Web" ]
+
+
+gentoo-mail-list:
+  id: gentoo-mail-list
+  url: https://lists.gt.net/gentoo/user/209108
+  title: [ "Gentoo mailing list" ]
+
+
+sn-scl:
+  id: sn-scl
+  url: https://www.syslog-ng.com/community/b/blog/posts/creating-your-first-block-for-the-syslog-ng-configuration-library-scl
+  title: [ "SCL" ]
+
+
+gh-solaris:
+  id: gh-solaris
+  url: https://github.com/syslog-ng/syslog-ng/blob/master/scl/solaris/plugin.conf
+  title: [ "Solaris parser on GitHub" ]
+
+
+gh-servarr:
+  id: gh-servarr
+  url: https://github.com/Servarr/Wiki
+  title: [ "Lidarr, Prowlarr, Radarr, Readarr, and Sonarr" ]
+
+
+splunk-cim:
+  id: splunk-cim
+  url: http://docs.splunk.com/Documentation/CIM/latest/User/Overview
+  title: [ "Splunk Common Information Model(CIM)" ]
+
+
+gh-mbox:
+  id: gh-mbox
+  url: https://github.com/syslog-ng/syslog-ng/blob/master/scl/mbox/mbox.conf
+  title: [ "mbox configuration snippet on GitHub" ]
+
+
+qbittorrent:
+  id: qbittorrent
+  url: https://www.qbittorrent.org/
+  title: [ "qBittorrent" ]
+
+
+kafkaconsumer:
+  id: kafkaconsumer
+  url: https://kafka-python.readthedocs.io/en/master/apidoc/KafkaConsumer.html
+  title: [ "KafkaConsumer" ]
+
+
+mqtt-client:
+  id: mqtt-client
+  url: https://www.hivemq.com/blog/seven-best-mqtt-client-tools/
+  title: [ "MQTT client" ]
+
+mqtt-broker:
+  id: mqtt-broker
+  url: https://www.hivemq.com/hivemq/mqtt-broker/
+  title: [ "MQTT broker" ]
+
+
+gh-winston:
+  id: gh-winston
+  url: https://github.com/winstonjs/winston
+  title: [ "Winston" ]
+
+
+proxy-pro:
+  id: proxy-pro
+  url: https://www.haproxy.com/blog/haproxy/proxy-protocol/
+  title: [ "Proxy Protocol" ]
+
+
+oslog-fra:
+  id: oslog-fra
+  url: https://developer.apple.com/documentation/oslog?language=objc
+  title: [ "OSLog Framework" ]
+
+
+net-snmp:
+  id: net-snmp
+  url: http://www.net-snmp.org
+  title: [ "Net-SNMP" ]
+
+
+gh-pacct:
+  id: gh-pacct
+  url: https://github.com/syslog-ng/syslog-ng/blob/master/scl/pacct/plugin.conf
+  title: [ "pacct configuration snippet on GitHub" ]
+
+
+pi-hole:
+  id: pi-hole
+  url: https://pi-hole.net/
+  title: [ "Pi-hole" ]
+
+
+oi-know-base:
+  id: oi-know-base
+  url: https://support.oneidentity.com/syslog-ng-premium-edition/kb
+  title: [ "knowledge base" ]
+
+
+redis-pro:
+  id: redis-pro
+  url: https://redis.io/topics/protocol/
+  title: [ "Redis protocol" ]
+
+
+base64-encode:
+  id: base64-encode
+  url: https://tools.ietf.org/html/rfc4648
+  title: [ "base64-encode" ]
+
