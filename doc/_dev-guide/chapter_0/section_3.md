@@ -1,11 +1,11 @@
 ---
 title: macOS
 id: dev-inst-macos
+description:  >-
+   The syslog-ng application has been resurrected on macOS by our developer team.
+   We hope our product can be useful for Mac users who want to increase the
+   security of their system through reliable logging.
 ---
-
-### Introduction
-
-The syslog-ng application has been resurrected on macOS by our developer team. We hope our product can be useful for Mac users who want to increase the security of their system through reliable logging.
 
 At present we are not supporting macOS syslog-ng on our [[official repository|gh-syslog-ng]] on GitHub. However, you can install pre-built syslog-ng binaries from various sources or can compile yourself following [[this guide|dev-platform-build-macos#compiling-from-source]].
 

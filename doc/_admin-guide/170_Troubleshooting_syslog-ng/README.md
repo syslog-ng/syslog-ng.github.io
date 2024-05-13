@@ -50,9 +50,9 @@ description: >-
     Things to consider when forwarding messages between syslog-ng OSE hosts.
 
 - In case you experience a problem that is not covered in this guide,
-    send it to our [mailing list](https://lists.balabit.hu/mailman/listinfo/syslog-ng/).
+    send it the syslog-ng mailing list.
 
-    To report bugs found in syslog-ng OSE, [visit our GitHub issues page](https://github.com/syslog-ng/syslog-ng/issues/).
+    To report bugs found in syslog-ng OSE, visit the syslog-ng issue tracker on GitHub.
 
     Precompiled binary packages are available for free from various
-    third-parties. See [the list of precompiled syslog-ng OSE binary packages](https://www.syslog-ng.com/products/open-source-log-management/3rd-party-binaries.aspx).
+    third-parties. See the list of precompiled syslog-ng OSE binary packages.

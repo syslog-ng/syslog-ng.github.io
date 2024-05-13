@@ -8,7 +8,7 @@ description: >-
 ---
 
 For a list of third-party packages available for various Linux, UNIX,
-and other platforms, see [syslog-ng Open Source Edition installation packages](https://www.syslog-ng.com/products/open-source-log-management/3rd-party-binaries.aspx).
+and other platforms, see syslog-ng Open Source Edition installation packages.
 
 ## Steps
 

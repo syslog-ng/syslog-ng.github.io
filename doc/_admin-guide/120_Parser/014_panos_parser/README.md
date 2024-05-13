@@ -23,9 +23,7 @@ Structuring macros, metadata, and other value-pairs.
 - Version 3.29 of syslog-ng OSE or later.
 
     **NOTE:** Most Linux distributions feature syslog-ng OSE versions
-    earlier than version 3.29. For up-to-date binaries, visit [the
-    syslog-ng third-party binaries
-    page](https://www.syslog-ng.com/products/open-source-log-management/3rd-party-binaries.aspx).
+    earlier than version 3.29. For up-to-date binaries, visit the syslog-ng Open Source Edition installation packages page.
     {: .notice--info}
 
 - PAN-OS log messages from Palo Alto Networks devices.

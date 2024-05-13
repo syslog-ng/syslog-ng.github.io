@@ -58,6 +58,16 @@ sn-prod-binaries-dl:
   url: https://www.syslog-ng.com/products/open-source-log-management/3rd-party-binaries.aspx
   title: [ "syslog-ng Open Source Edition installation packages" ]
 
+sn-blogs:
+  id: sn-blogs
+  url: https://syslog-ng.com/blog/
+  title: [ "syslog-ng blogs" ]
+
+mm-site:
+  id: mm-site
+  url: https://mademistakes.com/work/minimal-mistakes-jekyll-theme/
+  title: [ "Minimal Mistakes" ]
+
 mm-javascripts:
   id: mm-javascripts
   url: https://mmistakes.github.io/minimal-mistakes/docs/javascript/
@@ -142,3 +152,23 @@ lunr-search-help:
   id: lunr-search-help
   url: https://lunrjs.com/guides/searching.html
   title: [ "Lunar search help" ]
+
+grafana-loki:
+  id: grafana-loki
+  url: https://grafana.com/docs/loki/latest/
+  title: [ "Grafana Loki" ]
+
+grafana-loki-endpoint:
+  id: grafana-loki-endpoint
+  url: https://grafana.com/docs/loki/latest/reference/loki-http-api/#push-log-entries-to-loki
+  title: [ "Grafana Loki HTTP endpoint" ]
+
+app-default-cred:
+  id: app-default-cred
+  url: https://cloud.google.com/docs/authentication/application-default-credentials
+  title: [ "Application Default Credentials" ]
+
+grpc-core:
+  id: grpc-core
+  url: https://grpc.github.io/grpc/core/group__grpc__arg__keys.html
+  title: [ "GRPC Core library documentation" ]
