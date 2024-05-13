@@ -16,6 +16,10 @@ $code-background-color-dark : $light-gray !default;
 $text-color                 : $dark-gray !default;
 $border-color               : $lighter-gray !default;
 
+$tooltip-color                   : mix($gray, $text-color, 50%) !default;
+$tooltip-background-color        : rgba(mix($light-gray, $background-color, 7%), 0.925) !default;
+$tooltip-arrow-background-color  : rgba(mix($tooltip-background-color, $tooltip-color, 90%), 0.925) !default;
+
 $primary-color              : $gray !default;
 $success-color              : #27ae60 !default;
 $warning-color              : #e67e22 !default;
@@ -30,5 +34,5 @@ $masthead-link-color        : $primary-color !default;
 $masthead-link-color-hover  : mix(#000, $primary-color, 25%) !default;
 
 /* notices */
-$notice-background-mix: 90% !default;
-$code-notice-background-mix: 95% !default;
+$notice-background-mix      : 90% !default;
+$code-notice-background-mix : 95% !default;
