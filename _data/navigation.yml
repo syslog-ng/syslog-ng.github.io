@@ -152,6 +152,9 @@ admin-guide-nav:
       subnav:
       - title: "wildcard-file() source options"
         url: /admin-guide/060_Sources/030_Wildcard-file/000_Wildcard-file_options
+    - title: "Jellyfin"
+      url: /admin-guide/060_Sources/035_Jellyfin/README
+      subnav:
     - title: "kubernetes"
       url: /admin-guide/060_Sources/040_Kubernetes/README
       subnav:
@@ -384,6 +387,11 @@ admin-guide-nav:
       subnav:
       - title: "logmatic() destination options"
         url: /admin-guide/070_Destinations/120_Logmatic_io/000_Logmatic_options
+    - title: "Loki"
+      url: /admin-guide/070_Destinations/125_Loki/README
+      subnav:
+      - title: "loki() destination options"
+        url: /admin-guide/070_Destinations/125_Loki/001_Loki_options
     - title: "mongodb"
       url: /admin-guide/070_Destinations/130_MongoDB/README
       subnav:
