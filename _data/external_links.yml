@@ -233,8 +233,8 @@ sn-con-sup:
   title: [ "contact Support" ]
 
 
-gh-iptables:
-  id: gh-iptables
+gh-iptables-conf:
+  id: gh-iptables-conf
   url: https://github.com/syslog-ng/syslog-ng/blob/master/scl/iptables/iptables.conf
   title: [ "iptables configuration snippet on GitHub" ]
 
