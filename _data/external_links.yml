@@ -172,3 +172,23 @@ grpc-core:
   id: grpc-core
   url: https://grpc.github.io/grpc/core/group__grpc__arg__keys.html
   title: [ "GRPC Core library documentation" ]
+
+gh-jellyfin:
+  id: gh-jellyfin
+  url: https://github.com/syslog-ng/syslog-ng/blob/master/scl/jellyfin/jellyfin.conf
+  title: [ "Jellyfish config file on GitHub" ]
+ 
+jellyfin-logs:
+  id: jellyfin-logs
+  url: https://jellyfin.org/
+  title: [ "Jellyfin logs" ]
+ 
+jellyfin-main:
+  id: jellyfin-main
+  url: https://jellyfin.org/docs/general/administration/configuration/#main-configuration
+  title: [ "Jellyfin Main Configuration" ]
+ 
+jellyfin-log-dir:
+  id: jellyfin-log-dir
+  url: https://jellyfin.org/docs/general/administration/configuration/#log-directory
+  title: [ "Jellyfin Log Directory" ]
