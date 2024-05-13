@@ -12,7 +12,7 @@ description: >-
 |  Type:|      string|
 |  Default:|   `"default"`|
 
-*Description:* The name of the [OpenObserve](https://openobserve.ai/docs/user-guide/organizations/) organization where syslog-ng OSE sends the data.
+*Description:* The name of the OpenObserve organization where syslog-ng OSE sends the data.
 
 {% include doc/admin-guide/options/password.md %}
 
@@ -30,7 +30,7 @@ description: >-
 |  Type:|      string|
 |  Default:|   `"default"`|
 
-*Description:* The [OpenObserve](https://openobserve.ai/docs/user-guide/streams/) stream where syslog-ng OSE sends the data, for example, `your-example-stream`.
+*Description:* The OpenObserve stream where syslog-ng OSE sends the data, for example, `your-example-stream`.
 
 ## user()
 

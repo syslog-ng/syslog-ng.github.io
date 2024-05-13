@@ -199,7 +199,7 @@ stats \[options\]
 
 Use the stats command to display statistics about the processed
 messages. For details about the displayed statistics,
-see [The syslog-ng OSE Administrator Guide](https://www.syslog-ng.com).
+see [The syslog-ng OSE Administration Guide](https://www.syslog-ng.com).
 The stats command has the following options:
 
 - \--control=\<socket\> or -c

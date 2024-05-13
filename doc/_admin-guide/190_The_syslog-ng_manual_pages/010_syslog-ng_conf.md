@@ -13,8 +13,7 @@ syslog-ng.conf
 
 ## Description
 
-This manual page is only an abstract, for the complete documentation of
-syslog-ng OSE, see the [syslog-ng OSE Documentation page](https://www.syslog-ng.com/).
+This manual page is only an abstract.
 
 The syslog-ng OSE application is a flexible and highly scalable system
 logging application. Typically, syslog-ng OSE is used to manage log
@@ -217,8 +216,7 @@ options { use-dns(no); };
 ```
 
 The sources, destinations, and filters available in syslog-ng OSE are
-listed below. For details, see the
-[syslog-ng OSE Documentation page](https://www.syslog-ng.com).
+listed below.  
 
 ## Table 1: Source drivers available in syslog-ng OSE
 

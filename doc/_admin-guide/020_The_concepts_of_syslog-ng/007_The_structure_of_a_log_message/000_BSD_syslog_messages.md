@@ -3,7 +3,7 @@ title: BSD-syslog or legacy-syslog messages
 id: adm-struct-bsd
 description: >-
     This section describes the format of a syslog message, according to the
-    [legacy-syslog or BSD-syslog protocol](https://tools.ietf.org/search/rfc3164).
+    [legacy syslog (BSD-syslog) protocol](https://tools.ietf.org/search/rfc3164).
 ---
 
 A syslog message consists of the following parts:
@@ -35,7 +35,7 @@ size when using UDP destinations.
 ## The PRI message part
 
 This section describes the PRI message part of a syslog message, according to the
-[legacy-syslog or BSD-syslog protocol](https://tools.ietf.org/search/rfc3164).
+[legacy syslog (BSD-syslog) protocol](https://tools.ietf.org/search/rfc3164).
 
 The PRI part of the syslog message (known as Priority value) represents
 the Facility and Severity of the message. Facility represents the part
@@ -72,7 +72,7 @@ example:
 
 ## The HEADER message part
 
-This section describes the HEADER message part of a syslog message, according to the [legacy-syslog or BSD-syslog protocol](https://tools.ietf.org/search/rfc3164).
+This section describes the HEADER message part of a syslog message, according to the [legacy syslog (BSD-syslog) protocol](https://tools.ietf.org/search/rfc3164).
 
 The HEADER message part contains a timestamp and the hostname (without
 the domain name) or the IP address of the device. The timestamp field is
@@ -97,7 +97,7 @@ format. For details, see the ts-format() option in Global options.
 ## The MSG message part
 
 This section describes the MSG message part of a syslog message, according to
-the [legacy-syslog or BSD-syslog protocol](https://tools.ietf.org/search/rfc3164).
+the [legacy syslog (BSD-syslog) protocol](https://tools.ietf.org/search/rfc3164).
 
 The MSG part contains the name of the program or process that generated
 the message, and the text of the message itself. The MSG part is usually

@@ -18,9 +18,8 @@ syslog-ng OSE configuration:
 The mbox() driver is actually a reusable configuration snippet
 configured to read log messages using the file() driver. For details on
 using or writing such configuration snippets, see
-Reusing configuration blocks.  
-You can find the source of the configuration snippet on
-[GitHub](https://github.com/syslog-ng/syslog-ng/blob/master/scl/mbox/mbox.conf).
+[[Reusing configuration blocks]].  
+You can find the source of the mbox configuration snippet on GitHub.
 
 ### Example: Using the mbox() driver
 

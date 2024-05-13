@@ -7,10 +7,8 @@ description: >-
     messages from MQTT brokers.
 ---
 
-The mqtt() source builds on the [MQTT
-protocol](https://www.hivemq.com/mqtt/mqtt-protocol/), and uses its
-[client](https://www.hivemq.com/blog/seven-best-mqtt-client-tools/) and
-[broker](https://www.hivemq.com/hivemq/mqtt-broker/) entities.
+The mqtt() source builds on the MQTT protocol, and uses its
+MQTT client and MQTT broker entities.
 
 **NOTE:** The rest of this chapter and its sections build on your
 familiarity with the MQTT protocol, the concept of client and broker

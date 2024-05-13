@@ -97,4 +97,4 @@ For further details about syslog-ng Store Box, see
 ## Upgrading from syslog-ng OSE to syslog-ng PE
 
 If you wish to upgrade from syslog-ng OSE to syslog-ng PE, read the blog
-post [Upgrading from syslog-ng OSE to syslog-ng PE](https://syslog-ng.com/blog/upgrading-from-syslog-ng-open-source-to-premium-edition/) for instructions and tips.
+post Upgrading from syslog-ng OSE to syslog-ng PE for instructions and tips.

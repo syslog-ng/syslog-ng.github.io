@@ -47,9 +47,8 @@ To ensure at least a best effort level of reliability, One Identity
 recommends that you deploy a relay on the network, close to the source
 devices. With the most reliable hops between the source and the relay,
 you can minimize the risk of losing UDP packets. Once the packet arrives
-at the relay, [syslog-ng OSE](https://syslog-ng.com/blog/upgrading-from-syslog-ng-open-source-to-premium-edition/)
-ensures that the messages are delivered to the central server in a
-reliable manner, based on TCP/TLS.
+at the relay, syslog-ng OSE ensures that the messages are delivered to
+the central server in a reliable manner, based on TCP/TLS.
 
 ### Too many source devices
 

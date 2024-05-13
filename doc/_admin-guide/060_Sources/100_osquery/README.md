@@ -3,7 +3,7 @@ title: 'osquery: Collect and parse osquery result logs'
 short_title: osquery
 id: adm-src-osquery
 description: >-
-    The [osquery](https://osquery.io) application allows you to ask
+    The [[osquery|other-osquery]] application allows you to ask
     questions about your machine using an SQL-like language. For example,
     you can query running processes, logged in users, installed packages and
     syslog messages as well. You can make queries on demand, and also

@@ -33,5 +33,4 @@ For legal details, the full text of the license is [available here](https://crea
 
 If you create patterns that are not available in the GitHub repository,
 consider sharing them with us and the syslog-ng community. To do this,
-open a GitHub issue, or send them to the syslog-ng mailing
-list.
+open a GitHub issue, or send them to the syslog-ng mailing list.

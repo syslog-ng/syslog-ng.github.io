@@ -3,7 +3,7 @@ title: 'OpenObserve: Send messages to OpenObserve'
 short_title: OpenObserve
 id: adm-dest-opobs
 description: >-
-    In syslog-ng-OSE version 4.5 and later versions it is possible to send  messages to [OpenObserve](https://openobserve.ai/docs/api/ingestion/logs/json/) using its [Log Ingestion - JSON API](https://openobserve.ai/docs/api/ingestion/logs/json/). This API receives multiple-record batches in JSON format.
+    In syslog-ng-OSE version 4.5 and later versions it is possible to send  messages to  OpenObserve using OpenObserve Log Ingestion - JSON API. This API receives multiple-record batches in JSON format.
 
 ---
 
