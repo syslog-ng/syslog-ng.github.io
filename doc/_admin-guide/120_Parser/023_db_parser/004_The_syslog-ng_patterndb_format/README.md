@@ -13,10 +13,10 @@ pattern database containing a single rule.
 
 **TIP:** Use the **pdbtool** utility that is bundled with syslog-ng to test
 message patterns and convert existing databases to the latest format.
-For details, see [[The pdbtool manual page]].
+For details, see The pdbtool manual page.
 To automatically create an initial pattern database from an existing log
 file, use the **pdbtool patternize** command. For details, see
-[[The pdbtool manual page]].
+The pdbtool manual page.
 {: .notice--info}
 
 ## Example: A pattern database containing a single rule

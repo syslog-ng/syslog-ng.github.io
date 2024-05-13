@@ -19,7 +19,7 @@ syslog-ng OSE configuration:
 
 For the hdfs destination, include the path to the directory where you
 copied the required libraries (see
-[[Prerequisites]],
+Prerequisites,
 for example,
 client-lib-dir(\"/opt/syslog-ng/lib/syslog-ng/java-modules/:/opt/hadoop/libs/\").
 
@@ -158,7 +158,7 @@ option is needed only if you want to authenticate using Kerberos in
 Hadoop. You also have to set the hdfs-option-kerberos-principal()
 option. For details on the using Kerberos authentication with the hdfs()
 destination, see
-[[Kerberos authentication with syslog-ng hdfs() destination]].
+Kerberos authentication with syslog-ng hdfs() destination.
 
 ```config
 destination d_hdfs {
@@ -183,7 +183,7 @@ needed only if you want to authenticate using Kerberos in Hadoop. You
 also have to set the hdfs-option-kerberos-keytab-file() option. For
 details on the using Kerberos authentication with the hdfs()
 destination, see
-[[Kerberos authentication with syslog-ng hdfs() destination]].
+Kerberos authentication with syslog-ng hdfs() destination.
 
 ```config
 destination d_hdfs {

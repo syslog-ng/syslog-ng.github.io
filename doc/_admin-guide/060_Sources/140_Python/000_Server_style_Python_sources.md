@@ -87,7 +87,7 @@ and pass them to the log paths by calling
 Currently, run stops permanently if an unhandled exception happens.
 
 For details on parsing and posting messages, see
-[[Python LogMessage API]].
+Python LogMessage API.
 
 ### request_exit(self) method (mandatory)
 

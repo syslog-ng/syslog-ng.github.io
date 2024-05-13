@@ -15,7 +15,7 @@ continues to send messages from this position after the restart.
 
 The file driver has a single required parameter specifying the file to
 open. If you want to use wildcards in the filename, use the [[wildcard-file() source|adm-src-wild]].
-For the list of available optional parameters, see [[file() source options]].
+For the list of available optional parameters, see file() source options.
 
 **Declaration**
 

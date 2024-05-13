@@ -27,7 +27,7 @@ Available in syslog-ng OSE version 3.8 and later.
     context, syslog-ng OSE automatically adds the identifier of the
     context to the .classifier.context\_id macro of the message. For
     details on correlating messages, see
-    [[Correlating log messages using pattern databases]].
+    Correlating log messages using pattern databases.
 
     **NOTE:** The syslog-ng OSE application determines the context of the
     message *after* the pattern matching is completed. This means that
@@ -39,7 +39,7 @@ Available in syslog-ng OSE version 3.8 and later.
     stored. Note that for high-traffic log servers, storing open
     contexts for long time can require significant amount of memory. For
     details on correlating messages, see
-    [[Correlating log messages using pattern databases]].
+    Correlating log messages using pattern databases.
 
 - *context-scope*: OPTIONAL --- Specifies which messages belong to the
     same context. This attribute is used to determine the context of the
@@ -69,7 +69,7 @@ Available in syslog-ng OSE version 3.8 and later.
     {: .notice--info}
 
     For details on correlating messages, see
-    [[Correlating log messages using pattern databases]].
+    Correlating log messages using pattern databases.
 
 ## Children
 
@@ -96,10 +96,10 @@ Available in syslog-ng OSE version 3.8 and later.
             tags or name-value pairs.
 
         For details on the message context, see
-        [[Correlating log messages using pattern databases]]
-        and [[Actions and message correlation]].
+        Correlating log messages using pattern databases
+        and Actions and message correlation.
         For details on triggering messages, see
-        [[Triggering actions for identified messages]].
+        Triggering actions for identified messages.
 
 ### Example
 

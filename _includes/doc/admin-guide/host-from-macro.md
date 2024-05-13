@@ -19,4 +19,4 @@ the value of the {{ include.from }} macro:
     the sender host.
 
 For details on using name resolution in syslog-ng OSE, see
-[[Using name resolution in syslog-ng]].
+Using name resolution in syslog-ng.

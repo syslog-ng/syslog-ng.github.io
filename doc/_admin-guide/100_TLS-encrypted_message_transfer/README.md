@@ -52,6 +52,6 @@ Mutual authentication ensures that the syslog-ng server accepts log
 messages only from authorized clients.
 
 For more information about configuring TLS communication in syslog-ng,
-see [[Encrypting log messages with TLS]].
+see Encrypting log messages with TLS.
 For more information about TLS-related error messages, see
-[[Error messages]].
+Error messages.

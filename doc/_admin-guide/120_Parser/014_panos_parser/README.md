@@ -16,7 +16,7 @@ solves this problem, and can separate PAN-OS log messages to name-value
 pairs.
 
 For details on using value-pairs in syslog-ng OSE, see
-[[Structuring macros, metadata, and other value-pairs]].
+Structuring macros, metadata, and other value-pairs.
 
 ## Prerequisites
 
@@ -53,6 +53,6 @@ OSE configuration:
 The panos-parser() is a reusable configuration snippet configured to
 parse Palo Alto Networks PAN-OS log messages. For details on using or
 writing such configuration snippets, see
-[[Reusing configuration blocks]]. You can find the source of 
+Reusing configuration blocks. You can find the source of 
 this configuration snippet on
 [GitHub](https://github.com/syslog-ng/syslog-ng/blob/master/scl/paloalto/panos.conf).

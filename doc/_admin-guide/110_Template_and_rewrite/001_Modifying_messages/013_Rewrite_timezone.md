@@ -42,7 +42,7 @@ If you have lots of clients that do not send timezone information in the
 log messages, you can create a database file that stores the timezone of
 the clients, and feed this data to syslog-ng OSE using the
 add-contextual-data() feature. For details, see
-[[Adding metadata from an external file]].
+Adding metadata from an external file.
 
 ## guess-time-zone()
 

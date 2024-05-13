@@ -76,4 +76,4 @@ The configuration results in the following console printout:
 
 An alternative, less straightforward way to implement conditional
 evaluation is to use junctions. For details on junctions and channels,
-see [[Junctions and channels]].
+see Junctions and channels.

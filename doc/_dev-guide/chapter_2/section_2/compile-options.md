@@ -66,7 +66,7 @@ compiling options.
     and format-json template functions.
 
 - *\--enable-linux-caps* Enable support for capabilities on Linux. For details, 
-    see [[The syslog-ng manual page]].
+    see The syslog-ng manual page.
   
 - *\--enable-mongodb* Enable the mongodb destination (enabled by
     default). To use mongodb(), an external MongoDB client is needed.

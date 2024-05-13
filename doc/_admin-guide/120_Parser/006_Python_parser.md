@@ -100,7 +100,7 @@ False, or raises an exception, syslog-ng OSE will drop the message.
 ## Example: Parse loggen logs
 
 The following sample code parses the messages of the loggen tool (for
-details, see [[The loggen manual page]].  
+details, see The loggen manual page.  
 The following is a sample loggen message:
 
 ><38>2017-04-05T12:16:46 localhost prg00000[1234]: seq: 0000000000, thread: 0000,  

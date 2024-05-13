@@ -59,4 +59,4 @@ The following section lists the destination drivers available in syslog-ng
 OSE. If these destinations do not satisfy your needs, you can extend
 syslog-ng OSE and write your own destination, for example, in C, Java,
 or Python. For details, see
-[[Write your own custom destination in Java or Python]].
+Write your own custom destination in Java or Python.

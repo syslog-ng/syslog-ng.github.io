@@ -20,7 +20,7 @@ syslog() driver):
     /opt/syslog-ng/etc/syslog-ng/cert.d directory. The certificate must
     be a valid X.509 certificate in PEM format. If you want to use a
     password-protected key, see
-    [[Password-protected keys]].
+    Password-protected keys.
 
 3. Copy the CA certificate of the Certificate Authority (for example,
     cacert.pem) that issued the certificate of the syslog-ng server (or

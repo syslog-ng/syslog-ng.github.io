@@ -14,7 +14,7 @@ description: >-
 
 **NOTE:** Disk-based buffering can be used in conjunction with flow-control.
 For details on flow-control, see
-[[Managing incoming and outgoing messages with flow-control]].
+Managing incoming and outgoing messages with flow-control.
 {: .notice--info}
 
 Every such destination uses a separate disk buffer (similarly to the
@@ -31,8 +31,8 @@ persistent. The disk buffer is also resistant to syslog-ng OSE crashes.
 
 The syslog-ng OSE application supports two types of disk buffering:
 reliable and normal. For details, see
-[[Enabling reliable disk-based buffering]]
-and [[Enabling normal disk-based buffering]],
+Enabling reliable disk-based buffering
+and Enabling normal disk-based buffering,
 respectively.
 
 ## Message handling and normal disk-based buffering

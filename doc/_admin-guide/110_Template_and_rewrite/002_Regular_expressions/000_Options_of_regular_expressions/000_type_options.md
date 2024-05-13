@@ -17,7 +17,7 @@ type() parameter is not specified, syslog-ng OSE uses PCRE regular
 expressions by default.
 
 For more information about the flags() options of PCRE regular
-expressions, see [[The flags() options of regular expressions]].
+expressions, see The flags() options of regular expressions.
 
 ## Literal string searches (string)
 
@@ -27,7 +27,7 @@ matches, use the **flags(\"prefix\")** or the **flags(\"substring\")**
 flags.
 
 For more information about the flags() options of literal string
-searches, see [[The flags() options of regular expressions]].
+searches, see The flags() options of regular expressions.
 
 ## Glob patterns without regular expression support (glob)
 

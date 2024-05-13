@@ -6,5 +6,5 @@ description: >-
     recommend using the **syslog-ng-debun** tool to collect information
     about your environment and syslog-ng OSE version. For details, see the
     *syslog-ng-debun manual page*. For support contacts, see
-    [[Technical support resources]].
+    Technical support resources.
 ---

@@ -12,12 +12,12 @@ Currently syslog-ng OSE can tag a message at two different places:
 
 - when the message matches a pattern in the pattern database. For
     details on using the pattern database, see
-    [[Using pattern databases]],
+    Using pattern databases,
     for details on creating tags in the pattern database, see
-    [[The syslog-ng pattern database format]].
+    The syslog-ng pattern database format.
 
 - Tags can be also added and deleted using rewrite rules. For details,
-    see [[Adding and deleting tags]].
+    see Adding and deleting tags.
     When syslog-ng receives a message, it automatically adds the
     .source.\<id\_of\_the\_source\_statement\> tag to the message. Use the
     tags() option of the source to add custom tags, and the tags() option of

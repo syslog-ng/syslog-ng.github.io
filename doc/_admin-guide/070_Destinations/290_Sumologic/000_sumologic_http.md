@@ -12,7 +12,7 @@ Logic service by utilizing a [Hosted Collector hosted by Sumo
 Logic](https://help.sumologic.com/03Send-Data/Hosted-Collectors).
 
 For more information about the sumologic-http() destination, see
-[[sumologic-syslog()]].
+sumologic-syslog().
 
 ## Sending data using the sumologic-http() destination
 

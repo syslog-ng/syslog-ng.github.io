@@ -55,4 +55,4 @@ line to the end of this file:
 
 To help debugging and troubleshooting your Python code, you can send log
 messages to the internal() source of syslog-ng OSE. For details, see
-[[Logging from your Python code]].
+Logging from your Python code.

@@ -15,7 +15,7 @@ The program() driver has a single required parameter, specifying a
 program name to start. The program is executed with the help of the
 current shell, so the command may include both file patterns and I/O
 redirections. For the list of available optional parameters, see
-[[program() destination options]].  
+program() destination options.  
 
 **Declaration**
 

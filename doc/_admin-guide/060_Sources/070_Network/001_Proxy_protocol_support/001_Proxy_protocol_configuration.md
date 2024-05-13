@@ -9,7 +9,7 @@ description: >-
 ---
 
 For more information about the working mechanism of the Proxy Protocol,
-see [[The working mechanism behind the Proxy Protocol]].
+see The working mechanism behind the Proxy Protocol.
 
 ## Enabling Proxy Protocol support for your network() source options
 
@@ -66,7 +66,7 @@ log {
 With this configuration, the Proxy Protocol method will perform
 injecting the information of the original connection into the forwarded
 TCP session, based on the working mechanism described in
-[[The working mechanism behind the Proxy Protocol]].
+The working mechanism behind the Proxy Protocol.
 
 The following example illustrates how the parsed macros will appear in
 the output.

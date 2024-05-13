@@ -10,7 +10,7 @@ description: >-
 ---
 
 For details on macros and templates, see
-[[Customize message format using macros and templates]].
+Customize message format using macros and templates.
 
 ```config
 filter <filter-id>

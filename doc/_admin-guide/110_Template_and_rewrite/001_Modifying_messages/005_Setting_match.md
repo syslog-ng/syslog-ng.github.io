@@ -6,9 +6,9 @@ id: adm-temp-match
 
 Match macros (**$1, $2, \... $255**) are temporary variables. You can
 use them for general purposes when operating with list-like items. For
-example, the [[match()]] filter stores capture
+example, the match() filter stores capture
 group results in match variables when the store-matches flag is
-set, or the [[JSON parser]] produces match variables
+set, or the JSON parser produces match variables
 if the parsed JSON data is an array.
 
 It is possible to set match variables in a single operation with the

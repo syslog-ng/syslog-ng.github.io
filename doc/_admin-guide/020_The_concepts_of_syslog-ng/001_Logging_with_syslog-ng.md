@@ -98,5 +98,5 @@ syslog-ng server.
     **NOTE:** The syslog-ng application can stop reading messages from its
     sources if the destinations cannot process the sent messages. This
     feature is called flow-control and is detailed in
-    [[Managing incoming and outgoing messages with flow-control]].
+    Managing incoming and outgoing messages with flow-control.
     {: .notice--info}

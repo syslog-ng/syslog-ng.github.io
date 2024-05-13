@@ -47,7 +47,7 @@ The *\<rules\>* element may contain any number of *\<rule\>* elements.
     context, syslog-ng OSE automatically adds the identifier of the
     context to the .classifier.context\_id macro of the message. For
     details on correlating messages, see
-    [[Correlating log messages using pattern databases]].
+    Correlating log messages using pattern databases.
 
     NOTE: The syslog-ng OSE application determines the context of the
     message *after* the pattern matching is completed. This means that
@@ -58,7 +58,7 @@ The *\<rules\>* element may contain any number of *\<rule\>* elements.
     stored. Note that for high-traffic log servers, storing open
     contexts for long time can require significant amount of memory. For
     details on correlating messages, see
-    [[Correlating log messages using pattern databases]].
+    Correlating log messages using pattern databases.
 
 - *context-scope*: OPTIONAL --- Specifies which messages belong to the
     same context. This attribute is used to determine the context of the
@@ -87,7 +87,7 @@ The *\<rules\>* element may contain any number of *\<rule\>* elements.
     using macros in the context-id attribute.
 
     For details on correlating messages, see
-    [[Correlating log messages using pattern databases]].
+    Correlating log messages using pattern databases.
 
 ## Children
 
@@ -101,7 +101,7 @@ The *\<rules\>* element may contain any number of *\<rule\>* elements.
 
 The following example specifies attributes for correlating messages as
 well. For details on correlating messages, see
-[[Correlating log messages using pattern databases]].
+Correlating log messages using pattern databases.
 
 ```xml
 <rule provider='example' id='f57196aa-75fd-11dd-9bba-001e6806451b' class='violation' context-id='same-session' context-scope='process' context-timeout='360'>

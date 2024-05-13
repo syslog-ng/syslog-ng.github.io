@@ -6,7 +6,7 @@ description: >-
     The mongodb() driver sends messages to a
     [MongoDB](https://www.mongodb.com/) database. MongoDB is a schema-free,
     document-oriented database. For the list of available optional
-    parameters, see [[mongodb() destination options]].
+    parameters, see mongodb() destination options.
 ---
 
 **Declaration**
@@ -35,7 +35,7 @@ In syslog-ng OSE 4.0 and later versions, each name-value pair is a (name, type, 
 **NOTE:** By default, syslog-ng OSE handles every message field as a string.
 For details on how to send selected fields as other types of data (for
 example, handle the PID as a number), see
-[[Specifying data types in value-pairs]].
+Specifying data types in value-pairs.
 {: .notice--info}
 
 ### Example: Using the mongodb() driver

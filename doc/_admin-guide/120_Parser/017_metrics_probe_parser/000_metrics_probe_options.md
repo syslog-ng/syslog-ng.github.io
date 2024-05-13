@@ -73,8 +73,8 @@ syslogng_classified_events_total{app="example-app", host="localhost", program="b
 
 Available in syslog-ng OSE 4.4 and later versions.
 
-Dynamic labelling makes it possible to use every available [[value-pairs()]] option
-in the labels, for example, [[key()]], [[rekey()]], [[pair()]], or [[scope()]].
+Dynamic labelling makes it possible to use every available value-pairs() option
+in the labels, for example, key(), rekey(), pair(), or scope().
 
 ### Example
 

@@ -33,7 +33,7 @@ context, and has the following options:
     The default value of inherit-mode() is context.
 
     For details on the message context, see
-    [[Correlating messages using the grouping-by() parser]].
+    Correlating messages using the grouping-by() parser.
 
 - *tags*: Adds the specified tag to the list of tags.
 
@@ -41,7 +41,7 @@ context, and has the following options:
     include text, macros, template functions, and you can also reference
     every message of the context. For details on accessing other
     messages of the context, see
-    [[Referencing earlier messages of the context]].
+    Referencing earlier messages of the context.
 
 ## having()
 
@@ -49,7 +49,7 @@ context, and has the following options:
 message only if the result of the filter expression is true. Note that
 the having() filter has access to every message of the context. For
 details on accessing other messages of the context, see
-[[Referencing earlier messages of the context]].
+Referencing earlier messages of the context.
 
 ## inject-mode()
 
@@ -82,7 +82,7 @@ parser p_grouping-by {grouping-by(
 ```
 
 You can configure the generated message in the aggregate() option (see
-[[aggregate()]]. You can create an entire
+aggregate(). You can create an entire
 message, use macros and values extracted from the original message, and
 so on.
 
@@ -145,7 +145,7 @@ NOTE:
 the context to arrive. If no new message is added to the context during
 this period, the context is assumed to be complete and syslog-ng OSE
 generates and sends the triggered message (specified in the
-[[aggregate()]], and clears the
+aggregate(), and clears the
 context. If a new message is added to the context, the timeout period is
 restarted.
 
@@ -157,7 +157,7 @@ This option is mandatory, and its value must be equal to or greater than
 *Description:* A filter that specifies the final message of the context.
 If the filter matches the incoming message, syslog-ng OSE generates and
 sends the triggered message (specified in the
-[[aggregate()]], and clears the
+aggregate(), and clears the
 context.
 
 ## where()

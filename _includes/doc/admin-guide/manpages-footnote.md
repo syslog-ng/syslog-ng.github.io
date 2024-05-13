@@ -1,6 +1,6 @@
 ## See also
 
-The syslog-ng.conf manual page \
+The syslog-ng.conf manual page  
 The syslog-ng manual page
 
 >**NOTE:**

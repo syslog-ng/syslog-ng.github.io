@@ -10,7 +10,7 @@ description: >-
 
 The pipe driver has a single required parameter, specifying the filename
 of the pipe to open. For the list of available optional parameters, see
-[[pipe() source options]].
+pipe() source options.
 
 **Declaration**
 

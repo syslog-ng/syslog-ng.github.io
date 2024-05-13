@@ -87,7 +87,7 @@ If open() fails, it should return the False value. In this case,
 syslog-ng OSE retries it every time-reopen() seconds. By default, this
 is 1 second for Python sources and destinations, the value of
 time-reopen() is not inherited from the global option. For details, see
-[[Error handling in the python() destination]].
+Error handling in the python() destination.
 
 ### fetch(self) method (mandatory)
 
@@ -95,7 +95,7 @@ Use the **fetch** method to fetch messages and pass them to the log
 paths.
 
 For details on parsing messages, see
-[[Python LogMessage API]].  
+Python LogMessage API.  
 
 The fetch method must return one of the following values:
 

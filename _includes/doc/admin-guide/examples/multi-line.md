@@ -18,7 +18,7 @@
 >  
 {: .notice--info}
 
-For details on using templates, see [[Templates and macros]].
+For details on using templates, see Templates and macros.
 
 - To actually convert the lines of multi-line messages to single line
     (by replacing the newline characters with whitespaces), use the

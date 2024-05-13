@@ -10,7 +10,7 @@ The following options are specific to the s3 destination.
 |Type:|   string|
 |Default:|           N/A|
 
-*Description:* The `ACCESS_KEY` of the service account of the S3 bucket. (Used together with [[secret-key()]].)
+*Description:* The `ACCESS_KEY` of the service account of the S3 bucket. (Used together with secret-key().)
 
 ### bucket()
 
@@ -37,21 +37,21 @@ If an invalid value is configured, the default is used.
 |Type:|   string|
 |Default:|           N/A|
 
-*Description:* The size of log messages written by syslog-n OSE to the S3 object in a batch. If compression is enabled, the [[chunk-size()]] specifies the compressed size.
+*Description:* The size of log messages written by syslog-n OSE to the S3 object in a batch. If compression is enabled, the chunk-size() specifies the compressed size.
 
 ### compression()
 
 |Type:|   boolean|
 |Default:|           no|
 
-*Description:* Setting compression to `yes` enables gzip compression, and implicitly adds a `.gz` suffix to the created object’s key. You can set the level of the compression using the [[compresslevel()]] option (`0-9`).
+*Description:* Setting compression to `yes` enables gzip compression, and implicitly adds a `.gz` suffix to the created object’s key. You can set the level of the compression using the compresslevel() option (`0-9`).
 
 ### compresslevel() 
 
 |Type:|   integer|
 |Default:|           0-9|
 
-Description: Only has effect if [[compression()]] is set to `yes`. The level of the compression can be set using the [[compresslevel()]] option (`0-9`).
+Description: Only has effect if compression() is set to `yes`. The level of the compression can be set using the compresslevel() option (`0-9`).
 
 
 ### flush-grace-period()
@@ -59,7 +59,7 @@ Description: Only has effect if [[compression()]] is set to `yes`. The level of 
 |Type:|   integer[minutes]|
 |Default:|           60|
 
-*Description:* After the grace period expires and no new messages are routed to the destination, syslog-ng OSE flushes the contents of the buffer to the S3 object even if the volume of the messages in the buffer is lower than [[chunk-size()]].
+*Description:* After the grace period expires and no new messages are routed to the destination, syslog-ng OSE flushes the contents of the buffer to the S3 object even if the volume of the messages in the buffer is lower than chunk-size().
 
 #{% include doc/admin-guide/options/log-fifo-size.md %}
 
@@ -76,7 +76,7 @@ Description: Only has effect if [[compression()]] is set to `yes`. The level of 
 |Type:|   integer|
 |Default:|           32|
 
-Description: The [[max-pending-uploads()]] and [[upload-threads()]] options configure the upload of the chunks. Uploading happens in multiple threads to minimize network overhead.
+Description: The max-pending-uploads() and upload-threads() options configure the upload of the chunks. Uploading happens in multiple threads to minimize network overhead.
 
 * upload-threads() limits the maximum number of parallel uploads.
 * max-pending-uploads() limits the number of chunks that are waiting in the work queue of the upload threads to get uploaded
@@ -93,7 +93,7 @@ Description: The [[max-pending-uploads()]] and [[upload-threads()]] options conf
 |Type:|   template|
 |Default:|           N/A|
 
-*Description:* The [[object-key-timestamp()]] option can be used to set a datetime-related template, which is appended to the end of the object, for example: "`${R_MONTH_ABBREV}${R_DAY}`". When a log message arrives with a newer timestamp template resolution, the previous timestamped object gets finished and a new one is started with the new timestamp. If an older message arrives, it does not reopen the old object, but starts a new object with the key having an index appended to the old object.
+*Description:* The object-key-timestamp() option can be used to set a datetime-related template, which is appended to the end of the object, for example: "`${R_MONTH_ABBREV}${R_DAY}`". When a log message arrives with a newer timestamp template resolution, the previous timestamped object gets finished and a new one is started with the new timestamp. If an older message arrives, it does not reopen the old object, but starts a new object with the key having an index appended to the old object.
 
 #{% include doc/admin-guide/options/persist-name.md %}
 

@@ -56,4 +56,4 @@ general:
 
 - To help debugging and troubleshooting your Python code, you can send
     log messages to the internal() source of syslog-ng OSE. For details,
-    see [[Logging from your Python code]].
+    see Logging from your Python code.

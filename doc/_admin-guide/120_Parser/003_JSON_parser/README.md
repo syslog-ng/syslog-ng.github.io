@@ -11,7 +11,7 @@ description: >-
     The syslog-ng OSE application can separate parts of incoming
     JSON-encoded log messages to name-value pairs. For details on using
     value-pairs in syslog-ng OSE see
-    [[Structuring macros, metadata, and other value-pairs]].
+    Structuring macros, metadata, and other value-pairs.
 ---
 
 You can refer to the separated parts of the JSON message using the key

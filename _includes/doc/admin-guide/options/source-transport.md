@@ -8,7 +8,7 @@ source.
 
 For detailed information about how syslog-ng OSE supports the
 proxied-tcp, the proxied-tls, and the proxied-tls-passthrough
-parameters, see [[Proxy Protocol support]].
+parameters, see Proxy Protocol support.
 text-with-nuls: Allows embedded **NUL** characters in the message from a
 TCP source, that is, syslog-ng OSE will not delimiter the incoming
 messages on **NUL** characters, only on **newline** characters (contrary

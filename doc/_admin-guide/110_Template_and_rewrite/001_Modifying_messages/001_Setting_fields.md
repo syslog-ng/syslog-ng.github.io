@@ -47,7 +47,7 @@ rewrite r_rewrite_set{
 ```
 
 For details on rewriting SDATA fields, see
-[[Creating custom SDATA fields]].
+Creating custom SDATA fields.
 You can also use the following options in rewrite rules that use the
 set() operator.
 
@@ -61,4 +61,4 @@ rewrite <name_of_the_rule> {
 set-severity() rewrite functions.
 {: .notice--info}
 
-For more information, see [[Setting severity with the set-severity() rewrite function]].
+For more information, see Setting severity with the set-severity() rewrite function.

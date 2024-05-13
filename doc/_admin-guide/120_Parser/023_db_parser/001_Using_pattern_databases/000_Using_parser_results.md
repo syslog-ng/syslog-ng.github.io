@@ -18,7 +18,7 @@ classification:
 - The .classifier.context\_id macro contains the identifier of the
     context for messages that were correlated. For details on
     correlating messages, see
-    [[Correlating log messages using pattern databases]].
+    Correlating log messages using pattern databases.
 
 ## Example: Using classification results for filtering messages
 

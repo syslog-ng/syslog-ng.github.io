@@ -10,14 +10,14 @@ description: >-
 ---
 
 - To configure syslog-ng OSE as a client that sends log messages to a
-    central logserver, see [[Configuring syslog-ng on client hosts]].
+    central logserver, see Configuring syslog-ng on client hosts.
 
 - To configure syslog-ng OSE as a server that receives log messages
-    from client hosts, see [[Configuring syslog-ng on server hosts]].
+    from client hosts, see Configuring syslog-ng on server hosts.
 
 - To configure syslog-ng OSE as a relay that receives log messages
     from client hosts and forwards them to a central logserver, see
-    [[Configuring syslog-ng on server hosts]].
+    Configuring syslog-ng on server hosts.
 - For information about managing and checking syslog-ng Open Source
     Edition (syslog-ng OSE) services on Linux, see
-    [[Managing and checking syslog-ng OSE service on Linux]].
+    Managing and checking syslog-ng OSE service on Linux.

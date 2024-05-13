@@ -9,7 +9,7 @@ description: >-
 
 Both drivers have a single required argument specifying the name of the
 socket to connect to. For the list of available optional parameters, see
-[[unix-stream() and unix-dgram() destination options]].
+unix-stream() and unix-dgram() destination options.
 
 **Declaration**
 

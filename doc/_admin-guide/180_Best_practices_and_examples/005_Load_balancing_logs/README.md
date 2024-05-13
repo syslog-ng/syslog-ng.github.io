@@ -11,4 +11,4 @@ description: >-
 ---
 
 For more information about the R_MSEC macro and further macros of
-syslog-ng OSE, see [[Macros of syslog-ng OSE]].
+syslog-ng OSE, see Macros of syslog-ng OSE.

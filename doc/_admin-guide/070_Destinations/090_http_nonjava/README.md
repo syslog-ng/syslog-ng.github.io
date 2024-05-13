@@ -16,7 +16,7 @@ authentication is supported.
 
 If the server returns a status code beginning with 2 (for example, 200),
 syslog-ng OSE assumes the message was successfully sent. For other
-response codes, see [[HTTP destination options]].
+response codes, see HTTP destination options.
 You can override the behavior of syslog-ng OSE using the response-action() option.
 
 ## Example: Client certificate authentication with HTTPS

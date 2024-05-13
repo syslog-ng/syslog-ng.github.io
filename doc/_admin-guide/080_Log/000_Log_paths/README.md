@@ -97,6 +97,6 @@ sent to several different destinations.
 This default behavior can be changed using the flags() parameter. Flags
 apply to individual log paths, they are not global options. For details
 and examples on the available flags, see
-[[Log path flags]].
+Log path flags.
 The effect and use of the flow-control flag is detailed in
-[[Managing incoming and outgoing messages with flow-control]].
+Managing incoming and outgoing messages with flow-control.

@@ -26,4 +26,4 @@ log {
 };
 ```
 
-The `postgresql-csvlog-parser()` driver functions as a reusable configuration snippet configured to parse log messages using the `csv-parser()`. For more information on using or writing configuration snippets, see [[Reusing configuration blocks]]. The source of this configuration snippet can be found on [GitHub](https://github.com/syslog-ng/syslog-ng/blob/master/scl/pgsql/pgsql.conf).
+The `postgresql-csvlog-parser()` driver functions as a reusable configuration snippet configured to parse log messages using the `csv-parser()`. For more information on using or writing configuration snippets, see Reusing configuration blocks. The source of this configuration snippet can be found on [GitHub](https://github.com/syslog-ng/syslog-ng/blob/master/scl/pgsql/pgsql.conf).

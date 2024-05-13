@@ -25,9 +25,9 @@ log), the structure of the header is fixed.
 {: .notice--info}
 
 - For details on using templates and macros, see
-    [[Templates and macros]].
+    Templates and macros.
 - For a list and description of the macros available in syslog-ng OSE,
-    see [[Macros of syslog-ng OSE]].
+    see Macros of syslog-ng OSE.
 - For details on using custom macros created with CSV parsers and
     pattern databases, see [[parser: Parse and segment structured messages]]
-    and [[Using parser results in filters and templates]], respectively.
+    and Using parser results in filters and templates, respectively.

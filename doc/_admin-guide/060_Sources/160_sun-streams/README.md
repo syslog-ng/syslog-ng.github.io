@@ -17,7 +17,7 @@ application is compiled (see **./configure --help**).
 The sun-streams() driver has a single required argument specifying the
 STREAMS device to open, and the door() option. For the list of available
 optional parameters, see
-[[sun-streams() source options]]. 
+sun-streams() source options. 
 
 **NOTE:** Starting with version 3.7, the syslog-ng OSEsystem() driver
 automatically extracts the msgid from the message (if available), and

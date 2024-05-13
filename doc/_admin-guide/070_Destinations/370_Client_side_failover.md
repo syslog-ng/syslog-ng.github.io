@@ -94,7 +94,7 @@ If syslog-ng OSE uses TLS-encryption to communicate with the remote
 server, syslog-ng OSE checks the certificate of the failover server as
 well. The certificates of the failover servers should match their domain
 names or IP addresses --- for details, see
-[[Encrypting log messages with TLS]].
+Encrypting log messages with TLS.
 Note that when mutual authentication is used, the syslog-ng OSE client sends the
 same certificate to every server.
 
@@ -110,5 +110,5 @@ it may use a TCP connection to access a remote database.
 {: .notice--info}
 
 For details on configuring failover servers, see
-[[network() destination options]] and
-[[syslog() destination options]].
+network() destination options and
+syslog() destination options.

@@ -64,4 +64,4 @@ destination opensearch_https {
 };
 ```
 
-This driver is a reusable configuration snippet configured to send log messages using the http() driver with a template. For more information on using or writing such configuration snippets, see [[Reusing configuration blocks]].
+This driver is a reusable configuration snippet configured to send log messages using the http() driver with a template. For more information on using or writing such configuration snippets, see Reusing configuration blocks.

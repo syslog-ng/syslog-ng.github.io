@@ -107,7 +107,7 @@ following flags are available:
 
     **TIP:** Messages dropped as invalid can be processed by a fallback log
     path. For details on the fallback option, see
-    [[Log path flags]].
+    Log path flags.
     {: .notice--info}
 
 - *escape-backslash*: The parsed message uses the backslash (\\)

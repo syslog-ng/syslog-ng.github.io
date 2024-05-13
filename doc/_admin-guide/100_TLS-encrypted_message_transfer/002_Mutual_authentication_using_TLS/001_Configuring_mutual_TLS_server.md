@@ -45,7 +45,7 @@ Complete the following steps on the syslog-ng server:
     that issued the client's certificate.
 
     For the details of the available tls() options, see
-    [[TLS options]].
+    TLS options.
 
     Example: A source statement using TLS
 

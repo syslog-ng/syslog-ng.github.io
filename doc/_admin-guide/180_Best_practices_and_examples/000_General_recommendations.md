@@ -29,4 +29,4 @@ below:
 
 - Resolving the IP addresses of the clients to domain names can
     decrease the performance of syslog-ng. For details, see
-    [[Using name resolution in syslog-ng]].
+    Using name resolution in syslog-ng.

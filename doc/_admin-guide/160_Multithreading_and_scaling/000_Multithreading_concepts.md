@@ -30,7 +30,7 @@ limit this value using the **\--worker-threads** command-line option
 that sets the maximum total number of threads syslog-ng OSE can use,
 including the main syslog-ng OSE thread. However, the \--worker-threads
 option does not affect the supervisor of syslog-ng OSE. The supervisor
-is a separate process (see [[The syslog-ng manual page]],
+is a separate process (see The syslog-ng manual page,
 but certain operating systems might display it as a thread. In
 addition, certain destinations always run in a separate thread,
 independently of the multithreading (threaded()) and \--worker-threads

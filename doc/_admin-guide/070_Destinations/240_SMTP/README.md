@@ -18,10 +18,10 @@ email to multiple recipients, and so on.
 
 The subject(), body(), and header() fields may include macros which get
 expanded in the email. For more information on available macros see
-[[Macros of syslog-ng OSE]]. 
+Macros of syslog-ng OSE. 
 The smtp() driver has the following required parameters: host(), port(),
 from(), to(), subject(), and body(). For the list of available optional
-parameters, see [[smtp() destination options]].
+parameters, see smtp() destination options.
 
 NOTE: The smtp() destination driver is available only in syslog-ng OSE
 3.4 and later.

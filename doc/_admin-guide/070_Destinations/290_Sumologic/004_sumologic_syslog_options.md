@@ -8,7 +8,7 @@ id: adm-dest-sumologic-syslog-opt
 ---
 
 The sumologic-syslog() destination supports all
-[[network() destination options]].
+network() destination options.
 
 In addition, the sumologic-syslog() destination also has the following
 options.

@@ -82,4 +82,4 @@ echo "<passphrase-of-the-key>" | syslog-ng-ctl credentials add --id=<path-to-the
 ```
 
 For details on the syslog-ng-ctl credentials command, see
-[[The syslog-ng control tool manual page]].
+The syslog-ng control tool manual page.

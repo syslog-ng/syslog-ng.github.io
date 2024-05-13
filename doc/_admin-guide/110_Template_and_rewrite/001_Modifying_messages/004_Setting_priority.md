@@ -70,7 +70,7 @@ following JSON format:
 }
 ```
 
-You can parse these logs with the [[JSON parser]] function:
+You can parse these logs with the JSON parser function:
 
 ```config
 {

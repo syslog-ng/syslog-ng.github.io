@@ -15,8 +15,8 @@ sql(database_type host_parameters database_parameters [options]);
 ```
 
 The sql() driver has the following required parameters:
-[[type()]], [[database()]], [[table()]], [[columns()]]
-and [[values()]].
+type(), [[database()|adm-dest-sql-opt#database]], table(), [[columns()|adm-dest-sql-opt#columns]]
+and values().
 
 >![]({{ site.baseurl}}/assets/images/caution.png) **CAUTION:**
 >  
@@ -36,7 +36,7 @@ packages are automatically installed by the binary syslog-ng installer.
 {: .notice--info}
 
 The table and value parameters can include macros to create tables and
-columns dynamically (for details, see [[Macros of syslog-ng OSE]].
+columns dynamically (for details, see Macros of syslog-ng OSE.
 
 ![]({{ site.baseurl}}/assets/images/caution.png) **CAUTION:**
 When using macros in table names, note that some databases limit the maximum

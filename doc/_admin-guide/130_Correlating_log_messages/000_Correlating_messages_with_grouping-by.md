@@ -124,7 +124,7 @@ running ntpdate:
 
 These lines are connected by their second field:
 `msg=audit(1440927434.124:40347)`. You can parse such messages using the
-[[Linux audit parser]] of syslog-ng OSE, and then
+Linux audit parser of syslog-ng OSE, and then
 use the parsed .auditd.msg field to group the messages.
 
 ```config

@@ -65,7 +65,7 @@ that originate from templates.
 to the MQTT broker.
 
 If you want to use macros in templates, see
-[[Macros of syslog-ng OSE]].  
+Macros of syslog-ng OSE.  
 
 {% include doc/admin-guide/options/tls.md %}
 

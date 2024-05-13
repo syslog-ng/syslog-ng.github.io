@@ -10,5 +10,5 @@ globally, and per-source as well. The local setting of the source
 overrides the global option if available.
 
 ![]({{ site.baseurl}}/assets/images/caution.png) **CAUTION:** To use the S_ macros,
-the [[keep-timestamp()]] option must be enabled (this is the default behavior of syslog-ng OSE).
+the keep-timestamp() option must be enabled (this is the default behavior of syslog-ng OSE).
 {: .notice--warning}

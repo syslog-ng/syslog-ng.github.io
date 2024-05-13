@@ -17,7 +17,7 @@ Publishing the name-value pairs as headers makes it possible to use the
 Headers exchange-type and subscribe only to interesting log streams.
 
 For the list of available parameters, see
-[[stomp() destination options]].
+stomp() destination options.
 
 **Declaration**
 

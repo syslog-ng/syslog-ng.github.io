@@ -5,7 +5,7 @@ id: adm-dest-sumologic-http-opt
 
 
 The sumologic-http() destination supports all
-[[HTTP destination options]].
+[[HTTP destination options|adm-dest-http-nonjava-opt]].
 In addition, the sumologic-http() destination also has the following
 options.
 

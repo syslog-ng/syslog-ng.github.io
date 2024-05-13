@@ -27,7 +27,7 @@ disk-buffer files\' saving directory.
 
 For more information about how you can get the list of disk-buffer files
 from the persist file, see
-[[Getting the list of disk-buffer files]].
+Getting the list of disk-buffer files.
 
 ### Example: difference between the list of disk-buffer files from the persist file and the content of the disk-buffer files\' saving directory
 

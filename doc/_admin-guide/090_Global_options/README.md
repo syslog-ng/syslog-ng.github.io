@@ -24,6 +24,6 @@ options { use-dns(no); };
 ```
 
 For a detailed list of the available options, see
-[[Global options]].  
+Global options.  
 For important global options and recommendations on their use, see
-[[Best practices and examples]].
+Best practices and examples.

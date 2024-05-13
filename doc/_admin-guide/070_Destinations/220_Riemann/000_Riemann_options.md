@@ -16,7 +16,7 @@ The riemann() destination has the following options:
 Riemann event, that can be displayed on the Riemann dashboard. To
 specify the metadata to add, use the syntax of the value-pairs() option.
 For details on using value-pairs(), see
-[[Structuring macros, metadata, and other value-pairs]].
+Structuring macros, metadata, and other value-pairs.
 
 {% include doc/admin-guide/options/batch-bytes.md %}
 

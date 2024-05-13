@@ -54,7 +54,7 @@ parse the message, it passes the original message to the next parser.
         the [[syslog-ng() destination|adm-dest-syslogng]], parse its
         fields as a [[syslog-ng() message|adm-struct-ietf]].
 
-        The [[Enterprise-wide message model (EWMM)]] allows you
+        The Enterprise-wide message model (EWMM) allows you
         to deliver structured messages from the initial receiving syslog-ng
         component right up to the central log server, through any number of
         hops. It does not matter if you parse the messages on the client,

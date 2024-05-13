@@ -19,7 +19,7 @@ To use the s3() driver, the scl.conf file must be included in the syslog-ng OSE 
 @include "scl.conf"
 ```
 
-The s3() driver is actually a reusable configuration snippet. For details on using or writing such configuration snippets, see [[Reusing configuration blocks]].
+The s3() driver is actually a reusable configuration snippet. For details on using or writing such configuration snippets, see Reusing configuration blocks.
 
 **Declaration**
 
@@ -38,14 +38,14 @@ s3(
 
 syslog-ng OSE can create a new object based on the following strategies:
 
-* Based on object size:The [[max-object-size()]] option configures syslog-ng OSE to complete an object if it reaches a certain size. syslog-ng OSE appends an index ("-1", “-2”, …) to the end of the object key, then starts a new object.
-* Based on timestamp: The [[object-key-timestamp()]] option can be used to set a timestamp related template, which is appended to the end of an object, for example: "${R_MONTH_ABBREV}${R_DAY}". When a log message arrives with a newer timestamp template resolution, the previous timestamped object is completed and a new one is started with a new timestamp. If an older message arrives, it does not reopen the old object, but starts a new object with the key having an index appended to the old object.
-* Based on timeout: The [[flush-grace-period()]] option sets the number of minutes to wait for new messages to arrive after the last one. If the timeout expires, syslog-ng OSE completes the object, and opens a new object (with an appended index) when a new message arrives.
+* Based on object size:The max-object-size() option configures syslog-ng OSE to complete an object if it reaches a certain size. syslog-ng OSE appends an index ("-1", “-2”, …) to the end of the object key, then starts a new object.
+* Based on timestamp: The object-key-timestamp() option can be used to set a timestamp related template, which is appended to the end of an object, for example: "${R_MONTH_ABBREV}${R_DAY}". When a log message arrives with a newer timestamp template resolution, the previous timestamped object is completed and a new one is started with a new timestamp. If an older message arrives, it does not reopen the old object, but starts a new object with the key having an index appended to the old object.
+* Based on timeout: The flush-grace-period() option sets the number of minutes to wait for new messages to arrive after the last one. If the timeout expires, syslog-ng OSE completes the object, and opens a new object (with an appended index) when a new message arrives.
 
 All of these methods can be used individually, or together.
 
 ## Upload options
 
-syslog-ng OSE uploads objects using the multipart upload API. syslog-ng OSE composes chunks locally. When a chunk reaches the size set in [[chunk-size()]] (by default 5 MiB), the chunk is uploaded. When an object is finished, the multipart upload is completed and S3 merges the chunks.
+syslog-ng OSE uploads objects using the multipart upload API. syslog-ng OSE composes chunks locally. When a chunk reaches the size set in chunk-size() (by default 5 MiB), the chunk is uploaded. When an object is finished, the multipart upload is completed and S3 merges the chunks.
 
-The upload can be configured with the [[chunk-size()]], [[upload-threads()]], and the [[max-pending-uploads()]] options.
+The upload can be configured with the chunk-size(), upload-threads(), and the max-pending-uploads() options.

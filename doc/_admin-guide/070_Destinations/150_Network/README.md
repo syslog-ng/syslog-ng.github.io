@@ -12,7 +12,7 @@ description: >-
 - UDP is a simple datagram oriented protocol, which provides \"best
     effort service\" to transfer messages between hosts. It may lose
     messages, and no attempt is made to retransmit lost messages. The
-    [[BSD-syslog protocol]] traditionally uses UDP.
+    BSD-syslog protocol traditionally uses UDP.
 
     Use UDP only if you have no other choice.
 
@@ -25,7 +25,7 @@ description: >-
 
 - The syslog-ng application supports TLS (Transport Layer Security,
     also known as SSL) over TCP. For details, see
-    [[Encrypting log messages with TLS]].
+    Encrypting log messages with TLS.
 
 **Declaration**
 
@@ -70,7 +70,7 @@ destination d_tcp6 {
 To send messages using the IETF-syslog message format without using the
 IETF-syslog protocol, enable the syslog-protocol flag. (For details on
 how to use the IETF-syslog protocol, see
-[[syslog() destination options]]
+syslog() destination options
 
 ```config
 destination d_tcp { network("10.1.2.3" port(1999) flags(syslog-protocol) ); };

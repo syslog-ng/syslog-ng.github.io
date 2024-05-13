@@ -27,7 +27,7 @@ example, generate a new message that contains all the important
 information that was stored previously in the context.
 
 (For details on triggering actions and generating messages, see
-[[Triggering actions for identified messages]])
+Triggering actions for identified messages)
 
 There are two attributes for pattern database rules that determine if a
 message matching the rule is added to a context: context-scope and

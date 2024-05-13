@@ -15,7 +15,7 @@ The `batch-bytes()`, `batch-lines()`, and `batch-timeout()` options specify how 
 * syslog-ng OSE sends a batch in time intervals defined by `batch-timeout()` in milliseconds, even if the number of messages in the batch is less than the amount defined in `batch-lines()`. This way the destination receives every message in a properly even if the messages cease.
 * syslog-ng OSE sends a batch if the total size of the messages in the batch reaches the amount specified in `batch-bytes()` in bytes.
 
-To increase the performance of the destination, increase the number of worker threads for the destination using the [[workers()]] option, or adjust the [[batch-bytes()]], [[batch-lines()]], [[batch-timeout()]] options.
+To increase the performance of the destination, increase the number of worker threads for the destination using the workers() option, or adjust the batch-bytes(), batch-lines(), batch-timeout() options.
 
 ### Example: HTTP batch mode
 
@@ -64,4 +64,4 @@ The following destination sends log messages to three different indexer nodes. E
     };
 ```
 
-If load-balancing is used (meaning, multiple servers are configured in the [[url()]] option), increase the number of worker threads at least to match the number of servers. For example, if you have set three URLs (`url("site1", "site2", "site3")`), set the workers() option to three or greater.
+If load-balancing is used (meaning, multiple servers are configured in the url() option), increase the number of worker threads at least to match the number of servers. For example, if you have set three URLs (`url("site1", "site2", "site3")`), set the workers() option to three or greater.

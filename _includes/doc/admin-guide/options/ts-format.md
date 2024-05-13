@@ -5,7 +5,7 @@
 
 *Description:* Override the global timestamp format (set in the global
 ts-format() parameter) for the specific destination. For details, see
-[[ts-format()]].
+ts-format().
 
 **NOTE:** This option applies only to file and file-like destinations.
 Destinations that use specific protocols (for example, network(), or

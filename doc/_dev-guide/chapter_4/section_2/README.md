@@ -189,7 +189,7 @@ mkdir build; cd build
 **Warning:** By a good chance, you might want to install the self built instance first to a custom location to prevent overwriting a possibly already existing brew installation version. In that case pass `--prefix /full_path_of/installdir/` to the `configure` script in the above steps.
 {: .notice--danger}
 
-For a full (urrently supported) feature set you can add [[further configure flags]] (excluded the not yet supported modules on macOS), for example
+For a full (urrently supported) feature set you can add further configure flags (excluded the not yet supported modules on macOS), for example
 
 ```shell
 ../configure --enable-all-modules --with-ivykis=system --with-systemd-journal=no --disable-java --disable-java-modules --disable-smtp --disable-mqtt --disable-pacct --disable-grpc    

@@ -74,7 +74,7 @@ the log message as CEF fields. Using value-pairs, you can:
 
 - rename value-pairs, and so on.
 
-For details, see [[Structuring macros, metadata, and other value-pairs]].
+For details, see Structuring macros, metadata, and other value-pairs.
 Note that the syntax of format-\*
 template functions is different from the syntax of value-pairs(): these
 template functions use a syntax similar to command lines.
@@ -166,7 +166,7 @@ command.
 |*Syntax:*|$(format-ewmm)|
 
 *Description:* The format-ewmm template function converts the message
-into the [[Enterprise-wide message model (EWMM)]]
+into the Enterprise-wide message model (EWMM)
 format. Available in version 3.16 and later.
 
 The following is a sample log message in EWMM format.
@@ -303,7 +303,7 @@ example, name=\"value\". For details on the WELF format, see
 
 To select which value-pairs to convert, use the command-line syntax of
 the value-pairs() option. For details on selecting value-pairs, see
-[[value-pairs()]].
+value-pairs().
 
 ### Example: Using the format-welf() template function
 
@@ -343,7 +343,7 @@ compiling option.
 {: .notice--info}
 
 To retrieve additional GeoIP information, see
-[[Looking up GeoIP2 data from IP addresses]].
+Looking up GeoIP2 data from IP addresses.
 Starting with version 3.24, syslog-ng OSE tries to automatically detect
 the location of the database. If that is successful, the database()
 option is not mandatory.
@@ -362,7 +362,7 @@ plugin](https://github.com/syslog-ng/syslog-ng-incubator/tree/master/modules/mon
 
 For details on selecting value-pairs in syslog-ng OSE and for
 possibilities to specify which information to convert to Graphite plain
-text protocol format, see [[Structuring macros, metadata, and other value-pairs]].
+text protocol format, see Structuring macros, metadata, and other value-pairs.
 Note that the syntax of graphite-output is different from the syntax of value-pairs():
 graphite-output uses a the command-line syntax used in the format-json
 template function.
@@ -796,7 +796,7 @@ general:
 
 - To help debugging and troubleshooting your Python code, you can send
     log messages to the internal() source of syslog-ng OSE. For details,
-    see [[Logging from your Python code]].
+    see Logging from your Python code.
 
 The following points apply to Python parsers.
 

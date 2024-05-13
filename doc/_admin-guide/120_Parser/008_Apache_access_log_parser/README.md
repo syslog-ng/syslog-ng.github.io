@@ -5,7 +5,7 @@ description: >-
     The Apache access log parser can parse the access log messages of the
     Apache HTTP Server. The syslog-ng OSE application can separate these log
     messages to name-value pairs. For details on using value-pairs in
-    syslog-ng OSE see [[Structuring macros, metadata, and other value-pairs]].
+    syslog-ng OSE see Structuring macros, metadata, and other value-pairs.
     The apache-accesslog-parser() supports
     both the Common Log Format and the Combined Log Format of Apache (for
     details, see the [Apache HTTP Server
@@ -80,6 +80,6 @@ OSE configuration:
 The apache-accesslog-parser() is actually a reusable configuration
 snippet configured parse Apache access log messages. For details on
 using or writing such configuration snippets, see
-[[Reusing configuration blocks]]. You can find the source of
+Reusing configuration blocks. You can find the source of
 this configuration snippet on
 [GitHub](https://github.com/syslog-ng/syslog-ng/blob/master/scl/apache/apache.conf).
