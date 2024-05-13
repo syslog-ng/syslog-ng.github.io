@@ -59,7 +59,7 @@ Like every project syslog-ng also uses different libraries and build-systems tha
    * criterion
    * gcc@11
 
-**Hint:** If you you have [[syslog-ng installed via brew|dev-inst-macos#Installation]], as a reference, you can check the dependencies of the brew built version using `brew deps syslog-ng`
+**Hint:** If you you have [[syslog-ng installed via brew|dev-inst-macos#installation]], as a reference, you can check the dependencies of the brew built version using `brew deps syslog-ng`
 {: .notice--info}
 
 This is how it might look like if you start from the ground:
