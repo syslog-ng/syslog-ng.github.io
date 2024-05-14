@@ -25,6 +25,11 @@ $code-background-color      : $lighter-gray !default;
 $code-background-color-dark : $light-gray !default;
 $text-color                 : $oid-black !default;
 $border-color               : $lighter-gray !default;
+$footer-background-color	: mix($oid-blue, $background-color, 60%) !default;
+
+$tooltip-color                   : mix($gray, $text-color, 50%) !default;
+$tooltip-background-color        : rgba(mix($light-gray, $background-color, 7%), 0.925) !default;
+$tooltip-arrow-background-color  : rgba(mix($tooltip-background-color, $tooltip-color, 90%), 0.925) !default;
 
 $primary-color              : $oid-black !default;
 $success-color              : #27ae60 !default;
@@ -42,5 +47,5 @@ $menuitem-hovered-background-color :$oid-blue !default;
 $menuitem-selected-background-color: $oid-gray !default;
 
 /* notices */
-$notice-background-mix: 80% !default;
+$notice-background-mix: 60% !default;
 $code-notice-background-mix: 95% !default;
