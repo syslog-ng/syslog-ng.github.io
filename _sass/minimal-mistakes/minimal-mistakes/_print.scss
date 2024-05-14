@@ -23,8 +23,8 @@
 
   body {
     margin: 0 auto;
-    background: #fff !important;
-    color: #000 !important;
+    background: #fff !important; // FIXME: print is not used, add to _variables,scss if used
+    color: #000 !important; // FIXME: print is not used, add to _variables,scss if used
     font-size: 1rem;
     line-height: 1.5;
     -moz-osx-font-smoothing: grayscale;
@@ -38,7 +38,7 @@
   h4,
   h5,
   h6 {
-    color: #000;
+    color: #000; // FIXME: print is not used, add to _variables,scss if used
     line-height: 1.2;
     margin-bottom: 0.75rem;
     margin-top: 0;
@@ -70,7 +70,7 @@
 
   a,
   a:visited {
-    color: #000;
+    color: #000; // FIXME: print is not used, add to _variables,scss if used
     text-decoration: underline;
     word-wrap: break-word;
   }
@@ -219,12 +219,12 @@
   }
 
   .page__hero-caption {
-    color: #000 !important;
+    color: #000 !important; // FIXME: print is not used, add to _variables,scss if used
     background: #fff !important;
     opacity: 1;
 
     a {
-      color: #000 !important;
+      color: #000 !important; // FIXME: print is not used, add to _variables,scss if used
     }
   }
 
