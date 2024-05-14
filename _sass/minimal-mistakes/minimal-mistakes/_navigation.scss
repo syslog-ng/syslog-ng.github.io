@@ -89,7 +89,7 @@
       text-align: center;
       text-decoration: none;
       color: $link-color;
-      border: 1px solid mix(#000, $border-color, 25%);
+      border: 1px solid $darker-border-color;
       border-radius: 0;
 
       &:hover {
@@ -98,12 +98,12 @@
 
       &.current,
       &.current.disabled {
-        color: #fff;
-        background: $primary-color;
+        color: $menuitem-hovered-color;
+        background-color: $menuitem-hovered-background-color;
       }
 
       &.disabled {
-        color: rgba($muted-text-color, 0.5);
+        color: $semi-transparent-muted-text-color;
         pointer-events: none;
         cursor: not-allowed;
       }
@@ -166,7 +166,7 @@
     text-decoration: none;
     color: $link-color;
 
-    border: 1px solid mix(#000, $border-color, 25%);
+    border: 1px solid $darker-border-color;
     border-radius: $border-radius;
 
     padding: 16px;
@@ -174,7 +174,10 @@
     margin-left: 0px;
 
     &:hover {
-      @include yiq-contrasted($muted-text-color);
+      //@include yiq-contrasted($muted-text-color);
+      // This one is confor to the other menu item colors
+      color: $menuitem-hovered-color;
+      background-color: $menuitem-hovered-background-color;
     }
 
     &:first-child {
@@ -190,7 +193,7 @@
     }
 
     &.disabled {
-      color: rgba($muted-text-color, 0.5);
+      color: $semi-transparent-muted-text-color;
       pointer-events: none;
       cursor: not-allowed;
     }
@@ -479,13 +482,13 @@
       }
 
       &:hover {
-        color: #fff;
+        color: $menuitem-hovered-color;
         border-color: $gray;
-        background-color: mix(white, #000, 20%);
+        background-color: $menuitem-hovered-background-color;
 
         &:before,
         &:after {
-          background-color: #fff;
+          background-color: $menuitem-background-color;
         }
       }
     }
@@ -526,6 +529,7 @@
 .nav__list .nav__items {
   /* Also could set the identation of the embedded menu items this way */
   margin-left: $sidebar-nav-item-left-margin;
+  padding-left: 0.5em;
   font-size: $type-size-4;
 
   /* Style for the top-level ul */
@@ -565,6 +569,7 @@
     transition: 0.2s ease-out;
     cursor: pointer;
 
+    // Menu item fold/unfold right + -
     &:before,
     &:after {
       content: "";
@@ -585,13 +590,13 @@
         margin-left: -0.5em;
         padding-left: 0.5em;
         padding-right: 0.5em;
-        color: #fff;
+        color: $menuitem-hovered-color;
         border-color: $gray;
-        background-color: mix(white, #000, 20%);
+        background-color: $menuitem-hovered-background-color;
 
         &:before,
         &:after {
-          background-color: #fff;
+          background-color: $menuitem-background-color;
         }
       }
     }
@@ -625,17 +630,6 @@
     transform: rotate(0);
   }
 
-  // un-folded - background
-  //   input:checked + label {
-  //     color: white;
-  //     background-color: mix(white, #000, 20%);
-  // 
-  //     &:before,
-  //     &:after {
-  //       background-color: #fff;
-  //     }
-  //   }
-
   a {
     &:not(.nav__sub-title), &:not(.nav__sub-title) {
       margin-right: 3em;
@@ -644,7 +638,7 @@
         color: inherit;
       }
       .active {    
-        @include yiq-contrasted($active-color);
+        @include yiq-contrasted($menuitem-selected-background-color);
       }      
       &:hover {
         text-decoration: underline;
@@ -657,7 +651,7 @@
     padding-left: 0.5em;
     padding-right: 0.5em;
 
-    @include yiq-contrasted($active-color);
+    @include yiq-contrasted($menuitem-selected-background-color);
 
     &:not(.nav__sub-title) {
       margin-left: -0.25em;
@@ -752,11 +746,11 @@
   z-index: 99; /* Higher than anything else */
   opacity: 0;
 
-  color: #c0c0c0;
+  color: $tooltip-color; // #c0c0c0;
   font-size: $type-size-7;
   text-align: left;
-  text-shadow: 1px 1px 2px #111;
-  background: rgba(51, 51, 51, 0.9);
+  //text-shadow: 1px 1px 2px $tooltip-text-shadow-color; // #111
+  background: $tooltip-background-color; // rgba(51, 51, 51, 0.9);
   
   // FIXME: Get rid of the dependency on size of the container
   width: 500%;
@@ -785,8 +779,9 @@
   padding-right: 15px;
   
   border-radius: 5px;
-  border: 1px solid rgba(34, 34, 34, 0.9);
-  box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 3px $tooltip-box-shadow-color; // rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: 0 0 3px $tooltip-box-shadow-color;
+  //border: 1px solid $tooltip-border-color; // rgba(34, 34, 34, 0.9);
 
   -webkit-transition: all .2s ease-in-out;
   -moz-transition: all .2s ease-in-out;
@@ -811,7 +806,7 @@
   top: var(--tooltip-arrow-top, -10px);
   left: var(--tooltip-arrow-left, 0px);
 
-  border-bottom: var(--tooltip-arrow-border-bottom, 10px) solid rgba(51, 51, 51, 0.9);
+  border-bottom: var(--tooltip-arrow-border-bottom, 10px) solid $tooltip-arrow-background-color; // rgba(51, 51, 51, 0.9);
   border-left: var(--tooltip-arrow-border-left, 10px) solid transparent;
   border-right: var(--tooltip-arrow-border-right, 10px) solid transparent;
 }
@@ -834,7 +829,7 @@
 
 .toc {
   font-family: $sans-serif-narrow;
-  color: $gray;
+  color: $menuitem-color;
   background-color: $background-color;
   border: 1px solid $border-color;
   border-radius: $border-radius;
@@ -842,9 +837,9 @@
   box-shadow: $box-shadow;
 
   .nav__title {
-    color: #fff;
     font-size: $type-size-6;
-    background: $primary-color;
+    color: $menuitem-hovered-color;
+    background: $menuitem-hovered-background-color;
     border: 0px;
     border-top-left-radius: $border-radius;
     border-top-right-radius: $border-radius;
@@ -856,7 +851,7 @@
 
   // Scrollspy marks toc items as .active when they are in focus
   .active a {
-    @include yiq-contrasted($active-color);
+    @include yiq-contrasted($menuitem-selected-background-color);
   }
 
   h4 {
@@ -882,7 +877,7 @@
   a {
     display: block;
     padding: 0.25rem 0.75rem;
-    color: $muted-text-color;
+    color: $menuitem-color;
     font-weight: bold;
     line-height: 1.5;
     border-bottom: 1px solid $border-color;

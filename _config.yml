@@ -2,7 +2,7 @@
 
 remote_theme: mmistakes/minimal-mistakes@4.24.0
 #theme: minimal-mistakes-jekyll
-minimal_mistakes_skin: "midnight" # "default" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
+minimal_mistakes_skin: "midnight" # "default", "air", "aqua", "contrast", "dark", "dirt", "midnight", "mint", "neon", "plum", "sunrise"
 
 # Disable caching of content to disk in order to skip creating a .jekyll-cache or similar directory
 disable_disk_cache: true

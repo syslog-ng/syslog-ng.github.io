@@ -8,18 +8,20 @@ $text-color: #f0e7d5 !default;
 $selection-color: mix($text-color, $background-color, 20%) !default;
 $selection-background-color:  mix($text-color, $background-color, 80%) !default;
 $primary-color: #e8ba00 !default;
-$border-color: mix(#fff, $background-color, 20%) !default;
+$border-color: mix(white, $background-color, 20%) !default;
 $code-background-color: #1e1e1e !default;
-$code-background-color-dark: mix(#000, $code-background-color, 25%) !default;
-$form-background-color: mix(#000, $background-color, 15%) !default;
-$footer-background-color: mix(#000, $background-color, 30%) !default;
+$code-background-color-dark: mix(black, $code-background-color, 25%) !default;
+$form-background-color: mix(black, $background-color, 15%) !default;
+$footer-background-color: mix(black, $background-color, 30%) !default;
+
 $link-color: $primary-color !default;
-$link-color-visited: mix(#fff, $link-color, 40%) !default;
-$link-color-hover: mix(#fff, $link-color, 60%) !default;
+$link-color-visited: mix(white, $link-color, 40%) !default;
+$link-color-hover: mix(white, $link-color, 60%) !default;
 $link-color-selected: $selection-color !default;
+
 $masthead-link-color: $text-color !default;
-$masthead-link-color-hover: mix(#000, $text-color, 20%) !default;
-$navicon-link-color-hover: mix(#000, $background-color, 30%) !default;
+$masthead-link-color-hover: mix(black, $text-color, 20%) !default;
+$navicon-link-color-hover: mix(black, $background-color, 30%) !default;
 
 /* sunrise syntax highlighting (base16) */
 $base00: $code-background-color !default;
@@ -29,7 +31,7 @@ $base03: #969896 !default;
 $base04: #888    !default;
 $base05: #d0d0d0 !default;
 $base06: #e0e0e0 !default;
-$base07: #ffffff !default;
+$base07: white   !default;
 $base08: #ac4142 !default;
 $base09: #90a959 !default;
 $base0a: #f0c674 !default;

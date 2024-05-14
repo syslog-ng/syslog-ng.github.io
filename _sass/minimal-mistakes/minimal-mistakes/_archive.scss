@@ -101,7 +101,7 @@
   right: 0;
   margin: 0 auto;
   padding: 2px 5px;
-  color: #fff;
+  color: #fff; // FIXME: archive is not used, add to _variables,scss if used
   font-family: $caption-font-family;
   font-size: $type-size-8;
   background: #000;
@@ -115,7 +115,7 @@
   }
 
   a {
-    color: #fff;
+    color: #fff;// FIXME: archive is not used, add to _variables,scss if used
     text-decoration: none;
   }
 }

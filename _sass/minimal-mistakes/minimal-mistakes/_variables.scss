@@ -55,22 +55,26 @@ $h-size-6: 1em !default; // ~16px
    Colors
    ========================================================================== */
 
+$white: white !default;
+$black: black !default;
 $gray: #7a8288 !default;
-$dark-gray: mix(#000, $gray, 50%) !default;
-$darker-gray: mix(#000, $gray, 60%) !default;
-$light-gray: mix(#fff, $gray, 50%) !default;
-$lighter-gray: mix(#fff, $gray, 90%) !default;
+$dark-gray: mix($black, $gray, 50%) !default;
+$darker-gray: mix($black, $gray, 60%) !default;
+$light-gray: mix($white, $gray, 50%) !default;
+$lighter-gray: mix($white, $gray, 90%) !default;
 
-$background-color: #fff !default;
+$background-color: $white !default;
 $text-color: $dark-gray !default;
-$muted-text-color: mix(#fff, $text-color, 20%) !default;
-$selection-color: #fff !default;
-$selection-background-color: #000 !default;
+$muted-text-color: mix($white, $text-color, 20%) !default;
+$semi-transparent-muted-text-color: rgba($muted-text-color, 0.5) !default;
+$selection-color: $white !default;
+$selection-background-color: $black !default;
 $form-background-color: $lighter-gray !default;
 $footer-background-color: $lighter-gray !default;
 $code-background-color: #fafafa !default;
 $code-background-color-dark: $light-gray !default;
 $border-color: $lighter-gray !default;
+$darker-border-color: mix(#000, $border-color, 25%) !default;
 
 $primary-color: #6f777d !default;
 $success-color: #3fa63f !default;
@@ -78,11 +82,27 @@ $warning-color: #d67f05 !default;
 $danger-color: #ee5f5b !default;
 $info-color: #3b9cba !default;
 $focus-color: $primary-color !default;
-$active-color: mix(#fff, $primary-color, 80%) !default;
+$active-color: mix($white, $primary-color, 80%) !default;
+
+$menuitem-color: $muted-text-color !default;
+$menuitem-background-color: $background-color !default;
+$menuitem-selected-background-color: $active-color !default;
+$menuitem-hovered-background-color: $primary-color !default; // mix($active-color, $gray) !default;
+$menuitem-hovered-color: $lighter-gray !default;
+
+$border-color: $lighter-gray !default;
+$box-shadow-color: rgba(mix($black, $background-color), 0.5) !default; //rgba(0, 0, 0, 0.125) !default;
+
+$tooltip-background-color: rgba(mix($white, $background-color, 7%), 0.925) !default;
+$tooltip-arrow-background-color: $tooltip-background-color !default;
+$tooltip-color: mix($gray, $text-color, 50%) !default;
+//$tooltip-text-shadow-color: #111 !default;
+$tooltip-box-shadow-color: $box-shadow-color !default; // rgba(mix($black, $background-color, 70%), 0.5) !default;
+//$tooltip-border-color: $border-color !default; // rgba(mix($black, $background-color, 80%), 0.9) !default;
 
 /* YIQ color contrast */
 $yiq-contrasted-dark-default: $dark-gray !default;
-$yiq-contrasted-light-default: #fff !default;
+$yiq-contrasted-light-default: $white !default;
 $yiq-contrasted-threshold: 175 !default;
 $yiq-debug: false !default;
 
@@ -113,13 +133,13 @@ $youtube-color: #bb0000 !default;
 $xing-color: #006567 !default;
 
 /* links */
-$link-color: mix(#000, $info-color, 20%) !default;
-$link-color-hover: mix(#000, $link-color, 25%) !default;
-$link-color-visited: mix(#fff, $link-color, 15%) !default;
+$link-color: mix($black, $info-color, 20%) !default;
+$link-color-hover: mix($black, $link-color, 25%) !default;
+$link-color-visited: mix($white, $link-color, 15%) !default;
 $link-color-selected: $selection-color !default;
 $masthead-link-color: $primary-color !default;
-$masthead-link-color-hover: mix(#000, $primary-color, 25%) !default;
-$navicon-link-color-hover: mix(#fff, $primary-color, 75%) !default;
+$masthead-link-color-hover: mix($black, $primary-color, 25%) !default;
+$navicon-link-color-hover: mix($white, $primary-color, 75%) !default;
 
 /* notices */
 $notice-background-mix: 80% !default;
@@ -171,7 +191,7 @@ $left-sidebar-width-wide: 500px !default;
    ========================================================================== */
 
 $border-radius: 4px !default;
-$box-shadow: 0 1px 1px rgba(0, 0, 0, 0.125) !default;
+$box-shadow: 0 1px 1px $box-shadow-color !default;
 $nav-height: 2em !default;
 $nav-toggle-height: 2rem !default;
 $navicon-width: 1.5rem !default;
