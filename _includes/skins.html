@@ -56,52 +56,85 @@
     return defaultValue;
   }
 
-  function setSkin(skin) {
-    const stylesheet = document.getElementById('skinedStylesheet');
-    //stylesheet.onload = saveChanges;
-    stylesheet.href = docPrefix() + '/assets/css/main' + (skin == 'default' ? '' : '_' + skin) + '.css';
-    setCookie('skin', skin, 365 * 100);
-  }
+  (function () {
+    function setSkin(skin) {
+      const stylesheet = document.getElementById('skinedStylesheet');
+      //stylesheet.onload = saveChanges;
+      stylesheet.href = docPrefix() + '/assets/css/main' + (skin == 'default' ? '' : '_' + skin) + '.css';
+      setCookie('skin', skin, 365 * 100);
+    }
 
-  function toggleSkin() {
-    if (getCookie('skin', 'default') == darkSkin)
-      setSkin(lightSkin);
-    else
-      setSkin(darkSkin);
-    //location.reload();
-  }
+    function toggleSkin(event) {
+        if (getCookie('skin', 'default') == darkSkin) {
+          event.target.classList.remove('fa-toggle-on');
+          event.target.classList.add('fa-toggle-off');
+          setSkin(lightSkin);
+        }
+        else {
+          event.target.classList.remove('fa-toggle-off');
+          event.target.classList.add('fa-toggle-on');
+          setSkin(darkSkin);
+        }
+        event.currentTarget.blur();
+      }
 
-  /* As of the dynamic skin stylsheet loading, it is better to wait for the finish of the whole page content load and rendering to avoid apperance of
-     half rendered content parts (it is better to see an empty content even if it might appear in a different bacground color that the skin has)
-  */
-  window.addEventListener("load", function () {
-    function saveChanges() {
-      const htmlStyle = window.getComputedStyle(document.documentElement);
-      const backgroundColor = htmlStyle.backgroundColor;
-      setCookie('skin-background-color', backgroundColor, 365 * 100);
-    };    
+    function toggleIcon(target, off) {
+      if (off) {
+        target.classList.remove('fa-toggle-on');
+        target.classList.add('fa-toggle-off');
+      }
+      else {
+        target.classList.remove('fa-toggle-off');
+        target.classList.add('fa-toggle-on');
+      }
+    }
+    
+    function toggleSkin(event) {
+      var off = getCookie('skin', 'default') == darkSkin;
+      
+      if (off)
+        setSkin(lightSkin);
+      else
+        setSkin(darkSkin);
+      toggleIcon(event.target, off);
 
-    var container = document.getElementById("full-page-container");
-    if (container)
-      container.classList.remove('hidden');
+      event.currentTarget.blur();
+    }
 
-    // Why this is not working?!?!
-    //document.body.style.removeProperty("backgroundColor");
-    document.body.style.backgroundColor = "";
+    /* As of the dynamic skin stylsheet loading, it is better to wait for the finish of the whole page content load and rendering to avoid apperance of
+      half rendered content parts (it is better to see an empty content even if it might appear in a different bacground color that the skin has)
+    */
+    window.addEventListener("load", function () {
+      function saveChanges() {
+        const htmlStyle = window.getComputedStyle(document.documentElement);
+        const backgroundColor = htmlStyle.backgroundColor;
+        setCookie('skin-background-color', backgroundColor, 365 * 100);
+      };    
 
-    saveChanges();
+      var container = document.getElementById("full-page-container");
+      if (container)
+        container.classList.remove('hidden');
 
-    $(".skin__toggle").on("click", toggleSkin);
-  });
+      // Why this is not working?!?!
+      //document.body.style.removeProperty("backgroundColor");
+      document.body.style.backgroundColor = "";
+      if (storedSkin !== 'default')
+        toggleIcon($('#skin-button').find('.masthead_button_icon')[0], false);
+  
+      $("#skin-button").on("click", toggleSkin);
 
-  document.addEventListener("DOMContentLoaded", function () {
-    const skinBackgroundColor = getCookie('skin-background-color');
-    if (skinBackgroundColor)
-      document.body.style.backgroundColor = skinBackgroundColor;
-  });
+      saveChanges();
+    });
 
-  const storedSkin = getCookie('skin', 'default');
-  if (storedSkin !== 'default')
-    setSkin(storedSkin);
+    document.addEventListener("DOMContentLoaded", function () {
+      const skinBackgroundColor = getCookie('skin-background-color');
+      if (skinBackgroundColor)
+        document.body.style.backgroundColor = skinBackgroundColor;
+    });
 
+    const storedSkin = getCookie('skin', 'default');
+    if (storedSkin !== 'default')
+      setSkin(storedSkin);
+
+  })();
 </script>

@@ -4,6 +4,7 @@
   <div class="masthead__inner-wrap">
     <div class="masthead__menu">
       <nav id="site-nav" class="greedy-nav">
+
         {% unless logo_path == empty %}
           <a class="site-logo" href="{{ '/' | relative_url }}"><img src="{{ logo_path | relative_url }}" alt="{{ site.masthead_title | default: site.title }}"></a>
         {% endunless %}
@@ -11,6 +12,7 @@
           {{ site.masthead_title | default: site.title }}
           {% if site.subtitle %}<span class="site-subtitle">{{ site.subtitle }}</span>{% endif %}
         </a>
+
         <ul class="visible-links">
           {% if site.masthead.hide_navigator == false %}
             {%- for link in site.data.navigation.main -%}
@@ -20,27 +22,33 @@
             {%- endfor -%}
           {% endif %}
         </ul>
+
         {% if site.search == true %}
-        <button class="search__toggle" type="button">
-          <span id="searchHint" class="">{{ site.data.ui-text[site.locale].search_label | default: "Toggle search (Shift + Ctrl
-            + F or ESC to close)" }}</span>
-          <i class="fas fa-search"></i>
+        {% comment %}<!-- search__toggle is kept fir bacjward compatibility -->{% endcomment %}
+        <button id="search-button" class="masthead_button search__toggle" type="button">
+          <span id="search_hint" class="">{{ site.data.ui-text[site.locale].search_label | default: "Toggle search (Shift + Ctrl + F or ESC to close)" }}</span>
+          <i class="masthead_button_icon fas fa-search" style="font-size: 120%;"></i>
         </button>
         {% endif %}
+
         {% if site.skin_switchable == true %}
-        <span class="skin__toggle_img"><i class="fa fa-sun-o"></i></span>
-        <button class="skin__toggle" type="button">
-          <!-- <span id="skinHint" class="">{{ site.data.ui-text[site.locale].search_label | default: "Toggle search (Shift + Ctrl
-                    + F or ESC to close)" }}</span> -->
-          <i class="fa fa-toggle-off"></i>
+        <i class="masthead_button_small_img fa fa-sun"></i>
+        <button id="skin-button" class="masthead_button_with_side_image" type="button">
+          <i class="masthead_button_icon fa fa-toggle-off" style="font-size: 150%;"></i>
         </button>
-        <span class="skin__toggle_img"><i class="fa fa-moon-o"></i></span>
+        <i class="masthead_button_small_img fa fa-moon"></i>
         {% endif %}
+
+        <button id="settings-button" class="masthead_button_last" type="button">
+          <i class="masthead_button_icon fas fa-user-cog" style="font-size: 110%;"></i>
+        </button>
+
         <button class="greedy-nav__toggle hidden" type="button">
           <span class="visually-hidden">{{ site.data.ui-text[site.locale].menu_label | default: "Toggle menu" }}</span>
           <div class="navicon"></div>
         </button>
         <ul class="hidden-links hidden"></ul>
+
       </nav>
     </div>
   </div>

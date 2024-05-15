@@ -605,16 +605,16 @@ $(function () {
 
     if (event.keyCode === 27) {
       if ($(".initial-content").hasClass("is--hidden"))
-        toggleSearch();
+        toggleSearch(event);
     }
     else if (event.ctrlKey === searchHotkey.ctrlKey &&
       event.shiftKey === searchHotkey.shiftKey &&
       event.key === searchHotkey.key) {
-      toggleSearch();
+      toggleSearch(event);
     }
   });
 
-  function toggleSearch() {
+  function toggleSearch(event) {
     $(".search-content").toggleClass("is--visible");
     $(".initial-content").toggleClass("is--hidden");
 
@@ -633,9 +633,11 @@ $(function () {
 
     if (tooltipTarget)
       hideTooltip(true);
+    // NOTE: event.target is not always the toggle here, use it directly instead of the event
+    $("#search-button").trigger('blur');
   }
 
-  $(".search__toggle").on('click', toggleSearch);
+  $("#search-button").on('click', toggleSearch);
 
   // -------------
   // Startup
