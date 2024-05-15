@@ -69,8 +69,7 @@ exclude:
   - Gemfile.lock
   - node_modules
   # Shell we add to the generated _site as well?
-  - LICENSE.minimal-mistakes
-  - LICENSE.midnight
+  - LICENSE.*
 
 # Sass/SCSS
 # If you are using Sass @import statements, you’ll need to ensure that your sass_dir is set to the base directory that contains your Sass files
