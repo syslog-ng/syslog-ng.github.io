@@ -1,4 +1,5 @@
 ---
+<!-- layout: compress -->
 ---
 
 <!doctype html>
@@ -15,6 +16,8 @@
   </head>
 
   <body class="layout--{{ page.layout | default: layout.layout }}{% if page.classes or layout.classes %}{{ page.classes | default: layout.classes | join: ' ' | prepend: ' ' }}{% endif %}">
-    {{ content }}
+    <div id="full-page-container" class="full-page-container hidden">
+      {{ content }}
+    </div>
   </body>
 </html>
