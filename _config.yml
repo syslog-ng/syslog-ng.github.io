@@ -3,6 +3,7 @@
 remote_theme: mmistakes/minimal-mistakes@4.24.0
 #theme: minimal-mistakes-jekyll
 minimal_mistakes_skin: "midnight" # "default", "air", "aqua", "contrast", "dark", "dirt", "midnight", "mint", "neon", "plum", "sunrise"
+skin_switchable: true
 
 # Disable caching of content to disk in order to skip creating a .jekyll-cache or similar directory
 disable_disk_cache: true
@@ -72,6 +73,8 @@ exclude:
   - LICENSE.midnight
 
 # Sass/SCSS
+# If you are using Sass @import statements, you’ll need to ensure that your sass_dir is set to the base directory that contains your Sass files
+# https://jekyllrb.com/docs/assets/#sassscss
 sass:
   sass_dir: _sass/minimal-mistakes
   style: compressed # https://sass-lang.com/documentation/file.SASS_REFERENCE.html#output_style
@@ -204,10 +207,15 @@ kramdown:
 atom_feed:
   hide: true
 
+# https://jch.penibelst.de/
 compress_html:
+  profile: true
   clippings: all
-  ignore:
-    envs: development  # disable compression in dev environment
+  endings: all
+  ignore: 
+    # do not use yet, too slow and can cause issues in the final output
+    # envs: [ development ] disable compression in a given environment
+    envs: all
 
 # These are introduced with our customized theme source, not part of mmistakes/minimal-mistakes
 
