@@ -314,6 +314,19 @@
     cursor: pointer;
   }
 
+  .masthead__menu-center-container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    overflow: hidden;
+  }
+
   .visible-links {
     display: -webkit-box;
     display: -ms-flexbox;

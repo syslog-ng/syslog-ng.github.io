@@ -598,46 +598,49 @@ $(function () {
   // Search
   // -------------
 
-  // Close search screen with Esc key or toggle with predefined hotKey
-  $(document).on('keyup', function (event) {
-    // Define the desired hotkey (in this case, Ctrl + Shift + F)
-    var searchHotkey = { ctrlKey: true, shiftKey: true, key: 'F' };
+  if (searchEnabled) {
+    // Close search screen with Esc key or toggle with predefined hotKey
+    $(document).on('keyup', function (event) {
+      // Define the desired hotkey (in this case, Ctrl + Shift + F)
+      var searchHotkey = { ctrlKey: true, shiftKey: true, key: 'F' };
 
-    if (event.keyCode === 27) {
-      if ($(".initial-content").hasClass("is--hidden"))
+      if (event.keyCode === 27) {
+        if ($(".initial-content").hasClass("is--hidden"))
+          toggleSearch(event);
+      }
+      else if (event.ctrlKey === searchHotkey.ctrlKey &&
+        event.shiftKey === searchHotkey.shiftKey &&
+        event.key === searchHotkey.key) {
         toggleSearch(event);
-    }
-    else if (event.ctrlKey === searchHotkey.ctrlKey &&
-      event.shiftKey === searchHotkey.shiftKey &&
-      event.key === searchHotkey.key) {
-      toggleSearch(event);
-    }
-  });
+      }
+    });
 
-  function toggleSearch(event) {
-    $(".search-content").toggleClass("is--visible");
-    $(".initial-content").toggleClass("is--hidden");
+    function toggleSearch(event) {
+      $(".search-content").toggleClass("is--visible");
+      $(".search-content__form").toggleClass("is--visible");      
+      $(".initial-content").toggleClass("is--hidden");
 
-    if ($(".initial-content").hasClass("is--hidden")) {
-      // set focus on input
-      setTimeout(function () {
-        var input = $(".search-content").find("input");
-        input.trigger("focus");
-        input.trigger("select");
-      }, 250);
-    }
-    else {
-      // set focus back to the initial content otherwise the focus will not get back to the search input once again
-      $(".initial-content").find("input").focus();
+      if ($(".initial-content").hasClass("is--hidden")) {
+        // set focus on input
+        setTimeout(function () {
+          var input = $(".search-content__form").find("input");
+          input.trigger("focus");
+          input.trigger("select");
+        }, 100);
+      }
+      else {
+        // set focus back via the initial content otherwise the focus will not get back to the search input once again
+        $(".initial-content").find("input").focus();
+      }
+
+      if (tooltipTarget)
+        hideTooltip(true);
+      // NOTE: event.target is not always the toggle here, use it directly instead of the event
+      $("#search-button").trigger('blur');
     }
 
-    if (tooltipTarget)
-      hideTooltip(true);
-    // NOTE: event.target is not always the toggle here, use it directly instead of the event
-    $("#search-button").trigger('blur');
+    $("#search-button").on('click', toggleSearch);
   }
-
-  $("#search-button").on('click', toggleSearch);
 
   // -------------
   // Startup

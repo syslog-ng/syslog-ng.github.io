@@ -168,6 +168,7 @@ defaults:
 search: true
 # Setting search_full_content to true could impact page load performance!
 search_full_content: true
+search_from_masthead: true
 
 search_provider: lunr
 lunr:
