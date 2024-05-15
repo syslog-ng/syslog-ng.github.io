@@ -22,9 +22,19 @@
         </ul>
         {% if site.search == true %}
         <button class="search__toggle" type="button">
-          <span id="searchHint" class="">{{ site.data.ui-text[site.locale].search_label | default: "Toggle search (Shift + Ctrl + F or ESC to close)" }}</span>
+          <span id="searchHint" class="">{{ site.data.ui-text[site.locale].search_label | default: "Toggle search (Shift + Ctrl
+            + F or ESC to close)" }}</span>
           <i class="fas fa-search"></i>
         </button>
+        {% endif %}
+        {% if site.skin_switchable == true %}
+        <span class="skin__toggle_img"><i class="fa fa-sun-o"></i></span>
+        <button class="skin__toggle" type="button">
+          <!-- <span id="skinHint" class="">{{ site.data.ui-text[site.locale].search_label | default: "Toggle search (Shift + Ctrl
+                    + F or ESC to close)" }}</span> -->
+          <i class="fa fa-toggle-off"></i>
+        </button>
+        <span class="skin__toggle_img"><i class="fa fa-moon-o"></i></span>
         {% endif %}
         <button class="greedy-nav__toggle hidden" type="button">
           <span class="visually-hidden">{{ site.data.ui-text[site.locale].menu_label | default: "Toggle menu" }}</span>
