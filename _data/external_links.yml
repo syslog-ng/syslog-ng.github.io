@@ -608,6 +608,11 @@ gcp-ser:
   url: https://cloud.google.com/iam/docs/service-account-overview
   title: [ "GCP Service Account authentication" ]
 
+gh-patterndb:
+  id: gh-patterndb
+  url: https://github.com/balabit/syslog-ng-patterndb
+  title: [ "patterndb GitHub page" ]
+
 gh-redis-pipe:
   id: gh-redis-pipe
   url: https://github.com/redis/hiredis#pipelining
@@ -782,11 +787,6 @@ pan-os-long:
   id: pan-os-long
   url: https://docs.paloaltonetworks.com/pan-os.html
   title: [ "Palo Alto Networks PAN-OS" ]
-
-patterndb-todo:
-  id: patterndb-todo
-  url: https://my.balabit.com/downloads/patterndb-snapshot/
-  title: [ "here" ]
 
 pi-hole:
   id: pi-hole
