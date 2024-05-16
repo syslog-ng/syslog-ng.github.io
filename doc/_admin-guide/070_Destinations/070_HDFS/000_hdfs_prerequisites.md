@@ -13,7 +13,7 @@ description: >-
         newer). You can use OpenJDK or Oracle JDK, other implementations
         are not tested.
 
-    - Install [gradle](https://gradle.org/install) version 2.2.1 or
+    - Install gradle version 2.2.1 or
         newer.
 
     - Set **LD_LIBRARY_PATH** to include the libjvm.so file, for

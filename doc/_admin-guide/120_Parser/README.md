@@ -61,7 +61,7 @@ following application logs:
 - [[osquery|other-osquery]] result logs. For details, see
     [[osquery: Collect and parse osquery result logs]].
 
-- SNMP traps of the [Net-SNMP](http://www.net-snmp.org)\'s snmptrapd
+- SNMP traps of the Net-SNMP\'s snmptrapd
     application. For details, see
     [[snmptrap: Read Net-SNMP traps]].
 - sudo logs. For details, see Sudo parser.

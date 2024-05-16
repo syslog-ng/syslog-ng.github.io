@@ -249,19 +249,19 @@ listed below.
 |amqp()|           Publishes messages using the AMQP (Advanced Message Queuing Protocol).
 |elasticsearch2|   Sends messages to an Elasticsearch server. The elasticsearch2 driver supports Elasticsearch version 2 and newer.
 |file()|           Writes messages to the specified file.
-|graphite()|       Sends metrics to a [Graphite](http://graphite.readthedocs.io/en/latest/index.html) server to store numeric time-series data.
-|graylog2()|       Sends syslog messages to [Graylog](http://docs.graylog.org).
-|hdfs()|           Sends messages into a file on a [Hadoop Distributed File System (HDFS)](http://hadoop.apache.org/) node.
+|graphite()|       Sends metrics to a Graphite server to store numeric time-series data.
+|graylog2()|       Sends syslog messages to Graylog.
+|hdfs()|           Sends messages into a file on a Hadoop Distributed File System (HDFS) node.
 |http()|            Sends messages over the HTTP protocol. There are two different implementations of this driver: a Java-based http driver, and an http driver without Java.
-|kafka()|          Publishes log messages to the [Apache Kafka](http://kafka.apache.org) message bus, where subscribers can access them.
-|loggly()|         Sends log messages to the [Loggly](https://www.loggly.com/) Logging-as-a-Service provider.
-|logmatic()|       Sends log messages to the [Logmatic.io](https://logmatic.io/) Logging-as-a-Service provider.
-|mongodb()|        Sends messages to a [MongoDB](https://www.mongodb.com) database.
+|kafka()|          Publishes log messages to the Apache Kafka message bus, where subscribers can access them.
+|loggly()|         Sends log messages to the Loggly Logging-as-a-Service provider.
+|logmatic()|       Sends log messages to the Logmatic.io Logging-as-a-Service provider.
+|mongodb()|        Sends messages to a MongoDB database.
 |network()|        Sends messages to a remote host using the BSD-syslog protocol over IPv4 and IPv6. Supports the TCP, UDP, and TLS network protocols.
 |pipe()|           Writes messages to the specified named pipe.
 |program()|        Forks and launches the specified program, and sends messages to its standard input.
-|redis()|          Sends messages as name-value pairs to a [Redis](https://redis.io/) key-value store.
-|riemann()|        Sends metrics or events to a [Riemann](http://riemann.io/) monitoring system.
+|redis()|          Sends messages as name-value pairs to a Redis key-value store.
+|riemann()|        Sends metrics or events to a Riemann monitoring system.
 |smtp()|           Sends e-mail messages to the specified recipients.
 |sql()|            Sends messages into an SQL database. In addition to the standard syslog-ng OSE packages, the sql() destination requires database-specific packages to be installed.
 |stomp()|          Sends messages to a STOMP server.

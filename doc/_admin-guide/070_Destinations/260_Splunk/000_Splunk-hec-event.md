@@ -11,11 +11,11 @@ description: >-
 
 * A token must be created for syslog-ng OSE to be used in the token() destination option. Use the syslog source type when creating the token.
 
-For more information, see [Set up and use HTTP Event Collector in Splunk Web](https://docs.splunk.com/Documentation/Splunk/latest/Data/UsetheHTTPEventCollector).
+For more information, see Set up and use HTTP Event Collector in Splunk Web.
 
 ## HEC events API
 
-The splunk-hec-event() destination feeds [Splunk through the HEC Events API](https://docs.splunk.com/Documentation/Splunk/9.0.4/RESTREF/RESTinput#services.2Fcollector.2Fevent.2F1.0).
+The splunk-hec-event() destination feeds Splunk through the HEC Events API.
 
 Minimal configuration:
 
@@ -58,7 +58,7 @@ content-type()
 
 ## HEC raw API
 
-The `splunk-hec-raw()` destination feeds Splunk via the [HEC raw API](https://docs.splunk.com/Documentation/Splunk/9.0.4/RESTREF/RESTinput#services.2Fcollector.2Fraw.2F1.0).
+The `splunk-hec-raw()` destination feeds Splunk via the HEC raw API.
 
 Minimal configuration:
 

@@ -35,6 +35,6 @@ messages.
 {% include doc/admin-guide/options/tls.md %}
 
 {% include doc/admin-guide/options/token.md %} while
-[configuring your cloud syslog source](https://help.sumologic.com/03Send-Data/Sources/02Sources-for-Hosted-Collectors/Cloud-Syslog-Source#configure-a-cloud%C2%A0syslog%C2%A0source).
+configuring your cloud syslog source.
 
 Required option.

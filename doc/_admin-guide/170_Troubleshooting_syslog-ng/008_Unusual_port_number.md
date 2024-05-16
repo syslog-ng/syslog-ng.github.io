@@ -15,4 +15,4 @@ By default, SELinux only allows connections to the default syslog ports.
 When you have to use any other port for some reason, sending logs to
 that port will not work. For details on how to fix this issue, see
 section Using a different portin the blog post titled
-[Using syslog-ng with SELinux in enforcing mode](https://syslog-ng.com/blog/using-syslog-ng-with-selinux-in-enforcing-mode/).
+Using syslog-ng with SELinux in enforcing mode.

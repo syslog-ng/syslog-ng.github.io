@@ -2,7 +2,7 @@
 title: darwin-oslog() source options
 id: adm-src-darw-osl-opt
 description: >-
-    The `darwin-oslog()` source is based on the native [OSLog Framework](https://developer.apple.com/documentation/oslog?language=objc) to read logs from the local store of the unified logging system on darwin OSes. The syslog-ng OSE `system()` source automatically uses this new source on darwin platforms if the `darwinosl` plugin is available. This plugin is available only on macOS 10.15 Catalina and later versions. The 10.15 version is the first to support the OSLog API.
+    The `darwin-oslog()` source is based on the native OSLog Framework to read logs from the local store of the unified logging system on darwin OSes. The syslog-ng OSE `system()` source automatically uses this new source on darwin platforms if the `darwinosl` plugin is available. This plugin is available only on macOS 10.15 Catalina and later versions. The 10.15 version is the first to support the OSLog API.
 ---
 
 **NOTE:** The persistent OSLog store keeps about 7 days of logs on the disk.
@@ -15,7 +15,7 @@ The `darwin-oslog()` source has the following options.
 |Type:|     string|
 |Default:|`(eventType == 'logEvent' || eventType == 'lossEvent' || eventType == 'stateEvent' || eventType == 'userActionEvent') && (logType != 'debug')`|
 
-*Description:* String for [native macOS log message filtering using predicates](https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/Predicates/Articles/pSyntax.html). For example, the following predicate selects AirDrop logs: `subsystem=="com.apple.sharing" and category=="AirDrop"`
+*Description:* String for native macOS log message filtering using predicates. For example, the following predicate selects AirDrop logs: `subsystem=="com.apple.sharing" and category=="AirDrop"`
 
 ## do-not-use-bookmark()
 
@@ -51,7 +51,7 @@ The `darwin-oslog()` source has the following options.
 
 ## log-fetch-limit
 
-**NOTE:** This option is currently disabled due to an [OSLog API bug](https://openradar.appspot.com/radar?id=5597032077066240).
+**NOTE:** This option is currently disabled due to an OSLog API bug.
 {: .notice--info}
 
 |Type:|     integer|

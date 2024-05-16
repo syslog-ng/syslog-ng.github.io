@@ -127,7 +127,7 @@ gets resolved to an empty string, Discord rejects the message.
 
 {% include doc/admin-guide/options/throttle.md %}
 
-For more information, see [Discord: Rate Limits](https://discord.com/developers/docs/topics/rate-limits#global-rate-limit).
+For more information, see Discord: Rate Limits.
 
 {% include doc/admin-guide/options/timeout.md %}
 
@@ -146,7 +146,7 @@ documentation](https://discord.com/developers/docs/resources/webhook#webhook-obj
 |Default:|   N/A|
 
 *Description:* The webhook URL of the Discord server/channel. For more
-information, see [Discord: Intro to Webhooks](https://support.discord.com/hc/en-us/articles/228383668-Intro-to-Webhooks).
+information, see Discord: Intro to Webhooks.
 
 {% include doc/admin-guide/options/user-agent.md %}
 

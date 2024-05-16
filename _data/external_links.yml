@@ -30,7 +30,7 @@ gh-pages:
 gh-syslog-ng:
   id: gh-syslog-ng
   url: https://github.com/syslog-ng/syslog-ng
-  title: [ "syslog-ng on GitHub" ]
+  title: [ "syslog-ng OSE source code" ]
 
 gh-syslog-ng-doc:
   id: gh-syslog-ng-doc

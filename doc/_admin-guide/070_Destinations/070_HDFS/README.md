@@ -5,7 +5,7 @@ short_title: HDFS
 id: adm-dest-hdfs
 description: >-
     Starting with version 3.7, syslog-ng OSE can send plain-text log files
-    to the [Hadoop Distributed File System (HDFS)](http://hadoop.apache.org/),
+    to the Hadoop Distributed File System (HDFS),
     allowing you to store your log data on a distributed, scalable file system.
     This is especially useful if you have huge amounts of log messages that would
     be difficult to store otherwise, or if you want to process your messages 
@@ -82,8 +82,8 @@ The hdfs() driver is actually a reusable configuration snippet
 configured to receive log messages using the Java language-binding of
 syslog-ng OSE. For details on using or writing such configuration
 snippets, see Reusing configuration blocks.
-You can find the source of the hdfs configuration snippet on
-[GitHub](https://github.com/syslog-ng/syslog-ng/blob/master/scl/hdfs/plugin.conf).
+You can find the source of the hdfs configuration snippet on GitHub.
+
 For details on extending syslog-ng OSE in Java, see the [Getting started
 with syslog-ng development](https://syslog-ng.gitbooks.io/getting-started/content/chapters/chapter_5/section_2.html)
 guide.

@@ -3,7 +3,7 @@ title: IETF-syslog messages
 id: adm-struct-ietf
 description: >-
     This section describes the format of a syslog message, according to the
-    [IETF-syslog protocol](https://tools.ietf.org/html/rfc5424). 
+    IETF-syslog protocol. 
 ---
 
 A syslog message consists of the following parts:

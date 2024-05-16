@@ -5,7 +5,7 @@ id: adm-src-nodejs
 description: >-
     Using the nodejs() driver, syslog-ng OSE can receive application logs
     directly from nodejs applications that use the widespread
-    [Winston](https://github.com/winstonjs/winston) logging API. The
+    Winston logging API. The
     syslog-ng OSE application automatically adds the .nodejs.winston. prefix
     to the name of the fields the extracted from the message.
 ---

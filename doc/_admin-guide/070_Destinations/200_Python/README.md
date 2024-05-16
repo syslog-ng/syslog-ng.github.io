@@ -273,7 +273,7 @@ class TextDestination(object):
 
 For a more detailed example about sending log messages to an MQTT
 (Message Queuing Telemetry Transport) server, see the
-[Writing Python destination in syslog-ng: how to send log messages to MQTT](https://www.syslog-ng.com/community/b/blog/posts/writing-python-destination-in-syslog-ng-how-to-send-log-messages-to-mqtt) blog post.
+Writing Python destination in syslog-ng: how to send log messages to MQTT blog post.
 
 ### Example: Print logs in batch mode
 

@@ -3,7 +3,7 @@ title: sumologic-http()
 id: adm-dest-sumologic-http
 description: >-
   The sumologic-http() and sumologic-syslog() destinations send log
-  messages to [Sumo Logic](https://www.sumologic.com/), a cloud-based log
+  messages to Sumo Logic, a cloud-based log
   management and security analytics service.
 ---
 

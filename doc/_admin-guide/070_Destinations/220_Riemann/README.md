@@ -4,7 +4,7 @@ short_title: riemann
 id: adm-dest-riemann
 description: >-
         The riemann() driver sends your data (for example, metrics or events) to
-        a [Riemann](http://riemann.io/) monitoring system.
+        a Riemann monitoring system.
 
         For the list of available parameters, see
         riemann() destination options.  

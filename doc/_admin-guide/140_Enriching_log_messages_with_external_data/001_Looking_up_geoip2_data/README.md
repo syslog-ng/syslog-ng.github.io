@@ -14,7 +14,7 @@ The syslog-ng OSE application works with the mmdb (GeoIP2) format of
 these databases. Other formats, like csv are not supported.
 
 **NOTE:** To access longitude and latitude information, download the City
-version of the [GeoIP2](https://www.maxmind.com/en/geoip2-databases)
+version of the GeoIP2
 database.
 {: .notice--info}
 

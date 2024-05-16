@@ -17,7 +17,7 @@ description: >-
 
 ## auth()
 
-*Description:* This is an option for cloud-related authentication. Currently only the [GCP Service Account authentication](https://cloud.google.com/iam/docs/service-account-overview) is supported.
+*Description:* This is an option for cloud-related authentication. Currently only the GCP Service Account authentication is supported.
 
 ### Example: storing the key to the service account
 

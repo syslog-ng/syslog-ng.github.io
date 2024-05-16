@@ -27,7 +27,7 @@ and later.
 |  Type:  |    comma-separated list of strings (\"\<redis-command\>\", \"\<first-command-parameter\>\", \"\<second-command-parameter\>\", \"\<third-command-parameter\>\")|
 |Default: |  empty string|
 
-*Description:* The [Redis command](https://redis.io/commands) to
+*Description:* The Redis command to
 execute, for example, LPUSH, INCR, or HINCRBY. Using the HINCRBY command
 with an increment value of 1 allows you to create various statistics.
 For example, the **command("HINCRBY" "${HOST}/programs"

@@ -61,7 +61,7 @@ collectd.
 |Default:|   /var/run/collectd-unixsock|
 
 *Description:* The path to the socket of collectd. For details, see the
-[collectd-unixsock(5) manual page](https://collectd.org/documentation/manpages/collectd-unixsock.5.shtml).
+collectd-unixsock(5) manual page.
 
 {% include doc/admin-guide/options/so-broadcast.md %}
 

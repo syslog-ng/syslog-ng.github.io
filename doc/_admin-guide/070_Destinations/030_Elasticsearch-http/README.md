@@ -38,7 +38,7 @@ leaves the default http_proxy and https_proxy environment variables
 unmodified.
 
 For more detailed information about these environment variables, see
-[the libcurl documentation](https://curl.haxx.se/libcurl/c/CURLOPT_PROXY.html).
+the libcurl documentation.
 
 NOTE: Configuring the proxy() option overwrites the default http_proxy
 and https_proxy environment variables.

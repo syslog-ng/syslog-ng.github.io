@@ -3,7 +3,7 @@ title: Arr log source
 short_title: Arr logs
 id: adm-src-arr
 description: >-
-    In syslog-ng OSE 4.7 and later versions it is possible to collect logs of the [Lidarr, Prowlarr, Radarr, Readarr, and Sonarr](https://github.com/Servarr/Wiki) (referred to as “*Arr” or “*Arrs”) applications.
+    In syslog-ng OSE 4.7 and later versions it is possible to collect logs of the Lidarr, Prowlarr, Radarr, Readarr, and Sonarr (referred to as “*Arr” or “*Arrs”) applications.
 ---
 
 The new arr() sources are the following:

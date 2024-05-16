@@ -3,7 +3,7 @@ title: 'PostgreSQL csvlog parser'
 short_title: 'PostgreSQL parser'
 id: adm-parser-postrgresql
 description: >-
-    This parser processes messages in the [PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-logging.html#RUNTIME-CONFIG-LOGGING-CSVLOG) csvlog format. The following multi-line message example is a embedded with NL characters. This single, multi-line log entry starts with the timestamp.
+    This parser processes messages in the PostgreSQL csvlog format. The following multi-line message example is a embedded with NL characters. This single, multi-line log entry starts with the timestamp.
 ---
 
 ```config

@@ -8,7 +8,7 @@ description: >-
 ---
 
 (Such reusable blocks are sometimes called a Source Configuration Library, or
-[SCL](https://www.syslog-ng.com/community/b/blog/posts/creating-your-first-block-for-the-syslog-ng-configuration-library-scl).)
+SCL.)
 Any syslog-ng object can be a block. Use the following syntax to define
 a block:
 

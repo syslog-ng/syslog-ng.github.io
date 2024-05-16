@@ -5,7 +5,7 @@ id: adm-dest-graylog
 description: >-
   You can use the graylog2() destination and a Graylog Extended Log Format
   (GELF) template to send syslog messages to
-  [Graylog](http://docs.graylog.org).
+  Graylog.
 ---
 
 You can forward simple name-value pairs where the name starts with a dot
@@ -28,7 +28,7 @@ destination. The graylog2() destination uses the GELF template, the
 native data format of Graylog.
 
 1. On the Graylog side, configure a GELF TCP input. For more
-    information, see the relevant [Graylog](http://docs.graylog.org)
+    information, see the relevant Graylog
     documentation.
 
 2. On the syslog-ng side, configure the name or IP address of the host

@@ -4,7 +4,7 @@ short_title: Logmatic
 id: adm-dest-logmatic
 description: >-
     The logmatic() destination sends log messages to the
-    [Logmatic.io](https://logmatic.io/) Logging-as-a-Service provider. You
+    Logmatic.io Logging-as-a-Service provider. You
     can send log messages over TCP, or encrypted with TLS.
 ---
 

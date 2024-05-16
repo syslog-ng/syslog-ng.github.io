@@ -5,7 +5,7 @@ short_title: s3
 description: >-
     Available in syslog-ng OSE version 4.4 and later versions.
 
-    The s3() destination sends log messages to the [Amazon Simple Storage Service (Amazon S3)](https://aws.amazon.com/s3/) object storage service. Log messages can be sent over TCP, or encrypted with TLS.
+    The s3() destination sends log messages to the Amazon Simple Storage Service (Amazon S3) object storage service. Log messages can be sent over TCP, or encrypted with TLS.
 ---
 
 ## Prerequisites

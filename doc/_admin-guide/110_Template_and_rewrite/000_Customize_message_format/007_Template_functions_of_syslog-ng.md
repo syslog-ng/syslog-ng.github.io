@@ -10,7 +10,7 @@ description: >-
 |*Syntax:*|$(base64-encode argument)|
 
 *Description:* You can use the base64-encode template function to
-[base64-encode](https://tools.ietf.org/html/rfc4648) strings and macros.
+base64-encode strings and macros.
 The template function can receive multiple parameters (maximum 64). In
 this case, syslog-ng OSE joins the parameters into a single string and
 encodes this string. For example, $(base64-encode string1 string2) is
@@ -1071,7 +1071,7 @@ Available in syslog-ng OSE version 3.18 and later.
 
 *Description:* You can use the url-encode template function together
 with the telegram() destination to send syslog messages to
-[Telegram.](https://core.telegram.org/) The url-encode template function
+Telegram. The url-encode template function
 escapes strings. All input characters that are not a-z, A-Z, 0-9, \'-\',
 \'.\', \'\_\' or \'\~\' are converted to their \"URL escaped\" version.
 
@@ -1083,7 +1083,7 @@ Available in syslog-ng OSE version 3.18 and later. (In version
 |*Syntax:*|$(uuid)|
 
 *Description:* Generates a Universally Unique IDentifier (UUID) that
-complies with [RFC4122](https://www.ietf.org/rfc/rfc4122.txt). That way,
+complies with RFC4122. That way,
 an UUID can be added to the message soon after it is received, so
 messages stored in multiple destinations can be identified. For example,
 when storing messages in a database and also in files, the UUID can be

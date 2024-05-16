@@ -5,7 +5,7 @@ short_title: sumologic
 id: adm-dest-sumologic
 description: >-
     From version 3.27.1, the syslog-ng Open Source Edition (syslog-ng OSE)
-    application can send log messages to [Sumo Logic](https://www.sumologic.com/),
+    application can send log messages to Sumo Logic,
     a cloud-based log management and security analytics service, by
     using the sumologic-http() and sumologic-syslog() destinations.
 ---
@@ -25,7 +25,7 @@ destinations with syslog-ng OSE has the following prerequisites:
     functionalities and is only available for 90 days.
     {: .notice--info}
 
-- A [Cloud Syslog Source](https://help.sumologic.com/03Send-Data/Sources/02Sources-for-Hosted-Collectors/Cloud-Syslog-Source)
+- A Cloud Syslog Source
     configured with your Sumo Logic account.
 
     For details, follow the configuration instructions under [the
@@ -63,7 +63,7 @@ destinations with syslog-ng OSE has the following prerequisites:
 
     ![]({{ site.baseurl}}/assets/images/caution.png) **CAUTION:**
     To avoid potential data loss, One Identity strongly recommends that you verify
-    your [connection](https://help.sumologic.com/03Send-Data/Sources/02Sources-for-Hosted-Collectors/Cloud-Syslog-Source#verify-connection-with-sumo-service) and [client configuration]
+    your connection and [client configuration]
     (https://help.sumologic.com/03Send-Data/Sources/02Sources-for-Hosted-Collectors/Cloud-Syslog-Source#verify-client-configuration) with the Sumo Logic service 
     before you start using the sumologic-http() or sumologic-syslog() destination
     with syslog-ng OSE in a production environment.
@@ -102,9 +102,9 @@ destinations with syslog-ng OSE has the following limitations:
 - 64 characters long Sumo Logic tokens must be passed in the message
     body.
 
-    NOTE: Although [RFC 5424](https://tools.ietf.org/html/rfc5424)
+    NOTE: Although RFC 5424
     limits the structured data field
-    ([SD-ID](https://tools.ietf.org/html/rfc5424#page-15)) to 32
+    (SD-ID) to 32
     characters, Sumo Logic tokens are 64 characters long. If your
     logging client enforces the 32 characters length limit, you must
     pass the token in the message body.

@@ -29,7 +29,7 @@ to parse the Cisco-specific syslog messages, because these messages do
 not comply with the standard syslog formats.
 
 For details on the Cisco-specific SNMP trap format, see
-[CISCO-SYSLOG-MIB](http://tools.cisco.com/ITDIT/MIBS/servlet/index) on
+CISCO-SYSLOG-MIB on
 the Cisco website.
 
 ## Parsing Cisco-specific message fields with patterndb

@@ -4,7 +4,7 @@ short_title: graphite
 id: adm-dest-graphite
 description: >-
     The graphite() destination can send metrics to a
-    [Graphite](http://graphite.readthedocs.io/en/latest/index.html) server
+    Graphite server
     to store numeric time-series data. There are many ways to feed the
     Graphite template function with name value pairs. 
 ---

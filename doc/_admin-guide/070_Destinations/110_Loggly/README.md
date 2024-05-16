@@ -4,7 +4,7 @@ short_title: Loggly
 id: adm-dest-loggly
 description: >-
     The loggly() destination sends log messages to the
-    [Loggly](https://www.loggly.com/) Logging-as-a-Service provider. You can
+    Loggly Logging-as-a-Service provider. You can
     send log messages over TCP, or encrypted with TLS.
 ---
 

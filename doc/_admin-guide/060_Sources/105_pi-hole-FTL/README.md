@@ -3,7 +3,7 @@ title: Pi-hole Faster Than Light log source
 short_title: Pi-hole FTL
 id: adm-src-piftl
 description: >-
-    In syslog-ng OSE 4.6 and later versions it is possible to collect logs of the [Pi-hole](https://pi-hole.net/) FTL (Faster Than Light) application.
+    In syslog-ng OSE 4.6 and later versions it is possible to collect logs of the Pi-hole FTL (Faster Than Light) application.
 ---
 
 ```config

@@ -3,8 +3,8 @@ title: 'collectd: sending metrics to collectd'
 short_title: collectd
 id: adm-dest-collectd
 description: >-
-  The collectd() destination uses the [unixsock plugin of the collectd application](https://collectd.org/documentation/manpages/collectd-unixsock.5.shtml)
-  to send log messages to the [collectd system statistics collection daemon](https://collectd.org). You must install and configure collectd separately before using this destination.
+  The collectd() destination uses the unixsock plugin of the collectd application
+  to send log messages to the collectd system statistics collection daemon. You must install and configure collectd separately before using this destination.
 
   Available in syslog-ng OSE version 3.20 and later.
 ---

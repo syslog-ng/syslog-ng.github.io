@@ -199,7 +199,7 @@ stats \[options\]
 
 Use the stats command to display statistics about the processed
 messages. For details about the displayed statistics,
-see [The syslog-ng OSE Administration Guide](https://www.syslog-ng.com).
+see The syslog-ng OSE Administration Guide.
 The stats command has the following options:
 
 - \--control=\<socket\> or -c
@@ -276,7 +276,7 @@ status of the private keys that syslog-ng OSE uses in the network() and
 syslog() drivers. You can also provide the passphrase for
 password-protected private keys using the syslog-ng-ctl credentials add
 command. For details on using password-protected keys, see
-[The syslog-ng Administrator Guide](https://www.syslog-ng.com).
+The syslog-ng Administrator Guide.
 
 ## Displaying the status of private keys
 

@@ -4,10 +4,7 @@ id: adm-parser-db-download
 description: >-
     To simplify the building of pattern databases, One Identity has released
     (and will continue to release) sample databases. You can download sample
-    pattern databases from the [One Identity GitHub
-    page](https://github.com/syslog-ng/syslog-ng-patterndb/) (older samples
-    are temporarily available
-    [here](https://my.balabit.com/downloads/patterndb-snapshot/)).
+    pattern databases from the patterndb GitHub page.
 ---
 
 Note that these pattern databases are only samples and experimental

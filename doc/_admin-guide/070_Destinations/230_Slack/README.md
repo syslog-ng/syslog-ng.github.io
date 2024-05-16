@@ -4,7 +4,7 @@ short_title: slack
 id: adm-dest-slack
 description: >-
   The slack() destination driver sends messages to a
-  [Slack](https://slack.com/) channel using the Slack Web API. For the
+  Slack channel using the Slack Web API. For the
   list of available optional parameters, see
   Slack destination options.
   This destination is available in version 3.19 and later.

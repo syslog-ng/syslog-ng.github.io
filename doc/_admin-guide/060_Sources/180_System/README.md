@@ -30,7 +30,7 @@ add any sources.
 {: .notice--warning}
 
 Starting with version 3.6, syslog-ng OSE parses messages complying with
-the [Splunk Common Information Model(CIM)](http://docs.splunk.com/Documentation/CIM/latest/User/Overview)
+the Splunk Common Information Model(CIM)
 and marked with @cim as JSON messages (for example, the ulogd from the
 netfilter project can emit such messages). That way, you can forward
 such messages without losing any information to CIM-aware applications

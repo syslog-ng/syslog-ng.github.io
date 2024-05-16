@@ -4,7 +4,7 @@ short_title: snmptrap
 id: adm-src-snmp
 description: >-
   Using the snmptrap() source, you can read and parse the SNMP traps of
-  the [Net-SNMP](http://www.net-snmp.org)s snmptrapd application.
+  the Net-SNMPs snmptrapd application.
   syslog-ng OSE can read these traps from a log file, and extract their
   content into name-value pairs, making it easy to forward them as a
   structured log message (for example, in JSON format). The syslog-ng OSE
