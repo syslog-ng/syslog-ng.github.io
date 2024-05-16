@@ -25,7 +25,5 @@ $sidebar-nav-item-left-margin: {% if site.sidebar.nav_sub_items_ident %} {{ site
 $masthead-sticky: {% if site.masthead.sticky == true %} 1 {% else %} 0 {% endif %} !default;
 $footer-top-margin: {% if site.footer.top_margin %} {{ site.footer.top_margin }} {% else %} 3em {% endif %} !default; // 3em is huge, but that was the theme default
 
-// NOTE: Though it is not documented at all, but it seems jekyll always require a main.(s)css file, no matter how many other presented already, so
-//       we use this for the default skin (name difference is handled in the head.html)
-@import "minimal-mistakes/skins/default"; // skin overrides
+@import "minimal-mistakes/skins/plum"; // skin overrides
 @import "minimal-mistakes"; // main partials

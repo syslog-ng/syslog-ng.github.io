@@ -3,8 +3,6 @@
    ========================================================================== */
 
 $(function () {
-  // FIXME: How to get the real base URL (without using Liquid and Front Matter) ?!?!
-  const docRoot = '';
   const notFoundPageName = '404.html';
   const contentID = 'article';
 
@@ -175,7 +173,7 @@ $(function () {
       error => {
         if (error == "Error: 404") {
           var baseURL = window.location.origin;
-          var notFoundURL = baseURL + '/' + (docRoot != '' ? docRoot + '/' : '') + notFoundPageName;
+          var notFoundURL = baseURL + '/' + docPrefix() + notFoundPageName;
 
           updateContentFromUrl(notFoundURL);
         }
@@ -467,7 +465,7 @@ $(function () {
   }
 
   function shouldHideTooltip(activeTarget) {
-    return ((tooltipTarget == null || activeTarget != tooltipTarget) && (tooltip == null || (activeTarget != tooltip && activeTarget.closest('.tooltip') == null)));
+    return ((tooltipTarget == null || activeTarget != tooltipTarget) && (tooltip == null || (activeTarget != tooltip && activeTarget != null && activeTarget.closest('.tooltip') == null)));
   }
 
   function hideTooltip(withDelay) {
@@ -563,7 +561,7 @@ $(function () {
       }
     });
 
-    document.addEventListener("mouseover", function (event) {
+    document.addEventListener('mouseover', function (event) {
       elementUnderCursor = event.target;
     });
 
@@ -601,22 +599,22 @@ $(function () {
   // -------------
 
   // Close search screen with Esc key or toggle with predefined hotKey
-  $(document).on("keyup", function (event) {
+  $(document).on('keyup', function (event) {
     // Define the desired hotkey (in this case, Ctrl + Shift + F)
     var searchHotkey = { ctrlKey: true, shiftKey: true, key: 'F' };
 
     if (event.keyCode === 27) {
       if ($(".initial-content").hasClass("is--hidden"))
-        toggleSearch();
+        toggleSearch(event);
     }
     else if (event.ctrlKey === searchHotkey.ctrlKey &&
       event.shiftKey === searchHotkey.shiftKey &&
       event.key === searchHotkey.key) {
-      toggleSearch();
+      toggleSearch(event);
     }
   });
 
-  function toggleSearch() {
+  function toggleSearch(event) {
     $(".search-content").toggleClass("is--visible");
     $(".initial-content").toggleClass("is--hidden");
 
@@ -635,9 +633,11 @@ $(function () {
 
     if (tooltipTarget)
       hideTooltip(true);
+    // NOTE: event.target is not always the toggle here, use it directly instead of the event
+    $("#search-button").trigger('blur');
   }
 
-  $(".search__toggle").on("click", toggleSearch);
+  $("#search-button").on('click', toggleSearch);
 
   // -------------
   // Startup
