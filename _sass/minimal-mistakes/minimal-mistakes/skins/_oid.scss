@@ -20,7 +20,7 @@ $light-gray                 : mix($white, $gray, 50%) !default;
 $lighter-gray               : mix($white, $gray, 90%) !default;
 
 $body-color                 : $white !default;
-$background-color           : #f0fff0 !default;
+$background-color           : $white !default;
 $code-background-color      : $lighter-gray !default;
 $code-background-color-dark : $light-gray !default;
 $text-color                 : $oid-black !default;
@@ -48,4 +48,33 @@ $menuitem-selected-background-color: $oid-gray !default;
 
 /* notices */
 $notice-background-mix: 60% !default;
-$code-notice-background-mix: 95% !default;
+$code-notice-background-mix: 65% !default;
+
+$base01	: $oid-blue !default;
+
+.page__title {
+	a { 
+		color: $link-color !important;
+	}
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	color: $link-color !important;
+}
+
+.toc {
+	h4 {
+		color: $text-color !important;
+	}
+}
+
+.highlight-header {
+	.btn {
+		color: $text-color !important;
+	}
+}
