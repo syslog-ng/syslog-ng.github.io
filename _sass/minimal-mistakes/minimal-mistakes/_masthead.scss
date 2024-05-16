@@ -51,7 +51,19 @@
 .site-title {
   display: -webkit-box;
   display: -ms-flexbox;
-  display: flex;
+  display: inline-flex !important;
+  flex: min-content;
+  max-width: min-content;
+  @include breakpoint($small) {
+    max-width: max-content;
+  }
+  @include breakpoint($large) {
+    max-width: max-content;
+  }
+  @include breakpoint($x-large) {
+    max-width: max-content;
+  }
+
   -ms-flex-item-align: center;
   align-self: center;
   font-weight: bold;
