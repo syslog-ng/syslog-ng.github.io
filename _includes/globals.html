@@ -1,0 +1,43 @@
+{% comment %}
+<!-- Global variables, scripts that require an early access, go through liquid parsimg, and/or cannot be moved to main.min.js-->
+{% endcomment %}
+
+<script async="false">
+
+  const searchEnabled = {% if site.search == true %} true {% else %} false {% endif %};
+  const searchFromMastHead = {% if site.search_from_masthead == true %} true {% else %} false {% endif %};
+
+  const docRoot = '{{ site.baseurl }}';
+
+  function docPrefix() {
+    return (docRoot != '' ? docRoot + '/' : '');    
+  }
+
+  function setCookie(name, value, days = 365 * 100) {
+    var expires = "";
+    if (days) {
+      var date = new Date();
+      date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+      expires = "; expires=" + date.toUTCString();
+    }
+    document.cookie = name + "=" + (value || "") + expires + "; path=/; SameSite=Strict";
+  }
+
+  function getCookie(name, defaultValue = null, saveIfMissing = false) {
+    var nameEQ = name + "=";
+    var ca = document.cookie.split(';');
+    for (var i = 0; i < ca.length; i++) {
+      var c = ca[i];
+      while (c.charAt(0) == ' ') {
+        c = c.substring(1, c.length);
+      }
+      if (c.indexOf(nameEQ) == 0) {
+        return c.substring(nameEQ.length, c.length);
+      }
+    }
+    if (saveIfMissing && defaultValue != null)
+      setCookie(name, defaultValue);
+    return defaultValue;
+  }
+
+</script>
