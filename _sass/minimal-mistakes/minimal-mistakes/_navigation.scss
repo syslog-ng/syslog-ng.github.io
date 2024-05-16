@@ -759,11 +759,11 @@
   z-index: 99; /* Higher than anything else */
   opacity: 0;
 
-  color: $tooltip-color; // #c0c0c0;
+  color: $tooltip-color;
   font-size: $type-size-7;
   text-align: left;
   //text-shadow: 1px 1px 2px $tooltip-text-shadow-color; // #111
-  background: $tooltip-background-color; // rgba(51, 51, 51, 0.9);
+  background: $tooltip-background-color;
   
   // FIXME: Get rid of the dependency on size of the container
   width: 500%;
@@ -792,9 +792,9 @@
   padding-right: 15px;
   
   border-radius: 5px;
-  box-shadow: 0 0 3px $tooltip-box-shadow-color; // rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 3px $tooltip-box-shadow-color;
   -webkit-box-shadow: 0 0 3px $tooltip-box-shadow-color;
-  //border: 1px solid $tooltip-border-color; // rgba(34, 34, 34, 0.9);
+  //border: 1px solid $tooltip-border-color
 
   -webkit-transition: all .2s ease-in-out;
   -moz-transition: all .2s ease-in-out;
@@ -816,12 +816,12 @@
   position: absolute;
 
   // These are for the tooltip arrow parts manipulation and altered from js code as well
-  top: var(--tooltip-arrow-top, -10px);
+  top: var(--tooltip-arrow-top, calc(-1 * $tooltip-arrow-half-size));
   left: var(--tooltip-arrow-left, 0px);
 
-  border-bottom: var(--tooltip-arrow-border-bottom, 10px) solid $tooltip-arrow-background-color; // rgba(51, 51, 51, 0.9);
-  border-left: var(--tooltip-arrow-border-left, 10px) solid transparent;
-  border-right: var(--tooltip-arrow-border-right, 10px) solid transparent;
+  border-bottom: var(--tooltip-arrow-border-bottom, $tooltip-arrow-half-size) solid $tooltip-arrow-background-color;
+  border-left: var(--tooltip-arrow-border-left, $tooltip-arrow-half-size) solid transparent;
+  border-right: var(--tooltip-arrow-border-right, $tooltip-arrow-half-size) solid transparent;
 }
 
 .tooltip.visible {

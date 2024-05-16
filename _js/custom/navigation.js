@@ -402,7 +402,8 @@ $(function () {
   // -------------
   // Tooltip generation and handling
   // -------------
-  const toolTipArrowSize = 10;
+  /* _variables.scss & _navigation.scss - .tooltip:before */
+  const toolTipArrowHalfSize = 10;  /* $tooltip-arrow-half-size */
   var tooltip = null;
   var tooltipTarget = null;
   var elementUnderCursor = null;
@@ -410,20 +411,32 @@ $(function () {
   var showTimeoutFuncID;
   var hideTimeoutFuncID;
 
-  function getTooltipPos(event, tooltipTarget) {
+  function setTooltipPos(event, tooltipTarget, alignment) {
     const mouseX = event.clientX;
     const rect = tooltipTarget.getBoundingClientRect();
-    var computedStyle = window.getComputedStyle(tooltipTarget);
-    var lineHeight = parseFloat(computedStyle.getPropertyValue('line-height'));
-
+    var computedTargetStyle = window.getComputedStyle(tooltipTarget);
+    var lineHeight = parseFloat(computedTargetStyle.getPropertyValue('line-height'));
+    // Size is still not yet calculated correctly here
+    var tooltipRect = tooltip.getBoundingClientRect();
+    var computedTooltipStyle = window.getComputedStyle(tooltip);
+    var tooltipWidth = parseFloat(computedTooltipStyle.getPropertyValue('width'));
     var pos = new DOMPoint();
+
+    var xShift = (alignment == 'tooltip-align-left' ? tooltipWidth : (alignment == 'tooltip-align-center' ? tooltipWidth / 2 : 0));
     pos.x = mouseX; // Use now mouse X instead - Math.max(0, pos.x + document.documentElement.scrollLeft + rect.left);
+    pos.x -= xShift;
+    
     // If the occupied space of the tooltip target is bigger than its line height, it means it spanws to multiple lines
     // align to the upper line part in that case if the mouse is on the right side of the middle of its rect, otherwise align to the bottom row part
     var multilineUpperPart = (rect.height > lineHeight && mouseX > rect.x + rect.width / 2);
     pos.y = pos.y + document.documentElement.scrollTop + rect.top + rect.height / (multilineUpperPart ? 2 : 1);
 
-    return pos;
+    var tooltipArrowHorizontalPadding = (4 * toolTipArrowHalfSize) * (alignment == 'tooltip-align-left' ? 1 : (alignment == 'tooltip-align-right' ? -1 : 0));
+    setArrowPosition('--tooltip-arrow-left', xShift - tooltipArrowHorizontalPadding - toolTipArrowHalfSize);
+    setArrowPosition('--tooltip-arrow-top', -1 * toolTipArrowHalfSize);
+
+    tooltip.style.left = pos.x + tooltipArrowHorizontalPadding + 'px';
+    tooltip.style.top = pos.y + toolTipArrowHalfSize + 'px';
   }
 
   function setArrowPosition(posName, position) {
@@ -431,22 +444,28 @@ $(function () {
     tooltip.style.setProperty(posName, newPosition);
   }
 
-  function showTooltip(event, tooltipText, isFullPageContent) {
+  function showTooltip(event, tooltipText, alignment, isFullPageContent) {
     tooltip.innerHTML = tooltipText.innerHTML;
+
+    // FIXME: try to limit the tooltip height not to overflow at bottom
+    // This
+    //    - still has no scroll bar in the inner content
+    //    - screws up the arrow bellow
+    // var firstDiv = tooltip.querySelector("div");
+    // if (firstDiv) {
+    //   tooltip.style.maxHeight = window.innerHeight + 'px';
+    //   tooltip.style.overflowY = 'hidden';
+    //   firstDiv.style.overflowY = 'auto';
+    // }
 
     if (isFullPageContent)
       tooltip.classList.add("full-content-tooltip");
     else
       tooltip.classList.remove("full-content-tooltip");
-
-    var tooltipPos = getTooltipPos(event, tooltipTarget)
-    var tooltipArrowLeftShift = 2 * toolTipArrowSize;
-
-    setArrowPosition('--tooltip-arrow-top', -1 * toolTipArrowSize);
-    setArrowPosition('--tooltip-arrow-left', tooltipArrowLeftShift + toolTipArrowSize / 2);
-
-    tooltip.style.left = tooltipPos.x - 2 * tooltipArrowLeftShift + 'px';
-    tooltip.style.top = tooltipPos.y + toolTipArrowSize + 'px';
+    tooltip.classList.remove('tooltip-align-left', 'tooltip-align-center', 'tooltip-align-right');
+    tooltip.classList.add(alignment);
+    
+    setTooltipPos(event, tooltipTarget, alignment)
 
     shouldShowTooltip = true;
 
@@ -454,11 +473,6 @@ $(function () {
     clearTimeout(showTimeoutFuncID);
     showTimeoutFuncID = setTimeout(function () {
       if (shouldShowTooltip) {
-        // Size is still not yet calculated correctly here
-        // var rect = tooltip.getBoundingClientRect();
-        // tooltip.style.top = (tooltipPos.y + rect.height) + 'px';
-        // tooltip.style.left = (tooltipPos.x + rect.width / 2) + 'px';
-
         tooltip.classList.add('visible');
       }
     }, 100);
@@ -500,6 +514,7 @@ $(function () {
 
       element.addEventListener('mouseover', function (event) {
         var isFullPageContent = element.classList.contains('full-content-tooltip');
+        var alignment = (element.classList.contains('tooltip-align-left') ? 'tooltip-align-left' : (element.classList.contains('tooltip-align-center') ? 'tooltip-align-center' : 'tooltip-align-right'));
 
         tooltipTarget = element;
 
@@ -515,7 +530,10 @@ $(function () {
             if (newContent.length > 0) {
               // cache for reuse
               tooltipText.innerHTML = newContent;
-              showTooltip(event, tooltipText, isFullPageContent);
+              setTimeout(() => {
+                // Get the bounding client rect after rendering
+                showTooltip(event, tooltipText, alignment, isFullPageContent);
+              }, 0);
             }
             else {
               // Quick navigation from another link with tooltip to this link would keep alive the previous tooltip
@@ -539,7 +557,7 @@ $(function () {
           }
         }
         else
-          showTooltip(event, tooltipText, isFullPageContent);
+          showTooltip(event, tooltipText, alignment, isFullPageContent);
       });
     });
 

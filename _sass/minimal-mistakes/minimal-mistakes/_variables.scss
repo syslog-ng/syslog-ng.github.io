@@ -97,6 +97,7 @@ $button-color: $primary-color !default;
 
 $outline-color: rgba($focus-color, 0.5) !default;
 
+$tooltip-arrow-half-size: 10px !default;
 $tooltip-background-color: rgba(mix($white, $background-color, 7%), 0.925) !default;
 $tooltip-arrow-background-color: $tooltip-background-color !default;
 $tooltip-color: mix($gray, $text-color, 50%) !default;

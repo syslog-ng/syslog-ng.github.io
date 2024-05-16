@@ -9,7 +9,7 @@
     </label>
     <input type="search" id="search" class="search-input {% if site.search_from_masthead %}from-masthead{% else %}from-search-content{% endif %}" 
       placeholder="{{ site.data.ui-text[site.locale].search_placeholder_text | default: 'Enter your search term...' }}" />    
-    <a class="search-help content-tooltip full-content-tooltip nav-link fas fa-info-circle" href="{{ '/lunr_search_help.html' | relative_url }}"></a>
+    <a class="search-help content-tooltip tooltip-align-center full-content-tooltip nav-link fas fa-info-circle" href="{{ '/lunr_search_help.html' | relative_url }}"></a>
   </form>
 
 {%- when "google" -%}
