@@ -23,18 +23,16 @@ and other platforms, see syslog-ng Open Source Edition installation packages.
     - A version of the *gcc* C compiler that properly supports Thread
         Local Storage (TLS), for example, version 4.5.
 
-    - The *GNU flex* lexical analyser generator, [available here](https://github.com/westes/flex).
+    - The GNU flex lexical analyser generator
 
-    - The *bison* parser generator, [available here](http://ftp.gnu.org/gnu/bison/).
+    - The bison parser generator
 
-    - The development files of the *glib* library, [available here](http://freshmeat.net/projects/glib/).
+    - The development files of the glib library
 
-    - The development files of the *Autoconf Archive* package,
-        [available here](http://www.gnu.org/software/autoconf-archive/).
+    - The development files of the Autoconf Archive package
 
     - The syslog-ng OSE application now uses PCRE-type regular
-        expressions by default. It requires the libpcre library package,
-        [available here](https://sourceforge.net/projects/pcre/files/pcre/).
+        expressions by default. It requires the libpcre library package.
 
     - If you want to use the Java-based modules of syslog-ng OSE (for
         example, the Elasticsearch, HDFS, or Kafka destinations), you
@@ -66,7 +64,7 @@ and other platforms, see syslog-ng Open Source Edition installation packages.
     the HTTP destination.
 
 4. If you want to use the spoof-source function of syslog-ng, install
-    the development files of the *libnet* library, [available here](http://libnet.sourceforge.net).
+    the development files of the libnet library.
 
 5. If you want to send emails using the smtp() destination, install the
     development files of the *libesmtp* library. This library is not

@@ -21,8 +21,7 @@ The nodejs() driver is actually a reusable configuration snippet
 configured to receive log messages using the network() driver, and
 process its JSON contents. For details on using or writing such
 configuration snippets, see Reusing configuration blocks.
-You can find the source of the nodejs configuration snippet on
-[GitHub](https://github.com/syslog-ng/syslog-ng/blob/master/scl/nodejs/plugin.conf).
+You can find the source of the nodejs configuration snippet on GitHub.
 
 ### Example: Using the nodejs() driver
 

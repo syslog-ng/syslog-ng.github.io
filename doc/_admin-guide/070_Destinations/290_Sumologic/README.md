@@ -146,6 +146,5 @@ your syslog-ng OSE configuration:
 snippet configured to send log messages using the network() and http()
 destination by using a template. For details on using or writing such
 configuration snippets, see Reusing configuration blocks.
-You can find the source of this configuration snippet on
-[GitHub](https://github.com/syslog-ng/syslog-ng/blob/master/scl/sumologic/sumologic.conf).
+You can find the source of the Sumo Logic configuration snippet on GitHub.
 {: .notice--info}
