@@ -750,6 +750,7 @@
 //   src: local('Muli'), url(http://themes.googleusercontent.com/static/fonts/muli/v4/kU4XYdV4jtS72BIidPtqyw.woff) format('woff');
 // }
 
+// These are just for caching, never show them
 .tooltip-text {
   display: none;
 }
@@ -831,7 +832,24 @@
   -moz-transform: scale(1);
   -o-transform: scale(1);
   -ms-transform: scale(1);
-  transform: scale(1);
+  transform: scale(1);  
+}
+
+/* These are mandatory to get the tooltipRenderer trick work
+   DO NOT add any animation, or anything that prevents immediate rendering of it !!!
+*/
+#tooltipRenderer {
+  -webkit-transform: scale(1) translateX(-100%) !important;
+  -moz-transform: scale(1) translateX(-100%) !important;
+  -o-transform: scale(1) translateX(-100%) !important;
+  -ms-transform: scale(1) translateX(-100%) !important;
+  transform: scale(1) translateX(-100%) !important;
+
+  -webkit-transition: none !important;
+  -moz-transition: none !important;
+  -o-transition: none !important;
+  -ms-transition: none !important;
+  transition: none !important;
 }
 
 //-----------

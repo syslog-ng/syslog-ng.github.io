@@ -405,6 +405,7 @@ $(function () {
   /* _variables.scss & _navigation.scss - .tooltip:before */
   const toolTipArrowHalfSize = 10;  /* $tooltip-arrow-half-size */
   var tooltip = null;
+  var tooltipRenderer = null;
   var tooltipTarget = null;
   var elementUnderCursor = null;
   var shouldShowTooltip = false;
@@ -412,16 +413,19 @@ $(function () {
   var hideTimeoutFuncID;
 
   function setTooltipPos(event, tooltipTarget, alignment) {
-    const mouseX = event.clientX;
     const rect = tooltipTarget.getBoundingClientRect();
     var computedTargetStyle = window.getComputedStyle(tooltipTarget);
     var lineHeight = parseFloat(computedTargetStyle.getPropertyValue('line-height'));
-    // Size is still not yet calculated correctly here
-    var tooltipRect = tooltip.getBoundingClientRect();
-    var computedTooltipStyle = window.getComputedStyle(tooltip);
-    var tooltipWidth = parseFloat(computedTooltipStyle.getPropertyValue('width'));
+    // NOTE: The content of the targeted tooltip is still not yet calculated correctly here, as it is invisible, and getting visible is animated multiple ways
+    //       use, the always visible, not animated at all, but offscreen pair of it (tooltipRenderer) for rendered size calculations.
+    //       To get this work all the animation styles must be removed in the css (_navigations.scss) for #tooltipRenderer
+    // TODO: Now we have the correct tooltip content via teh tooltipRenderer trick.
+    //       Prevent tooltip overflow on window edges in all directions.
+    var tooltipRect = tooltipRenderer.getBoundingClientRect();
+    var tooltipWidth = tooltipRect.width;
     var pos = new DOMPoint();
 
+    const mouseX = event.clientX;
     var xShift = (alignment == 'tooltip-align-left' ? tooltipWidth : (alignment == 'tooltip-align-center' ? tooltipWidth / 2 : 0));
     pos.x = mouseX; // Use now mouse X instead - Math.max(0, pos.x + document.documentElement.scrollLeft + rect.left);
     pos.x -= xShift;
@@ -445,34 +449,30 @@ $(function () {
   }
 
   function showTooltip(event, tooltipText, alignment, isFullPageContent) {
+
     tooltip.innerHTML = tooltipText.innerHTML;
+    tooltipRenderer.innerHTML = tooltipText.innerHTML;
 
-    // FIXME: try to limit the tooltip height not to overflow at bottom
-    // This
-    //    - still has no scroll bar in the inner content
-    //    - screws up the arrow bellow
-    // var firstDiv = tooltip.querySelector("div");
-    // if (firstDiv) {
-    //   tooltip.style.maxHeight = window.innerHeight + 'px';
-    //   tooltip.style.overflowY = 'hidden';
-    //   firstDiv.style.overflowY = 'auto';
-    // }
-
-    if (isFullPageContent)
+    if (isFullPageContent) {
       tooltip.classList.add("full-content-tooltip");
-    else
+      tooltipRenderer.classList.add("full-content-tooltip");
+    }
+    else {
       tooltip.classList.remove("full-content-tooltip");
+      tooltipRenderer.classList.remove("full-content-tooltip");
+    }
     tooltip.classList.remove('tooltip-align-left', 'tooltip-align-center', 'tooltip-align-right');
+    tooltipRenderer.classList.remove('tooltip-align-left', 'tooltip-align-center', 'tooltip-align-right');
     tooltip.classList.add(alignment);
+    tooltipRenderer.classList.add(alignment);
     
-    setTooltipPos(event, tooltipTarget, alignment)
-
     shouldShowTooltip = true;
 
     clearTimeout(hideTimeoutFuncID);
     clearTimeout(showTimeoutFuncID);
     showTimeoutFuncID = setTimeout(function () {
       if (shouldShowTooltip) {
+        setTooltipPos(event, tooltipTarget, alignment);
         tooltip.classList.add('visible');
       }
     }, 100);
@@ -504,6 +504,7 @@ $(function () {
   function addContentTooltips() {
     var tooltipElements = document.querySelectorAll('.content-tooltip');
     tooltip = document.getElementById('tooltip');
+    tooltipRenderer = document.getElementById('tooltipRenderer');
     hideTooltip();
 
     tooltipElements.forEach(function (element) {
@@ -527,13 +528,9 @@ $(function () {
               newContent = newContent.innerHTML;
             newContent = alterContentForTooltip(newContent, url. isFullPageContent);
 
-            if (newContent.length > 0) {
-              // cache for reuse
-              tooltipText.innerHTML = newContent;
-              setTimeout(() => {
-                // Get the bounding client rect after rendering
-                showTooltip(event, tooltipText, alignment, isFullPageContent);
-              }, 0);
+            if (newContent.length > 0) {              
+              tooltipText.innerHTML = newContent; // cache for reuse
+              showTooltip(event, tooltipText, alignment, isFullPageContent);
             }
             else {
               // Quick navigation from another link with tooltip to this link would keep alive the previous tooltip

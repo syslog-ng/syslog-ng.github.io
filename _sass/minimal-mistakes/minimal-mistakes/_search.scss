@@ -99,7 +99,7 @@
 
   &__form.is--visible {
     display: inline-flex;
-    align-items: end; /* vertical bottom for inline-flex */
+    align-items: center; // end; /* vertical bottom for inline-flex */
     visibility: visible;
 
     a.search-help {
