@@ -51,7 +51,19 @@
 .site-title {
   display: -webkit-box;
   display: -ms-flexbox;
-  display: flex;
+  display: inline-flex !important;
+  flex: min-content;
+  max-width: min-content;
+  @include breakpoint($small) {
+    max-width: max-content;
+  }
+  @include breakpoint($large) {
+    max-width: max-content;
+  }
+  @include breakpoint($x-large) {
+    max-width: max-content;
+  }
+
   -ms-flex-item-align: center;
   align-self: center;
   font-weight: bold;
@@ -97,15 +109,22 @@
   }
 }
 
-
 .masthead_button, .masthead_button_last, .masthead_button_with_side_image{
   position: relative;
   display: inline-block;
-  margin-left: 1rem;
-  margin-right: 1rem;
+
+  /* top | right | bottom | left */
+  margin: 0 0.4rem 0 0.4rem ;
+  @include breakpoint($large) {
+    margin: 0 0.6rem 0 0.6rem ;
+  }
+  @include breakpoint($x-large) {
+    margin: 0 0.8rem 0 0.8rem ;
+  }
   &_last {
     margin-right: 0px;
   }
+
   &_with_side_image {
     margin: 0px;
     padding: 0px;
@@ -113,14 +132,14 @@
   height: $nav-toggle-height;
   border: 0;
   outline: none;
-  color: $primary-color;
+  color: $button-color;
   background-color: transparent;
   cursor: pointer;
   -webkit-transition: 0.2s;
   transition: 0.2s;
 
   &:hover {
-    color: mix(#000, $primary-color, 25%);
+    color: mix(#000, $button-color, 25%);
   }
 }
 
@@ -141,12 +160,12 @@
 .masthead_button_small_img {
   position: relative;
   display: inline-block;
-  margin-left: 0rem;
-  margin-right: 0rem;
-  scale: 40%;
+  margin-left: 0.2rem;
+  margin-right: 0.2rem;
+  font-size: 50%;
   border: 0;
   outline: none;
-  color: $primary-color;
+  color: $button-color;
   background-color: transparent;
   -webkit-transition: 0.2s;
   transition: 0.2s;

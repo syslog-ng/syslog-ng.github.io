@@ -1,0 +1,26 @@
+{%- assign search_provider = site.search_provider | default: "lunr" -%}
+{%- case search_provider -%}
+
+{%- when "lunr" -%}
+  <form class="search-content__form {% if site.search_from_masthead %}from-masthead{% else %}from-search-content{% endif %}" 
+    onkeydown="return event.key != 'Enter';" role="search">
+    <label class="sr-only" for="search">
+      {{ site.data.ui-text[site.locale].search_label_text | default: 'Enter your search term...' }}
+    </label>
+    <input type="search" id="search" class="search-input {% if site.search_from_masthead %}from-masthead{% else %}from-search-content{% endif %}" 
+      placeholder="{{ site.data.ui-text[site.locale].search_placeholder_text | default: 'Enter your search term...' }}" />    
+    <a class="search-help content-tooltip tooltip-align-center full-content-tooltip nav-link fas fa-info-circle" href="{{ '/lunr_search_help.html' | relative_url }}"></a>
+  </form>
+
+{%- when "google" -%}
+  <form onsubmit="return googleCustomSearchExecute();" id="cse-search-box-form-id" role="search">
+    <label class="sr-only" for="cse-search-input-box-id">
+      {{ site.data.ui-text[site.locale].search_label_text | default: 'Enter your search term...' }}
+    </label>
+    <input type="search" id="cse-search-input-box-id" class="search-input" 
+      placeholder="{{ site.data.ui-text[site.locale].search_placeholder_text | default: 'Enter your search term...' }}" />
+  </form>
+
+{%- when "algolia" -%}
+  <div class="search-searchbar"></div>
+{%- endcase -%}

@@ -402,28 +402,45 @@ $(function () {
   // -------------
   // Tooltip generation and handling
   // -------------
-  const toolTipArrowSize = 10;
+  /* _variables.scss & _navigation.scss - .tooltip:before */
+  const toolTipArrowHalfSize = 10;  /* $tooltip-arrow-half-size */
   var tooltip = null;
+  var tooltipRenderer = null;
   var tooltipTarget = null;
   var elementUnderCursor = null;
   var shouldShowTooltip = false;
   var showTimeoutFuncID;
   var hideTimeoutFuncID;
 
-  function getTooltipPos(event, tooltipTarget) {
-    const mouseX = event.clientX;
+  function setTooltipPos(event, tooltipTarget, alignment) {
     const rect = tooltipTarget.getBoundingClientRect();
-    var computedStyle = window.getComputedStyle(tooltipTarget);
-    var lineHeight = parseFloat(computedStyle.getPropertyValue('line-height'));
-
+    var computedTargetStyle = window.getComputedStyle(tooltipTarget);
+    var lineHeight = parseFloat(computedTargetStyle.getPropertyValue('line-height'));
+    // NOTE: The content of the targeted tooltip is still not yet calculated correctly here, as it is invisible, and getting visible is animated multiple ways
+    //       use, the always visible, not animated at all, but offscreen pair of it (tooltipRenderer) for rendered size calculations.
+    //       To get this work all the animation styles must be removed in the css (_navigations.scss) for #tooltipRenderer
+    // TODO: Now we have the correct tooltip content via teh tooltipRenderer trick.
+    //       Prevent tooltip overflow on window edges in all directions.
+    var tooltipRect = tooltipRenderer.getBoundingClientRect();
+    var tooltipWidth = tooltipRect.width;
     var pos = new DOMPoint();
+
+    const mouseX = event.clientX;
+    var xShift = (alignment == 'tooltip-align-left' ? tooltipWidth : (alignment == 'tooltip-align-center' ? tooltipWidth / 2 : 0));
     pos.x = mouseX; // Use now mouse X instead - Math.max(0, pos.x + document.documentElement.scrollLeft + rect.left);
+    pos.x -= xShift;
+    
     // If the occupied space of the tooltip target is bigger than its line height, it means it spanws to multiple lines
     // align to the upper line part in that case if the mouse is on the right side of the middle of its rect, otherwise align to the bottom row part
     var multilineUpperPart = (rect.height > lineHeight && mouseX > rect.x + rect.width / 2);
     pos.y = pos.y + document.documentElement.scrollTop + rect.top + rect.height / (multilineUpperPart ? 2 : 1);
 
-    return pos;
+    var tooltipArrowHorizontalPadding = (4 * toolTipArrowHalfSize) * (alignment == 'tooltip-align-left' ? 1 : (alignment == 'tooltip-align-right' ? -1 : 0));
+    setArrowPosition('--tooltip-arrow-left', xShift - tooltipArrowHorizontalPadding - toolTipArrowHalfSize);
+    setArrowPosition('--tooltip-arrow-top', -1 * toolTipArrowHalfSize);
+
+    tooltip.style.left = pos.x + tooltipArrowHorizontalPadding + 'px';
+    tooltip.style.top = pos.y + toolTipArrowHalfSize + 'px';
   }
 
   function setArrowPosition(posName, position) {
@@ -431,34 +448,31 @@ $(function () {
     tooltip.style.setProperty(posName, newPosition);
   }
 
-  function showTooltip(event, tooltipText, isFullPageContent) {
+  function showTooltip(event, tooltipText, alignment, isFullPageContent) {
+
     tooltip.innerHTML = tooltipText.innerHTML;
+    tooltipRenderer.innerHTML = tooltipText.innerHTML;
 
-    if (isFullPageContent)
+    if (isFullPageContent) {
       tooltip.classList.add("full-content-tooltip");
-    else
+      tooltipRenderer.classList.add("full-content-tooltip");
+    }
+    else {
       tooltip.classList.remove("full-content-tooltip");
-
-    var tooltipPos = getTooltipPos(event, tooltipTarget)
-    var tooltipArrowLeftShift = 2 * toolTipArrowSize;
-
-    setArrowPosition('--tooltip-arrow-top', -1 * toolTipArrowSize);
-    setArrowPosition('--tooltip-arrow-left', tooltipArrowLeftShift + toolTipArrowSize / 2);
-
-    tooltip.style.left = tooltipPos.x - 2 * tooltipArrowLeftShift + 'px';
-    tooltip.style.top = tooltipPos.y + toolTipArrowSize + 'px';
-
+      tooltipRenderer.classList.remove("full-content-tooltip");
+    }
+    tooltip.classList.remove('tooltip-align-left', 'tooltip-align-center', 'tooltip-align-right');
+    tooltipRenderer.classList.remove('tooltip-align-left', 'tooltip-align-center', 'tooltip-align-right');
+    tooltip.classList.add(alignment);
+    tooltipRenderer.classList.add(alignment);
+    
     shouldShowTooltip = true;
 
     clearTimeout(hideTimeoutFuncID);
     clearTimeout(showTimeoutFuncID);
     showTimeoutFuncID = setTimeout(function () {
       if (shouldShowTooltip) {
-        // Size is still not yet calculated correctly here
-        // var rect = tooltip.getBoundingClientRect();
-        // tooltip.style.top = (tooltipPos.y + rect.height) + 'px';
-        // tooltip.style.left = (tooltipPos.x + rect.width / 2) + 'px';
-
+        setTooltipPos(event, tooltipTarget, alignment);
         tooltip.classList.add('visible');
       }
     }, 100);
@@ -490,6 +504,7 @@ $(function () {
   function addContentTooltips() {
     var tooltipElements = document.querySelectorAll('.content-tooltip');
     tooltip = document.getElementById('tooltip');
+    tooltipRenderer = document.getElementById('tooltipRenderer');
     hideTooltip();
 
     tooltipElements.forEach(function (element) {
@@ -500,6 +515,7 @@ $(function () {
 
       element.addEventListener('mouseover', function (event) {
         var isFullPageContent = element.classList.contains('full-content-tooltip');
+        var alignment = (element.classList.contains('tooltip-align-left') ? 'tooltip-align-left' : (element.classList.contains('tooltip-align-center') ? 'tooltip-align-center' : 'tooltip-align-right'));
 
         tooltipTarget = element;
 
@@ -512,10 +528,9 @@ $(function () {
               newContent = newContent.innerHTML;
             newContent = alterContentForTooltip(newContent, url. isFullPageContent);
 
-            if (newContent.length > 0) {
-              // cache for reuse
-              tooltipText.innerHTML = newContent;
-              showTooltip(event, tooltipText, isFullPageContent);
+            if (newContent.length > 0) {              
+              tooltipText.innerHTML = newContent; // cache for reuse
+              showTooltip(event, tooltipText, alignment, isFullPageContent);
             }
             else {
               // Quick navigation from another link with tooltip to this link would keep alive the previous tooltip
@@ -539,7 +554,7 @@ $(function () {
           }
         }
         else
-          showTooltip(event, tooltipText, isFullPageContent);
+          showTooltip(event, tooltipText, alignment, isFullPageContent);
       });
     });
 
@@ -598,46 +613,49 @@ $(function () {
   // Search
   // -------------
 
-  // Close search screen with Esc key or toggle with predefined hotKey
-  $(document).on('keyup', function (event) {
-    // Define the desired hotkey (in this case, Ctrl + Shift + F)
-    var searchHotkey = { ctrlKey: true, shiftKey: true, key: 'F' };
+  if (searchEnabled) {
+    // Close search screen with Esc key or toggle with predefined hotKey
+    $(document).on('keyup', function (event) {
+      // Define the desired hotkey (in this case, Ctrl + Shift + F)
+      var searchHotkey = { ctrlKey: true, shiftKey: true, key: 'F' };
 
-    if (event.keyCode === 27) {
-      if ($(".initial-content").hasClass("is--hidden"))
+      if (event.keyCode === 27) {
+        if ($(".initial-content").hasClass("is--hidden"))
+          toggleSearch(event);
+      }
+      else if (event.ctrlKey === searchHotkey.ctrlKey &&
+        event.shiftKey === searchHotkey.shiftKey &&
+        event.key === searchHotkey.key) {
         toggleSearch(event);
-    }
-    else if (event.ctrlKey === searchHotkey.ctrlKey &&
-      event.shiftKey === searchHotkey.shiftKey &&
-      event.key === searchHotkey.key) {
-      toggleSearch(event);
-    }
-  });
+      }
+    });
 
-  function toggleSearch(event) {
-    $(".search-content").toggleClass("is--visible");
-    $(".initial-content").toggleClass("is--hidden");
+    function toggleSearch(event) {
+      $(".search-content").toggleClass("is--visible");
+      $(".search-content__form").toggleClass("is--visible");      
+      $(".initial-content").toggleClass("is--hidden");
 
-    if ($(".initial-content").hasClass("is--hidden")) {
-      // set focus on input
-      setTimeout(function () {
-        var input = $(".search-content").find("input");
-        input.trigger("focus");
-        input.trigger("select");
-      }, 250);
-    }
-    else {
-      // set focus back to the initial content otherwise the focus will not get back to the search input once again
-      $(".initial-content").find("input").focus();
+      if ($(".initial-content").hasClass("is--hidden")) {
+        // set focus on input
+        setTimeout(function () {
+          var input = $(".search-content__form").find("input");
+          input.trigger("focus");
+          input.trigger("select");
+        }, 100);
+      }
+      else {
+        // set focus back via the initial content otherwise the focus will not get back to the search input once again
+        $(".initial-content").find("input").focus();
+      }
+
+      if (tooltipTarget)
+        hideTooltip(true);
+      // NOTE: event.target is not always the toggle here, use it directly instead of the event
+      $("#search-button").trigger('blur');
     }
 
-    if (tooltipTarget)
-      hideTooltip(true);
-    // NOTE: event.target is not always the toggle here, use it directly instead of the event
-    $("#search-button").trigger('blur');
+    $("#search-button").on('click', toggleSearch);
   }
-
-  $("#search-button").on('click', toggleSearch);
 
   // -------------
   // Startup

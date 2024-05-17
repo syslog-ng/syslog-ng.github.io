@@ -26,6 +26,8 @@
   const docRoot = '{{ site.baseurl }}';
   const darkSkin = 'midnight';
   const lightSkin = 'default';
+  const searchEnabled = {% if site.search == true %} true {% else %} false {% endif %};
+  const searchFromMastHead = {% if site.search_from_masthead == true %} true {% else %} false {% endif %};
 
   function docPrefix() {
     return (docRoot != '' ? docRoot + '/' : '');    

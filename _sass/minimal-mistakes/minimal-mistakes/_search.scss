@@ -19,6 +19,35 @@
   margin-left: 10px;
 }
 
+.search-input {
+  flex: 1; /* Allow input to grow to fill remaining space */
+  margin: 0 0.5em 0 0;
+  padding: 0.25em;
+  border: none;
+  box-shadow: none;
+  background-color: rgba($selection-color, 0.15); //transparent;
+  
+  &.from-masthead {
+    font-size: $type-size-6;    
+    @include breakpoint($large) {
+      font-size: $type-size-5;
+    }
+    @include breakpoint($x-large) {
+      font-size: $type-size-5; // 4 is unnecessarily large here
+    }
+  }
+
+  &.from-search-content {
+    font-size: $type-size-3;    
+    @include breakpoint($large) {
+      font-size: $type-size-2;
+    }
+    @include breakpoint($x-large) {
+      font-size: $type-size-2; // 3 is unnecessarily large here
+    }
+  }
+}
+
 .search-content {
   display: none;
   visibility: hidden;
@@ -42,30 +71,62 @@
   }
 
   &__form {
+    display: none;
+    visibility: hidden;
     background-color: transparent;
-  }
-
-  .search-input {
-    display: block;
-    margin-bottom: 0;
-    padding: 0;
-    padding-bottom: 0.5em;
-    border: none;
-    outline: none;
-    box-shadow: none;
-    background-color: transparent;
-    font-size: $type-size-3;
     
-    @include breakpoint($large) {
-      font-size: $type-size-2;
+    &.from-masthead {
+      margin: 0;
+      padding: 0.1em;
+
+      width: 70%;
+      min-width: 100px;
+      max-width: 300px;
+      @include breakpoint($large) {
+        width: 60%;
+        max-width: 400px;
+      }
+      @include breakpoint($x-large) {
+        width: 50%;
+        max-width: 600px;
+      }
     }
 
-    @include breakpoint($x-large) {
-      font-size: $type-size-1;
+    &.from-search-content {
+      border-bottom: dotted rgba($outline-color, 0.08);
     }
   }
 
-  a:not(.btn) {
+  &__form.is--visible {
+    display: inline-flex;
+    align-items: center; // end; /* vertical bottom for inline-flex */
+    visibility: visible;
+
+    a.search-help {
+      color: $button-color !important;
+      &:visited {
+        color: $button-color !important;
+      }
+
+      &:hover {
+        color: mix(#000, $button-color, 25%);
+      }
+      
+      text-decoration: none !important;
+    }
+
+    &.from-masthead {
+      a.search-help {
+        margin: 0;
+      }
+    }
+    
+    &::after {
+      display: inline-flex;
+    }
+  }
+
+  a:not(.btn), a:not(.search-help) {
     &:hover {
       text-decoration: underline;
 
@@ -90,8 +151,17 @@
     font-size: $type-size-6;
   }
 
+  .results.from-masthead {
+    .list__item, .results__found {
+      display: flex; /* Use Flexbox */
+      justify-content: center; /* Horizontally center the content */
+    }
+  }
+
   .archive__item {
     margin-bottom: 2em;
+
+    width: 100%;
 
     @include breakpoint($large) {
       width: 75%;

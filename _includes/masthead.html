@@ -13,32 +13,51 @@
           {% if site.subtitle %}<span class="site-subtitle">{{ site.subtitle }}</span>{% endif %}
         </a>
 
-        <ul class="visible-links">
+        <div class="masthead__menu-center-container">
+
           {% if site.masthead.hide_navigator == false %}
+            <ul class="visible-links">
             {%- for link in site.data.navigation.main -%}
               <li class="masthead__menu-item">
                 <a href="{{ link.url | relative_url }}"{% if link.description %} title="{{ link.description }}"{% endif %}>{{ link.title }}</a>
               </li>
             {%- endfor -%}
+            </ul>
           {% endif %}
-        </ul>
+
+          {% if site.search == true %}
+            {% if site.search_from_masthead %}
+              {% include /search/search_input.html %}
+            {% endif %}
+          {% endif %}
+
+        </div>
 
         {% if site.search == true %}
-        {% comment %}<!-- search__toggle is kept fir bacjward compatibility -->{% endcomment %}
-        <button id="search-button" class="masthead_button search__toggle" type="button">
-          <span id="search_hint" class="">{{ site.data.ui-text[site.locale].search_label | default: "Toggle search (Shift + Ctrl + F or ESC to close)" }}</span>
-          <i class="masthead_button_icon fas fa-search" style="font-size: 120%;"></i>
-        </button>
+          {% comment %}<!-- search__toggle is kept for backward compatibility -->{% endcomment %}
+          <label class="sr-only" for="search-button">
+            {{ site.data.ui-text[site.locale].search_label_text | default: 'Toggle search (Shift + Ctrl + F or ESC to close)' }}
+          </label>
+          <button id="search-button" class="masthead_button search__toggle" type="button">
+            <span id="search_hint" class="">{{ site.data.ui-text[site.locale].search_label | default: "Toggle search (Shift + Ctrl + F or ESC to close)" }}</span>
+            <i class="masthead_button_icon fas fa-search" style="font-size: 120%;"></i>
+          </button>
         {% endif %}
 
         {% if site.skin_switchable == true %}
-        <i class="masthead_button_small_img fa fa-sun"></i>
-        <button id="skin-button" class="masthead_button_with_side_image" type="button">
-          <i class="masthead_button_icon fa fa-toggle-off" style="font-size: 150%;"></i>
-        </button>
-        <i class="masthead_button_small_img fa fa-moon"></i>
+          <i class="masthead_button_small_img fa fa-sun"></i>
+          <label class="sr-only" for="skin-button">
+            {{ site.data.ui-text[site.locale].search_label_text | default: 'Toggle dark mode' }}
+          </label>
+          <button id="skin-button" class="masthead_button_with_side_image" type="button">
+            <i class="masthead_button_icon fa fa-toggle-off" style="font-size: 150%;"></i>
+          </button>
+          <i class="masthead_button_small_img fa fa-moon"></i>
         {% endif %}
 
+        <label class="sr-only" for="settings-button">
+          {{ site.data.ui-text[site.locale].search_label_text | default: 'Settings' }}
+        </label>
         <button id="settings-button" class="masthead_button_last" type="button">
           <i class="masthead_button_icon fas fa-user-cog" style="font-size: 110%;"></i>
         </button>
