@@ -30,9 +30,14 @@ body {
           flex-direction: column;
 }
 
-.initial-content,
-.search-content {
-  flex: 1 0 auto;
+.initial-content {
+  &:not(.is--hidden) {
+    flex: 1 0 auto;
+  }
+  
+  &.is--hidden {
+    flex: none;
+  }
 }
 
 .page {

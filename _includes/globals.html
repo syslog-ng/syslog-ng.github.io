@@ -5,7 +5,8 @@
 <script async="false">
 
   const searchEnabled = {% if site.search == true %} true {% else %} false {% endif %};
-  const searchFromMastHead = {% if site.search_from_masthead == true %} true {% else %} false {% endif %};
+  const hasMastHead = {% if site.masthead != false %} true {% else %} false {% endif %};
+  const searchFromMastHead = {% if site.masthead != false and site.search_from_masthead == true %} true {% else %} false {% endif %};
 
   const docRoot = '{{ site.baseurl }}';
 
@@ -38,6 +39,35 @@
     if (saveIfMissing && defaultValue != null)
       setCookie(name, defaultValue);
     return defaultValue;
+  }
+
+  function compareDOMRect(rect1, rect2) {
+    return {
+      top: rect1.top === rect2.top,
+      right: rect1.right === rect2.right,
+      bottom: rect1.bottom === rect2.bottom,
+      left: rect1.left === rect2.left,
+      width: rect1.width === rect2.width,
+      height: rect1.height === rect2.height
+    };
+  }
+
+  function getElementPositionRelativeToRoot(element) {
+    var rect = element.getBoundingClientRect();
+
+    // Calculate the position relative to the document
+    var scrollLeft = window.pageXOffset || document.documentElement.scrollLeft;
+    var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+    var position = {
+      top: rect.top + scrollTop,
+      left: rect.left + scrollLeft
+    };
+    return position;
+  }
+
+  function comparePositions(pos1, pos2) {
+    return pos1.top === pos2.top && pos1.left === pos2.left;
   }
 
 </script>

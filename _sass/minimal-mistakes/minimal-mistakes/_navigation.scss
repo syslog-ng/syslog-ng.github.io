@@ -757,7 +757,7 @@
 
 .tooltip {
   position: absolute;
-  z-index: 99; /* Higher than anything else */
+  z-index: 5; /* a default, higher than normal items have in the content that could have tooltip, see navigation.js - setTooltipStyle for more  */
   opacity: 0;
 
   color: $tooltip-color;
@@ -766,6 +766,8 @@
   //text-shadow: 1px 1px 2px $tooltip-text-shadow-color; // #111
   background: $tooltip-background-color;
   
+  height: auto;
+
   // FIXME: Get rid of the dependency on size of the container
   width: 500%;
   min-width: 200px;
@@ -776,6 +778,7 @@
   @include breakpoint($x-large) {
     max-width: $right-sidebar-width + 125px;
   }
+
   &.full-content-tooltip {
     max-width: 400px;
     @include breakpoint($large) {
@@ -785,7 +788,19 @@
       max-width: 2 * $right-sidebar-width + 125px;
     }
   }
-  height: auto;
+
+  &.text-content-tooltip {
+    font-size: $type-size-9;
+
+    min-width: 150px;
+    max-width: 150px;
+    @include breakpoint($large) {
+      max-width: 200px;
+    }
+    @include breakpoint($x-large) {
+      max-width: 255px;
+    }
+  }
   
   padding-top: 0;
   padding-bottom: 0;
@@ -810,7 +825,7 @@
   transform: scale(0);
 }
 
-.tooltip:before //, .tooltip:after
+.tooltip:before
 {
   // These are mandatory, do not remove
   content: '';
