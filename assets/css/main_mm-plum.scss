@@ -16,6 +16,7 @@ toc: false
 // FIXME: Wish I could find a solution to get everything beside the skin include line to be moved to a common include file
 //        to eliminate repeated content bellow in the different main skin files :S
 //        Hope one day someone could come up with a working solution.
+//        Probably skipping the default Jekyll scss compilation and adding a self ade build step instead?!?
 //
 @charset "utf-8";
 

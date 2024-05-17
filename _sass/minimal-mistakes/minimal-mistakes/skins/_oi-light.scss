@@ -1,0 +1,80 @@
+/* ==========================================================================
+   OID skin
+   ========================================================================== */
+
+/* Colors */
+$oid-gray                   : #40535d !default;
+$oid-black					: #162c36 !default;
+$oid-blue					: #04aada !default;
+$quest-orange				: #fb4f14 !default;
+$jaffa						: #ee8a54 !default;
+$nepal						: #82a7c5 !default;
+
+$gray						: $oid-gray !default;
+$black						: $oid-black !default;
+$white						: white !default;
+
+$dark-gray                  : mix($black, $gray, 40%) !default;
+$darker-gray                : mix($black, $gray, 60%) !default;
+$light-gray                 : mix($white, $gray, 50%) !default;
+$lighter-gray               : mix($white, $gray, 90%) !default;
+
+$body-color                 : $white !default;
+$background-color           : $white !default;
+$code-background-color      : $lighter-gray !default;
+$code-background-color-dark : $light-gray !default;
+$text-color                 : $oid-black !default;
+$border-color               : $lighter-gray !default;
+$footer-background-color	: mix($oid-blue, $background-color, 60%) !default;
+
+$tooltip-color                   : mix($gray, $text-color, 50%) !default;
+$tooltip-background-color        : rgba(mix($light-gray, $background-color, 7%), 0.925) !default;
+$tooltip-arrow-background-color  : rgba(mix($tooltip-background-color, $tooltip-color, 90%), 0.925) !default;
+
+$primary-color              : $oid-black !default;
+$success-color              : #27ae60 !default;
+$warning-color              : $jaffa !default;
+$danger-color               : $quest-orange !default;
+$info-color                 : $nepal !default;
+
+/* links */
+$link-color                 : $oid-blue !default;
+$link-color-hover           : mix($black, $link-color, 25%) !default;
+$link-color-visited         : mix($white, $link-color, 25%) !default;
+$masthead-link-color        : $primary-color !default;
+$masthead-link-color-hover  : mix($black, $primary-color, 25%) !default;
+$menuitem-hovered-background-color :$oid-blue !default;
+$menuitem-selected-background-color: $oid-gray !default;
+
+/* notices */
+$notice-background-mix: 60% !default;
+$code-notice-background-mix: 65% !default;
+
+$base01	: $oid-blue !default;
+
+.page__title {
+	a { 
+		color: $link-color !important;
+	}
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	color: $link-color !important;
+}
+
+.toc {
+	h4 {
+		color: $text-color !important;
+	}
+}
+
+.highlight-header {
+	.btn {
+		color: $text-color !important;
+	}
+}

@@ -3,10 +3,10 @@
   {%- case search_provider -%}
 
   {%- when "lunr" -%}
-    {% if site.search_from_masthead == false %}
+    {% if site.search_from_masthead == false or site.masthead == false %}
       {% include /search/search_input.html %}
     {% endif %}
-    <div id="results" class="results {% if site.search_from_masthead %}from-masthead{% else %}from-search-content{% endif %}"></div>
+    <div id="results" class="results {% if site.search_from_masthead and site.masthead != false %}from-masthead{% else %}from-search-content{% endif %}"></div>
 
   {%- when "google" -%}
     {% include /search/search_input.html %}

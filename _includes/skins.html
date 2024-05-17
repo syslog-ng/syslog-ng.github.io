@@ -2,8 +2,7 @@
 <!-- Dynamic loading of the user selected skin stylesheet -->
 {% endcomment %}
 
-{% comment %}<!-- NOTE: the 'default' skin is in the 'main.css', see the main.scss file for details -->{% endcomment %}
-<link rel="stylesheet" id="skinedStylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+<link rel="stylesheet" id="skinedStylesheet" href="{{ '/assets/css/main_oi-light.css' | relative_url }}">
 
 <style>
   #full-page-container.full-page-container {
@@ -23,62 +22,73 @@
 
 <script async="false">
 
-  const docRoot = '{{ site.baseurl }}';
-  const darkSkin = 'midnight';
-  const lightSkin = 'default';
-  const searchEnabled = {% if site.search == true %} true {% else %} false {% endif %};
-  const searchFromMastHead = {% if site.search_from_masthead == true %} true {% else %} false {% endif %};
-
-  function docPrefix() {
-    return (docRoot != '' ? docRoot + '/' : '');    
-  }
-
-  function setCookie(name, value, days) {
-    var expires = "";
-    if (days) {
-      var date = new Date();
-      date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
-      expires = "; expires=" + date.toUTCString();
-    }
-    document.cookie = name + "=" + (value || "") + expires + "; path=/; SameSite=Strict";
-  }
-
-  function getCookie(name, defaultValue = null) {
-    var nameEQ = name + "=";
-    var ca = document.cookie.split(';');
-    for (var i = 0; i < ca.length; i++) {
-      var c = ca[i];
-      while (c.charAt(0) == ' ') {
-        c = c.substring(1, c.length);
-      }
-      if (c.indexOf(nameEQ) == 0) {
-        return c.substring(nameEQ.length, c.length);
-      }
-    }
-    return defaultValue;
-  }
-
   (function () {
-    function setSkin(skin) {
+    const defaultDarkSkin = 'oi-dark';
+    const defaultLightSkin = 'oi-light';
+
+    const selectedSkinStateKey = 'skin-state';
+    const selectedSkinBackgroundColorKey = 'skin-background-color'
+    const lightSkinKey = 'skin-light';
+    const darkSkinKey = 'skin-dark';
+  
+    const darkModeStateOn = 'dark';
+    const darkModeStateOff = 'light';
+
+    //selectedLightSkin = 'default';
+    //selectedDarkSkin = 'default';
+
+    function setSkinModeState(state) {
       const stylesheet = document.getElementById('skinedStylesheet');
-      //stylesheet.onload = saveChanges;
-      stylesheet.href = docPrefix() + '/assets/css/main' + (skin == 'default' ? '' : '_' + skin) + '.css';
-      setCookie('skin', skin, 365 * 100);
+      const skinName = getSkinForState(state);
+
+      // TODO: It seems it is not always triggered on a href value change once it is loaded/cached
+      //       We might have to force save the new color somehow in a different way as well
+      //       (Maybe a delayed saveColorChanges from window.addEventListener("load", ...) bellow ?!?!
+      stylesheet.onload = saveColorChanges;
+      stylesheet.href = docPrefix() + '/assets/css/main' + (skinName == 'default' ? '' : '_' + skinName) + '.css';
+      
+      setCookie(selectedSkinStateKey, state);
     }
 
+    function getLightSkin() {
+      return getCookie(lightSkinKey, defaultLightSkin, true);
+    }
+
+    function getDarkSkin() {
+      return getCookie(darkSkinKey, defaultDarkSkin, true);
+    }
+
+    function getSkinModeState() {
+      return getCookie(selectedSkinStateKey, darkModeStateOff, true);
+    }
+    
+    function getSkinForState(state) {
+      return state == darkModeStateOn ? getDarkSkin() : getLightSkin();
+    }
+    
+    function getSelectedSkin() {
+      return getSkinForState(getSkinModeState());
+    }
+    
     function toggleSkin(event) {
-        if (getCookie('skin', 'default') == darkSkin) {
+        const currentSkinState = getSkinModeState();
+        if (currentSkinState == darkModeStateOff) {
           event.target.classList.remove('fa-toggle-on');
           event.target.classList.add('fa-toggle-off');
-          setSkin(lightSkin);
         }
         else {
           event.target.classList.remove('fa-toggle-off');
           event.target.classList.add('fa-toggle-on');
-          setSkin(darkSkin);
         }
+        setSkinModeState(currentSkinState == darkModeStateOff ? darkModeStateOn : darkModeStateOff);
         event.currentTarget.blur();
       }
+
+    function saveColorChanges() {
+      const htmlStyle = window.getComputedStyle(document.documentElement);
+      const backgroundColor = htmlStyle.backgroundColor;
+      setCookie(selectedSkinBackgroundColorKey, backgroundColor);
+    };    
 
     function toggleIcon(target, off) {
       if (off) {
@@ -92,12 +102,9 @@
     }
     
     function toggleSkin(event) {
-      var off = getCookie('skin', 'default') == darkSkin;
+      var off = getSkinModeState() == darkModeStateOff;
       
-      if (off)
-        setSkin(lightSkin);
-      else
-        setSkin(darkSkin);
+      setSkinModeState(off ? darkModeStateOn : darkModeStateOff);
       toggleIcon(event.target, off);
 
       event.currentTarget.blur();
@@ -107,12 +114,6 @@
       half rendered content parts (it is better to see an empty content even if it might appear in a different bacground color that the skin has)
     */
     window.addEventListener("load", function () {
-      function saveChanges() {
-        const htmlStyle = window.getComputedStyle(document.documentElement);
-        const backgroundColor = htmlStyle.backgroundColor;
-        setCookie('skin-background-color', backgroundColor, 365 * 100);
-      };    
-
       var container = document.getElementById("full-page-container");
       if (container)
         container.classList.remove('hidden');
@@ -120,23 +121,27 @@
       // Why this is not working?!?!
       //document.body.style.removeProperty("backgroundColor");
       document.body.style.backgroundColor = "";
-      if (storedSkin !== 'default')
-        toggleIcon($('#skin-button').find('.masthead_button_icon')[0], false);
-  
+      
+      toggleIcon($('#skin-button').find('.masthead_button_icon')[0], getSkinModeState());
       $("#skin-button").on("click", toggleSkin);
 
-      saveChanges();
+      // TODO: See, setSkinModeState - stylesheet.onload
+      // setTimeout(function () {
+      //  saveColorChanges();
+      //}, 100);
     });
 
     document.addEventListener("DOMContentLoaded", function () {
-      const skinBackgroundColor = getCookie('skin-background-color');
+      const skinBackgroundColor = getCookie(selectedSkinBackgroundColorKey);
       if (skinBackgroundColor)
         document.body.style.backgroundColor = skinBackgroundColor;
     });
 
-    const storedSkin = getCookie('skin', 'default');
-    if (storedSkin !== 'default')
-      setSkin(storedSkin);
+    // These are just for always saving a default to the cookiestore if missing
+    getLightSkin();
+    getDarkSkin();
+
+    setSkinModeState(getSkinModeState());
 
   })();
 </script>

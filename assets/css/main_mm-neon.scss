@@ -1,6 +1,6 @@
---- 
-search: false 
-toc: false 
+---
+search: false
+toc: false
 ---
 // You have two kinds of Sass files:
 //
@@ -16,6 +16,7 @@ toc: false
 // FIXME: Wish I could find a solution to get everything beside the skin include line to be moved to a common include file
 //        to eliminate repeated content bellow in the different main skin files :S
 //        Hope one day someone could come up with a working solution.
+//        Probably skipping the default Jekyll scss compilation and adding a self ade build step instead?!?
 //
 @charset "utf-8";
 
@@ -25,5 +26,5 @@ $sidebar-nav-item-left-margin: {% if site.sidebar.nav_sub_items_ident %} {{ site
 $masthead-sticky: {% if site.masthead.sticky == true %} 1 {% else %} 0 {% endif %} !default;
 $footer-top-margin: {% if site.footer.top_margin %} {{ site.footer.top_margin }} {% else %} 3em {% endif %} !default; // 3em is huge, but that was the theme default
 
-@import "minimal-mistakes/skins/midnight"; // skin overrides
+@import "minimal-mistakes/skins/neon"; // skin overrides
 @import "minimal-mistakes"; // main partials

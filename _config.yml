@@ -2,7 +2,13 @@
 
 remote_theme: mmistakes/minimal-mistakes@4.24.0
 #theme: minimal-mistakes-jekyll
-minimal_mistakes_skin: "midnight" # "default", "air", "aqua", "contrast", "dark", "dirt", "midnight", "mint", "neon", "plum", "sunrise"
+# Default minimal-mistakes skins
+#  - # "default", "air", "aqua", "contrast", "dark", "dirt", "mint", "neon", "plum", "sunrise"
+# Additional skins
+#  - "oi-midnight", "oi-light", "oi-dark"
+# NOTE: This one is not used at all, an d has no effect anymore, as we have our custom dynamic skin loading/swapping solution yet,
+#       that is turned on by default via "skin_switchable: true"
+minimal_mistakes_skin: "oi-light"
 skin_switchable: true
 
 # Disable caching of content to disk in order to skip creating a .jekyll-cache or similar directory

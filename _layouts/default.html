@@ -3,7 +3,9 @@ layout: base
 ---
 
 {% include_cached skip-links.html %}
-{% include_cached masthead.html %}
+{% if site.masthead != false %}
+  {% include masthead.html %}
+{% endif %}
 
 <div class="initial-content">
   {{ content }}
@@ -11,12 +13,14 @@ layout: base
 
 {% if site.search == true %}
   <div class="search-content">
-    {% include_cached search/search_form.html %}
+    {% include search/search_form.html %}
   </div>
 {% endif %}
 
-<span id="tooltip" class="tooltip"></span>
-<span id="tooltipRenderer" class="tooltip visible"></span>
+{% if site.masthead == false %}
+  <span id="tooltip" class="tooltip"></span>
+  <span id="tooltipRenderer" class="tooltip visible"></span>
+{% endif %}
 
 <div id="footer" class="page__footer">
   <footer>

@@ -1,6 +1,17 @@
 {% capture logo_path %}{{ site.logo }}{% endcapture %}
 
 <div class="masthead {% if site.masthead.sticky == true %}sticky{% endif %}">
+
+  {% comment %}<!-- 
+    TODO: Far from perfect but working solution for now to have static (none moving) tooltips
+          It's satisfying now as 
+            - we do have only in the masthead such controls
+            - eliminates the need to add a real tooltip to each of the elements that require such a tooltip
+            - it aids the detection of wether the tooltip needs to be hiding (e.g on tooltip movements caused by scrolling)
+  -->{% endcomment %}
+  <span id="tooltip" class="tooltip"></span>
+  <span id="tooltipRenderer" class="tooltip visible"></span>
+
   <div class="masthead__inner-wrap">
     <div class="masthead__menu">
       <nav id="site-nav" class="greedy-nav">
@@ -36,11 +47,11 @@
         {% if site.search == true %}
           {% comment %}<!-- search__toggle is kept for backward compatibility -->{% endcomment %}
           <label class="sr-only" for="search-button">
-            {{ site.data.ui-text[site.locale].search_label_text | default: 'Toggle search (Shift + Ctrl + F or ESC to close)' }}
+            {{ site.data.ui-text[site.locale].search_label_text | default: 'Toggle search (`Shift + Ctrl + F`, ESC to close)' }}
           </label>
-          <button id="search-button" class="masthead_button search__toggle" type="button">
-            <span id="search_hint" class="">{{ site.data.ui-text[site.locale].search_label | default: "Toggle search (Shift + Ctrl + F or ESC to close)" }}</span>
-            <i class="masthead_button_icon fas fa-search" style="font-size: 120%;"></i>
+          <button id="search-button" class="masthead_button search__toggle" type="button" >
+            <i class="masthead_button_icon content-tooltip tooltip-align-center text-content-tooltip fas fa-search" style="font-size: 120%;"
+              data-tooltip-text="{{ site.data.ui-text[site.locale].search_label | default: 'Toggle search (`Shift + Ctrl + F`, ESC to close)' }}"></i>
           </button>
         {% endif %}
 

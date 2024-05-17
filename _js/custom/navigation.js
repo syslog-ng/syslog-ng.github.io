@@ -201,7 +201,7 @@ $(function () {
       // If 'docRoot' is found or it is not the last segment, return the next part after it as the collection name
       if (docIndex !== -1 && docIndex !== parts.length - 1)
         collection = parts[docIndex + 1];
-    }    
+    }
     return collection;
   }
 
@@ -315,36 +315,48 @@ $(function () {
   // This part should also handle the case when only the title presented. (a.k.a. not showing the tooltip in that case),
   // also responsible to create a uniform look and fell both for page title tooltips and other link tooltips. 
   //
-  function alterContentForTooltip(content, url, isFullPageContent) {
-    let tempContainer = document.createElement('div');
-    tempContainer.innerHTML = content;
+  function alterContentForTooltip(content, url, isFullPageContent, isTextTooltip) {
+    var newContent = null;
 
-    hideTocIfNotNeeded(tempContainer, true);
-
-    // Remove/Override some default title style formatting to look better in the tooltip
-    var pageTitle = tempContainer.querySelector('#page-title');
-    if (pageTitle == null) {
-      // If there is no page title, replace the first heading with an item looks and behaves like the page title
-      // to have similar result both for page title tooltips and other link item tooltips
-      // FIXME: This magic 6 must be maintained together now with generate_links.rb (and other places ?!), eliminate it!
-      var firstHeading = tempContainer.querySelector("h2, h3, h4, h5, h6");
-      if (firstHeading) {
-        // Everything bellow must exist, so intentionally there's no error handling, let it rise
-        pageTitle = document.querySelector('#page-title').cloneNode(true);
-        pageTitle.id = firstHeading.id;
-
-        const anchorElement = pageTitle.querySelector("a");
-        anchorElement.textContent = firstHeading.textContent;
-        anchorElement.href = url;
-
-        tempContainer.replaceChild(pageTitle, firstHeading);
-      }
+    if (isTextTooltip) {
+      // This would give the saem result as for the other tooltip contents
+      // but this kind of tooltip close to a real, one liner tooltip
+      // <p> would add huge paddings around it
+      // TODO: Add a better, musch more tiny tooltip look
+      // newContent = "<p>" + content + "</p>";
+      newContent = content;
     }
-    pageTitle.style.marginTop = '1em';
+    else {
+      let tempContainer = document.createElement('div');
+      tempContainer.innerHTML = content;
 
-    var newContent = tempContainer.innerHTML
-    // remove unnecessary, reqursive inner content tooltips
-    newContent = newContent.replace(/\bcontent-tooltip\b/g, '');
+      hideTocIfNotNeeded(tempContainer, true);
+
+      // Remove/Override some default title style formatting to look better in the tooltip
+      var pageTitle = tempContainer.querySelector('#page-title');
+      if (pageTitle == null) {
+        // If there is no page title, replace the first heading with an item looks and behaves like the page title
+        // to have similar result both for page title tooltips and other link item tooltips
+        // FIXME: This magic 6 must be maintained together now with generate_links.rb (and other places ?!), eliminate it!
+        var firstHeading = tempContainer.querySelector("h2, h3, h4, h5, h6");
+        if (firstHeading) {
+          // Everything bellow must exist, so intentionally there's no error handling, let it rise
+          pageTitle = document.querySelector('#page-title').cloneNode(true);
+          pageTitle.id = firstHeading.id;
+
+          const anchorElement = pageTitle.querySelector("a");
+          anchorElement.textContent = firstHeading.textContent;
+          anchorElement.href = url;
+
+          tempContainer.replaceChild(pageTitle, firstHeading);
+        }
+      }
+      pageTitle.style.marginTop = '1em';
+
+      newContent = tempContainer.innerHTML
+      // remove unnecessary, reqursive inner content tooltips
+      newContent = newContent.replace(/\bcontent-tooltip\b/g, '');
+    }
 
     return newContent;
   }
@@ -402,18 +414,23 @@ $(function () {
   // -------------
   // Tooltip generation and handling
   // -------------
-  /* _variables.scss & _navigation.scss - .tooltip:before */
-  const toolTipArrowHalfSize = 10;  /* $tooltip-arrow-half-size */
-  var tooltip = null;
+  const toolTipArrowHalfSize = 10; /* $tooltip-arrow-half-size  -> _variables.scss & _navigation.scss - .tooltip:before */
+  var contentTooltip = null;
   var tooltipRenderer = null;
   var tooltipTarget = null;
+  var tooltipToTargetRelativePosition = null;
   var elementUnderCursor = null;
   var shouldShowTooltip = false;
   var showTimeoutFuncID;
   var hideTimeoutFuncID;
 
-  function setTooltipPos(event, tooltipTarget, alignment) {
-    const rect = tooltipTarget.getBoundingClientRect();
+  function setTooltipArrowPosition(posName, position) {
+    var newPosition = position + 'px';
+    contentTooltip.style.setProperty(posName, newPosition);
+  }
+
+  function setTooltipPos(event, tooltipTarget, alignment, isTextTooltip) {
+    const targetRect = tooltipTarget.getBoundingClientRect();
     var computedTargetStyle = window.getComputedStyle(tooltipTarget);
     var lineHeight = parseFloat(computedTargetStyle.getPropertyValue('line-height'));
     // NOTE: The content of the targeted tooltip is still not yet calculated correctly here, as it is invisible, and getting visible is animated multiple ways
@@ -427,66 +444,149 @@ $(function () {
 
     const mouseX = event.clientX;
     var xShift = (alignment == 'tooltip-align-left' ? tooltipWidth : (alignment == 'tooltip-align-center' ? tooltipWidth / 2 : 0));
-    pos.x = mouseX; // Use now mouse X instead - Math.max(0, pos.x + document.documentElement.scrollLeft + rect.left);
+    pos.x = mouseX; // Use now mouse X instead - Math.max(0, pos.x + document.documentElement.scrollLeft + targetRect.left);
     pos.x -= xShift;
     
     // If the occupied space of the tooltip target is bigger than its line height, it means it spanws to multiple lines
-    // align to the upper line part in that case if the mouse is on the right side of the middle of its rect, otherwise align to the bottom row part
-    var multilineUpperPart = (rect.height > lineHeight && mouseX > rect.x + rect.width / 2);
-    pos.y = pos.y + document.documentElement.scrollTop + rect.top + rect.height / (multilineUpperPart ? 2 : 1);
+    // align to the upper line part in that case if the mouse is on the right side of the middle of its targetRect, otherwise align to the bottom row part
+    var multilineUpperPart = false == isTextTooltip && (targetRect.height > lineHeight && mouseX > targetRect.x + targetRect.width / 2);
+    pos.y = pos.y + (hasMastHead ? 0 : document.documentElement.scrollTop) + targetRect.top + targetRect.height / (multilineUpperPart ? 2 : 1);
 
     var tooltipArrowHorizontalPadding = (4 * toolTipArrowHalfSize) * (alignment == 'tooltip-align-left' ? 1 : (alignment == 'tooltip-align-right' ? -1 : 0));
-    setArrowPosition('--tooltip-arrow-left', xShift - tooltipArrowHorizontalPadding - toolTipArrowHalfSize);
-    setArrowPosition('--tooltip-arrow-top', -1 * toolTipArrowHalfSize);
+    setTooltipArrowPosition('--tooltip-arrow-left', xShift - tooltipArrowHorizontalPadding - toolTipArrowHalfSize);
+    setTooltipArrowPosition('--tooltip-arrow-top', -1 * toolTipArrowHalfSize);
 
-    tooltip.style.left = pos.x + tooltipArrowHorizontalPadding + 'px';
-    tooltip.style.top = pos.y + toolTipArrowHalfSize + 'px';
+    var contentTooltipLeft = pos.x + tooltipArrowHorizontalPadding;
+    var contentTooltipTop = pos.y + toolTipArrowHalfSize;
+    contentTooltip.style.left = contentTooltipLeft + 'px';
+    contentTooltip.style.top = contentTooltipTop + 'px';
   }
 
-  function setArrowPosition(posName, position) {
-    var newPosition = position + 'px';
-    tooltip.style.setProperty(posName, newPosition);
+  function getRealZIndex(element) {
+    var zIndex = getComputedStyle(element).zIndex;
+
+    // If the element's z-index is not auto, return it
+    if (zIndex !== "auto")
+      return parseInt(zIndex);
+    else {
+      // If the element's z-index is auto, traverse the parent hierarchy
+      var parent = element.parentElement;
+      var highestZIndex = null;
+      while (parent) {
+        var parentZIndex = getComputedStyle(parent).zIndex;
+        if (parentZIndex !== "auto") {
+          var zIndexValue = parseInt(parentZIndex);
+          if (highestZIndex === null || zIndexValue > highestZIndex) {
+            highestZIndex = zIndexValue;
+          }
+        }
+        parent = parent.parentElement;
+      }
+      return highestZIndex;
+    }
   }
 
-  function showTooltip(event, tooltipText, alignment, isFullPageContent) {
-
-    tooltip.innerHTML = tooltipText.innerHTML;
-    tooltipRenderer.innerHTML = tooltipText.innerHTML;
-
+  function setTooltipStyle(alignment, isFullPageContent, isTextTooltip) {
+    if (isTextTooltip) {
+      contentTooltip.classList.add("text-content-tooltip");
+      tooltipRenderer.classList.add("text-content-tooltip");
+    }
+    else {
+      contentTooltip.classList.remove("text-content-tooltip");
+      tooltipRenderer.classList.remove("text-content-tooltip");
+    }
     if (isFullPageContent) {
-      tooltip.classList.add("full-content-tooltip");
+      contentTooltip.classList.add("full-content-tooltip");
       tooltipRenderer.classList.add("full-content-tooltip");
     }
     else {
-      tooltip.classList.remove("full-content-tooltip");
+      contentTooltip.classList.remove("full-content-tooltip");
       tooltipRenderer.classList.remove("full-content-tooltip");
     }
-    tooltip.classList.remove('tooltip-align-left', 'tooltip-align-center', 'tooltip-align-right');
+    contentTooltip.classList.remove('tooltip-align-left', 'tooltip-align-center', 'tooltip-align-right');
     tooltipRenderer.classList.remove('tooltip-align-left', 'tooltip-align-center', 'tooltip-align-right');
-    tooltip.classList.add(alignment);
+    contentTooltip.classList.add(alignment);
     tooltipRenderer.classList.add(alignment);
+  }
+
+  function setTooltipZIndex() {
+    var zIndex = getRealZIndex(tooltipTarget);
+
+    if (zIndex)
+      contentTooltip.style.zIndex = zIndex;
+    else {
+      /* If the parent hierarchy has no explicit z-index setting, use a higher than the default
+         FIXME: messy, as a deafult is not defined anywhere, only in the (s)css files, 
+                add a know global in the _variables.scss and use it here, and everywhere in the scss files where the z-index is set
+                (like _magnific-popup,scss does)
+         Now, it seems, the 0 is the default and only the following values are used
+            - 100000 - screen reader
+            - 9999, 999 - modals
+            - 1040+ - magnific-popup
+            - 20 - skip-link
+            - 20, 1 - sidebar author__urls-wrapper
+            - 20, 10 - .nav__list .nav__items label
+            - 20 - masthead
+            - 10 - masthead nav
+            - 10 - sidebar__right
+            - 10 - archive__item a
+            - 5 - archive__item-caption
+            - 5 - page__hero-caption
+       */
+      zIndex = 5;
+    }
+    /*
+     NOTE: Currently we only have to care about tooltips for
+           - page content items
+                max z-index - 0
+           - masthead items (e,g, buttons)
+                max z-index - 20
+    so, simply currently just setting one higher value for the tooltip than the target. 
+    */
+    contentTooltip.style.zIndex = zIndex + 1;
+  }
+
+  function showTooltip(event, tooltipText, alignment, isFullPageContent, isTextTooltip) {
+
+    contentTooltip.innerHTML = tooltipText.innerHTML;
+    tooltipRenderer.innerHTML = contentTooltip.innerHTML;
+
+    setTooltipStyle(alignment, isFullPageContent, isTextTooltip);
+    setTooltipZIndex();
+    setTooltipPos(event, tooltipTarget, alignment, isTextTooltip);
     
     shouldShowTooltip = true;
-
+    
     clearTimeout(hideTimeoutFuncID);
     clearTimeout(showTimeoutFuncID);
     showTimeoutFuncID = setTimeout(function () {
       if (shouldShowTooltip) {
-        setTooltipPos(event, tooltipTarget, alignment);
-        tooltip.classList.add('visible');
+        contentTooltip.classList.add('visible');
       }
     }, 100);
   }
 
   function shouldHideTooltip(activeTarget) {
-    return ((tooltipTarget == null || activeTarget != tooltipTarget) && (tooltip == null || (activeTarget != tooltip && activeTarget != null && activeTarget.closest('.tooltip') == null)));
+    return ((tooltipTarget == null || activeTarget != tooltipTarget) && (contentTooltip == null || (activeTarget != contentTooltip && activeTarget != null && activeTarget.closest('.tooltip') == null)));
   }
 
   function hideTooltip(withDelay) {
     function doHideTooltip() {
       if (false == shouldShowTooltip && tooltip)
-        tooltip.classList.remove('visible');
+        contentTooltip.classList.remove('visible');
       tooltipTarget = null;
+      tooltipToTargetRelativePosition = null;
+      // TODO: Here is the gotcha
+      //       - this cannot be done directly as it will kill the transition animation effects
+      //       - not doing it could lead to occupied, overflowing area that will break the auto srinking back the container 
+      //         to its content minimum size once the overflowing tooltip got 'invisible'
+      //         actually this issue will go away once we limit the tooltip oveflowing in any direction from the window
+      setTimeout(function () {
+        if (tooltipTarget == null && false == shouldShowTooltip) {
+          contentTooltip.innerHTML = '';
+          tooltipRenderer.innerHTML = '';
+        }
+      }, 100);
     }
 
     shouldShowTooltip = false;
@@ -503,7 +603,7 @@ $(function () {
 
   function addContentTooltips() {
     var tooltipElements = document.querySelectorAll('.content-tooltip');
-    tooltip = document.getElementById('tooltip');
+    contentTooltip = document.getElementById('tooltip');
     tooltipRenderer = document.getElementById('tooltipRenderer');
     hideTooltip();
 
@@ -515,9 +615,11 @@ $(function () {
 
       element.addEventListener('mouseover', function (event) {
         var isFullPageContent = element.classList.contains('full-content-tooltip');
+        var isTextTooltip = element.classList.contains('text-content-tooltip');
         var alignment = (element.classList.contains('tooltip-align-left') ? 'tooltip-align-left' : (element.classList.contains('tooltip-align-center') ? 'tooltip-align-center' : 'tooltip-align-right'));
 
         tooltipTarget = element;
+        tooltipToTargetRelativePosition = null;
 
         // Load only once per page load
         if (tooltipText.innerHTML === '') {
@@ -526,11 +628,11 @@ $(function () {
           function onSuccess(newContent) {
             if (typeof (newContent) === 'object' && 'innerHTML' in newContent)
               newContent = newContent.innerHTML;
-            newContent = alterContentForTooltip(newContent, url. isFullPageContent);
+            newContent = alterContentForTooltip(newContent, url, isFullPageContent, isTextTooltip);
 
             if (newContent.length > 0) {              
               tooltipText.innerHTML = newContent; // cache for reuse
-              showTooltip(event, tooltipText, alignment, isFullPageContent);
+              showTooltip(event, tooltipText, alignment, isFullPageContent, isTextTooltip);
             }
             else {
               // Quick navigation from another link with tooltip to this link would keep alive the previous tooltip
@@ -546,7 +648,14 @@ $(function () {
             console.error('Error loading the tooltip content!' + error);
           }
           
-          if (isFullPageContent) {
+          if (isTextTooltip) {
+            newContent = alterContentForTooltip(element.getAttribute("data-tooltip-text"), null, isFullPageContent, isTextTooltip);
+            if (newContent.length > 0) {
+              tooltipText.innerHTML = newContent;
+              showTooltip(event, tooltipText, alignment, isFullPageContent, isTextTooltip);
+            }
+          }
+          else if (isFullPageContent) {
             loadContentFromUrl(url, newContent => onSuccess(newContent), error => onError(error));
           }
           else {
@@ -554,7 +663,7 @@ $(function () {
           }
         }
         else
-          showTooltip(event, tooltipText, alignment, isFullPageContent);
+          showTooltip(event, tooltipText, alignment, isFullPageContent, isTextTooltip);
       });
     });
 
@@ -571,9 +680,29 @@ $(function () {
 
     document.addEventListener('scroll', function (event) {
       if (elementUnderCursor == null || shouldHideTooltip(elementUnderCursor)) {
-        if (tooltipTarget)
-          hideTooltip(true);
+         hideTooltip(true);
       }
+      else if (tooltipTarget) {
+        var targetPosition = getElementPositionRelativeToRoot(tooltipTarget);
+        var tooltipPosition = getElementPositionRelativeToRoot(contentTooltip);
+        var relativPos = { 
+          top: tooltipPosition.top - targetPosition.top,
+          left: tooltipPosition.left - targetPosition.left
+        }
+
+        if (tooltipToTargetRelativePosition == null)
+          tooltipToTargetRelativePosition = relativPos;
+        else {
+          // console.log(" ----");
+          // console.log("tooltipPosition - Top: " + tooltipPosition.top + ", Left: " + tooltipPosition.left);
+          // console.log("targetPosition - Top: " + targetPosition.top + ", Left: " + targetPosition.left);
+          // console.log("relativPos - Top: " + relativPos.top + ", Left: " + relativPos.left);
+          // console.log("tooltipToTargetRelativePosition - Top: " + tooltipToTargetRelativePosition.top + ", Left: " + tooltipToTargetRelativePosition.left);
+
+          if (false == comparePositions(relativPos, tooltipToTargetRelativePosition))
+            hideTooltip(true);
+        }
+      }      
     });
 
     document.addEventListener('mouseover', function (event) {
