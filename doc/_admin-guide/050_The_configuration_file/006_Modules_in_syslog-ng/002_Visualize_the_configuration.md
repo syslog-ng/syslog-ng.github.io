@@ -8,9 +8,7 @@ description: >-
     configuration, and exports it as a graph into a JSON structure.
 ---
 
-The resulting JSON file can be converted into [DOT file format](https://
-en.wikipedia.org/wiki/DOT_(graph_description_language)) that visualization
-tools (for example, Graphviz) can use. The package
+The resulting JSON file can be converted into DOT file format that visualization tools (for example, Graphviz) can use. The package
 includes a Python script to convert the exported JSON file into DOT
 format:
 `<syslog-ng-installation-directory>/contrib/scripts/config-graph-json-to-dot.py`

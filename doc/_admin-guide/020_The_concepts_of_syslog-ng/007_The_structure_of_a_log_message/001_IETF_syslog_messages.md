@@ -12,7 +12,7 @@ A syslog message consists of the following parts:
 - [[STRUCTURED-DATA|adm-struct-ietf#the-structured-data-message-part]]
 - [[MSG|adm-struct-ietf#the-msg-message-part]]
 
-The following is a sample syslog message (source: <https://tools.ietf.org/html/rfc5424>):
+The following is a sample syslog message [(source)|rfc-5424]:
 
 ><34>1 2003-10-11T22:14:15.003Z mymachine.example.com su - ID47 - BOM'su root' failed for lonvick on /dev/pts/8
 

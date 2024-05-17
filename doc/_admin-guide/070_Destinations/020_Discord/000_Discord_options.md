@@ -15,8 +15,8 @@ destination has the following options.
 |Default:|   N/A|
 
 *Description:* A hyperlink for icon of the author to be displayed in
-Discord. For details, see the avatar_url option in the [Discord
-documentation](https://discord.com/developers/docs/intro).
+Discord. For details, see the avatar_url option in the Discord
+documentation.
 
 {% include doc/admin-guide/options/batch-bytes.md %}
 
@@ -74,8 +74,7 @@ documentation](https://discord.com/developers/docs/intro).
 |Default:|   2000|
 
 *Description:* Removes every character above the set limit. For details,
-see the content option in the [Discord
-documentation](https://discord.com/developers/docs/resources/webhook#webhook-object-jsonform-params).
+see the content option in the Discord documentation.
 
 {% include doc/admin-guide/options/peer-verify.md %}
 
@@ -137,8 +136,7 @@ For more information, see Discord: Rate Limits.
 |Default:|   false|
 
 *Description:* Enables TTS (Text-To-Speech) mode. For more information,
-see the tts option in the [Discord
-documentation](https://discord.com/developers/docs/resources/webhook#webhook-object-jsonform-params).
+see the tts option in the Discord documentation.
 
 ## url()
 
@@ -156,8 +154,7 @@ information, see Discord: Intro to Webhooks.
 |Default:|   N/A|
 
 *Description:* Overrides the default username of the webhook. For
-details, see the username option in the [Discord
-documentation](https://discord.com/developers/docs/]resources/webhook#webhook-object-jsonform-params).
+details, see the username option in the Discord documentation.
 
 {% include doc/admin-guide/options/use-system-cert-store.md %}
 

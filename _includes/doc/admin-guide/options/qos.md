@@ -6,7 +6,4 @@
 |                  | 1 - at least once (a much slower option than 0) |
 |                  | 2 - exactly once (the slowest option)           |
 
-*Description:* The [Quality of Service (QoS)
-level](https://www.hivemq.com/blog/mqtt-essentials-part-6-mqtt-quality-of-service-levels/)
-in MQTT messaging is an agreement between sender and receiver on the
-guarantee of delivering a message.
+*Description:* The Quality of Service (QoS) level in MQTT messaging is an agreement between sender and receiver on the guarantee of delivering a message.

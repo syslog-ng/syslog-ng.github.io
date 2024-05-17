@@ -3,8 +3,7 @@ title: 'amqp: Publishing messages using AMQP'
 short_title: amqp
 id: adm-dest-amqp
 description: >-
-    The amqp() driver publishes messages using the [AMQP (Advanced Message
-    Queuing Protocol)](http://www.amqp.org/). syslog-ng OSE supports AMQP
+    The amqp() driver publishes messages using the AMQP (Advanced Message Queuing Protocol). syslog-ng OSE supports AMQP
     versions 0.9.1 and 1.0. The syslog-ng OSE amqp() driver supports
     persistence, and every available exchange types.
 ---

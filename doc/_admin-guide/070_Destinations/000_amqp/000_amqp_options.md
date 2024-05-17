@@ -23,8 +23,8 @@ authentication:
 
 - external: Authentication happens using an out-of-band mechanism, for
     example, x509 certificate peer verification, client IP address
-    range, or similar. For more information, see the [RabbitMQ
-    documentation](https://www.rabbitmq.com/access-control.html).
+    range, or similar. For more information, see the RabbitMQ
+    documentation.
 
 {% include doc/admin-guide/options/batch-bytes.md %}
 
@@ -127,8 +127,7 @@ Available in syslog-ng OSE version 3.21 and later.
 |Default:|   |
 
 *Description:* Sets maximal number of channels (the channel-max option
-described in the [AMQP Reference
-Guide](https://www.rabbitmq.com/amqp-0-9-1-reference.html).
+described in the AMQP Reference Guide).
 
 {% include doc/admin-guide/tls-block.md %}
 

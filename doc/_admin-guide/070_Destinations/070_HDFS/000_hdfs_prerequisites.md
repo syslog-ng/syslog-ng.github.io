@@ -26,11 +26,10 @@ description: >-
 
     - If you are behind an HTTP proxy, create a gradle.properties
         under the modules/java-modules/ directory. Set the proxy
-        parameters in the file. For details, see [The Gradle User
-        Guide](https://docs.gradle.org/current/userguide/build_environment.html#sec:gradle_properties_and_system_properties).
+        parameters in the file. For details, see The Gradle User Guide.
 
 2. Download the Hadoop Distributed File System (HDFS) libraries
-    (version 2.x) from <http://hadoop.apache.org/releases.html>.
+    (version 2.x) from Hadoop release page.
 
 3. Extract the HDFS libraries into a temporary directory, then collect
     the various .jar files into a single directory (for example,

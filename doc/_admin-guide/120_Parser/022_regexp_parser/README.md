@@ -13,8 +13,7 @@ description: >-
 **NOTE:** The regexp-parser() can create additional name-value pairs only if
 \"named capture groups\" are used in the regular expression, for example
 (?\<test\_field\>\\w+). For more information, see \"named capture
-groups\" in [PCRE
-documentation](https://www.pcre.org/current/doc/html/pcre2pattern.html#SEC16).
+groups\" in PCRE documentation.
 {: .notice--info}
 
 For more information about regular expressions in syslog-ng OSE, see

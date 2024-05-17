@@ -7,8 +7,7 @@ description: >-
 ---
 
 For information about customizing log format on the PAN-OS side, see
-[the relevant section of the PAN-OS^®^ Administrator\'s
-Guide](https://docs.paloaltonetworks.com/pan-os/8-1/pan-os-admin/monitoring/use-syslog-for-monitoring/syslog-field-descriptions/custom-logevent-format.html).
+the relevant section of the PAN-OS^®^ Administrator's Guide.
 
 ## Message format and log format
 
@@ -18,8 +17,7 @@ following general format:
 >\<PRI\>\<TIMESTAMP\> \<HOST\> \<PALO-ALTO-fields-in-CSV-format\>
 
 There are several \"types\" of log formats in Palo Alto Networks PAN-OS.
-For example, the most commonly used [SYSTEM
-type](https://docs.paloaltonetworks.com/pan-os/9-1/pan-os-admin/monitoring/use-syslog-for-monitoring/syslog-field-descriptions/system-log-fields.html)
+For example, the most commonly used SYSTEM type
 has the following message format on the syslog-ng OSE side after
 parsing:
 

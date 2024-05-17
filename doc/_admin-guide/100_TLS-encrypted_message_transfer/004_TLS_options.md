@@ -56,12 +56,12 @@ of the files must be .r0.
 *Description:* Specifies a file containing Diffie-Hellman parameters,
 generated using the openssl dhparam utility. Note that syslog-ng OSE
 supports only DH parameter files in the PEM format. If you do not set
-this parameter, [syslog-ng OSE uses the 2048-bit MODP Group, as
-described in RFC 3526](https://www.ietf.org/rfc/rfc3526.txt).
+this parameter, syslog-ng OSE uses the 2048-bit MODP Group, as
+described in RFC 3526.
 
 ## ecdh-curve-list()
 
-|Accepted values:   |string \[colon-separated list\]|
+|Accepted values:   |colon-separated list|
 |Default:|           none|
 
 *Description:* A colon-separated list that specifies the curves that are
@@ -81,7 +81,7 @@ ecdh-curve-list("prime256v1:secp384r1")
 
 ## tls-options-sigalgs
 
-|  Accepted values:|   string \[colon-separated list\]|
+|  Accepted values:|   colon-separated list|
 |  Default: |          none|
 
 *Description:* A colon-separated list that specifies the supported
@@ -242,8 +242,7 @@ source s_tls {
 |Default: |          no|
 
 *Description:* When set to yes in a destination that uses TLS
-encryption, this option enables [Server Name
-Indication](https://tools.ietf.org/html/rfc6066#page-6) (also called
+encryption, this option enables Server Name Indication (also called
 Server Name Identification, SNI). The syslog-ng OSE sends the hostname
 or the IP address set in the destination to the server during the TLS
 handshake.

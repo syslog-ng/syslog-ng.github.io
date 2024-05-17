@@ -39,10 +39,7 @@ ignored. This is true for the processing instructions as well.
 ## Inherited limitations
 
 The XML parser is based on the glib XML subset parser, called
-[\"GMarkup\"
-parser](https://developer.gnome.org/glib/stable/glib-Simple-XML-Subset-Parser.html),
-which is not a full-scale XML parser. It is intended to parse a simple
-markup format that is a subset of XML. Some limitations are inherited:
+GMarkup parser, which is not a full-scale XML parser. It is intended to parse a simple markup format that is a subset of XML. Some limitations are inherited:
 
 - Do not use the XML parser if you expect to interoperate with
     applications generating full-scale XML. Instead, use it for

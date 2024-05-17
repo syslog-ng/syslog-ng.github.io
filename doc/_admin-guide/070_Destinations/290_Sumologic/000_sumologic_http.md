@@ -8,8 +8,7 @@ description: >-
 ---
 
 Using the sumologic-http() destination, you can send data to the Sumo
-Logic service by utilizing a [Hosted Collector hosted by Sumo
-Logic](https://help.sumologic.com/03Send-Data/Hosted-Collectors).
+Logic service by utilizing a Hosted Collector hosted by Sumo Logic.
 
 For more information about the sumologic-http() destination, see
 sumologic-syslog().

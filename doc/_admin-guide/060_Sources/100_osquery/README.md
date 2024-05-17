@@ -13,8 +13,9 @@ description: >-
 The osquery() source of syslog-ng OSE allows you read the results of
 periodical osquery queries (from the
 /var/log/osquery/osqueryd.results.log file) and automatically parse the
-messages (if you want to use syslog-ng OSE to [send log messages to
-osquery, read this blogpost](https://syslog-ng.com/blog/endpoint-visibility-and-monitoring-using-osquery-and-syslog-ng/)).
+messages (if you want to use syslog-ng OSE to send log messages to
+osquery, read this blogpost).  
+
 For example, you can:
 
 - Create filters from the fields of the messages.

@@ -24,8 +24,8 @@ OSE, like running a simple shell script collecting
 metrics and running it from cron regularly.
 
 To see an example of how the graphite() destination is used to collect
-statistics coming from syslog-ng, see the blog post [Collecting syslog-ng
-statistics to Graphite](https://syslog-ng.com/blog/collecting-syslog-ng-statistics-to-graphite/).
+statistics coming from syslog-ng, see the blog post Collecting syslog-ng
+statistics to Graphite.
 
 **Declaration**
 

@@ -13,9 +13,7 @@ limitations:
     eclipse-paho-mqtt-c library.
 
     For more information about how you can download and install the
-    eclipse-paho-mqtt-c library, see [Eclipse
-    Paho](https://www.eclipse.org/paho/index.php?page=clients/c/index.php)
-    on the Eclipse Foundation website.
+    eclipse-paho-mqtt-c library, see Eclipse Paho on the Eclipse Foundation website.
 
 - The current implementation of the mqtt() destination supports
     versions 3.1 and 3.1.1 of the MQTT protocol.

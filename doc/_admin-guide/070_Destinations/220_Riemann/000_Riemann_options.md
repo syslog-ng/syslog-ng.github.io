@@ -72,7 +72,7 @@ Note that the time format parameter requires:
 
     In case your distribution does not contain a recent enough version
     of riemann-c-client and you wish to use microseconds, install a new
-    version from <https://github.com/algernon/riemann-c-client>.
+    version from [[here|riemann-cli]].
 
     If you installed the new version in a custom location (instead of
     the default one), make sure that you append the directory of the

@@ -76,13 +76,12 @@ PCRE-style regular expressions have the following flags() options:
 
 ### disable-jit
 
-Switches off the [just-in-time compilation function for PCRE regular
-expressions](https://www.pcre.org/current/doc/html/pcre2jit.html).
+Switches off the just-in-time compilation function for PCRE regular
+expressions.
 
 ### dupnames
 
-Allows [using duplicate names for named
-subpatterns](https://www.pcre.org/original/doc/html/pcrepattern.html#SEC16).
+Allows using duplicate names for named subpatterns.
 
 Configuration example:
 

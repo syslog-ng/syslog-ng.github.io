@@ -21,8 +21,7 @@ destination d_slack {
 ```
 
 The driver allows you to modify nearly every field of the HTTP request.
-For details, see the [Slack API
-documentation](https://api.slack.com/docs/message-attachments).
+For details, see the Slack API documentation.
 
 You can use the proxy() option to configure the HTTP driver in all
 HTTP-based destinations to use a specific HTTP proxy that is independent
@@ -31,8 +30,8 @@ from the proxy configured for the system.
 By default, the throttle() option is set to 1, because Slack has a 1
 message/second limit on Webhooks. It can allow more message in short
 bursts, so you can set it to 0, if you only expect messages in a short
-period of time. For details, see the [Web API rate limiting in the Slack
-documentation](https://api.slack.com/docs/rate-limits).
+period of time. For details, see the Web API rate limiting in the Slack
+documentation.
 
 To use this destination, the scl.conf file must be included in your
 syslog-ng OSE configuration:
@@ -51,8 +50,7 @@ You can find the source of the Slack configuration snippet on GitHub.
 
 To send messages and notifications from syslog-ng OSE to Slack, you must
 create a Slack app and a Webhook that syslog-ng OSE can use. For
-details, see the [Slack
-documentation](https://api.slack.com/incoming-webhooks).
+details, see the [[Slack documentation|slack-webhook-doc]].
 
 ### Example: Using the slack() driver
 

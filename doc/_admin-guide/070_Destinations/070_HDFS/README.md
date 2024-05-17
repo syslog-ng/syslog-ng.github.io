@@ -14,8 +14,7 @@ description: >-
 
 For more information about the benefits of using syslog-ng as a data
 collection, processing, and filtering tool in a Hadoop environment, see
-the blog post [Filling your data lake with log messages: the syslog-ng Hadoop (HDFS)
-destination](https://syslog-ng.com/blog/filling-your-data-lake-with-log-messages-the-syslog-ng-hadoop-hdfs-destination/).
+the blog post Filling your data lake with log messages: the syslog-ng Hadoop (HDFS) destination.
 
 Note the following limitations when using the syslog-ng OSE hdfs
 destination:
@@ -84,9 +83,7 @@ syslog-ng OSE. For details on using or writing such configuration
 snippets, see Reusing configuration blocks.
 You can find the source of the hdfs configuration snippet on GitHub.
 
-For details on extending syslog-ng OSE in Java, see the [Getting started
-with syslog-ng development](https://syslog-ng.gitbooks.io/getting-started/content/chapters/chapter_5/section_2.html)
-guide.
+For details on extending syslog-ng OSE in Java, see the Getting started with implementing Java destinations guide.
 
 **NOTE:** If you delete all Java destinations from your configuration and
 reload syslog-ng, the JVM is not used anymore, but it is still running.

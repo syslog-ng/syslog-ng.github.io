@@ -23,8 +23,7 @@ staff. It means that:
 
 - If you redistribute the pattern databases, you must make it obvious
     that the source of the original syslog-ng pattern databases is the
-    [One Identity GitHub
-    page](https://github.com/syslog-ng/syslog-ng-patterndb/).
+    One Identity patterndb GitHub page.
 
 If you create patterns that are not available in the GitHub repository,
 consider sharing them with us and the syslog-ng community. To do this,

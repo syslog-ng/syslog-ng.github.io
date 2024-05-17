@@ -11,8 +11,7 @@ description: >-
 
 - This destination is only supported on the Linux platform.
 
-- Since the new C implementation uses the [librdkafka client
-    library](https://docs.confluent.io/2.0.0/clients/librdkafka/index.html),
+- Since the new C implementation uses the librdkafka client library,
     the kafka destination has less memory usage than the previous Java
     implementation (which uses the official Java Kafka producer).
 
@@ -23,8 +22,7 @@ description: >-
     Shifting from Java implementation to C implementation.
 
 - The syslog-ng OSE kafka destination supports all properties of the
-    official Kafka producer. For details, see [the librdkafka
-    documentation](https://github.com/edenhill/librdkafka/blob/master/CONFIGURATION.md).
+    official Kafka producer. For details, see the librdkafka documentation.
 
 - For the list of options, see
     [[Options of the kafka() destination&#8217;s C implementation|adm-dest-kafkac-opt]].

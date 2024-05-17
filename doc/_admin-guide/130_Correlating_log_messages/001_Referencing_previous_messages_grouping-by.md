@@ -37,8 +37,8 @@ aggregate(
 )
 ```
 
-For another example, see [The grouping-by() parser in syslog-ng blog
-post](https://www.syslog-ng.com/community/b/blog/posts/the-grouping-by-parser-in-syslog-ng-3-8)
+For another example, see The grouping-by() parser in syslog-ng blog
+post.
 
 If you do not know in which message of the context contains the
 information you need, you can use the **grep** template function. For

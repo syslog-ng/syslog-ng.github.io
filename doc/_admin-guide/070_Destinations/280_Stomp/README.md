@@ -3,9 +3,8 @@ title: 'stomp: Publishing messages using STOMP'
 short_title: Stomp
 id: adm-dest-stomp
 description: >-
-    The stomp() driver sends messages to servers (message brokers) using the
-    [Simple (or Streaming) Text Oriented Message Protocol
-    (STOMP)](http://stomp.github.io/), formerly known as TTMP. syslog-ng OSE
+    The stomp() driver sends messages to servers (message brokers) using the Simple (or Streaming) Text Oriented Message Protocol
+    (STOMP), formerly known as TTMP. syslog-ng OSE
     supports version 1.0 of the STOMP protocol. The syslog-ng OSE stomp()
     driver supports persistence.
 ---
