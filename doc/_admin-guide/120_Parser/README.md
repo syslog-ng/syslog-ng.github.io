@@ -58,7 +58,7 @@ following application logs:
     Linux audit parser.
 - Netskope log messages. For details, see
     [[Netskope parser]].
-- [[osquery|other-osquery]] result logs. For details, see
+- osquery result logs. For details, see
     [[osquery: Collect and parse osquery result logs]].
 
 - SNMP traps of the Net-SNMP\'s snmptrapd
