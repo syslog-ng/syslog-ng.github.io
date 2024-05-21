@@ -70,20 +70,6 @@
       return getSkinForState(getSkinModeState());
     }
     
-    function toggleSkin(event) {
-        const currentSkinState = getSkinModeState();
-        if (currentSkinState == darkModeStateOff) {
-          event.target.classList.remove('fa-toggle-on');
-          event.target.classList.add('fa-toggle-off');
-        }
-        else {
-          event.target.classList.remove('fa-toggle-off');
-          event.target.classList.add('fa-toggle-on');
-        }
-        setSkinModeState(currentSkinState == darkModeStateOff ? darkModeStateOn : darkModeStateOff);
-        event.currentTarget.blur();
-      }
-
     function saveColorChanges() {
       const htmlStyle = window.getComputedStyle(document.documentElement);
       const backgroundColor = htmlStyle.backgroundColor;
