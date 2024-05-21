@@ -106,6 +106,10 @@ $tooltip-color: mix($gray, $text-color, 50%) !default;
 $tooltip-box-shadow-color: $box-shadow-color !default; // rgba(mix($black, $background-color, 70%), 0.5) !default;
 //$tooltip-border-color: $border-color !default; // rgba(mix($black, $background-color, 80%), 0.9) !default;
 
+$page-title-color: $text-color !default;
+$heading-color: $text-color !default;
+$toc-header-color: $menuitem-color !default;
+
 /* YIQ color contrast */
 $yiq-contrasted-dark-default: $dark-gray !default;
 $yiq-contrasted-light-default: $white !default;
@@ -146,6 +150,7 @@ $link-color-selected: $selection-color !default;
 $masthead-link-color: $primary-color !default;
 $masthead-link-color-hover: mix($black, $primary-color, 25%) !default;
 $navicon-link-color-hover: mix($white, $primary-color, 75%) !default;
+$code-header-text-color: $link-color !default;
 
 /* notices */
 $notice-background-mix: 80% !default;

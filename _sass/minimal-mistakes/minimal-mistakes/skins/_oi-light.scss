@@ -1,5 +1,5 @@
 /* ==========================================================================
-   OID skin
+   OI Light skin
    ========================================================================== */
 
 /* Colors */
@@ -45,36 +45,13 @@ $masthead-link-color        : $primary-color !default;
 $masthead-link-color-hover  : mix($black, $primary-color, 25%) !default;
 $menuitem-hovered-background-color :$oid-blue !default;
 $menuitem-selected-background-color: $oid-gray !default;
+$heading-color: $link-color !default;
+$page-title-color: $link-color !default;
+$code-header-text-color: $text-color !default;
+$toc-header-color: $text-color !default;
 
 /* notices */
 $notice-background-mix: 60% !default;
 $code-notice-background-mix: 65% !default;
 
 $base01	: $oid-blue !default;
-
-.page__title {
-	a { 
-		color: $link-color !important;
-	}
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-	color: $link-color !important;
-}
-
-.toc {
-	h4 {
-		color: $text-color !important;
-	}
-}
-
-.highlight-header {
-	.btn {
-		color: $text-color !important;
-	}
-}
