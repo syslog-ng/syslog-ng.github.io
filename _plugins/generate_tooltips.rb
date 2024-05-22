@@ -58,7 +58,7 @@ module Jekyll
           link_data = page_links[id]
           if link_data != nil
             url = link_data["url"]
-          url = prefixed_url(url, page.site.config["baseurl"])
+            url = prefixed_url(url, page.site.config["baseurl"])
           else
             puts "Error: Unknown ID in matching part: #{match_parts}"
             return match
@@ -309,7 +309,7 @@ module Jekyll
 
           page_link_data = page_links_dictionary[alias_id]
           if page_link_data == nil
-            puts "Error: Unknow ID (#{alias_id}) in alias definition"
+            puts "Error: Unknown ID (#{alias_id}) in alias definition"
             exit 4
           end
           page_link_data["title"].concat(alias_data["aliases"])

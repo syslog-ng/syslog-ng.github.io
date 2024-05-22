@@ -148,6 +148,8 @@ $(function () {
     // Try to scroll to a giben anchor, if any
     if (anchorId)
       scrollToAnchor(anchorId);
+    // Clear any focus (e.g back navigation keeps the previously clicked link focused)
+    window.trigger('blur');
   }
 
   function updateContentFromUrl(url) {
@@ -707,6 +709,11 @@ $(function () {
 
     document.addEventListener('mouseover', function (event) {
       elementUnderCursor = event.target;
+    });
+
+    window.addEventListener('resize', function () {
+      if (tooltipTarget)
+        hideTooltip(true);
     });
 
     window.addEventListener('blur', function () {
