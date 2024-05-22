@@ -149,7 +149,9 @@ $(function () {
     if (anchorId)
       scrollToAnchor(anchorId);
     // Clear any focus (e.g back navigation keeps the previously clicked link focused)
-    window.trigger('blur');
+    clearFocus();
+    // Forcibly hide the search content that can remain open in certain back and force navigation cases
+    hideSearch();
   }
 
   function updateContentFromUrl(url) {
@@ -248,8 +250,9 @@ $(function () {
         // Clear focus from the clicked element, as we have other visualization for the selected items
         event.target.blur();
       }
-      if (false == updated)
+      if (false == updated) {
         console.debug("Different collection item or new tab/page requested, loading full page...")
+      }
     }
   }
 
@@ -779,15 +782,21 @@ $(function () {
           input.trigger("select");
         }, 100);
       }
-      else {
-        // set focus back via the initial content otherwise the focus will not get back to the search input once again
-        $(".initial-content").find("input").focus();
-      }
+      // else {
+      //   // set focus back via the initial content otherwise the focus will not get back to the search input once again
+      //   $(".initial-content").find("input").focus();
+      // }
 
       if (tooltipTarget)
         hideTooltip(true);
-      // NOTE: event.target is not always the toggle here, use it directly instead of the event
-      $("#search-button").trigger('blur');
+
+      clearFocus();
+    }
+
+    function hideSearch() {
+      $(".search-content").removeClass("is--visible");
+      $(".search-content__form").removeClass("is--visible");
+      $(".initial-content").removeClass("is--hidden");
     }
 
     $("#search-button").on('click', toggleSearch);
@@ -803,9 +812,17 @@ $(function () {
   // (e.g. when an inner embedded page link is opened directly in a new tab, not via the internal navigational links)
   finalizeContent();
 
+  hideSearch();
+
   // Listen for popstate events and update content accordingly
   window.addEventListener('popstate', function () {
     updateContentFromUrl(window.location.pathname);
   });
 
+  window.searchResultLinkClickHandler = function (event) {
+    // Clicking a link that url is shown in the active page will not trigger anything
+    // just show the actual pag, hide the search panel
+    hideSearch();
+    handleNavLinkClick(event);
+  };
 });

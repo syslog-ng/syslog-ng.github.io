@@ -52,6 +52,11 @@
     };
   }
 
+  function clearFocus() {
+    if (document.activeElement instanceof HTMLElement)
+      document.activeElement.blur();
+  }
+
   function getElementPositionRelativeToRoot(element) {
     var rect = element.getBoundingClientRect();
 
