@@ -16,9 +16,9 @@ visit Contact Us page on our website.
 
 ## Technical support resources
 
-Technical support is available to One Identity customers with a valid
-maintenance contract and customers who have trial versions. You can
-access the Support Portal [[here|oi-support-serv]].
+Technical support for One Identity customers with a valid
+maintenance contract, as well as for customers who have trial versions,
+is available via our [[Support Portal|oi-support-serv]].
 
 The Support Portal provides self-help tools you can use to solve
 problems quickly and independently, 24 hours a day, 365 days a year. The
