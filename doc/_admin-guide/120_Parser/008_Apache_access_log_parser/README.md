@@ -79,5 +79,5 @@ OSE configuration:
 The apache-accesslog-parser() is actually a reusable configuration
 snippet configured parse Apache access log messages. For details on
 using or writing such configuration snippets, see
-[[Reusing configuration blocks]]. You can find the source of
+Reusing configuration blocks. You can find the source of
 the Apache configuration snippet on GitHub.
