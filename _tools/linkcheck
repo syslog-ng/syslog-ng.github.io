@@ -13,7 +13,7 @@ check_urls()
 {
 	echo "Checking validity of external links..."
 
-	local URLS+=($(grep 'url:' $EXTERNAL_LINK_FILE | tail -n+1 | awk '{ print $2}'))
+	local URLS+=($(grep 'url:' "$EXTERNAL_LINK_FILE" | tail -n+1 | awk '{ print $2}'))
 
 	if [ ${#URLS[@]} == 0 ]; then
 		echo "No links found in $EXTERNAL_LINK_FILE, please check."
@@ -36,6 +36,7 @@ check_urls()
 		echo "Every link is alive and OK."
 	else
 		echo "$INVALID invalid links found."
+		exit 1
 	fi
 }
 
