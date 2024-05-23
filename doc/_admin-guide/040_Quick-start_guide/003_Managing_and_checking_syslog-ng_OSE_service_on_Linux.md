@@ -206,5 +206,5 @@ following options:
 {: .notice--info}
 
 - Search for the error or issue in our knowledge base.
-- Check the following knowledge base articles for further troubleshooting.
+- Check the following troubleshooting articles.
 - Open a support service request including the results.

@@ -128,7 +128,7 @@ oi-know-base:
 oi-know-base-art:
   id: oi-know-base-art
   url: https://support.oneidentity.com/syslog-ng-premium-edition/kb?k=troubleshooting&r=Topic%3ATroubleshooting
-  title: [ "following knowledge base articles" ]
+  title: [ "troubleshooting articles" ]
 
 oi-llc:
   id: oi-llc
