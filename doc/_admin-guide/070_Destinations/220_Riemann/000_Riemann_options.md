@@ -71,8 +71,8 @@ Note that the time format parameter requires:
     not available.
 
     In case your distribution does not contain a recent enough version
-    of riemann-c-client and you wish to use microseconds, install a new
-    version from [[here|riemann-cli]].
+    of riemann-c-client and you wish to use microseconds,
+	[[install a new version of the client|riemann-cli]].
 
     If you installed the new version in a custom location (instead of
     the default one), make sure that you append the directory of the
