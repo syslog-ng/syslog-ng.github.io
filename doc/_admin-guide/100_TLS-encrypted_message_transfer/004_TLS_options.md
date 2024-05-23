@@ -57,7 +57,7 @@ of the files must be .r0.
 generated using the openssl dhparam utility. Note that syslog-ng OSE
 supports only DH parameter files in the PEM format. If you do not set
 this parameter, syslog-ng OSE uses the 2048-bit MODP Group, as
-described in RFC 3526.
+described in RFC-3526.
 
 ## ecdh-curve-list()
 

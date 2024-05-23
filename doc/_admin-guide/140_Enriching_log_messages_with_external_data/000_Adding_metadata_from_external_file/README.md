@@ -38,7 +38,7 @@ the IP address, and adds the host-role field to the log message.
 
 ## The database file
 
-The database file must comply with the RFC4180 CSV format,
+The database file must comply with the RFC-4180 CSV format,
 with the following exceptions and limitations:
 
 - The values of the CSV-file cannot contain line-breaks

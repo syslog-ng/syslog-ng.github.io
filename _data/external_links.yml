@@ -430,25 +430,30 @@ welf:
 
 ### RFC links ###
 
+rfc-3164:
+  id: rfc-3164
+  url: https://www.ietf.org/rfc/rfc3164.txt
+  title: [ "RFC-3164" ]
+
 rfc-3526:
   id: rfc-3526
   url: https://www.ietf.org/rfc/rfc3526.txt
-  title: [ "RFC 3526" ]
+  title: [ "RFC-3526" ]
 
 rfc-4180:
   id: rfc-4180
   url: https://tools.ietf.org/html/rfc4180
-  title: [ "RFC4180 CSV format" ]
+  title: [ "RFC-4180 CSV format" ]
 
 rfc-4627:
   id: rfc-4627
   url: https://tools.ietf.org/html/rfc4627
-  title: [ "RFC 4627" ]
+  title: [ "RFC-4627" ]
 
 rfc-5424:
   id: rfc-5424
   url: https://tools.ietf.org/html/rfc5424#page-8
-  title: [ "RFC 5424-compliant form" ]
+  title: [ "RFC-5424" ]
 
 rfc-base64:
   id: rfc-base64
@@ -468,7 +473,7 @@ rfc-ietf-syslog-proto:
 rfc-octet:
   id: rfc-octet
   url: https://tools.ietf.org/html/rfc6587#section-3.4.1
-  title: [ "the octet counting method described in RFC6587" ]
+  title: [ "the octet counting method described in RFC-6587" ]
 
 rfc-sdid:
   id: rfc-sdid

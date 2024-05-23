@@ -7,7 +7,7 @@ description: >-
     JavaScript Object Notation (JSON) is a text-based open standard designed
     for human-readable data interchange. It is used primarily to transmit
     data between a server and web application, serving as an alternative to
-    XML. It is described in RFC 4627.
+    XML. It is described in RFC-4627.
     The syslog-ng OSE application can separate parts of incoming
     JSON-encoded log messages to name-value pairs. For details on using
     value-pairs in syslog-ng OSE see

@@ -146,7 +146,7 @@ A name that identifies a host on the network.
 ### IETF-syslog protocol
 
 The syslog-protocol standard developed by the Internet Engineering Task
-Force (IETF), described in RFC 5424-5427.
+Force (IETF), described in RFC-5424.
 
 ## K
 

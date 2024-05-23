@@ -133,7 +133,7 @@ any of the following options:
 
   - In the case of TCP, you can encapsulate and send the document in
         syslog-protocol format, and use a syslog() source. Make sure
-        that the message conforms to the octet counting method described in RFC6587.
+        that the message conforms to the octet counting method described in RFC-6587.
 
     For example:
 

@@ -77,7 +77,7 @@ destinations with syslog-ng OSE has the following limitations:
 
 - The minimum required version of syslog-ng OSE is version 3.27.1.
 
-- Message format must be in RFC 5424-compliant form. Messages over
+- Message format must be in RFC-5424 compliant form. Messages over
     64KB in length are truncated.
 
     For more information about the message format limitations, see the
@@ -86,10 +86,8 @@ destinations with syslog-ng OSE has the following limitations:
 - 64 characters long Sumo Logic tokens must be passed in the message
     body.
 
-    NOTE: Although RFC 5424
-    limits the structured data field
-    (SD-ID) to 32
-    characters, Sumo Logic tokens are 64 characters long. If your
+    NOTE: Although RFC-5424 limits the structured data field
+    (SD-ID) to 32 characters, Sumo Logic tokens are 64 characters long. If your
     logging client enforces the 32 characters length limit, you must
     pass the token in the message body.
 
