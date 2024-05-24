@@ -1,11 +1,9 @@
 ---
-title: syslog-ng Open Source Edition Administration Guides
+title: syslog-ng {{ site.product.name }} Administration Guides
 id: adm-guide
 description: >-
-    Welcome to the syslog-ng Open Source Edition 4.6 Administration Guide.
-    This document describes how to configure and manage syslog-ng Open
-    Source Edition (syslog-ng OSE). Background information for the
-    technology and concepts used by the product is also discussed.
+    Welcome to the syslog-ng {{ site.product.name }} 4.6 Administration Guide.
+    This document describes how to configure and manage {{ site.product.name }} ({{ site.product.short_name }}). Background information for the technology and concepts used by the product is also discussed.
 ---
 
 ## Target audience
