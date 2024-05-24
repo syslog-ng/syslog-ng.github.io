@@ -443,7 +443,7 @@ rfc-3526:
 rfc-4180:
   id: rfc-4180
   url: https://tools.ietf.org/html/rfc4180
-  title: [ "RFC-4180 CSV format" ]
+  title: [ "RFC-4180" ]
 
 rfc-4627:
   id: rfc-4627
@@ -473,7 +473,7 @@ rfc-ietf-syslog-proto:
 rfc-octet:
   id: rfc-octet
   url: https://tools.ietf.org/html/rfc6587#section-3.4.1
-  title: [ "the octet counting method described in RFC-6587" ]
+  title: [ "RFC-6587" ]
 
 rfc-sdid:
   id: rfc-sdid
