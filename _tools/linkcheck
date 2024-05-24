@@ -1,0 +1,55 @@
+#!/bin/bash
+
+check_link_file()
+{
+	if ! [ -f "${EXTERNAL_LINK_FILE}" ]; then
+		echo "The specified file $EXTERNAL_LINK_FILE does not exist. Exiting..."
+		exit 1
+	fi
+}
+
+
+check_urls()
+{
+	echo "Checking validity of external links..."
+
+	local URLS+=($(grep 'url:' "$EXTERNAL_LINK_FILE" | tail -n+1 | awk '{ print $2}'))
+
+	if [ ${#URLS[@]} == 0 ]; then
+		echo "No links found in $EXTERNAL_LINK_FILE, please check."
+		exit 1
+	fi
+
+	for url in "${URLS[@]}";
+	do
+		response=$(curl -o /dev/null -s -w "%{http_code}\n" $url)
+
+		if [[ "$response" == "000" || "$response" > "399" ]]; then
+			echo "($response) $url is not a live url, please check in $EXTERNAL_LINK_FILE."
+			INVALID=$((INVALID+1))
+		fi
+		
+		sleep .5
+	done
+
+	if [[ "$INVALID" == 0 ]]; then
+		echo "Every link is alive and OK."
+	else
+		echo "$INVALID invalid links found."
+		exit 1
+	fi
+}
+
+
+if ! [ "$#" -eq 1 ]; then
+    echo "Usage: $0 <external link file>"
+    exit 1
+fi
+
+EXTERNAL_LINK_FILE="${1}"
+INVALID=0
+
+check_link_file
+check_urls
+
+exit 0
