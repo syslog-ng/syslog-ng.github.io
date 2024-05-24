@@ -782,10 +782,6 @@ $(function () {
           input.trigger("select");
         }, 100);
       }
-      // else {
-      //   // set focus back via the initial content otherwise the focus will not get back to the search input once again
-      //   $(".initial-content").find("input").focus();
-      // }
 
       if (tooltipTarget)
         hideTooltip(true);

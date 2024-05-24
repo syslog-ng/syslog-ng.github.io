@@ -15,7 +15,7 @@ var store = [
         {%- assign teaser = site.teaser -%}
       {%- endif -%}
       {
-        "title": {{ doc.title | jsonify }},
+        "title": {{ doc.title | liquify | markdownify | strip_html | strip_newlines| jsonify }},
         "excerpt":
           {%- if site.search_full_content == true -%}
             {{ doc.content | newline_to_br |
@@ -54,7 +54,7 @@ var store = [
         {%- assign l = true -%}
       {%- endif -%}
       {
-        "title": {{ doc.title | jsonify }},
+        "title": {{ doc.title | liquify | markdownify | strip_html | strip_newlines| jsonify }},
         "excerpt":
             {%- if site.search_full_content == true -%}
               {{ doc.content | newline_to_br |

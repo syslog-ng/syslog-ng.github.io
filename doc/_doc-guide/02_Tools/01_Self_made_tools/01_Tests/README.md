@@ -1,5 +1,6 @@
 ---
-title: "This's a self made tools testing page"
+title: "This's a self made tools testing page of {{ site.title }}"
+# short_title can be turned off for in-title liquid testing in the nav bar, uncomment if needed
 short_title: "Self made tools testing"
 id: doc-testing-page
 subtitle: >-
@@ -10,6 +11,7 @@ subtitle: >-
     Linking also could work with our {% include markdown_link id='doc-own-tools' title='markdown_link liquid include' withTooltip='yes' %}.<br>
     One more [[destination|adm-about-glossary#bom]] id=adm-about-glossary#bom override test from subtutle.<br>
     Macros test ${HOST}).
+# this can be tested as well, but do not send to tha final version
 search: false
 ---
 
@@ -67,7 +69,7 @@ Developer guide is a double (page title amd section heading) example with a desc
 
 [[Installing syslog-ng|adm-install]] is a forced, (also a doubled) page link title example with a description/subtitle.
 
-[[Self page link|doc-testing-page]] test.
+This one is a [[Self page link|doc-testing-page]] test with ID, this one with the title only - This's a self made tools testing page of {{ site.title }}, and a last one with direkt liquid usage - This's a self made tools testing page of {{ site.title }}.
 
 Test of forced link with anchored ID part [[Install Homebrew|dev-inst-macos#homebrew]].
 
@@ -75,6 +77,10 @@ Test of forced link with anchored ID part [[Install Homebrew|dev-inst-macos#home
 
 **Hint:** Same again in a notice block [[Install Homebrew|dev-inst-macos#homebrew]]. If you you have syslog-ng [[installed via brew|dev-inst-macos#installation]], as a reference, you can check the dependencies of the brew built version using `brew deps syslog-ng`
 {: .notice--info}
+
+Embedded [link test](https://grpc.io/docs/guides/keepalive/) from a different domain
+
+Search test for RFC 3526 and RFC-3526. (you need to turn 'search: true' on temporally in the liquid header of this test page)
 
 The severity of the message. `time-zone()` teszt
 

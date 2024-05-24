@@ -1249,6 +1249,6 @@ doc-guide-nav:
     - title: "Self made helper tools"
       url: /doc-guide/02_Tools/01_Self_made_tools/README
       subnav:
-      - title: "Self made tools testing"
+      - title: "This's a self made tools testing page of {{ site.title }}"
         url: /doc-guide/02_Tools/01_Self_made_tools/01_Tests/README
         subnav:
