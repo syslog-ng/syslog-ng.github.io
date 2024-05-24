@@ -3,7 +3,7 @@ title: 'osquery: Collect and parse osquery result logs'
 short_title: osquery
 id: adm-src-osquery
 description: >-
-    The [osquery](https://osquery.io) application allows you to ask
+    The osquery application allows you to ask
     questions about your machine using an SQL-like language. For example,
     you can query running processes, logged in users, installed packages and
     syslog messages as well. You can make queries on demand, and also
@@ -13,8 +13,9 @@ description: >-
 The osquery() source of syslog-ng OSE allows you read the results of
 periodical osquery queries (from the
 /var/log/osquery/osqueryd.results.log file) and automatically parse the
-messages (if you want to use syslog-ng OSE to [send log messages to
-osquery, read this blogpost](https://syslog-ng.com/blog/endpoint-visibility-and-monitoring-using-osquery-and-syslog-ng/)).
+messages (if you want to use syslog-ng OSE to send log messages to
+osquery, read this blogpost).  
+
 For example, you can:
 
 - Create filters from the fields of the messages.
@@ -46,8 +47,7 @@ The osquery() driver is actually a reusable configuration snippet
 configured to read the osquery log file using the file() driver, and
 process its JSON contents. For details on using or writing such
 configuration snippets, see Reusing configuration blocks.
-You can find the source of this configuration snippet on
-[GitHub](https://github.com/syslog-ng/syslog-ng/blob/master/scl/osquery/plugin.conf).
+You can find the source of the osquery configuration snippet on GitHub.
 
 ## Example: Using the osquery() driver with the default settings
 

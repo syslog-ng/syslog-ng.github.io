@@ -1,6 +1,6 @@
 ## keep-alive()
 
-This option configures the forwarding of [gRPC keepalive pings](https://grpc.io/docs/guides/keepalive/) in syslog-ng OSE.
+This option configures the forwarding of gRPC keepalive pings in syslog-ng OSE.
 
 ### max-pings-without-data()
 

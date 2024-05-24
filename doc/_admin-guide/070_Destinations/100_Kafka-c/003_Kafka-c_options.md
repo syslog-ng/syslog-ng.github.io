@@ -4,10 +4,7 @@ id: adm-dest-kafkac-opt
 ---
 
 The C implementation of the kafka() destination of syslog-ng OSE can
-directly publish log messages to the [Apache
-Kafka](http://kafka.apache.org) message bus, where subscribers can
-access them. The C implementation of the kafka() destination has the
-following options.
+directly publish log messages to the Apache Kafka message bus, where subscribers can access them. The C implementation of the kafka() destination has the following options.
 
 ## Required options
 
@@ -49,8 +46,8 @@ syslog-ng OSE will not send out messages in time.
 {: .notice--info}
 
 For more information about the default values of the
-transaction.timeout.ms Kafka property, see [the librdkafka
-documentation](https://github.com/edenhill/librdkafka/blob/master/CONFIGURATION.md).
+transaction.timeout.ms Kafka property, see the librdkafka
+documentation.
 
 ## bootstrap-servers()
 
@@ -87,8 +84,7 @@ of the properties-file().
 {% include doc/admin-guide/notes/kafka-c.md %}
 
 The syslog-ng OSE kafka destination supports all properties of the
-official Kafka producer. For details, see [the librdkafka
-documentation](https://github.com/edenhill/librdkafka/blob/master/CONFIGURATION.md).
+official Kafka producer. For details, see the librdkafka documentation.
 
 The syntax of the config() option is the following:
 
@@ -168,8 +164,7 @@ syslog-ng OSE application reads this file and passes the properties to
 the Kafka Producer.
 
 The syslog-ng OSE kafka destination supports all properties of the
-official Kafka producer. For details, see [the librdkafka
-documentation](https://github.com/edenhill/librdkafka/blob/master/CONFIGURATION.md).
+official Kafka producer. For details, see the librdkafka documentation.
 
 The bootstrap-servers option is translated to the bootstrap.servers
 property.

@@ -55,7 +55,7 @@ syslog-ng OSE reload, use the following options:
 
 In the following example, the hook-commands() is used with the network()
 driver and it opens an
-[iptables](https://en.wikipedia.org/wiki/Iptables) port automatically as
+iptables port automatically as
 syslog-ng OSE is started/stopped.
 
 The assumption in this example is that the LOGCHAIN chain is part of a

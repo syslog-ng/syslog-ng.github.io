@@ -64,8 +64,8 @@ matches(
 |  Type:    |  string|
 |  Default: |  "*" |
 
-*Description:* The namespace() option works exactly the same way as [the
-respective option of the Journalctl command line tool](https://www.freedesktop.org/software/systemd/man/journalctl.html#--namespace=NAMESPACE).
+*Description:* The namespace() option works exactly the same way as the
+respective option of the Journalctl command line tool.
 
 The following modes of operation are available:
 
@@ -118,8 +118,7 @@ source s_journal
 **NOTE:** Namespace support was introduced to the Journalctl command line
 tool in Systemd version 2.45. The syslog-ng OSE application supports the
 namespace() option from version 3.29. For further information about
-namespaces on the Systemd side, see [Journal
-Namespaces](<https://www.freedesktop.org/software/systemd/man/systemd-journald.service.html#Journal> Namespaces).
+namespaces on the Systemd side, see Journal Namespaces.
 {: .notice--info}
 
 ## prefix()

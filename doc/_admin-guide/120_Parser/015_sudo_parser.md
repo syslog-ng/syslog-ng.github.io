@@ -21,9 +21,8 @@ log {
 
 The sudo-parser() is actually a reusable configuration snippet
 configured to parse sudo messages. For details on using or writing such
-configuration snippets, see Reusing configuration blocks.
-You can find the source of this configuration snippet on
-[GitHub](https://github.com/syslog-ng/syslog-ng/blob/master/scl/sudo/sudo.conf).
+configuration snippets, see [[Reusing configuration blocks]].
+You can find the source of the sudo configuration snippet on GitHub.
 
 {% include doc/admin-guide/options/prefix.md %}
 

@@ -3,7 +3,7 @@ title: Batch mode and load balancing with Redis
 id: adm-dest-redis-batch
 description: >-
     Starting with version 3.34, you can send multiple log messages with the
-    help of [Redis's pipelining feature](https://github.com/redis/hiredis#pipelining).
+    help of Redis's pipelining feature.
 ---
 
 ## Batch size

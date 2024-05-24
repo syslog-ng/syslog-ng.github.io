@@ -8,8 +8,7 @@ description: >-
     syslog-ng OSE see Structuring macros, metadata, and other value-pairs.
     The apache-accesslog-parser() supports
     both the Common Log Format and the Combined Log Format of Apache (for
-    details, see the [Apache HTTP Server
-    documentation](https://httpd.apache.org/docs/2.4/logs.html#accesslog)).
+    details, see the Apache HTTP Server documentation.
 ---
 
 The following is a sample log message:
@@ -81,5 +80,4 @@ The apache-accesslog-parser() is actually a reusable configuration
 snippet configured parse Apache access log messages. For details on
 using or writing such configuration snippets, see
 Reusing configuration blocks. You can find the source of
-this configuration snippet on
-[GitHub](https://github.com/syslog-ng/syslog-ng/blob/master/scl/apache/apache.conf).
+the Apache configuration snippet on GitHub.

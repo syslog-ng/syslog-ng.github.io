@@ -68,9 +68,7 @@ pure Python super classes.
 
 You can implement your own event loop, or integrate the event loop of an
 external framework or library, for example,
-[KafkaConsumer](https://kafka-python.readthedocs.io/en/master/apidoc/KafkaConsumer.html),
-[Flask](http://flask.pocoo.org/), [Twisted
-engine](https://twistedmatrix.com/trac/), and so on.
+KafkaConsumer, Flask, Twisted engine, and so on.
 
 To post messages, call LogSource::post_message() method in the run
 method.

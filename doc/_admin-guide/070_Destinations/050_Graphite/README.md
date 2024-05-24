@@ -4,7 +4,7 @@ short_title: graphite
 id: adm-dest-graphite
 description: >-
     The graphite() destination can send metrics to a
-    [Graphite](http://graphite.readthedocs.io/en/latest/index.html) server
+    Graphite server
     to store numeric time-series data. There are many ways to feed the
     Graphite template function with name value pairs. 
 ---
@@ -24,8 +24,8 @@ OSE, like running a simple shell script collecting
 metrics and running it from cron regularly.
 
 To see an example of how the graphite() destination is used to collect
-statistics coming from syslog-ng, see the blog post [Collecting syslog-ng
-statistics to Graphite](https://syslog-ng.com/blog/collecting-syslog-ng-statistics-to-graphite/).
+statistics coming from syslog-ng, see the blog post Collecting syslog-ng
+statistics to Graphite.
 
 **Declaration**
 

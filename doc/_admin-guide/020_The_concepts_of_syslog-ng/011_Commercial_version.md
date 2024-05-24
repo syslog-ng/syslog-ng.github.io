@@ -53,7 +53,7 @@ dedicated to resolving your issue as soon as possible when you
 experience problems.
 
 For more information about syslog-ng Premium Edition, see
-[The syslog-ng Premium Edition Administration Guide](https://support.oneidentity.com/syslog-ng-premium-edition/).
+The syslog-ng Premium Edition Administration Guide.
 
 ## syslog-ng Store Box, ready-to-use log management appliance
 
@@ -92,9 +92,9 @@ SSB provides a number of features that can add value for your use cases:
 - High availability support to ensure continuous log collection in business-critical environments.
 
 For further details about syslog-ng Store Box, see 
-[The syslog-ng Store Box Administration Guide](https://support.oneidentity.com/syslog-ng-store-box/).
+The syslog-ng Store Box Administration Guide.
 
 ## Upgrading from syslog-ng OSE to syslog-ng PE
 
 If you wish to upgrade from syslog-ng OSE to syslog-ng PE, read the blog
-post [Upgrading from syslog-ng OSE to syslog-ng PE](https://syslog-ng.com/blog/upgrading-from-syslog-ng-open-source-to-premium-edition/) for instructions and tips.
+post Upgrading from syslog-ng OSE to syslog-ng PE for instructions and tips.

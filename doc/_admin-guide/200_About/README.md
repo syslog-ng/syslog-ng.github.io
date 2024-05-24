@@ -12,13 +12,13 @@ description: >-
 ## Contacting us
 
 For sales and other inquiries, such as licensing, support, and renewals,
-visit <https://www.oneidentity.com/company/contact-us.aspx>.
+visit Contact Us page on our website.
 
 ## Technical support resources
 
-Technical support is available to One Identity customers with a valid
-maintenance contract and customers who have trial versions. You can
-access the Support Portal at <https://support.oneidentity.com/>.
+Technical support for One Identity customers with a valid
+maintenance contract, as well as for customers who have trial versions,
+is available via our [[Support Portal|oi-support-serv]].
 
 The Support Portal provides self-help tools you can use to solve
 problems quickly and independently, 24 hours a day, 365 days a year. The
@@ -32,7 +32,7 @@ Support Portal enables you to:
 
 - Download software and technical documentation
 
-- View how-to videos at <https://www.YouTube.com/OneIdentity>
+- View how-to videos on our Youtube channel
 
 - Engage in community discussions
 

@@ -57,11 +57,11 @@ following application logs:
 - Linux Audit (auditd) logs. For details, see
     Linux audit parser.
 - Netskope log messages. For details, see
-    Netskope parser.
-- [osquery](https://osquery.io) result logs. For details, see
+    [[Netskope parser]].
+- osquery result logs. For details, see
     [[osquery: Collect and parse osquery result logs]].
 
-- SNMP traps of the [Net-SNMP](http://www.net-snmp.org)\'s snmptrapd
+- SNMP traps of the Net-SNMP\'s snmptrapd
     application. For details, see
     [[snmptrap: Read Net-SNMP traps]].
 - sudo logs. For details, see Sudo parser.

@@ -16,7 +16,7 @@ OSE version 3.5. For details, see
 {: .notice--info}
 
 The following template is a valid LPUSH command in accordance with the
-[Redis protocol](https://redis.io/topics/protocol/), and puts the
+Redis protocol, and puts the
 ${MESSAGE} into a separate list for every ${PROGRAM}:
 
 ```config

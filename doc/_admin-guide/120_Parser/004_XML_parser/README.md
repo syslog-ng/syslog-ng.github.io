@@ -5,8 +5,7 @@ description: >-
     Extensible Markup Language (XML) is a text-based open standard designed
     for both human-readable and machine-readable data interchange. Like
     JSON, it is used primarily to transmit data between a server and web
-    application. It is described in [W3C Recommendation: Extensible Markup
-    Language (XML)](https://www.w3.org/TR/REC-xml/).
+    application. It is described in W3C Recommendation: Extensible Markup Language (XML).
 
     The XML parser processes input in XML format, and adds the parsed data
     to the message object.
@@ -134,9 +133,7 @@ any of the following options:
 
   - In the case of TCP, you can encapsulate and send the document in
         syslog-protocol format, and use a syslog() source. Make sure
-        that the message conforms to [the octet counting method
-        described in
-        RFC6587](https://tools.ietf.org/html/rfc6587#section-3.4.1).
+        that the message conforms to the octet counting method described in RFC-6587.
 
     For example:
 

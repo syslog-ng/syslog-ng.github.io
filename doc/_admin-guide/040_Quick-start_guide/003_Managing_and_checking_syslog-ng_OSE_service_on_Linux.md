@@ -205,6 +205,6 @@ processed by syslog-ng OSE or you encounter any issue, you have the
 following options:
 {: .notice--info}
 
-- Search for the error or issue in our [knowledge base](https://support.oneidentity.com/syslog-ng-premium-edition/kb).
-- Check the [following knowledge base articles](https://support.oneidentity.com/syslog-ng-premium-edition/kb?k=troubleshooting&r=Topic%3ATroubleshooting) for further troubleshooting.
-- [Open a support service request](https://support.oneidentity.com/) including the results.
+- Search for the error or issue in our knowledge base.
+- Check the following troubleshooting articles.
+- Open a support service request including the results.

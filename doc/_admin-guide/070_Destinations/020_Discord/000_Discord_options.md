@@ -15,8 +15,8 @@ destination has the following options.
 |Default:|   N/A|
 
 *Description:* A hyperlink for icon of the author to be displayed in
-Discord. For details, see the avatar_url option in the [Discord
-documentation](https://discord.com/developers/docs/intro).
+Discord. For details, see the avatar_url option in the Discord
+documentation.
 
 {% include doc/admin-guide/options/batch-bytes.md %}
 
@@ -74,8 +74,7 @@ documentation](https://discord.com/developers/docs/intro).
 |Default:|   2000|
 
 *Description:* Removes every character above the set limit. For details,
-see the content option in the [Discord
-documentation](https://discord.com/developers/docs/resources/webhook#webhook-object-jsonform-params).
+see the content option in the Discord documentation.
 
 {% include doc/admin-guide/options/peer-verify.md %}
 
@@ -127,7 +126,7 @@ gets resolved to an empty string, Discord rejects the message.
 
 {% include doc/admin-guide/options/throttle.md %}
 
-For more information, see [Discord: Rate Limits](https://discord.com/developers/docs/topics/rate-limits#global-rate-limit).
+For more information, see Discord: Rate Limits.
 
 {% include doc/admin-guide/options/timeout.md %}
 
@@ -137,8 +136,7 @@ For more information, see [Discord: Rate Limits](https://discord.com/developers/
 |Default:|   false|
 
 *Description:* Enables TTS (Text-To-Speech) mode. For more information,
-see the tts option in the [Discord
-documentation](https://discord.com/developers/docs/resources/webhook#webhook-object-jsonform-params).
+see the tts option in the Discord documentation.
 
 ## url()
 
@@ -146,7 +144,7 @@ documentation](https://discord.com/developers/docs/resources/webhook#webhook-obj
 |Default:|   N/A|
 
 *Description:* The webhook URL of the Discord server/channel. For more
-information, see [Discord: Intro to Webhooks](https://support.discord.com/hc/en-us/articles/228383668-Intro-to-Webhooks).
+information, see Discord: Intro to Webhooks.
 
 {% include doc/admin-guide/options/user-agent.md %}
 
@@ -156,8 +154,7 @@ information, see [Discord: Intro to Webhooks](https://support.discord.com/hc/en-
 |Default:|   N/A|
 
 *Description:* Overrides the default username of the webhook. For
-details, see the username option in the [Discord
-documentation](https://discord.com/developers/docs/]resources/webhook#webhook-object-jsonform-params).
+details, see the username option in the Discord documentation.
 
 {% include doc/admin-guide/options/use-system-cert-store.md %}
 

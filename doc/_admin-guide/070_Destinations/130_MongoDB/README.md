@@ -4,7 +4,7 @@ short_title: mongodb
 id: adm-dest-mongodb
 description: >-
     The mongodb() driver sends messages to a
-    [MongoDB](https://www.mongodb.com/) database. MongoDB is a schema-free,
+    MongoDB database. MongoDB is a schema-free,
     document-oriented database. For the list of available optional
     parameters, see mongodb() destination options.
 ---

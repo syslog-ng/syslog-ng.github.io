@@ -8,4 +8,4 @@ description: >-
 ---
 
 A tool that can be used to create UNIX clusters is Heartbeat (for details,
-see [this page](http://www.linux-ha.org/wiki/Main_Page/)).
+see the archived page of Linux-HA.

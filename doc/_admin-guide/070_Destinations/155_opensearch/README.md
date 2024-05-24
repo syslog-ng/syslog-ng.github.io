@@ -5,7 +5,7 @@ id: adm-dest-os
 description: >-
     Available in syslog-ng-OSE version 4.4 and later versions.
 
-    The opensearch() destination posts log messages to [OpenSearch](https://opensearch.org)
+    The opensearch() destination posts log messages to OpenSearch
     using its HTTP endpoint.
 
     HTTPS connection, password- and certificate-based authentication are supported.

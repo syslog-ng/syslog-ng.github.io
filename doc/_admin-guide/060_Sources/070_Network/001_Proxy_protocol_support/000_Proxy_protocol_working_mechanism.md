@@ -3,7 +3,7 @@ title: The working mechanism behind the Proxy Protocol
 id: adm-src-netw-proxy-mech
 description: >-
     This section describes how syslog-ng Open Source Edition (syslog-ng OSE)
-    supports the [Proxy Protocol](https://www.haproxy.com/blog/haproxy/proxy-protocol/).
+    supports the Proxy Protocol.
 ---
 
 ## The working mechanism behind the Proxy Protocol

@@ -4,7 +4,7 @@ short_title: Loggly
 id: adm-dest-loggly
 description: >-
     The loggly() destination sends log messages to the
-    [Loggly](https://www.loggly.com/) Logging-as-a-Service provider. You can
+    Loggly Logging-as-a-Service provider. You can
     send log messages over TCP, or encrypted with TLS.
 ---
 
@@ -67,5 +67,4 @@ The loggly() driver is actually a reusable configuration snippet
 configured to send log messages using the tcp() driver using a template.
 For details on using or writing such configuration snippets, see
 Reusing configuration blocks. You can find the source of
-this configuration snippet on
-[GitHub](https://github.com/syslog-ng/syslog-ng/blob/master/scl/loggly/loggly.conf).
+the loggly configuration snippet on GitHub.

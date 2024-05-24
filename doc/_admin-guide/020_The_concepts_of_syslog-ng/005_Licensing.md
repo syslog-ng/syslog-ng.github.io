@@ -14,8 +14,8 @@ code package is under LGPL, the rest is GPL.
 {: .notice--info}
 
 For details about the LGPL and GPL licenses, see
-[[GNU Lesser General Public License|lgpl-license]] and
-[[GNU General Public License|gpl-license]], respectively.
+GNU Lesser General Public License and
+GNU General Public License, respectively.
 
 For clarity, the Documentation is licensed separately.
 For details, see The syslog-ng Open Source Edition Documentation License.

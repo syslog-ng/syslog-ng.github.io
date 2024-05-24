@@ -4,7 +4,7 @@ short_title: riemann
 id: adm-dest-riemann
 description: >-
         The riemann() driver sends your data (for example, metrics or events) to
-        a [Riemann](http://riemann.io/) monitoring system.
+        a Riemann monitoring system.
 
         For the list of available parameters, see
         riemann() destination options.  
@@ -55,6 +55,5 @@ log {
 ```
 
 For a detailed use-case on using syslog-ng OSE with the Riemann
-monitoring system, see the article [A How to Guide on Modern Monitoring
-and Alerting by Fabien
-Wernli](https://devops.com/guide-modern-monitoring-alerting/).
+monitoring system, see the article A How to Guide on Modern Monitoring
+and Alerting by Fabien Wernli.

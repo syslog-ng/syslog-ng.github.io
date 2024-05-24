@@ -3,7 +3,7 @@ title: 'PostgreSQL csvlog parser'
 short_title: 'PostgreSQL parser'
 id: adm-parser-postrgresql
 description: >-
-    This parser processes messages in the [PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-logging.html#RUNTIME-CONFIG-LOGGING-CSVLOG) csvlog format. The following multi-line message example is a embedded with NL characters. This single, multi-line log entry starts with the timestamp.
+    This parser processes messages in the PostgreSQL csvlog format. The following multi-line message example is a embedded with NL characters. This single, multi-line log entry starts with the timestamp.
 ---
 
 ```config
@@ -26,4 +26,4 @@ log {
 };
 ```
 
-The `postgresql-csvlog-parser()` driver functions as a reusable configuration snippet configured to parse log messages using the `csv-parser()`. For more information on using or writing configuration snippets, see Reusing configuration blocks. The source of this configuration snippet can be found on [GitHub](https://github.com/syslog-ng/syslog-ng/blob/master/scl/pgsql/pgsql.conf).
+The `postgresql-csvlog-parser()` driver functions as a reusable configuration snippet configured to parse log messages using the `csv-parser()`. For more information on using or writing configuration snippets, see Reusing configuration blocks. The source of the PostgreSQL configuration snippet on GitHub.

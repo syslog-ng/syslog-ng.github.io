@@ -4,7 +4,7 @@ short_title: redis
 id: adm-dest-redis
 description: >-
     The redis() driver sends messages as name-value pairs to a
-    [Redis](https://redis.io/) key-value store.
+    Redis key-value store.
 
     For the list of available parameters, see redis() destination options.  
 ---

@@ -9,8 +9,8 @@ description: >-
 
 For details on forwarding log messages to Splunk with syslog-ng OSE see the following posts on the Splunk blog:
 
-* [syslog-ng and HEC: Scalable Aggregated Data Collection in Splunk](https://www.splunk.com/blog/2017/03/30/syslog-ng-and-hec-scalable-aggregated-data-collection-in-splunk.html)
+* syslog-ng and HEC: Scalable Aggregated Data Collection in Splunk
 
-* [Using Syslog-ng with Splunk](https://www.splunk.com/blog/2016/03/11/using-syslog-ng-with-splunk/)
+* Using Syslog-ng with Splunk
 
 From version 4.2 syslog-ng OSE can send messages to the Splunk HTTP Event Collector(HEC). For details, see splunk-hec-event: Send log messages to Splunk HEC.

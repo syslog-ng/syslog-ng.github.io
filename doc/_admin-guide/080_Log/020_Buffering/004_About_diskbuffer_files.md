@@ -13,10 +13,7 @@ confirmed that the message has been successfully received. This prevents
 message loss, for example, due to syslog-ng OSE crashes if the client
 and the destination server communicate using the Advanced Log Transport
 Protocol (ALTP). Note that the Advanced Log Transport Protocol is
-available only in [syslog-ng Premium Edition version 6
-LTS](https://syslog-ng.com/log-management-software). Of course, using
-the reliable(yes) option introduces a significant performance penalty as
-well.
+available only in syslog-ng Premium Edition version 6 LTS. Of course, using the reliable(yes) option introduces a significant performance penalty as well.
 
 Both reliable and normal disk-buffers employ an in-memory output queue
 (set in quot-size()) and an in-memory overflow queue (set in

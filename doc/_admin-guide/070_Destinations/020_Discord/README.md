@@ -3,8 +3,8 @@ title: 'discord: Sending alerts and notifications to Discord'
 short_title: Discord
 id: adm-dest-discord
 description: >-
-    The discord() destination driver sends messages to [Discord](https://discord.com/)
-    using [Discord Webhook](https://discord.com/developers/docs/resources/webhook).
+    The discord() destination driver sends messages to Discord
+    using Discord Webhook.
     For the list of available optional parameters, see Discord destination options.
 
     Available in syslog-ng OSE version 3.33 and later.
@@ -20,7 +20,7 @@ destination {
 ```
 
 By default the message sending is throttled to 5 message/sec, see
-[Discord: Rate Limits](https://discord.com/developers/docs/topics/rate-limits#global-rate-limit).
+Discord: Rate Limits.
 To change this, use the throttle() option.
 
 To use this destination, the scl.conf file must be included in your
@@ -38,7 +38,7 @@ blocks. You can find the source of this configuration snippet on GitHub.
 ## Prerequisites
 
 To send messages to Discord, you must setup webhooks. For details, see:
-[Discord: Intro to Webhooks](https://support.discord.com/hc/en-us/articles/228383668-Intro-to-Webhooks).
+Discord: Intro to Webhooks.
 
 ### Example: Using the discord() driver
 

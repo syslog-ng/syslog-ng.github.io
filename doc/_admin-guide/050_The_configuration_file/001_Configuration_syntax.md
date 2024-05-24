@@ -41,7 +41,7 @@ log {
 };
 ```
 
-As a syslog-ng user described on a [mailing list](https://lists.gt.net/gentoo/user/209108):
+As a syslog-ng user described on a Gentoo mailing list:
 
 > Alan McKinnon
 >

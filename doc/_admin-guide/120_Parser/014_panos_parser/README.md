@@ -3,9 +3,9 @@ title: 'panos-parser(): parsing PAN-OS log messages'
 short_title: panos-parser()
 id: adm-parser-panos
 description: >-
-    The [PAN-OS](https://docs.paloaltonetworks.com/pan-os.html) (a short
+    The PAN-OS (a short
     version of Palo Alto Networks Operating System) parser can parse log
-    messages originating from [Palo Alto Networks](https://www.paloaltonetworks.com/)
+    messages originating from Palo Alto Networks
     devices. Even though these messages completely comply to the RFC standards,
     their MESSAGE part is not a plain text. Instead, the MESSAGE part contains
     a data structure that requires additional parsing.
@@ -53,6 +53,5 @@ OSE configuration:
 The panos-parser() is a reusable configuration snippet configured to
 parse Palo Alto Networks PAN-OS log messages. For details on using or
 writing such configuration snippets, see
-Reusing configuration blocks. You can find the source of 
-this configuration snippet on
-[GitHub](https://github.com/syslog-ng/syslog-ng/blob/master/scl/paloalto/panos.conf).
+Reusing configuration blocks. You can find the source of the
+PAN-OS configuration snippet on GitHub.

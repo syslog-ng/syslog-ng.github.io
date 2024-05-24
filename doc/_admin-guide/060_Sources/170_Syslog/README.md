@@ -15,7 +15,7 @@ BSD-syslog or legacy-syslog messages
 if they are sent using the IETF-syslog protocol.
 
 In syslog-ng OSE versions 3.1 and earlier, the syslog() driver could
-handle only messages in the IETF-syslog (RFC 5424-26) format.
+handle only messages in the IETF-syslog (RFC-5424) format.
 
 For the list of available optional parameters, see
 syslog() source options.

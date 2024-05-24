@@ -5,7 +5,7 @@ short_title: kafka-c
 id: adm-dest-kafkac
 description: >-
   Starting with version 3.21, syslog-ng Open Source Edition (syslog-ng
-  OSE) can directly publish log messages to the [Apache Kafka](http://kafka.apache.org)
+  OSE) can directly publish log messages to the Apache Kafka
   message bus, where subscribers can access them.
 ---
 

@@ -21,10 +21,7 @@ For example:
 ><189>32: 0.0.0.0: *Apr 29 13:59:12.491: %SYS-5-CONFIG_I: Configured from console by console
 ><189>32: foo: *Apr 29 13:58:46.411: %SYSMGR-STANDBY-3-SHUTDOWN_START: The System Manager has started the shutdown procedure.
 
-**NOTE:** Not every Cisco log message conforms to this format. If you find a
-message that the cisco-parser() cannot properly parse, [contact
-Support](https://www.syslog-ng.com/support/), so we can improve the
-parser.
+**NOTE:** Not every Cisco log message conforms to this format. If you find a message that the cisco-parser() cannot properly parse, contact Support, so we can improve the parser.
 {: .notice--info}
 
 The syslog-ng OSE application normalizes the parsed log messages into
@@ -55,9 +52,8 @@ Note that you have to disable message parsing in the source using the
 
 The cisco-parser() is actually a reusable configuration snippet
 configured to parse Cisco messages. For details on using or writing such
-configuration snippets, see Reusing configuration blocks.
-You can find the source of this configuration
-snippet on [GitHub](https://github.com/syslog-ng/syslog-ng/blob/master/scl/cisco/plugin.conf).
+configuration snippets, see [[Reusing configuration blocks]].
+You can find the source of the Cisco configuration snippet on GitHub.
 
 {% include doc/admin-guide/options/prefix.md %}
 

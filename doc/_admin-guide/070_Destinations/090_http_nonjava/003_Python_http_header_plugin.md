@@ -166,4 +166,4 @@ your syslog-ng OSE application, the Python code will run in concurrent mode.
 To protect the state of the object, you may need to use locks.
 {: .notice--warning}
 
-For more information about using locks, see [Introduction to the Python HTTP header](https://www.syslog-ng.com/community/b/blog/posts/introduction-to-the-python-http-header).
+For more information about using locks, see Introduction to the Python HTTP header.

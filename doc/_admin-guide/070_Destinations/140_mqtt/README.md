@@ -7,9 +7,9 @@ description: >-
   From version 3.33, you can use the mqtt() destination to publish
   messages to MQTT brokers.
 
-  The mqtt() destination builds on the [MQTT protocol](https://www.hivemq.com/mqtt-protocol/),
-  and uses its [client](https://www.hivemq.com/blog/seven-best-mqtt-client-tools/)
-  and [broker](https://www.hivemq.com/hivemq/mqtt-broker/) entities.
+  The mqtt() destination builds on the MQTT protocol,
+  and uses its client
+  and broker entities.
 ---
 
 **NOTE:** The rest of this chapter and its sections build on your

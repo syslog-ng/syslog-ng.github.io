@@ -4,12 +4,10 @@ short_title: Telegram
 id: adm-dest-telegram
 description: >-
     The telegram() destination sends log messages to
-    [Telegram](https://core.telegram.org/), which is a secure, cloud-based
+    Telegram, which is a secure, cloud-based
     mobile and desktop messaging app.
 
-    Note that this destination automatically uses the certificate store of
-    the system (for details, see the [curl
-    documentation](https://curl.haxx.se/docs/sslcerts.html)).
+    Note that this destination automatically uses the certificate store of the system (for details, see the curl cert documentation).
 ---
 
 **Declaration**

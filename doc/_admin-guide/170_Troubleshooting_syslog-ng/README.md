@@ -50,7 +50,7 @@ description: >-
     Things to consider when forwarding messages between syslog-ng OSE hosts.
 
 - In case you experience a problem that is not covered in this guide,
-    send it the syslog-ng mailing list.
+    send it to the syslog-ng mailing list.
 
     To report bugs found in syslog-ng OSE, visit the syslog-ng issue tracker on GitHub.
 

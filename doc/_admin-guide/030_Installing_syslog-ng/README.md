@@ -14,7 +14,7 @@ description: >-
 - For instructions on compiling syslog-ng Open Source Edition from the
     source code, see Compiling syslog-ng from source
 
-- You can use a [syslog-ng docker image](https://syslog-ng.com/blog/central-log-server-docker/).
+- You can use a syslog-ng docker image.
 
     For detailed information on how to run your central log server in Docker and 
-    other Docker-related syslog-ng use cases, see the [Logging in Docker using syslog-ng](https://pages.balabit.com/logging-in-docker-using-syslog-ng.html) white paper.
+    other Docker-related syslog-ng use cases, see the Logging in Docker using syslog-ng white paper.

@@ -14,8 +14,7 @@ pdbtool \[command\] \[options\]
 
 ## Description
 
-This manual page is only an abstract, for the complete documentation of
-syslog-ng OSE, see the [syslog-ng OSE Documentation page](https://www.syslog-ng.com/).
+This manual page is only an abstract.
 
 The syslog-ng OSE application can match the contents of the log messages
 to a database of predefined message patterns (also called patterndb). By
@@ -222,7 +221,7 @@ Use the merge command to combine separate pattern database files into a
 single file (pattern databases are usually stored in separate files per
 applications to simplify maintenance). If a file uses an older database
 format, it is automatically updated to the latest format (V3). See the
-[The syslog-ng Administrator Guide](https://www.syslog-ng.com/) for
+The syslog-ng Administrator Guide for
 details on the different pattern database versions.
 
 - \--debug or -d
