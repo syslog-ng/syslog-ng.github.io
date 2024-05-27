@@ -13,10 +13,10 @@ id: doc-guide
  5. If you modify a file in the `_includes/doc/` directory, it is probably included to multiple parts of the documentation. Make sure that your changes make sense in each context.
  6. Modify the files as you need (following our markup conventions). For example, you can add new examples, correct typos, and so on.
  7. Validate the files to make sure that the `markdown` is well-formed.
- 8. Commit and sign off your changes. If your changes apply only to syslog-ng OSE, begin the commit message with the `ose` prefix. If the changes apply only to specific versions, indicate them in the tag, for example, `ose 3.35`
+ 8. Commit and sign off your changes. If your changes apply only to {{ site.product.short_name }}, begin the commit message with the `ose` prefix. If the changes apply only to specific versions, indicate them in the tag, for example, `ose 3.35`
  9. Push your changes, for example, `git push origin my-typo-fixes`
  10. Submit a pull request.
- 11. Sign the syslog-ng Open Source Edition Documentation Contributor License Agreement when prompted.
+ 11. Sign the {{ site.product.name }} Documentation Contributor License Agreement when prompted.
  12. We will review your contribution and if accepted, integrate to the master branch of the documentation and publish it.
 
 ## Basic rules, conventions we try to follow
