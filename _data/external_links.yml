@@ -906,6 +906,21 @@ opensearch:
   url: https://opensearch.org
   title: [ "OpenSearch" ]
 
+op-tel:
+  id: op-tel
+  url: https://opentelemetry.io/
+  title: [ "OpenTelemetry" ]
+ 
+op-tel-prtcl:
+  id: op-tel-prtcl
+  url: https://opentelemetry.io/docs/specs/otlp/
+  title: [ "OpenTelemetry Protocol (OTLP/gRPC)" ]
+  
+gh-op-tel-prot:
+  id: gh-op-tel-prot
+  url: https://github.com/open-telemetry/opentelemetry-proto/tree/v0.20.0/opentelemetry/proto
+  title: [ "OpenTelemetry proto files" ]
+
 osquery:
   id: osquery
   url: https://osquery.io
@@ -1165,3 +1180,4 @@ w3c-xml:
   id: w3c-xml
   url: https://www.w3.org/TR/REC-xml/
   title: [ "W3C Recommendation: Extensible Markup Language (XML)" ]
+  
