@@ -1,5 +1,5 @@
 ---
-title: 'OpenTelemetry Destination'
+title: 'OpenTelemetry destination'
 short_title: OpenTelemetry
 id: adm-dest-optel
 description: >-
