@@ -1,5 +1,5 @@
 ---
-title: The syslog-ng pattern database format
+title: The {{ site.product.short_name }} pattern database format
 id: adm-parser-db-patterndb-format
 description: >-
     Pattern databases are XML files that contain rules describing the
@@ -11,7 +11,7 @@ description: >-
 For a sample database containing only a single pattern, see Example: A
 pattern database containing a single rule.
 
-**TIP:** Use the **pdbtool** utility that is bundled with syslog-ng to test
+**TIP:** Use the **pdbtool** utility that is bundled with {{ site.product.short_name }} to test
 message patterns and convert existing databases to the latest format.
 For details, see The pdbtool manual page.
 To automatically create an initial pattern database from an existing log

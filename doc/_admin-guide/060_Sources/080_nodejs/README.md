@@ -3,15 +3,15 @@ title: 'nodejs: Receiving JSON messages from nodejs applications'
 short_title: nodejs
 id: adm-src-nodejs
 description: >-
-    Using the nodejs() driver, syslog-ng OSE can receive application logs
+    Using the nodejs() driver, {{ site.product.short_name }} can receive application logs
     directly from nodejs applications that use the widespread
     Winston logging API. The
-    syslog-ng OSE application automatically adds the .nodejs.winston. prefix
+    {{ site.product.short_name }} application automatically adds the .nodejs.winston. prefix
     to the name of the fields the extracted from the message.
 ---
 
 To use the nodejs() driver, the scl.conf file must be included in your
-syslog-ng OSE configuration:
+{{ site.product.short_name }} configuration:
 
 ```config
 @include "scl.conf"
@@ -26,7 +26,7 @@ You can find the source of the nodejs configuration snippet on GitHub.
 ### Example: Using the nodejs() driver
 
 The following example uses the default settings of the driver, listening
-for messages on port 9003 of every IP address of the syslog-ng OSE host.
+for messages on port 9003 of every IP address of the {{ site.product.short_name }} host.
 
 ```config
 @include "scl.conf"

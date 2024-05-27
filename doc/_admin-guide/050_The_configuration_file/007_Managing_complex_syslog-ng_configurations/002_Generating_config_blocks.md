@@ -2,23 +2,23 @@
 title: Generating configuration blocks from a script
 id: adm-conf-gen
 description: >-
-    The syslog-ng OSE application can automatically execute scripts when it
+    The {{ site.product.short_name }} application can automatically execute scripts when it
     is started, and can include the output of such script in the
     configuration file. To create and use a script that generates a part of
-    the syslog-ng OSE configuration file (actually, a configuration block),
+    the {{ site.product.short_name }} configuration file (actually, a configuration block),
     complete the following steps. 
 ---
 
 The steps include examples for collecting Apache access log files (access.log)
 from subdirectories, but you can create any script that creates a 
-valid syslog-ng OSE configuration snippet.
+valid {{ site.product.short_name }} configuration snippet.
 
 ## Steps
 
-1. Navigate to the directory where you have installed syslog-ng OSE
+1. Navigate to the directory where you have installed {{ site.product.short_name }}
     (for example, /opt/syslog-ng/share/include/scl/), and create a new
     directory, for example, apache-access-logs. The name of the
-    directory will be used in the syslog-ng OSE configuration file as
+    directory will be used in the {{ site.product.short_name }} configuration file as
     well, so use a descriptive name.
 
 2. Create a file called plugin.conf in this new directory.
@@ -32,7 +32,7 @@ valid syslog-ng OSE configuration snippet.
     Replace `<directory-name>` with the name of the directory (for
     example, apache-access-logs), and `<my-script>` with the filename of
     your script (for example, apache-access-logs.sh). You can reference
-    the script in your syslog-ng OSE configuration file as a
+    the script in your {{ site.product.short_name }} configuration file as a
     configuration block using the value name option.
 
     The context option determines the type of the configuration snippet
@@ -50,7 +50,7 @@ valid syslog-ng OSE configuration snippet.
     environment variable.
 
 4. Write a script that generates the output you need, and formats it to
-    a configuration snippet that syslog-ng OSE can use. The filename of
+    a configuration snippet that {{ site.product.short_name }} can use. The filename of
     the script must match with the filename used in plugin.conf, for
     example, apache-access-logs.sh.
 
@@ -104,7 +104,7 @@ valid syslog-ng OSE configuration snippet.
         ...
     ```
 
-7. Check if your modified syslog-ng OSE configuration file is
+7. Check if your modified {{ site.product.short_name }} configuration file is
     syntactically correct using the **syslog-ng --syntax-only**
     command.
 

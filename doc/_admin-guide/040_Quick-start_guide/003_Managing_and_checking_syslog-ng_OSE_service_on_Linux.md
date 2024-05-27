@@ -1,14 +1,14 @@
 ---
-title: Managing and checking syslog-ng OSE service on Linux
+title: Managing and checking {{ site.product.short_name }} service on Linux
 id: adm-qs-service
 description: >-
     This section describes how to start, stop and check the status of
-    syslog-ng Open Source Edition (syslog-ng OSE) service on Linux.
+    {{ site.product.name }} ({{ site.product.short_name }}) service on Linux.
 ---
 
-## Starting syslog-ng OSE
+## Starting {{ site.product.short_name }}
 
-To start syslog-ng OSE, execute the following command as root.
+To start {{ site.product.short_name }}, execute the following command as root.
 
 ```bash
 systemctl start syslog-ng
@@ -16,16 +16,16 @@ systemctl start syslog-ng
 
 If the service starts successfully, no output will be displayed.
 
-The following message indicates that syslog-ng OSE can not start (see
-Checking syslog-ng OSE status):
+The following message indicates that {{ site.product.short_name }} can not start (see
+Checking {{ site.product.short_name }} status):
 
 Job for syslog-ng.service failed because the control process exited with
 error code. See **systemctl status syslog-ng.service** and **journalctl
 -xe** for details.
 
-## Stopping syslog-ng OSE
+## Stopping {{ site.product.short_name }}
 
-To stop syslog-ng OSE
+To stop {{ site.product.short_name }}
 
 1. Execute the following command as root.
 
@@ -33,33 +33,33 @@ To stop syslog-ng OSE
     systemctl stop syslog-ng
     ```
 
-2. Check the status of syslog-ng OSE service (see Checking syslog-ng OSE status).
+2. Check the status of {{ site.product.short_name }} service (see Checking {{ site.product.short_name }} status).
 
-## Restarting syslog-ng OSE
+## Restarting {{ site.product.short_name }}
 
-To restart syslog-ng OSE, execute the following command as root.
+To restart {{ site.product.short_name }}, execute the following command as root.
 
 ```bash
 systemctl restart syslog-ng
 ```
 
-## Reloading configuration file without restarting syslog-ng OSE
+## Reloading configuration file without restarting {{ site.product.short_name }}
 
-To reload the configuration file without restarting syslog-ng OSE,
+To reload the configuration file without restarting {{ site.product.short_name }},
 execute the following command as root.
 
 ```bash
 systemctl reload syslog-ng
 ```
 
-## Checking syslog-ng OSE status
+## Checking {{ site.product.short_name }} status
 
 To check the following status-related components, observe the
 suggestions below.
 
-### Checking the status of syslog-ng OSE service
+### Checking the status of {{ site.product.short_name }} service
 
-To check the status of syslog-ng OSE service
+To check the status of {{ site.product.short_name }} service
 
 1. Execute the following command as root.
 
@@ -67,11 +67,11 @@ To check the status of syslog-ng OSE service
     systemctl --no-pager status syslog-ng
     ```
 
-2. Check the Active: field, which shows the status of syslog-ng OSE service. The following statuses are possible:
+2. Check the Active: field, which shows the status of {{ site.product.short_name }} service. The following statuses are possible:
 
-- **active (running)** - syslog-ng OSE service is up and running
+- **active (running)** - {{ site.product.short_name }} service is up and running
 
-    Example: syslog-ng OSE service active  
+    Example: {{ site.product.short_name }} service active  
 
     > syslog-ng.service - System Logger Daemon  
     > Loaded: loaded (/lib/systemd/system/syslog-ng.service; enabled; vendor preset: enabled)  
@@ -85,7 +85,7 @@ To check the status of syslog-ng OSE service
 
 - **inactive (dead)** - syslog-ng service is stopped
 
-    Example: syslog-ng OSE status inactive
+    Example: {{ site.product.short_name }} status inactive
 
     > syslog-ng.service - System Logger Daemon  
     > Loaded: loaded (/lib/systemd/system/syslog-ng.service; enabled; vendor preset: enabled)  
@@ -95,9 +95,9 @@ To check the status of syslog-ng OSE service
     > Status: "Shutting down... Tue Jun 25 09:14:16 2019"  
     > Jun 25 09:14:31 as-syslog-srv systemd: Stopped System Logger Daemon.
 
-### Checking the process of syslog-ng OSE
+### Checking the process of {{ site.product.short_name }}
 
-To check the process of syslog-ng OSE, execute one of the following commands.
+To check the process of {{ site.product.short_name }}, execute one of the following commands.
 
 ```bash
 ps u `pidof syslog-ng`
@@ -119,17 +119,17 @@ Expected output example:
 > syslogng 6709 0.0 0.6 308680 13432 ? Ss 09:17 0:00  
 > /opt/syslog-ng/libexec/syslog-ng -F --no-caps --enable-core
 
-### Checking the internal logs of syslog-ng OSE**
+### Checking the internal logs of {{ site.product.short_name }}**
 
-The internal logs of syslog-ng OSE contains informal, warning and error messages.
+The internal logs of {{ site.product.short_name }} contains informal, warning and error messages.
 
-By default, syslog-ng OSE log messages (generated on the internal() source) are written to **/var/log/messages**.
+By default, {{ site.product.short_name }} log messages (generated on the internal() source) are written to **/var/log/messages**.
 
-Check the internal logs of syslog-ng OSE for any issue.
+Check the internal logs of {{ site.product.short_name }} for any issue.
 
 ### Message processing
 
-The syslog-ng OSE application collects statistics about the number of processed messages on the different sources and destinations.
+The {{ site.product.short_name }} application collects statistics about the number of processed messages on the different sources and destinations.
 
 **NOTE:** When using syslog-ng-ctl stats, consider that while the output
 is generally consistent, there is no explicit ordering behind the
@@ -142,7 +142,7 @@ example, `| sort`.
 
 ### Central statistics
 
-To check the central statistics, execute the following command to see the number of received and queued (sent) messages by syslog-ng OSE.
+To check the central statistics, execute the following command to see the number of received and queued (sent) messages by {{ site.product.short_name }}.
 
 ```bash
 watch "/opt/syslog-ng/sbin/syslog-ng-ctl stats | grep ^center"
@@ -150,7 +150,7 @@ watch "/opt/syslog-ng/sbin/syslog-ng-ctl stats | grep ^center"
 
 The output will be updated in every 2 seconds.
 
-If the numbers are changing, syslog-ng OSE is processing the messages.
+If the numbers are changing, {{ site.product.short_name }} is processing the messages.
 
 Example: output example
 
@@ -169,7 +169,7 @@ watch "/opt/syslog-ng/sbin/syslog-ng-ctl stats | grep ^source"
 
 The output will be updated in every 2 seconds.
 
-If the numbers are changing, syslog-ng OSE is receiving messages on the sources.
+If the numbers are changing, {{ site.product.short_name }} is receiving messages on the sources.
 
 Example: output example
 
@@ -189,7 +189,7 @@ watch "/opt/syslog-ng/sbin/syslog-ng-ctl stats | grep ^destination"
 
 The output will be updated in every 2 seconds.
 
-If the numbers are changing, syslog-ng OSE is receiving messages on the sources.
+If the numbers are changing, {{ site.product.short_name }} is receiving messages on the sources.
 
 Example: output example
 
@@ -201,7 +201,7 @@ Example: output example
 > destination;d_null;;a;processed;0  
 
 **NOTE:** If you find error messages in the internal logs, messages are not
-processed by syslog-ng OSE or you encounter any issue, you have the
+processed by {{ site.product.short_name }} or you encounter any issue, you have the
 following options:
 {: .notice--info}
 

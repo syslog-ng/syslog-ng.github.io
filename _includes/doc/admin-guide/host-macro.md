@@ -7,7 +7,7 @@ The name of the source host where the message originates from.
 - If the keep-hostname() option is disabled
     (**keep-hostname(no)**), the value of the {{ include.macro }} macro
     will be the DNS hostname of the host that sent the message to
-    syslog-ng OSE (that is, the DNS hostname of the last hop). In this
+    {{ site.product.short_name }} (that is, the DNS hostname of the last hop). In this
     case the {{ include.macro }} and {{ include.from }} macros will have the same
     value.
 
@@ -23,5 +23,5 @@ The name of the source host where the message originates from.
     hostname.
     {: .notice--info}
 
-For details on using name resolution in syslog-ng OSE, see
+For details on using name resolution in {{ site.product.short_name }}, see
 Using name resolution in syslog-ng.

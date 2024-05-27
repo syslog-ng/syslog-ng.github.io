@@ -72,7 +72,7 @@ that the message is formatted in markdown style.
 |  Type:     | string|
 |  Default:  | ${MESSAGE} \\\")
 
-*Description:* Specifies the content of the message. The syslog-ng OSE
+*Description:* Specifies the content of the message. The {{ site.product.short_name }}
 application will automatically encode the content of this option using
 the url-encode() template function.
 

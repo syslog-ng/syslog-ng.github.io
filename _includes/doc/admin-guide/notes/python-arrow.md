@@ -1,4 +1,4 @@
->**NOTE:** From version 3.27, syslog-ng OSE supports the arrow syntax for  
+>**NOTE:** From version 3.27, {{ site.product.short_name }} supports the arrow syntax for  
 >declaring custom Java and Python options. You can alternatively declare  
 >them using a similar syntax:  
 >  

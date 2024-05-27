@@ -2,7 +2,7 @@
 title: Triggering actions for identified messages
 id: adm-parser-db-trigger
 description: >-
-    The syslog-ng OSE application can generate (trigger) messages
+    The {{ site.product.short_name }} application can generate (trigger) messages
     automatically if certain events occur, for example, a specific log
     message is received, or the correlation timeout of a message expires.
     Basically, you can define messages for every pattern database rule that
@@ -90,7 +90,7 @@ overriding-original-program-name
 
 ### Example: Creating a new context from an action
 
-In syslog-ng OSE version 3.8 and newer, you can create a new context as
+In {{ site.product.short_name }} version 3.8 and newer, you can create a new context as
 an action. For details, see
 [[Element: create-context]]. 
 The following example creates a new context whenever the rule matches.

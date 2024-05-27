@@ -12,14 +12,14 @@ ${HOUR}, and so on) have three further variants each:
 
     ![]({{ site.baseurl}}/assets/images/caution.png) **CAUTION:**
     To use the S\_ macros, the keep-timestamp() option must be enabled
-    (this is the default behavior of syslog-ng OSE).
+    (this is the default behavior of {{ site.product.short_name }}).
     {: .notice--warning}
 
 - R_ prefix, for example, ${R_DATE}: ${R_DATE} is the date when
-    syslog-ng OSE has received the message.
+    {{ site.product.short_name }} has received the message.
 
 - C_ prefix, for example, ${C_DATE}: ${C_DATE} is the current
-    date, that is when syslog-ng OSE processes the message and resolves
+    date, that is when {{ site.product.short_name }} processes the message and resolves
     the macro.
 
 The ${DATE} macro equals the ${S_DATE} macro.

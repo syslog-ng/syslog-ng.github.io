@@ -18,7 +18,7 @@ pipe() source options.
 pipe(filename);
 ```
 
-**NOTE:** As of syslog-ng Open Source Edition 3.0.2, pipes are created
+**NOTE:** As of {{ site.product.name }} 3.0.2, pipes are created
 automatically. In earlier versions, you had to create the pipe using the
 **mkfifo(1)** command.
 {: .notice--info}
@@ -32,8 +32,8 @@ therefore it is not recommended to be used on special files like
 >  
 >- It is not recommended to use pipe() on anything else than real pipes.
 >  
->- By default, syslog-ng OSE uses the **flags(no-hostname)** option for pipes,  
->   meaning that syslog-ng OSE assumes that the log messages received from the  
+>- By default, {{ site.product.short_name }} uses the **flags(no-hostname)** option for pipes,  
+>   meaning that {{ site.product.short_name }} assumes that the log messages received from the  
 >   pipe do not contain the hostname field. If your messages do contain the 
 >   hostname field, use **flags(expect-hostname)**.
 {: .notice--warning}

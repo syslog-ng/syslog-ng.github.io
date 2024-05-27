@@ -4,7 +4,7 @@
 |Default: |  empty string|
 
 *Description:* Use the multi-line-mode() option when processing
-multi-line messages. The syslog-ng OSE application provides the
+multi-line messages. The {{ site.product.short_name }} application provides the
 following methods to process multi-line messages:
 
 - The *indented* mode can process messages where each line that

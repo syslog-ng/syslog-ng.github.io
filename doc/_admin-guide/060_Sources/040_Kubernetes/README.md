@@ -4,7 +4,7 @@ short_title: kubernetes
 id: adm-src-k8s
 description: >-
     The kubernetes() source collects container logs managed by the Kubelet.
-    The kubernetes() source is available in syslog-ng OSE version 3.37 and
+    The kubernetes() source is available in {{ site.product.short_name }} version 3.37 and
     later.
 ---
 

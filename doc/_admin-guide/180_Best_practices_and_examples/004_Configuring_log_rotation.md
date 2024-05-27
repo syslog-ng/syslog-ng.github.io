@@ -3,10 +3,10 @@ title: Configuring log rotation
 id: adm-pract-rotate
 ---
 
-The syslog-ng OSE application does not rotate logs by itself. To use
-syslog-ng OSE for log rotation, consider the following approaches:
+The {{ site.product.short_name }} application does not rotate logs by itself. To use
+{{ site.product.short_name }} for log rotation, consider the following approaches:
 
-## Use logrotate together with syslog-ng OSE
+## Use logrotate together with {{ site.product.short_name }}
 
 - It is ideal for workstations or when processing fewer logs.
 
@@ -15,19 +15,19 @@ syslog-ng OSE for log rotation, consider the following approaches:
 - Less scripting is required, only logrotate has to be configured
     correctly.
 
-- Requires frequent restart (syslog-ng OSE must be reloaded/restarted
+- Requires frequent restart ({{ site.product.short_name }} must be reloaded/restarted
     when the files are rotated). After rotating the log files, reload
-    syslog-ng OSE using the **syslog-ng-ctl reload** command, or use
-    another method to send a SIGHUP to syslog-ng OSE.
+    {{ site.product.short_name }} using the **syslog-ng-ctl reload** command, or use
+    another method to send a SIGHUP to {{ site.product.short_name }}.
 
-- The statistics collected by syslog-ng OSE, and the correlation
+- The statistics collected by {{ site.product.short_name }}, and the correlation
     information gathered with Pattern Database, are lost with each
     restart.
 
 ## Separate incoming logs based on time, host or other information
 
 - It is ideal for central log servers, where regular restart of
-    syslog-ng OSE is unfavorable.
+    {{ site.product.short_name }} is unfavorable.
 
 - Requires shell scripts or cron jobs to remove old logs.
 

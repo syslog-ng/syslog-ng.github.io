@@ -2,12 +2,12 @@
 title: Loading modules
 id: adm-mod-loading
 description: >-
-    The syslog-ng Open Source Edition application loads every available
+    The {{ site.product.name }} application loads every available
     module during startup.
 ---
 
 To load a module that is not loaded automatically, include the following
-statement in the syslog-ng OSE configuration file:
+statement in the {{ site.product.short_name }} configuration file:
 
 ```config
 @module <module-name>
@@ -40,7 +40,7 @@ Note the following points about the @module statement:
 ## Use the @requires statement to ensure that the specified module is loaded
 
 To ensure that a module is loaded, include the following statement in
-the syslog-ng OSE configuration file or the external files included in
+the {{ site.product.short_name }} configuration file or the external files included in
 the configuration file:
 
 ```config
@@ -49,11 +49,11 @@ the configuration file:
 
 >**NOTE:** If you include the @requires statement in the:
 >  
->- syslog-ng OSE configuration file, syslog-ng OSE attempts to load the
->    required module. If it fails to load the module, syslog-ng OSE stops
+>- {{ site.product.short_name }} configuration file, {{ site.product.short_name }} attempts to load the
+>    required module. If it fails to load the module, {{ site.product.short_name }} stops
 >    and an error message is displayed.
 >  
->- external files included in the configuration file, syslog-ng OSE
+>- external files included in the configuration file, {{ site.product.short_name }}
 >    attempts to load the required module. If it fails to load the
 >    module, only the external file is not processed.
 >  

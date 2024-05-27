@@ -9,7 +9,7 @@ description: >-
 
 (Such reusable blocks are sometimes called a Source Configuration Library, or
 SCL.)
-Any syslog-ng object can be a block. Use the following syntax to define
+Any {{ site.product.short_name }} object can be a block. Use the following syntax to define
 a block:
 
 ```config
@@ -50,7 +50,7 @@ To use a block in your configuration file, you have to do two things:
     example.
 
 The contents of the block will be inserted into the configuration when
-syslog-ng OSE is started or reloaded.
+{{ site.product.short_name }} is started or reloaded.
 
 ## Example: Reusing configuration blocks
 
@@ -67,7 +67,7 @@ block source myappsource() {
 };
 ```
 
-Include this file in your main syslog-ng configuration file, reference
+Include this file in your main {{ site.product.short_name }} configuration file, reference
 the block, and use it in a logpath:
 
 ```config
@@ -81,7 +81,7 @@ log { source(s_myappsource); destination(...); };
 
 To define a block that defines more than one object, use **root** as the
 type of the block, and reference the block from the main part of the
-syslog-ng OSE configuration file.
+{{ site.product.short_name }} configuration file.
 
 ## Example: Defining blocks with multiple elements
 
@@ -104,10 +104,10 @@ block root mylogs() {
 };
 ```
 
-**TIP:** Since the block is inserted into the syslog-ng OSE configuration
-when syslog-ng OSE is started, the block can be generated dynamically
+**TIP:** Since the block is inserted into the {{ site.product.short_name }} configuration
+when {{ site.product.short_name }} is started, the block can be generated dynamically
 using an external script if needed. This is useful when you are running
-syslog-ng OSE on different hosts and you want to keep the main
+{{ site.product.short_name }} on different hosts and you want to keep the main
 configuration identical.
 {: .notice--info}
 
@@ -130,7 +130,7 @@ quote marks inside the empty brackets: **("")**
 ### Example: Mandatory parameters
 
 The following example defines a TCP source that can receive the
-following parameters: the port where syslog-ng OSE listens (localport),
+following parameters: the port where {{ site.product.short_name }} listens (localport),
 and optionally source flags (flags).
 
 ```config
@@ -194,7 +194,7 @@ of optional arguments in your block. This can be useful when passing
 arguments to a template, or optional arguments to an underlying driver.
 
 The three dots (...) at the end of the argument list refer to any
-additional parameters. It tells syslog-ng OSE that this macro accepts
+additional parameters. It tells {{ site.product.short_name }} that this macro accepts
 `` `__VARARGS__` ``, therefore any name-value pair can be passed without
 validation. To reference this argument-list, insert
 `` `__VARARGS__` `` to the place in the block where you want to

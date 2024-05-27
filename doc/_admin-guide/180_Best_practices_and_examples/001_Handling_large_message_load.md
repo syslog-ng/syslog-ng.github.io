@@ -3,7 +3,7 @@ title: Handling large message load
 id: adm-pract-large-load
 description: >-
     This section provides tips on optimizing the performance of syslog-ng.
-    Optimizing the performance is important for syslog-ng hosts that handle
+    Optimizing the performance is important for {{ site.product.short_name }} hosts that handle
     large traffic.
 ---
 
@@ -25,4 +25,4 @@ description: >-
 
 - Increase the value of the flush-lines() parameter. Increasing
     flush-lines() from 0 to **100** can increase the performance of
-    syslog-ng OSE by 100%.
+    {{ site.product.short_name }} by 100%.

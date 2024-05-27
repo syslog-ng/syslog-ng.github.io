@@ -1,5 +1,5 @@
 ---
-title: Why is syslog-ng needed?
+title: Why is {{ site.product.short_name }} needed?
 id: adm-intro-why
 description: >-
     Log messages contain information about the events happening on the
@@ -12,7 +12,7 @@ the message and the facility sending the message. These two parameters
 alone are often inadequate to consistently classify messages, as many
 applications might use the same facility, and the facility itself is not
 even included in the log message. To make things worse, many log
-messages contain unimportant information. The syslog-ng application
+messages contain unimportant information. The {{ site.product.short_name }} application
 helps you to select only the really interesting messages, and forward
 them to a central server.
 

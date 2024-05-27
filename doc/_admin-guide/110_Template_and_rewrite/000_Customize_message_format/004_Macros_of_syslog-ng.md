@@ -1,12 +1,12 @@
 ---
-title: Macros of syslog-ng OSE
+title: Macros of {{ site.product.short_name }}
 id: adm-temp-macro-ose
 description: >-
-    The following macros are available in syslog-ng OSE.
+    The following macros are available in {{ site.product.short_name }}.
 ---
 
 > ![]({{ site.baseurl}}/assets/images/caution.png) **CAUTION:**
-> These macros are available when syslog-ng OSE successfully
+> These macros are available when {{ site.product.short_name }} successfully
 > parses the incoming message as a syslog message, or you use
 > some other parsing method and map the parsed values to these
 > macros.  
@@ -14,7 +14,7 @@ description: >-
 > If you are using the flags(no-parse) option, then syslog message parsing is
 > completely disabled, and the entire incoming message is treated as
 > the ${MESSAGE} part of a syslog message.  
-> In this case, syslog-ng OSE generates a new syslog header
+> In this case, {{ site.product.short_name }} generates a new syslog header
 > (timestamp, host, and so on) automatically. Note that even
 > though flags(no-parse) disables message parsing, some flags can
 > still be used, for example, the no-multi-line flag.
@@ -26,7 +26,7 @@ Typically used together with the ${HOUR12} macro,
 ${AMPM} returns the period of the day: AM for hours before mid day and
 PM for hours after mid day. In reference to a 24-hour clock format, AM
 is between 00:00-12:00 and PM is between 12:00-24:00. 12AM is midnight.
-Available in syslog-ng OSE 3.4 and later.
+Available in {{ site.product.short_name }} 3.4 and later.
 
 ## ${BSDTAG}
 
@@ -87,7 +87,7 @@ sent the message.
 ## ${FILE_NAME}
 
 Name of the log file (including its path) from where
-syslog-ng OSE received the message (only available if syslog-ng OSE
+{{ site.product.short_name }} received the message (only available if {{ site.product.short_name }}
 received the message from a [[file|adm-src-file]]
 or a [[wildcard-file|adm-src-wild]]).  
 If you need only the path or the filename, use the
@@ -115,7 +115,7 @@ The hour of day the message was sent.
 
 The hour of day the message was sent in 12-hour clock
 format. See also the ${AMPM} macro. 12AM is midnight. Available in
-syslog-ng OSE 3.4 and later.
+{{ site.product.short_name }} 3.4 and later.
 
 ## ${HOST}
 
@@ -130,12 +130,12 @@ syslog-ng OSE 3.4 and later.
 Date of the message in the ISO 8601 compatible standard
 timestamp format (yyyy-mm-ddThh:mm:ss+-ZONE), for example:
 2006-06-13T15:58:00.123+01:00. If possible, it is recommended to use
-${ISODATE} for timestamping. Note that syslog-ng can produce fractions
+${ISODATE} for timestamping. Note that {{ site.product.short_name }} can produce fractions
 of a second (for example, milliseconds) in the timestamp by using the
 frac-digits() global or per-destination option.
 
-**NOTE:** As syslog-ng OSE is precise up to the microsecond, when the
-frac-digits() option is set to a value higher than 6, syslog-ng OSE will
+**NOTE:** As {{ site.product.short_name }} is precise up to the microsecond, when the
+frac-digits() option is set to a value higher than 6, {{ site.product.short_name }} will
 truncate the fraction seconds in the timestamps after 6 digits.
 {: .notice--info}
 
@@ -157,7 +157,7 @@ LEVEL for details.
 
 ## ${LOGHOST}
 
-The hostname of the computer running syslog-ng OSE.
+The hostname of the computer running {{ site.product.short_name }}.
 
 - In version 3.24 and later: the ${LOGHOST} macro returns the
     fully-qualified domain name (FQDN) only if the use-fqdn() option is
@@ -174,17 +174,17 @@ MSGHDR and ${PID} macros.
 
 If you are using the flags(no-parse) option, then syslog message parsing
 is completely disabled, and the entire incoming message is treated as
-the ${MESSAGE} part of a syslog message. In this case, syslog-ng OSE
+the ${MESSAGE} part of a syslog message. In this case, {{ site.product.short_name }}
 generates a new syslog header (timestamp, host, and so on)
 automatically. Note that even though flags(no-parse) disables message
 parsing, some flags can still be used, for example, the no-multi-line
 flag.
 
 The ${MSG} macro is an alias of the ${MESSAGE} macro: using ${MSG} in
-syslog-ng OSE is equivalent to ${MESSAGE}.
+{{ site.product.short_name }} is equivalent to ${MESSAGE}.
 
-Note that before syslog-ng version 3.0, the ${MESSAGE} macro included
-the program name and the pid. In syslog-ng 3.0, the ${MESSAGE} macro
+Note that before {{ site.product.short_name }} version 3.0, the ${MESSAGE} macro included
+the program name and the pid. In {{ site.product.short_name }} 3.0, the ${MESSAGE} macro
 became equivalent with the ${MSGONLY} macro.
 
 ## ${MIN}, ${C_MIN}, ${R_MIN}, ${S_MIN}
@@ -216,12 +216,12 @@ and the end of the month (the 30th and 31st) is week 5.
 
 The millisecond the message was sent.
 
-Available in syslog-ng OSE version 3.4 and later.
+Available in {{ site.product.short_name }} version 3.4 and later.
 
 ## ${MSG}
 
 The ${MSG} macro is an alias of the ${MESSAGE} macro, using ${MSG} in
-syslog-ng OSE is equivalent to ${MESSAGE}. For details on this macro,
+{{ site.product.short_name }} is equivalent to ${MESSAGE}. For details on this macro,
 see MESSAGE.
 
 ## ${MSGHDR}
@@ -236,7 +236,7 @@ of the message are empty.
 A string specifying the type of the message in
 IETF-syslog (RFC-5424 formatted) messages. For example, a firewall might
 use the ${MSGID} \"TCPIN\" for incoming TCP traffic and the ${MSGID}
-\"TCPOUT\" for outgoing TCP traffic. By default, syslog-ng OSE does not
+\"TCPOUT\" for outgoing TCP traffic. By default, {{ site.product.short_name }} does not
 specify this value, but uses a dash (-) character instead. If an
 incoming message includes the ${MSGID} value, it is retained and
 relayed without modification.
@@ -244,7 +244,7 @@ relayed without modification.
 ## ${MSGONLY}
 
 Message contents without the program name or pid.
-Starting with syslog-ng OSE 3.0, the following macros are equivalent:
+Starting with {{ site.product.short_name }} 3.0, the following macros are equivalent:
 ${MSGONLY}, ${MSG}, ${MESSAGE}. For consistency, use the ${MESSAGE}
 macro. For details, see MESSAGE.
 
@@ -281,7 +281,7 @@ For an example use case when using the macro is recommended, see
 
 The original message as received from the client. Note
 that this macro is available only in 3.16 and later, and only if
-syslog-ng received the message using the
+{{ site.product.short_name }} received the message using the
 [[default-network-drivers()|adm-src-def-netw]] source,
 or the source receiving the message has the
 store-raw-message flag set.
@@ -289,7 +289,7 @@ store-raw-message flag set.
 ## ${RCPTID}
 
 When the use-rcptid global option is set to **yes**,
-syslog-ng OSE automatically assigns a unique reception ID to every
+{{ site.product.short_name }} automatically assigns a unique reception ID to every
 received message. You can access this ID and use it in templates via the
 ${RCPTID} macro. The reception ID is a monotonously increasing 48-bit
 integer number, that can never be zero (if the counter overflows, it
@@ -297,12 +297,12 @@ restarts with 1).
 
 ## ${RUNID}
 
-An ID that changes its value every time syslog-ng OSE is
+An ID that changes its value every time {{ site.product.short_name }} is
 restarted, but not when reloaded.
 
 ## ${SDATA}, ${.SDATA.SDID.SDNAME}
 
-The syslog-ng application automatically parses the
+The {{ site.product.short_name }} application automatically parses the
 STRUCTURED-DATA part of IETF-syslog messages, which can be referenced in
 macros. The ${SDATA} macro references the entire STRUCTURED-DATA part
 of the message, while structured data elements can be referenced using
@@ -338,14 +338,14 @@ The ${SEQNUM} macro contains a sequence number for the
 log message. The value of the macro depends on the scenario, and can be
 one of the following:
 
-- If syslog-ng OSE receives a message via the IETF-syslog protocol
+- If {{ site.product.short_name }} receives a message via the IETF-syslog protocol
     that includes a sequence ID, this ID is automatically available in
     the ${SEQNUM} macro.
 
 - If the message is a Cisco IOS log message using the extended
-    timestamp format, then syslog-ng OSE stores the sequence number from
+    timestamp format, then {{ site.product.short_name }} stores the sequence number from
     the message in this macro. If you forward this message the
-    IETF-syslog protocol, syslog-ng OSE includes the sequence number
+    IETF-syslog protocol, {{ site.product.short_name }} includes the sequence number
     received from the Cisco device in the ${.SDATA.meta.sequenceId}
     part of the message.
 
@@ -365,22 +365,20 @@ one of the following:
         destination.
 
   - This sequence number increases by one for every message sent to
-        the destination. It not lost when syslog-ng OSE is reloaded, but
-        it is reset when syslog-ng OSE is restarted.
+        the destination. It not lost when {{ site.product.short_name }} is reloaded, but
+        it is reset when {{ site.product.short_name }} is restarted.
 
   - This sequence number is added to every message that uses the
         IETF-syslog protocol (**${.SDATA.meta.sequenceId}**), and can
         be added to BSD-syslog messages using the **${SEQNUM}** macro.
 
-**NOTE:** If you need a sequence number for every log message that syslog-ng
-OSE receives, use the RCPTID macro.
+**NOTE:** If you need a sequence number for every log message that {{ site.product.short_name }} receives, use the RCPTID macro.
 {: .notice--info}
 
 ## ${SOURCE}
 
-The identifier of the source statement in the syslog-ng
-OSE configuration file that received the message. For example, if
-syslog-ng OSE received the log message from the source s_local {
+The identifier of the source statement in the {{ site.product.short_name }} configuration file that received the message. For example, if
+{{ site.product.short_name }} received the log message from the source s_local {
 internal(); }; source statement, the value of the ${SOURCE} macro is
 s_local. This macro is mainly useful for debugging and troubleshooting
 purposes.
@@ -399,11 +397,11 @@ Global options global or per-destination option.
 
 ## ${SYSUPTIME}
 
-The time elapsed since the syslog-ng OSE instance was
-started (that is, the uptime of the syslog-ng OSE process). The value of
+The time elapsed since the {{ site.product.short_name }} instance was
+started (that is, the uptime of the {{ site.product.short_name }} process). The value of
 this macro is an integer containing the time in 1/100th of the second.
 
-Available in syslog-ng OSE version 3.4 and later.
+Available in {{ site.product.short_name }} version 3.4 and later.
 
 ## ${TAG}
 
@@ -435,7 +433,7 @@ An alias of the ${TZOFFSET} macro.
 ## ${TZOFFSET}, ${C_TZOFFSET}, ${R_TZOFFSET}, ${S_TZOFFSET}
 
 The time-zone as hour offset from GMT, for example:
--07:00. In syslog-ng 1.6.x this used to be -0700 but as ${ISODATE}
+-07:00. In {{ site.product.short_name }} 1.6.x this used to be -0700 but as ${ISODATE}
 requires the colon it was added to ${TZOFFSET} as well.
 
 ## ${UNIXTIME}, ${C_UNIXTIME}, ${R_UNIXTIME}, ${S_UNIXTIME}
@@ -450,7 +448,7 @@ contain information about the peer\'s certificate. That way, you can use
 information from the client certificate in filenames, database values,
 or as other metadata. If you clients have their own certificates, then
 these values are unique per client, but unchangeable by the client. The
-following macros are available in syslog-ng OSE version 3.9 and later.
+following macros are available in {{ site.product.short_name }} version 3.9 and later.
 
 - .tls.x509_cn: The Common Name of the certificate.
 
@@ -465,13 +463,13 @@ RCPTID in the format of HOSTID@RCPTID. For details, see
 use-uniqid() and
 RCPTID.
 
-Available in syslog-ng OSE version 3.7 and later.
+Available in {{ site.product.short_name }} version 3.7 and later.
 
 ## ${USEC}, ${C_USEC}, ${R_USEC}, ${S_USEC}
 
 The microsecond the message was sent.
 
-Available in syslog-ng OSE version 3.4 and later.
+Available in {{ site.product.short_name }} version 3.4 and later.
 
 ## ${YEAR}, ${C_YEAR}, ${R_YEAR}, ${S_YEAR}
 

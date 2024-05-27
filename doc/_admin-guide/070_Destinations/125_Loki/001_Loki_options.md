@@ -85,14 +85,14 @@ labels(
 |   Type:|       template or template-function|
 |Default:| ${ISODATE} ${HOST} ${MSGHDR} ${MSG}|
 
-*Description:* This option specifies a template that defines the logformat to be used in the destination. For more information on macros and template functions, see Macros of syslog-ng OSE and Template functions of syslog-ng OSE.
+*Description:* This option specifies a template that defines the logformat to be used in the destination. For more information on macros and template functions, see Macros of {{ site.product.short_name }} and Template functions of {{ site.product.short_name }}.
 
 ## tenant-id()
 
 |   Type:|     string|
 |Default:|           |
 
-Available in syslog-ng OSE 4.7 and later versions.
+Available in {{ site.product.short_name }} 4.7 and later versions.
 
 *Description:* This option sets the tenant ID for multi-tenant cases.
 

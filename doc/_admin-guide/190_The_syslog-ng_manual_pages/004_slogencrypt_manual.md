@@ -5,7 +5,7 @@ id: adm-man-slogscr
 
 ## Name
 
-`slogencrypt` --- Encrypts existing plain text log files using the syslog-ng OSE secure logging environment.
+`slogencrypt` --- Encrypts existing plain text log files using the {{ site.product.short_name }} secure logging environment.
 
 ## Synopsis
 
@@ -15,7 +15,7 @@ slogencrypt [options] [arguments]
 
 ## Description
 
-The `slogencrypt` utility encrypts plain text log files using an existing secure logging environment. Using this utility, log files obtained from a previous installation of syslog-ng or another logging system can be transferred to a secure logging environment. The order of the log entries is preserved. Encrypting plain text log files using an existing secure logging environment, requires the current encryption key to be supplied in order to preserve consistency.
+The `slogencrypt` utility encrypts plain text log files using an existing secure logging environment. Using this utility, log files obtained from a previous installation of {{ site.product.short_name }} or another logging system can be transferred to a secure logging environment. The order of the log entries is preserved. Encrypting plain text log files using an existing secure logging environment, requires the current encryption key to be supplied in order to preserve consistency.
 
 ### Example: a general call sequence
 
@@ -68,4 +68,4 @@ slogencrypt -k <key file> -m <MAC file> <new key file> <new MAC file> <plain tex
 ## Additional Information
 
 * The syslog-ng.conf manual page
-* The syslog-ng manual page
+* The {{ site.product.short_name }} manual page

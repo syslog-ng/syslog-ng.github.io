@@ -4,8 +4,8 @@
 | Default:         | {{ page.on_error | default: 'Use the global setting (which defaults to drop-message)' }} |
 
 *Description:* Controls what happens when type-casting fails and
-syslog-ng OSE cannot convert some data to the specified type. By
-default, syslog-ng OSE drops the entire message and logs the error.
+{{ site.product.short_name }} cannot convert some data to the specified type. By
+default, {{ site.product.short_name }} drops the entire message and logs the error.
 Currently the value-pairs() option uses the settings of on-error().
 
 - drop-message: Drop the entire message and log an error message to

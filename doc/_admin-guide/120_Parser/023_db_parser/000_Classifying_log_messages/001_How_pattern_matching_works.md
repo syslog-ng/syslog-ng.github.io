@@ -18,12 +18,12 @@ characters according to certain rules.
 NOTE: Wildcards and regular expressions cannot be used in patterns. The
 @ character must be escaped, that is, to match for this character, you
 have to write **@@** in your pattern. This is required because pattern
-parsers of syslog-ng are enclosed between @ characters.
+parsers of {{ site.product.short_name }} are enclosed between @ characters.
 {: .notice--info}
 
-When a new message arrives, syslog-ng attempts to classify it using the
+When a new message arrives, {{ site.product.short_name }} attempts to classify it using the
 pattern database. The available patterns are organized alphabetically
-into a tree, and syslog-ng inspects the message character-by-character,
+into a tree, and {{ site.product.short_name }} inspects the message character-by-character,
 starting from the beginning. This approach ensures that only a small
 subset of the rules must be evaluated at any given step, resulting in
 high processing speed. Note that the speed of classifying messages is
@@ -31,8 +31,8 @@ practically independent from the total number of rules.
 
 For example, if the message begins with the Apple string, only patterns
 beginning with the character A are considered. In the next step,
-syslog-ng selects the patterns that start with Ap, and so on, until
-there is no more specific pattern left. The syslog-ng application has a
+{{ site.product.short_name }} selects the patterns that start with Ap, and so on, until
+there is no more specific pattern left. The {{ site.product.short_name }} application has a
 strong preference for rules that match the input string completely.
 
 Note that literal matches take precedence over pattern parser matches:
@@ -41,7 +41,7 @@ literal, and another pattern that would match it with a parser, the
 pattern with the literal match is selected. Using the previous example,
 if at the third step there is the literal pattern Apport and a pattern
 parser Ap@STRING@, the Apport pattern is matched. If the literal does
-not match the incoming string (for example, Apple), syslog-ng attempts
+not match the incoming string (for example, Apple), {{ site.product.short_name }} attempts
 to match the pattern with the parser. However, if there are two or more
 parsers on the same level, only the first one will be applied, even if
 it does not perfectly match the message.

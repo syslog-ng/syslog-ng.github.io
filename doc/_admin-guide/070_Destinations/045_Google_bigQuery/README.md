@@ -3,7 +3,7 @@ title: 'bigquery: Send data to Google BigQuery'
 short_title: Google BigQuery
 id: adm-dest-google-bq
 description: >-
-    In syslog-ng OSE 4.6 and later versions it is possible to send data to Google Cloud BigQuery through the BigQuery Storage Write API using a gRCP based high performance implementation.
+    In {{ site.product.short_name }} 4.6 and later versions it is possible to send data to Google Cloud BigQuery through the BigQuery Storage Write API using a gRCP based high performance implementation.
 ---
 
 ## Prerequisites
@@ -15,7 +15,7 @@ description: >-
   * https://www.googleapis.com/auth/cloud-platform 
   * https://www.googleapis.com/auth/bigquery.insertdata
 
-To configure syslog-ng OSE, the name of the project, the dataset, the name and schema of the used table are necessary.
+To configure {{ site.product.short_name }}, the name of the project, the dataset, the name and schema of the used table are necessary.
 
 The authentication is done through Application Default Credentials.
 

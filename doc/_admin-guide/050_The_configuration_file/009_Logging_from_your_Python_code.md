@@ -2,25 +2,25 @@
 title: Logging from your Python code
 id: adm-conf-python-log
 description: >-
-    You can extend and customize syslog-ng OSE easily by writing destinations, parsers,
+    You can extend and customize {{ site.product.short_name }} easily by writing destinations, parsers,
     template functions, and sources in Python.  
 ---
 
-To debug and troubleshoot your Python code, syslog-ng OSE allows you to
+To debug and troubleshoot your Python code, {{ site.product.short_name }} allows you to
 use the logger() method to send log messages to the
-[[internal() source|adm-src-int]] of syslog-ng OSE.  
+[[internal() source|adm-src-int]] of {{ site.product.short_name }}.  
 That way the diagnostic messages of your Python code are treated
-the same way as other such log messages of syslog-ng OSE. This has the
+the same way as other such log messages of {{ site.product.short_name }}. This has the
 following benefits:
 
 - The logger() method respects the log level settings of syslog-ng
     OSE. You can write error, warning, info, debug, and trace level
     messages.
 
-- You can follow what your Python code is doing even if syslog-ng OSE
+- You can follow what your Python code is doing even if {{ site.product.short_name }}
     is running as a daemon in the background.
 
-Logging to the internal() source is available in syslog-ng OSE version
+Logging to the internal() source is available in {{ site.product.short_name }} version
 3.20 and later.
 
 To send log messages to the internal() source from Python
@@ -46,7 +46,7 @@ To send log messages to the internal() source from Python
     You can use the following log levels: logger.error, logger.warning,
     logger.info, logger.debug, logger.trace
 
-4. Make sure that your syslog-ng OSE configuration includes the
+4. Make sure that your {{ site.product.short_name }} configuration includes the
     internal() source, for example:
 
 ```config

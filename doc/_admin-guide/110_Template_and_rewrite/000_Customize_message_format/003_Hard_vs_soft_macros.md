@@ -7,9 +7,9 @@ description: >-
     Hard macros are read-only. Soft macros (sometimes also called name-value
     pairs) are either built-in macros automatically generated from the log
     message (for example, ${HOST}), or custom user-created macros generated
-    by using the syslog-ng pattern database or a CSV-parser. In contrast to
+    by using the {{ site.product.short_name }} pattern database or a CSV-parser. In contrast to
     hard macros, soft macros are writable and can be modified within
-    syslog-ng OSE, for example, using rewrite rules.
+    {{ site.product.short_name }}, for example, using rewrite rules.
 ---
 
 Hard and soft macros are rather similar and often treated as equivalent.
@@ -18,7 +18,7 @@ modify the value of the macro, so both soft and hard macros can be used.
 However, it is not possible to change the values of hard macros in
 rewrite rules or via any other means.
 
-The following macros in syslog-ng OSE are hard macros and cannot be
+The following macros in {{ site.product.short_name }} are hard macros and cannot be
 modified: BSDTAG, CONTEXT\_ID, DATE, DAY, FACILITY\_NUM, FACILITY,
 FULLDATE, HOUR, ISODATE, ISOWEEK, LEVEL\_NUM, LEVEL, MIN, MONTH\_ABBREV,
 MONTH\_NAME, MONTH, MONTH\_WEEK, PRIORITY, PRI, RCPTID, SDATA, SEC,

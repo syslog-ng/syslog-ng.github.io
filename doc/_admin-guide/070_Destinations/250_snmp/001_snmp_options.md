@@ -26,7 +26,7 @@ This option is used with the SNMPv3 protocol.
 
 *Description:* The password used for authentication. If the
 auth-username() option is set but the auth-password() is empty,
-syslog-ng OSE will try to authenticate with an empty password.
+{{ site.product.short_name }} will try to authenticate with an empty password.
 
 This option is used with the SNMPv3 protocol.
 
@@ -36,7 +36,7 @@ This option is used with the SNMPv3 protocol.
 |  Default: |  empty string|
 
 *Description:* The username used to authenticate on the SNMP server. If
-this parameter is set, syslog-ng OSE will try to authenticate on the
+this parameter is set, {{ site.product.short_name }} will try to authenticate on the
 SNMP server.
 
 This option is used with the SNMPv3 protocol.
@@ -95,7 +95,7 @@ This option is a required parameter when using the SNMPv3 protocol.
 trap elements. To create a trap element, specify the OID, type, and
 value of the element in the snmp-obj() option. To send SNMP traps, at
 least one snmp-obj() option must be defined. The snmp-obj() option
-requires the following parameters. Note that syslog-ng OSE does not
+requires the following parameters. Note that {{ site.product.short_name }} does not
 validate the values of these elements.
 
 - \<oid\_of\_the\_object\>: The object id of the SNMP object, for
@@ -106,11 +106,11 @@ validate the values of these elements.
     Ipaddress, Objectid. The type names are not case sensitive.
 
 - \<value\_of\_the\_object\>: The value of the object as a string. The
-    macros of syslog-ng OSE can be used to set these values, making it
+    macros of {{ site.product.short_name }} can be used to set these values, making it
     possible to transfer the content and other metadata from the the
     syslog message to the SNMP trap. Note that if the value of an
     Integer, Counter32 or Timeticks object is not a number (for example,
-    is an empty string or other not-number string), syslog-ng OSE will
+    is an empty string or other not-number string), {{ site.product.short_name }} will
     automatically replace the value with 0. The values of other types of
     objects are not validated.
 
@@ -148,10 +148,10 @@ with the Objectid type.
 
 *Description:* Specifies which version of the SNMP protocol to use.
 
-**NOTE:** The syslog-ng OSE application will accept any valid option for the
+**NOTE:** The {{ site.product.short_name }} application will accept any valid option for the
 snmp() destination, but will only use the ones relevant to the selected
 protocol version, any other option will be ignored. For example, if the
 version(\"v2c\") engine-id(\"0xABABABABAB\") community(\"mycommunity\")
-options are set, syslog-ng OSE will accept every option, but process
+options are set, {{ site.product.short_name }} will accept every option, but process
 only the community() option, because engine-id() applies only to SNMPv3.
 {: .notice--info}

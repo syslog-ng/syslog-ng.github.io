@@ -2,7 +2,7 @@
 title: Correlating log messages
 id: adm-correlate
 description: >-
-    The syslog-ng OSE application can correlate log messages. Alternatively,
+    The {{ site.product.short_name }} application can correlate log messages. Alternatively,
     you can also correlate log messages using pattern databases. For
     details, see Correlating log messages using pattern databases.
 ---
@@ -24,7 +24,7 @@ authentication failure, and the reason of the failure in the next
 message. Of course, messages that are not so directly related can be
 correlated as well, for example, login-logout messages, and so on.
 
-To correlate log messages with syslog-ng OSE, you can add messages into
+To correlate log messages with {{ site.product.short_name }}, you can add messages into
 message-groups called contexts. A context consists of a series of log
 messages that are related to each other in some way, for example, the
 log messages of an SSH session can belong to the same context. As new

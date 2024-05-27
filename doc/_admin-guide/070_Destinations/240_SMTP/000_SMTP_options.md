@@ -23,7 +23,7 @@ applications. The smtp() destination has the following options:
 the string. Use **\\n** to start a new line. For example:
 
 ```config
-body("syslog-ng OSE received the following alert from ${HOST}:\n${MSG}")
+body("{{ site.product.short_name }} received the following alert from ${HOST}:\n${MSG}")
 ```
 
 ## bcc()

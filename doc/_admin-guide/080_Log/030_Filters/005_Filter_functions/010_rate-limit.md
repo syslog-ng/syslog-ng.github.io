@@ -9,14 +9,14 @@ id: adm-log-filters-ratelimit
 message. The key will be resolved using the template() option. Each
 resolution will be allowed to have the number of messages each second,
 set by the rate() option. For example if template(${HOST}) and rate(5000)
-are set, and there are 2 hosts sending messages to syslog-ng OSE, a
+are set, and there are 2 hosts sending messages to {{ site.product.short_name }}, a
 total of **10000** messages will be allowed by the rate-limit() filter,
 **5000** from the first and **5000** from the second host. If template()
 was not set instead, then **5000** messages would be allowed each
 second, regardless of their content.
 
-**NOTE:** In syslog-ng OSE version 3.35 the rate-limit() filter was called
-throttle(). In syslog-ng OSE version 3.36 it got renamed to
+**NOTE:** In {{ site.product.short_name }} version 3.35 the rate-limit() filter was called
+throttle(). In {{ site.product.short_name }} version 3.36 it got renamed to
 rate-limit(), but throttle() is still available for backward
 compatibility.
 {: .notice--info}

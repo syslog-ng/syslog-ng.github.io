@@ -4,14 +4,13 @@ id: adm-temp-modify-otw
 description: >-
     Macros, templates, and template functions allow you to fully customize
     the format of the message. This flexibility makes it possible to use
-    syslog-ng OSE in some unexpected way if needed, for example, to emulate
+    {{ site.product.short_name }} in some unexpected way if needed, for example, to emulate
     simple, plain-text protocols. The following example shows you how to
     send LPUSH commands to a Redis server.
 ---
 
 **NOTE:** The purpose of this example is to demonstrate the flexibility of
-syslog-ng OSE. A dedicated Redis destination is available in syslog-ng
-OSE version 3.5. For details, see
+{{ site.product.short_name }}. A dedicated Redis destination is available in {{ site.product.short_name }} version 3.5. For details, see
 [[redis: Storing name-value pairs in Redis]].
 {: .notice--info}
 
@@ -25,7 +24,7 @@ template t_redis_lpush {
 };
 ```
 
-If you use this template in a network() destination, syslog-ng OSE
+If you use this template in a network() destination, {{ site.product.short_name }}
 formats the message according to the template, and sends it to the Redis
 server.
 

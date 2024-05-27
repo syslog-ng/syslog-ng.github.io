@@ -5,7 +5,7 @@ short_title: syslog
 id: adm-dest-syslog
 description: >-
     The syslog() driver sends messages to a remote host (for example, a
-    syslog-ng server or relay) on the local intranet or internet using the
+    {{ site.product.short_name }} server or relay) on the local intranet or internet using the
     new standard syslog protocol developed by IETF (for details about the
     new protocol, see IETF-syslog messages.) 
 
@@ -15,7 +15,7 @@ description: >-
 
 The required arguments of the driver are the address of the destination
 host (where messages should be sent). The transport method (networking
-protocol) is optional, syslog-ng uses the TCP protocol by default. For
+protocol) is optional, {{ site.product.short_name }} uses the TCP protocol by default. For
 the list of available optional parameters, see
 syslog() destination options.
 

@@ -3,11 +3,11 @@ title: Information about disk-buffer files
 id: adm-log-diskbuff-info
 description: >-
     This section describes information about disk-buffer files used in
-    syslog-ng Open Source Edition (syslog-ng OSE).
+    {{ site.product.name }} ({{ site.product.short_name }}).
 ---
 
 The following list contains information about how disk-buffer files are
-used in syslog-ng OSE:
+used in {{ site.product.short_name }}:
 
 - You can configure disk-buffer() for a remote destination in the
     destination() statement.
@@ -16,11 +16,11 @@ used in syslog-ng OSE:
     for a remote destination in the destination() statement, see
     disk-buffer().
 
-- By default, syslog-ng OSE creates disk-buffer files under
+- By default, {{ site.product.short_name }} creates disk-buffer files under
     /opt/syslog-ng/var directory, unless dir() option is set in
     disk-buffer().
 
-- The filenames are generated automatically by syslog-ng OSE with the
+- The filenames are generated automatically by {{ site.product.short_name }} with the
     extensions .qf for a normal disk-buffer and .rqf for a reliable
     disk-buffer.
 

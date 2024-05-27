@@ -2,7 +2,7 @@
 title: Python parser
 id: adm-parser-python
 description: >-
-    The Python log parser (available in syslog-ng OSE version 3.10 and
+    The Python log parser (available in {{ site.product.short_name }} version 3.10 and
     later) allows you to write your own parser in Python. Practically, that
     way you can process the log message (or parts of the log message) any
     way you need. For example, you can import external Python modules to
@@ -14,8 +14,8 @@ description: >-
 
 **Declaration**
 
-Python parsers consist of two parts. The first is a syslog-ng OSE parser
-object that you use in your syslog-ng OSE configuration, for example, in
+Python parsers consist of two parts. The first is a {{ site.product.short_name }} parser
+object that you use in your {{ site.product.short_name }} configuration, for example, in
 the log path. This parser references a Python class, which is the second
 part of the Python parsers. The Python class processes the log messages
 it receives, and can do virtually anything that you can code in Python.
@@ -30,10 +30,10 @@ parser <name_of_the_python_parser>{
 python {
 class MyParser(object):
     def init(self, options):
-        '''Optional. This method is executed when syslog-ng is started or reloaded.'''
+        '''Optional. This method is executed when {{ site.product.short_name }} is started or reloaded.'''
         return True
     def deinit(self):
-        '''Optional. This method is executed when syslog-ng is stopped or reloaded.'''
+        '''Optional. This method is executed when {{ site.product.short_name }} is stopped or reloaded.'''
         pass
     def parse(self, msg):
         '''Required. This method receives and processes the log message.'''
@@ -65,10 +65,10 @@ class MyParser(object):
 
 The parse() method processes the log messages it receives, and can do
 virtually anything that you can code in Python. This method is required,
-otherwise syslog-ng OSE will not start.
+otherwise {{ site.product.short_name }} will not start.
 
 The return value of the parse() method must be True. If it returns
-False, or raises an exception, syslog-ng OSE will drop the message.
+False, or raises an exception, {{ site.product.short_name }} will drop the message.
 
 - To reference a name-value pair or a macro in the Python code, use
     the following format. For example, if the first argument in the
@@ -86,7 +86,7 @@ False, or raises an exception, syslog-ng OSE will drop the message.
 
     Note that the names of the name-value pairs are case-sensitive. If
     you create a new name-value pair called new-macro-name in Python,
-    and want to reference it in another part of the syslog-ng OSE
+    and want to reference it in another part of the {{ site.product.short_name }}
     configuration file (for example, in a template), use the
     **${new-macro-name}** macro.
 
@@ -106,12 +106,12 @@ The following is a sample loggen message:
 ><38>2017-04-05T12:16:46 localhost prg00000[1234]: seq: 0000000000, thread: 0000,  
 >runid: 1491387406, stamp: 2017-04-05T12:16:46 >PADDPADDPADDPADDPADDPADDPADDPADDPADDPADDPADDPADDPADDPADDPADDPADDPADDPADDPADDPADDPADDPADDPADDPADDPADDPADDPADDPADDPADDPADDPADDPADD
 
-The syslog-ng OSE parser object references the LoggenParser class and
+The {{ site.product.short_name }} parser object references the LoggenParser class and
 passes a set of regular expressions to parse the loggen messages. The
 init() method of the LoggenParser class compiles these expressions into
 a pattern. The parse method uses these patterns to extract the fields of
 the message into name-value pairs. The destination template of the
-syslog-ng OSE log statement uses the extracted fields to format the
+{{ site.product.short_name }} log statement uses the extracted fields to format the
 output message.
 
 ```config
@@ -155,10 +155,10 @@ output message.
 ## Example: Parse Windows eventlogs in Python - performance
 
 The following example uses regular expressions to process Windows log
-messages received in XML format from the syslog-ng Agent for Windows
+messages received in XML format from the {{ site.product.short_name }} Agent for Windows
 application. The parser extracts different fields from messages received
 from the Security and the Application eventlog containers. Using the
-following configuration file, syslog-ng OSE could process about 25000
+following configuration file, {{ site.product.short_name }} could process about 25000
 real-life Windows log messages per second.
 
 ```config

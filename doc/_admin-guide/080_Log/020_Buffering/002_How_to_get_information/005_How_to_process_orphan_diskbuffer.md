@@ -1,43 +1,43 @@
 ---
-title: How to process messages from an orphan disk-buffer file using a separate syslog-ng OSE instance
+title: How to process messages from an orphan disk-buffer file using a separate {{ site.product.short_name }} instance
 short_title: How to process messages from an orphan disk-buffer file
 id: adm-log-diskbuff-process
 description: >-
     This section describes how to read messages from an orphan disk-buffer
-    file by using a separate syslog-ng Open Source Edition (syslog-ng OSE)
-    process running parallel to the already running syslog-ng OSE instance.
+    file by using a separate {{ site.product.name }} ({{ site.product.short_name }})
+    process running parallel to the already running {{ site.product.short_name }} instance.
 ---
 
 ## Orphan disk-buffer files
 
 In certain situations (for example, after modifying the disk-buffer
-configuration or losing the persist information), syslog-ng OSE creates
+configuration or losing the persist information), {{ site.product.short_name }} creates
 a new disk-buffer file instead of using the already existing one. In
 these situations, the already existing disk-buffer file becomes a
 so-called orphan disk-buffer file.
 
-**NOTE:** The syslog-ng OSE application does not store messages in orphan
+**NOTE:** The {{ site.product.short_name }} application does not store messages in orphan
 disk-buffer files or forward the messages stored in the disk-buffer
 file.
 {: .notice--info}
 
-## Processing the messages from an orphan disk-buffer file by using a separate syslog-ng OSE instance
+## Processing the messages from an orphan disk-buffer file by using a separate {{ site.product.short_name }} instance
 
-When syslog-ng OSE creates orphan disk-buffer files, you can start a
-separate syslog-ng OSE instance parallel to the syslog-ng OSE instance
+When {{ site.product.short_name }} creates orphan disk-buffer files, you can start a
+separate {{ site.product.short_name }} instance parallel to the {{ site.product.short_name }} instance
 already running, and use the following resolution process to process the
 messages in the orphan disk-buffer file.
 
 >![]({{ site.baseurl}}/assets/images/caution.png) **CAUTION:**
->Before starting a separate syslog-ng OSE instance to process the messages
+>Before starting a separate {{ site.product.short_name }} instance to process the messages
 >from the orphan disk-buffer file, consider the following:
 >  
->- During the resolution process, a separate syslog-ng OSE
+>- During the resolution process, a separate {{ site.product.short_name }}
 >    instance will be started with its temporary files beside
->    the syslog-ng OSE instance already running.
+>    the {{ site.product.short_name }} instance already running.
 >  
 >- An incorrect startup command and incorrect configurations  
->    may cause issues for the syslog-ng OSE instance already
+>    may cause issues for the {{ site.product.short_name }} instance already
 >    running.
 >  
 >- The disk-buffer file stores processed log messages in the  
@@ -50,7 +50,7 @@ messages in the orphan disk-buffer file.
 {: .notice--warning}
 
 To process the messages from an orphan disk-buffer file using a separate
-syslog-ng OSE instance,
+{{ site.product.short_name }} instance,
 
 1. Identify the orphan disk-buffer files and make a record of them. For
     more information, see
@@ -121,7 +121,7 @@ syslog-ng OSE instance,
 
 5. Add your destination statement with disk-buffer() to the
     configuration file. You can copy the destination statement from your
-    running syslog-ng OSE configuration.
+    running {{ site.product.short_name }} configuration.
 
     ![]({{ site.baseurl}}/assets/images/caution.png) **CAUTION:**
     Add the dir() option and set the disk-buffer file\'s destination directory
@@ -140,13 +140,13 @@ syslog-ng OSE instance,
     );
     ```
 
-6. Start the temporary syslog-ng OSE instance in the foreground.
+6. Start the temporary {{ site.product.short_name }} instance in the foreground.
 
     ```bash
     syslog-ng -Fe -f /tmp/qdisk/qdisk.conf -R /tmp/qdisk/qdisk.persist -c /tmp/qdisk/qdisk.ctl
     ```
 
-    The syslog-ng OSE application will log to the console, so you will
+    The {{ site.product.short_name }} application will log to the console, so you will
     see any potential error that may occur during startup.
 
     The following example output displays that an empty disk-buffer file
@@ -163,7 +163,7 @@ syslog-ng OSE instance,
     >FIPS information; FIPS-mode='disabled'  
     >Syslog connection established; fd='7', server='AF_INET(10.21.10.20:514)', local='AF_INET(0.0.0.0:0)'
 
-7. To stop syslog-ng OSE, press CTRL+C.
+7. To stop {{ site.product.short_name }}, press CTRL+C.
 
 8. Overwrite the empty disk-buffer file with the orphan disk-buffer
     file.
@@ -172,8 +172,8 @@ syslog-ng OSE instance,
     mv /opt/syslog-ng/var/syslog-ng-00005.rqf /tmp/qdisk/syslog-ng-00000.rqf
     ```
 
-9. Start syslog-ng OSE using the command used in Start the temporary
-    syslog-ng OSE instance in the foreground step.
+9. Start {{ site.product.short_name }} using the command used in Start the temporary
+    {{ site.product.short_name }} instance in the foreground step.
 
     ```bash
     syslog-ng -Fe -f /tmp/qdisk/qdisk.conf -R /tmp/qdisk/qdisk.persist -c /tmp/qdisk/qdisk.ctl
@@ -205,14 +205,14 @@ syslog-ng OSE instance,
 
     >Reliable disk-buffer state loaded; filename='/tmp/qdisk/syslog-ng-00000.rqf', queue_length='0', size='0'
 
-11. Press CTRL+C to stop syslog-ng OSE.
+11. Press CTRL+C to stop {{ site.product.short_name }}.
 
 12. Check the state of the orphan disk-buffer file. For more
     information, see
     How to get information about disk-buffer files.
 
 13. If you have more than one orphan disk-buffer file, repeat the steps
-    following the syslog-ng OSE stop (that is,
+    following the {{ site.product.short_name }} stop (that is,
     the steps beginning from overwriting the empty disk-buffer file with
     the orphan disk-buffer file) for each orphan disk-buffer file.
 

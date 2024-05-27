@@ -2,7 +2,7 @@
 title: Parsing syslog messages
 id: adm-parser-parsing
 description: >-
-    By default, syslog-ng OSE parses every message using the syslog-parser
+    By default, {{ site.product.short_name }} parses every message using the syslog-parser
     as a syslog message, and fills the macros with values of the message.
     The syslog-parser does not discard messages: the message cannot be
     parsed as a syslog message, the entire message (including its header) is
@@ -20,7 +20,7 @@ standards).
 For example, suppose that you have a single network source that receives
 log messages from different devices, and some devices send messages that
 are not RFC-compliant (some routers are notorious for that). To solve
-this problem in earlier versions of syslog-ng OSE, you had to create two
+this problem in earlier versions of {{ site.product.short_name }}, you had to create two
 different network sources using different IP addresses or ports: one
 that received the RFC-compliant messages, and one that received the
 improperly formatted messages (for example, using the
@@ -90,8 +90,8 @@ log {
 };
 ```
 
-**NOTE:** syslog-ng OSE has several parsers that you can use to parse
-non-compliant messages. You can even [[write a custom syslog-ng parser in Python|adm-parser-python]].
+**NOTE:** {{ site.product.short_name }} has several parsers that you can use to parse
+non-compliant messages. You can even [[write a custom {{ site.product.short_name }} parser in Python|adm-parser-python]].
 For details, see [[parser: Parse and segment structured messages]].
 {: .notice--info}
 

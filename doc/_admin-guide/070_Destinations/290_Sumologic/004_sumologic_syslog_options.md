@@ -27,8 +27,7 @@ options.
   |Default:|   \"tag\"|
 
 *Description:* Optional. This option specifies the list of tags to add
-as the tags fields of Sumo Logic messages. If not specified, syslog-ng
-OSE automatically adds the tags already assigned to the message. If you
+as the tags fields of Sumo Logic messages. If not specified, {{ site.product.short_name }} automatically adds the tags already assigned to the message. If you
 set the tag() option, only the tags you specify will be added to the
 messages.
 

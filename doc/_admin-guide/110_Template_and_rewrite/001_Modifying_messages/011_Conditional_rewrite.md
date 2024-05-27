@@ -14,7 +14,7 @@ description: >-
     details on filters, see Filters.  
 ---
 
-**TIP:** Using conditions in rewrite rules can simplify your syslog-ng OSE
+**TIP:** Using conditions in rewrite rules can simplify your {{ site.product.short_name }}
 configuration file, as you do not need to create separate log paths to
 modify certain messages.
 {: .notice--info}
@@ -46,7 +46,7 @@ To configure condtional rewrite
 
 2. The rewrite rule (r\_rewrite\_set) evaluates the condition. If the
     message matches the condition (the PROGRAM field of the message is
-    \"myapplication\"), syslog-ng OSE rewrites the log message (sets the
+    \"myapplication\"), {{ site.product.short_name }} rewrites the log message (sets the
     value of the HOST field to \"myhost\"), otherwise it is not
     modified.
 

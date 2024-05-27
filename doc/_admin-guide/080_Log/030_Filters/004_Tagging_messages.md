@@ -6,7 +6,7 @@ description: >-
     identified by their names, which must be unique. 
 ---
 
-Currently syslog-ng OSE can tag a message at two different places:
+Currently {{ site.product.short_name }} can tag a message at two different places:
 
 - at the source when the message is received, and
 
@@ -14,11 +14,11 @@ Currently syslog-ng OSE can tag a message at two different places:
     details on using the pattern database, see
     Using pattern databases,
     for details on creating tags in the pattern database, see
-    The syslog-ng pattern database format.
+    The {{ site.product.short_name }} pattern database format.
 
 - Tags can be also added and deleted using rewrite rules. For details,
     see Adding and deleting tags.
-    When syslog-ng receives a message, it automatically adds the
+    When {{ site.product.short_name }} receives a message, it automatically adds the
     .source.\<id\_of\_the\_source\_statement\> tag to the message. Use the
     tags() option of the source to add custom tags, and the tags() option of
     the filters to select only specific messages.
@@ -33,7 +33,7 @@ Currently syslog-ng OSE can tag a message at two different places:
     template. Alternatively, if you are using the IETF-syslog message
     format, you can include the ${TAGS} macro in the .SDATA.meta part
     of the message. Note that the ${TAGS} macro is available only in
-    syslog-ng OSE 3.1.1 and later.
+    {{ site.product.short_name }} 3.1.1 and later.
 
 For an example on tagging, see Example: Adding tags and filtering messages
 with tags.

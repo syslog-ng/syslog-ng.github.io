@@ -9,7 +9,7 @@ description: >-
 
 * HEC must be enabled on the Splunk deployment.
 
-* A token must be created for syslog-ng OSE to be used in the token() destination option. Use the syslog source type when creating the token.
+* A token must be created for {{ site.product.short_name }} to be used in the token() destination option. Use the syslog source type when creating the token.
 
 For more information, see Set up and use HTTP Event Collector in Splunk Web.
 

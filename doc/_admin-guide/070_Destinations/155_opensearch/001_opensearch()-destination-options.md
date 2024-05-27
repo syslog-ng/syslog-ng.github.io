@@ -4,9 +4,9 @@ id: adm-dest-os-opt
 ---
 
 
-The opensearch destination of syslog-ng OSE can directly post log messages to an OpenSearch deployment using the OpenSearch Bulk API over the HTTP and Secure HTTP (HTTPS) protocols. The opensearch destination has the following options. The index() and url() options are strictly required.
+The opensearch destination of {{ site.product.short_name }} can directly post log messages to an OpenSearch deployment using the OpenSearch Bulk API over the HTTP and Secure HTTP (HTTPS) protocols. The opensearch destination has the following options. The index() and url() options are strictly required.
 
-This destination is available in syslog-ng OSE version 4.4 and later versions.
+This destination is available in {{ site.product.short_name }} version 4.4 and later versions.
 
 {% include doc/admin-guide/options/batch-bytes.md %}
 
@@ -48,9 +48,9 @@ For details on how this option influences batch mode, see Batch mode and load ba
 |  Type:|      string or template|
 |  Default:|   none|
 
-*Description:* The name of the OpenSearch index where OpenSearch will store the messages received from syslog-ng OSE. This option is mandatory for this destination.
+*Description:* The name of the OpenSearch index where OpenSearch will store the messages received from {{ site.product.short_name }}. This option is mandatory for this destination.
 
-You can use macros and template functions, but you must ensure that the resolved template contains only characters that OpenSearch permits in the name of the index. The syslog-ng OSE application does not validate the name of the index. For details on the characters permitted in the name of OpenSearch indices, see the documentation of OpenSearch.
+You can use macros and template functions, but you must ensure that the resolved template contains only characters that OpenSearch permits in the name of the index. The {{ site.product.short_name }} application does not validate the name of the index. For details on the characters permitted in the name of OpenSearch indices, see the documentation of OpenSearch.
 
 {% include doc/admin-guide/options/log-fifo-size.md %}
 
@@ -67,11 +67,11 @@ You can use macros and template functions, but you must ensure that the resolved
 |  Type:|      number|
 |  Default:|   3|
 
-*Description:* If syslog-ng OSE cannot send a message, it will try again until the number of attempts reaches retries().
+*Description:* If {{ site.product.short_name }} cannot send a message, it will try again until the number of attempts reaches retries().
 
-If the number of attempts reaches retries(), syslog-ng OSE will wait for time-reopen() time, then tries sending the message again.
+If the number of attempts reaches retries(), {{ site.product.short_name }} will wait for time-reopen() time, then tries sending the message again.
 
-To handle HTTP error responses, if the HTTP server returns 5xx codes, syslog-ng OSE will attempt to resend messages until the number of attempts reaches retries. If the HTTP server returns 4xx codes, syslog-ng OSE will drop the messages.
+To handle HTTP error responses, if the HTTP server returns 5xx codes, {{ site.product.short_name }} will attempt to resend messages until the number of attempts reaches retries. If the HTTP server returns 4xx codes, {{ site.product.short_name }} will drop the messages.
 
 ## ssl-version()
 
@@ -120,18 +120,18 @@ Make sure that you specify TLS options either using their own dedicated option (
 
 This option is mandatory for this destination.
 
-Make sure that the URL ends with _bulk, this is the OpenSearch API endpoint that properly parses the messages sent by syslog-ng OSE.
+Make sure that the URL ends with _bulk, this is the OpenSearch API endpoint that properly parses the messages sent by {{ site.product.short_name }}.
 
-In case the server on the specified URL returns a redirect request, syslog-ng OSE automatically follows maximum 3 redirects. Only HTTP and HTTPS based redirections are supported.
+In case the server on the specified URL returns a redirect request, {{ site.product.short_name }} automatically follows maximum 3 redirects. Only HTTP and HTTPS based redirections are supported.
 
-Starting with version 3.19, you can specify multiple URLs, for example, url("site1" "site2"). In this case, syslog-ng OSE sends log messages to the specified URLs in a load-balance fashion. This means that syslog-ng OSE sends each message to only one URL. For example, you can use this to send the messages to a set of ingestion nodes or indexers of your SIEM solution if a single node cannot handle the load. Note that the order of the messages as they arrive on the servers can differ from the order syslog-ng OSE has received them, so use load-balancing only if your server can use the timestamp from the messages. If the server uses the timestamp when it receives the messages, the order of the messages will be incorrect.
+Starting with version 3.19, you can specify multiple URLs, for example, url("site1" "site2"). In this case, {{ site.product.short_name }} sends log messages to the specified URLs in a load-balance fashion. This means that {{ site.product.short_name }} sends each message to only one URL. For example, you can use this to send the messages to a set of ingestion nodes or indexers of your SIEM solution if a single node cannot handle the load. Note that the order of the messages as they arrive on the servers can differ from the order {{ site.product.short_name }} has received them, so use load-balancing only if your server can use the timestamp from the messages. If the server uses the timestamp when it receives the messages, the order of the messages will be incorrect.
 
 ![]({{ site.baseurl}}/assets/images/caution.png)
 **CAUTION:** If you set multiple URLs in the url() option, set the persist-name()
 option as well to avoid data loss.
 {: .notice--warning}
 
-Starting with version syslog-ng OSE version 3.22, you can use any of the following
+Starting with version {{ site.product.short_name }} version 3.22, you can use any of the following
 formats to specify multiple URLs:
 
 ```config
@@ -146,7 +146,7 @@ formats to specify multiple URLs:
 |  Type:|      string|
 |  Default:|   |
 
-*Description:* The username that syslog-ng OSE uses to authenticate on the server where it sends the messages.
+*Description:* The username that {{ site.product.short_name }} uses to authenticate on the server where it sends the messages.
 
 {% include doc/admin-guide/options/use-system-cert-store.md %}
 

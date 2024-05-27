@@ -1,9 +1,9 @@
 ---
-title: Metrics and counters of syslog-ng OSE
+title: Metrics and counters of {{ site.product.short_name }}
 id: adm-stats-metrics
 ---
 
-You can list all active metrics on your syslog-ng OSE host using the
+You can list all active metrics on your {{ site.product.short_name }} host using the
 following command (this lists the metrics, without their current
 values): **syslog-ng-ctl query list \"\*\"**
 
@@ -14,7 +14,7 @@ The displayed metrics have the following structure.
 
 1. The type of the object (for example, dst.file, tag, src.facility)
 
-2. The ID of the object used in the syslog-ng configuration file, for
+2. The ID of the object used in the {{ site.product.short_name }} configuration file, for
     example, d\_internal or source.src\_tcp. The \#0 part means that
     this is the first destination in the destination group.
 
@@ -57,7 +57,7 @@ The displayed metrics have the following structure.
         >src.host;;localhost;d;processed;4
         >src.host;;localhost;d;stamp;1509121934
 
-        To avoid performance issues or even overloading syslog-ng OSE,
+        To avoid performance issues or even overloading {{ site.product.short_name }},
         you might want to limit the number of registered dynamic
         counters in the message statistics. To do this, configure the
         max-dynamics() parameter of the stats() global option.
@@ -65,14 +65,14 @@ The displayed metrics have the following structure.
     - **o** - This object was once active, but stopped receiving messages.
         (For example, a dynamic object may disappear and become orphan.)
 
-        **NOTE:** The syslog-ng OSE application stores the statistics of the
-        objects when syslog-ng OSE is reloaded. However, if the
-        configuration of syslog-ng OSE was changed since the last
+        **NOTE:** The {{ site.product.short_name }} application stores the statistics of the
+        objects when {{ site.product.short_name }} is reloaded. However, if the
+        configuration of {{ site.product.short_name }} was changed since the last
         reload, the statistics of orphaned objects are deleted.
         {: .notice--info}
 
 5. The connections statistics counter displays the number of
-    connections tracked by syslog-ng OSE for the selected source driver.
+    connections tracked by {{ site.product.short_name }} for the selected source driver.
 
     Example: sample configuration and statistics output
 
@@ -100,7 +100,7 @@ The displayed metrics have the following structure.
     - **batch\_size\_avg**: When batching is enabled, then this shows the
         current average batch size of the given source or destination.
 
-        **NOTE:** In version 3.36, syslog-ng OSE only supports the
+        **NOTE:** In version 3.36, {{ site.product.short_name }} only supports the
         batch\_size\_avg for the http() destination.
         {: .notice--info}
 
@@ -108,7 +108,7 @@ The displayed metrics have the following structure.
         batch\_size\_max shows the current largest batch size of the
         given source or destination.
 
-        **NOTE:** In version 3.36, syslog-ng OSE only supports the
+        **NOTE:** In version 3.36, {{ site.product.short_name }} only supports the
         batch\_size\_max for the http() destination.
         {: .notice--info}
 
@@ -118,17 +118,17 @@ The displayed metrics have the following structure.
 
         >parser;demo_parser;;a;discarded;20
 
-    - **dropped**: The number of dropped messages --- syslog-ng OSE could
+    - **dropped**: The number of dropped messages --- {{ site.product.short_name }} could
         not send the messages to the destination and the output buffer
         got full, so messages were dropped by the destination driver, or
-        syslog-ng OSE dropped the message for some other reason (for
+        {{ site.product.short_name }} dropped the message for some other reason (for
         example, a parsing error).
 
     - **eps\_last\_1h**: The EPS value of the past 1 hour.
 
     - **eps\_last\_24h**: The EPS value of the past 24 hours.
 
-    - **eps\_since\_start**: The EPS value since the current syslog-ng OSE
+    - **eps\_since\_start**: The EPS value since the current {{ site.product.short_name }}
         start.
 
         >**NOTE:** When using the eps\_last\_1h, the eps\_last\_24h, and the
@@ -162,7 +162,7 @@ The displayed metrics have the following structure.
         >dst.network;d_net#0;tcp,127.0.0.1:9999;a;memory_usage;0
 
         **NOTE:** The memory usage (size) of queues is not equal to the
-        memory usage (size) of the log messages in syslog-ng OSE. A log
+        memory usage (size) of the log messages in {{ site.product.short_name }}. A log
         message can be in multiple queues, thus its size is added to
         multiple queue sizes. To check the size of all log messages, use
         global.msg\_allocated\_bytes.value metric.
@@ -218,18 +218,18 @@ The displayed metrics have the following structure.
     - **written**: The number of messages successfully delivered to the
         destination. This value is calculated from other counters:
         written = processed - queued - dropped. That is, the number of
-        messages syslog-ng OSE passed to the destination driver
+        messages {{ site.product.short_name }} passed to the destination driver
         (processed) minus the number of messages that are still in the
         output queue of the destination driver (queued) and the number
         of messages dropped because of an error (dropped, for example,
-        because syslog-ng OSE could not deliver the message to the
+        because {{ site.product.short_name }} could not deliver the message to the
         destination and exceeded the number of retries).
 
         This metric is calculated from other metrics. You cannot reset
         this metric directly: to reset it, you have to reset the metrics
         it is calculated from.
 
-    >**NOTE:** Consider that for syslog-ng OSE version 3.36, the following
+    >**NOTE:** Consider that for {{ site.product.short_name }} version 3.36, the following
     >statistics counters are only supported for the http() destination,
     >or the http() destination and all network() sources and
     >destinations, and all file() sources and destinations, respectively:

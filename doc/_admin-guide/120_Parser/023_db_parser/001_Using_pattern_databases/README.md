@@ -4,7 +4,7 @@ id: adm-parser-db-patterndb
 ---
 
 To classify messages using a pattern database, include a db-parser()
-statement in your syslog-ng configuration file using the following
+statement in your {{ site.product.short_name }} configuration file using the following
 syntax:
 
 **Declaration**
@@ -43,7 +43,7 @@ log {
 };
 ```
 
-By default, syslog-ng tries to apply the patterns to the body of the
+By default, {{ site.product.short_name }} tries to apply the patterns to the body of the
 incoming messages, that is, to the value of the ${MESSAGE} macro. If you
 want to apply patterns to a specific field, or to an expression created
 from the log message (for example, using template functions or other
@@ -58,7 +58,7 @@ parser pattern_db {
 };
 ```
 
-By default, syslog-ng uses the name of the application (content of the
+By default, {{ site.product.short_name }} uses the name of the application (content of the
 ${PROGRAM} macro) to select which rules to apply to the message. If the
 content of the ${PROGRAM} macro is not the proper name of the
 application, you can use the program-template() option to specify it.
@@ -73,7 +73,7 @@ parser pattern_db {
 };
 ```
 
-Note that the program-template() option is available in syslog-ng OSE
+Note that the program-template() option is available in {{ site.product.short_name }}
 version 3.21 and later.
 
 **NOTE:** The default location of the pattern database file is
@@ -133,7 +133,7 @@ log {
 ```
 
 For details on how to create your own pattern databases see
-The syslog-ng pattern database format.
+The {{ site.product.short_name }} pattern database format.
 
 ## Drop unmatched messages
 
@@ -151,5 +151,5 @@ parser pattern_db {
 };
 ```
 
-Note that the drop-unmatched() option is available in syslog-ng OSE
+Note that the drop-unmatched() option is available in {{ site.product.short_name }}
 version 3.11 and later.

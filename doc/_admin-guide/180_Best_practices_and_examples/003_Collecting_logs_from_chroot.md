@@ -5,7 +5,7 @@ id: adm-pract-chroot
 
 ## Purpose
 
-To collect logs from a chroot using a syslog-ng client running on the
+To collect logs from a chroot using a {{ site.product.short_name }} client running on the
 host, complete the following steps:
 
 ### Figure 23: Collecting logs from chroot

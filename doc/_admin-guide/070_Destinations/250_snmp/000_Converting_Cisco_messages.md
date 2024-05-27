@@ -3,7 +3,7 @@ title: Converting Cisco syslog messages to clogMessageGenerated SNMP traps
 short_title: Converting Cisco messages
 id: adm-dest-snmp-cisco
 description: >-
-    The syslog-ng OSE application can convert the syslog messages sent by
+    The {{ site.product.short_name }} application can convert the syslog messages sent by
     Cisco devices to Cisco-specific SNMP traps defined by the
     CISCO-SYSLOG-MIB (enterprises.cisco.ciscoMgmt.ciscoCiscoMIB) is also
     supported (such traps are also referred to as clogMessageGenerated
@@ -13,8 +13,8 @@ description: >-
 
 For this to work correctly, the following requirements must be met:
 
-- The syslog-ng Source Configuration Library (SCL) must be included in
-    the syslog-ng OSE configuration file:
+- The {{ site.product.short_name }} Source Configuration Library (SCL) must be included in
+    the {{ site.product.short_name }} configuration file:
 
     ```config
     @include "scl.conf"
@@ -24,7 +24,7 @@ For this to work correctly, the following requirements must be met:
     fields with patterndb must be used to parse
     the incoming log messages.
 
-To accomplish this, syslog-ng OSE has to use a special pattern database
+To accomplish this, {{ site.product.short_name }} has to use a special pattern database
 to parse the Cisco-specific syslog messages, because these messages do
 not comply with the standard syslog formats.
 

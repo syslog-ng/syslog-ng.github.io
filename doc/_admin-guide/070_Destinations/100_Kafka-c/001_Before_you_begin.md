@@ -16,12 +16,12 @@ description: >-
     implementation (which uses the official Java Kafka producer).
 
 - The log messages of the underlying client libraries are available in
-    the internal() source of syslog-ng OSE.
+    the internal() source of {{ site.product.short_name }}.
 
 - If you used the Java implementation before, see
     Shifting from Java implementation to C implementation.
 
-- The syslog-ng OSE kafka destination supports all properties of the
+- The {{ site.product.short_name }} kafka destination supports all properties of the
     official Kafka producer. For details, see the librdkafka documentation.
 
 - For the list of options, see

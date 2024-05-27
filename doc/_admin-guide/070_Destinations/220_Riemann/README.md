@@ -54,6 +54,6 @@ log {
 };
 ```
 
-For a detailed use-case on using syslog-ng OSE with the Riemann
+For a detailed use-case on using {{ site.product.short_name }} with the Riemann
 monitoring system, see the article A How to Guide on Modern Monitoring
 and Alerting by Fabien Wernli.

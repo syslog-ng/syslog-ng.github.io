@@ -11,7 +11,7 @@ description: >-
     similarly to value-pairs based destinations.
 ---
 
-Available in syslog-ng OSE version 3.10 and later.
+Available in {{ site.product.short_name }} version 3.10 and later.
 
 **Declaration**
 

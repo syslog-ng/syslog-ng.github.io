@@ -4,7 +4,7 @@ title: 'Sumo Logic destinations: sumologic-http() and
 short_title: sumologic
 id: adm-dest-sumologic
 description: >-
-    From version 3.27.1, the syslog-ng Open Source Edition (syslog-ng OSE)
+    From version 3.27.1, the {{ site.product.name }} ({{ site.product.short_name }})
     application can send log messages to Sumo Logic,
     a cloud-based log management and security analytics service, by
     using the sumologic-http() and sumologic-syslog() destinations.
@@ -13,7 +13,7 @@ description: >-
 ## Prerequisites
 
 Currently, using the sumologic-http() and sumologic-syslog()
-destinations with syslog-ng OSE has the following prerequisites:
+destinations with {{ site.product.short_name }} has the following prerequisites:
 
 - A Sumo Logic account.
 
@@ -46,17 +46,17 @@ destinations with syslog-ng OSE has the following prerequisites:
     {: .notice--info}
 
 - Your Sumo Logic syslog client, configured to send data to the Sumo
-    Logic cloud syslog service, by using syslog-ng OSE.
+    Logic cloud syslog service, by using {{ site.product.short_name }}.
 
     For detailed information, follow the instructions under the Send
-    data to cloud syslog source with syslog-ng section on the official Sumo Logic website.
+    data to cloud syslog source with {{ site.product.short_name }} section on the official Sumo Logic website.
 
 - A verified connection and client configuration with the Sumo Logic
     service.
 
     ![]({{ site.baseurl}}/assets/images/caution.png) **CAUTION:**
     To avoid potential data loss, One Identity strongly recommends that you verify your connection and client configuration with the Sumo Logic service before you start using the sumologic-http() or sumologic-syslog() destination
-    with syslog-ng OSE in a production environment.
+    with {{ site.product.short_name }} in a production environment.
     {: .notice--warning}
 
 - (Optional) For using the sumologic-http() destination, you need a
@@ -73,9 +73,9 @@ destinations with syslog-ng OSE has the following prerequisites:
 ## Limitations
 
 Currently, using the sumologic-syslog() and sumologic-http()
-destinations with syslog-ng OSE has the following limitations:
+destinations with {{ site.product.short_name }} has the following limitations:
 
-- The minimum required version of syslog-ng OSE is version 3.27.1.
+- The minimum required version of {{ site.product.short_name }} is version 3.27.1.
 
 - Message format must be in RFC-5424 compliant form. Messages over
     64KB in length are truncated.
@@ -118,7 +118,7 @@ destination d_sumo_syslog {
 ## Using the sumologic() driver
 
 To use the sumologic() driver, the scl.conf file must be included in
-your syslog-ng OSE configuration:
+your {{ site.product.short_name }} configuration:
 
 ```config
 @include "scl.conf"

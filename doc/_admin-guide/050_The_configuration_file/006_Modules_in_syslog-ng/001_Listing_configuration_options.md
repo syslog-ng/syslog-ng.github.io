@@ -2,7 +2,7 @@
 title: Listing configuration options
 id: adm-mod-list
 description: >-
-    Starting with syslog-ng OSE 3.25, you can use the syslog-ng-cfg-db.py
+    Starting with {{ site.product.short_name }} 3.25, you can use the syslog-ng-cfg-db.py
     utility to list the available options of configuration objects. For
     example, you can list all the options that can be set in the file
     source, and so on.

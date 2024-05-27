@@ -11,8 +11,7 @@ description: >-
 ---
 
 **NOTE:** Note that parsing will fail if the format string does not match
-the entire template or field. Since by default syslog-ng Open Source
-Edition (syslog-ng OSE) uses the ${MESSAGE} part of the log message,
+the entire template or field. Since by default {{ site.product.short_name }}({{ site.product.short_name }}) uses the ${MESSAGE} part of the log message,
 parsing will fail, unless the log message contains only a date, but that
 is unlikely, so practically you will have to segment the message (for
 example, using a [[csv-parser()|adm-parser-csv]].
@@ -33,13 +32,13 @@ parser parser_name {
 
 ### Example: Using the date-parser()
 
-In the following example, syslog-ng OSE parses dates like
+In the following example, {{ site.product.short_name }} parses dates like
 01/Jan/2016:13:05:05 PST from a field called MY\_DATE using the
 following format string: format(\"%d/%b/%Y:%H:%M:%S %Z\") (how you
 create this field from the incoming message is not shown in the
 example). In the destination template every message will begin with the
 timestamp in ISODATE format. Since the syslog parser is disabled,
-syslog-ng OSE will include the entire original message (including the
+{{ site.product.short_name }} will include the entire original message (including the
 original timestamp) in the ${MESSAGE} macro.
 
 ```config
@@ -69,7 +68,7 @@ example selects the first 24 characters of the ${MESSAGE} macro.
 date-parser(format("%d/%b/%Y:%H:%M:%S %Z") template("$(substr ${MESSAGE} 0 24)") );
 ```
 
-In syslog-ng OSE version 3.23 and later, you can specify a
+In {{ site.product.short_name }} version 3.23 and later, you can specify a
 comma-separated list of formats to parse multiple date formats with a
 single parser. For example:
 

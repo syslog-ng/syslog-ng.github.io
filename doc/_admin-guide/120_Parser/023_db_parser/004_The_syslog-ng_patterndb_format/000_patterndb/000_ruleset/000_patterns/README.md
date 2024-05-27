@@ -19,7 +19,7 @@ N/A
 
 ## Children
 
-- *pattern*: The name of the application --- syslog-ng matches this
+- *pattern*: The name of the application --- {{ site.product.short_name }} matches this
     value to the ${PROGRAM} header of the syslog message to find the
     rulesets applicable to the syslog message.
 
@@ -38,7 +38,7 @@ N/A
     \<pattern\>postfix\\@ESTRING:.postfix.component:\[@\</pattern\>
 
     NOTE: If the \<pattern\> element of a ruleset is not specified,
-    syslog-ng OSE will use this ruleset as a fallback ruleset: it will
+    {{ site.product.short_name }} will use this ruleset as a fallback ruleset: it will
     apply the ruleset to messages that have an empty PROGRAM header, or
     if none of the program patterns matched the PROGRAM header of the
     incoming message.

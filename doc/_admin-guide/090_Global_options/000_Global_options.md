@@ -12,7 +12,7 @@ id: adm-global-opt
 
 
 The following options can be specified in the options statement, as
-described in Global options of syslog-ng OSE.  
+described in Global options of {{ site.product.short_name }}.  
 
 ## bad-hostname()
 
@@ -28,10 +28,10 @@ as hostnames.
   |Default:|           no|
 
 *Description:* Enable or disable the chained hostname format. If a
-client sends the log message directly to the syslog-ng OSE server, the
+client sends the log message directly to the {{ site.product.short_name }} server, the
 chain-hostnames() option is enabled on the server, and the client sends
 a hostname in the message that is different from its DNS hostname (as
-resolved from DNS by the syslog-ng OSE server), then the server can
+resolved from DNS by the {{ site.product.short_name }} server), then the server can
 append the resolved hostname to the hostname in the message (separated
 with a / character) when the message is written to the destination.
 
@@ -65,10 +65,9 @@ table.
     </tr>
 </table>
 
-If the log message is forwarded to the syslog-ng OSE server via a
-syslog-ng OSE relay, the hostname depends on the settings of the
-keep-hostname() and the chain-hostnames() options both on the syslog-ng
-OSE relay and the syslog-ng OSE server.
+If the log message is forwarded to the {{ site.product.short_name }} server via a
+{{ site.product.short_name }} relay, the hostname depends on the settings of the
+keep-hostname() and the chain-hostnames() options both on the {{ site.product.short_name }} relay and the {{ site.product.short_name }} server.
 
 For example, consider a client-relay-server scenario with the following
 hostnames: client-hostname-from-the-message,
@@ -129,8 +128,8 @@ table.
     </tr>
 </table>
 
-The chain-hostnames() option can interfere with the way syslog-ng OSE
-counts the log source hosts. As a result, syslog-ng OSE falsely
+The chain-hostnames() option can interfere with the way {{ site.product.short_name }}
+counts the log source hosts. As a result, {{ site.product.short_name }} falsely
 perceives several hosts logging to the central server, especially if the
 clients sends a hostname in the message that is different from its real
 hostname (as resolved from DNS). Disable the **chain-hostnames()**
@@ -158,8 +157,7 @@ valid characters.
 *Description:* Use this option to specify a custom domain name that is
 appended after the short hostname to receive the fully qualified domain
 name (FQDN). This option affects every outgoing message: eventlog
-sources, file sources, MARK messages and internal messages of syslog-ng
-OSE.
+sources, file sources, MARK messages and internal messages of {{ site.product.short_name }}.
 
 - If the hostname is a short hostname, the custom domain name is
     appended after the hostname (for example, mypc becomes
@@ -206,7 +204,7 @@ OSE.
 *Description:* Name of a file in /etc/hosts format that contains static
 IP-\>hostname mappings. Use this option to resolve hostnames locally
 without using a DNS. Note that any change to this file triggers a reload
-in syslog-ng and is instantaneous.
+in {{ site.product.short_name }} and is instantaneous.
 
 ## dns-cache-size()
 
@@ -255,9 +253,9 @@ with the **-1** value.
 |  Accepted values:|   default, verbose, debug, trace|
 |Default:|           default|
 
-This option is available in syslog-ng OSE version 4.0 and later versions.
+This option is available in {{ site.product.short_name }} version 4.0 and later versions.
 
-*Description:* Controls the own internal log level of syslog-ng OSE. Corresponds to setting the internal log level using syslog-ng-ctl or the command line options of syslog-ng (the -d, -v, and -t ). Setting the log level in the configuration makes it easier to control logging in containerized environments where changing command line options is more problematic.
+*Description:* Controls the own internal log level of {{ site.product.short_name }}. Corresponds to setting the internal log level using syslog-ng-ctl or the command line options of {{ site.product.short_name }} (the -d, -v, and -t ). Setting the log level in the configuration makes it easier to control logging in containerized environments where changing command line options is more problematic.
 
 Higher log-levels automatically include messages from lower log-levels:
 
@@ -265,7 +263,7 @@ Higher log-levels automatically include messages from lower log-levels:
 
 - verbose: Normal and verbose log messages.
 
-- debug: Include debug messages of syslog-ng OSE.
+- debug: Include debug messages of {{ site.product.short_name }}.
 
 - trace: Include trace messages of how messages are processed.
 
@@ -283,7 +281,7 @@ Higher log-levels automatically include messages from lower log-levels:
   |Default:|           1200|
 
 *Description:* The mark-freq() option is an alias for the deprecated
-mark() option. This is retained for compatibility with syslog-ng version
+mark() option. This is retained for compatibility with {{ site.product.short_name }} version
 1.6.x.
 
 {% include doc/admin-guide/options/mark-freq.md %}
@@ -304,7 +302,7 @@ changes the owner of accessed files (for example, /dev/null) to this
 value, and the permissions to the value set in the perm() option.
 
 Starting with version 3.16, the default value of this option is -1, so
-syslog-ng OSE does not change the ownership, unless explicitly
+{{ site.product.short_name }} does not change the ownership, unless explicitly
 configured to do so.
 
 ## pass-unix-credentials()
@@ -312,10 +310,10 @@ configured to do so.
 |  Accepted values:|   yes \| no|
 |Default:|           yes|
 
-*Description:* Enable syslog-ng OSE to collect UNIX credential
+*Description:* Enable {{ site.product.short_name }} to collect UNIX credential
 information (that is, the PID, user ID, and group of the sender process)
 for messages received using UNIX domain sockets. Available only in
-syslog-ng Open Source Edition 3.7 and later. Note that collecting UNIX
+{{ site.product.name }} 3.7 and later. Note that collecting UNIX
 credential information from sockets in high-traffic environments can be
 resource intensive, therefore pass-unix-credentials() can be disabled
 globally, or separately for each source.
@@ -350,7 +348,7 @@ driver.
 
 ## stats()
 
-Available in syslog-ng OSE 4.1 and later versions.
+Available in {{ site.product.short_name }} 4.1 and later versions.
 
 *Description:* The stats() option is an aggregated collection of statistic-related sub-options.
 
@@ -380,7 +378,7 @@ The following sub-options are available within the stats() option:
 |  Accepted values:|   0, 1, 2, 3|
 |Default:|           0|
 
-*Description:* Specifies the detail of statistics syslog-ng collects about the processed messages.
+*Description:* Specifies the detail of statistics {{ site.product.short_name }} collects about the processed messages.
 
 - Level 0 collects only statistics about the sources and destinations.
 
@@ -397,7 +395,7 @@ The following sub-options are available within the stats() option:
 |  Accepted values:|   number|
 |Default:|           N/A|
 
-*Description:* To avoid performance issues or even overloading syslog-ng OSE (for example, if a script starts to send logs from different IP addresses to syslog-ng OSE), you might want to limit the number of registered dynamic counters in the message statistics. For details on message statistics, see Statistics of syslog-ng.
+*Description:* To avoid performance issues or even overloading {{ site.product.short_name }} (for example, if a script starts to send logs from different IP addresses to {{ site.product.short_name }}), you might want to limit the number of registered dynamic counters in the message statistics. For details on message statistics, see Statistics of syslog-ng.
 
 - **Unlimited dynamic counters:**
 
@@ -424,14 +422,14 @@ The following sub-options are available within the stats() option:
 
     To disable dynamic counters completely, set the value of this option to 0. This is the recommended value if  statistics are not used, or if dynamic counters are irrelevant (for example, the number of logs arriving from programs).
 
-**NOTE:** If a lower value is set to stats-max-dynamics() (or, any limiting value, if this option has not been configured before) and syslog-ng OSE is restarted, the changes are only applied after stats-freq() time has passed. That is, the previously allocated dynamic clusters are only removed after this time.
+**NOTE:** If a lower value is set to stats-max-dynamics() (or, any limiting value, if this option has not been configured before) and {{ site.product.short_name }} is restarted, the changes are only applied after stats-freq() time has passed. That is, the previously allocated dynamic clusters are only removed after this time.
 
 ## syslog-stats()
 
 |  Accepted values:|   yes, no, auto|
 |Default:|           auto|
 
-Available in syslog-ng OSE 4.1 and later versions.
+Available in {{ site.product.short_name }} 4.1 and later versions.
 
 *Description:* Configures the behavior of counting messages based on different syslog fields, like SEVERITY, FACILITY, ${HOST}.
 
@@ -464,11 +462,10 @@ This is a deprecated legacy option. Use the stats() option.
 |  Accepted values:|   yes\|no|
   |Default:|           yes|
 
-*Description:* Enable syslog-ng OSE to run in multithreaded mode and use
-multiple CPUs. Available only in syslog-ng Open Source Edition 3.3 and
-later. Note that setting **threaded(no)** does not mean that syslog-ng
-OSE will use only a single thread. For details, see
-Multithreading and scaling in syslog-ng OSE.
+*Description:* Enable {{ site.product.short_name }} to run in multithreaded mode and use
+multiple CPUs. Available only in {{ site.product.name }} 3.3 and
+later. Note that setting **threaded(no)** does not mean that {{ site.product.short_name }} will use only a single thread. For details, see
+Multithreading and scaling in {{ site.product.short_name }}.
 
 {% include doc/admin-guide/options/time-reap.md %}
 
@@ -498,7 +495,7 @@ of the poll() iteration.
 |Default:|           no|
 
 *Description:* When the use-rcptid global option is set to **yes**,
-syslog-ng OSE automatically assigns a unique reception ID to every
+{{ site.product.short_name }} automatically assigns a unique reception ID to every
 received message. You can access this ID and use it in templates via the
 ${RCPTID} macro. The reception ID is a monotonously increasing 48-bit
 integer number, that can never be zero (if the counter overflows, it
@@ -517,7 +514,7 @@ see UNIQID.
 
 Enabling this option automatically generates the HOSTID. The HOSTID is a
 persistent, 32-bits-long cryptographically secure pseudo random number,
-that belongs to the host that the syslog-ng is running on. If the
+that belongs to the host that the {{ site.product.short_name }} is running on. If the
 persist file is damaged, the HOSTID might change.
 
 Enabling this option automatically enables the RCPTID functionality. For

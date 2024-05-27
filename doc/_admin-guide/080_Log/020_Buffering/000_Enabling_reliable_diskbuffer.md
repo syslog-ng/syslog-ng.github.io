@@ -6,7 +6,7 @@ id: adm-log-diskbuff-reliable
 To enable reliable disk-based buffering, use the
 **disk-buffer(reliable(yes))** parameter in the destination. Use
 reliable disk-based buffering if you do not want to lose logs in case of
-reload/restart, unreachable destination or syslog-ng OSE crash. This
+reload/restart, unreachable destination or {{ site.product.short_name }} crash. This
 solution provides a slower, but reliable disk-buffer option. It is
 created and initialized at startup and gradually grows as new messages
 arrive. The filename of the reliable disk buffer file is the following:

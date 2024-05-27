@@ -8,10 +8,10 @@ description: >-
 
 The summary of the main points is as follows:
 
-- The syslog-ng application normally reads a maximum of
+- The {{ site.product.short_name }} application normally reads a maximum of
     log-fetch-limit() number of messages from a source.
 
-- From TCP and unix-stream sources, syslog-ng reads a maximum of
+- From TCP and unix-stream sources, {{ site.product.short_name }} reads a maximum of
     log-fetch-limit() from every connection of the source. The number of
     connections to the source is set using the max-connections()
     parameter.
@@ -34,7 +34,7 @@ The summary of the main points is as follows:
     The dynamic control window is automatically distributed among the
     active connections of the source.
 
-- If the control window is full, syslog-ng stops reading messages from
+- If the control window is full, {{ site.product.short_name }} stops reading messages from
     the source until some messages are successfully sent to the
     destination.
 
@@ -48,7 +48,7 @@ do not forget to adjust the log-iw-size() and dynamic-window-size() parameters a
 
 ### Example: Sizing parameters for flow-control
 
-Suppose that syslog-ng has a source that must accept up to 300 parallel
+Suppose that {{ site.product.short_name }} has a source that must accept up to 300 parallel
 connections. Such situation can arise when a network source receives
 connections from many clients, or if many applications log to the same
 socket.
@@ -64,7 +64,7 @@ max-connections()\*log-fetch-limit() messages to be able to read every
 incoming message of a poll loop. In the current example this means that
 log-iw-size() should be greater than **300\*10=3000**. If the control
 window is smaller than this value, the control window might fill up with
-messages from the first connections --- causing syslog-ng to read only
+messages from the first connections --- causing {{ site.product.short_name }} to read only
 one message of the last connections in every poll loop.
 
 The output buffer of the destination must accommodate at least

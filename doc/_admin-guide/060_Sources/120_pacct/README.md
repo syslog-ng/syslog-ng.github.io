@@ -3,7 +3,7 @@ title: 'pacct: Collecting process accounting logs on Linux'
 short_title: pacct
 id: adm-src-pacct
 description: >-
-    Starting with version 3.2, syslog-ng OSE can collect process accounting
+    Starting with version 3.2, {{ site.product.short_name }} can collect process accounting
     logs on Linux systems.Process accounting is the method of recording and
     summarizing commands executed on Linux, for example, the commands being
     run, the user who executed the command, CPU time used by the process,
@@ -15,14 +15,14 @@ description: >-
 
 To use the pacct() driver, the following conditions must be met:
 
-- The syslog-ng OSE application must be compiled with the
+- The {{ site.product.short_name }} application must be compiled with the
     *--enable-pacct* option. Execute the `syslog-ng -V` command to check if
     your binary supports process accounting.
 
-- The pacctformat plugin must be loaded. By default, syslog-ng OSE
+- The pacctformat plugin must be loaded. By default, {{ site.product.short_name }}
     automatically loads the available modules.
 
-- The scl.conf file must be included in your syslog-ng configuration:
+- The scl.conf file must be included in your {{ site.product.short_name }} configuration:
 
     ```config
     @include "scl.conf"
@@ -33,7 +33,7 @@ To use the pacct() driver, the following conditions must be met:
 
 The pacct() driver parses the fields of the accounting logs and
 transforms them into name-value pairs. The fields are defined in the
-manual page of the accounting log file (man acct), syslog-ng OSE
+manual page of the accounting log file (man acct), {{ site.product.short_name }}
 prepends every field with the .pacct. prefix. For example, the
 **ac_uid** field that contains the id of the user who started the
 process will be available under the $.pacct.ac_uid name. These can be

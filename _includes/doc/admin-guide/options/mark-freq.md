@@ -4,7 +4,7 @@
 |Default:|           1200|
 
 *Description:* An alias for the obsolete mark() option, retained for
-compatibility with syslog-ng version 1.6.x.
+compatibility with {{ site.product.short_name }} version 1.6.x.
 
 The number of seconds between two MARK messages. MARK messages are
 generated when there was no message traffic to inform the receiver that

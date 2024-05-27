@@ -3,14 +3,14 @@ title: "Options of the kafka() destination's C implementation"
 id: adm-dest-kafkac-opt
 ---
 
-The C implementation of the kafka() destination of syslog-ng OSE can
+The C implementation of the kafka() destination of {{ site.product.short_name }} can
 directly publish log messages to the Apache Kafka message bus, where subscribers can access them. The C implementation of the kafka() destination has the following options.
 
 ## Required options
 
 The following options are required: bootstrap-servers(), topic(). Note
 that to use the C implementation of the kafka() destination, you must
-add the following lines to the beginning of your syslog-ng OSE
+add the following lines to the beginning of your {{ site.product.short_name }}
 configuration:
 
 ```config
@@ -21,28 +21,28 @@ configuration:
 
 {% include doc/admin-guide/options/batch-lines.md %}
 
-**NOTE:** The syslog-ng OSE configuration accepts this option with
+**NOTE:** The {{ site.product.short_name }} configuration accepts this option with
 sync-send() set to both "yes" or "no", but the option will only take
 effect if you set sync-send() to "yes".
 {: .notice--info}
 
 **NOTE:** If you set sync-send() to "yes", the number you specify for
-batch-lines() affects how many messages syslog-ng OSE packs into once
+batch-lines() affects how many messages {{ site.product.short_name }} packs into once
 transaction.
 {: .notice--info}
 
 {% include doc/admin-guide/options/batch-timeout.md %}
 
-**NOTE:** The syslog-ng OSE configuration accepts this option with
+**NOTE:** The {{ site.product.short_name }} configuration accepts this option with
 sync-send() set to both "yes" or "no", but the option will only take
 effect if you set sync-send() to "yes".
 {: .notice--info}
 
 **NOTE:** When setting batch-timeout(), consider the value of the
 transaction.timeout.ms Kafka property. If in case of timeout (that is,
-if syslog-ng OSE does not receive batch-lines() amount of messages) the
+if {{ site.product.short_name }} does not receive batch-lines() amount of messages) the
 value of batch-timeout() exceeds the value of transaction.timeout.ms,
-syslog-ng OSE will not send out messages in time.
+{{ site.product.short_name }} will not send out messages in time.
 {: .notice--info}
 
 For more information about the default values of the
@@ -83,7 +83,7 @@ of the properties-file().
 
 {% include doc/admin-guide/notes/kafka-c.md %}
 
-The syslog-ng OSE kafka destination supports all properties of the
+The {{ site.product.short_name }} kafka destination supports all properties of the
 official Kafka producer. For details, see the librdkafka documentation.
 
 The syntax of the config() option is the following:
@@ -104,11 +104,11 @@ config(
 |  Type:|      integer in msec|
   |Default:|   1000|
 
-*Description:* When syslog-ng reloads, the Kafka client will also
+*Description:* When {{ site.product.short_name }} reloads, the Kafka client will also
 reload. The flush-timeout-on-reload() option specifies the number of
-milliseconds syslog-ng waits for the Kafka client to send the unsent
+milliseconds {{ site.product.short_name }} waits for the Kafka client to send the unsent
 messages. The unsent messages will be retained in syslog-ng\'s own queue
-and syslog-ng will continue sending them after reload. This works
+and {{ site.product.short_name }} will continue sending them after reload. This works
 without disk-buffering, too.
 
 ## flush-timeout-on-shutdown()
@@ -116,9 +116,9 @@ without disk-buffering, too.
 |  Type:|      integer in msec|
   |Default:|   60000|
 
-*Description:* When syslog-ng shuts down, the Kafka client will also
+*Description:* When {{ site.product.short_name }} shuts down, the Kafka client will also
 shut down. The flush-timeout-on-shutdown() option specifies the number
-of milliseconds syslog-ng waits for the Kafka client to send the unsent
+of milliseconds {{ site.product.short_name }} waits for the Kafka client to send the unsent
 messages. Any messages not sent after the specified time will be lost.
 To avoid losing messages, we recommend you use the disk-buffer option.
 
@@ -147,9 +147,9 @@ key(\"${PROGRAM}\").
 |  Type:|      integer in msec|
   |Default:|   1000|
 
-*Description:* Specifies the frequency your syslog-ng queries the Kafka
+*Description:* Specifies the frequency your {{ site.product.short_name }} queries the Kafka
 client about the amount of messages sent since the last poll-timeout ().
-In case of multithreading, the first syslog-ng worker is responsible for
+In case of multithreading, the first {{ site.product.short_name }} worker is responsible for
 poll-timeout().
 
 ## properties-file()
@@ -160,10 +160,10 @@ poll-timeout().
 *Description:* The absolute path and filename of the Kafka properties
 file to load. For example,
 properties-file(\"/opt/syslog-ng/etc/kafka_dest.properties\"). The
-syslog-ng OSE application reads this file and passes the properties to
+{{ site.product.short_name }} application reads this file and passes the properties to
 the Kafka Producer.
 
-The syslog-ng OSE kafka destination supports all properties of the
+The {{ site.product.short_name }} kafka destination supports all properties of the
 official Kafka producer. For details, see the librdkafka documentation.
 
 The bootstrap-servers option is translated to the bootstrap.servers
@@ -188,20 +188,20 @@ compression.type=snappy.
 |  Type:|      yes \| no|
   |Default:|   no|
 
-*Description:* When sync-send is set to **yes**, syslog-ng OSE sends
+*Description:* When sync-send is set to **yes**, {{ site.product.short_name }} sends
 the message reliably: it sends a message to the Kafka server, then waits
-for a reply. In case of failure, syslog-ng OSE repeats sending the
+for a reply. In case of failure, {{ site.product.short_name }} repeats sending the
 message, as set in the retries() parameter. If sending the message fails
-for retries() times, syslog-ng OSE drops the message.
+for retries() times, {{ site.product.short_name }} drops the message.
 
 This method ensures reliable message transfer, but is very slow.
 
-When sync-send() is set to **no**, syslog-ng OSE sends messages
+When sync-send() is set to **no**, {{ site.product.short_name }} sends messages
 asynchronously, and receives the response asynchronously. In case of a
-problem, syslog-ng OSE cannot resend the messages.
+problem, {{ site.product.short_name }} cannot resend the messages.
 
 This method is fast, but the transfer is not reliable. Several thousands
-of messages can be lost before syslog-ng OSE recognizes the error.
+of messages can be lost before {{ site.product.short_name }} recognizes the error.
 
 ![]({{ site.baseurl}}/assets/images/caution.png) **CAUTION:**
 Hazard of data loss! If sync-send() is set to "no", the messages passed
@@ -262,6 +262,6 @@ option only if your Kafka clients have many threads and they do not
 receive enough messages.
 
 **NOTE:** Kafka clients have their own threadpool, entirely independent from
-any syslog-ng settings. The workers() option has no effect on this
+any {{ site.product.short_name }} settings. The workers() option has no effect on this
 threadpool.
 {: .notice--info}

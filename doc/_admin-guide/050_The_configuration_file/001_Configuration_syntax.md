@@ -3,17 +3,17 @@ title: The configuration syntax in detail
 id: adm-conf-syn
 ---
 
-Every syslog-ng configuration file must begin with a line containing the
-version information of syslog-ng. For syslog-ng version 3.38, this line
+Every {{ site.product.short_name }} configuration file must begin with a line containing the
+version information of syslog-ng. For {{ site.product.short_name }} version 3.38, this line
 looks like:
 
 ```config
 @version: 3.38
 ```
 
-Versioning the configuration file was introduced in syslog-ng 3.0. If
+Versioning the configuration file was introduced in {{ site.product.short_name }} 3.0. If
 the configuration file does not contain the version information,
-syslog-ng assumes that the file is for syslog-ng version 2.x. In this
+{{ site.product.short_name }} assumes that the file is for {{ site.product.short_name }} version 2.x. In this
 case it interprets the configuration and sends warnings about the parts
 of the configuration that should be updated. Version 3.0 and later will
 correctly operate with configuration files of version 2.x, but the
@@ -22,7 +22,7 @@ default values of certain parameters have changed since 3.0.
 ## Example: A simple configuration file
 
 The following is a very simple configuration file for syslog-ng: it
-collects the internal messages of syslog-ng and the messages from
+collects the internal messages of {{ site.product.short_name }} and the messages from
 /dev/log into the /var/log/messages_syslog-ng.log file.
 
 ```config
@@ -41,7 +41,7 @@ log {
 };
 ```
 
-As a syslog-ng user described on a Gentoo mailing list:
+As a {{ site.product.short_name }} user described on a Gentoo mailing list:
 
 > Alan McKinnon
 >
@@ -55,7 +55,7 @@ As a syslog-ng user described on a Gentoo mailing list:
     definitions: sources, destinations, logpaths define which log
     message are received and where they are sent. All identifiers,
     option names and attributes, and any other strings used in the
-    syslog-ng configuration file are case sensitive. Object definitions
+    {{ site.product.short_name }} configuration file are case sensitive. Object definitions
     (also called statements) have the following syntax:
 
     `type-of-the-object identifier-of-the-object {<parameters>};`
@@ -66,7 +66,7 @@ As a syslog-ng user described on a Gentoo mailing list:
   - *Identifier of the object*: A unique name identifying the object. When using
   a reserved word as an identifier, enclose the dentifier in quotation marks.  
     All identifiers, attributes, and any other strings used in the
-        syslog-ng configuration file are case sensitive.
+        {{ site.product.short_name }} configuration file are case sensitive.
 
     > **TIP:** Use identifiers that refer to the type of the object they
     > identify. For example, prefix source objects with **s_**,
@@ -145,9 +145,9 @@ As a syslog-ng user described on a Gentoo mailing list:
     ```
 
 - Some options are global options, or can be set globally, for
-    example, whether syslog-ng OSE should use DNS resolution to resolve
+    example, whether {{ site.product.short_name }} should use DNS resolution to resolve
     IP addresses. Global options are detailed in
-    Global options of syslog-ng OSE.  
+    Global options of {{ site.product.short_name }}.  
 
     ```config
     options {

@@ -2,7 +2,7 @@
 title: High availability support
 id: adm-conc-ha
 description: >-
-    Multiple syslog-ng servers can be run in fail-over mode. The syslog-ng
+    Multiple {{ site.product.short_name }} servers can be run in fail-over mode. The syslog-ng
     application does not include any internal support for this, as
     clustering support must be implemented on the operating system level. 
 ---

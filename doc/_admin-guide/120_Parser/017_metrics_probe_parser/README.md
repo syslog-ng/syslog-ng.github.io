@@ -3,7 +3,7 @@ title: 'metrics-probe'
 short_title: metrics-probe()
 id: adm-metrics-probe
 description: >-
-  Available in syslog-ng OSE 4.1.1 or later versions.
+  Available in {{ site.product.short_name }} 4.1.1 or later versions.
 
   metrics-probe() is a special parser that counts the messages passing through the
   log path, and creates labeled stat-counters based on the fields of these messages.
@@ -76,5 +76,5 @@ syslogng_custom_key{custom_label_name_1="foobar", custom_label_name_2="foo"} 1
 syslogng_custom_key{custom_label_name_1="foobar", custom_label_name_2="baz"} 3
 ```
 
-In syslog-ng OSE 4.4 and later versions, it is possible to create Dynamic labels
+In {{ site.product.short_name }} 4.4 and later versions, it is possible to create Dynamic labels
 as well.

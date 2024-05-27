@@ -4,7 +4,7 @@ batch_timeout: 'none'
 id: adm-dest-http-nonjava-opt
 ---
 
-The http destination of syslog-ng OSE can directly post log messages to
+The http destination of {{ site.product.short_name }} can directly post log messages to
 web services using the HTTP protocol. The http destination has the
 following options.
 
@@ -35,9 +35,8 @@ received from the source by default.
 |  Accepted values:|   string|
   |Default:|           none|
 
-*Description:* The string syslog-ng OSE puts at the beginning of the
-body of the HTTP request, before the log message. Available in syslog-ng
-OSE version 3.18 and later.
+*Description:* The string {{ site.product.short_name }} puts at the beginning of the
+body of the HTTP request, before the log message. Available in {{ site.product.short_name }} version 3.18 and later.
 
 {% include doc/admin-guide/http-batch.md %}
 
@@ -46,8 +45,8 @@ OSE version 3.18 and later.
 |  Accepted values:|   string|
   |Default:|           none|
 
-*Description:* The string syslog-ng OSE puts to the end of the body of
-the HTTP request, after the log message. Available in syslog-ng OSE
+*Description:* The string {{ site.product.short_name }} puts to the end of the body of
+the HTTP request, after the log message. Available in {{ site.product.short_name }}
 version 3.18 and later.
 
 {% include doc/admin-guide/http-batch.md %}
@@ -161,14 +160,14 @@ destination {
 
 *Description:* Specifies the hostname or IP address and optionally the port number of the web service that can receive log data via HTTP. Use a colon (**:**) after the address to specify the port number of the server. For example: http://127.0.0.1:8000
 
-In case the server on the specified URL returns a redirect request, syslog-ng OSE automatically follows maximum 3 redirects. Only HTTP and HTTPS based redirections are supported.
+In case the server on the specified URL returns a redirect request, {{ site.product.short_name }} automatically follows maximum 3 redirects. Only HTTP and HTTPS based redirections are supported.
 
 ### Templates in the URL
 
-In syslog-ng OSE 4.5 and later versions, templates can be used in the `url()` option of the `http()` driver, with the following conditions:
+In {{ site.product.short_name }} 4.5 and later versions, templates can be used in the `url()` option of the `http()` driver, with the following conditions:
 
 * **Templates and batching:** Templates can only be resolved for a single message, because the template could resolve differently on different messages. If batching is enabled and multiple workers are configured, only add messages to a batch that generate identical URLs. Set the `worker-partition-key()` option with a template that contains all the templates used in the `url()` option, otherwise messages get mixed.
-* Due to security concerns, syslog-ng OSE URL-encodes the  templated content of the `url()` option. The following parts of the URL cannot be templated:
+* Due to security concerns, {{ site.product.short_name }} URL-encodes the  templated content of the `url()` option. The following parts of the URL cannot be templated:
   * scheme
   * host
   * port
@@ -186,7 +185,7 @@ In syslog-ng OSE 4.5 and later versions, templates can be used in the `url()` op
 |  Type:|      string|
   |Default:|   |
 
-*Description:* The username that syslog-ng OSE uses to authenticate on
+*Description:* The username that {{ site.product.short_name }} uses to authenticate on
 the server where it sends the messages.
 
 {% include doc/admin-guide/options/use-system-cert-store.md %}

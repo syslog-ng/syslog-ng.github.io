@@ -3,7 +3,7 @@ title: 'loki(): Storing messages in a Grafana Loki database'
 short_title: Loki
 id: adm-dest-loki
 description: >-
-    In syslog-ng OSE 4.4 and later versions the `loki()` destination can be used to send log data to Grafana Loki. 
+    In {{ site.product.short_name }} 4.4 and later versions the `loki()` destination can be used to send log data to Grafana Loki. 
     
     For more information on the message format, see Grafna Loki HTTP endpoint.
 ---

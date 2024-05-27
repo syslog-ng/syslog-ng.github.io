@@ -2,7 +2,7 @@
 title: Comparing macro values in filters
 id: adm-log-filters-macro
 description: >-
-    Starting with syslog-ng OSE version 3.2, it is also possible to compare
+    Starting with {{ site.product.short_name }} version 3.2, it is also possible to compare
     macro values and templates as numerical and string values. String
     comparison is alphabetical: it determines if a string is alphabetically
     greater or equal to another string. Use the following syntax to compare
@@ -19,10 +19,10 @@ filter <filter-id>
 
 ## String and numerical comparison
 
-syslog-ng Open Source Edition versions prior to 4.0 used separate
+{{ site.product.name }} versions prior to 4.0 used separate
 operators for string comparisons (for example, eq). In version 4.0 and
 onwards, mathematical symbols can be used as operators (==, !=, \>=),
-and syslog-ng Open Source Edition automatically determines how to
+and {{ site.product.name }} automatically determines how to
 compare the arguments based on their type.
 
 - If both sides of the comparison are strings, the comparison is

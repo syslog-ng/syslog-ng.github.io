@@ -3,7 +3,7 @@ title: qBittorrent log source
 short_title: qBittorrent
 id: adm-src-qbit
 description: >-
-    In syslog-ng OSE 4.6 and later versions it is possible to collect logs of the qBittorrent application.
+    In {{ site.product.short_name }} 4.6 and later versions it is possible to collect logs of the qBittorrent application.
 ---
 
 ```config

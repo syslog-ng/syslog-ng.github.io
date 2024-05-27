@@ -1,14 +1,14 @@
 The FQDN of the host that sent the message to syslog-ng
-as resolved by syslog-ng using DNS. If the message traverses several
+as resolved by {{ site.product.short_name }} using DNS. If the message traverses several
 hosts, this is the last host in the chain.
 
-The syslog-ng OSE application uses the following procedure to determine
+The {{ site.product.short_name }} application uses the following procedure to determine
 the value of the {{ include.from }} macro:
 
-1. The syslog-ng OSE application takes the IP address of the host
+1. The {{ site.product.short_name }} application takes the IP address of the host
     sending the message.
 
-2. If the use-dns() option is enabled, syslog-ng OSE attempts to
+2. If the use-dns() option is enabled, {{ site.product.short_name }} attempts to
     resolve the IP address to a hostname. If it succeeds, the returned
     hostname will be the value of the {{ include.from }} macro. This value
     will be the FQDN of the host if the use-fqdn() option is enabled,
@@ -18,5 +18,5 @@ the value of the {{ include.from }} macro:
     fails, the {{ include.from }} macro will return the IP address of
     the sender host.
 
-For details on using name resolution in syslog-ng OSE, see
+For details on using name resolution in {{ site.product.short_name }}, see
 Using name resolution in syslog-ng.

@@ -3,9 +3,9 @@ title: Who uses syslog-ng?
 id: adm-intro-who
 ---
 
-The syslog-ng application is used worldwide by companies and
+The {{ site.product.short_name }} application is used worldwide by companies and
 institutions who collect and manage the logs of several hosts, and want
-to store them in a centralized, organized way. Using syslog-ng is
+to store them in a centralized, organized way. Using {{ site.product.short_name }} is
 particularly advantageous for:
 
 - Internet Service Providers

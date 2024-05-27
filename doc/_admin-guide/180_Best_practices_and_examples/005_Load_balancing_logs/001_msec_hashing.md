@@ -5,7 +5,7 @@ id: adm-pract-msec
 description: >-
   This section describes a configuration generator for the load balancing
   method based on MSEC hashing to load balance your logs between multiple
-  syslog-ng Open Source Edition (syslog-ng OSE) destinations.
+  {{ site.product.name }} ({{ site.product.short_name }}) destinations.
 ---
 
 ![]({{ site.baseurl}}/assets/images/caution.png) **CAUTION:**
@@ -19,7 +19,7 @@ this script, and recommends that you only use this script at your own risk.
 
 As an alternative to using the example configuration described in
 [[Load balancing with round robin|adm-pract-round-robin]], a
-configuration generator script is also available in syslog-ng OSE:
+configuration generator script is also available in {{ site.product.short_name }}:
 
 ```config
 destination d_lb {

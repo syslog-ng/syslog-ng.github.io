@@ -9,7 +9,7 @@ description: >-
 
 ## Prerequisites
 
-* An OpenObserve account for syslog-ng OSE or a self-hosted OpenObserve deployment
+* An OpenObserve account for {{ site.product.short_name }} or a self-hosted OpenObserve deployment
 * Username, password, organization name and the name of the OpenObserve target stream where data is sent to.
 
 ### Example: minimal configuration of OpenObserve

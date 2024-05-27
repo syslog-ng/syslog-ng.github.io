@@ -12,7 +12,7 @@ option is required, the others are optional.
 
 In addition to traps, the log of snmptrapd may contain other messages
 (for example, daemon start/stop information, debug logs) as well.
-Currently syslog-ng OSE discards these messages.
+Currently {{ site.product.short_name }} discards these messages.
 
 {% include doc/admin-guide/options/hook.md %}
 
@@ -31,6 +31,6 @@ Default value: .snmp. option.
 name-value pairs, so you can handle the content of the trap as a
 structured message. Consequently, you might not even need the
 `${MESSAGE}` part of the log message. If set-message-macro() is set to
-**no**, syslog-ng OSE leaves the `${MESSAGE}` part empty. If
-set-message-macro() is set to **yes**, syslog-ng OSE generates a regular
+**no**, {{ site.product.short_name }} leaves the `${MESSAGE}` part empty. If
+set-message-macro() is set to **yes**, {{ site.product.short_name }} generates a regular
 log message from the trap.

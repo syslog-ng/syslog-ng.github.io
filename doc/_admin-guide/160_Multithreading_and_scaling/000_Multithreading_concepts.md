@@ -1,17 +1,17 @@
 ---
-title: Multithreading concepts of syslog-ng OSE
+title: Multithreading concepts of {{ site.product.short_name }}
 id: adm-multithread-concept
 description: >-
-    This section is a brief overview on how syslog-ng OSE works in
+    This section is a brief overview on how {{ site.product.short_name }} works in
     multithreaded mode. It is mainly for illustration purposes: the concept
     has been somewhat simplified and may not completely match reality.
 ---
 
-**NOTE:** The way syslog-ng OSE uses multithreading may change in future
+**NOTE:** The way {{ site.product.short_name }} uses multithreading may change in future
 releases. The current documentation applies to version 3.38.
 {: .notice--info}
 
-syslog-ng OSE always uses multiple threads:
+{{ site.product.short_name }} always uses multiple threads:
 
 - A main thread that is always running
 
@@ -22,23 +22,22 @@ syslog-ng OSE always uses multiple threads:
 - Some other, special threads for internal functionalities. For
     example, certain destinations run in a separate thread,
     independently of the multithreading (threaded()) and
-    \--worker-threads settings of syslog-ng OSE.
+    \--worker-threads settings of {{ site.product.short_name }}.
 
-The maximum number of worker threads syslog-ng OSE uses is the number of
-CPUs or cores in the host running syslog-ng OSE (up to 64). You can
+The maximum number of worker threads {{ site.product.short_name }} uses is the number of
+CPUs or cores in the host running {{ site.product.short_name }} (up to 64). You can
 limit this value using the **\--worker-threads** command-line option
-that sets the maximum total number of threads syslog-ng OSE can use,
-including the main syslog-ng OSE thread. However, the \--worker-threads
-option does not affect the supervisor of syslog-ng OSE. The supervisor
-is a separate process (see The syslog-ng manual page,
+that sets the maximum total number of threads {{ site.product.short_name }} can use,
+including the main {{ site.product.short_name }} thread. However, the \--worker-threads
+option does not affect the supervisor of {{ site.product.short_name }}. The supervisor
+is a separate process (see The {{ site.product.short_name }} manual page,
 but certain operating systems might display it as a thread. In
 addition, certain destinations always run in a separate thread,
 independently of the multithreading (threaded()) and \--worker-threads
-settings of syslog-ng OSE.
+settings of {{ site.product.short_name }}.
 
-When an event requiring a new thread occurs (for example, syslog-ng OSE
-receives new messages, or a destination becomes available), syslog-ng
-OSE tries to start a new thread. If there are no free threads, the task
+When an event requiring a new thread occurs (for example, {{ site.product.short_name }}
+receives new messages, or a destination becomes available), {{ site.product.short_name }} tries to start a new thread. If there are no free threads, the task
 waits until a thread finishes its task and becomes available. There are
 two types of worker threads:
 
@@ -72,7 +71,7 @@ destinations.
     limited by the max-connections() option of the source. Separate
     sources are processed by separate thread, for example, if you have
     two separate tcp sources defined that receive messages on different
-    IP addresses or port, syslog-ng OSE will use separate threads for
+    IP addresses or port, {{ site.product.short_name }} will use separate threads for
     these sources even if they both have only a single active
     connection.
 
@@ -89,7 +88,7 @@ destinations.
 ## Sources and destinations not affected by multithreading
 
 The following list describes sources and destinations that use a
-separate thread even if you disable multithreading in syslog-ng OSE, in
+separate thread even if you disable multithreading in {{ site.product.short_name }}, in
 addition to the limit set in the \--worker-threads command-line option.
 
 - Every sql destination uses its own thread. These threads are

@@ -81,7 +81,7 @@ SSB provides a number of features that can add value for your use cases:
 
   - Configuring SSB is done through the user interface. All of the
     flexible filtering, classification and routing features in the
-    syslog-ng Open Source Edition and syslog-ng Premium Edition can
+    {{ site.product.name }} and syslog-ng Premium Edition can
     be configured with it. Access and authentication policies can be
     set to integrate with Microsoft Active Directory, LDAP and
     Radius servers. The web interface is accessible through a
@@ -94,7 +94,7 @@ SSB provides a number of features that can add value for your use cases:
 For further details about syslog-ng Store Box, see 
 The syslog-ng Store Box Administration Guide.
 
-## Upgrading from syslog-ng OSE to syslog-ng PE
+## Upgrading from {{ site.product.short_name }} to syslog-ng PE
 
-If you wish to upgrade from syslog-ng OSE to syslog-ng PE, read the blog
-post Upgrading from syslog-ng OSE to syslog-ng PE for instructions and tips.
+If you wish to upgrade from {{ site.product.short_name }} to syslog-ng PE, read the blog
+post Upgrading from {{ site.product.short_name }} to syslog-ng PE for instructions and tips.

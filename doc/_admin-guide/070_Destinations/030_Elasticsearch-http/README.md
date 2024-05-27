@@ -4,7 +4,7 @@ title: 'elasticsearch-http: Sending messages to Elasticsearch HTTP Bulk
 short_title: elasticsearch-http
 id: adm-dest-es-http
 description: >-
-    Version 3.21 of syslog-ng OSE can directly post log messages to an
+    Version 3.21 of {{ site.product.short_name }} can directly post log messages to an
     Elasticsearch deployment using the Elasticsearch Bulk API over the HTTP
     and Secure HTTP (HTTPS) protocols.
 ---

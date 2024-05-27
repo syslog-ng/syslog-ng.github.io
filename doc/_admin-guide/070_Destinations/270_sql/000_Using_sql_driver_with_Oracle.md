@@ -11,7 +11,7 @@ to note.
 
     If the tnsnames.ora file is not located in the /etc directory (or in
     the /var/opt/oracle directory on Solaris), set the following
-    Oracle-related environment variables, so syslog-ng OSE will find the
+    Oracle-related environment variables, so {{ site.product.short_name }} will find the
     file: ORACLE_BASE, ORACLE_HOME, and ORACLE_SID. For details, see
     the documentation of the Oracle Instant Client.
 
@@ -20,21 +20,21 @@ to note.
     a reference to the connection string of the tnsnames.ora file. To
     overcome this problem, you can duplicate the connections in the
     tnsnames.ora file under a different name, and use a different table
-    in each Oracle destination in syslog-ng OSE.
+    in each Oracle destination in {{ site.product.short_name }}.
 
 - As certain database versions limit the maximum length of table
     names, macros in the table names should be used with care.
 
-- In the current version of syslog-ng OSE, the types of database
+- In the current version of {{ site.product.short_name }}, the types of database
     columns must be explicitly set for the Oracle destination. The
     column used to store the text part of the syslog messages should be
     able to store messages as long as the longest message permitted by
-    syslog-ng, therefore it is usually recommended to use the
+    {{ site.product.short_name }}, therefore it is usually recommended to use the
     **varchar2** or **clob** column type. (The maximum length of the
     messages can be set using the log-msg-size() option.) For details,
     see the following example.
 
-- The Oracle Instant Client used by syslog-ng OSE supports only the
+- The Oracle Instant Client used by {{ site.product.short_name }} supports only the
     following character sets:
 
   - Single-byte character sets: US7ASCII, WE8DEC, WE8MSWIN1252, and
@@ -48,7 +48,7 @@ The following example sends the log messages into an Oracle database
 running on the logserver host, which must be set in the
 /etc/tnsnames.ora file. The messages are inserted into the LOGS
 database, the name of the table includes the exact date when the
-messages were sent. The syslog-ng application automatically creates the
+messages were sent. The {{ site.product.short_name }} application automatically creates the
 required tables and columns, if the user account used to connect to the
 database has the required privileges.
 

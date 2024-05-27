@@ -14,7 +14,7 @@ NOTE: The syslog() driver can also receive BSD-syslog-formatted messages
 BSD-syslog or legacy-syslog messages
 if they are sent using the IETF-syslog protocol.
 
-In syslog-ng OSE versions 3.1 and earlier, the syslog() driver could
+In {{ site.product.short_name }} versions 3.1 and earlier, the syslog() driver could
 handle only messages in the IETF-syslog (RFC-5424) format.
 
 For the list of available optional parameters, see

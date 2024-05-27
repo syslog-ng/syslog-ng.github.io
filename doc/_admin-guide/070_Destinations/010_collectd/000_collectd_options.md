@@ -21,7 +21,7 @@ the underlying unix-stream() driver (for example, socket buffer size).
 |Default:|   ${HOST}|
 
 *Description:* The hostname that is passed to collectd. By default,
-syslog-ng OSE uses the host from the log message as the hostname.
+{{ site.product.short_name }} uses the host from the log message as the hostname.
 
 ## interval()
 

@@ -2,18 +2,18 @@
 title: The type() options of regular expressions
 id: adm-temp-regexp-type
 description: >-
-    By default, syslog-ng OSE uses PCRE-style regular expressions, which are
-    supported on every platform starting with syslog-ng OSE version 3.1. To
+    By default, {{ site.product.short_name }} uses PCRE-style regular expressions, which are
+    supported on every platform starting with {{ site.product.short_name }} version 3.1. To
     use other expression types, add the type() option after the regular
     expression.
 ---
 
-The syslog-ng OSE application supports the following type() options:
+The {{ site.product.short_name }} application supports the following type() options:
 
 ## Perl Compatible Regular Expressions (pcre)
 
 *Description:* Uses Perl Compatible Regular Expressions (PCRE). If the
-type() parameter is not specified, syslog-ng OSE uses PCRE regular
+type() parameter is not specified, {{ site.product.short_name }} uses PCRE regular
 expressions by default.
 
 For more information about the flags() options of PCRE regular

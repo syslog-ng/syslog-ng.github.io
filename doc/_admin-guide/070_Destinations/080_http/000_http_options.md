@@ -3,7 +3,7 @@ title: HTTP destination options
 id: adm-dest-http-opt
 ---
 
-The http destination of syslog-ng OSE can directly post log messages to
+The http destination of {{ site.product.short_name }} can directly post log messages to
 web services using the HTTP protocol. The http destination has the
 following options. Some of these options are directly used by the Java
 code underlying the http destination, therefore these options must be
@@ -49,7 +49,7 @@ For the http destination, use this option as
 |Default: |  PUT|
 
 *Description:* Specifies the HTTP method to use when sending the message
-to the server. Available in syslog-ng OSE version 3.7.2 and newer.
+to the server. Available in {{ site.product.short_name }} version 3.7.2 and newer.
 
 {% include doc/admin-guide/options/retries.md %}
 

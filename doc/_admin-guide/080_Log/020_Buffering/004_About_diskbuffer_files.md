@@ -10,7 +10,7 @@ reliable(yes) option and not is the strategy they employ. Reliable disk
 queues guarantee that all the messages passing through them are written
 to disk first, and removed from the queue only after the destination has
 confirmed that the message has been successfully received. This prevents
-message loss, for example, due to syslog-ng OSE crashes if the client
+message loss, for example, due to {{ site.product.short_name }} crashes if the client
 and the destination server communicate using the Advanced Log Transport
 Protocol (ALTP). Note that the Advanced Log Transport Protocol is
 available only in syslog-ng Premium Edition version 6 LTS. Of course, using the reliable(yes) option introduces a significant performance penalty as well.
@@ -38,14 +38,14 @@ of the queue file.
 The disk-buffer file\'s size should be considered as the configured
 disk-buf-size() at any point of time, even if it does not have messages
 in it. Truncating the disk-buffer file can slow down disk I/O
-operations, so syslog-ng OSE does not always truncate the file when it
+operations, so {{ site.product.short_name }} does not always truncate the file when it
 would be possible (see the truncate-size-ratio() option). If a large
 disk-buffer file is not desirable, you should set the disk-buf-size()
 option to a smaller value.
 
 ![]({{ site.baseurl}}/assets/images/caution.png) **CAUTION:**
 One Identity recommends that you do not build upon the current truncating logic
-of the disk-buffer files, because syslog-ng OSE might pre-allocate the disk-buffer
+of the disk-buffer files, because {{ site.product.short_name }} might pre-allocate the disk-buffer
 files and never truncate them in the future.
 {: .notice--warning}
 
@@ -55,7 +55,7 @@ disk-buffer, use dqtool (for more information, see
 [Getting the status information of disk-buffer files]).
 {: .notice--info}
 
-**NOTE:** If a queue file becomes corrupt, syslog-ng OSE starts a new one.
+**NOTE:** If a queue file becomes corrupt, {{ site.product.short_name }} starts a new one.
 This might lead to the queue files consuming more space in total than
 their maximal configured size and the number of configured queue files
 multiplied together.

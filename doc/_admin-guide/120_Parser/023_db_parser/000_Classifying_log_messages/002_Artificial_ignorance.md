@@ -11,11 +11,11 @@ description: >-
     never seen before is anomalous\" (Marcus J. Ranum).
 ---
 
-The syslog-ng application can classify messages using a pattern
+The {{ site.product.short_name }} application can classify messages using a pattern
 database: messages that do not match any pattern are classified as
 unknown. This provides a way to use artificial ignorance to review your
 log messages. You can periodically review the unknown messages ---
-syslog-ng can send them to a separate destination, and add patterns for
+{{ site.product.short_name }} can send them to a separate destination, and add patterns for
 them to the pattern database. By reviewing and manually classifying the
 unknown messages, you can iteratively classify more and more messages,
 until only the really anomalous messages show up as unknown.

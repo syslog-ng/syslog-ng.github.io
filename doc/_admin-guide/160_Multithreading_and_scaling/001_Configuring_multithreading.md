@@ -2,11 +2,11 @@
 title: Configuring multithreading
 id: adm-multithread-config
 description: >-
-    Starting with version 3.6, syslog-ng OSE runs in multithreaded mode by
+    Starting with version 3.6, {{ site.product.short_name }} runs in multithreaded mode by
     default. 
 ---
 
-You can enable multithreading in syslog-ng OSE using the
+You can enable multithreading in {{ site.product.short_name }} using the
 following methods:
 
 - Globally using the **threaded(yes)** option.

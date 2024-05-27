@@ -7,7 +7,7 @@ description: >-
     such as RHEL (from RHEL7) and CentOS. The systemd-journal() source
     driver can read the structured name-value format of the journald system
     service, making it easier to reach the custom fields in the message. By
-    default, syslog-ng OSE adds the .journald. prefix to the name of every
+    default, {{ site.product.short_name }} adds the .journald. prefix to the name of every
     parsed value. For a list and description of name-value pairs that
     journald provides, see the documentation of journald for your platform
     (for example, man systemd.journal-fields).
@@ -31,13 +31,12 @@ the **max-field-size()** option instead.
 **NOTE:** If you are using RHEL-7, the default source in the configuration
 is systemd-journal() instead of unix-dgram(\"/dev/log\") and
 file(\"/proc/kmsg\"). If you are using unix-dgram(\"/dev/log\") or
-unix-stream(\"/dev/log\") in your configuration as a source, syslog-ng
-OSE will revert to using systemd-journal() instead.
+unix-stream(\"/dev/log\") in your configuration as a source, {{ site.product.short_name }} will revert to using systemd-journal() instead.
 {: .notice--info}
 
 ![]({{ site.baseurl}}/assets/images/caution.png) **CAUTION:**
 Only one systemd-journal() source can be configured in the configuration file.
-If there is more than one systemd-journal() source configured, syslog-ng OSE
+If there is more than one systemd-journal() source configured, {{ site.product.short_name }}
 will not start.
 {: .notice--warning}
 
@@ -111,7 +110,7 @@ log {
 ```
 
 The journal contains credential information about the process that sent
-the log message. The syslog-ng OSE application makes this information
+the log message. The {{ site.product.short_name }} application makes this information
 available in the following macros:
 
 |Journald field| syslog-ng predefined macro|
@@ -120,6 +119,6 @@ available in the following macros:
 | _HOSTNAME | ${HOST} |
 | _PID    | ${PID}|
 | _COMM or SYSLOG_IDENTIFIER|   ${PROGRAM}|
-||  If both _COMM and SYSLOG_IDENTIFIER exists, syslog-ng OSE uses SYSLOG_IDENTIFIER|
+||  If both _COMM and SYSLOG_IDENTIFIER exists, {{ site.product.short_name }} uses SYSLOG_IDENTIFIER|
 |SYSLOG_FACILITY  | ${FACILITY_NUM} |
 |PRIORITY          | ${LEVEL_NUM} |

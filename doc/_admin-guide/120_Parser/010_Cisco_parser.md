@@ -24,7 +24,7 @@ For example:
 **NOTE:** Not every Cisco log message conforms to this format. If you find a message that the cisco-parser() cannot properly parse, contact Support, so we can improve the parser.
 {: .notice--info}
 
-The syslog-ng OSE application normalizes the parsed log messages into
+The {{ site.product.short_name }} application normalizes the parsed log messages into
 the following format:
 
 >${MESSAGE}=%FAC-SEV-MNEMONIC: message  

@@ -35,16 +35,16 @@ specific methods.
 
 Note the following points when creating a log message:
 
-- When setting the hostname, syslog-ng OSE takes the following
+- When setting the hostname, {{ site.product.short_name }} takes the following
     hostname-related options of the configuration into account:
     chain-hostnames(), keep-hostname(), use-dns(), and use-fqdn().
 
 - Python sources ignore the log-msg-size() option.
 
-- The syslog-ng OSE application accepts only one message from every
+- The {{ site.product.short_name }} application accepts only one message from every
     LogSource::post_message() or fetch() call, batching is currently
     not supported. If your Python code accepts batches of messages, you
-    must pass them to syslog-ng OSE one-by-one. Similarly, if you need
+    must pass them to {{ site.product.short_name }} one-by-one. Similarly, if you need
     to split messages in the source, you must do so in your Python code,
     and pass the messages separately.
 
@@ -56,12 +56,11 @@ Note the following points when creating a log message:
 The parse() method allows you to parse incoming messages as syslog
 messages. By default, the parse() method attempts to parse the message
 as an IETF-syslog (RFC-5424) log message. If that fails, it parses the
-log message as a BSD-syslog (RFC-3164) log message. Note that syslog-ng
-OSE takes the parsing-related options of the configuration into account:
+log message as a BSD-syslog (RFC3164) log message. Note that {{ site.product.short_name }} takes the parsing-related options of the configuration into account:
 flags(), keep-hostname(), recv-time-zone().
 
-If keep-hostname() is set to **no**, syslog-ng OSE ignores the hostname
-set in the message, and uses the IP address of the syslog-ng OSE host as
+If keep-hostname() is set to **no**, {{ site.product.short_name }} ignores the hostname
+set in the message, and uses the IP address of the {{ site.product.short_name }} host as
 the hostname (to use the hostname instead of the IP address, set the
 use-dns() or use-fqdn() options in the Python source).
 
@@ -90,5 +89,5 @@ msg.set_timestamp(timestamp) # datetime object, includes timezone information
 ```
 
 In Python 2, timezone information cannot be attached to the datetime
-instance without using an external library. The syslog-ng OSE represents
+instance without using an external library. The {{ site.product.short_name }} represents
 naive datetime objects in UTC.

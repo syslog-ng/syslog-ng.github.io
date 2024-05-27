@@ -10,9 +10,9 @@ description: >-
 
 The destination filename may include macros which get expanded when the
 message is written, thus a simple file() driver may create several
-files: for example, syslog-ng OSE can store the messages of client hosts
+files: for example, {{ site.product.short_name }} can store the messages of client hosts
 in a separate file for each host. For more information on available
-macros see Macros of syslog-ng OSE.  
+macros see Macros of {{ site.product.short_name }}.  
 If the expanded filename refers to a directory which does not exist, it
 will be created depending on the create-dirs() setting (both global and
 a per destination option).
@@ -48,18 +48,18 @@ rotation program to rotate these files. Otherwise, the log files can
 become very large.
 {: .notice--info}
 
-Also, after rotating the log files, reload syslog-ng OSE using the
+Also, after rotating the log files, reload {{ site.product.short_name }} using the
 syslog-ng-ctl reload command, or use another method to send a SIGHUP to
-syslog-ng OSE.
+{{ site.product.short_name }}.
 {: .notice--info}
 
 ![]({{ site.baseurl}}/assets/images/caution.png) **CAUTION:**
-Since the state of each created file must be tracked by syslog-ng, it consumes
+Since the state of each created file must be tracked by {{ site.product.short_name }}, it consumes
 some memory for each file. If no new messages are written to a file within 60
 seconds (controlled by the time-reap() global option), it is closed, and its
 state is freed. Exploiting this, a DoS attack can be mounted against the system.
 If the number of possible destination files and its needed memory is more than
-the amount available on the syslog-ng server. The most suspicious macro is
+the amount available on the {{ site.product.short_name }} server. The most suspicious macro is
 ${PROGRAM}, where the number of possible variations is rather high.
 Do not use the ${PROGRAM} macro in insecure environments.
 {: .notice--warning}

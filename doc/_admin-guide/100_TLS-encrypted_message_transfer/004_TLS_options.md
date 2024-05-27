@@ -2,13 +2,13 @@
 title: TLS options
 id: adm-tls-opt
 description: >-
-    The syslog-ng application can encrypt incoming and outgoing syslog
+    The {{ site.product.short_name }} application can encrypt incoming and outgoing syslog
     message flows using TLS if you use the network() or syslog()
     drivers.
 ---
 
-**NOTE:** The format of the TLS connections used by syslog-ng is similar to
-using syslog-ng and stunnel, but the source IP information is not lost.
+**NOTE:** The format of the TLS connections used by {{ site.product.short_name }} is similar to
+using {{ site.product.short_name }} and stunnel, but the source IP information is not lost.
 {: .notice--info}
 
 To encrypt connections, use the **transport(\"tls\")** and **tls()**
@@ -25,7 +25,7 @@ The tls() option can include the following settings:
 that this option must be enabled both on the server and the client to
 have any effect. Enabling compression can significantly reduce the
 bandwidth required to transport the messages, but can slightly decrease
-the performance of syslog-ng OSE, reducing the number of transferred
+the performance of {{ site.product.short_name }}, reducing the number of transferred
 messages during a given period.
 
 Available in version 3.19 and later.
@@ -54,9 +54,9 @@ of the files must be .r0.
 |  Default:|           none|
 
 *Description:* Specifies a file containing Diffie-Hellman parameters,
-generated using the openssl dhparam utility. Note that syslog-ng OSE
+generated using the openssl dhparam utility. Note that {{ site.product.short_name }}
 supports only DH parameter files in the PEM format. If you do not set
-this parameter, syslog-ng OSE uses the 2048-bit MODP Group, as
+this parameter, {{ site.product.short_name }} uses the 2048-bit MODP Group, as
 described in RFC-3526.
 
 ## ecdh-curve-list()
@@ -68,7 +68,7 @@ described in RFC-3526.
 permitted in the connection when using Elliptic Curve Cryptography
 (ECC).
 
-This option is only available when syslog-ng is compiled with OpenSSL
+This option is only available when {{ site.product.short_name }} is compiled with OpenSSL
 version 1.0.2 or later. In the case of older versions, prime256v1 (NIST
 P-256) is used.
 
@@ -135,9 +135,9 @@ the file after the debugging session is over.
 |  Accepted values:|   yes, no|
 |  Default:         |  no |
 
-This option is available in syslog-ng OSE 4.0 and later versions.
+This option is available in {{ site.product.short_name }} 4.0 and later versions.
 
-*Description:* In case the OCSP stapling verification is enabled, syslog-ng OSE requests the server to return its OCSP status. This status response is verified by syslog-ng OSE using the trust store configured by the ca-file(), ca-dir(), or the pkcs12-file() options.
+*Description:* In case the OCSP stapling verification is enabled, {{ site.product.short_name }} requests the server to return its OCSP status. This status response is verified by {{ site.product.short_name }} using the trust store configured by the ca-file(), ca-dir(), or the pkcs12-file() options.
 
 **NOTE:** RFC-6961 multi-stapling and TLS 1.3-provided multiple responses are currently not validated, only the peer certificate is verified.
 {: .notice--info}
@@ -159,7 +159,7 @@ destination {
 
 ## openssl-conf-cmds()
 
-This option is available in syslog-ng OSE 4.0 and later versions.
+This option is available in {{ site.product.short_name }} 4.0 and later versions.
 
 ![]({{ site.baseurl}}/assets/images/caution.png) **CAUTION:**
 openssl-conf-cmds() always has the highest priority. It overrides any other option found in the tls() section.
@@ -215,7 +215,7 @@ Passphrase is currently not supported.
 In the following example, the first command creates a single PKCS \#12
 file from the private key, X.509 certificate, and CA certificate files.
 Then, the second half of the example uses the same PKCS \#12 file in the
-syslog-ng configuration.
+{{ site.product.short_name }} configuration.
 
 ```bash
 openssl pkcs12 -export -inkey server.key -in server.crt -certfile ca.crt -out server.p12
@@ -243,11 +243,11 @@ source s_tls {
 
 *Description:* When set to yes in a destination that uses TLS
 encryption, this option enables Server Name Indication (also called
-Server Name Identification, SNI). The syslog-ng OSE sends the hostname
+Server Name Identification, SNI). The {{ site.product.short_name }} sends the hostname
 or the IP address set in the destination to the server during the TLS
 handshake.
 
-Available in syslog-ng OSE 3.24 and newer.
+Available in {{ site.product.short_name }} 3.24 and newer.
 
 ### Example: Using Server Name Indication
 
@@ -274,7 +274,7 @@ destination demo_tls_destination_with_sni {
 | Accepted values:|   comma-separated list of the following options: `no-sslv2`, `no-sslv3`, `no-tlsv1`, `no-tlsv11`, `no-tlsv12`, `no-tlsv13`, `none`, `ignore-hostname-mismatch`, `ignore-validity-period`|
 |Default:  |         `no-sslv2`|
 
-This option is available in syslog-ng OSE 3.7 and newer.
+This option is available in {{ site.product.short_name }} 3.7 and newer.
 
 *Description:* Sets the specified options of the SSL/TLS protocols.
 Currently, you can use it to disable specific protocol versions. Note
@@ -287,14 +287,14 @@ TLSv1.1 or newer:
 ssl-options(no-sslv2, no-sslv3, no-tlsv1)
 ```
 
-Using ssl-options(none) means that syslog-ng OSE does not specify any
+Using ssl-options(none) means that {{ site.product.short_name }} does not specify any
 restrictions on the protocol used. However, in this case, the underlying
 OpenSSL library can restrict the available protocols, for example,
 certain OpenSSL versions automatically disable SSLv2.
 
-By specifying `ignore-hostname-mismatch`, the subject name of a certificate can be ignored during the validation process. This means that syslog-ng OSE checks only if the certificate itself is trusted by the current set of trust anchors (for example trusted CAs), and ignores the mismatch between the targeted hostname and the certificate subject. `ignore-hostname-mismatch` is available in syslog-ng OSE 4.4 and newer versions.
+By specifying `ignore-hostname-mismatch`, the subject name of a certificate can be ignored during the validation process. This means that {{ site.product.short_name }} checks only if the certificate itself is trusted by the current set of trust anchors (for example trusted CAs), and ignores the mismatch between the targeted hostname and the certificate subject. `ignore-hostname-mismatch` is available in {{ site.product.short_name }} 4.4 and newer versions.
 
-By specifying `ignore-validity-period`, the validity periods of a certificate can be ignored during the certificate validation process. `ignore-validity-period` is available in syslog-ng OSE 4.5 and newer.
+By specifying `ignore-validity-period`, the validity periods of a certificate can be ignored during the certificate validation process. `ignore-validity-period` is available in {{ site.product.short_name }} 4.5 and newer.
 
 ### Example: Using ssl-options
 
@@ -320,7 +320,7 @@ destination demo_tls_destination {
 |Type:|   string|
 |Default: |          None, uses the libcurl default|
 
-Available in syslog-ng OSE 4.5 and later versions.
+Available in {{ site.product.short_name }} 4.5 and later versions.
 
 *Description:* This option specifies the allowed SSL/TLS version. The available values are the following: `sslv2`, `sslv3`, `tlsv1`, `tlsv1_0`, `tlsv1_1`, `tlsv1_2`, `tlsv1_3`.
 

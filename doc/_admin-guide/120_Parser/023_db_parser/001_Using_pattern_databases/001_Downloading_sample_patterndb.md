@@ -11,7 +11,7 @@ Note that these pattern databases are only samples and experimental
 databases. They are not officially supported, and may or may not work in
 your environment.
 
-The syslog-ng pattern databases are available under the Creative Commons
+The {{ site.product.short_name }} pattern databases are available under the Creative Commons
 Attribution-Share Alike 3.0 (CC by-SA) license. This includes every
 pattern database written by community contributors or the One Identity
 staff. It means that:
@@ -22,9 +22,9 @@ staff. It means that:
     modifications under the same license.
 
 - If you redistribute the pattern databases, you must make it obvious
-    that the source of the original syslog-ng pattern databases is the
+    that the source of the original {{ site.product.short_name }} pattern databases is the
     One Identity patterndb GitHub page.
 
 If you create patterns that are not available in the GitHub repository,
-consider sharing them with us and the syslog-ng community. To do this,
-open a GitHub issue, or send them to the syslog-ng mailing list.
+consider sharing them with us and the {{ site.product.short_name }} community. To do this,
+open a GitHub issue, or send them to the {{ site.product.short_name }} mailing list.

@@ -1,5 +1,5 @@
 ---
-title: The syslog-ng manual page
+title: The {{ site.product.short_name }} manual page
 id: adm-man-syslogng
 ---
 
@@ -15,30 +15,30 @@ syslog-ng \[options\]
 
 This manual page is only an abstract.
 
-The syslog-ng OSE application is a flexible and highly scalable system
-logging application. Typically, syslog-ng OSE is used to manage log
+The {{ site.product.short_name }} application is a flexible and highly scalable system
+logging application. Typically, {{ site.product.short_name }} is used to manage log
 messages and implement centralized logging, where the aim is to collect
 the log messages of several devices on a single, central log server. The
-different devices - called syslog-ng clients - all run syslog-ng OSE,
+different devices - called {{ site.product.short_name }} clients - all run {{ site.product.short_name }},
 and collect the log messages from the various applications, files, and
 other sources. The clients send all important log messages to the remote
-syslog-ng OSE server, where the server sorts and stores them.
+{{ site.product.short_name }} server, where the server sorts and stores them.
 
 ## Options
 
 - \--caps
 
-    Run syslog-ng OSE process with the specified POSIX capability flags.
+    Run {{ site.product.short_name }} process with the specified POSIX capability flags.
 
-  - If the \--no-caps option is not set, syslog-ng OSE has been
+  - If the \--no-caps option is not set, {{ site.product.short_name }} has been
         compiled with the \--enable-linux-caps compile option, and the
-        host supports CAP\_SYSLOG, syslog-ng OSE uses the following
+        host supports CAP\_SYSLOG, {{ site.product.short_name }} uses the following
         capabilities: cap\_net\_bind\_service, cap\_net\_broadcast,
         cap\_net\_raw, cap\_dac\_read\_search, cap\_dac\_override,
         cap\_chown, cap\_fowner=p cap\_syslog=ep
 
   - If the \--no-caps option is not set, and the host does not
-        support CAP\_SYSLOG, syslog-ng OSE uses the following
+        support CAP\_SYSLOG, {{ site.product.short_name }} uses the following
         capabilities: cap\_net\_bind\_service, cap\_net\_broadcast,
         cap\_net\_raw, cap\_dac\_read\_search, cap\_dac\_override,
         cap\_chown, cap\_fowner=p cap\_sys\_admin=ep
@@ -63,53 +63,53 @@ syslog-ng OSE server, where the server sorts and stores them.
     Change root to the specified directory. The configuration file is
     read after chrooting so, the configuration file must be available
     within the chroot. That way it is also possible to reload the
-    syslog-ng configuration after chrooting. However, note that the
+    {{ site.product.short_name }} configuration after chrooting. However, note that the
     \--user and \--groupoptions are resolved before chrooting.
 
 - \--check-startup
 
-    Available in syslog-ng OSE 4.5 and later versions.
+    Available in {{ site.product.short_name }} 4.5 and later versions.
 
-    This option can be used to perform a complete configuration initialization with syslog-ng, then exit with the exit code indicating the result. This option can also be used to check if the configuration is semantically valid and that syslog-ng can actually start. (The `--syntax-only` option catches only syntactical errors.)
+    This option can be used to perform a complete configuration initialization with {{ site.product.short_name }}, then exit with the exit code indicating the result. This option can also be used to check if the configuration is semantically valid and that {{ site.product.short_name }} can actually start. (The `--syntax-only` option catches only syntactical errors.)
 
     Furthermore, `--check-startup` can also be used in a Kubernetes environment, to run it as a dedicated configuration check container.
 
-    **NOTE:** This option is higly likely to fail if another syslog-ng instance running in the background, since it initializes several processes, for example network listeners. In such a case the network address would already be in use.
+    **NOTE:** This option is higly likely to fail if another {{ site.product.short_name }} instance running in the background, since it initializes several processes, for example network listeners. In such a case the network address would already be in use.
     {: .notice--info}
     
 - \--control \<file\> or -c\<file\>
 
-    Set the location of the syslog-ng control socket. Default
+    Set the location of the {{ site.product.short_name }} control socket. Default
     value: \>/var/run/syslog-ng.ctl
 
 - \--debug or -d
 
-    Start syslog-ng in debug mode.
+    Start {{ site.product.short_name }} in debug mode.
 
 - \--default-modules
 
     A comma-separated list of the modules that are loaded automatically.
     Modules not loaded automatically can be loaded by including the
-    @module \<modulename\> statement in the syslog-ng OSE configuration
-    file. Available only in syslog-ng OSE version 4.1 and later.
+    @module \<modulename\> statement in the {{ site.product.short_name }} configuration
+    file. Available only in {{ site.product.short_name }} version 4.1 and later.
 
 - \--enable-core
 
-    Enable syslog-ng OSE to write core files in case of a crash to help
+    Enable {{ site.product.short_name }} to write core files in case of a crash to help
     support and debugging.
 
 - \--fd-limit \<number\>
 
     Set the minimal number of required file descriptors (fd-s). This
-    sets how many files syslog-ng can keep open simultaneously. Default
+    sets how many files {{ site.product.short_name }} can keep open simultaneously. Default
     value: 4096. Note that this does not override the global ulimit
     setting of the host.
 
 - \--foreground or -F
 
     Do not daemonize, run in the foreground. When running in the
-    foreground, syslog-ng OSE starts from the current directory (${CWD})
-    so it can create core files (normally, syslog-ng OSE starts
+    foreground, {{ site.product.short_name }} starts from the current directory (${CWD})
+    so it can create core files (normally, {{ site.product.short_name }} starts
     from \>${PREFIX}/var).
 
 - \--group \<group\> or -g \<group\>
@@ -126,17 +126,17 @@ syslog-ng OSE server, where the server sorts and stores them.
     Display the list and description of the available modules. Note that
     not all of these modules are loaded automatically, only the ones
     specified in the \--default-modules option. Available only in
-    syslog-ng OSE 4 F1 and later.
+    {{ site.product.short_name }} 4 F1 and later.
 
 - \--no-caps
 
-    Run syslog-ng OSE as root, without capability-support. This is the
-    default behavior. On Linux, it is possible to run syslog-ng OSE as
-    non-root with capability-support if syslog-ng OSE was compiled with
+    Run {{ site.product.short_name }} as root, without capability-support. This is the
+    default behavior. On Linux, it is possible to run {{ site.product.short_name }} as
+    non-root with capability-support if {{ site.product.short_name }} was compiled with
     the \--enable-linux-caps option enabled. (Run syslog-ng \--version
     to display the list of enabled build parameters.)
 
-    To run syslog-ng OSE with specific capabilities, use the \--caps
+    To run {{ site.product.short_name }} with specific capabilities, use the \--caps
     option.
 
 - \--persist-file \<persist-file\> or -R \<persist-file\>
@@ -153,21 +153,21 @@ syslog-ng OSE server, where the server sorts and stores them.
 
     After processing the configuration file and resolving included files
     and variables, write the resulting configuration into the specified
-    output file. Available only in syslog-ng OSE 4 F1 and later.
+    output file. Available only in {{ site.product.short_name }} 4 F1 and later.
 
 - \--process-mode \<mode\>
 
-    Sets how to run syslog-ng OSE: in the foreground (mainly used for
+    Sets how to run {{ site.product.short_name }}: in the foreground (mainly used for
     debugging), in the background as a daemon, or in safe-background
-    mode. By default, syslog-ng runs in safe-background mode. This mode
-    creates a supervisor process called supervising syslog-ng, that
-    restarts syslog-ng OSE if it crashes.
+    mode. By default, {{ site.product.short_name }} runs in safe-background mode. This mode
+    creates a supervisor process called supervising {{ site.product.short_name }}, that
+    restarts {{ site.product.short_name }} if it crashes.
 
 - \--stderr or -e
 
-    Log internal messages of syslog-ng OSE to stderr. Mainly used for
+    Log internal messages of {{ site.product.short_name }} to stderr. Mainly used for
     debugging purposes in conjunction with the \--foreground option. If
-    not specified, syslog-ng will log such messages to its internal
+    not specified, {{ site.product.short_name }} will log such messages to its internal
     source.
 
 - \--syntax-only or -s
@@ -179,12 +179,12 @@ syslog-ng OSE server, where the server sorts and stores them.
 
     Switch to the specified user after initializing the configuration
     file (and optionally chrooting). Note that it is not possible to
-    reload the syslog-ng configuration if the specified user has no
+    reload the {{ site.product.short_name }} configuration if the specified user has no
     privilege to create the \>/dev/log file.
 
 - \--verbose or -v
 
-    Enable verbose logging used to troubleshoot syslog-ng OSE.
+    Enable verbose logging used to troubleshoot {{ site.product.short_name }}.
 
 - \--version or -V
 
@@ -196,12 +196,12 @@ syslog-ng OSE server, where the server sorts and stores them.
 
 - \--worker-threads
 
-    Sets the number of worker threads syslog-ng OSE can use, including
-    the main syslog-ng OSE thread. Note that certain operations in
-    syslog-ng OSE can use threads that are not limited by this option.
-    This setting has effect only when syslog-ng OSE is running in
-    multithreaded mode. Available only in syslog-ng OSE 4 F1 and later.
-    See The syslog-ng OSE 7 Administrator Guide for details.
+    Sets the number of worker threads {{ site.product.short_name }} can use, including
+    the main {{ site.product.short_name }} thread. Note that certain operations in
+    {{ site.product.short_name }} can use threads that are not limited by this option.
+    This setting has effect only when {{ site.product.short_name }} is running in
+    multithreaded mode. Available only in {{ site.product.short_name }} 4 F1 and later.
+    See The {{ site.product.short_name }} 7 Administrator Guide for details.
 
 ## Files
 

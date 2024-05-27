@@ -5,7 +5,7 @@ id: adm-conc-glob
 
 ## Source driver
 
-A communication method used to receive log messages. For example, syslog-ng can
+A communication method used to receive log messages. For example, {{ site.product.short_name }} can
 receive messages from a remote host via TCP/IP, or read the messages of a local
 application from a file.  
 
@@ -17,7 +17,7 @@ A named collection of configured source drivers.
 
 ## Destination driver
 
-A communication method used to send log messages. For example, syslog-ng can
+A communication method used to send log messages. For example, {{ site.product.short_name }} can
 send messages to a remote host via TCP /IP, or write the messages into a file
 or database.  
 
@@ -63,7 +63,7 @@ For details, see Modifying messages using rewrite rules.
 ## Log paths
 
 A combination of sources, destinations, and other objects like filters, parsers,
-and rewrite rules. The syslog-ng application sends messages arriving from the
+and rewrite rules. The {{ site.product.short_name }} application sends messages arriving from the
 sources of the log paths to the defined destinations, and performs filtering,
 parsing, and rewriting of the messages. Log paths are also called log statements.
 Log statements can include other (embedded) log statements and junctions to
@@ -82,8 +82,8 @@ For details, see Customize message format using macros and templates.
 
 ## Option
 
-Options set global parameters of syslog-ng, like the parameters of name
+Options set global parameters of {{ site.product.short_name }}, like the parameters of name
 resolution and timezone handling.  
-For details, see Global options of syslog-ng OSE.
+For details, see Global options of {{ site.product.short_name }}.
 
 For details on the above objects, see The configuration syntax in detail.

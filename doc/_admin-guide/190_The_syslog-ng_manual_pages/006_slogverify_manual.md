@@ -15,7 +15,7 @@ slogverify [options] [arguments]
 
 ## Description
 
-The slogverify utility is used to verify the integrity of cryptographically secured logs and to decrypt log entries produced in a syslog-ng OSE secure logging environment.
+The slogverify utility is used to verify the integrity of cryptographically secured logs and to decrypt log entries produced in a {{ site.product.short_name }} secure logging environment.
 
 * Normal mode:
     `slogverify -k <host key file> -m <input MAC file> <input file> <output file> [buffers]`
@@ -26,7 +26,7 @@ The slogverify utility is used to verify the integrity of cryptographically secu
 
 * input file
 
-    An encrypted log file from the syslog-ng secure logging environment that is verified.
+    An encrypted log file from the {{ site.product.short_name }} secure logging environment that is verified.
 * output file
 
     The file that contains the plain text log entries after decryption and verification.

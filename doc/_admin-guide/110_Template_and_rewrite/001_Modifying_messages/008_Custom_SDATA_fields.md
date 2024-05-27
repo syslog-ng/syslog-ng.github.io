@@ -13,7 +13,7 @@ following format: .SDATA.group-name@\<private enterprise
 number\>.field-name, for example,
 .SDATA.mySDATA-field-group@18372.4.mySDATA-field. (18372.4 is the
 private enterprise number of One Identity LLC, the developer of
-syslog-ng OSE.)
+{{ site.product.short_name }}.)
 
 ### Example: Rewriting custom SDATA fields
 

@@ -3,7 +3,7 @@ title: Slack destination options
 id: adm-dest-slack-opt
 ---
 
-The slack destination of syslog-ng OSE can directly post log messages
+The slack destination of {{ site.product.short_name }} can directly post log messages
 and notifications to Slack channels. The slack destination has the
 following options.
 
@@ -113,8 +113,7 @@ documentation](https://api.slack.com/docs/message-attachments).
 |  Default: |  None|
 
 *Description:* The Webhook URL for the Incoming Webhook of your Slack
-app. This URL must also include the authentication token that syslog-ng
-OSE uses to authenticate to Slack. For example:
+app. This URL must also include the authentication token that {{ site.product.short_name }} uses to authenticate to Slack. For example:
 **https://hooks.slack.com/services/T00000000/B00000000/XXXXXXXXXXXXXXXXXXXXXXXX**
 
 For details, see the [Slack documentation about Incoming

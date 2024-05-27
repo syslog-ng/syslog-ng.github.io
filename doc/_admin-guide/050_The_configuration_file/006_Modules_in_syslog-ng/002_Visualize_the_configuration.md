@@ -2,8 +2,8 @@
 title: Visualize the configuration
 id: adm-mod-vis
 description: >-
-    Starting with syslog-ng OSE 3.25, you can visualize the configuration of
-    a running syslog-ng OSE instance using the syslog-ng-ctl
+    Starting with {{ site.product.short_name }} 3.25, you can visualize the configuration of
+    a running {{ site.product.short_name }} instance using the syslog-ng-ctl
     --export-config-graph command. The command walks through the effective
     configuration, and exports it as a graph into a JSON structure.
 ---

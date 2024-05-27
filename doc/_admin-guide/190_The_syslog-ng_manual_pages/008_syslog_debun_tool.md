@@ -17,8 +17,8 @@ syslog-debun \[options\]
 {% include doc/admin-guide/manpages-intro.md %}
 
 The syslog-debun tool collects and saves information about your
-syslog-ng OSE installation, making troubleshooting easier, especially if
-you ask help about your syslog-ng OSE related problem.
+{{ site.product.short_name }} installation, making troubleshooting easier, especially if
+you ask help about your {{ site.product.short_name }} related problem.
 
 ## General Options
 
@@ -53,7 +53,7 @@ you ask help about your syslog-ng OSE related problem.
 
 - -d
 
-    Start syslog-ng OSE in debug mode, using the -Fedv \--enable-core
+    Start {{ site.product.short_name }} in debug mode, using the -Fedv \--enable-core
     options.
 
     ![]({{ site.baseurl}}/assets/images/caution.png) **CAUTION:**
@@ -64,12 +64,12 @@ you ask help about your syslog-ng OSE related problem.
 
 - -D \<options\>
 
-    Start syslog-ng OSE in debug mode, using the specified command-line
+    Start {{ site.product.short_name }} in debug mode, using the specified command-line
     options. To exit debug mode, press Enter.
 
 - -t \<seconds\>
 
-    Run syslog-ng OSE in noninteractive debug mode for \<seconds\>, and
+    Run {{ site.product.short_name }} in noninteractive debug mode for \<seconds\>, and
     automatically exit debug mode after the specified number of seconds.
 
 - -w \<seconds\>
@@ -82,7 +82,7 @@ you ask help about your syslog-ng OSE related problem.
 
     Enable syscall tracing (strace -f or truss -f). Note that using -s
     itself does not enable debug mode, only traces the system calls of
-    an already running syslog-ng OSE process. To trace system calls in
+    an already running {{ site.product.short_name }} process. To trace system calls in
     debug mode, use both the -s and -d options.
 
 ## Packet capture options
@@ -106,7 +106,7 @@ Solaris, where it uses snoop.
 
 - -t \<seconds\>
 
-    Run syslog-ng OSE in noninteractive debug mode for \<seconds\>, and
+    Run {{ site.product.short_name }} in noninteractive debug mode for \<seconds\>, and
     automatically exit debug mode after the specified number of seconds.
 
 ### Examples
@@ -132,7 +132,7 @@ info, and process tree.
 syslog-ng-debun -r -d
 ```
 
-Similar to syslog-ng-debun -r, but it also stops syslog-ng OSE, then
+Similar to syslog-ng-debun -r, but it also stops {{ site.product.short_name }}, then
 restarts it in debug mode (-Fedv \--enable-core). To stop debug mode,
 press Enter. The output of the debug mode collected into a separate
 file, and also added to the debug bundle.
@@ -142,14 +142,14 @@ syslog-ng-debun -r -s
 ```
 
 Trace the system calls (using strace or truss) of an already running
-syslog-ng OSE process.
+{{ site.product.short_name }} process.
 
 ```bash
 syslog-ng-debun -r -d -s
 ```
 
-Restart syslog-ng OSE in debug mode, and also trace the system calls
-(using strace or truss) of the syslog-ng OSE process.
+Restart {{ site.product.short_name }} in debug mode, and also trace the system calls
+(using strace or truss) of the {{ site.product.short_name }} process.
 
 ```bash
 syslog-ng-debun -r -p
@@ -186,13 +186,13 @@ Collect pcap and debug mode output following this scenario:
 
 - Stop syslog-ng
 
-- Start syslog-ng OSE in debug mode with default parameters (-d)
+- Start {{ site.product.short_name }} in debug mode with default parameters (-d)
 
 - Wait 10 seconds (-t 10)
 
-- Stop syslog-ng OSE debuging
+- Stop {{ site.product.short_name }} debuging
 
-- Start syslog-ng OSE
+- Start {{ site.product.short_name }}
 
 - Stop packet capturing
 

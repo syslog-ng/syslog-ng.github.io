@@ -3,7 +3,7 @@
 |  Accepted values: |  yes \| no|
 |Default:           |no|
 
-*Description:* If enabled (**normalize-hostnames(yes)**), syslog-ng OSE
+*Description:* If enabled (**normalize-hostnames(yes)**), {{ site.product.short_name }}
 converts the hostnames to lowercase.
 
 **NOTE:** This setting applies only to hostnames resolved from DNS. It has

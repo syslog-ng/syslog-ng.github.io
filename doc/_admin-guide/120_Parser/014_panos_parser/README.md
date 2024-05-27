@@ -11,30 +11,30 @@ description: >-
     a data structure that requires additional parsing.
 ---
 
-The panos-parser() of syslog-ng Open Source Edition (syslog-ng OSE)
+The panos-parser() of {{ site.product.name }} ({{ site.product.short_name }})
 solves this problem, and can separate PAN-OS log messages to name-value
 pairs.
 
-For details on using value-pairs in syslog-ng OSE, see
+For details on using value-pairs in {{ site.product.short_name }}, see
 Structuring macros, metadata, and other value-pairs.
 
 ## Prerequisites
 
-- Version 3.29 of syslog-ng OSE or later.
+- Version 3.29 of {{ site.product.short_name }} or later.
 
-    **NOTE:** Most Linux distributions feature syslog-ng OSE versions
-    earlier than version 3.29. For up-to-date binaries, visit the syslog-ng Open Source Edition installation packages page.
+    **NOTE:** Most Linux distributions feature {{ site.product.short_name }} versions
+    earlier than version 3.29. For up-to-date binaries, visit the {{ site.product.name }} installation packages page.
     {: .notice--info}
 
 - PAN-OS log messages from Palo Alto Networks devices.
 
 ## Limitations
 
-The panos-parser() only works on syslog-ng OSE version 3.29 or later.
+The panos-parser() only works on {{ site.product.short_name }} version 3.29 or later.
 
 ## Configuration
 
-You can include the panos-parser() in your syslog-ng OSE configuration
+You can include the panos-parser() in your {{ site.product.short_name }} configuration
 like this:
 
 ```config
@@ -43,8 +43,7 @@ parser p_parser{
 };
 ```
 
-To use this parser, the scl.conf file must be included in your syslog-ng
-OSE configuration:
+To use this parser, the scl.conf file must be included in your {{ site.product.short_name }} configuration:
 
 ```config
 @include "scl.conf"

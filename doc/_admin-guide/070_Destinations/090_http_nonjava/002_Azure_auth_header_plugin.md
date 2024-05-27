@@ -2,17 +2,16 @@
 title: The Azure auth header plugin
 id: adm-dest-http-nonjava-azure
 description: >-
-  This section describes the syslog-ng Open Source Edition (syslog-ng OSE)
+  This section describes the {{ site.product.name }} ({{ site.product.short_name }})
   application's Azure auth header plugin.
 
-  For more information about modules in syslog-ng OSE, see
-  Modules in syslog-ng Open Source Edition (syslog-ng OSE).
+  For more information about modules in {{ site.product.short_name }}, see
+  Modules in {{ site.product.name }} ({{ site.product.short_name }}).
 ---
 
 ## The Azure auth header plugin
 
-The Azure auth header plugin is a signal-slot mechanism-based syslog-ng
-OSE module that generates authorization headers for applications that
+The Azure auth header plugin is a signal-slot mechanism-based {{ site.product.short_name }} module that generates authorization headers for applications that
 connect to Microsoft Azure.
 
 ## Defining the Azure auth header plugin

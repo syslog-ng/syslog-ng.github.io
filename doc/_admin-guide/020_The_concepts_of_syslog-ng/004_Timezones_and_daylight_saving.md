@@ -2,25 +2,25 @@
 title: Timezones and daylight saving
 id: adm-conc-tz
 description: >-
-    The syslog-ng application receives the timezone and daylight saving
+    The {{ site.product.short_name }} application receives the timezone and daylight saving
     information from the operating system it is installed on. If the
     operating system handles daylight saving correctly, so does syslog-ng.
 ---
 
-The syslog-ng application supports messages originating from different
-timezones. The original syslog protocol (RFC-3164) does not include
-timezone information, but syslog-ng provides a solution by extending the
+The {{ site.product.short_name }} application supports messages originating from different
+timezones. The original syslog protocol (RFC3-164) does not include
+timezone information, but {{ site.product.short_name }} provides a solution by extending the
 syslog protocol to include the timezone in the log messages. The
-syslog-ng application also enables administrators to supply timezone
+{{ site.product.short_name }} application also enables administrators to supply timezone
 information for legacy devices which do not support the protocol
 extension.
 
-## How syslog-ng OSE assigns timezone to the message
+## How {{ site.product.short_name }} assigns timezone to the message
 
-When syslog-ng OSE receives a message, it assigns timezone information
+When {{ site.product.short_name }} receives a message, it assigns timezone information
 to the message using the following algorithm.
 
-1. The sender application (for example, the syslog-ng client) or host
+1. The sender application (for example, the {{ site.product.short_name }} client) or host
     specifies the timezone of the messages. If the incoming message
     includes a timezone it is associated with the message. Otherwise,
     the local timezone is assumed.
@@ -32,11 +32,11 @@ to the message using the following algorithm.
     recv-time-zone() global option. It is not
     possible to override only the timezone information of the
     incoming message, but setting the keep-timestamp() option to **no**
-    allows syslog-ng OSE to replace the full timestamp (timezone
+    allows {{ site.product.short_name }} to replace the full timestamp (timezone
     included) with the time the message was received.
 
     **NOTE:** When processing a message that does not contain timezone
-    information, the syslog-ng OSE application will use the timezone and
+    information, the {{ site.product.short_name }} application will use the timezone and
     daylight-saving that was effective when the timestamp was generated.  
     {: .notice--info}
     For example, the current time is 2011-03-11 (March 11, 2011) in the
@@ -51,7 +51,7 @@ to the message using the following algorithm.
 
 3. Specify the timezone in the destination driver using the time-zone()
     parameter. Each destination driver might have an associated timezone
-    value: syslog-ng converts message timestamps to this timezone before
+    value: {{ site.product.short_name }} converts message timestamps to this timezone before
     sending the message to its destination (file or network socket).
     Each destination defaults to the value of the
     send-time-zone() global option.
@@ -65,7 +65,7 @@ to the message using the following algorithm.
     OSE sends the message is to the destination using the legacy-syslog protocol
     (RFC-3164) which does not support timezone information in its timestamps,
     the timezone information cannot be encapsulated into the sent timestamp,
-    so syslog-ng OSE will convert the hour:min values based on the explicitly
+    so {{ site.product.short_name }} will convert the hour:min values based on the explicitly
     specified timezone.
     {: .notice--warning}
 
@@ -73,7 +73,7 @@ to the message using the following algorithm.
 
 5. When macro expansions are used in the destination filenames, the
     local timezone is used. (Also, if the timestamp of the received
-    message does not contain the year of the message, syslog-ng OSE uses
+    message does not contain the year of the message, {{ site.product.short_name }} uses
     the local year.)
 
     **NOTE:** You can modify the timezone of the message using timezone-specific
@@ -83,11 +83,11 @@ to the message using the following algorithm.
 
 ## A note on timezones and timestamps
 
-If the clients run syslog-ng, then use the ISO timestamp, because it
+If the clients run {{ site.product.short_name }}, then use the ISO timestamp, because it
 includes timezone information. That way you do not need to adjust the
 recv-time-zone() parameter of syslog-ng.
 
-If you want syslog-ng to output timestamps in Unix (POSIX) time format,
+If you want {{ site.product.short_name }} to output timestamps in Unix (POSIX) time format,
 use the `S_UNIXTIME` and `R_UNIXTIME` macros. You do not need to
 change any of the timezone related parameters, because the timestamp
 information of incoming messages is converted to Unix time internally,

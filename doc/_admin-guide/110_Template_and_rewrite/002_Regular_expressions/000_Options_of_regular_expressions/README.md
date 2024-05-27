@@ -2,16 +2,16 @@
 title: Options of regular expressions
 id: adm-temp-regexp-opt
 description: >-
-    This chapter lists regular expressions supported by syslog-ng Open
-    Source Edition (syslog-ng OSE) and their available supported type() and
+    This chapter lists regular expressions supported by {{ site.product.short_name }} Open
+    Source Edition ({{ site.product.short_name }}) and their available supported type() and
     flags() options.
 ---
 
-By default, syslog-ng OSE uses PCRE-style regular expressions. To use
+By default, {{ site.product.short_name }} uses PCRE-style regular expressions. To use
 other expression types, add the **type()** option after the regular
 expression.
 
-The syslog-ng OSE application supports the following regular expression
+The {{ site.product.short_name }} application supports the following regular expression
 type() options:
 
 - Perl Compatible Regular Expressions (pcre)

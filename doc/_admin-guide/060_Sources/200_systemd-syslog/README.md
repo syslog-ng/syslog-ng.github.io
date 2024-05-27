@@ -15,7 +15,7 @@ Note the following points about this driver:
 - The socket activation of systemd is buggy, causing some log messages
     to get lost during system startup.
 
-- If syslog-ng OSE is running in a jail or a Linux Container (LXC), it
+- If {{ site.product.short_name }} is running in a jail or a Linux Container (LXC), it
     will not read from the /dev/kmsg or /proc/kmsg files.
 
 **Declaration**

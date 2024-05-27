@@ -1,25 +1,25 @@
 ---
-title: Configuring syslog-ng on client hosts
+title: Configuring {{ site.product.short_name }} on client hosts
 id: adm-qs-client-conf
 description: >-
-    To configure syslog-ng on a client host, complete the following steps.
+    To configure {{ site.product.short_name }} on a client host, complete the following steps.
 ---
 
 ## Steps
 
-1. Install the syslog-ng application on the host. For details
-    installing syslog-ng on specific operating systems, see
+1. Install the {{ site.product.short_name }} application on the host. For details
+    installing {{ site.product.short_name }} on specific operating systems, see
     Installing syslog-ng.
 2. Configure the local sources to collect the log messages of the host.
-    Starting with version 3.2, syslog-ng OSE automatically collects the
+    Starting with version 3.2, {{ site.product.short_name }} automatically collects the
     log messages that use the native system logging method of the
     platform, for example, messages from /dev/log on Linux, or /dev/klog
     on FreeBSD. For a complete list of messages that are collected
     automatically, see [[system: Collecting the system-specific log messages of a platform]].
 
-    To configure syslog-ng OSE, edit the syslog-ng.conf file with any
+    To configure {{ site.product.short_name }}, edit the syslog-ng.conf file with any
     regular text editor application. The location of the configuration
-    file depends on how you installed syslog-ng OSE. Native packages of
+    file depends on how you installed {{ site.product.short_name }}. Native packages of
     a platform (like the ones downloaded from Linux repositories)
     typically place the configuration file under the /etc/syslog-ng/
     directory.
@@ -42,9 +42,9 @@ description: >-
     it is recommended to reconfigure the application that way.
     {: .notice--info}
 
-    **NOTE:** The default configuration file of syslog-ng OSE collects
+    **NOTE:** The default configuration file of {{ site.product.short_name }} collects
     platform-specific log messages and the internal log messages of
-    syslog-ng OSE.
+    {{ site.product.short_name }}.
     {: .notice--info}
 
     ```config
@@ -85,7 +85,7 @@ description: >-
 5. If the logs will also be stored locally on the host, create local
     file destinations.
 
-    **NOTE:** The default configuration of syslog-ng OSE places the
+    **NOTE:** The default configuration of {{ site.product.short_name }} places the
     collected messages into the /var/log/messages file:
     {: .notice--info}
 
@@ -98,7 +98,7 @@ description: >-
 6. Create a log statement connecting the local sources to the file
     destination.
 
-    **NOTE:** The default configuration of syslog-ng OSE has only one log
+    **NOTE:** The default configuration of {{ site.product.short_name }} has only one log
     statement:
     {: .notice--info}
 
@@ -111,11 +111,11 @@ description: >-
 7. Set filters, macros and other features and options (for example, TLS
     encryption) as necessary.
 
-    Example: The default configuration file of syslog-ng OSE
+    Example: The default configuration file of {{ site.product.short_name }}
 
     The following is the default configuration file of syslog-ng
     OSE3.38. It collects local log messages and the log messages of
-    syslog-ng OSE and saves them in the /var/log/messages file.
+    {{ site.product.short_name }} and saves them in the /var/log/messages file.
 
     ```config
     @version: 3.38

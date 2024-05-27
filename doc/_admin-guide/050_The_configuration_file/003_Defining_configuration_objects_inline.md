@@ -2,7 +2,7 @@
 title: Defining configuration objects inline
 id: adm-conf-inline
 description: >-
-    Starting with syslog-ng OSE 3.4, you can define configuration objects
+    Starting with {{ site.product.short_name }} 3.4, you can define configuration objects
     inline, where they are actually used, without having to define them in a
     separate placement. This is useful if you need an object only once, for
     example, a filter or a rewrite rule. Every object can be defined inline:

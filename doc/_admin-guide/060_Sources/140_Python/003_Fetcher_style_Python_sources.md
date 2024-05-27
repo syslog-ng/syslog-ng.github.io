@@ -11,12 +11,12 @@ description: >-
 
 **Declaration**
 
-Python sources consist of two parts. The first is a syslog-ng OSE source
-object that you define in your syslog-ng OSE configuration and use in
+Python sources consist of two parts. The first is a {{ site.product.short_name }} source
+object that you define in your {{ site.product.short_name }} configuration and use in
 the log path. This object references a Python class, which is the second
 part of the Python source. The Python class receives or fetches the log
 messages, and can do virtually anything that you can code in Python. You
-can either embed the Python class into your syslog-ng OSE configuration
+can either embed the Python class into your {{ site.product.short_name }} configuration
 file, or [[store it in an external Python file|adm-conf-python]].
 
 ```config
@@ -67,7 +67,7 @@ Fetcher-style Python sources must be inherited from the
 syslogng.LogFetcher class, and must implement at least the fetch method.
 Multiple inheritance is allowed, but only for pure Python super classes.
 
-For fetcher-style Python sources, syslog-ng OSE handles the event loop
+For fetcher-style Python sources, {{ site.product.short_name }} handles the event loop
 and the scheduling automatically. You can use simple blocking
 server/client libraries to receive or fetch logs.
 
@@ -79,12 +79,12 @@ You can retrieve messages using the **fetch()** method.
 
 The open(self) method opens the resources required for the source, for
 example, it initiates a connection to the target service. It is called
-after init() when syslog-ng OSE is started or reloaded. If fetch()
-returns with an error, syslog-ng OSE calls the close() and open()
+after init() when {{ site.product.short_name }} is started or reloaded. If fetch()
+returns with an error, {{ site.product.short_name }} calls the close() and open()
 methods before trying to fetch a new message.
 
 If open() fails, it should return the False value. In this case,
-syslog-ng OSE retries it every time-reopen() seconds. By default, this
+{{ site.product.short_name }} retries it every time-reopen() seconds. By default, this
 is 1 second for Python sources and destinations, the value of
 time-reopen() is not inherited from the global option. For details, see
 Error handling in the python() destination.
@@ -99,7 +99,7 @@ Python LogMessage API.
 
 The fetch method must return one of the following values:
 
-- LogFetcher.FETCH_ERROR: Fetching new messages failed, syslog-ng OSE
+- LogFetcher.FETCH_ERROR: Fetching new messages failed, {{ site.product.short_name }}
     calls the close and open methods.
 
 - LogFetcher.FETCH_NO_DATA: There was not any data available. The
@@ -108,7 +108,7 @@ The fetch method must return one of the following values:
     setting the fetch-no-data-delay() option in the source.
 
 - LogFetcher.FETCH_NOT_CONNECTED: Could not access the source,
-    syslog-ng OSE calls the open method.
+    {{ site.product.short_name }} calls the open method.
 
 - LogFetcher.FETCH_SUCCESS, msg: Post the message returned as the
     second argument.
@@ -121,14 +121,14 @@ The fetch method must return one of the following values:
 
 If you use blocking operations within the fetch() method, use
 request_exit() to interrupt those operations (for example, to shut down
-a socket), otherwise syslog-ng OSE is not able to stop. Note that
-syslog-ng OSE calls the request_exit method from a thread different
+a socket), otherwise {{ site.product.short_name }} is not able to stop. Note that
+{{ site.product.short_name }} calls the request_exit method from a thread different
 from the source thread.
 
 ### close(self) method (optional)
 
 Close the connection to the target service. Usually it is called right
-before deinit() when stopping or reloading syslog-ng OSE. It is also
+before deinit() when stopping or reloading {{ site.product.short_name }}. It is also
 called when fecth() fails.
 
 {% include doc/admin-guide/python-deinit.md %}

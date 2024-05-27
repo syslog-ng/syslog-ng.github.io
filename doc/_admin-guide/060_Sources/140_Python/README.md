@@ -6,7 +6,7 @@ description: >-
     The Python source allows you to write your own source in Python. You can
     import external Python modules to receive or fetch the messages. Since
     many services have a Python library, the Python source makes integrating
-    syslog-ng OSE very easy and quick.
+    {{ site.product.short_name }} very easy and quick.
 ---
 
 You can write two different type of sources in Python:

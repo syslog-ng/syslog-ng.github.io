@@ -3,7 +3,7 @@ title: 'parser: Parse and segment structured messages'
 short_title: Parse and segment structured messages
 id: adm-parser
 description: >-
-    The filters and default macros of syslog-ng work well on the headers and
+    The filters and default macros of {{ site.product.short_name }} work well on the headers and
     metainformation of the log messages, but are rather limited when
     processing the content of the messages. Parsers can segment the content
     of the messages into name-value pairs, and these names can be used as
@@ -13,10 +13,10 @@ description: >-
     filters and rewrite rules.
 ---
 
-The syslog-ng OSE application provides the following possibilities to
+The {{ site.product.short_name }} application provides the following possibilities to
 parse the messages, or parts of the messages:
 
-- By default, syslog-ng OSE parses every message as a syslog message.
+- By default, {{ site.product.short_name }} parses every message as a syslog message.
     To disable message parsing, use the **flags(no-parse)** option of
     the source. To explicitly parse a message as a syslog message, use
     the **syslog** parser. For details, see
@@ -38,10 +38,10 @@ parse the messages, or parts of the messages:
     Parsing dates and timestamps.
 - To write a custom parser in Python or Hy, see
     Python parser.
-- To parse the tags sent by another syslog-ng host. For details, see
+- To parse the tags sent by another {{ site.product.short_name }} host. For details, see
     Parsing tags.
 
-The syslog-ng OSE application provides built-in parsers for the
+The {{ site.product.short_name }} application provides built-in parsers for the
 following application logs:
 
 - Apache HTTP server access logs. For details, see
@@ -49,7 +49,7 @@ following application logs:
 - Cisco devices. For details, see Cisco parser.
 
 - Messages formatted using the enterprise-wide message model (EWMM) of
-    syslog-ng OSE. For details, see
+    {{ site.product.short_name }}. For details, see
     Parsing enterprise-wide message model (EWMM) messages.
 
 - Iptables logs. For details, see iptables parser.

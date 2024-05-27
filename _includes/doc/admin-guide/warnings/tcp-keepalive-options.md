@@ -6,10 +6,10 @@ has no traffic is closed after
 tcp-keepalive-time() + tcp-keepalive-intvl() \* tcp-keepalive-probes() seconds.
 {: .notice--warning}
 
-Available in syslog-ng OSE version 3.4 and later.
+Available in {{ site.product.short_name }} version 3.4 and later.
 
 ![]({{ site.baseurl}}/assets/images/caution.png) **CAUTION:**
-Prior to syslog-ng OSE 3.29, Syslog-ng uses the kernel default
+Prior to {{ site.product.short_name }} 3.29, {{ site.product.short_name }} uses the kernel default
 values for the following socket options: TCP_KEEPCNT, TCP_KEEPIDLE,
 and TCP_KEEPINTVL (Only applies to systems, where those options are supported.)
 Unfortunately those default values are not optimal for a typical logging application.

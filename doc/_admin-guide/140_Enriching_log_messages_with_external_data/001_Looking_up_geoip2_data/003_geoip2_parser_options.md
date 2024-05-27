@@ -13,10 +13,10 @@ The geoip2 parser has the following options.
 ## database()
 
 *Description:* Path to the GeoIP2 database to use. This works with
-absolute and relative paths as well. Note that syslog-ng OSE must have
+absolute and relative paths as well. Note that {{ site.product.short_name }} must have
 the required privileges to read this file. Do not modify or delete this
-file while syslog-ng OSE is running, it can crash syslog-ng OSE.
+file while {{ site.product.short_name }} is running, it can crash {{ site.product.short_name }}.
 
-Starting with version 3.24, syslog-ng OSE tries to automatically detect
+Starting with version 3.24, {{ site.product.short_name }} tries to automatically detect
 the location of the database. If that is successful, the database()
 option is not mandatory.

@@ -3,7 +3,7 @@ title: Global and environmental variables
 id: adm-conf-global
 description: >-
     You can define global variables in the configuration file. Global
-    variables are actually name-value pairs. When syslog-ng processes the
+    variables are actually name-value pairs. When {{ site.product.short_name }} processes the
     configuration file during startup, it automatically replaces name
     with value. 
 ---
@@ -37,7 +37,7 @@ following methods:
 and can be used as global variables.
 {: .notice--info}
 
-In syslog-ng OSE 3.24 and later, the location of the syslog-ng
+In {{ site.product.short_name }} 3.24 and later, the location of the syslog-ng
 configuration file is available as the `syslog-ng-sysconfdir`
 variable.
 
@@ -63,7 +63,7 @@ source s_myapp_3 {
 };
 ```
 
-The syslog-ng OSE application will interpret this as:
+The {{ site.product.short_name }} application will interpret this as:
 
 ```config
 @define mypath "/opt/myapp/logs"

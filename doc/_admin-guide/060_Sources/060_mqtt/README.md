@@ -3,7 +3,7 @@ title: 'mqtt: Receiving messages from an MQTT broker'
 short_title: mqtt
 id: adm-src-mqtt
 description: >-
-    From syslog-ng OSE version 3.35, you can use the mqtt() source to fetch
+    From {{ site.product.short_name }} version 3.35, you can use the mqtt() source to fetch
     messages from MQTT brokers.
 ---
 

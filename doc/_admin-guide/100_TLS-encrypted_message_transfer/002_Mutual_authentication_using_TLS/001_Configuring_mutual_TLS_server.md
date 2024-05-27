@@ -1,22 +1,22 @@
 ---
-title: Configuring syslog-ng servers with mutual authentication
+title: Configuring {{ site.product.short_name }} servers with mutual authentication
 id: adm-tls-server-conf-mutual
 ---
 
 ## Purpose
 
-Complete the following steps on the syslog-ng server:
+Complete the following steps on the {{ site.product.short_name }} server:
 
 ## Steps
 
 1. Copy the certificate (for example, syslog-ng.cert) of the syslog-ng
-    server to the syslog-ng server host, for example, into the
+    server to the {{ site.product.short_name }} server host, for example, into the
     /opt/syslog-ng/etc/syslog-ng/cert.d directory. The certificate must
     be a valid X.509 certificate in PEM format.
 
 2. Copy the CA certificate (for example, cacert.pem) of the Certificate
-    Authority that issued the certificate of the syslog-ng clients to
-    the syslog-ng server, for example, into the
+    Authority that issued the certificate of the {{ site.product.short_name }} clients to
+    the {{ site.product.short_name }} server, for example, into the
     /opt/syslog-ng/etc/syslog-ng/ca.d directory.
 
     Issue the following command on the certificate: **openssl x509
@@ -31,12 +31,12 @@ Complete the following steps on the syslog-ng server:
     `ln -s cacert.pem 6d2962a8.0`
 
 3. Copy the private key (for example, syslog-ng.key) matching the
-    certificate of the syslog-ng server to the syslog-ng server host,
+    certificate of the {{ site.product.short_name }} server to the {{ site.product.short_name }} server host,
     for example, into the /opt/syslog-ng/etc/syslog-ng/key.d directory.
     The key must be in PEM format. If you want to use a
     password-protected key, see Password-protected keys.
 
-4. Add a source statement to the syslog-ng configuration file that uses
+4. Add a source statement to the {{ site.product.short_name }} configuration file that uses
     the tls( key-file(key_file_fullpathname)
     cert-file(cert_file_fullpathname) ) option and specify the key and
     certificate files. The source must use the source driver (network()

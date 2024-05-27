@@ -3,7 +3,7 @@ title: Posting messages over HTTP
 short_title: http
 id: adm-dest-http
 description: >-
-    Version 3.7 of syslog-ng OSE can directly post log messages to web
+    Version 3.7 of {{ site.product.short_name }} can directly post log messages to web
     services using the HTTP protocol. Error and status messages received
     from the HTTP server are forwarded to the internal logs of syslog-ng
     OSE. 
@@ -50,6 +50,6 @@ log
 ```
 
 **NOTE:** If you delete all Java destinations from your configuration and
-reload syslog-ng, the JVM is not used anymore, but it is still running.
-If you want to stop JVM, stop syslog-ng and then start syslog-ng again.
+reload {{ site.product.short_name }}, the JVM is not used anymore, but it is still running.
+If you want to stop JVM, stop {{ site.product.short_name }} and then start {{ site.product.short_name }} again.
 {: .notice--info}

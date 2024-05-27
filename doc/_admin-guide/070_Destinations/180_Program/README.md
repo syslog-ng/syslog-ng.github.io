@@ -8,7 +8,7 @@ description: >-
     is a single line (ending with a newline character), which your script
     can process. Make sure that your script runs in a loop and keeps reading
     the standard input --- it should not exit. (If your script exits,
-    syslog-ng OSE tries to restart it.)
+    {{ site.product.short_name }} tries to restart it.)
 ---
 
 The program() driver has a single required parameter, specifying a
@@ -25,26 +25,26 @@ program(command_to_run);
 
 When using the program() driver, consider the following:
 
-- The syslog-ng OSE application must be able to start and restart the
+- The {{ site.product.short_name }} application must be able to start and restart the
     external program, and have the necessary permissions to do so. For
     example, if your host is running AppArmor, you might have to modify
-    your AppArmor configuration to enable syslog-ng OSE to execute
+    your AppArmor configuration to enable {{ site.product.short_name }} to execute
     external applications.
 
-- The syslog-ng OSE application executes program destinations through
+- The {{ site.product.short_name }} application executes program destinations through
     the standard system shell. If the system shell is not bash and you
     experience problems with the program destination, try changing the
     /bin/sh link to /bin/bash.
 
-- If the external program exits, the syslog-ng OSE application
+- If the external program exits, the {{ site.product.short_name }} application
     automatically restarts it. However it is not recommended to launch
     programs for single messages, because if the message rate is high,
     launching several instances of an application might overload the
     system, resulting in Denial of Service.
 
-- When the syslog-ng OSE application stops, it will automatically stop
+- When the {{ site.product.short_name }} application stops, it will automatically stop
     the external program. To avoid restarting the application when
-    syslog-ng OSE is only reloaded, enable the keep-alive() option in
+    {{ site.product.short_name }} is only reloaded, enable the keep-alive() option in
     the program destination.
 
 - Certain external applications buffer the log messages, which might

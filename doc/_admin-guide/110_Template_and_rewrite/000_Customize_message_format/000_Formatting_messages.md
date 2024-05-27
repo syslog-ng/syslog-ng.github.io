@@ -2,12 +2,12 @@
 title: Formatting messages, filenames, directories, and tablenames
 id: adm-temp-format
 description: >-
-    The syslog-ng OSE application can dynamically create filenames,
+    The {{ site.product.short_name }} application can dynamically create filenames,
     directories, or names of database tables using macros that help you
     organize your log messages. Macros refer to a property or a part of the
     log message, for example, the ${HOST} macro refers to the name or IP
     address of the client that sent the log message, while ${DAY} is the
-    day of the month when syslog-ng has received the message. Using these
+    day of the month when {{ site.product.short_name }} has received the message. Using these
     macros in the path of the destination log files allows you for example,
     to collect the logs of every host into separate files for every day.
 ---
@@ -26,8 +26,8 @@ log), the structure of the header is fixed.
 
 - For details on using templates and macros, see
     Templates and macros.
-- For a list and description of the macros available in syslog-ng OSE,
-    see Macros of syslog-ng OSE.
+- For a list and description of the macros available in {{ site.product.short_name }},
+    see Macros of {{ site.product.short_name }}.
 - For details on using custom macros created with CSV parsers and
     pattern databases, see [[parser: Parse and segment structured messages]]
     and Using parser results in filters and templates, respectively.

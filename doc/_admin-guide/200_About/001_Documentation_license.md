@@ -1,10 +1,10 @@
 ---
-title: The syslog-ng Open Source Edition Documentation License
+title: The {{ site.product.name }} Documentation License
 short_title: Documentation license
 id: adm-about-doc-lic
 ---
 
-The syslog-ng Open Source Edition Documentation License
+The {{ site.product.name }} Documentation License
 
 Copyright 2023 One Identity LLC.
 

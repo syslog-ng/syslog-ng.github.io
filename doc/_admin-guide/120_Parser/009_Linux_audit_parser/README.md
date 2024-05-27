@@ -3,9 +3,9 @@ title: Linux audit parser
 id: adm-parser-linux
 description: >-
     The Linux audit parser can parse the log messages of the Linux Audit
-    subsystem (auditd). The syslog-ng OSE application can separate these log
+    subsystem (auditd). The {{ site.product.short_name }} application can separate these log
     messages to name-value pairs. For details on using value-pairs in
-    syslog-ng OSE see Structuring macros, metadata, and other value-pairs.
+    {{ site.product.short_name }} see Structuring macros, metadata, and other value-pairs.
 ---
 
 The following is a sample log message of auditd:
@@ -19,10 +19,10 @@ The following is a sample log message of auditd:
 
 Certain fields of the audit log can be encoded in hexadecimal format,
 for example, the arch field, or the a\<number\> fields in the previous
-example. The syslog-ng OSE application automatically decodes these
+example. The {{ site.product.short_name }} application automatically decodes these
 fields (for example, the c000003e value becomes x86\_64).
 
-The syslog-ng OSE application extracts every field into name-value
+The {{ site.product.short_name }} application extracts every field into name-value
 pairs. It automatically decodes the following fields:
 
 - name
@@ -64,7 +64,7 @@ parser parser_name {
 
 In the following example, the source is a log file created by auditd.
 Since the audit log format is not a syslog format, the syslog parser is
-disabled, so that syslog-ng OSE does not parse the message:
+disabled, so that {{ site.product.short_name }} does not parse the message:
 flags(no-parse). The parser inserts \".auditd.\" prefix before all
 extracted name-value pairs. The destination is a file, that uses the
 format-json template function. Every name-value pair that begins with a

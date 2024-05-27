@@ -16,7 +16,7 @@ A \<patterndb\> element may contain any number of \<ruleset\> elements.
 ## Attributes
 
 - *name*: The name of the application. Note that the function of this
-    attribute is to make the database more readable, syslog-ng uses the
+    attribute is to make the database more readable, {{ site.product.short_name }} uses the
     \<pattern\> element to identify the applications sending log
     messages.
 

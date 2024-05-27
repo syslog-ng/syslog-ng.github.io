@@ -15,8 +15,8 @@ Currently there are two standard syslog message formats:
     protocol): see IETF-syslog messages.
 
 - The Enterprise-wide message model or EWMM allows you to deliver
-    structured messages between syslog-ng nodes: see
+    structured messages between {{ site.product.short_name }} nodes: see
     Enterprise-wide message model (EWMM).
 
-- How messages are represented in syslog-ng OSE: see
-    Message representation in syslog-ng OSE.
+- How messages are represented in {{ site.product.short_name }}: see
+    Message representation in {{ site.product.short_name }}.

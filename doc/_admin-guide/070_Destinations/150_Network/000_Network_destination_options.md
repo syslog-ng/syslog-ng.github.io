@@ -4,7 +4,7 @@ id: adm-dest-netw-opt
 ---
 
 The network() driver sends messages to a remote host (for example, a
-syslog-ng server or relay) on the local intranet or internet using the
+{{ site.product.short_name }} server or relay) on the local intranet or internet using the
 RFC-3164 syslog protocol (for details about the protocol, see
 BSD-syslog or legacy-syslog messages.
 The network() driver supports sending messages using the UDP,

@@ -1,22 +1,22 @@
 ---
-title: Things to consider when forwarding messages between syslog-ng OSE hosts
+title: Things to consider when forwarding messages between {{ site.product.short_name }} hosts
 id: adm-conc-cons
 description: >-
-    When you send your log messages from a syslog-ng OSE client through the
-    network to a syslog-ng OSE server, you can use different protocols and
+    When you send your log messages from a {{ site.product.short_name }} client through the
+    network to a {{ site.product.short_name }} server, you can use different protocols and
     options. Every combination has its advantages and disadvantages. The
     most important thing is to use matching protocols and options, so the
     server handles the incoming log messages properly.
 ---
 
-In syslog-ng OSE you can change many aspects of the network
+In {{ site.product.short_name }} you can change many aspects of the network
 communication. First of all, there is the structure of the messages
-itself. Currently, syslog-ng OSE supports two standard syslog protocols:
+itself. Currently, {{ site.product.short_name }} supports two standard syslog protocols:
 the BSD (RFC-3164) and the syslog (RFC-5424) message format.
 
 These RFCs describe the format and the structure of the log message, and
 add a (lightweight) framing around the messages. You can set this
-framing/structure by selecting the appropriate driver in syslog-ng OSE.
+framing/structure by selecting the appropriate driver in {{ site.product.short_name }}.
 There are two drivers you can use: the **network()** driver and the
 **syslog()** driver. The syslog() driver is for the syslog (RFC-5424)
 protocol and the network() driver is for the BSD (RFC-3164) protocol.
@@ -67,7 +67,7 @@ the following drivers and options as sources and as destinations:
 15. network(transport(rltp(tls-required(yes)) flag(syslog-protocol))
 
 If you use the same driver and options in the destination of your
-syslog-ng OSE client and the source of your syslog-ng OSE server,
+{{ site.product.short_name }} client and the source of your {{ site.product.short_name }} server,
 everything should work as expected. Unfortunately there are some other
 combinations, that seem to work, but result in losing parts of the
 messages. The following table shows the combinations:

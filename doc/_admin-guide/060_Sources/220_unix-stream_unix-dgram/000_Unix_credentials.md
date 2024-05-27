@@ -2,12 +2,12 @@
 title: UNIX credentials and other metadata
 id: adm-src-unix-meta
 description: >-
-    Starting with syslog-ng OSE 3.6, the unix-stream() and unix-dgram()
+    Starting with {{ site.product.short_name }} 3.6, the unix-stream() and unix-dgram()
     sources automatically extract the available UNIX credentials and other
     metainformation from the received log messages.
 ---
 
-The syslog-ng OSE application can extract the following information on 
+The {{ site.product.short_name }} application can extract the following information on 
 Linux and FreeBSD platforms (examples show the value of the macro for the `su - myuser`
 command). Similar information is available for the
 [[systemd-journal source|adm-src-systemd-journal]].  

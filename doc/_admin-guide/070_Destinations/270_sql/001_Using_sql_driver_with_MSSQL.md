@@ -7,13 +7,13 @@ The mssql database driver can access Microsoft SQL (MSSQL) destinations.
 This driver has some special aspects that are important to note.
 
 - The date format used by the MSSQL database must be explicitly set in
-    the /etc/locales.conf file of the syslog-ng server. For details, see
+    the /etc/locales.conf file of the {{ site.product.short_name }} server. For details, see
     the following example.
 
 - As certain database versions limit the maximum length of table
     names, macros in the table names should be used with care.
 
-- In the current version of syslog-ng OSE, the types of database
+- In the current version of {{ site.product.short_name }}, the types of database
     columns must be explicitly set for the MSSQL destination.
 
 {% include doc/admin-guide/warnings/mssql-columns.md %}
@@ -34,7 +34,7 @@ This driver has some special aspects that are important to note.
 The following example sends the log messages into an MSSQL database
 running on the logserver host. The messages are inserted into the
 syslogng database, the name of the table includes the exact date when
-the messages were sent. The syslog-ng application automatically creates
+the messages were sent. The {{ site.product.short_name }} application automatically creates
 the required tables and columns, if the user account used to connect to
 the database has the required privileges.
 
@@ -50,7 +50,7 @@ sql(type(mssql) host("logserver") port("1433")
 ```
 
 The date format used by the MSSQL database must be explicitly set in the
-/etc/locales.conf file of the syslog-ng server. Edit or create this file
+/etc/locales.conf file of the {{ site.product.short_name }} server. Edit or create this file
 as needed for your configuration. A sample is provided below.
 
 ```config

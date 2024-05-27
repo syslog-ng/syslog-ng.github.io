@@ -1,12 +1,12 @@
 ## cipher-suite()
 
 |  Accepted values: |  Name of a cipher, or a colon-separated list|
-|  Default:          | Depends on the OpenSSL version that syslog-ng OSE uses|
+|  Default:          | Depends on the OpenSSL version that {{ site.product.short_name }} uses|
 
 *Description:* Specifies the cipher, hash, and key-exchange algorithms
 used for the encryption, for example, ECDHE-ECDSA-AES256-SHA384. The
 list of available algorithms depends on the version of OpenSSL used to
-compile syslog-ng OSE. To specify multiple ciphers, separate the cipher
+compile {{ site.product.short_name }}. To specify multiple ciphers, separate the cipher
 names with a colon, and enclose the list between double-quotes, for
 example:
 
@@ -32,6 +32,6 @@ TLSv1.2:
 echo "cipher-suite(\"$(openssl ciphers -v | grep TLSv1.2 | awk '{print $1}' | xargs echo -n | sed 's/ /:/g' | sed -e 's/:$//')\")"
 ```
 
-Note that starting with version 3.10, when syslog-ng OSE receives
-TLS-encrypted connections, the order of ciphers set on the syslog-ng OSE
+Note that starting with version 3.10, when {{ site.product.short_name }} receives
+TLS-encrypted connections, the order of ciphers set on the {{ site.product.short_name }}
 server takes precedence over the client settings.

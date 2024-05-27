@@ -10,10 +10,10 @@ description: >-
     schedule them to run regularly.
 ---
 
-The osquery() source of syslog-ng OSE allows you read the results of
+The osquery() source of {{ site.product.short_name }} allows you read the results of
 periodical osquery queries (from the
 /var/log/osquery/osqueryd.results.log file) and automatically parse the
-messages (if you want to use syslog-ng OSE to send log messages to
+messages (if you want to use {{ site.product.short_name }} to send log messages to
 osquery, read this blogpost).  
 
 For example, you can:
@@ -24,24 +24,24 @@ For example, you can:
     multiple fields into one field, and so on).
 
 - Send the messages to a central location, for example, to
-    Elasticsearch, directly from syslog-ng OSE.
+    Elasticsearch, directly from {{ site.product.short_name }}.
 
-The syslog-ng OSE application automatically adds the .osquery. prefix to
+The {{ site.product.short_name }} application automatically adds the .osquery. prefix to
 the name of the fields the extracted from the message.
 
-The osquery() source is available in syslog-ng OSE version 3.10 and
+The osquery() source is available in {{ site.product.short_name }} version 3.10 and
 later.
 
 ## Prerequisites
 
 - To use the osquery() driver, the scl.conf file must be included in
-    your syslog-ng OSE configuration:
+    your {{ site.product.short_name }} configuration:
 
     ```config
     @include "scl.conf"
     ```
 
-- syslog-ng OSE must be compiled with JSON-support enabled.
+- {{ site.product.short_name }} must be compiled with JSON-support enabled.
 
 The osquery() driver is actually a reusable configuration snippet
 configured to read the osquery log file using the file() driver, and
@@ -51,7 +51,7 @@ You can find the source of the osquery configuration snippet on GitHub.
 
 ## Example: Using the osquery() driver with the default settings
 
-The following syslog-ng OSE configuration sample uses the default
+The following {{ site.product.short_name }} configuration sample uses the default
 settings of the driver, reading osquery result logs from the
 /var/log/osquery/osqueryd.results.log file, and writes the log messages
 generated from the traps into a file.
@@ -93,7 +93,7 @@ log {
 
 ### Example: Using the osquery() driver with custom configuration
 
-The following syslog-ng OSE configuration sample reads osquery result
+The following {{ site.product.short_name }} configuration sample reads osquery result
 logs from the /tmp/osquery_input.log file, and writes the log messages
 generated from the traps into a file. Using the format-json template,
 the outgoing message will be a well-formed JSON message.
@@ -111,7 +111,7 @@ the outgoing message will be a well-formed JSON message.
 >"user_time":"476","uuid":"4C4C4544-004D-3610-8043-C2C04F4D3332",
 >"version":"2.5.0","watcher":"19762"},"action":"added"}
 
-#### syslog-ng OSE configuration
+#### {{ site.product.short_name }} configuration
 
 ```config
 @version: 3.10

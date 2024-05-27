@@ -3,7 +3,7 @@ title: Regular expression (regexp) parser
 short_title: Regular expression parser
 id: adm-parser-regexp
 description: >-
-    The syslog-ng OSE application can parse fields from a message with the
+    The {{ site.product.short_name }} application can parse fields from a message with the
     help of regular expressions. This can be also achieved with the match()
     filter, by setting the store-matches flag, but the regexp-parser()
     offers more flexibility, like multiple patterns and setting the prefix
@@ -16,7 +16,7 @@ description: >-
 groups\" in PCRE documentation.
 {: .notice--info}
 
-For more information about regular expressions in syslog-ng OSE, see
+For more information about regular expressions in {{ site.product.short_name }}, see
 Regular expressions.
 For example:
 

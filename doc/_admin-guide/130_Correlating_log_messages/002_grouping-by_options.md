@@ -7,7 +7,7 @@ The grouping-by has the following options.
 
 ## aggregate()
 
-*Description:* Specifies the message that syslog-ng OSE generates when
+*Description:* Specifies the message that {{ site.product.short_name }} generates when
 the context is closed. This option is mandatory.
 
 Note that the aggregate() option has access to every message of the
@@ -16,7 +16,7 @@ context, and has the following options:
 - *inherit-mode*: This attribute controls which name-value pairs and
     tags are propagated to the newly generated message.
 
-  - context: syslog-ng OSE collects every name-value pair from each
+  - context: {{ site.product.short_name }} collects every name-value pair from each
         message stored in the context, and includes them in the
         generated message. If a name-value pair appears in multiple
         messages of the context, the value in the latest message will be
@@ -45,7 +45,7 @@ context, and has the following options:
 
 ## having()
 
-*Description:* Specifies a filter: syslog-ng OSE generates the aggregate
+*Description:* Specifies a filter: {{ site.product.short_name }} generates the aggregate
 message only if the result of the filter expression is true. Note that
 the having() filter has access to every message of the context. For
 details on accessing other messages of the context, see
@@ -53,7 +53,7 @@ Referencing earlier messages of the context.
 
 ## inject-mode()
 
-*Description:* By default, the aggregated message that syslog-ng OSE
+*Description:* By default, the aggregated message that {{ site.product.short_name }}
 generates is injected into the same place where the grouping-by()
 statement is referenced in the log path. To post the generated message
 into the internal() source instead, use the **inject-mode()** option in
@@ -132,18 +132,18 @@ works similarly to the SQL ORDER BY keyword.
 
 NOTE:
 
-- Sorting is done by syslog-ng OSE when the context is about to be
-    closed by trigger() or timeout(), but before syslog-ng OSE evaluates
+- Sorting is done by {{ site.product.short_name }} when the context is about to be
+    closed by trigger() or timeout(), but before {{ site.product.short_name }} evaluates
     the having() option.
 
-- syslog-ng OSE can slow down if you specify several sort-key macro or
+- {{ site.product.short_name }} can slow down if you specify several sort-key macro or
     template options, for example, sort-key(\"${3}${4}\").
 
 ## timeout()
 
 *Description:* Specifies the maximum time to wait for all messages of
 the context to arrive. If no new message is added to the context during
-this period, the context is assumed to be complete and syslog-ng OSE
+this period, the context is assumed to be complete and {{ site.product.short_name }}
 generates and sends the triggered message (specified in the
 aggregate(), and clears the
 context. If a new message is added to the context, the timeout period is
@@ -155,7 +155,7 @@ This option is mandatory, and its value must be equal to or greater than
 ## trigger()
 
 *Description:* A filter that specifies the final message of the context.
-If the filter matches the incoming message, syslog-ng OSE generates and
+If the filter matches the incoming message, {{ site.product.short_name }} generates and
 sends the triggered message (specified in the
 aggregate(), and clears the
 context.

@@ -8,7 +8,7 @@ id: adm-log-filters-tags
 *Description:* Select messages labeled with the specified tag. Every
 message automatically has the tag of its source in
 .source.\<id\_of\_the\_source\_statement\> format. This option is
-available only in syslog-ng 3.1 and later.
+available only in {{ site.product.short_name }} 3.1 and later.
 
 ## Example: Adding tags and filtering messages with tags
 
@@ -31,7 +31,7 @@ filter f_router {
 };
 ```
 
-**NOTE:** The syslog-ng OSE application automatically adds the class of the
+**NOTE:** The {{ site.product.short_name }} application automatically adds the class of the
 message as a tag using the .classifier.\<message-class\> format. For
 example, messages classified as \"system\" receive the
 .classifier.system tag. Use the **tags()** filter function to select
