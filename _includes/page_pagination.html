@@ -14,17 +14,17 @@
       {% assign prevurl = prev.url %}
 
       {% assign prevtitle = prev.title %}
-      {% comment %}<div>prevtitle = {{ prevtitle }}</div>{% endcomment %}
+      {% comment %}<div>prevtitle = {{ prevtitle | liquify | markdownify | strip_html | strip_newlines }}</div>{% endcomment %}
     {% endunless %}
 
-    {% comment %}<div>pagetitle = {{ page.title }}</div>{% endcomment %}
+    {% comment %}<div>pagetitle = {{ page.title | liquify | markdownify | strip_html | strip_newlines }}</div>{% endcomment %}
 
     {% unless forloop.last %}
       {% assign next = document[forloop.index] %}
       {% assign nexturl = next.url %}
 
       {% assign nexttitle = next.title %}
-      {% comment %}<div>nexttitle = {{ nexttitle }}</div>{% endcomment %}
+      {% comment %}<div>nexttitle = {{ nexttitle | liquify | markdownify | strip_html | strip_newlines }}</div>{% endcomment %}
     {% endunless %}
 
   {% endif %}
@@ -45,7 +45,7 @@
 
       <div class="pager-text-container">
         <div class="pager-btn-title">{{ site.data.ui-text[site.locale].pagination_previous | default: "Previous" }}</div>
-        <div class="pager-title">{{ prevtitle | markdownify | strip_html }}</div>
+        <div class="pager-title">{{ prevtitle | liquify | markdownify | strip_html | strip_newlines }}</div>
       </div>
 
     </a>
@@ -60,7 +60,7 @@
       
       <div class="pager-text-container">
         <div class="pager-btn-title">{{ site.data.ui-text[site.locale].pagination_next | default: "Next" }}</div>
-        <div class="pager-title">{{ nexttitle | markdownify | strip_html }}</div>
+        <div class="pager-title">{{ nexttitle | liquify | markdownify | strip_html | strip_newlines }}</div>
       </div>
       
       <svg class="pager-image-container" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 16" preserveAspectRatio="xMidYMid meet" data-rnwibasecard--1ghhsy9-hover="true" data-rnwi-handle="nearest">

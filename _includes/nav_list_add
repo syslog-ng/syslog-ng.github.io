@@ -20,7 +20,7 @@
 
   <input type="checkbox" id="toggle-{{levelIndex}}"/>
   <label for="toggle-{{levelIndex}}" class="{{titleStyle}} {{active}}">    
-    <a href="{{ nav.url | relative_url }}" class="nav-link">{{ nav.title }}</a>
+    <a href="{{ nav.url | relative_url }}" class="nav-link">{{ nav.title | liquify | markdownify | strip_html | strip_newlines  }}</a>
   </label>   
 {% endif %}
 
@@ -45,9 +45,9 @@
         {% comment %} {% assign debugInfo = "NO subnav(" | append: nav.subnav | append: "), levelIndex: " | append: levelIndex | append: ", levelDepth: " | append: levelDepth | append: ", titleStyle: " | append: titleStyle %}<div style="color: red;">{{ debugInfo }}</div> {% endcomment %}
 
         {% if nav.url %}
-          <a href="{{ nav.url | relative_url }}" class="nav-link {{active}}{% if levelDepth < 2 %} {{titleStyle}}{% endif %}">{{ nav.title }}</a>
+          <a href="{{ nav.url | relative_url }}" class="nav-link {{active}}{% if levelDepth < 2 %} {{titleStyle}}{% endif %}">{{ nav.title | liquify | markdownify | strip_html | strip_newlines }}</a>
         {% else %}
-          <span>{{ nav.title }}</span>
+          <span>{{ nav.title | liquify | markdownify | strip_html | strip_newlines  }}</span>
         {% endif %}
       {% endif %}
     </li>
