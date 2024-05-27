@@ -705,6 +705,11 @@ discord-wh-intro:
   id: discord-wh-intro
   url: https://support.discord.com/hc/en-us/articles/228383668-Intro-to-Webhooks
   title: [ "Discord: Intro to Webhooks" ]
+  
+ebpf:
+  id: ebpf
+  url: https://ebpf.io/
+  title: [ "Extended Berkeley Packet Filter" ]
 
 gcp-ser:
   id: gcp-ser
