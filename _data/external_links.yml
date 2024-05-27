@@ -430,15 +430,35 @@ welf:
 
 ### RFC links ###
 
+rfc-822:
+  id: rfc-822
+  url: https://www.ietf.org/rfc/rfc822.txt
+  title: [ "RFC-822" ]
+
+rfc-3162:
+  id: rfc-3162
+  url: https://www.ietf.org/rfc/rfc3162.txt
+  title: [ "RFC-3162" ]
+
 rfc-3164:
   id: rfc-3164
   url: https://www.ietf.org/rfc/rfc3164.txt
   title: [ "RFC-3164" ]
 
+rfc-3339:
+  id: rfc-3339
+  url: https://www.ietf.org/rfc/rfc3339.txt
+  title: [ "RFC-3339" ]
+
 rfc-3526:
   id: rfc-3526
   url: https://www.ietf.org/rfc/rfc3526.txt
   title: [ "RFC-3526" ]
+
+rfc-4122:
+  id: rfc-4122
+  url: https://www.ietf.org/rfc/rfc4122.txt
+  title: [ "RFC-4122" ]
 
 rfc-4180:
   id: rfc-4180

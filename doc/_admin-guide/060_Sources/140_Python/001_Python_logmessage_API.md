@@ -55,8 +55,8 @@ Note the following points when creating a log message:
 
 The parse() method allows you to parse incoming messages as syslog
 messages. By default, the parse() method attempts to parse the message
-as an IETF-syslog (RFC5424) log message. If that fails, it parses the
-log message as a BSD-syslog (RFC3164) log message. Note that syslog-ng
+as an IETF-syslog (RFC-5424) log message. If that fails, it parses the
+log message as a BSD-syslog (RFC-3164) log message. Note that syslog-ng
 OSE takes the parsing-related options of the configuration into account:
 flags(), keep-hostname(), recv-time-zone().
 

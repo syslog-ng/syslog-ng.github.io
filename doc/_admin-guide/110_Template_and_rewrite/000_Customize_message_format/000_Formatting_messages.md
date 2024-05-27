@@ -19,7 +19,7 @@ Another use of macros and templates is to customize the format of the
 syslog message, for example, to add elements of the message header to
 the message text.
 
-**NOTE:** If a message uses the IETF-syslog format (RFC5424), only the text
+**NOTE:** If a message uses the IETF-syslog format (RFC-5424), only the text
 of the message can be customized (that is, the ${MESSAGE} part of the
 log), the structure of the header is fixed.
 {: .notice--info}

@@ -8,7 +8,7 @@ description: >-
 ---
 
 The syslog-ng application supports messages originating from different
-timezones. The original syslog protocol (RFC3164) does not include
+timezones. The original syslog protocol (RFC-3164) does not include
 timezone information, but syslog-ng provides a solution by extending the
 syslog protocol to include the timezone in the log messages. The
 syslog-ng application also enables administrators to supply timezone
@@ -63,7 +63,7 @@ to the message using the following algorithm.
 
     ![]({{ site.baseurl}}/assets/images/caution.png) **CAUTION:** If syslog-ng
     OSE sends the message is to the destination using the legacy-syslog protocol
-    (RFC3164) which does not support timezone information in its timestamps,
+    (RFC-3164) which does not support timezone information in its timestamps,
     the timezone information cannot be encapsulated into the sent timestamp,
     so syslog-ng OSE will convert the hour:min values based on the explicitly
     specified timezone.

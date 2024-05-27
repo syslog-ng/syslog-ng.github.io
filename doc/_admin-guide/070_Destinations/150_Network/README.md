@@ -1,11 +1,11 @@
 ---
 title: 'network: Sending messages to a remote log server using the
-  RFC3164 protocol (network() driver)'
+  RFC-3164 protocol (network() driver)'
 short_title: network
 id: adm-dest-netw
 description: >-
     The network() destination driver can send syslog messages conforming to
-    RFC3164 from the network using the TCP, TLS, and UDP networking
+    RFC-3164 from the network using the TCP, TLS, and UDP networking
     protocols.
 ---
 

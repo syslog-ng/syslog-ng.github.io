@@ -151,7 +151,7 @@ statistics:
 - \--sdata \<data-to-send\> or -p \<data-to-send\>
 
     Send the argument of the \--sdata option as the SDATA part of
-    IETF-syslog (RFC5424 formatted) messages. Use it together with the
+    IETF-syslog (RFC-5424 formatted) messages. Use it together with the
     \--syslog-proto option. For example: **\--sdata \"\[test
     name=\\\"value\\\"\]**
 
@@ -175,9 +175,9 @@ statistics:
 
 - \--syslog-proto or -P
 
-    Use the new IETF-syslog message format as specified in RFC5424. By
+    Use the new IETF-syslog message format as specified in RFC-5424. By
     default, loggen uses the legacy BSD-syslog message format (as
-    described in RFC3164). See also the \--no-framing option.
+    described in RFC-3164). See also the \--no-framing option.
 
 - \--unix \</path/to/socket\> or -x \</path/to/socket\>
 

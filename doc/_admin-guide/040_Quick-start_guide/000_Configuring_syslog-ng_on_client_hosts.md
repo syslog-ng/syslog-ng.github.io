@@ -57,7 +57,7 @@ description: >-
 3. Create a network destination that points directly to the syslog-ng
     server, or to a local relay. The network destination greatly depends
     on the protocol that your log server or relay accepts messages. Many
-    systems still use the legacy BSD-syslog protocol (RFC3162) over the
+    systems still use the legacy BSD-syslog protocol (RFC-3162) over the
     unreliable UDP transport:
 
     ```config

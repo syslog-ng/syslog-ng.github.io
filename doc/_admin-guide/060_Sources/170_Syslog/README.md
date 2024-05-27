@@ -5,12 +5,12 @@ short_title: syslog
 id: adm-src-syslog
 description: >-
     The syslog() driver can receive messages from the network using the
-    standard IETF-syslog protocol (as described in RFC5424-26). UDP, TCP,
+    standard IETF-syslog protocol (as described in RFC-5424, RFC-5425 and RFC-5426). UDP, TCP,
     and TLS-encrypted TCP can all be used to transport the messages.
 ---
 
 NOTE: The syslog() driver can also receive BSD-syslog-formatted messages
-(described in RFC 3164, see
+(described in RFC-3164, see
 BSD-syslog or legacy-syslog messages
 if they are sent using the IETF-syslog protocol.
 

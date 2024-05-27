@@ -13,7 +13,7 @@ description: >-
 |  Type:|     string|
 |Default:| `"--scope rfc5424,all-nv-pairs --exclude MESSAGE"`|
 
-*Description:* A JSON object representing key-value pairs for the Pub/Sub Event, formatted as syslog-ng OSE value-pairs. By default, the `google-pubsub()` destination sends the RFC5424 fields as attributes. If different fields are required, override the default template. By default, the message part is sent in the `data()` option
+*Description:* A JSON object representing key-value pairs for the Pub/Sub Event, formatted as syslog-ng OSE value-pairs. By default, the `google-pubsub()` destination sends the RFC-5424 fields as attributes. If different fields are required, override the default template. By default, the message part is sent in the `data()` option
 
 ## auth()
 

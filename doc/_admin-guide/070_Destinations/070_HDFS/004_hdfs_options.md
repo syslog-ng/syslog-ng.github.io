@@ -136,7 +136,7 @@ MapR-FS NameNode is in maprfs://IPaddress or maprfs://hostname format,
 for example: maprfs://10.140.32.80. The IP address of the node can be
 IPv4 or IPv6. For example, hdfs-uri(\"hdfs://10.140.32.80:8020\"). The
 IPv6 address must be enclosed in square brackets (*\[\]*) as specified
-by RFC 2732, for example,
+by RFC-2732, for example,
 hdfs-uri(\"hdfs://\[FEDC:BA98:7654:3210:FEDC:BA98:7654:3210\]:8020\").
 
 {% include doc/admin-guide/options/hook.md %}

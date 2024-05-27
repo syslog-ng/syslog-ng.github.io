@@ -2,12 +2,12 @@
 title: Creating custom SDATA fields
 id: adm-temp-sdata
 description: >-
-    If you use RFC5424-formatted (IETF-syslog) messages, you can also create
+    If you use RFC-5424 formatted (IETF-syslog) messages, you can also create
     custom fields in the SDATA part of the message (For details on the SDATA
     message part, see The STRUCTURED-DATA message part).
 ---
 
-According to RFC5424, the name of the field (its SD-ID) must not contain
+According to RFC-5424, the name of the field (its SD-ID) must not contain
 the @ character for reserved SD-IDs. Custom SDATA fields must be in the
 following format: .SDATA.group-name@\<private enterprise
 number\>.field-name, for example,
@@ -18,7 +18,7 @@ syslog-ng OSE.)
 ### Example: Rewriting custom SDATA fields
 
 The following example sets the sequence ID field of the
-RFC5424-formatted (IETF-syslog) messages to a fixed value. This field is
+RFC-5424 formatted (IETF-syslog) messages to a fixed value. This field is
 a predefined SDATA field with a reserved SD-ID, therefore its name does
 not contain the @ character.
 

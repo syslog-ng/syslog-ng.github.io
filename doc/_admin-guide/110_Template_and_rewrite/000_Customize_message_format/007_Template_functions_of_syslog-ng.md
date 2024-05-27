@@ -501,7 +501,7 @@ admin if the username is joe, and normal user otherwise.
 *Description:* This template function makes it possible to write
 multi-line log messages into a file. The first line is written like a
 regular message, subsequent lines are indented with a tab, in compliance
-with RFC822.
+with RFC-822.
 
 ### Example: Using the indent-multi-line template function
 
@@ -984,7 +984,7 @@ Select the last 15 characters of the message:
 $(substr "${MESSAGE}" "-15");
 ```
 
-A template that converts the message to RFC3164 (BSD-syslog) format and
+A template that converts the message to RFC-3164 (BSD-syslog) format and
 truncates the messages to 1023 characters:
 
 ```config
@@ -1074,7 +1074,7 @@ Available in syslog-ng OSE version 3.18 and later. (In version
 |*Syntax:*|$(uuid)|
 
 *Description:* Generates a Universally Unique IDentifier (UUID) that
-complies with RFC4122. That way,
+complies with RFC-4122. That way,
 an UUID can be added to the message soon after it is received, so
 messages stored in multiple destinations can be identified. For example,
 when storing messages in a database and also in files, the UUID can be

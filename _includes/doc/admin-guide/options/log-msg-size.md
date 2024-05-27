@@ -7,7 +7,7 @@
 length includes the entire message (the data structure and individual
 fields). The maximal value that can be set is 268435456 bytes (256 MiB).
 
-For messages using the IETF-syslog message format (RFC5424), the maximal
+For messages using the IETF-syslog message format (RFC-5424), the maximal
 size of the value of an SDATA field is 64 KiB.
 
 **NOTE:** In most cases, log-msg-size() does not need to be set higher than

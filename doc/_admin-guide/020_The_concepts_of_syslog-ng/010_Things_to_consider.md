@@ -12,14 +12,14 @@ description: >-
 In syslog-ng OSE you can change many aspects of the network
 communication. First of all, there is the structure of the messages
 itself. Currently, syslog-ng OSE supports two standard syslog protocols:
-the BSD (RFC3164) and the syslog (RFC5424) message format.
+the BSD (RFC-3164) and the syslog (RFC-5424) message format.
 
 These RFCs describe the format and the structure of the log message, and
 add a (lightweight) framing around the messages. You can set this
 framing/structure by selecting the appropriate driver in syslog-ng OSE.
 There are two drivers you can use: the **network()** driver and the
-**syslog()** driver. The syslog() driver is for the syslog (RFC5424)
-protocol and the network() driver is for the BSD (RFC3164) protocol.
+**syslog()** driver. The syslog() driver is for the syslog (RFC-5424)
+protocol and the network() driver is for the BSD (RFC-3164) protocol.
 
 The tcp() and udp() drivers are now deprecated, they are essentially
 equivalent with the network(transport(tcp)) and network(transport(udp))
@@ -29,8 +29,8 @@ In addition to selecting the driver to use, both drivers allow you to
 use different transport-layer protocols: TCP and UDP, and optionally
 also higher-level transport protocols: TLS (over TCP. To complicate
 things a bit more, you can configure the network() driver (corresponding
-to the BSD (RFC3164) protocol) to send the messages in the syslog
-(RFC5424) format (but without the framing used in RFC5424) using the
+to the BSD (RFC-3164) protocol) to send the messages in the syslog
+(RFC-5424) format (but without the framing used in RFC-5424) using the
 **flag(syslog-protocol)** option.
 
 Because some combination of drivers and options are invalid, you can use

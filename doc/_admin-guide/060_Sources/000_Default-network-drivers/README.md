@@ -21,9 +21,9 @@ to receive messages, and that no other application is using these ports.
 By default, the default-network-drivers() source accepts messages on the
 following ports:
 
-- 514, both TCP and UDP, for RFC3164 (BSD-syslog) formatted traffic
+- 514, both TCP and UDP, for RFC-3164 (BSD-syslog) formatted traffic
 
-- 601 TCP, for RFC5424 (IETF-syslog) formatted traffic
+- 601 TCP, for RFC-5424 (IETF-syslog) formatted traffic
 
 - 6514 TCP, for TLS-encrypted traffic
 
@@ -40,16 +40,16 @@ can receive messages on other ports, but will display a warning messages about
 missing keys.
 {: .notice--warning}
 
-## Parsing RFC3164-formatted messages
+## Parsing RFC-3164 formatted messages
 
-For RFC3164-formatted messages (that is, messages received on the ports
+For RFC-3164 formatted messages (that is, messages received on the ports
 set in options udp-port() and tcp-port() which default to port 514),
 syslog-ng OSE attempts to use the following parsers. If a parser cannot
 parse the message, it passes the original message to the next parser.
 
 1. Parse the incoming raw message as a [[message from a Cisco device|adm-parser-cisco]].
 
-2. Parse the incoming message as an [[RFC3164-formatted message|adm-struct-bsd]].
+2. Parse the incoming message as an [[RFC-3164 formatted message|adm-struct-bsd]].
     - If the incoming message was sent by a syslog-ng OSE client using
         the [[syslog-ng() destination|adm-dest-syslogng]], parse its
         fields as a [[syslog-ng() message|adm-struct-ietf]].
@@ -72,12 +72,12 @@ parse the message, it passes the original message to the next parser.
         syslog-ng OSE (for example, Splunk Common Information Model
         (CIM), [[iptables|adm-parser-iptables]], or [[sudo|adm-parser-sudo]]).
 
-## Parsing RFC5424-formatted messages
+## Parsing RFC-5424 formatted messages
 
-For RFC5424-formatted messages (that is, messages received on the ports
+For RFC-5424 formatted messages (that is, messages received on the ports
 set in options rfc5424-tls-port() and rfc5424-tcp-port(), which default
 to port 601 and 6514), syslog-ng OSE parses the message according to
-RFC5424, then attempts apply the application adapters if the message was
+RFC-5424, then attempts apply the application adapters if the message was
 sent from an application that already has a specific parser in syslog-ng
 OSE (for example, Splunk Common Information Model (CIM),
 [[iptables|adm-parser-iptables]], or [[sudo|adm-parser-sudo]]).

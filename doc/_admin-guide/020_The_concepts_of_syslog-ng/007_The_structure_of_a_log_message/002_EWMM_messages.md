@@ -28,7 +28,7 @@ The following is a sample log message in EWMM format.
 The message has the following parts:
 
 - The header of the complies with the
-    IETF-syslog messages RFC5424 message format,
+    IETF-syslog messages RFC-5424 message format,
     where the PROGRAM field is set to @syslog-ng, and the SDATA field is empty.
 
 - The MESSAGE part is in JSON format, and contains the actual message,

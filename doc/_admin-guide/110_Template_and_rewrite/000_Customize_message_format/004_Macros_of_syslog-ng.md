@@ -234,7 +234,7 @@ of the message are empty.
 ## ${MSGID}
 
 A string specifying the type of the message in
-IETF-syslog (RFC5424-formatted) messages. For example, a firewall might
+IETF-syslog (RFC-5424 formatted) messages. For example, a firewall might
 use the ${MSGID} \"TCPIN\" for incoming TCP traffic and the ${MSGID}
 \"TCPOUT\" for outgoing TCP traffic. By default, syslog-ng OSE does not
 specify this value, but uses a dash (-) character instead. If an

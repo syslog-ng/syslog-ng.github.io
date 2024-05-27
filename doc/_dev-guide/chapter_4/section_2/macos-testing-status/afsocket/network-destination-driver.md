@@ -2,7 +2,7 @@
 title: network() Destination Driver
 description: >-
   The network() destination driver can send syslog messages conforming to
-  RFC3164 from the network using the TCP, TLS, and UDP networking protocols.
+  RFC-3164 from the network using the TCP, TLS, and UDP networking protocols.
 id: dev-macos-mod-sup-net-dest
 ---
 

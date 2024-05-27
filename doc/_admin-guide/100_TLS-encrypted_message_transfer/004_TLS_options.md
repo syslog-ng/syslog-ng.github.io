@@ -139,7 +139,7 @@ This option is available in syslog-ng OSE 4.0 and later versions.
 
 *Description:* In case the OCSP stapling verification is enabled, syslog-ng OSE requests the server to return its OCSP status. This status response is verified by syslog-ng OSE using the trust store configured by the ca-file(), ca-dir(), or the pkcs12-file() options.
 
-**NOTE:** RFC 6961 multi-stapling and TLS 1.3-provided multiple responses are currently not validated, only the peer certificate is verified.
+**NOTE:** RFC-6961 multi-stapling and TLS 1.3-provided multiple responses are currently not validated, only the peer certificate is verified.
 {: .notice--info}
 
 ### Example: OCSP stapling verification

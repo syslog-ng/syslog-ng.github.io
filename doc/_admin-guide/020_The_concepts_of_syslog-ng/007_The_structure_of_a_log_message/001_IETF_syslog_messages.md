@@ -83,7 +83,7 @@ The HEADER part contains the following elements:
 
 **NOTE:** The syslog-ng application supports other timestamp formats as
 well, like ISO, or the PIX extended format. The timestamp used in the
-IETF-syslog protocol is derived from RFC3339, which is based on ISO8601.
+IETF-syslog protocol is derived from RFC-3339, which is based on ISO8601.
 For details, see the ts-format() option in Global options.
 {: .notice--info}
 
