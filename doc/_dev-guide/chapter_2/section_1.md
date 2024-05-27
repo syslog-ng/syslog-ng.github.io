@@ -20,7 +20,7 @@ id: dev-comp-deps
 [gh:criterion]: http://github.com/Snaipe/Criterion
 [ref:libxml2]: http://www.xmlsoft.org/
 
-Like every project, syslog-ng also uses other libraries and projects. 
+Like every project, {{ site.product.short_name }} also uses other libraries and projects. 
 That is why these dependencies must be fetched before compiling. 
 In this section we list these libraries and version restrictions.
 

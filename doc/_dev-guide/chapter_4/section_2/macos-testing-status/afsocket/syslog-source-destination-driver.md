@@ -13,7 +13,7 @@ Please keep in mind, that the syslog() driver using the standard IEFT-syslog pro
 > NOTE: \
 > The syslog() driver can also receive/send the legacy BSD-syslog-formatted messages.\
 > \
-> The syslog driver also includes TCP messaging on a TLS-encrypted channel, however, this is tested and verified in a separate post dealing with TLS-encryption with syslog-ng [here](tls-encryption/).
+> The syslog driver also includes TCP messaging on a TLS-encrypted channel, however, this is tested and verified in a separate post dealing with TLS-encryption with {{ site.product.short_name }} [here](tls-encryption/).
 
 ### Status
 

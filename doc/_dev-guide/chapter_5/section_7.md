@@ -21,7 +21,7 @@ guidelines the following:
  4. Always add a `Signed-off-by` tag to the end of **every** commit
     message you submit.
  5. Always create a separate branch for the pull request, forked off
-    from the appropriate syslog-ng branch.
+    from the appropriate {{ site.product.short_name }} branch.
  6. If your patch should be applied to multiple branches, submit
     against the latest one only, and mention which other branches are
     affected. There is no need to submit pull requests for each

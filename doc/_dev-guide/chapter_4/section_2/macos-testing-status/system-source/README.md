@@ -1,14 +1,14 @@
 ---
 title: system
 description: >-
-  Syslog-ng OSE can automatically collect the system-specific log messages of
+  {{ site.product.short_name }} can automatically collect the system-specific log messages of
   the host on a number of platforms using the system() driver.
 id: dev-macos-system-drv
 ---
 
 ### Important Information
 
-If the system() driver is included in the syslog-ng OSE configuration file, syslog-ng OSE automatically adds the following sources to the syslog-ng OSE configuration.\
+If the system() driver is included in the {{ site.product.short_name }} configuration file, {{ site.product.short_name }} automatically adds the following sources to the {{ site.product.short_name }} configuration.\
 \
 It automatically links to the default logs destination of the given platform through a compatible driver. For example:&#x20;
 

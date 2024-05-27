@@ -5,23 +5,23 @@ id: dev-inst-suse
 
 ## Introduction
 
-The syslog-ng application has been available in openSUSE and SLES for many years. The included version usually lags behind a version or more. Up to date syslog-ng packages for recent openSUSE and SLES releases are available in the [OBS repositories of Peter Czanik](https://build.opensuse.org/project/subprojects/home:czanik). Depending on the distribution release, syslog-ng, Rsyslog or systemd's journald (package `systemd-logger`) are installed as the default logging solution.
+The {{ site.product.short_name }} application has been available in openSUSE and SLES for many years. The included version usually lags behind a version or more. Up to date {{ site.product.short_name }} packages for recent openSUSE and SLES releases are available in the [OBS repositories of Peter Czanik](https://build.opensuse.org/project/subprojects/home:czanik). Depending on the distribution release, {{ site.product.short_name }},  Rsyslog or systemd's journald (package `systemd-logger`) are installed as the default logging solution.
 
 None of these packages are officially supported by Balabit, but we try to help resolving problems with our best effort.
 
-## Using the latest syslog-ng version
+## Using the latest {{ site.product.short_name }} version
 
-If you want to install the latest available syslog-ng version, add one of the [OBS repositories of Peter Czanik](https://build.opensuse.org/project/subprojects/home:czanik) first. For version 3.6 use the following command:
+If you want to install the latest available {{ site.product.short_name }} version, add one of the [OBS repositories of Peter Czanik](https://build.opensuse.org/project/subprojects/home:czanik) first. For version 3.6 use the following command:
 
 ```shell
 zypper ar http://download.opensuse.org/repositories/home:/czanik:/syslog-ng36/openSUSE_13.2/ syslog-ng36
 ```
 
-This command line refers to the latest distribution of syslog-ng versions at the time of writing. You might need to change either one or both version numbers. You can skip this step, if you do not need the latest syslog-ng version.
+This command line refers to the latest distribution of {{ site.product.short_name }} versions at the time of writing. You might need to change either one or both version numbers. You can skip this step, if you do not need the latest {{ site.product.short_name }} version.
 
 ## Checking available subpackages
 
-The syslog-ng package on openSUSE is organized into a core package called `syslog-ng` and sub packages with extra dependencies. You can search for a full list of packages using `zypper`:
+The {{ site.product.short_name }} package on openSUSE is organized into a core package called `syslog-ng` and sub packages with extra dependencies. You can search for a full list of packages using `zypper`:
 
 ```shell
 linux-uv4b:~ # zypper se syslog-ng

@@ -6,7 +6,7 @@ id: dev-macos-mod-sup-stdin
 
 ### Important Information
 
-When the standard input stream is closed, syslog-ng stops and stdin() inherits all options from the file() source, including multi-line options, or flags(no-parse). The stdin() driver causes syslog-ng to exit once it hits end-of-file (EOF).
+When the standard input stream is closed, {{ site.product.short_name }} stops and stdin() inherits all options from the file() source, including multi-line options, or flags(no-parse). The stdin() driver causes {{ site.product.short_name }} to exit once it hits end-of-file (EOF).
 
 ### Status
 

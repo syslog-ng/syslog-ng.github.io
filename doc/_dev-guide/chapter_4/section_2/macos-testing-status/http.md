@@ -23,7 +23,7 @@ id: dev-macos-mod-sup-http
 ### Testing
 
 To test the HTTP destination driver, we need to be able to send the data to a host that can accept the PUT/POST methods and display confirmation of the same. A dummy server python script is shown below to achieve the same. \
-To test this, we will send a PUT/POST request from our syslog-ng to the dummy server we set up and look for the output of the server.&#x20;
+To test this, we will send a PUT/POST request from our {{ site.product.short_name }} to the dummy server we set up and look for the output of the server.&#x20;
 
 #### Server code ( python3 )&#x20;
 

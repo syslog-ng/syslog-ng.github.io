@@ -5,11 +5,11 @@ id: dev-inst-freebsd
 
 ## Introduction
 
-The syslog-ng application has been available in FreeBSD ports for many years. Recently, thanks to the hard work of the FreeBSD team, syslog-ng is also available as a ready-to-install package.
+The {{ site.product.short_name }} application has been available in FreeBSD ports for many years. Recently, thanks to the hard work of the FreeBSD team, {{ site.product.short_name }} is also available as a ready-to-install package.
 
-The default configuration for `syslog-ng` in ports contains only the most important dependencies. If you use a package, this is how your package is configured. This covers the needs of most syslog-ng users. If you need a specific feature not available with the default configuration in ports, you need to compile syslog-ng yourself.
+The default configuration for `syslog-ng` in ports contains only the most important dependencies. If you use a package, this is how your package is configured. This covers the needs of most {{ site.product.short_name }} users. If you need a specific feature not available with the default configuration in ports, you need to compile {{ site.product.short_name }} yourself.
 
-The following list shows the available syslog-ng and related ports in FreeBSD, by the time of writing this chapter:
+The following list shows the available {{ site.product.short_name }} and related ports in FreeBSD, by the time of writing this chapter:
 
 * syslog-ng: the latest stable version (not necesseraly a .1 :-) )
 * syslog-ng-devel: the latest development version (alpha/beta and usually .1 too...)
@@ -25,7 +25,7 @@ You can view the current list of available ports by looking into `/usr/ports/sys
 
 None of these packages are officially supported by Balabit, but we try to help resolving problems with our best effort.
 
-## Installing syslog-ng from package
+## Installing {{ site.product.short_name }} from package
 
 The following command will install `syslog-ng` and all necessary dependencies:
 
@@ -35,7 +35,7 @@ pkg install syslog-ng
 
 _Note:_ Installation does not start `syslog-ng` or enables it to start automagically.
 
-## Compiling syslog-ng from ports
+## Compiling {{ site.product.short_name }} from ports
 
 These are the minimal steps to compile `syslog-ng` from ports with features and dependencies you need.
 
@@ -86,7 +86,7 @@ May 19 11:57:18 fb101r root: this is a test
 root@fb101r:/usr/ports/sysutils/syslog-ng #
 ```
 
-## Enable syslog-ng to start by default
+## Enable {{ site.product.short_name }} to start by default
 
 Enable `syslog-ng` to start by default with the following two lines appended to `/etc/rc.conf`:
 
@@ -97,4 +97,4 @@ syslog_ng_enable="YES
 
 _Note:_ for more information read the [run first](https://github.com/syslog-ng/doc/blob/develop/pages/dev-guide/chapter_\_0/chapters/chapter\_2/README.md) guide.
 
-_Note:_ for more information read the syslog-ng [documentation](http://www.balabit.com/sites/default/files/documents/syslog-ng-ose-latest-guides/en/syslog-ng-ose-guide-admin/html-single/index.html)
+_Note:_ for more information read the {{ site.product.short_name }} [documentation](http://www.balabit.com/sites/default/files/documents/syslog-ng-ose-latest-guides/en/syslog-ng-ose-guide-admin/html-single/index.html)

@@ -5,12 +5,12 @@ id: dev-debugging
 
 [ref:img1]: {{dev_img_folder}}/module-support/massif_visualizer.png
 
-I suppose you have already cloned syslog-ng into a local repository and you
+I suppose you have already cloned {{ site.product.short_name }} into a local repository and you
 have all tools and libraries installed to compile syslog-ng.
 
 ## Creating debug builds
 
-You need to have debug symbols included in syslog-ng in order to debug it
+You need to have debug symbols included in {{ site.product.short_name }} in order to debug it
 "efficiently". Step into your local clone and type the following commands:
 
 ```shell
@@ -25,18 +25,18 @@ $ sudo make install
 The point is to pass the `--enable-debug` parameter to the `configure` script.
 
 These commands will create a debug build under the `build` directory and
-install syslog-ng under a system specific directory. Installation will require
+install {{ site.product.short_name }} under a system specific directory. Installation will require
 superuser privileges.
 
 ## Installing and running without superuser privileges
 
-You may need to test syslog-ng without having superuser privileges. You can
-install syslog-ng into a custom location and run it without any privilege. This
+You may need to test {{ site.product.short_name }} without having superuser privileges. You can
+install {{ site.product.short_name }} into a custom location and run it without any privilege. This
 solution is fine until you need to read from `/dev/log` or listen to ports
 under 1024.
 
 You can set the install location before the compilation process, just pass a
-`--prefix=<the path where syslog-ng should be installed>` parameter to the
+`--prefix=<the path where {{ site.product.short_name }} should be installed>` parameter to the
 `configure` script.
 
 ```
@@ -49,11 +49,11 @@ $ make install
 ```
 
 This way the `make install` command will not require superuser privileges and you can have
-multiple versions from syslog-ng on your computer.
+multiple versions from {{ site.product.short_name }} on your computer.
 
 # Finding bugs
 
-Unfortunately every software has bugs and syslog-ng is not an exception. When
+Unfortunately every software has bugs and {{ site.product.short_name }} is not an exception. When
 you report the problem to the developers they might need some extra information
 to reproduce the issue in-house. In this section we introduce you to some frequently
 used tools which may greatly simplify the bug hunting.
@@ -81,12 +81,12 @@ On CentOS 7 just execute:
 # yum install valgrind
 ```
 
-## Running syslog-ng under valgrind
+## Running {{ site.product.short_name }} under valgrind
 
-You can run syslog-ng under valgrind with the following command.
+You can run {{ site.product.short_name }} under valgrind with the following command.
 
 ```
-G_SLICE=always-malloc valgrind --leak-check=full <the path where syslog-ng is installed>/sbin/syslog-ng -F
+G_SLICE=always-malloc valgrind --leak-check=full <the path where {{ site.product.short_name }} is installed>/sbin/syslog-ng -F
 ```
 
 You may use other parameters.  The `G_SLICE` environment variable makes the
@@ -148,12 +148,12 @@ make && make install
 
 You may use other paths, not just `/home/heaptrack`.
 
-## Running syslog-ng with `heaptrack`
+## Running {{ site.product.short_name }} with `heaptrack`
 
-You can run syslog-ng with heaptrack with the following command:
+You can run {{ site.product.short_name }} with heaptrack with the following command:
 
 ```
-heaptrack <the path where syslog-ng is installed>/sbin/syslog-ng -F
+heaptrack <the path where {{ site.product.short_name }} is installed>/sbin/syslog-ng -F
 ```
 
 It will create a gzip file and after you stopped it, it prints something like this:

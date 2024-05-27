@@ -3,7 +3,7 @@ title: Compiling options of syslog-ng
 id: dev-comp-opts
 ---
 
-When compiling syslog-ng OSE from source, you can use the following
+When compiling {{ site.product.short_name }} from source, you can use the following
 compiling options.
 
 - *\--enable-all-modules* This option will turn on or off all modules
@@ -35,14 +35,14 @@ compiling options.
 
 - *\--enable-amqp* Enable the amqp destination (enabled by default).
     The source of the RabbitMQ client is included in the source code
-    package of syslog-ng OSE. To use an external client instead, use the
+    package of {{ site.product.short_name }}. To use an external client instead, use the
     **\--with-librabbitmq-client=system** compiling option. For details
     on using this destination, see [[amqp: Publishing messages using AMQP]].
 
 - *\--enable-debug* Include debug information.
 
-- *\--enable-dynamic-linking* Compile syslog-ng as a completely
-    dynamic binary. If not specified syslog-ng uses mixed linking
+- *\--enable-dynamic-linking* Compile {{ site.product.short_name }} as a completely
+    dynamic binary. If not specified {{ site.product.short_name }} uses mixed linking
     (\--enable-mixed-linking): it links dynamically to system libraries
     and statically to everything else.
 
@@ -66,7 +66,7 @@ compiling options.
     and format-json template functions.
 
 - *\--enable-linux-caps* Enable support for capabilities on Linux. For details, 
-    see The syslog-ng manual page.
+    see The {{ site.product.short_name }} manual page.
   
 - *\--enable-mongodb* Enable the mongodb destination (enabled by
     default). To use mongodb(), an external MongoDB client is needed.
@@ -124,7 +124,7 @@ compiling options.
 
 - *\--with-ivykis* Specifies which ivykis implementation to use
     (default value: internal). The source of ivykis is included in the
-    source code package of syslog-ng OSE and is used by default. To use
+    source code package of {{ site.product.short_name }} and is used by default. To use
     an external implementation instead, use the
     **\--with-ivykis=system** compiling option.
 
@@ -138,21 +138,21 @@ compiling options.
 
 - *\--with-librabbitmq-client* Specifies which RabbitMQ client to use
     (default value: internal). The source of the rabbitmq client is
-    included in the source code package of syslog-ng OSE and is used by
+    included in the source code package of {{ site.product.short_name }} and is used by
     default. To use an external client instead, use the
     **\--with-librabbitmq-client=system** compiling option. For details
     on using this destination, see
     [[amqp: Publishing messages using AMQP]].
 
 - *\--with-module-dir* Specifies a single directory where the
-    syslog-ng OSE Makefile will install the modules.
+    {{ site.product.short_name }} Makefile will install the modules.
 
-- *\--module-install-dir* Specifies syslog-ng OSE\'s module
+- *\--module-install-dir* Specifies {{ site.product.short_name }}\'s module
     installation directory (normally $prefix/lib/syslog-ng). All
     Java-based SCLs use this option.
 
 - *\--with-module-path* Specifies a colon-separated (:) list of
-    directories, where the syslog-ng OSE binary will search for modules.
+    directories, where the {{ site.product.short_name }} binary will search for modules.
 
 - *\--with-net-snmp* Specifies the path to the libsnmp-dev library,
     required for the snmp() destination.
@@ -160,7 +160,7 @@ compiling options.
 - *\--with-python* Specifies which Python version to use, for example,
     **\--with-python=2.7**
 
-- *\--with-timezone-dir* Specifies the directory where syslog-ng looks
+- *\--with-timezone-dir* Specifies the directory where {{ site.product.short_name }} looks
     for the timezone files to resolve the time-zone() and
     local-time-zone() options. If not specified, the
     /opt/syslog-ng/share/zoneinfo/ and /usr/share/zoneinfo/ directories

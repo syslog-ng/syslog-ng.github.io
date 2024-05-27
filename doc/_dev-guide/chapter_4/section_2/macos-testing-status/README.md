@@ -10,9 +10,9 @@ The [[original testing|soc-macos-module-testing]] was made by Yash Mathne, and w
 
 ### Testing Methodology
 
-Only the building and the corresponding unit tests are guaranteed on x86 macOS. This is a documentation of the tests done on the various sub-components of syslog-ng on both the architectures.
+Only the building and the corresponding unit tests are guaranteed on x86 macOS. This is a documentation of the tests done on the various sub-components of {{ site.product.short_name }} on both the architectures.
 
-Syslog-ng is composed of various modules, each with its own set of plugins. Plugins are primarily one of the following types:
+{{ site.product.short_name }} is composed of various modules, each with its own set of plugins. Plugins are primarily one of the following types:
 
 * Source Drivers
 * Destination Drivers

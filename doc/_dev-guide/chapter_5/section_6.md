@@ -5,7 +5,7 @@ id: dev-bugs
 
 When you report a bug, it is important to share as much relevant
 information as you can, including:
- * version number of syslog-ng used;
+ * version number of {{ site.product.short_name }} used;
  * the platform (operating system and its version, architecture, and so on);
  * a backtrace from the core file if the issue is a crash (this can be
 invaluable);

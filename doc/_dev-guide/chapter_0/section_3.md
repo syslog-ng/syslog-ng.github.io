@@ -2,14 +2,14 @@
 title: macOS
 id: dev-inst-macos
 description:  >-
-   The syslog-ng application has been resurrected on macOS by our developer team.
+   The {{ site.product.short_name }} application has been resurrected on macOS by our developer team.
    We hope our product can be useful for Mac users who want to increase the
    security of their system through reliable logging.
 ---
 
-At present we are not supporting macOS syslog-ng on our [[official repository|gh-syslog-ng]] on GitHub. However, you can install pre-built syslog-ng binaries from various sources or can compile yourself following [[this guide|dev-platform-build-macos#compiling-from-source]].
+At present we are not supporting macOS {{ site.product.short_name }} on our [[official repository|gh-syslog-ng]] on GitHub. However, you can install pre-built {{ site.product.short_name }} binaries from various sources or can compile yourself following [[this guide|dev-platform-build-macos#compiling-from-source]].
 
-If you want to install syslog-ng on macOS you can use multiple packaga managers e.g. Homebrew
+If you want to install {{ site.product.short_name }} on macOS you can use multiple packaga managers e.g. Homebrew
 
 ### Homebrew
 
@@ -22,7 +22,7 @@ Homebrew has now different home directories on ARM and X86 systems, also the loc
 
 ### Checking dependencies
 
-The syslog-ng package on macOS in homebrew is organized into a formula called `syslog-ng`.
+The {{ site.product.short_name }} package on macOS in homebrew is organized into a formula called `syslog-ng`.
 
 For checking [[dependencies|dev-platform-build-macos#dependencies]] of it you can use
 
@@ -30,7 +30,7 @@ For checking [[dependencies|dev-platform-build-macos#dependencies]] of it you ca
 brew deps syslog-ng
 ```
 
-This will list all the required dependencies are needed to run syslog-ng, and homebrew would install automatically as needed.
+This will list all the required dependencies are needed to run {{ site.product.short_name }},  and homebrew would install automatically as needed.
 
 ### Installation
 
@@ -40,7 +40,7 @@ Using homebrew it is simple, use
 brew install syslog-ng
 ```
 
-This command line refers to the latest distribution of syslog-ng versions at the time of writing, and usually updated quickly by the homwbrew crew after a new release.
+This command line refers to the latest distribution of {{ site.product.short_name }} versions at the time of writing, and usually updated quickly by the homwbrew crew after a new release.
 
 ### Starting syslog-ng
 
@@ -58,9 +58,9 @@ To see more details you can specify some debug flags, like
 ${HOMEBREW_PREFIX}/sbin/syslog-ng -Fdevt
 ```
 
-this will give you detailed information of what syslog-ng does.
+this will give you detailed information of what {{ site.product.short_name }} does.
 
-### Running syslog-ng as daemon
+### Running {{ site.product.short_name }} as daemon
 
 You can start it manually as a backround daemon
 
@@ -68,7 +68,7 @@ You can start it manually as a backround daemon
 ${HOMEBREW_PREFIX}/sbin/syslog-ng
 ```
 
-however this is not a persistent state, after a system restart syslog-ng will not start automatically by default.
+however this is not a persistent state, after a system restart {{ site.product.short_name }} will not start automatically by default.
 
 To run it as a daemon that will automatically start at system startup and is kept alive you can use `launchd`
 

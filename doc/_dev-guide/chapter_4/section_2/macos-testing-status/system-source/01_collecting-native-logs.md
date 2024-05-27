@@ -36,24 +36,24 @@ For more info, see [oslog](https://developer.apple.com/documentation/oslog?langu
         (from latest to oldest)
   - default value: `no`
 - `do-not-use-bookmark()`
-  - boolean value, setting to `yes` will prevent syslog-ng from continuing to
+  - boolean value, setting to `yes` will prevent {{ site.product.short_name }} from continuing to
         feed the logs from the last remembered position after a (re-)start, which means,
         depending on the other settings, the feed will always start from the end/beginning
         of the available log list
-  - default value: `no`, which means syslog-ng will attempt to continue feeding from
+  - default value: `no`, which means {{ site.product.short_name }} will attempt to continue feeding from
         the last remembered log position after a (re-)start
 - `max-bookmark-distance()`
   - integer value, maximum distance in seconds that far an earlier bookmark can point
-        backward, e.g. if syslog-ng was stopped for 10 minutes and max-bookmark-distance
-        is set to 60 then syslog-ng will start feeding the logs only from the last 60
+        backward, e.g. if {{ site.product.short_name }} was stopped for 10 minutes and max-bookmark-distance
+        is set to 60 then {{ site.product.short_name }} will start feeding the logs only from the last 60
         seconds at startup, 9 minutes of logs 'will be lost'
   - default value: `0`, which means no limit
 - `read-old-records()`
-  - boolean value, controls if syslog-ng should start reading logs from the oldest
+  - boolean value, controls if {{ site.product.short_name }} should start reading logs from the oldest
         available at first start (or if no bookmark can be found)
   - default value: `no`
 - `fetch-delay()`
-  - integer value, controls how much time syslog-ng should wait between reading/sending
+  - integer value, controls how much time {{ site.product.short_name }} should wait between reading/sending
         log messages, this is a fraction of a second, where wait_time = 1 second / n, so,
         e.g. n=1 means that only about 1 log will be read and sent in each second,
         and n=1 000 000 means only 1 microsecond (the allowed minimum value now!)
@@ -62,18 +62,18 @@ For more info, see [oslog](https://developer.apple.com/documentation/oslog?langu
         same time could lead to a heavy system load!
   - default value: `10 000`
 - `fetch-retry-delay()`
-  - integer value, controls how many seconds syslog-ng will wait before a repeated
+  - integer value, controls how many seconds {{ site.product.short_name }} will wait before a repeated
         attempt to read/send once it's out of available logs
   - default value: `1`
 - `log-fetch-limit()`
   - **Warning**: _This option is now disabled due to an [OSLog API bug](https://openradar.appspot.com/radar?id=5597032077066240), once it's fixed it_
         _will be enabled again_
-  - integer value, that limits the number of logs syslog-ng will send in one run
+  - integer value, that limits the number of logs {{ site.product.short_name }} will send in one run
   - default value: `0`, which means no limit
 
 NOTE: the persistent OSLog store is not infinite, depending on your system setting usually,
 it keeps about 7 days of logs on disk, so it could happen that the above options cannot
-operate the way you expect, e.g. if syslog-ng was stopped for about more then a week it
+operate the way you expect, e.g. if {{ site.product.short_name }} was stopped for about more then a week it
 could happen that will not be able to restart from the last saved bookmark position
 (as that might not be presented in the persistent log anymore)
 {: .notice}
@@ -83,7 +83,7 @@ could happen that will not be able to restart from the last saved bookmark posit
 This is a wrapper around the OS command line "log stream" command that can provide a live
 log stream feed. Unlike in the case of `darwin-oslog()` the live stream can contain
 non-persistent log events too, so take care, there might be a huge number of log events
-every second that could put an unusual load on the device running syslog-ng with this source.
+every second that could put an unusual load on the device running {{ site.product.short_name }} with this source.
 Unfortunately, there's no public API to get the same programmatically, so this one is
 implemented using a program() source.
 

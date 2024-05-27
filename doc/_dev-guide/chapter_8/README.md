@@ -3,7 +3,7 @@ title: Plugin Development Guide
 id: dev-plugin-dev
 ---
 
-This chapter is a guide for creating syslog-ng plugins.
+This chapter is a guide for creating {{ site.product.short_name }} plugins.
 
 ## Prerequisites
 
@@ -13,8 +13,8 @@ You should be able to program in C and be familiar with object-oriented programm
 
 ### syslog-ng
 
-You should understand how syslog-ng works, from a user perspective.
-Recommended reading: [syslog-ng OSE Administration Guide](https://www.syslog-ng.com/technical-documents/list/syslog-ng-open-source-edition/)
+You should understand how {{ site.product.short_name }} works, from a user perspective.
+Recommended reading: [{{ site.product.short_name }} Administration Guide](https://www.syslog-ng.com/technical-documents/list/syslog-ng-open-source-edition/)
 
 ### Bison
 
@@ -23,17 +23,17 @@ Recommended reading: [Bison Manual](https://www.gnu.org/software/bison/manual/)
 
 ### GLib
 
-You do not need to know anything about GLib except that syslog-ng uses it, and so you should be prepared to look up its documentation when needed. A link to the manual follows, but it is probably easier to use a search engine when looking for specific docs (e.g. by searching "Glib GString").
+You do not need to know anything about GLib except that {{ site.product.short_name }} uses it, and so you should be prepared to look up its documentation when needed. A link to the manual follows, but it is probably easier to use a search engine when looking for specific docs (e.g. by searching "Glib GString").
 Recommended reading: [GLib Reference Manual](https://developer.gnome.org/glib/)
 
 ### Criterion
 
-Syslog-ng uses the Criterion unit testing framework, so you should know how to work with it.
+{{ site.product.short_name }} uses the Criterion unit testing framework, so you should know how to work with it.
 Recommended reading: [Criterion Docs](https://criterion.readthedocs.io/)
 
 ### Automake/CMake
 
-Syslog-ng supports Automake and CMake for compilation. Writing the compilation files (`Makefile.am` and `CMakeLists.txt`) is not covered in this guide.
+{{ site.product.short_name }} supports Automake and CMake for compilation. Writing the compilation files (`Makefile.am` and `CMakeLists.txt`) is not covered in this guide.
 
 ## How this Guide Works
 

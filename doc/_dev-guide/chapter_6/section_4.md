@@ -29,7 +29,7 @@ For reference, these logs are sent with a facility of 19, or "local3". On my Ubu
 local3.* -/var/log/syslog
 ```
 
-### The syslog-ng config file
+### The {{ site.product.short_name }} config file
 
 To gather the logs from osquery, you need a source that collects system messages, and a filter that can identify logs from osqueryd.
 
@@ -53,7 +53,7 @@ program("^osqueryd.*");
 
 ## Elasticsearch
 
-At the time of writing, there is not an official Elasticsearch destination in the syslog-ng repository, but it will be added soon. Until then, the source for a suitable destination can be found at [https://github.com/juhaszviktor/ESDestination](https://github.com/juhaszviktor/ESDestination). Full documentation on the destination can be found there.
+At the time of writing, there is not an official Elasticsearch destination in the {{ site.product.short_name }} repository, but it will be added soon. Until then, the source for a suitable destination can be found at [https://github.com/juhaszviktor/ESDestination](https://github.com/juhaszviktor/ESDestination). Full documentation on the destination can be found there.
 
 ### Requirements
 

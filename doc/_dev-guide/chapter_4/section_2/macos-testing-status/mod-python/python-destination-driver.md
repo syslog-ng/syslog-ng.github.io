@@ -9,13 +9,13 @@ id: dev-macos-mod-sup-python-dest
 
 ### Important Information <a href="#important-information" id="important-information"></a>
 
-* The Python block must be a top-level block in the syslog-ng OSE configuration file.\
+* The Python block must be a top-level block in the {{ site.product.short_name }} configuration file.\
 
-* If you store the Python code in a separate Python file and only include it in the syslog-ng OSE configuration file, make sure that the PYTHON\_PATH environment variable includes the path to the Python file, and export the PYTHON\_PATH environment variable.\
+* If you store the Python code in a separate Python file and only include it in the {{ site.product.short_name }} configuration file, make sure that the PYTHON\_PATH environment variable includes the path to the Python file, and export the PYTHON\_PATH environment variable.\
 
-* Starting with 3.26, syslog-ng OSE assigns a persist name to Python sources and destinations. The persist name is generated from the class name. If you want to use the same Python class multiple times in your syslog-ng OSE configuration, add a unique persist-name() to each source or destination, otherwise syslog-ng OSE will not start.
+* Starting with 3.26, {{ site.product.short_name }} assigns a persist name to Python sources and destinations. The persist name is generated from the class name. If you want to use the same Python class multiple times in your {{ site.product.short_name }} configuration, add a unique persist-name() to each source or destination, otherwise {{ site.product.short_name }} will not start.
 
-Python destinations consist of two parts. The first is a syslog-ng OSE destination object that you define in your syslog-ng OSE configuration and use in the log path. This object references a Python class, which is the second part of the Python destination. The Python class processes the log messages it receives, and can do virtually anything that you can code in Python. You can either embed the Python class into your syslog-ng OSE configuration file, or store it in an external Python file.\
+Python destinations consist of two parts. The first is a {{ site.product.short_name }} destination object that you define in your {{ site.product.short_name }} configuration and use in the log path. This object references a Python class, which is the second part of the Python destination. The Python class processes the log messages it receives, and can do virtually anything that you can code in Python. You can either embed the Python class into your {{ site.product.short_name }} configuration file, or store it in an external Python file.\
 \
 For this test, we will embed the Python class into the configuration file.
 

@@ -30,7 +30,7 @@ log {
 thread_id=140495535482624 message=-- Generated message. --
 ```
 
-In order to implement a threaded C destination, you need to create a syslog-ng module and a plugin in it.
+In order to implement a threaded C destination, you need to create a {{ site.product.short_name }} module and a plugin in it.
 
 You can find `example-destination` in the [repository](https://github.com/syslog-ng/syslog-ng/tree/master/modules/examples/destinations/example_destination). There are a few differences to the shipped version, compared to the code that we walk through here:
 - The shipped module is not under `modules/example_destination`, but under `modules/examples/destinations/example_destinations`, together with the other examples.
@@ -69,7 +69,7 @@ modules/example_destination
 └── Makefile.am
 ```
 
-The next step is make the build system notice the new module. Syslog-ng maintains two build systems in parallel: autotools and cmake.
+The next step is make the build system notice the new module. {{ site.product.short_name }} maintains two build systems in parallel: autotools and cmake.
 
 - autotools
 
@@ -250,10 +250,10 @@ Our example overrides these virtual methods:
 
 - `new (example_destination_dd_new)`: driver constructor.
 - `free_fn (_dd_free)`: driver destructor.
-- `init (_dd_init)`: It is called after startup, and after each reload. You can set default values here. It is important to note that the init method may be called multiple times for the same driver. In case of a failed reload (for example syntax error in config), syslog-ng will resume using the same driver instances instead of creating new ones, after calling their init method again.
+- `init (_dd_init)`: It is called after startup, and after each reload. You can set default values here. It is important to note that the init method may be called multiple times for the same driver. In case of a failed reload (for example syntax error in config), {{ site.product.short_name }} will resume using the same driver instances instead of creating new ones, after calling their init method again.
 - `deinit (_dd_deinit)`: It is called before shutdown, and before each reload. If you created resources during `init`, then you need to free them here.
 - `format_stats_instance (_format_stats_instance)`: this specifies how this driver is represented with `syslog-ng-ctl stats` or `syslog-ng-ctl query get "*"`.
-- `generate_persist_name (_generate_persist_name)`: this specifies the persist key of the driver in the persist file. This name is used when syslog-ng attaches a disk queue for a driver, for example.
+- `generate_persist_name (_generate_persist_name)`: this specifies the persist key of the driver in the persist file. This name is used when {{ site.product.short_name }} attaches a disk queue for a driver, for example.
 - `construct (example_destination_dw_new)`: constructor for the worker. It is implemented in `example_destination_worker.c`.
 
 #### example_destination_worker.h

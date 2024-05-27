@@ -8,7 +8,7 @@ id: dev-macos-mod-sup-prog_dest
 
 ### Important Information
 
-Usually, every message is a single line (ending with a newline character), which your script can process. Make sure that your script runs in a loop and keeps reading the standard input — it should not exit. (If your script exits, syslog-ng OSE tries to restart it.)
+Usually, every message is a single line (ending with a newline character), which your script can process. Make sure that your script runs in a loop and keeps reading the standard input — it should not exit. (If your script exits, {{ site.product.short_name }} tries to restart it.)
 
 ### Status <a href="#status" id="status"></a>
 

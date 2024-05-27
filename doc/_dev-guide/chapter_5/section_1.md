@@ -27,7 +27,7 @@ We would like to give you an overview about the columns in our Waffle.io.
 [Balabit’s Waffle.io table](http://waffle.io/balabit/syslog-ng)
 
 #### Feature proposals
-We would like to expand the capabilities of syslog-ng so we have decided to create this place for ideas. The following is a template for feature proposals. Using this guide you can create a proper description of your idea that is easy to understand. However, this is only a guideline, if you want to add more information, you are welcome to do so.
+We would like to expand the capabilities of {{ site.product.short_name }} so we have decided to create this place for ideas. The following is a template for feature proposals. Using this guide you can create a proper description of your idea that is easy to understand. However, this is only a guideline, if you want to add more information, you are welcome to do so.
 
 1. **Short description:**
 Description of your feature in 3-5 sentences. Try to focus on functionality, high-level use-case.
@@ -77,7 +77,7 @@ Criterion is a unit test framework used in the unit tests of syslog-ng. It can b
 source or installed as it is available as a .deb package.
 
 Its documentation is extensive and full of examples. More test examples can be found in the source of 
-syslog-ng under the `tests/unit` folder.
+{{ site.product.short_name }} under the `tests/unit` folder.
 
 ### Installation on Ubuntu
 
