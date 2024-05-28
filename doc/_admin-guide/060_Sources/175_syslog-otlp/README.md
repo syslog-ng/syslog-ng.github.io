@@ -11,7 +11,13 @@ Advantages of using `syslog-ng-otlp()`:
 * An integrated application layer acknowledgement is available.
 * Google service authentication (ADC or ALTS), and improved load balancing are supported.
 
-### Example: Configure syslog-ng-otlp() source on the receiver node
+### Example: Configure a syslog-ng-otlp() destination on the sender node and a syslog-ng-otlp() source on the receiver node
+
+```config
+destination d_syslog_ng_otlp {
+  syslog-ng-otlp(url("your-receiver-syslog-ng-instance:4317"));
+};
+```
 
 ```config
 source s_syslog_ng_otlp {
