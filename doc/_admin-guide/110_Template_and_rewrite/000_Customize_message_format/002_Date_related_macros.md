@@ -35,50 +35,50 @@ Rewrite the timezone of a message.
 Converting the timezone changes the values of the following date-related
 macros (macros MSEC and USEC are not changed):
 
-- AMPM
+- ${AMPM}
 
-- DATE
+- ${DATE}
 
-- DAY
+- ${DAY}
 
-- FULLDATE
+- ${FULLDATE}
 
-- HOUR
+- ${HOUR}
 
-- HOUR12
+- ${HOUR12}
 
-- ISODATE
+- ${ISODATE}
 
-- ISOWEEK
+- ${ISOWEEK}
 
-- MIN
+- ${MIN}
 
-- MONTH
+- ${MONTH}
 
-- MONTH_ABBREV
+- ${MONTH_ABBREV}
 
-- MONTH_NAME
+- ${MONTH_NAME}
 
-- MONTH_WEEK
+- ${MONTH_WEEK}
 
-- SEC
+- ${SEC}
 
-- STAMP
+- ${STAMP}
 
-- TZ
+- ${TZ}
 
-- TZOFFSET
+- ${TZOFFSET}
 
-- UNIXTIME
+- ${UNIXTIME}
 
-- WEEK
+- ${WEEK}
 
-- WEEK_DAY
+- ${WEEK_DAY}
 
-- WEEK_DAY_ABBREV
+- ${WEEK_DAY_ABBREV}
 
-- WEEK_DAY_NAME
+- ${WEEK_DAY_NAME}
 
-- YEAR
+- ${YEAR}
 
-- YEAR_DAY
+- ${YEAR_DAY}

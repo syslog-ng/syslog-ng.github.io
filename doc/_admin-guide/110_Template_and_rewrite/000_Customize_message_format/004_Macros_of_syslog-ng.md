@@ -64,7 +64,7 @@ When used, the output specifies the local IP address of the
 source from which the message originates.
 
 For an example use case when using the macro is recommended, see
-[[Example use case: using the ${DESTIP}, the ${DESTPORT}, and the ${PROTO} macros]]
+Example use case: using the ${DESTIP}, the ${DESTPORT}, and the ${PROTO} macros
 
 ## ${DESTPORT}
 
@@ -72,7 +72,7 @@ When used, the output specifies the local port of the
 source from which the message originates.
 
 For an example use case when using the macro is recommended, see
-[[Example use case: using the ${DESTIP}, the ${DESTPORT}, and the ${PROTO} macros]].
+Example use case: using the ${DESTIP}, the ${DESTPORT}, and the ${PROTO} macros.
 
 ## ${FACILITY}
 
