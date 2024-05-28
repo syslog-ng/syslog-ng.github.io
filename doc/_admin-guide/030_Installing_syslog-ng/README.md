@@ -17,4 +17,4 @@ description: >-
 - You can use a {{ site.product.short_name }} docker image.
 
     For detailed information on how to run your central log server in Docker and 
-    other Docker-related {{ site.product.short_name }} use cases, see the Logging in Docker using {{ site.product.short_name }} white paper.
+    other Docker-related {{ site.product.short_name }} use cases, see the Logging in Docker using syslog-ng white paper.

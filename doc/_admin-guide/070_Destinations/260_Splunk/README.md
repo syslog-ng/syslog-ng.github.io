@@ -9,8 +9,8 @@ description: >-
 
 For details on forwarding log messages to Splunk with {{ site.product.short_name }} see the following posts on the Splunk blog:
 
-* {{ site.product.short_name }} and HEC: Scalable Aggregated Data Collection in Splunk
+* syslog-ng and HEC: Scalable Aggregated Data Collection in Splunk
 
-* Using {{ site.product.short_name }} with Splunk
+* Using syslog-ng with Splunk
 
 From version 4.2 {{ site.product.short_name }} can send messages to the Splunk HTTP Event Collector(HEC). For details, see splunk-hec-event: Send log messages to Splunk HEC.

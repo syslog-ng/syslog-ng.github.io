@@ -1,5 +1,5 @@
 ---
-title: Docker images for syslog-ng
+title: Docker images for {{ site.product.short_name }}
 id: dev-docker-imgs
 ---
 

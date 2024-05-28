@@ -14,7 +14,7 @@ description: >-
 
 For more information about the benefits of using {{ site.product.short_name }} as a data
 collection, processing, and filtering tool in a Hadoop environment, see
-the blog post Filling your data lake with log messages: the {{ site.product.short_name }} Hadoop (HDFS) destination.
+the blog post Filling your data lake with log messages: the syslog-ng Hadoop (HDFS) destination.
 
 Note the following limitations when using the {{ site.product.short_name }} hdfs
 destination:

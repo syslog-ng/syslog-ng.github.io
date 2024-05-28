@@ -7,5 +7,5 @@ The {{ site.product.short_name }} manual page
 >If you experience any problems or need help with {{ site.product.short_name }}, visit
 >the {{ site.product.short_name }} mailing list.
 >  
->For news and notifications about {{ site.product.short_name }}, visit the {{ site.product.short_name }} blogs.
+>For news and notifications about {{ site.product.short_name }}, visit the syslog-ng blogs.
 {: .notice--info}

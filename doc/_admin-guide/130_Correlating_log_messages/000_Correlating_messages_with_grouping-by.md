@@ -138,5 +138,5 @@ parser auditd_groupingby {
 };
 ```
 
-For another example, see [The grouping-by() parser in {{ site.product.short_name }} blog
+For another example, see [The grouping-by() parser in syslog-ng blog
 post](https://www.syslog-ng.com/community/b/blog/posts/the-grouping-by-parser-in-syslog-ng-3-8)

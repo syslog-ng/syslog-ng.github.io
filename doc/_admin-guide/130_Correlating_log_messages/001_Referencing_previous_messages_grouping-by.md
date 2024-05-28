@@ -37,7 +37,7 @@ aggregate(
 )
 ```
 
-For another example, see The grouping-by() parser in {{ site.product.short_name }} blog
+For another example, see The grouping-by() parser in syslog-ng blog
 post.
 
 If you do not know in which message of the context contains the
