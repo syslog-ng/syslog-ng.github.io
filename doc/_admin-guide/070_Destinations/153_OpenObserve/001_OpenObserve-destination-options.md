@@ -23,7 +23,7 @@ description: >-
 |  Type:|      string|
 |  Default:|   `"--scope rfc5424 --exclude DATE --key ISODATE @timestamp=${ISODATE}"`|
 
-*Description:* A JSON object representing key-value pairs sent to OpenObserve, formatted as syslog-ng OSE value-pairs. By default, the `openobserve-log()` destination sends the RFC5424 fields as attributes. If you want to send different fields, override the default content of the `record()` field.
+*Description:* A JSON object representing key-value pairs sent to OpenObserve, formatted as syslog-ng OSE value-pairs. By default, the `openobserve-log()` destination sends the RFC-5424 fields as attributes. If you want to send different fields, override the default content of the `record()` field.
 
 ## stream()
 

@@ -22,7 +22,7 @@ The systemd-journal() driver has the following options.
 |Default:|   601|
 
 *Description:* The TCP port number where the default-network-drivers()
-source receives RFC5424-formatted (IETF-syslog) messages.
+source receives RFC-5424 formatted (IETF-syslog) messages.
 
 ## rfc5424-tls-port()
 
@@ -30,7 +30,7 @@ source receives RFC5424-formatted (IETF-syslog) messages.
 |Default:|   6514|
 
 *Description:* The TCP port number where the default-network-drivers()
-source receives RFC5424-formatted (IETF-syslog), TLS-encrypted messages.
+source receives RFC-5424 formatted (IETF-syslog), TLS-encrypted messages.
 
 >![]({{ site.baseurl}}/assets/images/caution.png) **CAUTION:** To receive messages
 >using a TLS-encrypted connection, you must set the `tls(key-file() cert-file())`
@@ -57,7 +57,7 @@ source receives RFC5424-formatted (IETF-syslog), TLS-encrypted messages.
   |Default:|   514|
 
 *Description:* The TCP port number where the default-network-drivers()
-source receives RFC3164-formatted (BSD-syslog) messages.
+source receives RFC-3164 formatted (BSD-syslog) messages.
 
 {% include doc/admin-guide/options/tls.md %}
 
@@ -67,4 +67,4 @@ source receives RFC3164-formatted (BSD-syslog) messages.
   |Default:|   514|
 
 *Description:* The UDP port number where the default-network-drivers()
-source receives RFC3164-formatted (BSD-syslog) messages
+source receives RFC-3164 formatted (BSD-syslog) messages

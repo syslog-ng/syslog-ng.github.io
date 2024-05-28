@@ -92,8 +92,8 @@ monitoring system.
 
 ## syslog protocol standards
 
-syslog-ng not only supports legacy BSD syslog (RFC3164) and the enhanced
-RFC5424 protocols but also JavaScript Object Notation (JSON) and
+syslog-ng not only supports legacy BSD syslog (RFC-3164) and the enhanced
+RFC-5424 protocols but also JavaScript Object Notation (JSON) and
 journald message formats.
 
 ## Heterogeneous environments

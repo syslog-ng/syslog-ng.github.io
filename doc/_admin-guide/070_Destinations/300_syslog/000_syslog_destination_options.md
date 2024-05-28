@@ -5,7 +5,7 @@ id: adm-dest-syslog-opt
 
 The syslog() driver sends messages to a remote host (for example, a
 syslog-ng server or relay) on the local intranet or internet using the
-RFC5424 syslog protocol developed by IETF (for details about the
+RFC-5424 syslog protocol developed by IETF (for details about the
 protocol, see IETF-syslog messages).  
 The protocol supports sending messages using the UDP, TCP, or
 the encrypted TLS networking protocols.

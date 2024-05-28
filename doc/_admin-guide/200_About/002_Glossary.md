@@ -29,7 +29,7 @@ byte-order of the message text.
 
 ### BSD-syslog protocol
 
-The old syslog protocol standard described in RFC 3164.
+The old syslog protocol standard described in RFC-3164.
 Sometimes also referred to as the legacy-syslog protocol.  
 
 ## C

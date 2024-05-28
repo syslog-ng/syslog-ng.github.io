@@ -35,7 +35,7 @@ Available in syslog-ng OSE 4.5 and later versions.
 *Description:* Flags modify the behavior of the destination driver.
 
 * `no-multi-line`: This flag disables line breaking in messages. The message is sent in a single line.
-* `syslog-protocol`: This flag instructs the driver to format the message in IETF syslog protocol standard (RFC5424), but without the frame header. When this flag is used, applied macros only have an effect on the message text and not the header. The header is formatted according to the new standard.
+* `syslog-protocol`: This flag instructs the driver to format the message in IETF syslog protocol standard (RFC-5424), but without the frame header. When this flag is used, applied macros only have an effect on the message text and not the header. The header is formatted according to the new standard.
 
 **NOTE:** The `syslog-protocol` flag is not essential for the syslog driver. The driver adds header to the messages automatically.
 {: .notice--info}

@@ -1,10 +1,10 @@
 ---
-title: 'network: Collecting messages using the RFC3164 protocol'
+title: 'network: Collecting messages using the RFC-3164 protocol'
 short_title: network
 id: adm-src-netw
 description: >-
     The network() source driver can receive syslog messages conforming to
-    RFC3164 from the network using the TCP, TLS, and UDP networking
+    RFC-3164 from the network using the TCP, TLS, and UDP networking
     protocols.
 ---
 

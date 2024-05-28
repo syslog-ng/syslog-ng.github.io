@@ -14,7 +14,7 @@ To replace a part of the log message, you have to:
 
 Substitution rules can operate on any soft macros, for example, MESSAGE,
 PROGRAM, or any user-defined macros created using parsers. You can also
-rewrite the structured-data fields of messages complying to the RFC5424
+rewrite the structured-data fields of messages complying to the RFC-5424
 (IETF-syslog) message format.
 
 {% include doc/admin-guide/notes/hard-macros.md %}

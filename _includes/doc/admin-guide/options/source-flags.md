@@ -109,7 +109,7 @@
 
 - *syslog-protocol*: The syslog-protocol flag specifies that incoming
     messages are expected to be formatted according to the new IETF
-    syslog protocol standard (RFC5424), but without the frame header.
+    syslog protocol standard (RFC-5424), but without the frame header.
     Note that this flag is not needed for the syslog driver, which
     handles only messages that have a frame header.
 

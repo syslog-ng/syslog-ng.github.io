@@ -196,9 +196,9 @@ The rekey() option can be used with the format-json template-function as well, u
 
 - *all-nv-pairs*: Include every soft macro (name-value pair). Equivalent to using both nv-pairs and dot-nv-pairs.
 
-- *rfc3164*: The macros that correspond to the RFC3164 (legacy or BSD-syslog) message format: ${FACILITY}, ${PRIORITY}, ${HOST}, ${PROGRAM}, ${PID},${MESSAGE}, and ${DATE}.
+- *rfc3164*: The macros that correspond to the RFC-3164 (legacy or BSD-syslog) message format: ${FACILITY}, ${PRIORITY}, ${HOST}, ${PROGRAM}, ${PID},${MESSAGE}, and ${DATE}.
 
-- *rfc5424*: The macros that correspond to the RFC5424 (IETF-syslog) message format: ${FACILITY}, ${PRIORITY}, ${HOST}, ${PROGRAM}, ${PID}, ${MESSAGE},   ${MSGID}, ${R_DATE}, and the metadata from the structured-data (SDATA) part of RFC5424-formatted messages, that is, every macro that starts with .SDATA..
+- *rfc5424*: The macros that correspond to the RFC-5424 (IETF-syslog) message format: ${FACILITY}, ${PRIORITY}, ${HOST}, ${PROGRAM}, ${PID}, ${MESSAGE},   ${MSGID}, ${R_DATE}, and the metadata from the structured-data (SDATA) part of RFC-5424 formatted messages, that is, every macro that starts with .SDATA..
   
   The rfc5424 group also has the following alias: syslog-proto. Note that the value of ${R_DATE} will be listed under the DATE key. The rfc5424 group does not contain any metadata about the message, only information that was present in the original message. To include the most commonly used metadata (for example, the ${SOURCEIP} macro), use the selected-macros group instead.
 
@@ -206,7 +206,7 @@ The rekey() option can be used with the format-json template-function as well, u
 
 - *selected-macros*: Include the macros of the rfc3164 groups, and the most commonly used metadata about the log message: the ${TAGS}, ${SOURCEIP}, and ${SEQNUM} macros.
 
-- *sdata*: The metadata from the structured-data (SDATA) part of RFC5424-formatted messages, that is, every macro that starts with .SDATA.
+- *sdata*: The metadata from the structured-data (SDATA) part of RFC-5424 formatted messages, that is, every macro that starts with .SDATA.
 
 - *everything*: Include every hard and soft macros. This group is mainly useful for debugging, as it contains redundant information (for example, the date-related macros include the date-related information several times in various formats).
 

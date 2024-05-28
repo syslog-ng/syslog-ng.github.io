@@ -27,7 +27,7 @@ description: >-
     the clients and relays. How the network sources should be configured
     depends also on the capabilities of your client hosts: many older
     networking devices support only the legacy BSD-syslog protocol
-    (RFC3164) using UDP transport:
+    (RFC-3164) using UDP transport:
 
     ```config
     source s_network {
@@ -47,7 +47,7 @@ description: >-
     tcp, tcp6, udp, udp6: Collecting messages from remote hosts using the BSD syslog protocol --- OBSOLETE.
 
     **NOTE:** Starting with syslog-ng OSE version 3.2, the syslog() source
-    driver can handle both BSD-syslog (RFC 3164) and IETF-syslog (RFC
+    driver can handle both BSD-syslog (RFC-3164) and IETF-syslog (RFC
     5424-26) messages.
     {: .notice--info}
 
