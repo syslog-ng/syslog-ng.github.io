@@ -2,7 +2,7 @@
 title: The working mechanism behind the Proxy Protocol
 id: adm-src-netw-proxy-mech
 description: >-
-    This section describes how {{ site.product.name }} ({{ site.product.short_name }})
+    This section describes how {{ site.product.short_name }}
     supports the Proxy Protocol.
 ---
 

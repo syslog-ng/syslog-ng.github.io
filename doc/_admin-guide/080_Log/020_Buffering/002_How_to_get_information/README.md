@@ -3,7 +3,7 @@ title: How to get information about disk-buffer files
 id: adm-log-diskbuff
 description: >-
     This section describes how to get information about disk-buffer files
-    used in {{ site.product.name }} ({{ site.product.short_name }}).
+    used in {{ site.product.short_name }}.
 ---
 
 **NOTE:** While reading this section, consider that the default installation

@@ -4,7 +4,7 @@ short_title: How to process messages from an orphan disk-buffer file
 id: adm-log-diskbuff-process
 description: >-
     This section describes how to read messages from an orphan disk-buffer
-    file by using a separate {{ site.product.name }} ({{ site.product.short_name }})
+    file by using a separate {{ site.product.short_name }}
     process running parallel to the already running {{ site.product.short_name }} instance.
 ---
 

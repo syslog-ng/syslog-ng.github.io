@@ -29,7 +29,7 @@ The {{ site.product.short_name }} mongodb() driver is compatible with MongoDB se
 version 1.4 and newer.
 
 **NOTE:** Prior to version 4.0, {{ site.product.short_name }} handled all data as strings, and allowed the strings to be converted into other types of data that only data formats of certain destinations supported.
-In {{ site.product.short_name }} 4.0 and later versions, each name-value pair is a (name, type, value) triplet, and several components of {{ site.product.short_name }} 4.0 support this format. For details, see [Specifying data types in value-pairs](./000_Specifying_data_types.md).
+In {{ site.product.short_name }} 4.0 and later versions, each name-value pair is a (name, type, value) triplet, and several components of {{ site.product.short_name }} 4.0 support this format. For details, see Specifying data types in value-pairs.
 {: .notice--info}
 
 **NOTE:** By default, {{ site.product.short_name }} handles every message field as a string.

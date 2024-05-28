@@ -2,7 +2,7 @@ The possible Facility values (between 0 and 23) and Severity values
 (between 0 and 7) each correspond to a message type (see **Table 1: syslog Message Facilities**), or a message importance level (see **Table 2:** syslog Message Severities).
 
 **NOTE:** Facility codes may slightly vary between different platforms. The
-{{ site.product.name }} ({{ site.product.short_name }}) application accepts
+{{ site.product.short_name }} application accepts
 Facility codes as numerical values as well.
 {: .notice--info}
 

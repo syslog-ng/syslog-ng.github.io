@@ -1,6 +1,6 @@
 <!-- DO NOT ADD frontmatter, this belongs to the GitHub repository only -->
 
-# Welcome to the {{ site.product.short_name }} documentation center source repository
+# Welcome to the syslog-ng OSE documentation center source repository
 
 [gh:gh-doc-pages]: https://syslog-ng.github.io/doc/
 [gh:gh-syslog-ng-doc-issue-tracker]: https://github.com/syslog-ng/doc/issues
@@ -9,15 +9,15 @@
 [ref:admin-guide]: doc/_admin-guide
 [ref:dev-guide]: doc/_dev-guide
 
-Here you can browse, search and contribute to most of the {{ site.product.short_name }} documentation.
+Here you can browse, search and contribute to most of the syslog-ng OSE documentation.
 
 ## [Documentation guide][ref:doc-guide]
 
 If you would like to help us to make our documentation better, this is [how to contribute][ref:doc-guide-contrib].
 
-## [Administrator guide][ref:admin-guide]
+## [Administration guide][ref:admin-guide]
 
-This repository part contains the source code of `The {{ site.product.name }} Administration Guide`.
+This repository part contains the source code of `The syslog-ng OSE Administration Guide`.
 
 ## [Developer guide][ref:dev-guide]
 

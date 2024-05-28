@@ -2,11 +2,11 @@
 title: The Python HTTP header plugin
 id: adm-dest-http-nonjava-python
 description: >-
-    This section describes the {{ site.product.name }} ({{ site.product.short_name }})
+    This section describes the {{ site.product.short_name }}
     application's Python HTTP header plugin.
 
     For more information about modules in {{ site.product.short_name }}, see
-    Modules in {{ site.product.name }} ({{ site.product.short_name }}).
+    Modules in {{ site.product.short_name }}.
 ---
 
 ## The Python HTTP header plugin

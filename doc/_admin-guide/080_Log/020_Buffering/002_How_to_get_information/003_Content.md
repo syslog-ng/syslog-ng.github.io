@@ -3,7 +3,7 @@ title: Printing the content of disk-buffer files
 id: adm-log-diskbuff-content
 description: >-
     This section describes printing the content of the disk-buffer files
-    used in {{ site.product.name }}({{ site.product.short_name }}).
+    used in {{ site.product.short_name }}.
 ---
 
 ## Command syntax

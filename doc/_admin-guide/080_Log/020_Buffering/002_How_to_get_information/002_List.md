@@ -3,7 +3,7 @@ title: Getting the list of disk-buffer files
 id: adm-log-diskbuff-list
 description: >-
     This section describes getting the list of disk-buffer files used in
-    {{ site.product.name }}({{ site.product.short_name }}).
+    {{ site.product.short_name }}.
 ---
 
 The {{ site.product.short_name }} application stores information (namely, the IP:PORT or

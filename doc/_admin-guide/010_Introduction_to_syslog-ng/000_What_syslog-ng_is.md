@@ -2,7 +2,7 @@
 title: What {{ site.product.short_name }} is
 id: adm-intro-what
 description: >-
-    The {{ site.product.name }} ({{ site.product.short_name }}) application is a
+    The {{ site.product.short_name }} application is a
     flexible and highly scalable system logging application that is ideal
     for creating centralized and trusted logging solutions.
 ---

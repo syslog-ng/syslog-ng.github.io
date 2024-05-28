@@ -116,8 +116,7 @@ documentation](https://api.slack.com/docs/message-attachments).
 app. This URL must also include the authentication token that {{ site.product.short_name }} uses to authenticate to Slack. For example:
 **https://hooks.slack.com/services/T00000000/B00000000/XXXXXXXXXXXXXXXXXXXXXXXX**
 
-For details, see the [Slack documentation about Incoming
-Webhooks](https://api.slack.com/incoming-webhooks).
+For details, see the Slack webhook documentation.
 
 ## image-url()
 
@@ -125,8 +124,7 @@ Webhooks](https://api.slack.com/incoming-webhooks).
 |  Default:|   None|
 
 *Description:* A hyperlink for an image. For details, see the
-[image_url option in the Slack
-documentation](https://api.slack.com/docs/message-attachments).
+image_url option in the Slack API documentation.
 
 {% include doc/admin-guide/options/log-fifo-size.md %}
 
@@ -138,8 +136,7 @@ documentation](https://api.slack.com/docs/message-attachments).
 |  Default:  | None|
 
 *Description:* The text that appears above the attachment block. For
-details, see the [pretext option in the Slack
-documentation](https://api.slack.com/docs/message-attachments).
+details, see the pretext option in the Slack API documentation.
 
 {% include doc/admin-guide/options/retries.md %}
 
@@ -165,8 +162,7 @@ sslv2, sslv3, tlsv1, tlsv1_0, tlsv1_1, tlsv1_2, tlsv1_3.
 |  Default:|   None|
 
 *Description:* A hyperlink for a thumbnail image. For details, see the
-[thumb\_url option in the Slack
-documentation](https://api.slack.com/docs/message-attachments).
+thumb_url option in the Slack API documentation.
 
 ## timeout()
 
@@ -183,9 +179,8 @@ in version 3.11 and later.
 |  Type:      string or template|
 |  Default:   None|
 
-*Description:* The message title in Slack. For details, see the [title
-option in the Slack
-documentation](https://api.slack.com/docs/message-attachments).
+*Description:* The message title in Slack. For details, see the title
+option in the Slack API documentation.
 
 ## title-link()
 
@@ -193,8 +188,7 @@ documentation](https://api.slack.com/docs/message-attachments).
 |  Default:|   None|
 
 *Description:* A hyperlink for the message title in Slack. For details,
-see the [title_link option in the Slack
-documentation](https://api.slack.com/docs/message-attachments).
+see the title_link option in the Slack API documentation.
 
 {% include doc/admin-guide/options/user-agent.md %}
 

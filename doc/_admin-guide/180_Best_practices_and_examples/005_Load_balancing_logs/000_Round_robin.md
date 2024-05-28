@@ -4,7 +4,7 @@ short_title: Load balancing with round robin
 id: adm-pract-round-robin
 description: >-
   This section describes a round robin load balancing method based on the
-  R_MSEC macro of {{ site.product.name }} ({{ site.product.short_name }}) to load
+  R_MSEC macro of {{ site.product.short_name }} to load
   balance your logs between multiple {{ site.product.short_name }} destinations.
 ---
 
@@ -18,7 +18,7 @@ For more information about the R_MSEC macro and further macros of
 ## Example: round robin load balancing between multiple destinations
 
 The following example is a round-robin load balancing method, based on
-{{ site.product.short_name }}'s R_MSEC macro.
+${R_MSEC} macro of {{ site.product.short_name }}.
 
 ```config
 destination d_lb_network { 

@@ -3,7 +3,7 @@ title: Managing and checking {{ site.product.short_name }} service on Linux
 id: adm-qs-service
 description: >-
     This section describes how to start, stop and check the status of
-    {{ site.product.name }} ({{ site.product.short_name }}) service on Linux.
+    {{ site.product.short_name }} service on Linux.
 ---
 
 ## Starting {{ site.product.short_name }}

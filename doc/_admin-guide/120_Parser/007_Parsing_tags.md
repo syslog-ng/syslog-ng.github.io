@@ -2,7 +2,7 @@
 title: Parsing tags
 id: adm-parser-tags
 description: >-
-    The {{ site.product.name }} ({{ site.product.short_name }}) application can tag
+    The {{ site.product.short_name }} application can tag
     log messages, and can include these tags in the log messages, as
     described in Tagging messages can parse these tags from the incoming messages
     and re-tag them. That way if you add tags to a log message on a {{ site.product.short_name }}

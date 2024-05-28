@@ -10,7 +10,7 @@ tests. If everything is OK, you should see something like this:
 
 ```
 ============================================================================
-Testsuite summary for {{ site.product.short_name }} 3.8.0alpha0
+Testsuite summary for syslog-ng 3.8.0alpha0
 ============================================================================
 # TOTAL: 82
 # PASS:  82

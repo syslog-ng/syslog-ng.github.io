@@ -8,7 +8,7 @@ description: >-
 ---
 
 The {{ site.product.short_name }} application supports messages originating from different
-timezones. The original syslog protocol (RFC3-164) does not include
+timezones. The original syslog protocol (RFC3-3164) does not include
 timezone information, but {{ site.product.short_name }} provides a solution by extending the
 syslog protocol to include the timezone in the log messages. The
 {{ site.product.short_name }} application also enables administrators to supply timezone

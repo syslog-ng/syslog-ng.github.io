@@ -335,7 +335,7 @@ A host running {{ site.product.short_name }} in client mode.
 
 ### {{ site.product.name }}
 
-The {{ site.product.name }} ({{ site.product.short_name }}) application is a flexible
+The {{ site.product.short_name }} application is a flexible
 and highly scalable system logging application that is ideal for creating
 centralized and trusted logging solutions, for more, see What {{ site.product.short_name }} is.
 

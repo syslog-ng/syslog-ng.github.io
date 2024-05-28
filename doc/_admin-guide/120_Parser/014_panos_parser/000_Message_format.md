@@ -3,7 +3,7 @@ title: Message format parsed by panos-parser()
 id: adm-parser-panos-format
 description: >-
     This section illustrates the most commonly used PAN-OS log format on the
-    {{ site.product.name }} ({{ site.product.short_name }}) side.
+    {{ site.product.short_name }} side.
 ---
 
 For information about customizing log format on the PAN-OS side, see

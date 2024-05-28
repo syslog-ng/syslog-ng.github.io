@@ -39,8 +39,8 @@ N/A
 
     NOTE: If the \<pattern\> element of a ruleset is not specified,
     {{ site.product.short_name }} will use this ruleset as a fallback ruleset: it will
-    apply the ruleset to messages that have an empty PROGRAM header, or
-    if none of the program patterns matched the PROGRAM header of the
+    apply the ruleset to messages that have an empty ${PROGRAM} header, or
+    if none of the program patterns matched the ${PROGRAM} header of the
     incoming message.
 
 ### Example

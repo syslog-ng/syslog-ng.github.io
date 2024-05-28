@@ -1059,7 +1059,7 @@ slack-web-api:
 slack-webhook-doc:
   id: slack-webhook-doc
   url: https://api.slack.com/incoming-webhooks
-  title: [ "Slack documentation" ]
+  title: [ "Slack webhook documentation" ]
 
 sn-graphite:
   id: sn-graphite

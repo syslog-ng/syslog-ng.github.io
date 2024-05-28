@@ -4,7 +4,7 @@ title: 'Sumo Logic destinations: sumologic-http() and
 short_title: sumologic
 id: adm-dest-sumologic
 description: >-
-    From version 3.27.1, the {{ site.product.name }} ({{ site.product.short_name }})
+    From version 3.27.1, the {{ site.product.short_name }}
     application can send log messages to Sumo Logic,
     a cloud-based log management and security analytics service, by
     using the sumologic-http() and sumologic-syslog() destinations.

@@ -3,7 +3,7 @@ title: Information about disk-buffer files
 id: adm-log-diskbuff-info
 description: >-
     This section describes information about disk-buffer files used in
-    {{ site.product.name }} ({{ site.product.short_name }}).
+    {{ site.product.short_name }}.
 ---
 
 The following list contains information about how disk-buffer files are

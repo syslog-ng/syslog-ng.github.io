@@ -3,7 +3,7 @@ title: Getting the status information of disk-buffer files
 id: adm-log-diskbuff-status
 description: >-
     This section describes getting the status information of the disk-buffer
-    files used in {{ site.product.name }} ({{ site.product.short_name }}).
+    files used in {{ site.product.short_name }}.
 ---
 
 ## Command syntax

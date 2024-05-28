@@ -119,7 +119,7 @@ compiling options.
 
 - *\--with-embedded-crypto* If this option is set, the crypto library
     is linked directly into libsyslog-ng: the sources of
-    libsyslog-ng-crypto will be appended to the lib{{ site.product.short_name }} sources,
+    libsyslog-ng-crypto will be appended to the libsyslog-ng sources,
     and -crypto is not built.
 
 - *\--with-ivykis* Specifies which ivykis implementation to use

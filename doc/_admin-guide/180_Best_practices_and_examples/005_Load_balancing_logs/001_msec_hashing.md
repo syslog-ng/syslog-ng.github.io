@@ -5,7 +5,7 @@ id: adm-pract-msec
 description: >-
   This section describes a configuration generator for the load balancing
   method based on MSEC hashing to load balance your logs between multiple
-  {{ site.product.name }} ({{ site.product.short_name }}) destinations.
+  {{ site.product.short_name }} destinations.
 ---
 
 ![]({{ site.baseurl}}/assets/images/caution.png) **CAUTION:**

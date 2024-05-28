@@ -50,7 +50,7 @@ You can find the source of the Slack configuration snippet on GitHub.
 
 To send messages and notifications from {{ site.product.short_name }} to Slack, you must
 create a Slack app and a Webhook that {{ site.product.short_name }} can use. For
-details, see the [[Slack documentation|slack-webhook-doc]].
+details, see the Slack webhook documentation.
 
 ### Example: Using the slack() driver
 

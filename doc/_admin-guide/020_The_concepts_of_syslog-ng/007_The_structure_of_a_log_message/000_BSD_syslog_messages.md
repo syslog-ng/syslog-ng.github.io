@@ -25,7 +25,7 @@ The message corresponds to the following format:
 The different parts of the message are explained in the following
 sections.
 
-**NOTE:** The {{ site.product.name }} ({{ site.product.short_name }}) application
+**NOTE:** The {{ site.product.short_name }} application
 supports longer messages as well. For details, see the log-msg-size()
 option in Global options.
 However, it is not recommended to enable messages larger than the packet
@@ -89,7 +89,7 @@ the local time in the *Mmm dd hh:mm:ss* format, where:
     24-hour format. Valid entries are between 00 and 23, inclusive. The
     minute (mm) and second (ss) entries are between 00 and 59 inclusive.
 
-**NOTE:** The {{ site.product.name }} ({{ site.product.short_name }}) application
+**NOTE:** The {{ site.product.short_name }} application
 supports other timestamp formats as well, like ISO, or the PIX extended
 format. For details, see the ts-format() option in Global options.
 {: .notice--info}

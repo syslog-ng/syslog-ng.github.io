@@ -1,5 +1,5 @@
 ---
-title: Who uses syslog-ng?
+title: Who uses {{ site.product.short_name }}?
 id: adm-intro-who
 ---
 

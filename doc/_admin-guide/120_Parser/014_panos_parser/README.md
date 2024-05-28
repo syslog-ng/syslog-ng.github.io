@@ -11,7 +11,7 @@ description: >-
     a data structure that requires additional parsing.
 ---
 
-The panos-parser() of {{ site.product.name }} ({{ site.product.short_name }})
+The panos-parser() of {{ site.product.short_name }}
 solves this problem, and can separate PAN-OS log messages to name-value
 pairs.
 

@@ -3,7 +3,7 @@ title: Load balancing logs between multiple destinations
 id: adm-pract-load
 description: >-
     These sections describe a method of load balancing logs between multiple
-    {{ site.product.name }} ({{ site.product.short_name }}) destinations. The first
+    {{ site.product.short_name }} destinations. The first
     subsection describes the round robin load balancing method based on the
     R_MSEC macro of {{ site.product.short_name }}, while the second subsection describes a
     configuration generator that you can use as an alternative to using the
