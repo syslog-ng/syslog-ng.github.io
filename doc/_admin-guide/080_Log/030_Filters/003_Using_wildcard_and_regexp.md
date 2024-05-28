@@ -6,7 +6,7 @@ id: adm-log-filters-regexp
 description: >-
   The host(), match(), and program() filter functions accept regular
   expressions as parameters. The exact type of the regular expression to
-  use can be specified with the type() option. By default, syslog-ng OSE
+  use can be specified with the type() option. By default, {{ site.product.short_name }}
   uses PCRE regular expressions.
 ---
 
@@ -30,12 +30,12 @@ string, for example, on myhost-1, myhost-2, and so on.
 filter f_wildcard {host("myhost*" type(glob));};
 ```
 
-For details on using regular expressions in syslog-ng OSE, see Using
+For details on using regular expressions in {{ site.product.short_name }}, see Using
 wildcards, special characters, and regular expressions in filters.
 
 To filter for special control characters like the carriage return (CR),
-use the **\\r** escape prefix in syslog-ng OSE version 3.0 and 3.1. In
-syslog-ng OSE 3.2 and later, you can also use the \\x escape prefix and
+use the **\\r** escape prefix in {{ site.product.short_name }} version 3.0 and 3.1. In
+{{ site.product.short_name }} 3.2 and later, you can also use the \\x escape prefix and
 the ASCII code of the character. For example, to filter on carriage
 returns, use the following filter:
 

@@ -1,20 +1,20 @@
 ---
-title: Configuring syslog-ng on relay hosts
+title: Configuring {{ site.product.short_name }} on relay hosts
 id: adm-qs-relay-conf
 ---
 
-To configure syslog-ng on a relay host, complete the following steps:
+To configure {{ site.product.short_name }} on a relay host, complete the following steps:
 
-1. Install the syslog-ng application on the host. For details on
-    installing syslog-ng on specific operating systems, see
+1. Install the {{ site.product.short_name }} application on the host. For details on
+    installing {{ site.product.short_name }} on specific operating systems, see
     Installing syslog-ng.
 2. Configure the network sources that collect the log messages sent by
     the clients.
 
-3. Create a network destination that points to the syslog-ng server.
+3. Create a network destination that points to the {{ site.product.short_name }} server.
 
 4. Create a log statement connecting the network sources to the
-    syslog-ng server.
+    {{ site.product.short_name }} server.
 
 5. Configure the local sources that collect the log messages of the
     relay host.
@@ -26,17 +26,17 @@ To configure syslog-ng on a relay host, complete the following steps:
     options. (For details on how these options work, see
     chain-hostnames()
 
-    **NOTE:** It is recommended to use these options on your syslog-ng OSE
+    **NOTE:** It is recommended to use these options on your {{ site.product.short_name }}
     server as well.
     {: .notice--info}
 
 8. Set filters and options (for example, TLS encryption) as necessary.
 
-    **NOTE:** By default, the syslog-ng server will treat the relayed
+    **NOTE:** By default, the {{ site.product.short_name }} server will treat the relayed
     messages as if they were created by the relay host, not the host
     that originally sent them to the relay. In order to use the original
-    hostname on the syslog-ng server, use the **keep-hostname(yes)**
-    option both on the syslog-ng relay and the syslog-ng server. This
+    hostname on the {{ site.product.short_name }} server, use the **keep-hostname(yes)**
+    option both on the {{ site.product.short_name }} relay and the {{ site.product.short_name }} server. This
     option can be set individually for every source if needed.
     {: .notice--info}
 

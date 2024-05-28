@@ -5,7 +5,7 @@ id: adm-man-syslogng-conf
 
 ## Name
 
-syslog-ng.conf --- syslog-ng configuration file
+syslog-ng.conf --- {{ site.product.short_name }} configuration file
 
 ## Synopsis
 
@@ -15,34 +15,34 @@ syslog-ng.conf
 
 This manual page is only an abstract.
 
-The syslog-ng OSE application is a flexible and highly scalable system
-logging application. Typically, syslog-ng OSE is used to manage log
+The {{ site.product.short_name }} application is a flexible and highly scalable system
+logging application. Typically, {{ site.product.short_name }} is used to manage log
 messages and implement centralized logging, where the aim is to collect
 the log messages of several devices on a single, central log server. The
-different devices - called syslog-ng clients - all run syslog-ng OSE,
+different devices - called {{ site.product.short_name }} clients - all run {{ site.product.short_name }},
 and collect the log messages from the various applications, files, and
 other sources. The clients send all important log messages to the remote
-syslog-ng PE server, where the server sorts and stores them.
+{{ site.product.short_name }} PE server, where the server sorts and stores them.
 
-## Basic concepts of syslog-ng OSE
+## Basic concepts of {{ site.product.short_name }}
 
-The syslog-ng OSE application reads incoming messages and forwards them
-to the selected destinations. The syslog-ng application can receive
+The {{ site.product.short_name }} application reads incoming messages and forwards them
+to the selected destinations. The {{ site.product.short_name }} application can receive
 messages from files, remote hosts, and other sources.
 
-Log messages enter syslog-ng OSE in one of the defined sources, and are
+Log messages enter {{ site.product.short_name }} in one of the defined sources, and are
 sent to one or more destinations.
 
 Sources and destinations are independent objects, log paths define what
-syslog-ng OSE does with a message, connecting the sources to the
+{{ site.product.short_name }} does with a message, connecting the sources to the
 destinations. A log path consists of one or more sources and one or more
 destinations: messages arriving from a source are sent to every
-destination listed in the log path. A log path defined in syslog-ng OSE
+destination listed in the log path. A log path defined in {{ site.product.short_name }}
 is called a log statement.
 
 Optionally, log paths can include filters. Filters are rules that select
 only certain messages, for example, selecting only messages sent by a
-specific application. If a log path includes filters, syslog-ng OSE
+specific application. If a log path includes filters, {{ site.product.short_name }}
 sends only the messages satisfying the filter rules to the destinations
 set in the log path.
 
@@ -51,13 +51,13 @@ and rewriting rules. Parsers segment messages into different fields to
 help processing the messages, while rewrite rules modify the messages by
 adding, replacing, or removing parts of the messages.
 
-## Configuring syslog-ng OSE
+## Configuring {{ site.product.short_name }}
 
 - The main body of the configuration file consists of object
     definitions: sources, destinations, logpaths define which log
     message are received and where they are sent. All identifiers,
     option names and attributes, and any other strings used in the
-    syslog-ng configuration file are case sensitive. Object definitions
+    {{ site.product.short_name }} configuration file are case sensitive. Object definitions
     (also called statements) have the following syntax:
 
     ```config
@@ -72,7 +72,7 @@ adding, replacing, or removing parts of the messages.
     identifier in quotation marks (\"\").
 
     All identifiers, attributes, and any other strings used in the
-    syslog-ng OSE configuration file are case sensitive.
+    {{ site.product.short_name }} configuration file are case sensitive.
 
     **TIP:** Use identifiers that refer to the type of the object they
     identify. For example, prefix source objects with s\_,
@@ -152,7 +152,7 @@ adding, replacing, or removing parts of the messages.
     ```
 
 - Some options are global options, or can be set globally, for
-    example, whether syslog-ng OSE should use DNS resolution to resolve
+    example, whether {{ site.product.short_name }} should use DNS resolution to resolve
     IP addresses.
 
     ```config
@@ -165,7 +165,7 @@ adding, replacing, or removing parts of the messages.
     object only once (for example, a filter).
 
 - To add comments to the configuration file, start a line with \# and
-    write your comments. These lines are ignored by syslog-ng OSE.
+    write your comments. These lines are ignored by {{ site.product.short_name }}.
 
     ```config
     # Comment: This is a stream source
@@ -196,10 +196,10 @@ destination d_tcp { network("10.1.2.3" port(1999) localport(999)); };
 log { source(s_localhost); destination(d_tcp); };
 ```
 
-The syslog-ng OSE application has a number of global options governing
+The {{ site.product.short_name }} application has a number of global options governing
 DNS usage, the timestamp format used, and other general points. Each
 option may have parameters, similarly to driver specifications. To set
-global options add an option statement to the syslog-ng OSE
+global options add an option statement to the {{ site.product.short_name }}
 configuration file using the following syntax:
 
 ```config
@@ -209,22 +209,22 @@ options { option1(params); option2(params); ... };
 ### Example: Using global options
 
 To disable domain name resolving, add the following line to the
-syslog-ng OSE configuration file:
+{{ site.product.short_name }} configuration file:
 
 ```config
 options { use-dns(no); };
 ```
 
-The sources, destinations, and filters available in syslog-ng OSE are
+The sources, destinations, and filters available in {{ site.product.short_name }} are
 listed below.  
 
-## Table 1: Source drivers available in syslog-ng OSE
+## Table 1: Source drivers available in {{ site.product.short_name }}
 
 |Name                                |Description
 |---|---
 |file()                        |Opens the specified file and reads messages.
 |wildcard-file()               |Reads messages from multiple files and directories.
-|internal()                    |Messages generated internally in syslog-ng OSE.
+|internal()                    |Messages generated internally in {{ site.product.short_name }}.
 |network()                     |Receives messages from remote hosts using the BSD-syslog protocol over IPv4 and IPv6. Supports the TCP, UDP, and TLS network protocols.
 |nodejs()                      |Receives JSON messages from nodejs applications.
 |mbox()                        |Read e-mail messages from local mbox files, and convert them to multiline log messages.
@@ -235,7 +235,7 @@ listed below.
 |snmptrap()                    |Read and parse the SNMP traps of the Net-SNMP\'s snmptrapd application.
 |sun-stream(), sun-streams()   |Opens the specified STREAMS device on Solaris systems and reads incoming messages.
 |syslog()                      |Listens for incoming messages using the new IETF-standard syslog protocol.
-|system()                      |Automatically detects which platform syslog-ng OSE is running on, and collects the native log messages of that platform.
+|system()                      |Automatically detects which platform {{ site.product.short_name }} is running on, and collects the native log messages of that platform.
 |systemd-journal()             |Collects messages directly from the journal of platforms that use systemd.
 |systemd-syslog()              |Collects messages from the journal using a socket on platforms that use systemd.
 |unix-dgram()                  |Opens the specified unix socket in SOCK_DGRAM mode and listens for incoming messages.
@@ -263,14 +263,14 @@ listed below.
 |redis()|          Sends messages as name-value pairs to a Redis key-value store.
 |riemann()|        Sends metrics or events to a Riemann monitoring system.
 |smtp()|           Sends e-mail messages to the specified recipients.
-|sql()|            Sends messages into an SQL database. In addition to the standard syslog-ng OSE packages, the sql() destination requires database-specific packages to be installed.
+|sql()|            Sends messages into an SQL database. In addition to the standard {{ site.product.short_name }} packages, the sql() destination requires database-specific packages to be installed.
 |stomp()|          Sends messages to a STOMP server.
 |syslog()|         Sends messages to the specified remote host using the IETF-syslog protocol. The IETF standard supports message transport using the UDP, TCP, and TLS networking protocols.
 |unix-dgram()|     Sends messages to the specified unix socket in SOCK_DGRAM style (BSD).
 |unix-stream()|    Sends messages to the specified unix socket in SOCK_STREAM style (Linux).
 |usertty()|        Sends messages to the terminal of the specified user, if the user is logged in.
 
-## Table 3: Filter functi|ons available in syslog-ng OSE
+## Table 3: Filter functi|ons available in {{ site.product.short_name }}
 
 |Name                         |Description
 |---------------------------- |-------------
@@ -283,7 +283,7 @@ listed below.
 |message()|              | Use a regular expression to filter messages based on their content.
 |netmask()|              | Filter messages based on the IP address of the sending host.
 |program()|              | Filter messages based on the sending application.
-|source()|               | Select messages of the specified syslog-ng OSE source statement.
+|source()|               | Select messages of the specified {{ site.product.short_name }} source statement.
 |tags()|                 | Select messages having the specified tag.
 
 ## Files

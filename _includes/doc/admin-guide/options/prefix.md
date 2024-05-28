@@ -16,7 +16,7 @@ name-value pairs to help further processing. For example:
     message using the **prefix(.SDATA.my-parsed-data.)** option.
 
 Names starting with a dot (for example, .example) are reserved for use
-by syslog-ng OSE. If you use such a macro name as the name of a parsed
+by {{ site.product.short_name }}. If you use such a macro name as the name of a parsed
 value, it will attempt to replace the original value of the macro (note
 that only soft macros can be overwritten, see
 Hard versus soft macros.

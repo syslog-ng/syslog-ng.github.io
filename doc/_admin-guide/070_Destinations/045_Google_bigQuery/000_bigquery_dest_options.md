@@ -14,7 +14,7 @@ description: >-
 |  Type:|     boolean|
 |Default:| no|
 
-Available in syslog-ng OSE 4.5 and later versions.
+Available in {{ site.product.short_name }} 4.5 and later versions.
 
 *Description:* This option enables compression in gRPC requests. Currently only deflate-type (similar to gzip) compression is supported.
 
@@ -23,7 +23,7 @@ Available in syslog-ng OSE 4.5 and later versions.
 |  Type:|     string|
 |Default:| |
 
-*Description:* The name of the syslog-ng OSE destination dataset.
+*Description:* The name of the {{ site.product.short_name }} destination dataset.
 
 {% include doc/admin-guide/options/disk-buffer.md %}
 
@@ -59,7 +59,7 @@ Available in syslog-ng OSE 4.5 and later versions.
 |  Type:|     string|
 |Default:| |
 
-*Description:* The ID of the Google Cloud project where syslog-ng OSE sends data.
+*Description:* The ID of the Google Cloud project where {{ site.product.short_name }} sends data.
 
 ## protobuf-schema()
 
@@ -91,7 +91,7 @@ message CustomRecord {
 |  Type:|     schema|
 |Default:| |
 
-*Description:* Defines the schema syntax of the BigQuery table. Each line defines a column. The first part of the line defines the name and type of the column, the second part after the arrow sets syslog-ng OSE templates or macros which are evaluated on every log routed to the bigquery() destination. The available column types are the following: `STRING`, `BYTES`, `INTEGER`, `FLOAT`, `BOOLEAN`, `TIMESTAMP`, `DATE`, `TIME`, `DATETIME`, `JSON`, `NUMERIC`, `BIGNUMERIC`, `GEOGRAPHY`, `RECORD`, `INTERVAL`.
+*Description:* Defines the schema syntax of the BigQuery table. Each line defines a column. The first part of the line defines the name and type of the column, the second part after the arrow sets {{ site.product.short_name }} templates or macros which are evaluated on every log routed to the bigquery() destination. The available column types are the following: `STRING`, `BYTES`, `INTEGER`, `FLOAT`, `BOOLEAN`, `TIMESTAMP`, `DATE`, `TIME`, `DATETIME`, `JSON`, `NUMERIC`, `BIGNUMERIC`, `GEOGRAPHY`, `RECORD`, `INTERVAL`.
 
 ### Example: defining a BigQuery table using schema()
 
@@ -111,7 +111,7 @@ schema(
 |  Type:|     string|
 |Default:| |
 
-*Description:* Defines the name of the Google BigQuery table where syslog-ng OSE send data to.
+*Description:* Defines the name of the Google BigQuery table where {{ site.product.short_name }} send data to.
 
 {% include doc/admin-guide/options/template-escape.md %}
 

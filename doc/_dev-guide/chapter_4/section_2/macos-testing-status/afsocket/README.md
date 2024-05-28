@@ -1,7 +1,7 @@
 ---
 title: afsocket
 description: >-
-  The afsocket module provides socket based transports for syslog-ng, such as
+  The afsocket module provides socket based transports for {{ site.product.short_name }},  such as
   the udp(), tcp() and syslog() drivers. This module is compiled with SSL
   support.
 id: dev-macos-mod-sup-afsocket

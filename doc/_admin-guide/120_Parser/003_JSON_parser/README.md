@@ -8,9 +8,9 @@ description: >-
     for human-readable data interchange. It is used primarily to transmit
     data between a server and web application, serving as an alternative to
     XML. It is described in RFC-4627.
-    The syslog-ng OSE application can separate parts of incoming
+    The {{ site.product.short_name }} application can separate parts of incoming
     JSON-encoded log messages to name-value pairs. For details on using
-    value-pairs in syslog-ng OSE see
+    value-pairs in {{ site.product.short_name }} see
     Structuring macros, metadata, and other value-pairs.
 ---
 
@@ -18,22 +18,22 @@ You can refer to the separated parts of the JSON message using the key
 of the JSON object as a macro. For example, if the JSON contains
 {\"KEY1\":\"value1\",\"KEY2\":\"value2\"}, you can refer to the values
 as **${KEY1}** and **${KEY2}**. If the JSON content is structured,
-syslog-ng OSE converts it to dot-notation-format. For example, to access
+{{ site.product.short_name }} converts it to dot-notation-format. For example, to access
 the value of the following structure {\"KEY1\": {\"KEY2\": \"VALUE\"}},
 use the **${KEY1.KEY2}** macro.
 
 {% include doc/admin-guide/warnings/macro-overwrite.md %}
 
-**NOTE:** When using the json-parser(), syslog-ng OSE converts all elements
+**NOTE:** When using the json-parser(), {{ site.product.short_name }} converts all elements
 of the JSON object to name-value pairs. Any type information carried by
 the incoming JSON object is preserved, and automatically propagated to
-other syslog-ng OSE components (for example, a destination) if the
+other {{ site.product.short_name }} components (for example, a destination) if the
 component supports types. Elements without a type are handled as
 strings. JSON lists (arrays) are converted to lists, and can be
 manipulated using the List manipulation template functions.
 {: .notice--info}
 
-Prior to version 4.0, syslog-ng OSE handled all data as string.
+Prior to version 4.0, {{ site.product.short_name }} handled all data as string.
 
 The JSON parser discards messages if they cannot be parsed as JSON
 messages, therefore acting as a JSON-filter as well.
@@ -58,7 +58,7 @@ parser parser_name {
 ### Example: Using a JSON parser
 
 In the following example, the source is a JSON encoded log message. The
-syslog parser is disabled, so that syslog-ng OSE does not parse the
+syslog parser is disabled, so that {{ site.product.short_name }} does not parse the
 message: **flags(no-parse)**. The json-parser inserts \".json.\" prefix
 before all extracted name-value pairs. The destination is a file, that
 uses the format-json template function. Every name-value pair that

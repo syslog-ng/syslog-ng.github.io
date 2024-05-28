@@ -31,7 +31,7 @@ native data format of Graylog.
     information, see the relevant Graylog
     documentation.
 
-2. On the syslog-ng side, configure the name or IP address of the host
+2. On the {{ site.product.short_name }} side, configure the name or IP address of the host
     running Graylog.
 
   ```config
@@ -43,19 +43,19 @@ native data format of Graylog.
   };
   ```
 
-  If you parsed your messages using syslog-ng, the template also
+  If you parsed your messages using {{ site.product.short_name }}, the template also
   forwards any name-value pairs where the name starts with a dot or
   underscore.
 
 **NOTE:** If there is a dot in a field name other than the first character,
-syslog-ng creates nested JSON while formatting the message. Nested JSON
+{{ site.product.short_name }} creates nested JSON while formatting the message. Nested JSON
 is not automatically parsed in GELF messages.
 {: .notice--info}
 
 ## Sending nested JSON to Graylog
 
 While sending nested JSON inside GELF is possible, it is not convenient.
-If you use parsing and normalization in syslog-ng and dot notation in
+If you use parsing and normalization in {{ site.product.short_name }} and dot notation in
 field names, use pure JSON instead of GELF to forward your messages.
 
 1. On the Graylog side, create a new raw TCP input.
@@ -63,7 +63,7 @@ field names, use pure JSON instead of GELF to forward your messages.
 2. Still in Graylog, once the raw TCP input is ready, add a JSON
     extractor to it.
 
-3. On the syslog-ng side, use a network destination combined with a
+3. On the {{ site.product.short_name }} side, use a network destination combined with a
     template utilizing format-json as shown in the example below:
 
   ```config

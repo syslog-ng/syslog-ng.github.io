@@ -2,8 +2,8 @@
 title: Product licensing
 id: adm-conc-lic
 description: >-
-    Starting with version 3.2, the syslog-ng Open Source Edition application
-    is licensed under a combined LGPL+GPL license. The core of syslog-ng OSE
+    Starting with version 3.2, the {{ site.product.name }} application
+    is licensed under a combined LGPL+GPL license. The core of {{ site.product.short_name }}
     is licensed under the GNU Lesser General Public License Version 2.1
     license, while the rest of the codebase is licensed under the GNU
     General Public License Version 2 license.
@@ -18,4 +18,4 @@ GNU Lesser General Public License and
 GNU General Public License, respectively.
 
 For clarity, the Documentation is licensed separately.
-For details, see The syslog-ng Open Source Edition Documentation License.
+For details, see The {{ site.product.name }} Documentation License.

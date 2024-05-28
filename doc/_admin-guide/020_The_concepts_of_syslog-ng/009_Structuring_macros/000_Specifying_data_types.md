@@ -2,25 +2,25 @@
 title: Specifying data types in value-pairs
 id: adm-spec-value-pairs
 description: >-
-    By default, syslog-ng OSE handles every data as strings. However,
+    By default, {{ site.product.short_name }} handles every data as strings. However,
     certain destinations and data formats (for example, SQL, MongoDB, JSON ,
     AMQP) support other types of data as well, for example, numbers or
-    dates. The syslog-ng OSE application allows you to specify the data type
+    dates. The {{ site.product.short_name }} application allows you to specify the data type
     in templates (this is also called type-hinting). If the destination
     driver supports data types, it converts the incoming data to the
     specified data type. For example, this allows you to store integer
     numbers as numbers in MongoDB, instead of strings.
 ---
 
-From syslog-ng OSE version 4.0 onwards, name-value pairs are now
+From {{ site.product.short_name }} version 4.0 onwards, name-value pairs are now
 triplets (name, type, value). Typing support is available for several
 other components, for example, json-parser() and the $(format-json)
 template function. For more information, see Components supported by data types.
 
 ![]({{ site.baseurl}}/assets/images/caution.png)
 **CAUTION:** Hazard of data loss!  
-If syslog-ng OSE cannot convert the data into the specified type, an error occurs,
-and syslog-ng OSE drops the message by default. To change how syslog-ng OSE handles
+If {{ site.product.short_name }} cannot convert the data into the specified type, an error occurs,
+and {{ site.product.short_name }} drops the message by default. To change how {{ site.product.short_name }} handles
 data-conversion errors, see on-error().
 {: .notice--danger}
 
@@ -56,7 +56,7 @@ Use the following example to format the MESSAGE field as a JSON list.
 
 `$$(format-json message=list(${MESSAGE}))`
 
-The syslog-ng OSE application currently supports the following data-types.
+The {{ site.product.short_name }} application currently supports the following data-types.
 
 - boolean: Converts the data to a boolean value. Anything that begins
     with a t or 1 is converted to true, anything that begins with an f
@@ -85,7 +85,7 @@ The syslog-ng OSE application currently supports the following data-types.
 
 ## Components supported by data types
 
-The following components support data types from syslog-ng OSE 4.0 and
+The following components support data types from {{ site.product.short_name }} 4.0 and
 onwards:
 
 **NOTE:** Component types not listed below process data as string.
@@ -99,9 +99,9 @@ onwards:
 ### json-parser() and the format-json template function
 
 For more information, see JSON parser and
-Template functions of syslog-ng OSE.
+Template functions of {{ site.product.short_name }}.
 
-syslog-ng OSE converts all elements in a JSON object to name-value
+{{ site.product.short_name }} converts all elements in a JSON object to name-value
 pairs, when using json-parser(). Any type related data present in
 the original JSON is retained. This data is propagated automatically
 to any other component that supports type, for example a
@@ -109,7 +109,7 @@ destination.
 
 Elements without type data are handled as strings.
 
-JSON lists (arrays) are converted to syslog-ng OSE lists, and can be
+JSON lists (arrays) are converted to {{ site.product.short_name }} lists, and can be
 manipulated using the $(list-append) template functions.  
 
 ### set() and groupset() rewrite rules
@@ -161,10 +161,10 @@ functions) support all data types, except for json().
 
 ### On-disk serialized formats (that is, disk buffer)
 
-syslog-ng OSE Version 4.0 and newer versions are backwards
+{{ site.product.short_name }} Version 4.0 and newer versions are backwards
 compatible with messages serialized with earlier versions, and the
 format is compatible for downgrades. Therefore, even if a newer
-version of syslog-ng OSE serialized a message, older versions and
+version of {{ site.product.short_name }} serialized a message, older versions and
 associated tools are able to read it, however, in this case the type
 information is lost.
 

@@ -1,7 +1,7 @@
 >![]({{ site.baseurl}}/assets/images/caution.png) **CAUTION:**
 >When receiving messages using the UDP protocol, increase the
 >size of the UDP receive buffer on the receiver host  
->(that is, the syslog-ng OSE server or relay receiving the messages).  
+>(that is, the {{ site.product.short_name }} server or relay receiving the messages).  
 >  
 >Note that on certain platforms, for example, on Red Hat Enterprise
 >Linux 5, even low message load (\~200 messages per second) can

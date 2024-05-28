@@ -9,14 +9,14 @@ description: >-
 ---
 
 To use the default-network-drivers() source, the scl.conf file must be
-included in your syslog-ng OSE configuration:
+included in your {{ site.product.short_name }} configuration:
 
 ```config
 @include "scl.conf"
 ```
 
 Also, make sure that your SELinux, AppArmor, and firewall settings
-permit syslog-ng Open Source Edition to access the ports where you want
+permit {{ site.product.name }} to access the ports where you want
 to receive messages, and that no other application is using these ports.
 By default, the default-network-drivers() source accepts messages on the
 following ports:
@@ -34,7 +34,7 @@ application that sent the log message. Currently it uses the following
 procedures.
 
 ![]({{ site.baseurl}}/assets/images/caution.png) **CAUTION:** If you do not
-configure the TLS keys to dislay to the clients, syslog-ng OSE cannot accept
+configure the TLS keys to dislay to the clients, {{ site.product.short_name }} cannot accept
 encrypted connections. The application starts and listens on TCP:6514, and
 can receive messages on other ports, but will display a warning messages about
 missing keys.
@@ -44,13 +44,13 @@ missing keys.
 
 For RFC-3164 formatted messages (that is, messages received on the ports
 set in options udp-port() and tcp-port() which default to port 514),
-syslog-ng OSE attempts to use the following parsers. If a parser cannot
+{{ site.product.short_name }} attempts to use the following parsers. If a parser cannot
 parse the message, it passes the original message to the next parser.
 
 1. Parse the incoming raw message as a [[message from a Cisco device|adm-parser-cisco]].
 
 2. Parse the incoming message as an [[RFC-3164 formatted message|adm-struct-bsd]].
-    - If the incoming message was sent by a syslog-ng OSE client using
+    - If the incoming message was sent by a {{ site.product.short_name }} client using
         the [[syslog-ng() destination|adm-dest-syslogng]], parse its
         fields as a [[syslog-ng() message|adm-struct-ietf]].
 
@@ -60,7 +60,7 @@ parse the message, it passes the original message to the next parser.
         hops. It does not matter if you parse the messages on the client,
         on a relay, or on the central server, their structured results will
         be available where you store the messages. Optionally, you can also
-        forward the original raw message as the first syslog-ng component in your
+        forward the original raw message as the first {{ site.product.short_name }} component in your
         infrastructure has received it, which is important if you want
         to forward a message for example, to a SIEM system. To make use
         of the enterprise-wide message model, you have to use the
@@ -69,17 +69,16 @@ parse the message, it passes the original message to the next parser.
 
     - Otherwise, apply the application adapters if the message was
         sent from an application that already has a specific parser in
-        syslog-ng OSE (for example, Splunk Common Information Model
+        {{ site.product.short_name }} (for example, Splunk Common Information Model
         (CIM), [[iptables|adm-parser-iptables]], or [[sudo|adm-parser-sudo]]).
 
 ## Parsing RFC-5424 formatted messages
 
 For RFC-5424 formatted messages (that is, messages received on the ports
 set in options rfc5424-tls-port() and rfc5424-tcp-port(), which default
-to port 601 and 6514), syslog-ng OSE parses the message according to
+to port 601 and 6514), {{ site.product.short_name }} parses the message according to
 RFC-5424, then attempts apply the application adapters if the message was
-sent from an application that already has a specific parser in syslog-ng
-OSE (for example, Splunk Common Information Model (CIM),
+sent from an application that already has a specific parser in {{ site.product.short_name }} (for example, Splunk Common Information Model (CIM),
 [[iptables|adm-parser-iptables]], or [[sudo|adm-parser-sudo]]).
 
 ### Example: Using the default-network-drivers() driver

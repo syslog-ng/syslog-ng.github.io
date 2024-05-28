@@ -3,9 +3,9 @@ title: Limitations to using the mqtt() source
 id: adm-src-mqtt-lim
 ---
 
-Using the mqtt() source of syslog-ng OSE has the following limitations:
+Using the mqtt() source of {{ site.product.short_name }} has the following limitations:
 
-- You can only use the mqtt() source with syslog-ng OSE version 3.35
+- You can only use the mqtt() source with {{ site.product.short_name }} version 3.35
     or higher.
 
 - You cannot use the mqtt() source without installing the the

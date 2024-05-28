@@ -2,9 +2,9 @@
 title: Classifying log messages
 id: adm-parser-db-class
 description: >-
-    The syslog-ng application can compare the contents of the received log
+    The {{ site.product.short_name }} application can compare the contents of the received log
     messages to predefined message patterns. By comparing the messages to
-    the known patterns, syslog-ng is able to identify the exact type of the
+    the known patterns, {{ site.product.short_name }} is able to identify the exact type of the
     messages, and sort them into message classes. The message classes can be
     used to classify the type of the event described in the log message. The
     message classes can be customized, and for example, can label the
@@ -12,13 +12,13 @@ description: >-
     events.
 ---
 
-To find the pattern that matches a particular message, syslog-ng uses a
+To find the pattern that matches a particular message, {{ site.product.short_name }} uses a
 method called longest prefix match radix tree. This means that syslog-ng
 creates a tree structure of the available patterns, where the different
 characters available in the patterns for a given position are the
 branches of the tree.
 
-To classify a message, syslog-ng selects the first character of the
+To classify a message, {{ site.product.short_name }} selects the first character of the
 message (the text of message, not the header), and selects the patterns
 starting with this character, other patterns are ignored for the rest of
 the process. After that, the second character of the message is compared
@@ -38,13 +38,13 @@ details of available pattern parsers, see
 Using pattern parsers.  
 The functionality of the pattern database is similar to that of the
 logcheck project, but it is much easier to write and maintain the
-patterns used by syslog-ng, than the regular expressions used by
-logcheck. Also, it is much easier to understand syslog-ng pattens than
+patterns used by {{ site.product.short_name }}, than the regular expressions used by
+logcheck. Also, it is much easier to understand {{ site.product.short_name }} pattens than
 regular expressions.
 
 Pattern matching based on regular expressions is computationally very
 intensive, especially when the number of patterns increases. The
-solution used by syslog-ng can be performed real-time, and is
+solution used by {{ site.product.short_name }} can be performed real-time, and is
 independent from the number of patterns, so it scales much better. The
 following patterns describe the same message: Accepted password for
 bazsi from 10.50.0.247 port 42156 ssh2
@@ -55,7 +55,7 @@ Accepted
 for \[\^\[:space:\]\]+ from \[\^\[:space:\]\]+ port \[0-9\]+(
 (ssh\|ssh2))?
 
-A syslog-ng database pattern for this message: Accepted
+A {{ site.product.short_name }} database pattern for this message: Accepted
 @QSTRING:auth\_method: @ for@QSTRING:username: @from
 @QSTRING:client\_addr: @port @NUMBER:port:@ ssh2
 

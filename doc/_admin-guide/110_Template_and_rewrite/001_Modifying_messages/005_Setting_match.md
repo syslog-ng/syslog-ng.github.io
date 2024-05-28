@@ -12,9 +12,9 @@ set, or the JSON parser produces match variables
 if the parsed JSON data is an array.
 
 It is possible to set match variables in a single operation with the
-set-matches() rewrite function. set-matches() uses syslog-ng OSE list
+set-matches() rewrite function. set-matches() uses {{ site.product.short_name }} list
 expressions to set **$1, $2, \... $255**, so it can be considered as
-a conversion function between syslog-ng OSE lists and match variables.
+a conversion function between {{ site.product.short_name }} lists and match variables.
 
 {% include doc/admin-guide/notes/convert-match-var.md %}
 

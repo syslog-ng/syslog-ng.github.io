@@ -6,7 +6,7 @@ description: >-
     The Python destination allows you to write your own destination in
     Python. You can import external Python modules to process the messages,
     and send them to other services or servers. Since many services have a
-    Python library, the Python destination makes integrating syslog-ng OSE
+    Python library, the Python destination makes integrating {{ site.product.short_name }}
     very easy and quick.
 ---
 
@@ -16,13 +16,13 @@ description: >-
 
 **Declaration**
 
-Python destinations consist of two parts. The first is a syslog-ng OSE
-destination object that you define in your syslog-ng OSE configuration
+Python destinations consist of two parts. The first is a {{ site.product.short_name }}
+destination object that you define in your {{ site.product.short_name }} configuration
 and use in the log path. This object references a Python class, which is
 the second part of the Python destination. The Python class processes
 the log messages it receives, and can do virtually anything that you can
 code in Python. You can either embed the Python class into your
-syslog-ng OSE configuration file, or
+{{ site.product.short_name }} configuration file, or
 [[store it in an external Python file|adm-conf-python]].
 
 ```config
@@ -88,12 +88,12 @@ python() destination.
 
 The open(self) method opens the resources required for the destination,
 for example, it initiates a connection to the target service. It is
-called after init() when syslog-ng OSE is started or reloaded. If send()
-returns with an error, syslog-ng OSE calls close() and open() before
+called after init() when {{ site.product.short_name }} is started or reloaded. If send()
+returns with an error, {{ site.product.short_name }} calls close() and open() before
 trying to send again.
 
 If open() fails, it should return the False value. In this case,
-syslog-ng OSE retries it every time-reopen() seconds. By default, this
+{{ site.product.short_name }} retries it every time-reopen() seconds. By default, this
 is 1 second for Python sources and destinations, the value of
 time-reopen() is not inherited from the global option. For details, see
 Error handling in the python() destination.
@@ -108,7 +108,7 @@ Note that for batch mode, the flush() method must be implemented as well.
 This is the only mandatory method of the destination.
 
 If a message cannot be delivered after the number of times set in
-retries() (by default: 3), syslog-ng OSE drops the message and continues
+retries() (by default: 3), {{ site.product.short_name }} drops the message and continues
 with the next message. For details, see Error handling in the python()
 destination.
 
@@ -172,7 +172,7 @@ The method can return True, False, or one of the following constants:
 ### close(self) method (optional)
 
 Close the connection to the target service. Usually it is called right
-before deinit() when stopping or reloading syslog-ng OSE. It is also
+before deinit() when stopping or reloading {{ site.product.short_name }}. It is also
 called when send() fails.
 
 {% include doc/admin-guide/python-deinit.md %}
@@ -181,26 +181,26 @@ called when send() fails.
 
 The Python destination handles errors as follows.
 
-1. Currently syslog-ng OSE ignores every error from the open method
+1. Currently {{ site.product.short_name }} ignores every error from the open method
     until the first log message arrives to the Python destination. If
     the fist message has arrived and there was an error in the open
-    method, syslog-ng OSE starts calling the open method every
+    method, {{ site.product.short_name }} starts calling the open method every
     time-reopen() second, until opening the destination succeeds.
 
-2. If the open method returns without error, syslog-ng OSE calls the
+2. If the open method returns without error, {{ site.product.short_name }} calls the
     send method to send the first message.
 
-3. If the send method returns with an error, syslog-ng OSE calls the
+3. If the send method returns with an error, {{ site.product.short_name }} calls the
     is_opened method.
 
-    - If the is_opened method returns an error, syslog-ng OSE starts
+    - If the is_opened method returns an error, {{ site.product.short_name }} starts
         calling the open method every time-reopen() second, until
         opening the destination succeeds.
 
-    - Otherwise, syslog-ng OSE calls the send method again.
+    - Otherwise, {{ site.product.short_name }} calls the send method again.
 
 4. If the send method has returned with an error retries() times and
-    the is_opened method has not returned any errors, syslog-ng OSE
+    the is_opened method has not returned any errors, {{ site.product.short_name }}
     drops the message and attempts to process the next message.
 
 ### Example: Write logs into a file
@@ -211,7 +211,7 @@ files, use the [[file destination|adm-dest-file]] instead.
 
 The following sample code writes the body of log messages into the
 /tmp/example.txt file. Only the send() method is implemented, meaning
-that syslog-ng OSE opens and closes the file for every message.
+that {{ site.product.short_name }} opens and closes the file for every message.
 
 ```config
 destination d_python_to_file {

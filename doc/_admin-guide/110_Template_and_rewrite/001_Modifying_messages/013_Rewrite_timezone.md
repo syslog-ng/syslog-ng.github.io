@@ -2,8 +2,8 @@
 title: Rewrite the timezone of a message
 id: adm-temp-rewrite-tz
 description: >-
-    Starting with version 3.24 of the syslog-ng Open Source Edition
-    (syslog-ng OSE) application, you can manipulate the timezone information
+    Starting with version 3.24 of the {{ site.product.name }}
+    ({{ site.product.short_name }}) application, you can manipulate the timezone information
     of messages using rewrite rules. 
 ---
 
@@ -18,7 +18,7 @@ You can:
 
 By default, these operations modify the date-related macros of the
 message that correspond to the date the message was sent (that is, the
-S\_ macros). You can modify the dates when syslog-ng OSE has received
+S\_ macros). You can modify the dates when {{ site.product.short_name }} has received
 the messages (that is, the R\_ macros), but this is rarely needed. To do
 so, include the time-stamp(recvd) option in the operation, for example:
 
@@ -40,7 +40,7 @@ rewrite { fix-time-zone("EST5EDT"); };
 
 If you have lots of clients that do not send timezone information in the
 log messages, you can create a database file that stores the timezone of
-the clients, and feed this data to syslog-ng OSE using the
+the clients, and feed this data to {{ site.product.short_name }} using the
 add-contextual-data() feature. For details, see
 Adding metadata from an external file.
 
@@ -48,7 +48,7 @@ Adding metadata from an external file.
 
 Use the guess-time-zone() operation attempts to set the timezone of the
 message automatically, using heuristics on the timestamps. Normally the
-syslog-ng OSE application performs this operation automatically when it
+{{ site.product.short_name }} application performs this operation automatically when it
 parses the incoming message. Using this operation in a rewrite rule can
 be useful if you cannot parse the incoming message for some reason (and
 use the **flags(no-parse)** option in your source, but you want to set

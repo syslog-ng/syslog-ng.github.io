@@ -22,7 +22,7 @@ The graphite() destination has the following options:
 pairs to forward to graphite.
 
 The syntax of payload is different from the syntax of value-pairs():
-use the command-line syntax used in the Template functions of syslog-ng OSE
+use the command-line syntax used in the Template functions of {{ site.product.short_name }}
 format-json template function.
 For details on using the payload() option, see graphite-output.
 

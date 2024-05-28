@@ -5,7 +5,7 @@ description: >-
   This section provides information about enabling Proxy Protocol support
   in your network() source options, and an example configuration and
   output to illustrate how the Proxy Protocol method works in syslog-ng
-  Open Source Edition (syslog-ng OSE).
+  Open Source Edition ({{ site.product.short_name }}).
 ---
 
 For more information about the working mechanism of the Proxy Protocol,
@@ -14,7 +14,7 @@ see The working mechanism behind the Proxy Protocol.
 ## Enabling Proxy Protocol support for your network() source options
 
 Unless you enable Proxy Protocol support for your network() source,
-syslog-ng OSE identifies every connection that is connected to the load
+{{ site.product.short_name }} identifies every connection that is connected to the load
 balancers identically by default, regardless of the source IP or the
 source protocol.
 
@@ -28,13 +28,13 @@ configurations, where the proxy header is sent encrypted within the same
 TLS session as the proxied messages.
 
 When you enable Proxy Protocol support for your network() source, you
-can use the following configuration example with your syslog-ng OSE
+can use the following configuration example with your {{ site.product.short_name }}
 application.
 
 ## Configuration
 
 The following code sample illustrates how you can use the Proxy Protocol
-in your syslog-ng OSE configuration (using the transport() parameter set
+in your {{ site.product.short_name }} configuration (using the transport() parameter set
 to proxied-tls-passthrough).
 
 ```config
@@ -81,4 +81,4 @@ output looks like this:
 >"PROGRAM":"TestMsg","MESSAGE":"","LEGACY_MSGHDR":"TestMsg",  
 >"HOST_FROM":"localhost","HOST":"localhost"}
 
-Note that the macros that syslog-ng OSE adds to the message appear in the output.
+Note that the macros that {{ site.product.short_name }} adds to the message appear in the output.

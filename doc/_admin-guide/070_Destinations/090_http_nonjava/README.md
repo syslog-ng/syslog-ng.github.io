@@ -3,7 +3,7 @@ title: 'http: Posting messages over HTTP without Java'
 short_title: http-nonjava
 id: adm-dest-http-nonjava
 description: >-
-    Version 3.8 of syslog-ng OSE can directly post log messages to web
+    Version 3.8 of {{ site.product.short_name }} can directly post log messages to web
     services using the HTTP protocol, without having to use Java.
 ---
 
@@ -15,9 +15,9 @@ HTTPS connection, as well as password- and certificate-based
 authentication is supported.
 
 If the server returns a status code beginning with 2 (for example, 200),
-syslog-ng OSE assumes the message was successfully sent. For other
+{{ site.product.short_name }} assumes the message was successfully sent. For other
 response codes, see HTTP destination options.
-You can override the behavior of syslog-ng OSE using the response-action() option.
+You can override the behavior of {{ site.product.short_name }} using the response-action() option.
 
 ## Example: Client certificate authentication with HTTPS
 
@@ -89,4 +89,4 @@ log {
 ```
 
 You can also use the http() destination to
-[[forward log messages to Splunk|adm-dest-splunk-hec]] using syslog-ng OSE.
+[[forward log messages to Splunk|adm-dest-splunk-hec]] using {{ site.product.short_name }}.

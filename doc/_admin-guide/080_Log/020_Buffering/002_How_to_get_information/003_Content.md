@@ -3,22 +3,22 @@ title: Printing the content of disk-buffer files
 id: adm-log-diskbuff-content
 description: >-
     This section describes printing the content of the disk-buffer files
-    used in syslog-ng Open Source Edition(syslog-ng OSE).
+    used in {{ site.product.short_name }}.
 ---
 
 ## Command syntax
 
 The command syntax for printing the content of the disk-buffer files
-used in syslog-ng OSE looks like the following:
+used in {{ site.product.short_name }} looks like the following:
 
 ```bash
 dqtool cat DISK-BUFFER_FILE
 ```
 
-### Example: short output that shows the printed content of the disk-buffer files used in syslog-ng OSE
+### Example: short output that shows the printed content of the disk-buffer files used in {{ site.product.short_name }}
 
 The following short output example shows the printed content of the
-disk-buffer files used in syslog-ng OSE:
+disk-buffer files used in {{ site.product.short_name }}:
 
 ```config
 dqtool cat /opt/syslog-ng/var/syslog-ng-00000.rqf

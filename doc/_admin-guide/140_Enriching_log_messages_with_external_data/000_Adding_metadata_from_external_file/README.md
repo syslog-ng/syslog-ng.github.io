@@ -2,7 +2,7 @@
 title: Adding metadata from an external file
 id: adm-enrich-meta-ext
 description: >-
-    In syslog-ng OSE version 3.8 and later, you can use an external database
+    In {{ site.product.short_name }} version 3.8 and later, you can use an external database
     file to add additional metadata to your log messages. For example, you
     can create a database (or export it from an existing tool) that contains
     a list of hostnames or IP addresses, and the department of your
@@ -19,10 +19,10 @@ format, where each line contains the following information:
     You can also reference the name of a filter that matches
     the messages, see Using filters as selector.
 
-- The name of the name-value pair that syslog-ng OSE adds to matching
+- The name of the name-value pair that {{ site.product.short_name }} adds to matching
     log messages.
 
-- The value of the name-value pairs. Starting with syslog-ng OSE
+- The value of the name-value pairs. Starting with {{ site.product.short_name }}
     version 3.22, the value of the name-value pair can be a template or
     a template function, for example, \"selector3,name,$(echo
     ${HOST_FROM})\";
@@ -52,7 +52,7 @@ in the database for each name-value pair, for example:
 192.168.1.1,contact-email,johndoe@example.com
 ```
 
-Technically, add-contextual-data() is a parser in syslog-ng OSE so you
+Technically, add-contextual-data() is a parser in {{ site.product.short_name }} so you
 have to define it as a parser object.
 
 **Declaration**
@@ -69,9 +69,9 @@ parser p_add_context_data {
 You can also add data to messages that do not have a matching selector
 entry in the database using the **default-selector()** option.
 
-If you modify the database file, you have to reload syslog-ng OSE for
-the changes to take effect. If reloading syslog-ng OSE or the database
-file fails for some reason, syslog-ng OSE will keep using the last
+If you modify the database file, you have to reload {{ site.product.short_name }} for
+the changes to take effect. If reloading {{ site.product.short_name }} or the database
+file fails for some reason, {{ site.product.short_name }} will keep using the last
 working database file.
 
 ### Example: Adding metadata from a CSV file

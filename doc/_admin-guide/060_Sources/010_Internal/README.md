@@ -3,17 +3,17 @@ title: 'internal: Collecting internal messages'
 short_title: internal
 id: adm-src-int
 description: >-
-    All messages generated internally by syslog-ng use this special source.
+    All messages generated internally by {{ site.product.short_name }} use this special source.
 ---
 
-To collect warnings, errors and notices from syslog-ng itself, include
+To collect warnings, errors and notices from {{ site.product.short_name }} itself, include
 this source in one of your source statements.
 
 ```config
 internal()
 ```
 
-The syslog-ng application will issue a warning upon startup if none of
+The {{ site.product.short_name }} application will issue a warning upon startup if none of
 the defined log paths reference this driver.
 
 ## Example: Using the internal() driver
@@ -24,7 +24,7 @@ source s_local { internal(); };
 
 ## Message types
 
-The syslog-ng OSE application sends the following message types from the internal() source
+The {{ site.product.short_name }} application sends the following message types from the internal() source
 
 - *fatal*: Priority value: critical (2), Facility value: syslog (5)
 

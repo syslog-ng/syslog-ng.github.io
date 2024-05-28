@@ -45,7 +45,7 @@ without specifying an attribute: owner().
 
 ![]({{ site.baseurl}}/assets/images/caution.png) **CAUTION:**
 Hazard of data loss! If the size of the incoming message is larger
-than the previously set pad-size() value, syslog-ng will truncate
+than the previously set pad-size() value, {{ site.product.short_name }} will truncate
 the message to the specified size. Therefore, all message content
 above that size will be lost.
 {: .notice--danger}

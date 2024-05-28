@@ -23,7 +23,7 @@ The pattern database is organized as follows:
     application or the beginning of its name (for example, to match for
     sendmail, the program pattern can be sendmail, or just send), and
     the Program Pattern can contain pattern parsers. Note that pattern
-    parsers are completely independent from the syslog-ng parsers used
+    parsers are completely independent from the {{ site.product.short_name }} parsers used
     to segment messages. Additionally, every rule has a unique
     identifier: if a message matches a rule, the identifier of the rule
     is stored together with the message.
@@ -38,7 +38,7 @@ The pattern database is organized as follows:
 - Rules can also contain additional information about the matching
     messages, such as the description of the rule, an URL, name-value
     pairs, or free-form tags. This information is displayed by the
-    syslog-ng Open Source Edition in the email alerts (if alerts are
+    {{ site.product.name }} in the email alerts (if alerts are
     requested for the rule), and are also displayed on the search
     interface.
 

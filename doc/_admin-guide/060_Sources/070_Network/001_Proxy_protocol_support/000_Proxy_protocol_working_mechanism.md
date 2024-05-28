@@ -2,13 +2,13 @@
 title: The working mechanism behind the Proxy Protocol
 id: adm-src-netw-proxy-mech
 description: >-
-    This section describes how syslog-ng Open Source Edition (syslog-ng OSE)
+    This section describes how {{ site.product.short_name }}
     supports the Proxy Protocol.
 ---
 
 ## The working mechanism behind the Proxy Protocol
 
-When using the Proxy Protocol during load balancing, syslog-ng OSE
+When using the Proxy Protocol during load balancing, {{ site.product.short_name }}
 detects the information behind connections connected to the load
 balancer, then parses the injected information and adds the following
 macros to every message the comes through the connection later on:
@@ -25,7 +25,7 @@ macros to every message the comes through the connection later on:
 >  
 >- When the proxy protocol header is PROXY UNKNOWN, no additional macros are added.
 >  
->- When syslog-ng OSE cannot parse a proxy protocol header, the connection is closed:
+>- When {{ site.product.short_name }} cannot parse a proxy protocol header, the connection is closed:
 >  
 > [2020-11-20T17:33:22.189458] PROXY protocol header received; line='PROXYdsfj'  
 > [2020-11-20T17:33:22.189475] Error parsing PROXY protocol header;  

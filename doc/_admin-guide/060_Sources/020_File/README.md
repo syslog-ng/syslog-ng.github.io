@@ -7,9 +7,9 @@ description: >-
     an Apache webserver. If you want to use wildcards in the filename, use the [[wildcard-file() source|adm-src-wild]].
 ---
 
-The syslog-ng application notices if a file is renamed or replaced with
+The {{ site.product.short_name }} application notices if a file is renamed or replaced with
 a new file, so it can correctly follow the file even if logrotation is
-used. When syslog-ng is restarted, it records the position of the last
+used. When {{ site.product.short_name }} is restarted, it records the position of the last
 sent log message in the /var/lib/syslog-ng/syslog-ng.persist file, and
 continues to send messages from this position after the restart.
 

@@ -6,7 +6,7 @@ description: >-
   The collectd() destination uses the unixsock plugin of the collectd application
   to send log messages to the collectd system statistics collection daemon. You must install and configure collectd separately before using this destination.
 
-  Available in syslog-ng OSE version 3.20 and later.
+  Available in {{ site.product.short_name }} version 3.20 and later.
 ---
 
 **Declaration**
@@ -45,7 +45,7 @@ destination d_collectd {
 ```
 
 To use the collectd() driver, the scl.conf file must be included in your
-syslog-ng OSE configuration:
+{{ site.product.short_name }} configuration:
 
 ```config
 @include "scl.conf"

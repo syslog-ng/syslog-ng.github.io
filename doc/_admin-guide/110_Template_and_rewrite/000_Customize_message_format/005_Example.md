@@ -9,13 +9,13 @@ ${DESTIP}, the ${DESTPORT}, and the ${PROTO} macros.
 
 Using the ${DESTIP}, the ${DESTPORT}, and the ${PROTO} macros is relevant
 when multiple sources are configured to receive messages on the
-syslog-ng OSE side. In this case, the hostname and IP address on the
-sender\'s side and the syslog-ng OSE side is the same, and at a later
-point in the pipeline, syslog-ng OSE can not by default specify which
+{{ site.product.short_name }} side. In this case, the hostname and IP address on the
+sender\'s side and the {{ site.product.short_name }} side is the same, and at a later
+point in the pipeline, {{ site.product.short_name }} can not by default specify which
 source received the message. The ${DESTIP}, the ${DESTPORT}, and the
 ${PROTO} macros solve this issue by specifying the local IP address and
 local port of the original message source, and the protocol used on the
-original message source on the syslog-ng OSE side.
+original message source on the {{ site.product.short_name }} side.
 
 ## When to use the ${DESTIP}, the ${DESTPORT}, and the ${PROTO} macros
 
@@ -28,18 +28,18 @@ ${PROTO} macros in either of the following scenarios:
     different, and instead of using complex filters, you want to capture
     either of them, preferably with the simplest possible filter.
 
-- The IP addresses on the sender\'s side and the syslog-ng OSE side
+- The IP addresses on the sender\'s side and the {{ site.product.short_name }} side
     are the same, therefore the netmask() option doesn\'t work in your
     configuration.
 
-- The hostnames on the sender\'s side and the syslog-ng OSE side are
+- The hostnames on the sender\'s side and the {{ site.product.short_name }} side are
     the same, therefore the host() option doesn\'t work in your
     configuration.
 
 ## Macros: ${DESTIP}, ${DESTPORT}, and ${PROTO}
 
-To solve either of the challenges listed previously, syslog-ng Open
-Source Edition (syslog-ng OSE) supports the following macros that you
+To solve either of the challenges listed previously, {{ site.product.short_name }} Open
+Source Edition ({{ site.product.short_name }}) supports the following macros that you
 can include in your configuration:
 
 - ${DESTIP}
@@ -51,13 +51,12 @@ can include in your configuration:
 ## Configuration and output
 
 The following configuration example illustrates how you can use the
-${DESTIP}, the ${DESTPORT}, and the ${PROTO} macros in your syslog-ng OSE
+${DESTIP}, the ${DESTPORT}, and the ${PROTO} macros in your {{ site.product.short_name }}
 configuration.
 
 ### Example: using the ${DESTIP}, the ${DESTPORT}, and the ${PROTO} macros in your configuration
 
-The ${DESTIP}, the ${DESTPORT}, and the ${PROTO} macros in your syslog-ng
-OSE configuration:
+The ${DESTIP}, the ${DESTPORT}, and the ${PROTO} macros in your {{ site.product.short_name }} configuration:
 
 ```config
 log{ 

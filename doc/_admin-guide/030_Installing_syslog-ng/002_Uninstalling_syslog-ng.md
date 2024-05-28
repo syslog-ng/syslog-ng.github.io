@@ -1,23 +1,23 @@
 ---
-title: Uninstalling syslog-ng OSE
+title: Uninstalling {{ site.product.short_name }}
 id: adm-inst-uninst
 ---
 
-If you need to uninstall syslog-ng OSE for some reason, you have the
+If you need to uninstall {{ site.product.short_name }} for some reason, you have the
 following options:
 
-- *If you have installed syslog-ng OSE from a .deb package*: Execute
-    the **dpkg -r syslog-ng** command to remove syslog-ng, or the **dpkg
-    -P syslog-ng** command to remove syslog-ng OSE and the configuration
-    files as well. Note that removing syslog-ng OSE does not restore the
+- *If you have installed {{ site.product.short_name }} from a .deb package*: Execute
+    the **dpkg -r syslog-ng** command to remove {{ site.product.short_name }}, or the **dpkg
+    -P syslog-ng** command to remove {{ site.product.short_name }} and the configuration
+    files as well. Note that removing {{ site.product.short_name }} does not restore the
     syslog daemon used before syslog-ng.
 
-- *If you have installed syslog-ng OSE from an .rpm package*: Execute
-    the **rpm -e syslog-ng** command to remove syslog-ng OSE. Note that
-    removing syslog-ng OSE does not restore the syslog daemon used
-    before syslog-ng OSE.
+- *If you have installed {{ site.product.short_name }} from an .rpm package*: Execute
+    the **rpm -e syslog-ng** command to remove {{ site.product.short_name }}. Note that
+    removing {{ site.product.short_name }} does not restore the syslog daemon used
+    before {{ site.product.short_name }}.
 
-- *If you have compiled syslog-ng OSE from source*: Execute the **sudo
-    make uninstall** command to remove syslog-ng OSE. Note that removing
-    syslog-ng OSE does not restore the syslog daemon used before
-    syslog-ng OSE.
+- *If you have compiled {{ site.product.short_name }} from source*: Execute the **sudo
+    make uninstall** command to remove {{ site.product.short_name }}. Note that removing
+    {{ site.product.short_name }} does not restore the syslog daemon used before
+    {{ site.product.short_name }}.

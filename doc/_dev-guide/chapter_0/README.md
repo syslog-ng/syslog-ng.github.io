@@ -1,9 +1,9 @@
 ---
-title: Install syslog-ng on different platforms
+title: Install {{ site.product.short_name }} on different platforms
 id: dev-install-syslog-ng
 ---
 
-The sections under this chapter give you step-by-step guides to install syslog-ng on different platforms.
+The sections under this chapter give you step-by-step guides to install {{ site.product.short_name }} on different platforms.
 Feel free to write new sections that helps the members of the community to get started with syslog-ng.
 Installation guides using packages and source are also welcome.
 

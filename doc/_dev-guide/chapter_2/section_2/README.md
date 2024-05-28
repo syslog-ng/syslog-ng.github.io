@@ -24,7 +24,7 @@ This script will clone the Git submodules and initialize the build system. The
 result of the execution should be a `configure` script.
 
 1. Create build directory
-We prefer to build syslog-ng in a dedicated directory, so your Git repo is kept
+We prefer to build {{ site.product.short_name }} in a dedicated directory, so your Git repo is kept
 tidy.
 
 ``` shell
@@ -56,7 +56,7 @@ but `make -j` does not, that is a bug.
 
 ### Expected outcome
 
-You should have a freshly built syslog-ng by the end of this step.
+You should have a freshly built {{ site.product.short_name }} by the end of this step.
 
 ## Cleanup
 

@@ -5,7 +5,7 @@ description: >-
     A template function is a transformation: it modifies the way macros or
     name-value pairs are expanded. Template functions can be used in
     template definitions, or when macros are used in the configuration of
-    syslog-ng OSE. 
+    {{ site.product.short_name }}. 
 ---
 
 Template functions use the following syntax:
@@ -35,7 +35,7 @@ $(echo $(echo ${HOST}))
 ```
 
 For details on the available template functions, see the descriptions of
-the individual template functions in Template functions of syslog-ng OSE.
+the individual template functions in Template functions of {{ site.product.short_name }}.
 
 You can define your own template function as a regular configuration
 object (for example, to reuse the same function in different places in

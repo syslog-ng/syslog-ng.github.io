@@ -39,7 +39,7 @@ event.
 |  Type:|      template, macro, or string|
   |Default:|   ${UNIXTIME}|
 
-*Description:* Instead of the arrival time into Riemann, syslog-ng OSE
+*Description:* Instead of the arrival time into Riemann, {{ site.product.short_name }}
 can also send its own timestamp value.
 
 This can be useful if Riemann is inaccessible for a while, and the
@@ -59,9 +59,9 @@ event-time("12345678" seconds)
 event-time("12345678")
 ```
 
-In case the parameter is omitted, syslog-ng OSE defaults to the seconds
+In case the parameter is omitted, {{ site.product.short_name }} defaults to the seconds
 version. In case the event-time() option is omitted altogether,
-syslog-ng OSE defaults to the seconds version with ${UNIXTIME}.
+{{ site.product.short_name }} defaults to the seconds version with ${UNIXTIME}.
 
 Note that the time format parameter requires:
 
@@ -166,7 +166,7 @@ event.
   |Default:|   the tags already assigned to the message|
 
 *Description:* The list of tags to add as the tags field of the Riemann
-event. If not specified syslog-ng OSE automatically adds the tags
+event. If not specified {{ site.product.short_name }} automatically adds the tags
 already assigned to the message. If you set the tags() option, only the
 tags you specify will be added to the event.
 

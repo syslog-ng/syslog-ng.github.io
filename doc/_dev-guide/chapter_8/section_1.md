@@ -5,7 +5,7 @@ id: dev-modules-plugins
 
 Plugins are the individual pieces of functionality used in log paths. Examples include `file`, `csv-parser`, and `base64-encode`. Modules are groups of one or more plugins. The modules that the aforementioned plugins belong to are `affile`, `csvparser`, and `basicfuncs`, respectively.
 
-Modules are stored in `modules/` as directories (e.g. `modules/affile/`). Inside these directories are files that integrate the module, files that handle parsing for the module, and files that implement the plugins of the module. Modules are dynamically loaded by syslog-ng (one `.so` file per module).
+Modules are stored in `modules/` as directories (e.g. `modules/affile/`). Inside these directories are files that integrate the module, files that handle parsing for the module, and files that implement the plugins of the module. Modules are dynamically loaded by {{ site.product.short_name }} (one `.so` file per module).
 
 ## Parts of a Module
 
@@ -38,15 +38,15 @@ The purpose of the plugin file is to integrate a module and its plugins into sys
 extern CfgParser affile_parser;
 ```
 
-Syslog-ng needs a list of the module's plugins, in the form of `Plugin` objects, so the syslog-ng parser knows how to parse them in the configuration file. `Plugin` objects are defined by:
+{{ site.product.short_name }} needs a list of the module's plugins, in the form of `Plugin` objects, so the {{ site.product.short_name }} parser knows how to parse them in the configuration file. `Plugin` objects are defined by:
 
 1. A `type` field, which is the context/block a plugin belongs in (source, destination, parser, etc.). This is set to one of the tokens defined under `lib/cfg-grammar.y` (e.g. `LL_CONTEXT_SOURCE`).
 2. A `name` field, which is the string used to declare the use of the plugin.
 3. A `parser` field, which is the `CfgParser` used to parse the plugin. Usually this is just the `CfgParser` for the module.
 
-When the syslog-ng parser encounters `name` inside a context/block of the type, `type`, it will use `parser` to parse the block.
+When the {{ site.product.short_name }} parser encounters `name` inside a context/block of the type, `type`, it will use `parser` to parse the block.
 
-In this snippet of a config file, for example, the syslog-ng parser sees that it is inside a source context/block (`LL_CONTEXT_SOURCE`), and finds the string `file`, so it uses the parser for that plugin, which is `affile_parser`, to parse the configuration block.
+In this snippet of a config file, for example, the {{ site.product.short_name }} parser sees that it is inside a source context/block (`LL_CONTEXT_SOURCE`), and finds the string `file`, so it uses the parser for that plugin, which is `affile_parser`, to parse the configuration block.
 
 ```
 source s_local {
@@ -214,7 +214,7 @@ CFG_PARSER_IMPLEMENT_LEXER_BINDING(affile_, LogDriver **)
 
 ## Structs as Classes
 
-Syslog-ng is written in C but simulates the funcitonality of classes and objects by using structs. 
+{{ site.product.short_name }} is written in C but simulates the funcitonality of classes and objects by using structs. 
 
 The first field of any struct that represents a subclass is `super`. The type of `super` is the struct that represents the superclass. This type is not a pointer.
 

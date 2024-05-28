@@ -18,7 +18,7 @@ For example:
 
 {% include doc/admin-guide/parser-support.md %}
 
-The syslog-ng OSE application sets the ${PROGRAM} field to Netskope.
+The {{ site.product.short_name }} application sets the ${PROGRAM} field to Netskope.
 
 By default, the Netskope-specific fields are extracted into name-value
 pairs prefixed with .netskope. For example, the organization\_unit in

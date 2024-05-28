@@ -1,11 +1,11 @@
 ---
-title: Load balancing with a round robin load balancing method based on the R_MSEC macro of syslog-ng OSE
+title: Load balancing with a round robin load balancing method based on the R_MSEC macro of {{ site.product.short_name }}
 short_title: Load balancing with round robin
 id: adm-pract-round-robin
 description: >-
   This section describes a round robin load balancing method based on the
-  R_MSEC macro of syslog-ng Open Source Edition (syslog-ng OSE) to load
-  balance your logs between multiple syslog-ng OSE destinations.
+  R_MSEC macro of {{ site.product.short_name }} to load
+  balance your logs between multiple {{ site.product.short_name }} destinations.
 ---
 
 **TIP:** If R_MSEC is not precise enough, you can replace it with R_USEC
@@ -13,12 +13,12 @@ description: >-
 {: .notice--info}
 
 For more information about the R_MSEC macro and further macros of
-syslog-ng OSE, see Macros of syslog-ng OSE.
+{{ site.product.short_name }}, see Macros of {{ site.product.short_name }}.
 
 ## Example: round robin load balancing between multiple destinations
 
 The following example is a round-robin load balancing method, based on
-syslog-ng OSE's R_MSEC macro.
+${R_MSEC} macro of {{ site.product.short_name }}.
 
 ```config
 destination d_lb_network { 
@@ -58,7 +58,7 @@ this case, 0 or 1).
 
 If you need a file instead of a network destination, replace the network
 destination with the file in the example (and use the same analogy for
-any other syslog-ng OSE destinations).
+any other {{ site.product.short_name }} destinations).
 
 For an alternative method to use the round robin load balancing method
 based on the R_MSEC macro, see

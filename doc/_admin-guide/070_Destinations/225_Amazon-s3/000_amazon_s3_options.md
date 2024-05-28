@@ -59,7 +59,7 @@ Description: Only has effect if compression() is set to `yes`. The level of the 
 |Type:|   integer[minutes]|
 |Default:|           60|
 
-*Description:* After the grace period expires and no new messages are routed to the destination, syslog-ng OSE flushes the contents of the buffer to the S3 object even if the volume of the messages in the buffer is lower than chunk-size().
+*Description:* After the grace period expires and no new messages are routed to the destination, {{ site.product.short_name }} flushes the contents of the buffer to the S3 object even if the volume of the messages in the buffer is lower than chunk-size().
 
 #{% include doc/admin-guide/options/log-fifo-size.md %}
 
@@ -68,7 +68,7 @@ Description: Only has effect if compression() is set to `yes`. The level of the 
 |Type:|   number [GiB]|
 |Default:|           5120GiB|
 
-*Description:* The maximal size of the S3 object. If an object reaches this size, syslog-ng OSE appends an index suffix ("-1", “-2”, …) to the object key and starts a new object after rotation.
+*Description:* The maximal size of the S3 object. If an object reaches this size, {{ site.product.short_name }} appends an index suffix ("-1", “-2”, …) to the object key and starts a new object after rotation.
 
 ### max-pending-uploads()
 
@@ -128,7 +128,7 @@ If an invalid value is configured, the default is used.
 |Type:|   integer|
 |Default:|           8|
 
-*Description:* The number of syslog-ng OSE worker threads that are used to upload data to S3 from this destination.
+*Description:* The number of {{ site.product.short_name }} worker threads that are used to upload data to S3 from this destination.
 
 ### template()
 

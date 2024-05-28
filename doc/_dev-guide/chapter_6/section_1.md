@@ -3,11 +3,11 @@ title: Getting started with implementing Python destinations
 id: dev-tut-python-dest
 ---
 
-Python is a popular, easy-to-use, high-level language that makes writing code fun and easy. The syslog-ng application supports writing destinations in Python, allowing you to easily extend the capabilities of syslog-ng for your own needs. In this section, you will learn how to create a Python destination for syslog-ng, which takes messages and logs them to a file. This tutorial assumes a basic understanding of Python.
+Python is a popular, easy-to-use, high-level language that makes writing code fun and easy. The {{ site.product.short_name }} application supports writing destinations in Python, allowing you to easily extend the capabilities of {{ site.product.short_name }} for your own needs. In this section, you will learn how to create a Python destination for {{ site.product.short_name }},  which takes messages and logs them to a file. This tutorial assumes a basic understanding of Python.
 
-###The syslog-ng configuration file
+###The {{ site.product.short_name }} configuration file
 
-To create a Python destination, you will need to specify the destination in your syslog-ng configuration file.
+To create a Python destination, you will need to specify the destination in your {{ site.product.short_name }} configuration file.
 
 The following example demonstrates a Python destination in the configuration file:
 
@@ -22,7 +22,7 @@ destination d_python_to_file {
 };
 ```
 
-You will see that the Python destination requires three options: `class()`, `on-error()`, and `value-pairs()`. Refer to the syslog-ng OSE documentation for a more thorough explanation of these options. The `options()` part is optional. The Python destination driver will receive these values during initialization.
+You will see that the Python destination requires three options: `class()`, `on-error()`, and `value-pairs()`. Refer to the {{ site.product.short_name }} documentation for a more thorough explanation of these options. The `options()` part is optional. The Python destination driver will receive these values during initialization.
 
 #### class()
 
@@ -40,7 +40,7 @@ You can also include other arbitrary options in the configuration file. These wi
 
 ###The LogDestination class
 
-To interface with syslog-ng, you will need a class with these methods:
+To interface with {{ site.product.short_name }},  you will need a class with these methods:
 
 ```python
     def open(self):
@@ -77,11 +77,11 @@ To interface with syslog-ng, you will need a class with these methods:
         return True
 ```
 
-When syslog-ng starts, it will attempt to run the init method. This method should do any initialization that needs to be performed at the start of the program.
+When {{ site.product.short_name }} starts, it will attempt to run the init method. This method should do any initialization that needs to be performed at the start of the program.
 
-Whenever a new message is generated and fed to your Python script, a Python dictionary is passed to the sent function with name-value pairs specified in the relevant syslog-ng configuration file.
+Whenever a new message is generated and fed to your Python script, a Python dictionary is passed to the sent function with name-value pairs specified in the relevant {{ site.product.short_name }} configuration file.
 
-The following two examples put it all together. A sample python class that writes all name-value pairs given to a file, and the accompanying syslog-ng configuration file.
+The following two examples put it all together. A sample python class that writes all name-value pairs given to a file, and the accompanying {{ site.product.short_name }} configuration file.
 
 #### Example: Python file ####
 
@@ -192,7 +192,7 @@ class TextDestination(LogDestination):
         self.outfile.flush()
         return True
 ```
-#### Example: syslog-ng configuration file ####
+#### Example: {{ site.product.short_name }} configuration file ####
 ```c
 @version: 3.7
 @include "scl.conf"

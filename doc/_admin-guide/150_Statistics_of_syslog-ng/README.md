@@ -2,11 +2,11 @@
 title: Statistics of syslog-ng
 id: adm-stats
 description: >-
-    The syslog-ng OSE application collects various statistics and measures
+    The {{ site.product.short_name }} application collects various statistics and measures
     different metrics about the messages it receives and delivers. These
     metrics are collected into different counters, depending on the
-    configuration of syslog-ng OSE. The stats-level()
-    global option determines exactly which statistics syslog-ng OSE collects.
+    configuration of {{ site.product.short_name }}. The stats-level()
+    global option determines exactly which statistics {{ site.product.short_name }} collects.
     You can access these statistics and metrics using the following methods.
 ---
 
@@ -16,7 +16,7 @@ description: >-
     query command.
 
     For further information about using syslog-ng-ctl commands, see
-    The syslog-ng manual pages.
+    The {{ site.product.short_name }} manual pages.
 
 ## Legacy: Unstructured, bulk methods
 
@@ -25,7 +25,7 @@ description: >-
 - Using the syslog-ng-ctl stats command.
 
     For further information about using syslog-ng-ctl commands, see
-    The syslog-ng manual pages.
+    The {{ site.product.short_name }} manual pages.
 
 - Use the socat application:
 

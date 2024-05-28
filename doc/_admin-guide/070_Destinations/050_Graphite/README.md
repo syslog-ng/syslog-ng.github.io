@@ -9,7 +9,7 @@ description: >-
     Graphite template function with name value pairs. 
 ---
 
-The syslog-ng OSE CSV and PatternDB parsers (for details,
+The {{ site.product.short_name }} CSV and PatternDB parsers (for details,
 see Using pattern parsers) can parse
 log messages and generate name value pairs based on message
 content. The CSV parser (for details, see
@@ -19,12 +19,11 @@ like the Apache web server access logs. The patterndb parser can
 parse information and can extract important fields from free form
 log messages, as long as patterns describing the log messages
 are available. Another way is to send JSON-based log messages
-(for details, see JSON parser) to syslog-ng
-OSE, like running a simple shell script collecting
+(for details, see JSON parser) to {{ site.product.short_name }}, like running a simple shell script collecting
 metrics and running it from cron regularly.
 
 To see an example of how the graphite() destination is used to collect
-statistics coming from syslog-ng, see the blog post Collecting syslog-ng
+statistics coming from {{ site.product.short_name }}, see the blog post Collecting syslog-ng
 statistics to Graphite.
 
 **Declaration**

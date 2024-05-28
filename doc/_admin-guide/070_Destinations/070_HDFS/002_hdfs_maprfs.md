@@ -2,13 +2,13 @@
 title: Storing messages with MapR-FS
 id: adm-dest-hdfs-maprfs
 description: >-
-    The syslog-ng OSE application is also compatible with MapR File System
+    The {{ site.product.short_name }} application is also compatible with MapR File System
     (MapR-FS). MapR-FS provides better performance, reliability, efficiency,
     maintainability, and ease of use compared to the default Hadoop
     Distributed Files System (HDFS). 
 ---
 
-To use MapR-FS with syslog-ng OSE, complete the following steps:
+To use MapR-FS with {{ site.product.short_name }}, complete the following steps:
 
 1. Install MapR libraries. Instead of the official Apache HDFS
     libraries, MapR uses different libraries. The supported version is
@@ -41,7 +41,7 @@ To use MapR-FS with syslog-ng OSE, complete the following steps:
     hadoop-0.20.2-dev-core.jar, json-20080701.jar,
     protobuf-java-2.5.0.jar, zookeeper-3.4.5-mapr-1406.jar.
 
-3. Configure the hdfs destination in syslog-ng OSE.
+3. Configure the hdfs destination in {{ site.product.short_name }}.
 
     Example: Storing logfiles with MapR-FS
 

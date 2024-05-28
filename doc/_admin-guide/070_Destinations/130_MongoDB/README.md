@@ -22,17 +22,17 @@ collections.
 
 The mongodb() driver does not add the _id field to the message: the
 MongoDB server will do that automatically, if none is present. If you
-want to override this field from syslog-ng OSE, use the key() parameter
+want to override this field from {{ site.product.short_name }}, use the key() parameter
 of the value-pairs() option.
 
-The syslog-ng OSE mongodb() driver is compatible with MongoDB server
+The {{ site.product.short_name }} mongodb() driver is compatible with MongoDB server
 version 1.4 and newer.
 
-**NOTE:** Prior to version 4.0, syslog-ng OSE handled all data as strings, and allowed the strings to be converted into other types of data that only data formats of certain destinations supported.
-In syslog-ng OSE 4.0 and later versions, each name-value pair is a (name, type, value) triplet, and several components of syslog-ng OSE 4.0 support this format. For details, see [Specifying data types in value-pairs](./000_Specifying_data_types.md).
+**NOTE:** Prior to version 4.0, {{ site.product.short_name }} handled all data as strings, and allowed the strings to be converted into other types of data that only data formats of certain destinations supported.
+In {{ site.product.short_name }} 4.0 and later versions, each name-value pair is a (name, type, value) triplet, and several components of {{ site.product.short_name }} 4.0 support this format. For details, see Specifying data types in value-pairs.
 {: .notice--info}
 
-**NOTE:** By default, syslog-ng OSE handles every message field as a string.
+**NOTE:** By default, {{ site.product.short_name }} handles every message field as a string.
 For details on how to send selected fields as other types of data (for
 example, handle the PID as a number), see
 Specifying data types in value-pairs.

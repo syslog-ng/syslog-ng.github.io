@@ -6,7 +6,7 @@ id: adm-log-filters-functions
 The following functions may be used in the filter statement, as
 described in Filters.  
 
-## Table 14: Filter functions available in syslog-ng OSE
+## Table 14: Filter functions available in {{ site.product.short_name }}
 
 |Name|Description|
 |---|---|
@@ -20,5 +20,5 @@ described in Filters.
 |netmask() or netmask6()|Filter messages based on the IP address of the sending host.|
 |program()|Filter messages based on the sending application.|
 |rate-limit() |Limits messages rate based on arbitrary keys in each message. |
-|source()|Select messages of the specified syslog-ng OSE source statement.|
+|source()|Select messages of the specified {{ site.product.short_name }} source statement.|
 |tags()|Select messages having the specified tag.|

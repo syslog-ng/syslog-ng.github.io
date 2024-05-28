@@ -1,24 +1,24 @@
 ---
-title: Configuring syslog-ng on server hosts
+title: Configuring {{ site.product.short_name }} on server hosts
 id: adm-qs-server-conf
 description: >-
-    To configure syslog-ng on a server host, complete the following steps.
+    To configure {{ site.product.short_name }} on a server host, complete the following steps.
 ---
 
 ## Steps
 
-1. Install the syslog-ng application on the host. For details
-    installing syslog-ng on specific operating systems, see
+1. Install the {{ site.product.short_name }} application on the host. For details
+    installing {{ site.product.short_name }} on specific operating systems, see
     Installing syslog-ng.
-2. Starting with version 3.2, syslog-ng OSE automatically collects the
+2. Starting with version 3.2, {{ site.product.short_name }} automatically collects the
     log messages that use the native system logging method of the
     platform, for example, messages from /dev/log on Linux, or /dev/klog
     on FreeBSD. For a complete list of messages that are collected
     automatically, see [[system: Collecting the system-specific log messages of a platform]].
 
-3. To configure syslog-ng OSE, edit the syslog-ng.conf file with any
+3. To configure {{ site.product.short_name }}, edit the syslog-ng.conf file with any
     regular text editor application. The location of the configuration
-    file depends on how you installed syslog-ng OSE. Native packages of
+    file depends on how you installed {{ site.product.short_name }}. Native packages of
     a platform (like the ones downloaded from Linux repositories)
     typically place the configuration file under the /etc/syslog-ng/
     directory.
@@ -46,14 +46,13 @@ description: >-
     For other options, see syslog: Collecting messages using the IETF syslog protocol (syslog() driver and
     tcp, tcp6, udp, udp6: Collecting messages from remote hosts using the BSD syslog protocol --- OBSOLETE.
 
-    **NOTE:** Starting with syslog-ng OSE version 3.2, the syslog() source
-    driver can handle both BSD-syslog (RFC-3164) and IETF-syslog (RFC
-    5424-26) messages.
+    **NOTE:** Starting with {{ site.product.short_name }} version 3.2, the syslog() source
+    driver can handle both BSD-syslog (RFC-3164) and IETF-syslog (RFC-5424, RFC-5425, RFC-5426) messages.
     {: .notice--info}
 
 4. Create local destinations that will store the log messages, for
     example, file- or program destinations. The default configuration of
-    syslog-ng OSE places the collected messages into the
+    {{ site.product.short_name }} places the collected messages into the
     /var/log/messages file:
 
     ```config
@@ -86,11 +85,11 @@ description: >-
 6. Set filters, options (for example, TLS encryption) and other
     advanced features as necessary.
 
-    **NOTE:** By default, the syslog-ng server will treat the relayed
+    **NOTE:** By default, the {{ site.product.short_name }} server will treat the relayed
     messages as if they were created by the relay host, not the host
     that originally sent them to the relay. In order to use the original
-    hostname on the syslog-ng server, use the **keep-hostname(yes)**
-    option both on the syslog-ng relay and the syslog-ng server. This
+    hostname on the {{ site.product.short_name }} server, use the **keep-hostname(yes)**
+    option both on the {{ site.product.short_name }} relay and the {{ site.product.short_name }} server. This
     option can be set individually for every source if needed.
     {: .notice--info}
 
@@ -99,7 +98,7 @@ description: >-
 
     Example: A simple configuration for servers
 
-    The following is a simple configuration file for syslog-ng Open
+    The following is a simple configuration file for {{ site.product.short_name }} Open
     Source Edition that collects incoming log messages and stores them
     in a text file.
 

@@ -2,7 +2,7 @@
 title: Using channels in configuration objects
 id: adm-conf-chan
 description: >-
-    Starting with syslog-ng OSE 3.4, every configuration object is a log
+    Starting with {{ site.product.short_name }} 3.4, every configuration object is a log
     expression. Every configuration object is essentially a configuration
     block, and can include multiple objects. To reference the block, only
     the top-level object must be referenced. That way you can use embedded

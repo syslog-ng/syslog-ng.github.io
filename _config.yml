@@ -242,3 +242,7 @@ masthead:
 
 footer:
   top_margin: 2em # originally 3em, needed if there are visible prev/next navigator buttons
+
+product:
+  name: 'syslog-ng Open Source Edition'
+  short_name: 'syslog-ng OSE'

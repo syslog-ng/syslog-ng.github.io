@@ -4,7 +4,7 @@
   |Default:|   N/A|
 
 *Description:* If you receive the following error message during
-syslog-ng OSE startup, set the persist-name() option of the duplicate
+{{ site.product.short_name }} startup, set the persist-name() option of the duplicate
 drivers:
 
 > Error checking the uniqueness of the persist names, please override it with persist-name option. Shutting down.

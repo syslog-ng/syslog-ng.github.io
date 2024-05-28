@@ -3,12 +3,12 @@ title: Getting started with implementing Java destinations
 id: dev-tut-java-dest
 ---
 
-Java is one of the most widely used programming languages, and being able to write syslog-ng destinations in Java will allow you to easily interface with any Java codebase.  In this section, you will learn how to create a Java destination for syslog-ng, which takes messages and logs them to a file. This tutorial assumes a basic understanding of Java.
+Java is one of the most widely used programming languages, and being able to write {{ site.product.short_name }} destinations in Java will allow you to easily interface with any Java codebase.  In this section, you will learn how to create a Java destination for {{ site.product.short_name }},  which takes messages and logs them to a file. This tutorial assumes a basic understanding of Java.
 
 
-###The syslog-ng configuration file
+###The {{ site.product.short_name }} configuration file
 
-To create a Java destination, you will have to specify the destination of your compiled Java destination in your syslog-ng configuration file. It must be compiled into either a `.class` file or a `.jar` file.
+To create a Java destination, you will have to specify the destination of your compiled Java destination in your {{ site.product.short_name }} configuration file. It must be compiled into either a `.class` file or a `.jar` file.
 If compiled into a `.class` file, the class path argument must be the folder containing the `.class` file.
 
 The following example demonstrates a Java destination in the configuration file, where the Java destination is compiled to a `.class` file:
@@ -48,7 +48,7 @@ You will see that this Java destination requires a few options: of the options l
 
 ###The SampleJavaDestination class
 
-To interface with syslog-ng, you will need to extend the `TextLogDestination` or `StructuredLogDestination` abstract class, located in the `SyslogNg.jar` file, which can be found in the `moduledir` after `make install`.
+To interface with {{ site.product.short_name }},  you will need to extend the `TextLogDestination` or `StructuredLogDestination` abstract class, located in the `SyslogNg.jar` file, which can be found in the `moduledir` after `make install`.
 The class you extend will end up looking something like this:
 
 ```java
@@ -108,7 +108,7 @@ public class SampleJavaDestination extends TextLogDestination {
 
 Your class should extend either `TextLogDestination` or `StructuredLogDestination`.
 
-When syslog-ng starts, it will create an instance of the class, then attempt to run the init method. This method should do any initialization that needs to be performed at the start of the program.
+When {{ site.product.short_name }} starts, it will create an instance of the class, then attempt to run the init method. This method should do any initialization that needs to be performed at the start of the program.
 
 Whenever a new message is generated and fed to your Java class, the send function will be called and passed the message as a String.
 
@@ -227,4 +227,4 @@ public class SampleJavaDestination extends TextLogDestination {
 
 ```
 ### Java-specific notes
-To use a syslog-ng Java destination, you have to add the path of the `libjvm.so` to the `LD_LIBRARY_PATH`.
+To use a {{ site.product.short_name }} Java destination, you have to add the path of the `libjvm.so` to the `LD_LIBRARY_PATH`.

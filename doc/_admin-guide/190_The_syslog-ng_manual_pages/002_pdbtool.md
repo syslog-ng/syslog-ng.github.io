@@ -5,7 +5,7 @@ id: adm-man-pdbtool
 
 ## Name
 
-pdbtool --- An application to test and convert syslog-ng pattern
+pdbtool --- An application to test and convert {{ site.product.short_name }} pattern
 database rules
 
 ## Synopsis
@@ -16,14 +16,14 @@ pdbtool \[command\] \[options\]
 
 This manual page is only an abstract.
 
-The syslog-ng OSE application can match the contents of the log messages
+The {{ site.product.short_name }} application can match the contents of the log messages
 to a database of predefined message patterns (also called patterndb). By
-comparing the messages to the known patterns, syslog-ng OSE is able to
+comparing the messages to the known patterns, {{ site.product.short_name }} is able to
 identify the exact type of the messages, tag the messages, and sort them
 into message classes. The message classes can be used to classify the
 type of the event described in the log message. The functionality of the
 pattern database is similar to that of the logcheck project, but the
-syslog-ng approach is faster, scales better, and is much easier to
+{{ site.product.short_name }} approach is faster, scales better, and is much easier to
 maintain compared to the regular expressions of logcheck.
 
 The pdbtool application is a utility that can be used to:
@@ -65,7 +65,7 @@ database.
 dump \[options\]
 
 Display the RADIX tree built from the patterns. This shows how are the
-patterns represented in syslog-ng OSE and it might also help to track
+patterns represented in {{ site.product.short_name }} and it might also help to track
 down pattern-matching problems. The dump utility can dump the tree used
 for matching the PROGRAM or the MSG parts.
 
@@ -166,7 +166,7 @@ The match command has the following options:
 
 - \--filter=\<filter-expression\> or -F
 
-    Print only messages matching the specified syslog-ng filter
+    Print only messages matching the specified {{ site.product.short_name }} filter
     expression.
 
 - \--message or -M
@@ -185,7 +185,7 @@ The match command has the following options:
 
 - \--template=\<template-expression\> or -T
 
-    A syslog-ng template expression that is used to format the output
+    A {{ site.product.short_name }} template expression that is used to format the output
     messages.
 
 - \--verbose or -v
@@ -221,7 +221,7 @@ Use the merge command to combine separate pattern database files into a
 single file (pattern databases are usually stored in separate files per
 applications to simplify maintenance). If a file uses an older database
 format, it is automatically updated to the latest format (V3). See the
-The syslog-ng Administrator Guide for
+The {{ site.product.short_name }} Administrator Guide for
 details on the different pattern database versions.
 
 - \--debug or -d
@@ -276,7 +276,7 @@ large number of log messages. The resulting pattern database is printed
 to the standard output (stdout). The pdbtool patternize command uses a
 data clustering technique to find similar log messages and replacing the
 differing parts with @ESTRING:: @ parsers. For details on pattern
-databases and message parsers, see the [The syslog-ng Administrator Guide]
+databases and message parsers, see the [The {{ site.product.short_name }} Administrator Guide]
 (https://www.syslog-ng.com/). The patternize command is available
 only in version 3.2 and later.
 
@@ -337,7 +337,7 @@ test \[options\]
 
 Use the test command to validate a pattern database XML file. Note that
 you must have the xmllint application installed. The test command is
-available only in syslog-ng OSE version 3.2 and later.
+available only in {{ site.product.short_name }} version 3.2 and later.
 
 - \--color-out or -c
 

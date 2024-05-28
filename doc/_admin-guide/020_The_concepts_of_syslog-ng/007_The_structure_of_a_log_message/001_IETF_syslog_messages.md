@@ -81,13 +81,13 @@ The HEADER part contains the following elements:
 
 - *MESSAGEID*: The ID number of the message.
 
-**NOTE:** The syslog-ng application supports other timestamp formats as
+**NOTE:** The {{ site.product.short_name }} application supports other timestamp formats as
 well, like ISO, or the PIX extended format. The timestamp used in the
 IETF-syslog protocol is derived from RFC-3339, which is based on ISO8601.
 For details, see the ts-format() option in Global options.
 {: .notice--info}
 
-The syslog-ng OSE application will truncate the following fields:
+The {{ site.product.short_name }} application will truncate the following fields:
 
 - If *APP-NAME* is longer than 48 characters it will be truncated to
     48 characters.
@@ -107,9 +107,9 @@ The STRUCTURED-DATA message part may contain meta- information about the
 syslog message, or application-specific information such as traffic
 counters or IP addresses. STRUCTURED-DATA consists of data blocks
 enclosed in brackets (*\[\]*). Every block includes the ID of the block,
-and one or more *name=value* pairs. The syslog-ng application
+and one or more *name=value* pairs. The {{ site.product.short_name }} application
 automatically parses the STRUCTURED-DATA part of syslog messages, which
-can be referenced in macros (for details, see Macros of syslog-ng OSE.
+can be referenced in macros (for details, see Macros of {{ site.product.short_name }}.
 
 An example STRUCTURED-DATA block looks like:
 

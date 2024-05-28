@@ -1,5 +1,5 @@
 ---
-title: "What's new in the syslog-ng pattern database format V5"
+title: "What's new in the {{ site.product.short_name }} pattern database format V5"
 id: adm-parser-db-whatsnew
 ---
 

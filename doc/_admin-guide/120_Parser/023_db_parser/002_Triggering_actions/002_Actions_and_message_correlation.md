@@ -7,7 +7,7 @@ description: >-
     Correlating log messages using pattern databases.
 ---
 
-- The syslog-ng OSE application automatically fills the fields for the
+- The {{ site.product.short_name }} application automatically fills the fields for the
     generated message based on the scope of the context, for example,
     the HOST and PROGRAM fields if the context-scope is program.
 
@@ -37,7 +37,7 @@ description: >-
 
 - You can use the name-value pairs of other messages of the context.
     If you set the inherit-properties attribute of the generated message
-    to **context**, syslog-ng OSE collects every name-value pair from
+    to **context**, {{ site.product.short_name }} collects every name-value pair from
     each message stored in the context, and includes them in the
     generated message. This means that you can refer to a name-value
     pair without having to know which message of the context included
@@ -126,15 +126,15 @@ description: >-
     Example: Sending alert when a client disappears
 
     The following example shows how to combine various features of
-    syslog-ng OSE to send an email alert if a client stops sending
+    {{ site.product.short_name }} to send an email alert if a client stops sending
     messages.
 
   - Configure your clients to send MARK messages periodically. It is
         enough to configure MARK messages for the destination that
-        forwards your log messages to your syslog-ng OSE server
+        forwards your log messages to your {{ site.product.short_name }} server
         (mark-mode(periodical)).
 
-  - On your syslog-ng OSE server, create a pattern database rule
+  - On your {{ site.product.short_name }} server, create a pattern database rule
         that matches on the incoming MARK messages. In the rule, set the
         context-scope attribute to **host**, and the context-timeout
         attribute to a value that is higher than the mark-freq value set
@@ -146,5 +146,5 @@ description: >-
         context-timeout expires, and the server does not receive a new
         MARK message (\<action trigger=\"timeout\"\>).
 
-  - On your syslog-ng OSE server, use the pattern database in the
+  - On your {{ site.product.short_name }} server, use the pattern database in the
         log path that handles incoming log messages.

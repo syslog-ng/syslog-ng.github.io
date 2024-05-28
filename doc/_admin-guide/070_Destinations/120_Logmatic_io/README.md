@@ -57,7 +57,7 @@ log {
 ```
 
 To use the logmatic() driver, the scl.conf file must be included in your
-syslog-ng OSE configuration:
+{{ site.product.short_name }} configuration:
 
 ```config
 @include "scl.conf"

@@ -8,5 +8,5 @@ characters in templated output files. This is useful for generating SQL
 statements and quoting string contents so that parts of the log message
 are not interpreted as commands to the SQL server.
 
-**NOTE:** In syslog-ng OSE 4.5 and later versions `template-escape(yes)` escapes the top-level template function in case of nested template functions.
+**NOTE:** In {{ site.product.short_name }} 4.5 and later versions `template-escape(yes)` escapes the top-level template function in case of nested template functions.
 {: .notice--info}

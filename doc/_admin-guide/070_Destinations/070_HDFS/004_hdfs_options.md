@@ -9,7 +9,7 @@ options.
 
 The following options are required: hdfs-file(), hdfs-uri(). Note that
 to use hdfs, you must add the following line to the beginning of your
-syslog-ng OSE configuration:
+{{ site.product.short_name }} configuration:
 
 ```config
 @include "scl.conf"
@@ -32,24 +32,22 @@ client-lib-dir(\"/opt/syslog-ng/lib/syslog-ng/java-modules/:/opt/hadoop/libs/\")
 |  Type:|      true \| false|
   |Default:|   false|
 
-*Description:* When hdfs-append-enabled is set to **true**, syslog-ng
-OSE will append new data to the end of an already existing HDFS file.
+*Description:* When hdfs-append-enabled is set to **true**, {{ site.product.short_name }} will append new data to the end of an already existing HDFS file.
 Note that in this case, archiving is automatically disabled, and
-syslog-ng OSE will ignore the hdfs-archive-dir option.
+{{ site.product.short_name }} will ignore the hdfs-archive-dir option.
 
-When hdfs-append-enabled is set to **false**, the syslog-ng OSE
+When hdfs-append-enabled is set to **false**, the {{ site.product.short_name }}
 application always creates a new file if the previous has been closed.
 In that case, appending data to existing files is not supported.
 
-When you choose to write data into an existing file, syslog-ng OSE does
+When you choose to write data into an existing file, {{ site.product.short_name }} does
 not extend the filename with a UUID suffix because there is no need to
 open a new file (a new unique ID would mean opening a new file and
 writing data into that).
 
 ![]({{ site.baseurl}}/assets/images/caution.png) **CAUTION:**
 Before enabling the hdfs-append-enabled option, ensure that your HDFS
-server supports the append operation and that it is enabled. Otherwise syslog-ng
-OSE will not be able to append data into an existing file, resulting in an
+server supports the append operation and that it is enabled. Otherwise {{ site.product.short_name }} will not be able to append data into an existing file, resulting in an
 error log.
 {: .notice--warning}
 
@@ -58,14 +56,14 @@ error log.
 |  Type:|      string|
 |Default:|   N/A|
 
-*Description:* The path where syslog-ng OSE will move the closed log
-files. If syslog-ng OSE cannot move the file for some reason (for
-example, syslog-ng OSE cannot connect to the HDFS NameNode), the file
+*Description:* The path where {{ site.product.short_name }} will move the closed log
+files. If {{ site.product.short_name }} cannot move the file for some reason (for
+example, {{ site.product.short_name }} cannot connect to the HDFS NameNode), the file
 remains at its original location. For example,
 hdfs-archive-dir(\"/usr/hdfs/archive/\").
 
 **NOTE:** When hdfs-append-enabled is set to **true**, archiving is
-automatically disabled, and syslog-ng OSE will ignore the
+automatically disabled, and {{ site.product.short_name }} will ignore the
 hdfs-archive-dir option.
 {: .notice--info}
 
@@ -75,16 +73,16 @@ hdfs-archive-dir option.
 |Default:|   N/A|
 
 *Description:* The path and name of the log file. For example,
-hdfs-file(\"/usr/hdfs/mylogfile.txt\"). syslog-ng OSE checks if the path
-to the logfile exists. If a directory does not exist syslog-ng OSE
+hdfs-file(\"/usr/hdfs/mylogfile.txt\"). {{ site.product.short_name }} checks if the path
+to the logfile exists. If a directory does not exist {{ site.product.short_name }}
 automatically creates it.
 
-hdfs-file() supports the usage of macros. This means that syslog-ng OSE
+hdfs-file() supports the usage of macros. This means that {{ site.product.short_name }}
 can create files on HDFS dynamically, using macros in the file (or
 directory) name.
 
 **NOTE:** When a filename resolved from the macros contains a character that
-HDFS does not support, syslog-ng OSE will not be able to create the
+HDFS does not support, {{ site.product.short_name }} will not be able to create the
 file. Make sure that you use macros that do not contain unsupported
 characters.
 {: .notice--warning}
@@ -111,9 +109,9 @@ then the name of the file will be 31-12.txt.
   |Default:|   255|
 
 *Description:* The maximum length of the filename. This filename
-(including the UUID that syslog-ng OSE appends to it) cannot be longer
+(including the UUID that {{ site.product.short_name }} appends to it) cannot be longer
 than what the file system permits. If the filename is longer than the
-value of hdfs-max-filename-length, syslog-ng OSE will automatically
+value of hdfs-max-filename-length, {{ site.product.short_name }} will automatically
 truncate the filename. For example, hdfs-max-filename-length("255").
 
 ## hdfs-resources()
@@ -144,7 +142,7 @@ hdfs-uri(\"hdfs://\[FEDC:BA98:7654:3210:FEDC:BA98:7654:3210\]:8020\").
 {% include doc/admin-guide/options/jvm-options.md %}
 
 You can set this option only as a global option, by adding it
-to the options statement of the syslog-ng configuration file.
+to the options statement of the {{ site.product.short_name }} configuration file.
 
 ## kerberos-keytab-file()
 
@@ -158,7 +156,7 @@ option is needed only if you want to authenticate using Kerberos in
 Hadoop. You also have to set the hdfs-option-kerberos-principal()
 option. For details on the using Kerberos authentication with the hdfs()
 destination, see
-Kerberos authentication with syslog-ng hdfs() destination.
+Kerberos authentication with {{ site.product.short_name }} hdfs() destination.
 
 ```config
 destination d_hdfs {
@@ -170,7 +168,7 @@ destination d_hdfs {
 };
 ```
 
-Available in syslog-ng OSE version 3.10 and later.
+Available in {{ site.product.short_name }} version 3.10 and later.
 
 ## kerberos-principal()
 
@@ -183,7 +181,7 @@ needed only if you want to authenticate using Kerberos in Hadoop. You
 also have to set the hdfs-option-kerberos-keytab-file() option. For
 details on the using Kerberos authentication with the hdfs()
 destination, see
-Kerberos authentication with syslog-ng hdfs() destination.
+Kerberos authentication with {{ site.product.short_name }} hdfs() destination.
 
 ```config
 destination d_hdfs {
@@ -195,7 +193,7 @@ destination d_hdfs {
 };
 ```
 
-Available in syslog-ng OSE version 3.10 and later.
+Available in {{ site.product.short_name }} version 3.10 and later.
 
 {% include doc/admin-guide/options/log-fifo-size.md %}
 

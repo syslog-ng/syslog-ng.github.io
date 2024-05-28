@@ -11,7 +11,7 @@ The pacct() driver has the following options:
 |  Default:  | /var/log/account/pacct|
 
 *Description:* The file where the process accounting logs are stored ---
-syslog-ng OSE reads accounting messages from this file.
+{{ site.product.short_name }} reads accounting messages from this file.
 
 {% include doc/admin-guide/options/follow-freq.md %}
 

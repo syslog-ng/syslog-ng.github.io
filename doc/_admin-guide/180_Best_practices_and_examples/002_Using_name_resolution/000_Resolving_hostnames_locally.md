@@ -5,7 +5,7 @@ description: >-
     Resolving hostnames locally enables you to display hostnames in the log
     files for frequently used hosts, without having to rely on a DNS server.
     The known IP address -- hostname pairs are stored locally in a file. In
-    the log messages, syslog-ng will replace the IP addresses of known hosts
+    the log messages, {{ site.product.short_name }} will replace the IP addresses of known hosts
     with their hostnames.
 ---
 
@@ -18,8 +18,8 @@ To configure local name resolution, complete the following steps:
     /etc/hosts file. Consult the documentation of your operating system
     for details.
 
-2. Instruct syslog-ng to resolve hostnames locally. Set the use-dns()
-    option of syslog-ng to **persist\_only**.
+2. Instruct {{ site.product.short_name }} to resolve hostnames locally. Set the use-dns()
+    option of {{ site.product.short_name }} to **persist\_only**.
 
 3. Set the dns-cache-hosts() option to point to the file storing the
     hostnames.

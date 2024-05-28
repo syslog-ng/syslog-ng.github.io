@@ -8,7 +8,7 @@ id: adm-log-filters-inlist
 *Description:* Matches the value of the specified field to a list stored
 in a file, allowing you to do simple, file-based black- and
 whitelisting. The file must be a plain-text file, containing one entry
-per line. The syslog-ng OSE application loads the entire file, and
+per line. The {{ site.product.short_name }} application loads the entire file, and
 compares the value of the specified field (for example, ${PROGRAM}) to
 entries in the file. When you use the in-list() filter, note the
 following points:
@@ -21,7 +21,7 @@ following points:
 - If you modify the list file, reload the configuration of syslog-ng
     OSE for the changes to take effect.
 
-Available in syslog-ng OSE 3.5 and later.
+Available in {{ site.product.short_name }} 3.5 and later.
 
 ## Example: Selecting messages using the in-list() filter
 

@@ -31,16 +31,16 @@ exist.
 |  Type:  |    `yes`, `no`|
 |  Default: |  `no`|
 
-This option is available in syslog-ng OSE 4.1 and later versions.
+This option is available in {{ site.product.short_name }} 4.1 and later versions.
 
-*Description:* If this option is set to `yes`, syslog-ng OSE fetches only which relate to the current boot. Every message generated in the previous boot is ignored.
+*Description:* If this option is set to `yes`, {{ site.product.short_name }} fetches only which relate to the current boot. Every message generated in the previous boot is ignored.
 
 ## matches()
 
 |  Type:  |    string|
 |  Default: |  |
 
-This option is available in syslog-ng OSE 4.1 and later versions.
+This option is available in {{ site.product.short_name }} 4.1 and later versions.
 
 *Description:* This option specifies one or more filters to be applied on the journal fields. This options application is similar to `journalctl`.
 
@@ -88,7 +88,7 @@ The following modes of operation are available:
 
 *Syntax:* `namespace(string)`
 
-**NOTE:** Starting with syslog-ng OSE version 4.4, multiple systemd-journal()
+**NOTE:** Starting with {{ site.product.short_name }} version 4.4, multiple systemd-journal()
 sources can be configured. When configuring multiple sources, each systemd
 namespace must be unique.
 {: .notice--info}
@@ -116,7 +116,7 @@ source s_journal
 ```
 
 **NOTE:** Namespace support was introduced to the Journalctl command line
-tool in Systemd version 2.45. The syslog-ng OSE application supports the
+tool in Systemd version 2.45. The {{ site.product.short_name }} application supports the
 namespace() option from version 3.29. For further information about
 namespaces on the Systemd side, see Journal Namespaces.
 {: .notice--info}
@@ -127,17 +127,16 @@ namespaces on the Systemd side, see Journal Namespaces.
 |  Default: |  .journald.|
 
 *Description:* If this option is set, every non-built-in mapped names
-get a prefix (for example: ".SDATA.journald."). By default, syslog-ng
-OSE adds the .journald. prefix to every value.
+get a prefix (for example: ".SDATA.journald."). By default, {{ site.product.short_name }} adds the .journald. prefix to every value.
 
 ## read-old-records()
 
 |  Accepted values:|  yes \| no|
 |Default:|   yes|
 
-*Description:* If set to **yes**, syslog-ng OSE will start reading the
+*Description:* If set to **yes**, {{ site.product.short_name }} will start reading the
 records from the beginning of the journal, if the journal has not been
-read yet. If set to **no**, syslog-ng OSE will read only the new
+read yet. If set to **no**, {{ site.product.short_name }} will read only the new
 records. If the source has a state in the persist file, this option will
 have no effect.
 

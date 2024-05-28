@@ -3,12 +3,12 @@ title: Log statistics from the internal() source
 id: adm-stats-internal
 description: >-
     If the stats-freq() global option is higher than 0,
-    syslog-ng OSE periodically sends a log statistics message. This
+    {{ site.product.short_name }} periodically sends a log statistics message. This
     message contains statistics about the received messages, and about any
     lost messages since the last such message. It includes a processed entry
     for every source and destination, listing the number of messages
     received or sent, and a dropped entry including the IP address of the
-    server for every destination where syslog-ng has lost messages. The
+    server for every destination where {{ site.product.short_name }} has lost messages. The
     center(received) entry shows the total number of messages received from
     every configured sources.
 ---

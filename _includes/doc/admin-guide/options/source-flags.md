@@ -11,7 +11,7 @@
     message, use the **validate-utf8** flag.
 
 - *empty-lines*: Use the **empty-lines** flag to keep the empty lines
-    of the messages. By default, syslog-ng OSE removes empty lines
+    of the messages. By default, {{ site.product.short_name }} removes empty lines
     automatically.
 
 - *expect-hostname*: If the expect-hostname flag is enabled, syslog-ng
@@ -27,14 +27,14 @@
 - *kernel*: The kernel flag makes the source default to the LOG_KERN
     | LOG_NOTICE priority if not specified otherwise.
 
-- *no-header*: The no-header flag triggers syslog-ng OSE to parse only
+- *no-header*: The no-header flag triggers {{ site.product.short_name }} to parse only
     the PRI field of incoming messages, and put the rest of the message
     contents into ${MSG}.
 
     Its functionality is similar to that of the no-parse flag, except
     the no-header flag does not skip the PRI field.
 
-    **NOTE:** Essentially, the no-header flag signals syslog-ng OSE that the
+    **NOTE:** Essentially, the no-header flag signals {{ site.product.short_name }} that the
     syslog header is not present (or does not adhere to the conventions
     / RFCs), so the entire message (except from the PRI field) is put
     into ${MSG}.
@@ -54,7 +54,7 @@
     ```
 
 - *no-hostname*: Enable the no-hostname flag if the log message does
-    not include the hostname of the sender host. That way syslog-ng OSE
+    not include the hostname of the sender host. That way {{ site.product.short_name }}
     assumes that the first part of the message header is ${PROGRAM}
     instead of ${HOST}. For example:
 
@@ -73,10 +73,10 @@
     supports multi-line messages. Currently the file() and pipe()
     drivers support multi-line messages.
 
-- *no-parse*: By default, syslog-ng OSE parses incoming messages as
+- *no-parse*: By default, {{ site.product.short_name }} parses incoming messages as
     syslog messages. The no-parse flag completely disables syslog
     message parsing and processes the complete line as the message part
-    of a syslog message. The syslog-ng OSE application will generate a
+    of a syslog message. The {{ site.product.short_name }} application will generate a
     new syslog header (timestamp, host, and so on) automatically and put
     the entire incoming message into the MESSAGE part of the syslog
     message (available using the ${MESSAGE} macro). This flag is useful
@@ -85,25 +85,25 @@
     If you are using the flags(no-parse) option, then syslog message
     parsing is completely disabled, and the entire incoming message is
     treated as the ${MESSAGE} part of a syslog message. In this case,
-    syslog-ng OSE generates a new syslog header (timestamp, host, and so
+    {{ site.product.short_name }} generates a new syslog header (timestamp, host, and so
     on) automatically. Note that even though flags(no-parse) disables
     message parsing, some flags can still be used, for example, the
     no-multi-line flag.
 
-- *dont-store-legacy-msghdr*: By default, syslog-ng stores the
+- *dont-store-legacy-msghdr*: By default, {{ site.product.short_name }} stores the
     original incoming header of the log message. This is useful if the
     original format of a non-syslog-compliant message must be retained
-    (syslog-ng automatically corrects minor header errors, for example,
+    ({{ site.product.short_name }} automatically corrects minor header errors, for example,
     adds a whitespace before msg in the following message: Jan 22
     10:06:11 host program:msg). If you do not want to store the original
     header of the message, enable the **dont-store-legacy-msghdr** flag.
 
-- *sanitize-utf8*: When using the sanitize-utf8 flag, syslog-ng OSE
+- *sanitize-utf8*: When using the sanitize-utf8 flag, {{ site.product.short_name }}
     converts non-UTF-8 input to an escaped form, which is valid UTF-8.
 
 - *store-raw-message*: Save the original message as received from the
     client in the ${RAWMSG} macro. You can forward this raw message in
-    its original form to another syslog-ng node using the
+    its original form to another {{ site.product.short_name }} node using the
     [[syslog-ng() destination|adm-dest-syslogng]], or to a SIEM system,
     ensuring that the SIEM can process it. Available only in 3.16 and later.
 
@@ -118,7 +118,7 @@
     IETF syslog standard (for details, see
     IETF-syslog messages.
     If the BOM[^1] character is missing, but the message is otherwise UTF-8
-    compliant, syslog-ng automatically adds the BOM character to the
+    compliant, {{ site.product.short_name }} automatically adds the BOM character to the
     message.
 
 [^1]: The byte order mark (BOM) is a Unicode character used to signal the byte-order of the message text.

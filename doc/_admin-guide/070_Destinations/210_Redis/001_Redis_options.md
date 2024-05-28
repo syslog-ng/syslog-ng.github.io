@@ -13,7 +13,7 @@ The redis() destination has the following options:
 | Default: |  N/A|
 
 *Description:* The password used for authentication on a
-password-protected Redis server. Available in syslog-ng OSE version 3.10
+password-protected Redis server. Available in {{ site.product.short_name }} version 3.10
 and later.
 
 {% include doc/admin-guide/options/batch-bytes.md %}
@@ -41,8 +41,8 @@ Note the following points when using the redis() destination:
 
 - Currently you can use only one command in a redis() destination.
 
-- The syslog-ng OSE application ignores the return value of the
-    command. If the Redis server returns an error, syslog-ng OSE closes
+- The {{ site.product.short_name }} application ignores the return value of the
+    command. If the Redis server returns an error, {{ site.product.short_name }} closes
     the connection.
 
 {% include doc/admin-guide/options/disk-buffer.md %}

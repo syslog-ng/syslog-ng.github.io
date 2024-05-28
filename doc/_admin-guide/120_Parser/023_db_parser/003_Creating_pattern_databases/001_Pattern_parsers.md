@@ -1,9 +1,9 @@
 ---
-title: Pattern parsers of syslog-ng OSE
+title: Pattern parsers of {{ site.product.short_name }}
 id: adm-parser-db-pattern-parsers
 ---
 
-The following parsers are available in syslog-ng OSE.
+The following parsers are available in {{ site.product.short_name }}.
 
 ## @ANYSTRING@
 
@@ -43,7 +43,7 @@ be a stopcharacter, nor can line-breaks or tabs.
 ## @FLOAT@
 
 A floating-point number that may contain a dot (.) character. (Up to
-syslog-ng 3.1, the name of this parser was @DOUBLE@.)
+{{ site.product.short_name }} 3.1, the name of this parser was @DOUBLE@.)
 
 ## @HOSTNAME@
 
@@ -128,7 +128,7 @@ application have whitespace padding after the username).
 For example, the @OPTIONALSET:: \"@ parser will parse any combination
 of whitespaces and double-quotes.
 
-Available in syslog-ng OSE 3.31 and later.
+Available in {{ site.product.short_name }} 3.31 and later.
 
 **NOTE:** The @OPTIONALSET@ parser works almost exactly like the
 [[@SET@]] parser, but the @OPTIONALSET@ parser
@@ -163,7 +163,7 @@ padding after the username).
 For example, the @SET:: \"@ parser will parse any combination of
 whitespaces and double-quotes.
 
-Available in syslog-ng OSE 3.4 and later.
+Available in {{ site.product.short_name }} 3.4 and later.
 
 ## @STRING@
 

@@ -7,7 +7,7 @@ description: >-
     matching all the filters are sent to the listed destinations.
 ---
 
-To define a log path, add a log statement to the syslog-ng configuration
+To define a log path, add a log statement to the {{ site.product.short_name }} configuration
 file using the following syntax:
 
 **Declaration**

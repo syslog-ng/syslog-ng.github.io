@@ -63,7 +63,7 @@ templates.
 |  Type:|      string|
   |Default:|   syslog|
 
-*Description:* The name of the AMQP exchange where syslog-ng OSE sends
+*Description:* The name of the AMQP exchange where {{ site.product.short_name }} sends
 the message. Exchanges take a message and route it into zero or more
 queues.
 
@@ -72,7 +72,7 @@ queues.
 |  Type:|      yes \| no|
   |Default:|   no|
 
-*Description:* By default, syslog-ng OSE does not create non-existing
+*Description:* By default, {{ site.product.short_name }} does not create non-existing
 exchanges. Use the **exchange-declare(yes)** option to automatically
 create exchanges.
 
@@ -97,7 +97,7 @@ Guide](https://www.rabbitmq.com/amqp-0-9-1-reference.html).
 |  Type:|      number \[seconds\]|
   |Default:|   0 (disabled)|
 
-*Description:* If enabled, the syslog-ng OSE amqp destination sends
+*Description:* If enabled, the {{ site.product.short_name }} amqp destination sends
 heartbeat messages to the server periodically. During negotiation, both
 the amqp server and the client provide a heartbeat parameter, and the
 smaller is chosen for heartbeat interval. For example:
@@ -113,7 +113,7 @@ destination { amqp(
 };
 ```
 
-Available in syslog-ng OSE version 3.21 and later.
+Available in {{ site.product.short_name }} version 3.21 and later.
 
 {% include doc/admin-guide/options/hook.md %}
 

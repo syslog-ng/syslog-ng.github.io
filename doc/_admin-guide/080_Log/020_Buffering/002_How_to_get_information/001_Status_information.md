@@ -3,13 +3,13 @@ title: Getting the status information of disk-buffer files
 id: adm-log-diskbuff-status
 description: >-
     This section describes getting the status information of the disk-buffer
-    files used in syslog-ng Open Source Edition (syslog-ng OSE).
+    files used in {{ site.product.short_name }}.
 ---
 
 ## Command syntax
 
 The basic command syntax for getting the status information of the
-disk-buffer files used in syslog-ng OSE looks like the following:
+disk-buffer files used in {{ site.product.short_name }} looks like the following:
 
 ```bash
 dqtoolinfo DISK-BUFFER_FILE

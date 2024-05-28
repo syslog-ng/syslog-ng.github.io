@@ -8,7 +8,7 @@ id: dev-macos-mod-sup-afmongodb
 
 ### Important Information
 
-The syslog-ng OSE mongodb() driver is compatible with MongoDB server version 1.4 and newer. Using mongo() without any parameters uses the following default values:
+The {{ site.product.short_name }} mongodb() driver is compatible with MongoDB server version 1.4 and newer. Using mongo() without any parameters uses the following default values:
 
 ```config
 destination d_mongodb {

@@ -4,7 +4,7 @@
   |Default:|   N/A|
 
 *Description:* Specify the Java Virtual Machine (JVM) settings of your
-Java destination from the syslog-ng OSE configuration file.
+Java destination from the {{ site.product.short_name }} configuration file.
 
 For example:
 

@@ -4,13 +4,13 @@
   |Default:|   no|
 
 *Description:* Enables source address spoofing. This means that the host
-running syslog-ng generates UDP packets with the source IP address
+running {{ site.product.short_name }} generates UDP packets with the source IP address
 matching the original sender of the message. It is useful when you want
-to perform some kind of preprocessing using syslog-ng then forward
+to perform some kind of preprocessing using {{ site.product.short_name }} then forward
 messages to your central log management solution with the source address
 of the original sender. This option only works for UDP destinations
 though the original message can be received by TCP as well. This option
-is only available if syslog-ng was compiled using the
+is only available if {{ site.product.short_name }} was compiled using the
 --enable-spoof-source configuration option.
 
 The maximum size of spoofed datagrams in udp() destinations is set to

@@ -1,18 +1,18 @@
 ---
-title: Compiling syslog-ng from source
+title: Compiling {{ site.product.short_name }} from source
 id: adm-inst-comp
 description: >-
-    To compile syslog-ng Open Source Edition (OSE) from the source code,
+    To compile {{ site.product.name }} (OSE) from the source code,
     complete the following steps. Alternatively, you can use precompiled
     binary packages on several platforms. 
 ---
 
 For a list of third-party packages available for various Linux, UNIX,
-and other platforms, see syslog-ng Open Source Edition installation packages.
+and other platforms, see {{ site.product.name }} installation packages.
 
 ## Steps
 
-1. Download the latest version of syslog-ng OSE source code from GitHub. The source code
+1. Download the latest version of {{ site.product.short_name }} source code from GitHub. The source code
     is available as a tar.gz archive file.
 
 2. Install the following packages that are required to compile
@@ -30,12 +30,12 @@ and other platforms, see syslog-ng Open Source Edition installation packages.
 
     - The development files of the Autoconf Archive package
 
-    - The syslog-ng OSE application now uses PCRE-type regular
+    - The {{ site.product.short_name }} application now uses PCRE-type regular
         expressions by default. It requires the libpcre library package.
 
-    - If you want to use the Java-based modules of syslog-ng OSE (for
+    - If you want to use the Java-based modules of {{ site.product.short_name }} (for
         example, the Elasticsearch, HDFS, or Kafka destinations), you
-        must compile syslog-ng OSE with Java support.
+        must compile {{ site.product.short_name }} with Java support.
 
         - Download and install the Java Runtime Environment (JRE), 1.7
             (or newer). You can use OpenJDK or Oracle JDK, other
@@ -49,7 +49,7 @@ and other platforms, see syslog-ng Open Source Edition installation packages.
 
             Note that many platforms have a simplified links for Java
             libraries. Use the simplified path if available. If you use
-            a startup script to start syslog-ng OSE set
+            a startup script to start {{ site.product.short_name }} set
             **LD_LIBRARY_PATH** in the script as well.
 
         - If you are behind an HTTP proxy, create a gradle.properties
@@ -62,7 +62,7 @@ and other platforms, see syslog-ng Open Source Edition installation packages.
     option. Alternatively, you can use a Java-based implementation of
     the HTTP destination.
 
-4. If you want to use the spoof-source function of syslog-ng, install
+4. If you want to use the spoof-source function of {{ site.product.short_name }}, install
     the development files of the libnet library.
 
 5. If you want to send emails using the smtp() destination, install the
@@ -89,7 +89,7 @@ and other platforms, see syslog-ng Open Source Edition installation packages.
    
     ```
 
-9. Uncompress the syslog-ng archive using the
+9. Uncompress the {{ site.product.short_name }} archive using the
 
     ```bash
         tar xvfz syslog-ng-x.xx.tar.gz
@@ -112,19 +112,19 @@ and other platforms, see syslog-ng Open Source Edition installation packages.
             make install
     ```
 
-    These commands will build syslog-ng using its default options.
+    These commands will build {{ site.product.short_name }} using its default options.
 
  >**NOTE:** When using the make command, consider the following:
  >
  >- On Solaris, use **gmake** (GNU make) instead of **make**.
- >- To build syslog-ng OSE with less verbose output, use the **make
+ >- To build {{ site.product.short_name }} with less verbose output, use the **make
  >    V=0** command. This results in shorter, less verbose output,
  >    making warnings and other anomalies easier to notice. Note that
  >    silent-rules support is only available in recent automake
  >    versions.
  {: .notice--info}
 
-11. If needed, use the following options to change how syslog-ng is
+11. If needed, use the following options to change how {{ site.product.short_name }} is
     compiled using the following command syntax:
 
     ```bash
@@ -135,11 +135,11 @@ and other platforms, see syslog-ng Open Source Edition installation packages.
     feature and override autodetection. For example, to disable the
     TCP-wrapper support, use the *\--disable-tcp-wrapper* option. For
     the list of available compiling options, see
-    Compiling options of syslog-ng OSE.
+    Compiling options of {{ site.product.short_name }}.
     {: .notice--info}
 
 ![]({{ site.baseurl}}/assets/images/caution.png) **CAUTION:**
-The default linking mode of syslog-ng is dynamic. This means that syslog-ng
+The default linking mode of {{ site.product.short_name }} is dynamic. This means that syslog-ng
 might not be able to start up if the /usr directory is on NFS. On platforms
-where syslog-ng is used as a system logger, the \--enable-mixed-linking is preferred.
+where {{ site.product.short_name }} is used as a system logger, the \--enable-mixed-linking is preferred.
 {: .notice--warning}

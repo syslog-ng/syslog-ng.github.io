@@ -5,10 +5,10 @@
 
 *Description:* Enable or disable DNS usage. The persist_only option
 attempts to resolve hostnames locally from file (for example, from
-/etc/hosts). The syslog-ng OSE application blocks on DNS queries, so
+/etc/hosts). The {{ site.product.short_name }} application blocks on DNS queries, so
 enabling DNS may lead to a Denial of Service attack. To prevent DoS,
-protect your syslog-ng network endpoint with firewall rules, and make
-sure that all hosts which may get to syslog-ng are resolvable. This
+protect your {{ site.product.short_name }} network endpoint with firewall rules, and make
+sure that all hosts which may get to {{ site.product.short_name }} are resolvable. This
 option can be specified globally, and per-source as well. The local
 setting of the source overrides the global option if available.
 

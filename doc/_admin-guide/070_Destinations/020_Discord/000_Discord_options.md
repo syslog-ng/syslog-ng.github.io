@@ -5,7 +5,7 @@ throttle: '5'
 id: adm-dest-discord-opt
 ---
 
-The discord() destination of syslog-ng OSE can directly post log
+The discord() destination of {{ site.product.short_name }} can directly post log
 messages to web services using the HTTP protocol. The discord()
 destination has the following options.
 

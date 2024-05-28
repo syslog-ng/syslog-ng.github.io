@@ -3,7 +3,7 @@ title: Parsing messages with comma-separated and similar values
 short_title: CSV parser
 id: adm-parser-csv
 description: >-
-    The syslog-ng OSE application can separate parts of log messages (that
+    The {{ site.product.short_name }} application can separate parts of log messages (that
     is, the contents of the ${MESSAGE} macro) at delimiter characters or
     strings to named fields (columns). One way to achieve this is to use a
     csv (comma-separated-values) parser (for other methods and
@@ -13,8 +13,7 @@ description: >-
     referenced in message templates, file- and tablenames, and so on.
 ---
 
-Parsers are similar to filters: they must be defined in the syslog-ng
-OSE configuration file and used in the log statement. You can also
+Parsers are similar to filters: they must be defined in the {{ site.product.short_name }} configuration file and used in the log statement. You can also
 define the parser inline in the log path.
 
 {% include doc/admin-guide/notes/parser-order.md %}
@@ -38,14 +37,14 @@ parser <parser_name> {
 Column names work like macros.
 
 Names starting with a dot (for example, .example) are reserved for use
-by syslog-ng OSE. If you use such a macro name as the name of a parsed
+by {{ site.product.short_name }}. If you use such a macro name as the name of a parsed
 value, it will attempt to replace the original value of the macro (note
 that only soft macros can be overwritten, see
 Hard versus soft macros.
 To avoid such problems, use a prefix when naming the parsed values, for
 example, prefix(my-parsed-data.)
 
-In syslog-ng OSE version 4.5 and later versions, the `columns()` option can be omitted, and extract the values into matches ($1, $2, $3, etc.), which are available as the anonymous list $*. 
+In {{ site.product.short_name }} version 4.5 and later versions, the `columns()` option can be omitted, and extract the values into matches ($1, $2, $3, etc.), which are available as the anonymous list $*. 
 
 ### Example: omission of the columns() option
 

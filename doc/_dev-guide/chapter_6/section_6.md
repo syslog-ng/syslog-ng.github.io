@@ -19,44 +19,44 @@ You can implement your own event loop, or integrate an external framework's or l
 A Python Fetcher implementation must be inherited from `syslogng.LogFetcher` class. There is one mandatory method: `fetch()`
 - `fetch()`
 
-The `fetch()` method will be called by syslog-ng whenever syslog-ng is ready to process a new message. This method needs to return a tuple of form (status, syslogng.LogMessage). Status can be `LogFetcher.FETCH_ERROR`, `LogFetcher.FETCH_NOT_CONNECTED`, `LogFetcher.FETCH_SUCCESS`, `LogFetcher.FETCH_TRY_AGAIN` and `LogFetcher.FETCH_TRY_NO_DATA`.
+The `fetch()` method will be called by {{ site.product.short_name }} whenever {{ site.product.short_name }} is ready to process a new message. This method needs to return a tuple of form (status, syslogng.LogMessage). Status can be `LogFetcher.FETCH_ERROR`, `LogFetcher.FETCH_NOT_CONNECTED`, `LogFetcher.FETCH_SUCCESS`, `LogFetcher.FETCH_TRY_AGAIN` and `LogFetcher.FETCH_TRY_NO_DATA`.
 
 The `LogFetcher.FETCH_ERROR` status will result in a `close()` `open()` call, waiting `time-reopen()` seconds in between.
 
 The `LogFetcher.FETCH_NOT_CONNECTED` will result in an `open()` call after `time-reopen()` seconds in between.
 
-The `LogFetcher.FETCH_SUCCESS` status means the fetch was successful, and syslog-ng can handle the returned message.
+The `LogFetcher.FETCH_SUCCESS` status means the fetch was successful, and {{ site.product.short_name }} can handle the returned message.
 The `LogFetcher.FETCH_TRY_AGAIN` status means fetcher cannot provide message this time, but make the source call fetch as soon as possible.
-The `LogFetcher.FETCH_NO_DATA` status means there is no data available this time, syslog-ng can wait some time before calling fetch again. The wait time is equal to time-reopen() by default, but it might be overridden if fetch_no_data_delay(sec) is provided.
+The `LogFetcher.FETCH_NO_DATA` status means there is no data available this time, {{ site.product.short_name }} can wait some time before calling fetch again. The wait time is equal to time-reopen() by default, but it might be overridden if fetch_no_data_delay(sec) is provided.
 
 The following methods are optional: `init()`, `deinit()`, `open()`, `close()`, `request_exit()`
 
 - `request_exit()`
 
-This method is called before syslog-ng stops or reloads. Any blocking calls should be cancelled here.
+This method is called before {{ site.product.short_name }} stops or reloads. Any blocking calls should be cancelled here.
 
 - `init(options)`
 
-This method is called during initializaton: when syslog-ng starts, or after syslog-ng reloads. If there were options provided in the configuration, they will be available in the sole parameter of `init()`.
-The return value is `True`/`False`. If `False` is returned, syslog-ng will not start.
+This method is called during initializaton: when {{ site.product.short_name }} starts, or after {{ site.product.short_name }} reloads. If there were options provided in the configuration, they will be available in the sole parameter of `init()`.
+The return value is `True`/`False`. If `False` is returned, {{ site.product.short_name }} will not start.
 
 - `deinit()`
 
-This method is called during deinitialization: when syslog-ng stops, or before syslog-ng reloads.
+This method is called during deinitialization: when {{ site.product.short_name }} stops, or before {{ site.product.short_name }} reloads.
 
 - `open()`
 
 This method can be used to open connection towards the entities, from which the driver needs to fetch logs.
 
-It is called after `init()` when syslog-ng is started or reloaded. If `fetch()` returns with an error, syslog-ng OSE calls the `close()` and `open()` methods before trying to fetch a new message.
+It is called after `init()` when {{ site.product.short_name }} is started or reloaded. If `fetch()` returns with an error, {{ site.product.short_name }} calls the `close()` and `open()` methods before trying to fetch a new message.
 
-If `open()` fails, it should return the False value. In this case, syslog-ng OSE retries it every `time-reopen()` seconds.
+If `open()` fails, it should return the False value. In this case, {{ site.product.short_name }} retries it every `time-reopen()` seconds.
 
 - `close()`
 
 This method can be used to close connection towards the entities, from which the driver needs to fetch logs.
 
-This method is called before `deinit()`. It is also called if `fetch()` returns with `LogFetcher.FETCH_ERROR`. In that case, syslog-ng will wait `time-reopen()` seconds before calling `open()` again.
+This method is called before `deinit()`. It is also called if `fetch()` returns with `LogFetcher.FETCH_ERROR`. In that case, {{ site.product.short_name }} will wait `time-reopen()` seconds before calling `open()` again.
 
 ### Example
 The example below encapsulates a http response into a logmessage, that will be printed to the screen.
@@ -107,7 +107,7 @@ A Python Source implementation must be inherited from `syslogng.LogSource`. Mess
 This method sends a log message object to syslog-ng. It must be called from the main thread of the python process.
 
 In case the source needs to be suspended after the current message, `post_message` will block until the source is woken up by syslog-ng. If application specific logic needs to be called to prepare such block, it can be done in the `suspend()` `wakeup()` methods.
-Suspend can happen for example when flow-control is enabled (`flags(flow-control)` in the logpath), and a destination cannot send logs. In that case the log messages are collected in the buffer of a destination, but after a point, syslog-ng cannot handle more logs, and the sources need to be suspended. `suspend()` should prevent the source from posting new messages until `wakeup()` is called. If this rule is violated, messages will be dropped with an error message: `Incorrectly suspended source, dropping message`.
+Suspend can happen for example when flow-control is enabled (`flags(flow-control)` in the logpath), and a destination cannot send logs. In that case the log messages are collected in the buffer of a destination, but after a point, {{ site.product.short_name }} cannot handle more logs, and the sources need to be suspended. `suspend()` should prevent the source from posting new messages until `wakeup()` is called. If this rule is violated, messages will be dropped with an error message: `Incorrectly suspended source, dropping message`.
 
 There are two mandatory methods: `run()` and `request_exit()`
 - `run()`
@@ -116,27 +116,27 @@ This method can be used to implement an event loop or start a server framework/l
 
 - `request_exit()`
 
-This method is called before syslog-ng terminates or reloads. Any blocking call inside `run()` must be cancelled here. This method is called from a different thread than the python main thread.
+This method is called before {{ site.product.short_name }} terminates or reloads. Any blocking call inside `run()` must be cancelled here. This method is called from a different thread than the python main thread.
 
 Optional methods: `init()`, `deinit()`, `suspend()`, `wakeup()`.
 
 - `init(options)`
 
-This method is called during initializaton: when syslog-ng starts, or after syslog-ng reloads. If there were options provided in the configuration, they will be available in the sole parameter of `init()`.
-The return value is `True`/`False`. If `False` is returned, syslog-ng will not start.
+This method is called during initializaton: when {{ site.product.short_name }} starts, or after {{ site.product.short_name }} reloads. If there were options provided in the configuration, they will be available in the sole parameter of `init()`.
+The return value is `True`/`False`. If `False` is returned, {{ site.product.short_name }} will not start.
 
 - `deinit()`
 
-This method is called during deinitialization: when syslog-ng stops, or before syslog-ng reloads.
+This method is called during deinitialization: when {{ site.product.short_name }} stops, or before {{ site.product.short_name }} reloads.
 
 - `suspend()`
 
-This method is called by syslog-ng when the source needs to be suspended: the message posting must be stopped temporarily.
-This happens for example when flow-control is enabled (`flags(flow-control)` in the logpath), and a destination cannot send logs. In that case the log messages are collected in the buffer of a destination, but after a point, syslog-ng cannot handle more logs, and the sources need to be suspended.
+This method is called by {{ site.product.short_name }} when the source needs to be suspended: the message posting must be stopped temporarily.
+This happens for example when flow-control is enabled (`flags(flow-control)` in the logpath), and a destination cannot send logs. In that case the log messages are collected in the buffer of a destination, but after a point, {{ site.product.short_name }} cannot handle more logs, and the sources need to be suspended.
 
 - `wakeup()`
 
-This method is called by syslog-ng when the source needs to be woken op: the message posting can continue. See `suspend()`.
+This method is called by {{ site.product.short_name }} when the source needs to be woken op: the message posting can continue. See `suspend()`.
 
 ### Example: generator source
 In this example: the python source will a test message in every second.

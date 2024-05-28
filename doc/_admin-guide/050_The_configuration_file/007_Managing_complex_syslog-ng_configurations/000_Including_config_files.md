@@ -2,7 +2,7 @@
 title: Including configuration files
 id: adm-conf-incl
 description: >-
-    The syslog-ng application supports including external files in its
+    The {{ site.product.short_name }} application supports including external files in its
     configuration file, so parts of its configuration can be managed
     separately. 
 ---
@@ -14,17 +14,17 @@ configuration, use the following syntax:
 @include "<filename>"
 ```
 
-This imports the entire file into the configuration of syslog-ng OSE, at
+This imports the entire file into the configuration of {{ site.product.short_name }}, at
 the location of the include statement. The `<filename>` can be one of
 the following:
 
 - A filename, optionally with full path. The filename (not the path)
     can include UNIX-style wildcard characters (*, ?). When using
-    wildcard characters, syslog-ng OSE will include every matching file.
+    wildcard characters, {{ site.product.short_name }} will include every matching file.
     For details on using wildcard characters, see Options of regular
     expressions.
 
-- A directory. When including a directory, syslog-ng OSE will try to
+- A directory. When including a directory, {{ site.product.short_name }} will try to
     include every file from the directory, except files beginning with a
     ~ (tilde) or a . (dot) character. Including a directory is not
     recursive. The files are included in alphabetic order, first files
@@ -35,8 +35,8 @@ the following:
 
 ## When including configuration files, consider the following points
 
-- The default path where syslog-ng OSE looks for the file depends on
-    where syslog-ng OSE is installed. The `syslog-ng --version` command
+- The default path where {{ site.product.short_name }} looks for the file depends on
+    where {{ site.product.short_name }} is installed. The `{{ site.product.short_name }} --version` command
     displays this path as **Include-Path**.
 
 - Defining an object twice is not allowed, unless you use the @define
@@ -75,7 +75,7 @@ the following:
     ```
 
     ![]({{ site.baseurl}}/assets/images/caution.png)
-     **CAUTION:** The syslog-ng application will not start if it cannot find a
+     **CAUTION:** The {{ site.product.short_name }} application will not start if it cannot find a
      file that is to be included in its configuration. Always double-check the
      filenames, paths, and access rights when including configuration files,
      and use the **--syntax-only** command-line option to check your configuration.

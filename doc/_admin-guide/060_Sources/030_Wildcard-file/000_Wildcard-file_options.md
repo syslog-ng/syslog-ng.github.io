@@ -94,15 +94,15 @@ source s_files {
 *Description:* Limits the number of files that the wildcard-file source
 monitors.
 
-When using wildcards, syslog-ng OSE monitors every matching file (up to
+When using wildcards, {{ site.product.short_name }} monitors every matching file (up to
 the limit set in the max-files() option), and can receive new log
 messages from any of the files. However, monitoring (polling) many files
 (that is, more than ten) has a significant overhead and may affect
 performance. On Linux this overhead is not so significant, because
-syslog-ng OSE uses the inotify feature of the kernel. Set the
+{{ site.product.short_name }} uses the inotify feature of the kernel. Set the
 **max-files()** option at least to the number of files you want to
 monitor. If the wildcard-file source matches more files than the value
-of the max-files() option, it is random which files will syslog-ng OSE
+of the max-files() option, it is random which files will {{ site.product.short_name }}
 actually monitor. The default value of max-files() is 100.
 
 ## monitor-method()
@@ -110,10 +110,10 @@ actually monitor. The default value of max-files() is 100.
 |Accepted values:|      auto \| inotify \| poll|
 |Default:|   auto|
 
-*Description:* If the platform supports inotify, syslog-ng OSE uses it
+*Description:* If the platform supports inotify, {{ site.product.short_name }} uses it
 automatically to detect changes to the source files. If inotify is not
-available, syslog-ng OSE polls the files as set in the follow-freq()
-option. To force syslog-ng OSE poll the files even if inotify is
+available, {{ site.product.short_name }} polls the files as set in the follow-freq()
+option. To force {{ site.product.short_name }} poll the files even if inotify is
 available, set this option to **poll**.
 
 {% include doc/admin-guide/options/multi-line-garbage.md %}
@@ -133,7 +133,7 @@ available, set this option to **poll**.
 |Accepted values:| yes \| no |
 |Default: |  no|
 
-*Description:* When enabled, syslog-ng OSE monitors every subdirectory
+*Description:* When enabled, {{ site.product.short_name }} monitors every subdirectory
 of the path set in the base-dir()
 option, and reads log messages from files with matching filenames. The
 recursive option can be used together with wildcards in the filename.

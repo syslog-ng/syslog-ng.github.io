@@ -2,21 +2,21 @@
 title: Building on macOS
 short_title: macOS
 description: >-
-   The syslog-ng application has been resurrected <i class='fas fa-rocket'></i> on macOS by our developer team.<br/>
+   The {{ site.product.short_name }} application has been resurrected <i class='fas fa-rocket'></i> on macOS by our developer team.<br/>
    We hope our product can be useful for Mac users who want to increase the security of their system through reliable logging.
 id: dev-platform-build-macos
 ---
 
 ## Introduction
 
-At present we are not supporting macOS syslog-ng on our [[official repository|gh-syslog-ng]] on GitHub. However, you can compile syslog-ng yourself following this guide.
+At present we are not supporting macOS {{ site.product.short_name }} on our [[official repository|gh-syslog-ng]] on GitHub. However, you can compile {{ site.product.short_name }} yourself following this guide.
 
 **Note:** The guide is tested on ARM macOS Sonoma 14.2.1, Ventura 13.4, and Intel macOS Monterey 12.6.6 machines, we do our bests to keep it update, but your actual system may require additional steps or slightly different settings.
 {: .notice}
 
 ## Compiling from source
 
-Like every project syslog-ng also uses different libraries and build-systems that must be installed for compiling and running properly. These dependencies can be satisfied by compiling every-each libs and tools manually, but it might be preferred to do it the easy way. Homebrew is a package manager for macOS that has great community and support. You can also use it to install the dependencies you need.
+Like every project {{ site.product.short_name }} also uses different libraries and build-systems that must be installed for compiling and running properly. These dependencies can be satisfied by compiling every-each libs and tools manually, but it might be preferred to do it the easy way. Homebrew is a package manager for macOS that has great community and support. You can also use it to install the dependencies you need.
 
 ### Dependencies
 
@@ -25,7 +25,7 @@ Like every project syslog-ng also uses different libraries and build-systems tha
    **Hint:** Don't forget to set up the homebrew environment, follow the instructions in your terminal! [[Here|homebrew-inst-detailed]] you can find an even more detailed instruction about the topic.
    {: .notice--info}
 
-   **Note:** This will install **Command Line Tools for Xcode** as well if not already presented on the system that would also be required anyway for a seamless syslog-ng build.
+   **Note:** This will install **Command Line Tools for Xcode** as well if not already presented on the system that would also be required anyway for a seamless {{ site.product.short_name }} build.
    {: .notice}
 
 2. Perform `brew update` if you have not done it yet.
@@ -59,7 +59,7 @@ Like every project syslog-ng also uses different libraries and build-systems tha
    * criterion
    * gcc@11
 
-**Hint:** If you you have [[syslog-ng installed via brew|dev-inst-macos#installation]], as a reference, you can check the dependencies of the brew built version using `brew deps syslog-ng`
+**Hint:** If you you have [[{{ site.product.short_name }} installed via brew|dev-inst-macos#installation]], as a reference, you can check the dependencies of the brew built version using `brew deps syslog-ng`
 {: .notice--info}
 
 This is how it might look like if you start from the ground:
@@ -85,7 +85,7 @@ brew install \
     openssl \
     pcre \
     pkg-config \
-    # Optional syslog-ng module dependencies
+    # Optional {{ site.product.short_name }} module dependencies
     hiredis \
     # Do not use the homebrew provided one, see bellow!
     # libdbi 
@@ -107,7 +107,7 @@ brew install \
 > * bison is required to be installed when using homebrew, because the options provided by Apple Developer Tools are incomplete. (for example: missing -W option) The reason is why bison is ?>required to be installed from homebrew is that the -W option is supported only after 2.3.
 > * net-snmp might be needed as well when using homebrew, because the options provided by Apple Developer Tools are bogus a bit. The reason is why net-snmp might be required from homebrew is that the by default provided pkgconfig might give back bogus lib and include values.
 > * openssl - since macOS provides LibreSSL by default, you might need to expand the search path of pkg-config to find the freshly installed openSSL, see bellow. (seems it was an issue only with 1.1.x version of openssl)
-> * libdbi and libdbi-drivers are [[maintained and updated|dev-macos-mod-sup-afsql#dependencies]] in syslog-ng OSE repositories, use the latest master version from there
+> * libdbi and libdbi-drivers are [[maintained and updated|dev-macos-mod-sup-afsql#dependencies]] in {{ site.product.short_name }} repositories, use the latest master version from there
 > * actual state of supported features, and the required dependencies can also be found [[here|dev-macos-mod-sup-status]].
 {: .notice}
 
@@ -153,7 +153,7 @@ brew install \
 
 ### Getting the source
 
-To get the latest master from syslog-ng git you can use
+To get the latest master from {{ site.product.short_name }} git you can use
 
 ```shell
 cd YOUR_PREFERRED_WORKING_DIR   # Replace `YOUR_PREFERRED_WORKING_DIR` with your actual preferred working dir 
@@ -162,7 +162,7 @@ git clone https://github.com/syslog-ng/syslog-ng .
 
 ### Select the compiler
 
-Latest version of syslog-ng [has dropped support of gcc](https://github.com/syslog-ng/syslog-ng/pull/4897), so now the platform default llvm/clang must be used to complie the source
+Latest version of {{ site.product.short_name }} [has dropped support of gcc](https://github.com/syslog-ng/syslog-ng/pull/4897), so now the platform default llvm/clang must be used to complie the source
 
 To make sure clang is used (optional) you can use:
 
@@ -248,5 +248,5 @@ make check -j4
 `/full_path_of/installdir`/syslog-ng -F
 ```
 
-**Note:** For more information read the [[run first|dev-run-first]] guide and the syslog-ng [[documentation|adm-guide]]
+**Note:** For more information read the [[run first|dev-run-first]] guide and the {{ site.product.short_name }} [[documentation|adm-guide]]
 {: .notice}

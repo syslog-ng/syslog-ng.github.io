@@ -1,20 +1,20 @@
 ---
-title: Configuring TLS on the syslog-ng server
+title: Configuring TLS on the {{ site.product.short_name }} server
 id: adm-tls-server-conf
 ---
 
 ## Purpose
 
-Complete the following steps on the syslog-ng server:
+Complete the following steps on the {{ site.product.short_name }} server:
 
 ## Steps
 
-1. Create an X.509 certificate for the syslog-ng server.
+1. Create an X.509 certificate for the {{ site.product.short_name }} server.
 
     >**NOTE:** The subject_alt_name parameter (or the Common Name parameter
     >if the subject_alt_name parameter is empty) of the server\'s
     >certificate must contain the hostname or the IP address (as resolved
-    >from the syslog-ng clients and relays) of the server (for example,
+    >from the {{ site.product.short_name }} clients and relays) of the server (for example,
     >syslog-ng.example.com).
     >  
     >Alternatively, the Common Name or the subject_alt__name parameter
@@ -26,17 +26,17 @@ Complete the following steps on the syslog-ng server:
     >{: .notice--info}
 
 2. Copy the certificate (for example, syslog-ng.cert) of the syslog-ng
-    server to the syslog-ng server host, for example, into the
+    server to the {{ site.product.short_name }} server host, for example, into the
     /opt/syslog-ng/etc/syslog-ng/cert.d directory. The certificate must
     be a valid X.509 certificate in PEM format.
 
 3. Copy the private key (for example, syslog-ng.key) matching the
-    certificate of the syslog-ng server to the syslog-ng server host,
+    certificate of the {{ site.product.short_name }} server to the {{ site.product.short_name }} server host,
     for example, into the /opt/syslog-ng/etc/syslog-ng/key.d directory.
     The key must be in PEM format. If you want to use a
     password-protected key, see Password-protected keys.
 
-4. Add a source statement to the syslog-ng configuration file that uses
+4. Add a source statement to the {{ site.product.short_name }} configuration file that uses
     the tls( key-file(key_file_fullpathname)
     cert-file(cert_file_fullpathname) ) option and specify the key and
     certificate files. The source must use the source driver (network()
@@ -93,7 +93,7 @@ Complete the following steps on the syslog-ng server:
 
     The following source receives log messages encrypted using TLS,
     arriving to the 1999/TCP port of any interface of the syslog-ng
-    server. The identity of the syslog-ng client is not verified.
+    server. The identity of the {{ site.product.short_name }} client is not verified.
 
     ```config
     source demo_tls_source {

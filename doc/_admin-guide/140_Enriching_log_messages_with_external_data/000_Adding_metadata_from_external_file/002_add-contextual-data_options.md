@@ -17,7 +17,7 @@ The following options are required: selector(), database().
 *Description:* Specifies the path to the CSV file, for example,
 /opt/syslog-ng/my-csv-database.csv. The extension of the file must be
 .csv, and can include Windows-style (CRLF) or UNIX-style (LF)
-linebreaks. You can use absolute path, or relative to the syslog-ng OSE
+linebreaks. You can use absolute path, or relative to the {{ site.product.short_name }}
 binary.
 
 ## default-selector()
@@ -34,7 +34,7 @@ file:
 unknown-hostname,host-role,unknown
 ```
 
-In the syslog-ng OSE configuration file:
+In the {{ site.product.short_name }} configuration file:
 
 ```config
 add-contextual-data(
@@ -61,9 +61,9 @@ to help further processing.
 
 ## selector()
 
-*Description:* Specifies the string or macro that syslog-ng OSE
+*Description:* Specifies the string or macro that {{ site.product.short_name }}
 evaluates for each message, and if its value matches the ID of an entry
-in the database, syslog-ng OSE adds the name-value pair of every
+in the database, {{ site.product.short_name }} adds the name-value pair of every
 matching database entry to the log message. You can use the following in
 the selector() option.
 

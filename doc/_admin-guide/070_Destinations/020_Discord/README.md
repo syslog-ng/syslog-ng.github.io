@@ -7,7 +7,7 @@ description: >-
     using Discord Webhook.
     For the list of available optional parameters, see Discord destination options.
 
-    Available in syslog-ng OSE version 3.33 and later.
+    Available in {{ site.product.short_name }} version 3.33 and later.
 ---
 
 
@@ -24,7 +24,7 @@ Discord: Rate Limits.
 To change this, use the throttle() option.
 
 To use this destination, the scl.conf file must be included in your
-syslog-ng OSE configuration:
+{{ site.product.short_name }} configuration:
 
 ```config
 @include "scl.conf"

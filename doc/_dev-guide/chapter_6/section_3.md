@@ -3,11 +3,11 @@ title: Writing an Apache Kafka module in Python
 id: dev-tut-python-kafka
 ---
 
-Apache Kafka is a hugely popular free and open source message broker project. It employs a publish-subscribe messaging model, and can handle hundreds of megabytes of reads and writes per second from thousands of clients. In this section, you will learn how to create a Python destination for syslog-ng, which takes messages and publishes them to Kafka. This tutorial assumes you have a basic understanding of Python and Kafka, and also that you have read the section "Getting started with implementing Python destinations"
+Apache Kafka is a hugely popular free and open source message broker project. It employs a publish-subscribe messaging model, and can handle hundreds of megabytes of reads and writes per second from thousands of clients. In this section, you will learn how to create a Python destination for {{ site.product.short_name }},  which takes messages and publishes them to Kafka. This tutorial assumes you have a basic understanding of Python and Kafka, and also that you have read the section "Getting started with implementing Python destinations"
 
-###The syslog-ng configuration file
+###The {{ site.product.short_name }} configuration file
 
-To create a Python destination, you will have to specify the destination in your syslog-ng configuration file.
+To create a Python destination, you will have to specify the destination in your {{ site.product.short_name }} configuration file.
 
 The following example demonstrates a Python destination in the configuration file:
 
@@ -27,7 +27,7 @@ destination python_to_kafka {
 
 ```
 
-You will see that this destination takes the options `host()`, `port()`, and `topic()`. These are not specifically coded into syslog-ng's Python interface. The Python module of syslog-ng allows you to pass arbitrary options from the configuration file into Python, each as a name-value pair. They are combined into a single dictionary and sent to your Python script's "init" function (not "__init__" or any other variation thereof).
+You will see that this destination takes the options `host()`, `port()`, and `topic()`. These are not specifically coded into syslog-ng's Python interface. The Python module of {{ site.product.short_name }} allows you to pass arbitrary options from the configuration file into Python, each as a name-value pair. They are combined into a single dictionary and sent to your Python script's "init" function (not "__init__" or any other variation thereof).
 
 Kafka works by grouping messages by topics. Clients can pull messages from topics of their choosing. By specifying a topic, you can specify which clients receive which messages.
 
@@ -119,7 +119,7 @@ class KafkaDestination(LogDestination):
 
 
 ```
-#### Example: syslog-ng configuration file ####
+#### Example: {{ site.product.short_name }} configuration file ####
 ```c
 #############################################################################
 #

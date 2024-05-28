@@ -3,14 +3,14 @@
 |  Type:|      list|
   |Default:|   N/A (see below)|
 
-*Description:* Specifies what syslog-ng OSE does with the log message,
+*Description:* Specifies what {{ site.product.short_name }} does with the log message,
 based on the response code received from the HTTP server. If the server
-returns a status code beginning with 2 (for example, 200), syslog-ng OSE
+returns a status code beginning with 2 (for example, 200), {{ site.product.short_name }}
 assumes the message was successfully sent. Otherwise, the action listed
 in the following table is applied. For status codes not listed in the
 following table, if the status code begins with 2 (for example, 299),
-syslog-ng OSE assumes the message was successfully sent. For other
-status codes, syslog-ng OSE disconnects. The following actions are
+{{ site.product.short_name }} assumes the message was successfully sent. For other
+status codes, {{ site.product.short_name }} disconnects. The following actions are
 possible:
 
 - disconnect: Keep trying to resend the message indefinitely.

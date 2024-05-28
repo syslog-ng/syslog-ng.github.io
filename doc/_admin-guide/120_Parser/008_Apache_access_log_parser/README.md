@@ -3,9 +3,9 @@ title: Apache access log parser
 id: adm-parser-apache
 description: >-
     The Apache access log parser can parse the access log messages of the
-    Apache HTTP Server. The syslog-ng OSE application can separate these log
+    Apache HTTP Server. The {{ site.product.short_name }} application can separate these log
     messages to name-value pairs. For details on using value-pairs in
-    syslog-ng OSE see Structuring macros, metadata, and other value-pairs.
+    {{ site.product.short_name }} see Structuring macros, metadata, and other value-pairs.
     The apache-accesslog-parser() supports
     both the Common Log Format and the Combined Log Format of Apache (for
     details, see the Apache HTTP Server documentation.
@@ -21,7 +21,7 @@ Starting with version 3.21, virtualhost and the port of the virtualhost
 >foo.com:443 1.2.3.4 - - [15/Apr/2019:14:30:16 -0400] "GET /bar.html HTTP/2.0"  
 >500 - "https://foo.com/referer.html" "Mozilla/5.0 ..."
 
-The syslog-ng OSE application extracts every field into name-value
+The {{ site.product.short_name }} application extracts every field into name-value
 pairs, and adds the .apache. prefix to the name of the field.
 
 **Declaration**
@@ -37,7 +37,7 @@ parser parser_name {
 The parser extracts the following fields from the messages: vhost, port,
 clientip, ident, auth, timestamp, rawrequest, response, bytes, referrer,
 and agent. The rawrequest field is further segmented into the verb,
-request, and httpversion fields. The syslog-ng OSE
+request, and httpversion fields. The {{ site.product.short_name }}
 apache-accesslog-parser() parser uses the same naming convention as
 Logstash.
 
@@ -69,8 +69,7 @@ log {
 };
 ```
 
-To use this parser, the scl.conf file must be included in your syslog-ng
-OSE configuration:
+To use this parser, the scl.conf file must be included in your {{ site.product.short_name }} configuration:
 
 ```config
 @include "scl.conf"

@@ -1,8 +1,8 @@
 ---
-title: Template functions of syslog-ng OSE
+title: Template functions of {{ site.product.short_name }}
 id: adm-temp-func
 description: >-
-    The following template functions are available in syslog-ng OSE.
+    The following template functions are available in {{ site.product.short_name }}.
 ---
 
 ## $(base64-encode)
@@ -12,11 +12,11 @@ description: >-
 *Description:* You can use the base64-encode template function to
 base64-encode strings and macros.
 The template function can receive multiple parameters (maximum 64). In
-this case, syslog-ng OSE joins the parameters into a single string and
+this case, {{ site.product.short_name }} joins the parameters into a single string and
 encodes this string. For example, $(base64-encode string1 string2) is
 equivalent to $(base64-encode string1string2).
 
-Available in syslog-ng OSE version 3.18 and later.
+Available in {{ site.product.short_name }} version 3.18 and later.
 
 ## $(basename)
 
@@ -27,7 +27,7 @@ macro) that contains a filename with a path. For example, $(basename
 \"/var/log/messages.log\") returns messages.log. To extract the path,
 use the dirname template function.
 
-Available in syslog-ng OSE version 3.10 and later.
+Available in {{ site.product.short_name }} version 3.10 and later.
 
 ## $(dirname)
 
@@ -38,7 +38,7 @@ Available in syslog-ng OSE version 3.10 and later.
 example, $(dirname \"/var/log/messages.log\") returns /var/log path. To
 extract the filename, use the basename template function.
 
-Available in syslog-ng OSE version 3.10 and later.
+Available in {{ site.product.short_name }} version 3.10 and later.
 
 ## $(echo)
 
@@ -52,11 +52,11 @@ ${HOST}) is equivalent to ${HOST}.
 |*Syntax:*|$(env \<environment-variable\>)|
 
 *Description:* Returns the value of the specified environment variable.
-Available in syslog-ng OSE 3.5 and later.
+Available in {{ site.product.short_name }} 3.5 and later.
 
 ## $(format-cef-extension)
 
-syslog-ng OSE includes a template function (format-cef-extension) to
+{{ site.product.short_name }} includes a template function (format-cef-extension) to
 format name-value pairs as ArcSight Common Event Format extensions. Note
 that the template function only formats the selected name-value pairs,
 it does not provide any mapping. There is no special support for
@@ -64,7 +64,7 @@ creating the prefix part of a Common Event Format (CEF) message. Note
 that the order of the elements is random. For details on the CEF
 extension escaping rules format, see the ArcSight Common Event Format.
 
-You can use the value-pairs that syslog-ng OSE stores about
+You can use the value-pairs that {{ site.product.short_name }} stores about
 the log message as CEF fields. Using value-pairs, you can:
 
 - select which value-pairs to use as CEF fields,
@@ -89,7 +89,7 @@ prerequisites:
 
 - Set the on-error global option to **drop-property**, otherwise if
     the name of a name-value pair includes an invalid character,
-    syslog-ng OSE drops the entire message. (Key name in CEF extensions
+    {{ site.product.short_name }} drops the entire message. (Key name in CEF extensions
     can contain only the A-Z, a-z and 0-9 characters.)
 
     ```config
@@ -147,10 +147,10 @@ destination d_cim {
 ```
 
 You can find the exact source of the CIM template in the
-syslog-ng OSE GitHub repository.
+{{ site.product.short_name }} GitHub repository.
 
-**NOTE:** To use the format-cim() template function, syslog-ng OSE must be
-compiled with JSON support. To see if your syslog-ng OSE binary was
+**NOTE:** To use the format-cim() template function, {{ site.product.short_name }} must be
+compiled with JSON support. To see if your {{ site.product.short_name }} binary was
 compiled with JSON support, execute the **syslog-ng \--version**
 command.
 {: .notice--info}
@@ -221,7 +221,7 @@ message does not have to be in JSON format to use format-json, you can
 reformat any incoming message as JSON.
 
 You can use the value-pairs
-that syslog-ng OSE stores about the log message as JSON fields. Using
+that {{ site.product.short_name }} stores about the log message as JSON fields. Using
 value-pairs, you can:
 
 - select which value-pairs to use as JSON fields,
@@ -230,11 +230,11 @@ value-pairs, you can:
 
 - rename value-pairs, and so on.
 
-**NOTE:** Prior to version 4.0, syslog-ng OSE handled all data as strings,
+**NOTE:** Prior to version 4.0, {{ site.product.short_name }} handled all data as strings,
 and allowed the strings to be converted into other types of data that only
 data formats of certain destinations supported.
-In syslog-ng OSE 4.0 and later versions, each name-value pair is a
-(name, type, value) triplet, and several components of syslog-ng OSE 4.0 support
+In {{ site.product.short_name }} 4.0 and later versions, each name-value pair is a
+(name, type, value) triplet, and several components of {{ site.product.short_name }} 4.0 support
 this format. For details, see Specifying data types in value-pairs.
 {: .notice--info}
 
@@ -266,7 +266,7 @@ destination d_json {
 };
 ```
 
-**NOTE:** In case of syslog-ng macros starting with a dot (for example,
+**NOTE:** In case of {{ site.product.short_name }} macros starting with a dot (for example,
 \".SDATA.meta.sequenceID\") an empty key name is added at the top level
 of the JSON structure. You can work around this by adding \--shift 1 as
 a parameter to the template function.
@@ -330,14 +330,14 @@ destination d_welf {
 mmdb database using the \--field parameter. If you omit this parameter,
 it returns the 2-letter country code of any IPv4/IPv6 address or host.
 
-**NOTE:** This template function is available only if syslog-ng OSE has been
+**NOTE:** This template function is available only if {{ site.product.short_name }} has been
 compiled with geoip2 support. To enable it, use the **\--enable-geoip**
 compiling option.
 {: .notice--info}
 
 To retrieve additional GeoIP information, see
 Looking up GeoIP2 data from IP addresses.
-Starting with version 3.24, syslog-ng OSE tries to automatically detect
+Starting with version 3.24, {{ site.product.short_name }} tries to automatically detect
 the location of the database. If that is successful, the database()
 option is not mandatory.
 
@@ -345,13 +345,13 @@ option is not mandatory.
 
 |*Syntax:*|$(graphite-output parameters)|
 
-*Description:* Available in syslog-ng OSE 3.6 and later (Originally
-appeared in the syslog-ng OSE incubator for syslog-ng 3.5). This
+*Description:* Available in {{ site.product.short_name }} 3.6 and later (Originally
+appeared in the {{ site.product.short_name }} incubator for {{ site.product.short_name }} 3.5). This
 template function converts value-pairs from the incoming message to the
 Graphite plain text protocol format. It is ideal to use with the
-messages generated by the monitor-source plugin (currently available in the syslog-ng incubator project).
+messages generated by the monitor-source plugin (currently available in the {{ site.product.short_name }} incubator project).
 
-For details on selecting value-pairs in syslog-ng OSE and for
+For details on selecting value-pairs in {{ site.product.short_name }} and for
 possibilities to specify which information to convert to Graphite plain
 text protocol format, see Structuring macros, metadata, and other value-pairs.
 Note that the syntax of graphite-output is different from the syntax of value-pairs():
@@ -423,7 +423,7 @@ using the \--length option. This way, IDs will be shorter than a regular
 hash, but there is a very small possibility of them not being as unique
 as a non-truncated hash.
 
-**NOTE:** These template functions are available only if syslog-ng OSE has
+**NOTE:** These template functions are available only if {{ site.product.short_name }} has
 been compiled with the \--enable-ssl compile option and the tfhash
 module has been loaded.
 {: .notice--info}
@@ -531,7 +531,7 @@ module has been loaded.
 ## List manipulation
 
 The list-\* template functions allow you to manipulate comma-separated
-lists. Such lists represent a simple array type in syslog-ng OSE. Note
+lists. Such lists represent a simple array type in {{ site.product.short_name }}. Note
 the following about formatting lists:
 
 - Values are separated by commas, for example,
@@ -548,7 +548,7 @@ and quoting all elements. If a template function returns a single
 element, all quotation is decoded and the value contains the literal
 value.
 
-Starting with syslog-ng OSE version 3.10, the following list-related
+Starting with {{ site.product.short_name }} version 3.10, the following list-related
 template functions are available. Certain functions allow you to
 reference an element using its number: note that the list index starts
 with zero, so the index of the first element is 0, the second element is
@@ -652,7 +652,7 @@ destination d_file {
 };
 ```
 
-Available in syslog-ng OSE 3.5 and later.
+Available in {{ site.product.short_name }} 3.5 and later.
 
 ## Numerical operations
 
@@ -724,69 +724,69 @@ Output: foofoofoofmymessage
 
 *Description:* This template function enables you to write a custom
 template function in Python. You can define a Python block in your
-syslog-ng OSE configuration file, define one or more Python functions in
+{{ site.product.short_name }} configuration file, define one or more Python functions in
 it, and use the methods as template functions. If you use a Python
-block, syslog-ng OSE embeds a Python interpreter to process the
+block, {{ site.product.short_name }} embeds a Python interpreter to process the
 messages.
 
-The following points apply to using Python blocks in syslog-ng OSE in
+The following points apply to using Python blocks in {{ site.product.short_name }} in
 general:
 
-- Python parsers and template functions are available in syslog-ng OSE
+- Python parsers and template functions are available in {{ site.product.short_name }}
     version 3.10 and later.
 
-    Python destinations and sources are available in syslog-ng OSE
+    Python destinations and sources are available in {{ site.product.short_name }}
     version 3.18 and later.
 
 - Supported Python versions: 2.7 and 3.4+ (if you are using pre-built
     binaries, check the dependencies of the package to find out which
     Python version it was compiled with).
 
-- The Python block must be a top-level block in the syslog-ng OSE
+- The Python block must be a top-level block in the {{ site.product.short_name }}
     configuration file.
 
 - If you store the Python code in a separate Python file and only
-    include it in the syslog-ng OSE configuration file, make sure that
+    include it in the {{ site.product.short_name }} configuration file, make sure that
     the PYTHON\_PATH environment variable includes the path to the
     Python file, and export the PYTHON\_PATH environment variable. For
-    example, if you start syslog-ng OSE manually from a terminal and you
+    example, if you start {{ site.product.short_name }} manually from a terminal and you
     store your Python files in the /opt/syslog-ng/etc directory, use the
     following command: **export PYTHONPATH=/opt/syslog-ng/etc**.
 
-    In production, when syslog-ng OSE starts on boot, you must configure
+    In production, when {{ site.product.short_name }} starts on boot, you must configure
     your startup script to include the Python path. The exact method
     depends on your operating system. For recent Red Hat Enterprise
     Linux, Fedora, and CentOS distributions that use systemd, the
     systemctl command sources the /etc/sysconfig/syslog-ng file before
-    starting syslog-ng OSE. (On openSUSE and SLES, /etc/sysconfig/syslog
+    starting {{ site.product.short_name }}. (On openSUSE and SLES, /etc/sysconfig/syslog
     file.) Append the following line to the end of this file:
     **PYTHONPATH=\"\<path-to-your-python-file\>\"**, for example,
     **PYTHONPATH=\"/opt/syslog-ng/etc\"**.
 
-- The Python object is initiated every time when syslog-ng OSE is
+- The Python object is initiated every time when {{ site.product.short_name }} is
     started or reloaded.
 
 {% include doc/admin-guide/warnings/python-reload.md %}  
 
 - The Python block can contain multiple Python functions.
 
-- Using Python code in syslog-ng OSE can significantly decrease the
-    performance of syslog-ng OSE, especially if the Python code is slow.
-    In general, the features of syslog-ng OSE are implemented in C, and
+- Using Python code in {{ site.product.short_name }} can significantly decrease the
+    performance of {{ site.product.short_name }}, especially if the Python code is slow.
+    In general, the features of {{ site.product.short_name }} are implemented in C, and
     are faster than implementations of the same or similar features in
     Python.
 
-- Validate and lint the Python code before using it. The syslog-ng OSE
+- Validate and lint the Python code before using it. The {{ site.product.short_name }}
     application does not do any of this.
 
 - Python error messages are available in the internal() source of
-    syslog-ng OSE.
+    {{ site.product.short_name }}.
 
-- You can access the name-value pairs of syslog-ng OSE directly
+- You can access the name-value pairs of {{ site.product.short_name }} directly
     through a message object or a dictionary.
 
 - To help debugging and troubleshooting your Python code, you can send
-    log messages to the internal() source of syslog-ng OSE. For details,
+    log messages to the internal() source of {{ site.product.short_name }}. For details,
     see Logging from your Python code.
 
 The following points apply to Python parsers.
@@ -864,7 +864,7 @@ message with semicolons (;):
 $(replace-delimiter "\t" ";" "${MESSAGE}")
 ```
 
-Available in syslog-ng OSE 3.5 and later.
+Available in {{ site.product.short_name }} 3.5 and later.
 
 ## $(sanitize)
 
@@ -996,7 +996,7 @@ template t_truncate_messages {
 
 ## $(tag)
 
-Available in syslog-ng OSE 4.6 and later versions.
+Available in {{ site.product.short_name }} 4.6 and later versions.
 
 *Syntax:*
 
@@ -1011,7 +1011,7 @@ $(tag <name-of-the-tag> <value-if-set> <value-if-unset>)
 
 ## $(tags-head)
 
-Available in syslog-ng OSE 4.7 and later versions.
+Available in {{ site.product.short_name }} 4.7 and later versions.
 
 *Syntax:*
 
@@ -1042,7 +1042,7 @@ file ("/var/log/${MONTH}/${DAY}/$(uppercase "${HOST}")/messages");
 };
 ```
 
-Available in syslog-ng OSE 3.5 and later.
+Available in {{ site.product.short_name }} 3.5 and later.
 
 ## $(url-decode)
 
@@ -1054,7 +1054,7 @@ yields \<\>. The url-decode can receive multiple parameters (maximum
 64). In this case, each parameter is decoded separately, and simply
 concatenated.
 
-Available in syslog-ng OSE version 3.18 and later.
+Available in {{ site.product.short_name }} version 3.18 and later.
 
 ## $(url-encode)
 
@@ -1066,7 +1066,7 @@ Telegram. The url-encode template function
 escapes strings. All input characters that are not a-z, A-Z, 0-9, \'-\',
 \'.\', \'\_\' or \'\~\' are converted to their \"URL escaped\" version.
 
-Available in syslog-ng OSE version 3.18 and later. (In version
+Available in {{ site.product.short_name }} version 3.18 and later. (In version
 3.16-3.17, this template function was called urlencode.)
 
 ## $(uuid)

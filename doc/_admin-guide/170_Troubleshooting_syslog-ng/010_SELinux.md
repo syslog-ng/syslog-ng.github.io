@@ -1,10 +1,10 @@
 ---
-title: SELinux prevents syslog-ng OSE from using the execmem access on a process
+title: SELinux prevents {{ site.product.short_name }} from using the execmem access on a process
 short_title: Using execmem prevented by SELinux
 id: adm-debug-selinux
 ---
 
-If you are using a recent enough PCRE library, syslog-ng OSE will
+If you are using a recent enough PCRE library, {{ site.product.short_name }} will
 automatically use the JIT of the regexp engine, which will result in a
 similar error:
 

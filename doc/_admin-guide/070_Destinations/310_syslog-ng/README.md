@@ -1,15 +1,15 @@
 ---
-title: 'syslog-ng(): Forward logs to another syslog-ng node'
+title: 'syslog-ng(): Forward logs to another {{ site.product.short_name }} node'
 short_title: syslog-ng
 id: adm-dest-syslogng
 description: >-
     The syslog-ng() destination driver forwards log messages to another
-    syslog-ng node in EWMM format.
+    {{ site.product.short_name }} node in EWMM format.
 ---
 
 The Enterprise-wide message model (EWMM)
 allows you to deliver structured messages from the initial
-receiving syslog-ng component right up to the central log server,
+receiving {{ site.product.short_name }} component right up to the central log server,
 through any number of hops. It does not matter if you parse the messages
 on the client, on a relay, or on the central server, their structured
 results will be available where you store the messages. Optionally, you

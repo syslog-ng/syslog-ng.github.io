@@ -3,7 +3,7 @@ title: 'source: Read, receive, and collect log messages'
 short_title: Sources
 id: adm-src
 description: >-
-    A source is where syslog-ng receives log messages. Sources consist of
+    A source is where {{ site.product.short_name }} receives log messages. Sources consist of
     one or more drivers, each defining where and how messages are received.
 ---
 
@@ -52,14 +52,14 @@ source headerless_messages { network(default-facility(syslog) default-priority(e
 ```
 
 Define a source only once. The same source can be used in several log
-paths. Duplicating sources causes syslog-ng to open the source (TCP/IP
+paths. Duplicating sources causes {{ site.product.short_name }} to open the source (TCP/IP
 port, file, and so on) more than once, which might cause problems. For
 example, include the /dev/log file source only in one source statement,
 and use this statement in more than one log path if needed.
 
 ![]({{ site.baseurl}}/assets/images/caution.png) **CAUTION:** Sources and
 destinations are initialized only when they are used in a log statement.
-For example, syslog-ng OSE starts listening on a port or starts polling a
+For example, {{ site.product.short_name }} starts listening on a port or starts polling a
 file only if the source is used in a log statement. For details on creating
 log statements, see log: Filter and route log messages using log paths, flags,
 and filters.
@@ -123,7 +123,7 @@ The following table lists the source drivers available in syslog-ng.
 |snmptrap()|Read and parse the SNMP traps of the Net-SNMP's snmptrapd application.|
 |sun-stream(), sun-streams()|Opens the specified STREAMS device on Solaris systems and reads incoming messages.|
 |syslog()|Listens for incoming messages using the new IETF-standard syslog protocol.|
-|system()|Automatically detects which platform syslog-ng OSE is running on, and collects the native log messages of that platform.|
+|system()|Automatically detects which platform {{ site.product.short_name }} is running on, and collects the native log messages of that platform.|
 |systemd-journal()|Collects messages directly from the journal of platforms that use systemd.|
 |systemd-syslog()|Collects messages from the journal using a socket on platforms that use systemd.|
 |unix-dgram|Opens the specified unix socket in SOCK_DGRAM mode and listens for incoming messages.|

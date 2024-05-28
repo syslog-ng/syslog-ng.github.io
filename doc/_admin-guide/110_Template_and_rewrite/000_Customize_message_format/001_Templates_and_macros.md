@@ -2,12 +2,12 @@
 title: Templates and macros
 id: adm-temp-macros
 description: >-
-    The syslog-ng OSE application allows you to define message templates,
+    The {{ site.product.short_name }} application allows you to define message templates,
     and reference them from every object that can use a template. Templates
     can include strings, macros (for example, date, the hostname, and so
     on), and template functions. For example, you can use templates to
     create standard message formats or filenames. For a list of macros
-    available in syslog-ng Open Source Edition, see Macros of syslog-ng OSE.  
+    available in {{ site.product.name }}, see Macros of {{ site.product.short_name }}.  
     Fields from the structured data (SD) part of messages using the new IETF-syslog standard
     can also be used as macros.
 ---
@@ -24,7 +24,7 @@ Template objects have a single option called template-escape(), which is
 disabled by default (template-escape(no)). This behavior is useful when
 the messages are passed to an application that cannot handle escaped
 characters properly. Enabling template escaping (template-escape(yes))
-causes syslog-ng to escape the \', \", and backslash characters from the
+causes {{ site.product.short_name }} to escape the \', \", and backslash characters from the
 messages.
 
 If you do not want to enable the template-escape() option (which is
@@ -62,7 +62,7 @@ Macro names are case-sensitive, that is, "$message" and "${MESSAGE}"
 are not the same.
 
 To use a literal $ character in a template, you have to escape it. In
-syslog-ng OSE versions 3.4 and earlier, use a backslash (**\\$**). In
+{{ site.product.short_name }} versions 3.4 and earlier, use a backslash (**\\$**). In
 version 3.5 and later, use **$$**.
 
 **NOTE:** To use a literal @ character in a template, use **@@**.
@@ -79,7 +79,7 @@ hostname.
 ${HOST:-default_hostname}
 ```
 
-By default, syslog-ng sends messages using the following template:
+By default, {{ site.product.short_name }} sends messages using the following template:
 ${ISODATE} ${HOST} ${MSGHDR}${MESSAGE}\\n. (The
 ${MSGHDR}${MESSAGE} part is written together because the ${MSGHDR}
 macro includes a trailing whitespace.)

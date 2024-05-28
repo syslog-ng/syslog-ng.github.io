@@ -2,13 +2,13 @@ The possible Facility values (between 0 and 23) and Severity values
 (between 0 and 7) each correspond to a message type (see **Table 1: syslog Message Facilities**), or a message importance level (see **Table 2:** syslog Message Severities).
 
 **NOTE:** Facility codes may slightly vary between different platforms. The
-syslog-ng Open Source Edition (syslog-ng OSE) application accepts
+{{ site.product.short_name }} application accepts
 Facility codes as numerical values as well.
 {: .notice--info}
 
 The following table lists possible Facility values.
 
-**Table 1:** syslog-ng message facilities
+**Table 1:** {{ site.product.short_name }} message facilities
 
   |Numerical Code|   Facility|
   |-----------------|--------|
@@ -30,7 +30,7 @@ The following table lists possible Facility values.
   |15               |clock daemon|
   |16-23            |locally used facilities (local0-local7)|
 
-**Table 2:** syslog-ng message severities
+**Table 2:** {{ site.product.short_name }} message severities
 
 The following table lists possible Severity values.
 

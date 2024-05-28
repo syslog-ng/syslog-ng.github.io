@@ -21,7 +21,7 @@ has the following options:
 
 *Description:* Name of the columns storing the data in fieldname
 \[dbtype\] format. The \[dbtype\] parameter is optional, and specifies
-the type of the field. By default, syslog-ng OSE creates text columns.
+the type of the field. By default, {{ site.product.short_name }} creates text columns.
 Note that not every database engine can index text fields.
 
 {% include doc/admin-guide/warnings/mssql-columns.md %}
@@ -32,8 +32,7 @@ Note that not every database engine can index text fields.
 |Default: |  empty string|
 
 *Description:* Specifies additional SQL options that are appended to the
-CREATE statement. That way you can customize what happens when syslog-ng
-OSE creates a new table in the database. Consult the documentation of
+CREATE statement. That way you can customize what happens when {{ site.product.short_name }} creates a new table in the database. Consult the documentation of
 your database server for details on the available options. Syntax:
 
 ```config
@@ -61,8 +60,7 @@ cannot use the same database() settings in more than one destination.
 |  Type:  |    string|
 |Default: |  empty string|
 
-*Description:* Specify database options that are set whenever syslog-ng
-OSE connects to the database server. Consult the documentation of your
+*Description:* Specify database options that are set whenever {{ site.product.short_name }} connects to the database server. Consult the documentation of your
 database server for details on the available options. Syntax:
 
 ```config
@@ -92,7 +90,7 @@ retrieve the hostname from the /etc/tnsnames.ora file.
 
 **NOTE:** If you specify **host=\"localhost\"**, syslog-ng will use a socket
 to connect to the local database server. Use **host=\"127.0.0.1\"** to
-force TCP communication between syslog-ng and the local database server.
+force TCP communication between {{ site.product.short_name }} and the local database server.
 {: .notice--info}
 
 To specify the socket to use, set and export the **MYSQL\_UNIX\_PORT**
@@ -108,10 +106,10 @@ MYSQL\_UNIX\_PORT**.
 *Description:* The list of columns that are indexed by the database to
 speed up searching. To disable indexing for the destination, include the
 empty indexes() parameter in the destination, simply omitting the
-indexes parameter will cause syslog-ng to request indexing on the
+indexes parameter will cause {{ site.product.short_name }} to request indexing on the
 default columns.
 
-The syslog-ng OSE application will create the name of indexes
+The {{ site.product.short_name }} application will create the name of indexes
 automaticaly with the following method:
 
 - In case of MsSQL, PostgreSQL, MySQL or SQLite or (Oracle but
@@ -189,7 +187,7 @@ NULL as well.
 |  Default:|   empty string|
 
 *Description:* Specifies one or more SQL-like statement which is
-executed after syslog-ng OSE has successfully connected to the database.
+executed after {{ site.product.short_name }} has successfully connected to the database.
 For example:
 
 ```config
@@ -197,7 +195,7 @@ session-statements("SET COLLATION_CONNECTION='utf8_general_ci'")
 ```
 
 ![]({{ site.baseurl}}/assets/images/caution.png) **CAUTION:**
-The syslog-ng OSE application does not validate or limit the contents
+The {{ site.product.short_name }} application does not validate or limit the contents
 of customized queries. Consequently, queries performed with a user with
 write-access can potentially modify or even harm the database.
 Use customized queries with care, and only for your own responsibility.

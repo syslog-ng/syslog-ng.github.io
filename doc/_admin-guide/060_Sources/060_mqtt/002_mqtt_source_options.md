@@ -15,7 +15,7 @@ Required options: address(), fallback-topic(), and topic().
 |Required: |  yes|
 
 *Description:* Specifies the hostname or IP address, and the port number
-of the MQTT broker from which syslog-ng OSE will receive the log messages.
+of the MQTT broker from which {{ site.product.short_name }} will receive the log messages.
 
 Syntax: \<protocol type\>://\<host\>:\<port\>
 

@@ -54,7 +54,7 @@ GMarkup parser, which is not a full-scale XML parser. It is intended to parse a 
 
 ## No support for long keys
 
-If the key is longer than 255 characters, syslog-ng drops the entry and
+If the key is longer than 255 characters, {{ site.product.short_name }} drops the entry and
 an error log is emitted. There is no chunking or any other way of
 recovering data, not even partial data. The entry will be replaced by an
 empty string.

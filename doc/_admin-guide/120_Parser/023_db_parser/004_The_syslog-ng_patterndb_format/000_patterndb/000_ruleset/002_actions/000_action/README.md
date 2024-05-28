@@ -15,7 +15,7 @@ when a message matching the rule is received.
 
 ## Attributes
 
-- *condition*: A syslog-ng filter expression. The action is performed
+- *condition*: A {{ site.product.short_name }} filter expression. The action is performed
     only if the message matches the filter. The filter can include
     macros and name-value pairs extracted from the message. When using
     actions together with message-correlation, you can also use the
@@ -32,7 +32,7 @@ when a message matching the rule is received.
     maximum one message is generated per minute for every host that
     sends a log message matching the rule. Excess messages are dropped.
     Note that when applying the rate to the generated messages,
-    syslog-ng OSE uses the timestamps of the log messages, similarly to
+    {{ site.product.short_name }} uses the timestamps of the log messages, similarly to
     calculating the context-timeout. That way rate is applied correctly
     even if the log messages are processed offline.
 
@@ -52,7 +52,7 @@ when a message matching the rule is received.
 - *create-context*
 
 - *message*: A container element storing the message to be sent when
-    the action is executed. Currently syslog-ng OSE sends these messages
+    the action is executed. Currently {{ site.product.short_name }} sends these messages
     to the internal() destination.
 
   - For details on the message context, see
@@ -64,7 +64,7 @@ when a message matching the rule is received.
   - *inherit-mode*: This attribute controls which name-value pairs
         and tags are propagated to the newly generated message.
 
-    - context: syslog-ng OSE collects every name-value pair from
+    - context: {{ site.product.short_name }} collects every name-value pair from
         each message stored in the context, and includes them in the
         generated message. If a name-value pair appears in multiple
         messages of the context, the value in the latest message
@@ -80,7 +80,7 @@ when a message matching the rule is received.
     - none: An empty message is created, without inheriting any
         tags or name-value pairs.
 
-    This option is available in syslog-ng OSE 3.8 and later.
+    This option is available in {{ site.product.short_name }} 3.8 and later.
 
   - *inherit-properties*: This attribute is deprecated. Use the
     **inherit-mode** attribute instead.
@@ -88,7 +88,7 @@ when a message matching the rule is received.
     If set to **TRUE**, the original message that triggered the
     action is cloned, including its name-value pairs and tags.
 
-    If set to **context**, syslog-ng OSE collects every name-value
+    If set to **context**, {{ site.product.short_name }} collects every name-value
     pair from each message stored in the context, and includes them
     in the generated message. If a name-value pair appears in
     multiple messages of the context, the value in the latest
@@ -117,7 +117,7 @@ when a message matching the rule is received.
     SEVERITY fields to the message.
 
     When the action is used together with message correlation, the
-    syslog-ng OSE application automatically adds fields to the
+    {{ site.product.short_name }} application automatically adds fields to the
     message based on the context-scope parameter. For example, using
     context-scope=\"process\" automatically fills the HOST, PROGRAM,
     and PID fields of the generated message.

@@ -33,12 +33,12 @@ If you have to use a string as a delimiter, list your string delimiters
 in the delimiters(strings(\"\<delimiter\_string1\>\",
 \"\<delimiter\_string2\>\", \...)\") format.
 
-By default, syslog-ng OSE uses space as a delimiter. If you want to use
+By default, {{ site.product.short_name }} uses space as a delimiter. If you want to use
 only the strings as delimiters, you have to disable the space delimiter,
 for example: **delimiters(chars(\"\"),
 strings(\"\<delimiter\_string\>\"))**
 
-Otherwise, syslog-ng OSE will use the string delimiters in addition to
+Otherwise, {{ site.product.short_name }} will use the string delimiters in addition to
 the default character delimiter, so delimiters(strings(\"==\")) actually
 equals delimiters(chars(\" \"), strings(\"==\")), and not
 delimiters(chars(\"\"), strings(\"==\"))
@@ -47,7 +47,7 @@ delimiters(chars(\"\"), strings(\"==\"))
 
 If you use more than one delimiter, note the following points:
 
-- syslog-ng OSE will split the message at the nearest possible
+- {{ site.product.short_name }} will split the message at the nearest possible
     delimiter. The order of the delimiters in the configuration file
     does not matter.
 
@@ -58,7 +58,7 @@ If you use more than one delimiter, note the following points:
     character delimiters.
 
 - If a string delimiter and a character delimiter both match at the
-    same position of the message, syslog-ng OSE uses the string
+    same position of the message, {{ site.product.short_name }} uses the string
     delimiter.
 
 ## dialect()
@@ -127,7 +127,7 @@ following flags are available:
 
     Example: Adding the end of the message to the last column
 
-    If the greedy option is enabled, the syslog-ng application adds the
+    If the greedy option is enabled, the {{ site.product.short_name }} application adds the
     not-yet-parsed part of the message to the last column, ignoring any
     delimiter characters that may appear in this part of the message.
 
@@ -164,7 +164,7 @@ following flags are available:
 |Synopsis: |  string|
 
 *Description:* If the value of a column is the value of the null()
-parameter, syslog-ng OSE changes the value of the column to an empty
+parameter, {{ site.product.short_name }} changes the value of the column to an empty
 string. For example, if the columns of the message contain the \"N/A\"
 string to represent empty values, you can use the null(\"N/A\") option
 to change these values to empty stings.

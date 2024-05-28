@@ -13,12 +13,12 @@ description: >-
 
 **Declaration**
 
-Python sources consist of two parts. The first is a syslog-ng OSE source
-object that you define in your syslog-ng OSE configuration and use in
+Python sources consist of two parts. The first is a {{ site.product.short_name }} source
+object that you define in your {{ site.product.short_name }} configuration and use in
 the log path. This object references a Python class, which is the second
 part of the Python source. The Python class receives or fetches the log
 messages, and can do virtually anything that you can code in Python. You
-can either embed the Python class into your syslog-ng OSE configuration
+can either embed the Python class into your {{ site.product.short_name }} configuration
 file, or [[store it in an external Python file|adm-conf-python]].
 
 ```config
@@ -89,12 +89,11 @@ Python LogMessage API.
 
 ### request_exit(self) method (mandatory)
 
-The syslog-ng OSE application calls this method when syslog-ng OSE is
+The {{ site.product.short_name }} application calls this method when {{ site.product.short_name }} is
 shut down or restarted. The request_exit method must shut down the
 event loop or framework, so the run method can return gracefully. If you
 use blocking operations within the run() method, use **request_exit()**
-to interrupt those operations and set an exit flag, otherwise syslog-ng
-OSE is not able to stop. Note that syslog-ng OSE calls the request_exit
+to interrupt those operations and set an exit flag, otherwise {{ site.product.short_name }} is not able to stop. Note that {{ site.product.short_name }} calls the request_exit
 method from a thread different from the source thread.
 
 {% include doc/admin-guide/python-deinit.md %}

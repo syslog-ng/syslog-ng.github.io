@@ -150,7 +150,7 @@ any of the following options:
   - Unless the opening and closing tags are fixed and known,
         stream-based sources are currently not supported.
 
-In case you experience issues, start syslog-ng with debug logs enabled.
+In case you experience issues, start {{ site.product.short_name }} with debug logs enabled.
 There will be a debug log about the incoming log entry, which shows the
 complete message to be parsed. The entry should contain the entire XML
 document.

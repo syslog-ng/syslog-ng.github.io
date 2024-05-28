@@ -64,7 +64,7 @@ filter fi_class_rule {
 Pattern database rules can assign tags to messages. These tags can be
 used to select tagged messages using the tags() filter function.
 
-NOTE: The syslog-ng OSE application automatically adds the class of the
+NOTE: The {{ site.product.short_name }} application automatically adds the class of the
 message as a tag using the .classifier.\<message-class\> format. For
 example, messages classified as \"system\" receive the
 .classifier.system tag. Use the **tags()** filter function to select

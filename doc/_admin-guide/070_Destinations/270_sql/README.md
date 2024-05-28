@@ -20,9 +20,9 @@ and values().
 
 >![]({{ site.baseurl}}/assets/images/caution.png) **CAUTION:**
 >  
->- The syslog-ng application requires read and write access to the SQL table,
+>- The {{ site.product.short_name }} application requires read and write access to the SQL table,
 >   otherwise it cannot verify that the destination table exists.
->- Currently the syslog-ng application has default schemas for the different
+>- Currently the {{ site.product.short_name }} application has default schemas for the different
 >   databases and uses these defaults if the database schema (for example,
 >   columns and column types) is not defined in the configuration file.
 >   However, these schemas will be deprecated and specifying the exact
@@ -30,13 +30,13 @@ and values().
 >  
 >{: .notice--warning}
 
-**NOTE:** In addition to the standard syslog-ng packages, the sql()
+**NOTE:** In addition to the standard {{ site.product.short_name }} packages, the sql()
 destination requires database-specific packages to be installed. These
-packages are automatically installed by the binary syslog-ng installer.
+packages are automatically installed by the binary {{ site.product.short_name }} installer.
 {: .notice--info}
 
 The table and value parameters can include macros to create tables and
-columns dynamically (for details, see Macros of syslog-ng OSE.
+columns dynamically (for details, see Macros of {{ site.product.short_name }}.
 
 ![]({{ site.baseurl}}/assets/images/caution.png) **CAUTION:**
 When using macros in table names, note that some databases limit the maximum
@@ -44,7 +44,7 @@ allowed length of table names. Consult the documentation of the database for det
 {: .notice--warning}
 
 Inserting the records into the database is performed by a separate
-thread. The syslog-ng application automatically performs the escaping
+thread. The {{ site.product.short_name }} application automatically performs the escaping
 required to insert the messages into the database.
 
 ### Example: Using the sql() driver
@@ -52,7 +52,7 @@ required to insert the messages into the database.
 The following example sends the log messages into a PostgreSQL database
 running on the logserver host. The messages are inserted into the logs
 database, the name of the table includes the exact date and the name of
-the host sending the messages. The syslog-ng application automatically
+the host sending the messages. The {{ site.product.short_name }} application automatically
 creates the required tables and columns, if the user account used to
 connect to the database has the required privileges.
 

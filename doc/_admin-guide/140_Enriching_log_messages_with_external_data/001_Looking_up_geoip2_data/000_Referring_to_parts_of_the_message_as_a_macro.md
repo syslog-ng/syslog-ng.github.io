@@ -29,6 +29,6 @@ To look up all keys:
 
 For a more complete list of keys, you can also check the 
 GeoIP2 City and Country CSV Databases.
-However, note that the syslog-ng OSE application works with the mmdb
+However, note that the {{ site.product.short_name }} application works with the mmdb
 (GeoIP2) format of these databases. Other formats, like csv are not
 supported.

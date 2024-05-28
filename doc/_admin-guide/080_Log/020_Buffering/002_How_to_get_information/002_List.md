@@ -3,10 +3,10 @@ title: Getting the list of disk-buffer files
 id: adm-log-diskbuff-list
 description: >-
     This section describes getting the list of disk-buffer files used in
-    syslog-ng Open Source Edition(syslog-ng OSE).
+    {{ site.product.short_name }}.
 ---
 
-The syslog-ng OSE application stores information (namely, the IP:PORT or
+The {{ site.product.short_name }} application stores information (namely, the IP:PORT or
 DNS:PORT of the destinations, and the name of the disk-buffer file)
 about disk-buffer files in its persist file.
 

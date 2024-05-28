@@ -2,7 +2,7 @@
 title: Running a failure script
 id: adm-debug-script
 description: >-
-    You can create a failure script that is executed when syslog-ng OSE
+    You can create a failure script that is executed when {{ site.product.short_name }}
     terminates abnormally, that is, when it exits with a non-zero exit code.
     For example, you can use this script to send an automatic email
     notification.
@@ -47,7 +47,7 @@ To create a sample failure script, complete the following steps.
     kill -KILL; sleep 0.5; cat /tmp/test.txt
     ```
 
-    The command starts syslog-ng OSE in safe-background mode (which is
+    The command starts {{ site.product.short_name }} in safe-background mode (which is
     needed to use the failure script) and then kills it. You should see
     that the relevant information is written into the /tmp/test.txt
     file, for example:
@@ -67,7 +67,7 @@ To create a sample failure script, complete the following steps.
 
 4. You should also see messages similar to the following in system
     syslog. The exact message depends on the signal (or the reason why
-    syslog-ng OSE stopped):
+    {{ site.product.short_name }} stopped):
 
     >May 18 13:56:09 myhost supervise/syslog-ng[10820]: Daemon exited gracefully, not restarting; exitcode='0'
     >May 18 13:57:01 myhost supervise/syslog-ng[10996]: Daemon exited due to a deadlock/signal/failure, restarting; exitcode='131'

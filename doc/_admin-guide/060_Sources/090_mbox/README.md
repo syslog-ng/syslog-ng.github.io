@@ -3,13 +3,13 @@ title: 'mbox: Converting local email messages to log messages'
 short_title: mbox
 id: adm-src-mbox
 description: >-
-    Using the mbox() driver, syslog-ng OSE can read email messages from
+    Using the mbox() driver, {{ site.product.short_name }} can read email messages from
     local mbox files, and convert them to multiline log messages.
 ---
 
 This driver has only one required option, the filename of the mbox file.
 To use the mbox() driver, the scl.conf file must be included in your
-syslog-ng OSE configuration:
+{{ site.product.short_name }} configuration:
 
 ```config
 @include "scl.conf"
@@ -23,8 +23,7 @@ You can find the source of the mbox configuration snippet on GitHub.
 
 ### Example: Using the mbox() driver
 
-The following example reads the emails of the root user on the syslog-ng
-OSE host.
+The following example reads the emails of the root user on the {{ site.product.short_name }} host.
 
 ```config
 @include "scl.conf"

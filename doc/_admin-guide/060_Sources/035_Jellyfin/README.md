@@ -3,7 +3,7 @@ title: Jellyfin log source
 short_title: Jellyfin
 id: adm-src-jfin
 description: >-
-    In syslog-ng OSE 4.7 and later versions it is possible to use the `jellyfin()` source to read Jellyfin logs from its log file output.
+    In {{ site.product.short_name }} 4.7 and later versions it is possible to use the `jellyfin()` source to read Jellyfin logs from its log file output.
 ---
 
 ### Example: minimal configuration of jellyfin()

@@ -8,7 +8,7 @@ id: dev-macos-mod-sup-elasticsearch-http
 
 ### Important Information
 
-The syslog-ng OSE elasticsearch-http() driver is compatible withElasticsearch 7.X and newer. To be able to use it, you need HTTP and JSON support enabled in syslog-ng.
+The {{ site.product.short_name }} elasticsearch-http() driver is compatible withElasticsearch 7.X and newer. To be able to use it, you need HTTP and JSON support enabled in syslog-ng.
 
 ### Status
 
@@ -37,7 +37,7 @@ Or, if you don’t want/need a background service you can just run:
 
 `$ elasticsearch`
 
-Once we do this, we can run our syslog-ng instance that is sending logs to an Elasticsearch database.&#x20;
+Once we do this, we can run our {{ site.product.short_name }} instance that is sending logs to an Elasticsearch database.&#x20;
 
 **Configuration File Used**
 

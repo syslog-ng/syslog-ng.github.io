@@ -5,15 +5,15 @@ id: adm-src-wild
 description: >-
     The wildcard-file() source collects log messages from multiple
     plain-text files from multiple directories. The wildcard-file() source
-    is available in syslog-ng OSE version 3.10 and later.
+    is available in {{ site.product.short_name }} version 3.10 and later.
 ---
 
-The syslog-ng OSE application notices if a file is renamed or replaced
+The {{ site.product.short_name }} application notices if a file is renamed or replaced
 with a new file, so it can correctly follow the file even if logrotation
-is used. When syslog-ng OSE is restarted, it records the position of the
+is used. When {{ site.product.short_name }} is restarted, it records the position of the
 last sent log message in the persist file, and continues to send
 messages from this position after the restart. The location of the
-persist file depends on the package you installed syslog-ng OSE from,
+persist file depends on the package you installed {{ site.product.short_name }} from,
 typically it is /var/lib/syslog-ng/syslog-ng.persist or
 /var/lib/syslog-ng/syslog-ng.persist.
 
@@ -34,24 +34,24 @@ Note the following important points:
 
 {% include doc/admin-guide/warnings/multiple-wildcards.md %}
 
-- When using wildcards, syslog-ng OSE monitors every matching file (up
+- When using wildcards, {{ site.product.short_name }} monitors every matching file (up
     to the limit set in the max-files() option), and can receive new log
     messages from any of the files. However, monitoring (polling) many
     files (that is, more than ten) has a significant overhead and may
     affect performance. On Linux this overhead is not so significant,
-    because syslog-ng OSE uses the inotify feature of the kernel. Set
+    because {{ site.product.short_name }} uses the inotify feature of the kernel. Set
     the **max-files()** option at least to the number of files you want
     to monitor. If the wildcard-file source matches more files than the
     value of the max-files() option, it is random which files will
-    syslog-ng OSE actually monitor. The default value of max-files()
+    {{ site.product.short_name }} actually monitor. The default value of max-files()
     is 100.
 
-- If the message does not have a proper syslog header, syslog-ng OSE
+- If the message does not have a proper syslog header, {{ site.product.short_name }}
     treats messages received from files as sent by the user facility.
     Use the **default-facility()** and **default-priority()** options in
     the source definition to assign a different facility if needed.
 
-- For every message that syslog-ng OSE reads from the source files,
+- For every message that {{ site.product.short_name }} reads from the source files,
     the path and name of the file is available in the
     `${FILE_NAME} macro`.
 

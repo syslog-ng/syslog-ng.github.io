@@ -7,12 +7,12 @@ description: >-
 ---
 
 The Enterprise-wide message model or EWMM allows you to deliver
-structured messages from the initial receiving syslog-ng component right
+structured messages from the initial receiving {{ site.product.short_name }} component right
 up to the central log server, through any number of hops. It does not
 matter if you parse the messages on the client, on a relay, or on the
 central server, their structured results will be available where you
 store the messages. Optionally, you can also forward the original raw
-message as the first syslog-ng component in your infrastructure has
+message as the first {{ site.product.short_name }} component in your infrastructure has
 received it, which is important if you want to forward a message for
 example, to a SIEM system. To make use of the enterprise-wide message
 model, you have to use the [[syslog-ng() destination|adm-dest-syslogng]]
@@ -32,10 +32,10 @@ The message has the following parts:
     where the PROGRAM field is set to @syslog-ng, and the SDATA field is empty.
 
 - The MESSAGE part is in JSON format, and contains the actual message,
-    as well as any name-value pairs that syslog-ng OSE has attached to
+    as well as any name-value pairs that {{ site.product.short_name }} has attached to
     or extracted from the message. The ${.\_TAGS} field contains the
-    identifier of the syslog-ng source that has originally received the
-    message on the first syslog-ng node.
+    identifier of the {{ site.product.short_name }} source that has originally received the
+    message on the first {{ site.product.short_name }} node.
 
 To send a message in EWMM format, you can use the
 [[syslog-ng() destination driver|adm-dest-syslogng]],

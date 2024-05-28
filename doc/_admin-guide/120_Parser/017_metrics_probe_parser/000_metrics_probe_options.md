@@ -8,7 +8,7 @@ id: adm-parser-metrics-opt
 | Type: | integer or template |
 | Default: | 1 |
 
-Available in syslog-ng OSE 4.2 and later versions.
+Available in {{ site.product.short_name }} 4.2 and later versions.
 
 This option sets a template, which resolves to a number that defines the increment
 of the counter. The following example defines a counter called
@@ -71,7 +71,7 @@ syslogng_classified_events_total{app="example-app", host="localhost", program="b
 
 ## Dynamic labels
 
-Available in syslog-ng OSE 4.4 and later versions.
+Available in {{ site.product.short_name }} 4.4 and later versions.
 
 Dynamic labelling makes it possible to use every available value-pairs() option
 in the labels, for example, key(), rekey(), pair(), or scope().
@@ -97,7 +97,7 @@ syslogng_foo{static_label="bar",my_prefix_baz="anotherlabel",my_prefix_foo="bar"
 | Type: | integer (0-3) |
 | Default: | 0 |
 
-Available in syslog-ng OSE 4.2 or later versions.
+Available in {{ site.product.short_name }} 4.2 or later versions.
 
 This option sets the stats level of the generated metrics.
 

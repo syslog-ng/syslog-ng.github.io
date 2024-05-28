@@ -3,7 +3,7 @@ title: How relaying log messages works
 id: adm-qs-relay
 description: >-
     Depending on your exact needs about relaying log messages, there are
-    many scenarios and syslog-ng OSE options that influence how the log
+    many scenarios and {{ site.product.short_name }} options that influence how the log
     message will look like on the logserver. 
 ---
 
@@ -29,7 +29,7 @@ Depending on the settings of syslog-ng-relay, the following can happen.
     syslog-ng-relay using a DNS server, use the **keep-hostname(no)**
     and **use-dns(yes)** options. If the DNS server is properly
     configured and reverse DNS lookup is available for the 192.168.1.2
-    address, syslog-ng OSE will rewrite the HOST field of the log
+    address, {{ site.product.short_name }} will rewrite the HOST field of the log
     message to client-host.
 
     **NOTE:** It is also possible to resolve IP addresses locally, without
@@ -37,11 +37,11 @@ Depending on the settings of syslog-ng-relay, the following can happen.
     Resolving hostnames locally.  
     {: .notice--info}
 
-- The above points apply to the syslog-ng OSE server
+- The above points apply to the {{ site.product.short_name }} server
     (syslog-ng-server) as well, so if syslog-ng-relay is configured
     properly, use the **keep-hostname(yes)** option on syslog-ng-server
     to retain the proper HOST field. Setting **keep-hostname(no)** on
-    syslog-ng-server would result in syslog-ng OSE rewriting the HOST
+    syslog-ng-server would result in {{ site.product.short_name }} rewriting the HOST
     field to the address of the host that sent the message to
     syslog-ng-server, which is syslog-ng-relay in this case.
 
@@ -52,7 +52,7 @@ Depending on the settings of syslog-ng-relay, the following can happen.
     syslog-ng-relay. However, spoof-source() works only under the
     following conditions:
 
-  - The syslog-ng OSE binary has been compiled with the
+  - The {{ site.product.short_name }} binary has been compiled with the
         \--enable-spoof-source option.
 
   - The log messages are sent using the highly unreliable UDP

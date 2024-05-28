@@ -6,16 +6,16 @@
 *Description:* Specifies the protocol used to receive messages from the
 source.
 
-For detailed information about how syslog-ng OSE supports the
+For detailed information about how {{ site.product.short_name }} supports the
 proxied-tcp, the proxied-tls, and the proxied-tls-passthrough
 parameters, see Proxy Protocol support.
 text-with-nuls: Allows embedded **NUL** characters in the message from a
-TCP source, that is, syslog-ng OSE will not delimiter the incoming
+TCP source, that is, {{ site.product.short_name }} will not delimiter the incoming
 messages on **NUL** characters, only on **newline** characters (contrary
 to tcp transport, which splits the incoming log on **newline**
 characters and **NUL** characters).
 
-**NOTE:** The syslog-ng OSE application does not support embedded **NUL**
+**NOTE:** The {{ site.product.short_name }} application does not support embedded **NUL**
 characters everywhere, so it is recommended that you also use
 flags(no-multi-line) that causes **NUL** characters to be replaced by
 space.

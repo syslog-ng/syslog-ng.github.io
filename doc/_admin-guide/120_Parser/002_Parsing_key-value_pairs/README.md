@@ -2,14 +2,14 @@
 title: Parsing key=value pairs
 id: adm-parser-kv
 description: >-
-    The syslog-ng OSE application can separate a message consisting of
+    The {{ site.product.short_name }} application can separate a message consisting of
     whitespace or comma-separated key=value pairs (for example, Postfix log
     messages) into name-value pairs. You can also specify other separator
     character instead of the equal sign, for example, colon (:) to parse
-    MySQL log messages. The syslog-ng OSE application automatically trims
+    MySQL log messages. The {{ site.product.short_name }} application automatically trims
     any leading or trailing whitespace characters from the keys and values,
     and also parses values that contain unquoted whitespace. For details on
-    using value-pairs in syslog-ng OSE see
+    using value-pairs in {{ site.product.short_name }} see
     Structuring macros, metadata, and other value-pairs.
 ---
 
@@ -20,8 +20,8 @@ KEY1=value1,KEY2=value2, you can refer to the values as **${KEY1}** and
 
 **NOTE:** If a log message contains the same key multiple times (for
 example, key1=value1, key2=value2, key1=value3, key3=value4,
-key1=value5), then syslog-ng OSE stores only the last (rightmost) value
-for the key. Using the previous example, syslog-ng OSE will store the
+key1=value5), then {{ site.product.short_name }} stores only the last (rightmost) value
+for the key. Using the previous example, {{ site.product.short_name }} will store the
 following pairs: key1=value5, key2=value2, key3=value4.
 {: .notice--info}
 

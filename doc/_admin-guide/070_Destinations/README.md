@@ -49,14 +49,13 @@ destination d_tcp {
     problems with most destination types. Instead, use filters and log paths to
     avoid such situations.
 - Sources and destinations are initialized only when they are used in a log
-    statement. For example, syslog-ng OSE starts listening on a port or starts
+    statement. For example, {{ site.product.short_name }} starts listening on a port or starts
     polling a file only if the source is used in a log statement.
     For details on creating log statements, see
     [[log: Filter and route log messages using log paths, flags, and filters]]
 {: .notice--warning}
 
-The following section lists the destination drivers available in syslog-ng
-OSE. If these destinations do not satisfy your needs, you can extend
-syslog-ng OSE and write your own destination, for example, in C, Java,
+The following section lists the destination drivers available in {{ site.product.short_name }}. If these destinations do not satisfy your needs, you can extend
+{{ site.product.short_name }} and write your own destination, for example, in C, Java,
 or Python. For details, see
 Write your own custom destination in Java or Python.

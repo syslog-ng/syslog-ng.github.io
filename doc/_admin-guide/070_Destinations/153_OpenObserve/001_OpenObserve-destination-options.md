@@ -12,7 +12,7 @@ description: >-
 |  Type:|      string|
 |  Default:|   `"default"`|
 
-*Description:* The name of the OpenObserve organization where syslog-ng OSE sends the data.
+*Description:* The name of the OpenObserve organization where {{ site.product.short_name }} sends the data.
 
 {% include doc/admin-guide/options/password.md %}
 
@@ -23,14 +23,14 @@ description: >-
 |  Type:|      string|
 |  Default:|   `"--scope rfc5424 --exclude DATE --key ISODATE @timestamp=${ISODATE}"`|
 
-*Description:* A JSON object representing key-value pairs sent to OpenObserve, formatted as syslog-ng OSE value-pairs. By default, the `openobserve-log()` destination sends the RFC-5424 fields as attributes. If you want to send different fields, override the default content of the `record()` field.
+*Description:* A JSON object representing key-value pairs sent to OpenObserve, formatted as {{ site.product.short_name }} value-pairs. By default, the `openobserve-log()` destination sends the RFC-5424 fields as attributes. If you want to send different fields, override the default content of the `record()` field.
 
 ## stream()
 
 |  Type:|      string|
 |  Default:|   `"default"`|
 
-*Description:* The OpenObserve stream where syslog-ng OSE sends the data, for example, `your-example-stream`.
+*Description:* The OpenObserve stream where {{ site.product.short_name }} sends the data, for example, `your-example-stream`.
 
 ## user()
 

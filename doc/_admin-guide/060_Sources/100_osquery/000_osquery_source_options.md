@@ -11,7 +11,7 @@ The osquery() driver has the following options.
 |Default: |  /var/log/osquery/osqueryd.results.log|
 
 *Description:* The log file of osquery that stores the results of
-periodic queries. The syslog-ng OSE application reads the messages from
+periodic queries. The {{ site.product.short_name }} application reads the messages from
 this file.
 
 {% include doc/admin-guide/options/hook.md %}

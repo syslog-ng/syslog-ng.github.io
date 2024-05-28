@@ -6,7 +6,7 @@ description: >-
 id: dev-macos-local-logs
 ---
 
-An oversimplification of what the system() source does internally is that it reads the files where the given operating system's stores the logs. Unfortunately, the mapping for the same does not exist anymore for modern macOS operating systems, that resulted in a temporary solution in syslog-ng earlier.&#x20;
+An oversimplification of what the system() source does internally is that it reads the files where the given operating system's stores the logs. Unfortunately, the mapping for the same does not exist anymore for modern macOS operating systems, that resulted in a temporary solution in {{ site.product.short_name }} earlier.&#x20;
 
 On macOS, log files are stored in multiple locations.&#x20;
 
@@ -14,7 +14,7 @@ On macOS, log files are stored in multiple locations.&#x20;
 * `"/Library/Logs"` is the system-wide application log folder.
 * `"/var/log/syslog.log"` generally contains logs for low-level system services and kernel logs. (These are the log files one is primarily concerned with)&#x20;
 
-Given that the expected behavior of system() source is to display system and kernel logs, to achieve this using a file() source driver, earlier syslog-ng versions simply implemented the macOS system() source via: \
+Given that the expected behavior of system() source is to display system and kernel logs, to achieve this using a file() source driver, earlier {{ site.product.short_name }} versions simply implemented the macOS system() source via: \
 \
 `file("/var/log/system.log" follow-freq(1));`
 

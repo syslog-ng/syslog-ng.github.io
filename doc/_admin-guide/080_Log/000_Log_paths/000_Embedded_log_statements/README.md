@@ -2,7 +2,7 @@
 title: Embedded log statements
 id: adm-log-emb-log
 description: >-
-    Starting from version 3.0, syslog-ng can handle embedded log statements
+    Starting from version 3.0, {{ site.product.short_name }} can handle embedded log statements
     (also called log pipes). Embedded log statements are useful for creating
     complex, multi-level log paths with several destinations and use
     filters, parsers, and rewrite rules.

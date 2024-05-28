@@ -8,7 +8,7 @@ created. To explicitly enable the normal disk-buffer option, use the
 disk-buffer(reliable(no)) parameter in the destination. Use the normal
 disk-buffer option if you want a solution that is faster than the
 reliable disk-buffer option. In this case, the process will be less
-reliable and it is possible to lose logs in case of syslog-ng OSE crash.
+reliable and it is possible to lose logs in case of {{ site.product.short_name }} crash.
 The filename of the normal disk-buffer file is the following:
 \<syslog-ng path\>/var/syslog-ng-00000.qf.
 

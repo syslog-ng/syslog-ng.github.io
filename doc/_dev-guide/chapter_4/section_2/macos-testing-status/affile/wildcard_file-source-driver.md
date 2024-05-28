@@ -2,7 +2,7 @@
 title: wildcard\_file() Source Driver
 description: >-
   The wildcard-file() source collects log messages from multiple plain-text
-  files from multiple directories.The syslog-ng OSE application notices if a
+  files from multiple directories.The {{ site.product.short_name }} application notices if a
   file is renamed or replaced with a new file.
 id: dev-macos-mod-sup-wildcard
 ---
@@ -16,7 +16,7 @@ id: dev-macos-mod-sup-wildcard
 
 ### Important Information
 
-When syslog-ng OSE is restarted, it records the position of the last sent log message in the persist file, and continues to send messages from this position after the restart. The location of the persist file depends on the package you installed syslog-ng OSE from.&#x20;
+When {{ site.product.short_name }} is restarted, it records the position of the last sent log message in the persist file, and continues to send messages from this position after the restart. The location of the persist file depends on the package you installed {{ site.product.short_name }} from.&#x20;
 
 ### How to test
 

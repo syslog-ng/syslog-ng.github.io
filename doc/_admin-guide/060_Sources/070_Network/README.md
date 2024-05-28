@@ -22,7 +22,7 @@ description: >-
     is broken, messages that the client has sent but were not yet
     received on the server are lost.
 
-- The syslog-ng application supports TLS (Transport Layer Security,
+- The {{ site.product.short_name }} application supports TLS (Transport Layer Security,
     also known as SSL) over TCP. For details, see
     Encrypting log messages with TLS.
 

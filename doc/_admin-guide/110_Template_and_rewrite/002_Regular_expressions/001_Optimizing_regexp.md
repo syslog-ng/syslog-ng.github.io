@@ -3,7 +3,7 @@ title: Optimizing regular expressions
 id: adm-temp-regexp-optimize
 description: >-
     The host(), match(), and program() filter functions and some other
-    syslog-ng objects accept regular expressions as parameters. But
+    {{ site.product.short_name }} objects accept regular expressions as parameters. But
     evaluating general regular expressions puts a high load on the CPU,
     which can cause problems when the message traffic is very high. Often
     the regular expression can be replaced with simple filter functions and

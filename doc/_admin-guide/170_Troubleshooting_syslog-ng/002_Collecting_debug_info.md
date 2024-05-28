@@ -4,14 +4,14 @@ short_title: Collecting debugging info
 id: adm-debug-info
 description: >-
     To properly troubleshoot certain situations, it can be useful to trace
-    which system calls syslog-ng OSE performs. How this is performed depends
-    on the platform running syslog-ng OSE.
+    which system calls {{ site.product.short_name }} performs. How this is performed depends
+    on the platform running {{ site.product.short_name }}.
 ---
 
 In general, note the following points:
 
-- When syslog-ng OSE is started, a supervisor process might stay in
-    the foreground, while the actual syslog-ng daemon goes to the
+- When {{ site.product.short_name }} is started, a supervisor process might stay in
+    the foreground, while the actual {{ site.product.short_name }} daemon goes to the
     background. Always trace the background process.
 
 - Apart from the system calls, the time between two system calls can
@@ -26,10 +26,10 @@ In general, note the following points:
 - When using strace, also record the output of lsof to see which files
     are accessed.
 
-The following are examples for tracing system calls of syslog-ng on some
+The following are examples for tracing system calls of {{ site.product.short_name }} on some
 platforms. The output is saved into the /tmp/syslog-ng-trace.txt file,
-sufficed with the PID of the related syslog-ng process.The path of the
-syslog-ng binary may be different for your installation, as
+sufficed with the PID of the related {{ site.product.short_name }} process.The path of the
+{{ site.product.short_name }} binary may be different for your installation, as
 distribution-specific packages may use different paths.
 
 - *Linux*
@@ -50,6 +50,6 @@ distribution-specific packages may use different paths.
     truss -f -o /tmp/syslog-ng-trace.txt -r all -w all -u libc:: /opt/syslog-ng/sbin/syslog-ng -d -d -d
     ```
 
-**TIP:** To execute these commands on an already running syslog-ng OSE
+**TIP:** To execute these commands on an already running {{ site.product.short_name }}
 process, use the **-p \<pid\_of\_syslog-ng\>** parameter.
 {: .notice--info}

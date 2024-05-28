@@ -2,9 +2,9 @@
 title: Structuring macros, metadata, and other value-pairs
 id: adm-structuring-macros
 description: >-
-    Available in syslog-ng OSE 3.3 and later.
+    Available in {{ site.product.short_name }} 3.3 and later.
 
-    The syslog-ng OSE application allows you to select and construct
+    The {{ site.product.short_name }} application allows you to select and construct
     name-value pairs from any information already available about the log
     message, or extracted from the message itself.  
 ---

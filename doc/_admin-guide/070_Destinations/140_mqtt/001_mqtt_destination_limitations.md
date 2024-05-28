@@ -3,10 +3,10 @@ title: Limitations to using the mqtt() destination
 id: adm-dest-mqtt-lim
 ---
 
-Using the mqtt() destination of syslog-ng OSE has the following
+Using the mqtt() destination of {{ site.product.short_name }} has the following
 limitations:
 
-- You can only use the mqtt() destination with syslog-ng OSE version
+- You can only use the mqtt() destination with {{ site.product.short_name }} version
     3.33 or higher.
 
 - You cannot use the mqtt() destination without installing the the

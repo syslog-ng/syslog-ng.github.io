@@ -2,7 +2,7 @@
 title: Correlating messages using the grouping-by() parser
 id: adm-cor-grouping-by
 description: >-
-    The syslog-ng OSE application can correlate log messages that match a
+    The {{ site.product.short_name }} application can correlate log messages that match a
     set of filters. This works similarly to SQL GROUP BY statements.
     Alternatively, you can also correlate log messages using pattern
     databases. For details, see Correlating log messages using pattern databases.
@@ -17,7 +17,7 @@ authentication failure, and the reason of the failure in the next
 message. Of course, messages that are not so directly related can be
 correlated as well, for example, login-logout messages, and so on.
 
-To correlate log messages with syslog-ng OSE, you can add messages into
+To correlate log messages with {{ site.product.short_name }}, you can add messages into
 message-groups called contexts. A context consists of a series of log
 messages that are related to each other in some way, for example, the
 log messages of an SSH session can belong to the same context. As new
@@ -44,16 +44,15 @@ is added to a context: scope(), key(), and where().
     context, you can use the **where()** option.
 
 The timeout() option determines how long a context is stored, that is,
-how long syslog-ng OSE waits for related messages to arrive. If the
+how long {{ site.product.short_name }} waits for related messages to arrive. If the
 group has a specific log message that ends the context (for example, a
 logout message), you can specify it using the **trigger()** option.
 
 When the context is closed, and the messages match the filter set in the
-having() option (or the having() option is not set), syslog-ng OSE
+having() option (or the having() option is not set), {{ site.product.short_name }}
 generates and sends the message set in the aggregate() option.
 
-**NOTE:** Message contexts are persistent and are not lost when syslog-ng
-OSE is reloaded (SIGHUP), but are lost when syslog-ng OSE is restarted.
+**NOTE:** Message contexts are persistent and are not lost when {{ site.product.short_name }} is reloaded (SIGHUP), but are lost when {{ site.product.short_name }} is restarted.
 {: .notice--info}
 
 **Declaration**
@@ -74,29 +73,29 @@ key(), aggregate(), and timeout().
 
 Note the following points about timeout values:
 
-- When a new message is added to a context, syslog-ng OSE will restart
+- When a new message is added to a context, {{ site.product.short_name }} will restart
     the timeout using the context-timeout set for the new message.
 
 - When calculating if the timeout has already expired or not,
-    syslog-ng OSE uses the timestamps of the incoming messages, not
+    {{ site.product.short_name }} uses the timestamps of the incoming messages, not
     system time elapsed between receiving the two messages (unless the
     messages do not include a timestamp, or the **keep-timestamp(no)**
-    option is set). That way syslog-ng OSE can be used to process and
+    option is set). That way {{ site.product.short_name }} can be used to process and
     correlate already existing log messages offline. However, the
     timestamps of the messages must be in chronological order (that is,
     a new message cannot be older than the one already processed), and
     if a message is newer than the current system time (that is, it
-    seems to be coming from the future), syslog-ng OSE will replace its
+    seems to be coming from the future), {{ site.product.short_name }} will replace its
     timestamp with the current system time.
 
-    Example: How syslog-ng OSE calculates context-timeout
+    Example: How {{ site.product.short_name }} calculates context-timeout
 
     Consider the following two messages:
 
     ><38>1990-01-01T14:45:25 customhostname program6[1234]: program6 testmessage
     ><38>1990-01-01T14:46:25 customhostname program6[1234]: program6 testmessage
 
-    If the context-timeout is 10 seconds and syslog-ng OSE receives the
+    If the context-timeout is 10 seconds and {{ site.product.short_name }} receives the
     messages within 1 second, the timeout event will occour immediately,
     because the difference of the two timestamp (60 seconds) is larger
     than the timeout value (10 seconds).
@@ -124,7 +123,7 @@ running ntpdate:
 
 These lines are connected by their second field:
 `msg=audit(1440927434.124:40347)`. You can parse such messages using the
-Linux audit parser of syslog-ng OSE, and then
+Linux audit parser of {{ site.product.short_name }}, and then
 use the parsed .auditd.msg field to group the messages.
 
 ```config
@@ -139,5 +138,4 @@ parser auditd_groupingby {
 };
 ```
 
-For another example, see [The grouping-by() parser in syslog-ng blog
-post](https://www.syslog-ng.com/community/b/blog/posts/the-grouping-by-parser-in-syslog-ng-3-8)
+For another example, see The grouping-by() parser in syslog-ng blog post.

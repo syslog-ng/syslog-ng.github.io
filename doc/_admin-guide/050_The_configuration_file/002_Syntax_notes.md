@@ -3,7 +3,7 @@ title: Notes about the configuration syntax
 id: adm-conf-syn-notes
 ---
 
-When you are editing the syslog-ng configuration file, note the
+When you are editing the {{ site.product.short_name }} configuration file, note the
 following points:
 
 - The configuration file can contain a maximum of 6665 source /
@@ -18,7 +18,7 @@ following points:
     values. Numbers beginning with zero (0) or 0x are treated as octal
     or hexadecimal numbers, respectively.
 
-    Starting with syslog-ng OSE version 3.5, you can use suffixes for
+    Starting with {{ site.product.short_name }} version 3.5, you can use suffixes for
     kilo-, mega-, and gigabytes. Use the Kb, Mb, or Gb suffixes for the
     base-10 version, and Kib, Mib, or Gib for the base-2 version. That
     is, 2MB means 2000000, while 2MiB means 2097152. For example, to set
@@ -26,7 +26,7 @@ following points:
     **log-msg-size(2Mb)**.
 
 - You can use commas (,) to separate options or other parameters for
-    readability, syslog-ng completely ignores them. The following
+    readability, {{ site.product.short_name }} completely ignores them. The following
     declarations are equivalent:
 
     ```config

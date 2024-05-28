@@ -17,7 +17,7 @@ preserve the original properties of an existing directory, use the
 option without specifying an attribute: dir-owner().
 
 Starting with version 3.16, the default value of this option is -1, so
-syslog-ng OSE does not change the ownership, unless explicitly
+{{ site.product.short_name }} does not change the ownership, unless explicitly
 configured to do so.
 
 ## dir-perm()
@@ -38,5 +38,5 @@ the default permission of the directories is masked with the umask of
 the parent process (typically **0022**).
 
 Starting with version 3.16, the default value of this option is -1, so
-syslog-ng OSE does not change the ownership, unless explicitly
+{{ site.product.short_name }} does not change the ownership, unless explicitly
 configured to do so.

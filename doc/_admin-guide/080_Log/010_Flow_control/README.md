@@ -4,20 +4,20 @@ short_title: Managing incoming and outgoing messages
 id: adm-log-flow
 description: >-
     This section describes the internal message-processing model of
-    syslog-ng, as well as the flow-control feature that can prevent message
+    {{ site.product.short_name }}, as well as the flow-control feature that can prevent message
     losses.
 ---
 
-The syslog-ng application monitors (polls) the sources defined in its
+The {{ site.product.short_name }} application monitors (polls) the sources defined in its
 configuration file, periodically checking each source for messages. When
-a log message is found in one of the sources, syslog-ng polls every
+a log message is found in one of the sources, {{ site.product.short_name }} polls every
 source and reads the available messages. These messages are processed
-and put into the output buffer of syslog-ng (also called fifo). From the
+and put into the output buffer of {{ site.product.short_name }} (also called fifo). From the
 output buffer, the operating system sends the messages to the
 appropriate destinations.
 
 In large-traffic environments many messages can arrive during a single
-poll loop, therefore syslog-ng reads only a fixed number of messages
+poll loop, therefore {{ site.product.short_name }} reads only a fixed number of messages
 from each source. The log-fetch-limit() option specifies the number of
 messages read during a poll loop from a single source.
 
@@ -27,7 +27,7 @@ messages read during a poll loop from a single source.
 
 TCP and unix-stream sources can receive the logs from several incoming
 connections (for example, many different clients or applications). For
-such sources, syslog-ng reads messages from every connection, thus the
+such sources, {{ site.product.short_name }} reads messages from every connection, thus the
 log-fetch-limit() parameter applies individually to every connection of
 the source.
 
@@ -48,7 +48,7 @@ the incoming messages of every source.
 
 ## Log paths with flow-control
 
-The syslog-ng application uses flow-control in the following cases:
+The {{ site.product.short_name }} application uses flow-control in the following cases:
 
 - Hard flow-control: the flow-control flag is enabled for the
     particular log path.
@@ -56,24 +56,24 @@ The syslog-ng application uses flow-control in the following cases:
 - Soft flow-control: the log path includes a file destination.
 
 **NOTE:** The way flow-control works has changed significantly in version
-syslog-ng OSE 3.22. If you are using an older version of syslog-ng OSE,
+{{ site.product.short_name }} 3.22. If you are using an older version of {{ site.product.short_name }},
 consult the documentation of the version you are using for details about
 flow-control.
 {: .notice--info}
 
-The flow-control of syslog-ng introduces a control window to the source
-that tracks how many messages can syslog-ng accept from the source.
-Every message that syslog-ng reads from the source lowers the window
-size by one, every message that syslog-ng successfully sends from the
+The flow-control of {{ site.product.short_name }} introduces a control window to the source
+that tracks how many messages can {{ site.product.short_name }} accept from the source.
+Every message that {{ site.product.short_name }} reads from the source lowers the window
+size by one, every message that {{ site.product.short_name }} successfully sends from the
 output buffer increases the window size by one. If the window is full
-(that is, its size decreases to zero), syslog-ng stops reading messages
+(that is, its size decreases to zero), {{ site.product.short_name }} stops reading messages
 from the source. The initial size of the control window is by default 100.
 If a source accepts messages from multiple connections, all
 messages use the same control window.
 
-When using flow-control, syslog-ng automatically sets the size of the
+When using flow-control, {{ site.product.short_name }} automatically sets the size of the
 output buffer so that it matches the size of the control window of the
-sources. Note that starting with syslog-ng OSE 3.22, log-fifo-size()
+sources. Note that starting with {{ site.product.short_name }} 3.22, log-fifo-size()
 only affects log paths that are not flow-controlled.
 
 **NOTE:** If the source can handle multiple connections (for example,
@@ -86,15 +86,15 @@ window is applied to each connection of the source.
 
 In addition to the static control window set using the log-iw-size()
 option, you can also allocate a dynamic window to the source. The
-syslog-ng application uses this window to dynamically increase the
+{{ site.product.short_name }} application uses this window to dynamically increase the
 static window of the active connections. The dynamic window is
 distributed evenly among the active connections of the source. The
-syslog-ng application periodically checks which connections of the
+{{ site.product.short_name }} application periodically checks which connections of the
 source are active, and redistributes the dynamic window. If only one of
 the connections is active, it receives the entire dynamic window, while
 other connections receive only their share of the static window.
 
-Using dynamic flow-control on your syslog-ng server is useful when the
+Using dynamic flow-control on your {{ site.product.short_name }} server is useful when the
 source has lots of connections, but only a small subset of the active
 clients send messages at high rate, and the memory of the syslog-ng
 server is limited. In other cases, it is currently not recommended,
@@ -177,28 +177,28 @@ log {
 
 ## Handling outgoing messages
 
-The syslog-ng application handles outgoing messages the following way:
+The {{ site.product.short_name }} application handles outgoing messages the following way:
 
-### Figure 16: Handling outgoing messages in syslog-ng OSE
+### Figure 16: Handling outgoing messages in {{ site.product.short_name }}
 
 ![]({{ adm_img_folder | append: 'disk-buffer-diagram-normal.png'}})
 
 - *Output queue*: Messages from the output queue are sent to the
-    target syslog-ng server. The syslog-ng application puts the outgoing
+    target {{ site.product.short_name }} server. The {{ site.product.short_name }} application puts the outgoing
     messages directly into the output queue, unless the output queue is
     full. The output queue can hold 64 messages, this is a fixed value
     and cannot be modified.
 
 - *Disk buffer*: If the output queue is full and disk-buffering is
-    enabled, syslog-ng puts the outgoing messages into the disk buffer
+    enabled, {{ site.product.short_name }} puts the outgoing messages into the disk buffer
     of the destination.
 
 - *Overflow queue*: If the output queue is full and the disk buffer is
-    disabled or full, syslog-ng puts the outgoing messages into the
+    disabled or full, {{ site.product.short_name }} puts the outgoing messages into the
     overflow queue of the destination. (The overflow queue is identical
     to the output buffer used by other destinations.) The
     log-fifo-size() parameter specifies the number of messages stored in
     the overflow queue, unless flow-control is enabled. When dynamic
-    flow-control is enabled, syslog-ng sets the size of the overflow
+    flow-control is enabled, {{ site.product.short_name }} sets the size of the overflow
     queue automatically. For details on sizing the log-fifo-size()
     parameter, see Configuring flow-control.

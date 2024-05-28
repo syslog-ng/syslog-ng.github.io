@@ -6,7 +6,7 @@ description: >-
     card numbers (Primary Account Number or PAN). According to privacy best
     practices and the requirements of the Payment Card Industry Data
     Security Standards (PCI-DSS), PAN must be rendered unreadable. The
-    syslog-ng OSE application uses a regular expression to detect credit
+    {{ site.product.short_name }} application uses a regular expression to detect credit
     card numbers, and provides two ways to accomplish this: you can either
     mask the credit card numbers, or replace them with a hash. To mask the
     credit card numbers, use the credit-card-mask() or the
@@ -44,5 +44,5 @@ characters.
 *Description:* Process the specified message field (by default,
 ${MESSAGE}), and replace the 7-12th character of any credit card
 numbers (Primary Account Number or PAN) with asterisks (**\***). For
-example, syslog-ng OSE replaces the number 5542043004559005 with
+example, {{ site.product.short_name }} replaces the number 5542043004559005 with
 554204\*\*\*\*\*\*9005.

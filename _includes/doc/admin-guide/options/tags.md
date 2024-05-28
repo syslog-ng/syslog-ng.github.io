@@ -7,4 +7,4 @@
 tags. Tags must be unique, and enclosed between double quotes. When
 adding multiple tags, separate them with comma, for example,
 **tags("dmz", "router")**. This option is available only in
-syslog-ng 3.1 and later.
+{{ site.product.short_name }} 3.1 and later.

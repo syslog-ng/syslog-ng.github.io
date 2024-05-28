@@ -34,7 +34,7 @@ period of time. For details, see the Web API rate limiting in the Slack
 documentation.
 
 To use this destination, the scl.conf file must be included in your
-syslog-ng OSE configuration:
+{{ site.product.short_name }} configuration:
 
 ```config
 @include "scl.conf"
@@ -48,9 +48,9 @@ You can find the source of the Slack configuration snippet on GitHub.
 
 ## Prerequisites
 
-To send messages and notifications from syslog-ng OSE to Slack, you must
-create a Slack app and a Webhook that syslog-ng OSE can use. For
-details, see the [[Slack documentation|slack-webhook-doc]].
+To send messages and notifications from {{ site.product.short_name }} to Slack, you must
+create a Slack app and a Webhook that {{ site.product.short_name }} can use. For
+details, see the Slack webhook documentation.
 
 ### Example: Using the slack() driver
 

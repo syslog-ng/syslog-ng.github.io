@@ -13,7 +13,7 @@ description: >-
 (SELinux) or AppArmor as a security measure. If enabled, these
 technologies might disable access to the Linux Audit log file by
 default. Consult their manuals to enable Linux Audit log access for
-syslog-ng OSE.
+{{ site.product.short_name }}.
 {: .notice--info}
 
 **Declaration**

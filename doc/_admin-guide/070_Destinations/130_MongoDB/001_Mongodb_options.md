@@ -60,14 +60,14 @@ mongodb(
 ```
 
 ![]({{ site.baseurl}}/assets/images/caution.png) **CAUTION:**
-Hazard of data loss! The syslog-ng OSE application does not verify that
+Hazard of data loss! The {{ site.product.short_name }} application does not verify that
 the specified collection name does not contain invalid characters. If
 you specify a collection with an invalid name, the log messages sent to
 the MongoDB database will be irrevocably lost without any warning.
 {: .notice--danger}
 
-For MongoDB operations, syslog-ng OSE uses a one-minute timeout: if an
-operation times out, syslog-ng OSE assumes the operation has failed.
+For MongoDB operations, {{ site.product.short_name }} uses a one-minute timeout: if an
+operation times out, {{ site.product.short_name }} assumes the operation has failed.
 
 ## uri()
 

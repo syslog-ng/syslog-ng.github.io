@@ -15,7 +15,7 @@ id: dev-macos-mod-sup-net-dest
 | TCP |   ARM   | Works |
 
 **Note**\
-The network destination driver also includes TCP transmission on a TLS-encrypted channel, however, this is tested and verified in a separate post dealing with TLS-encryption with syslog-ng [here](tls-encryption/).
+The network destination driver also includes TCP transmission on a TLS-encrypted channel, however, this is tested and verified in a separate post dealing with TLS-encryption with {{ site.product.short_name }} [here](tls-encryption/).
 
 ### How to Test
 

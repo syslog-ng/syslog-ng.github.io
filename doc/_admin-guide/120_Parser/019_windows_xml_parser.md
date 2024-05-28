@@ -6,7 +6,7 @@ description: >-
     The `windows-eventlog-xml-parser()` can parse messages in the Windows XML Event Log (EVTX) format. 
 ---
 
-Available in syslog-ng 4.5 and later versions.
+Available in {{ site.product.short_name }} 4.5 and later versions.
 
 ### Example: Windows XML Event Log parser configuration
 

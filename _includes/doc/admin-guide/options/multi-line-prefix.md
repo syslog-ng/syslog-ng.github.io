@@ -9,8 +9,7 @@ example, Tomcat logs). Specify a string or regular expression that
 matches the beginning of the log messages (always start with the **^**
 character). Use as simple regular expressions as possible, because
 complex regular expressions can severely reduce the rate of processing
-multi-line messages. If the multi-line-prefix() option is set, syslog-ng
-OSE ignores newline characters from the source until a line matches the
+multi-line messages. If the multi-line-prefix() option is set, {{ site.product.short_name }} ignores newline characters from the source until a line matches the
 regular expression again, and treats the lines between the matching
 lines as a single message. See also the multi-line-garbage() option.
 
@@ -61,5 +60,5 @@ source s_file{
 };
 ```
 
-Note that flags(no-parse) is needed to prevent syslog-ng OSE trying to
+Note that flags(no-parse) is needed to prevent {{ site.product.short_name }} trying to
 interpret the date in the message.

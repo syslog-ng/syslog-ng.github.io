@@ -7,7 +7,7 @@ id: adm-man-dqtool
 ## Name
 
 dqtool --- Display the contents of a disk-buffer file created with
-syslog-ng OSE.
+{{ site.product.short_name }}.
 
 ## Synopsis
 
@@ -76,13 +76,13 @@ relocate [options] [files]
 
 Use the relocate command to move or rename disk-buffer (also called
 disk-queue) files. Note that this option modifies the persist file. Stop
-syslog-ng OSE before using this command.
+{{ site.product.short_name }} before using this command.
 
 The relocate command has the following options:
 
 - \--all or -a
 
-    Relocate every disk-buffer file that is listed in the syslog-ng OSE
+    Relocate every disk-buffer file that is listed in the {{ site.product.short_name }}
     persist file.
 
 - \--new\_path or -n
@@ -92,7 +92,7 @@ The relocate command has the following options:
 
 - \--persist or -p
 
-    The path to the syslog-ng OSE persist file. The relocate command
+    The path to the {{ site.product.short_name }} persist file. The relocate command
     automatically updates the entries of the disk-buffer files in the
     persist file.
 

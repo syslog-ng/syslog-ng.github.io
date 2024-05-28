@@ -1,11 +1,11 @@
 ---
-title: Configuring TLS on the syslog-ng clients
+title: Configuring TLS on the {{ site.product.short_name }} clients
 id: adm-tls-client-conf
 ---
 
 ## Purpose
 
-Complete the following steps on every syslog-ng client host. Examples
+Complete the following steps on every {{ site.product.short_name }} client host. Examples
 are provided using both the legacy BSD-syslog protocol (using the
 network() driver) and the new IETF-syslog protocol standard (using the
 syslog() driver):
@@ -13,9 +13,9 @@ syslog() driver):
 ## Steps
 
 1. Copy the CA certificate (for example, cacert.pem) of the Certificate
-    Authority that issued the certificate of the syslog-ng server (or
-    the self-signed certificate of the syslog-ng server) to the
-    syslog-ng client hosts, for example, into the
+    Authority that issued the certificate of the {{ site.product.short_name }} server (or
+    the self-signed certificate of the {{ site.product.short_name }} server) to the
+    {{ site.product.short_name }} client hosts, for example, into the
     /opt/syslog-ng/etc/syslog-ng/ca.d directory.
 
     Issue the following command on the certificate: `openssl x509
@@ -29,16 +29,16 @@ syslog() driver):
 
     `ln -s cacert.pem 6d2962a8.0`
 
-2. Add a destination statement to the syslog-ng configuration file that
+2. Add a destination statement to the {{ site.product.short_name }} configuration file that
     uses the tls( ca-dir(path_to_ca_directory) ) option and specify
     the directory using the CA certificate. The destination must use the
     network() or the syslog() destination driver, and the IP address and
-    port parameters of the driver must point to the syslog-ng server.
+    port parameters of the driver must point to the {{ site.product.short_name }} server.
 
     Example: A destination statement using TLS
 
     The following destination encrypts the log messages using TLS and
-    sends them to the 6514/TCP port of the syslog-ng server having the
+    sends them to the 6514/TCP port of the {{ site.product.short_name }} server having the
     10.1.2.3 IP address.
 
     ```config

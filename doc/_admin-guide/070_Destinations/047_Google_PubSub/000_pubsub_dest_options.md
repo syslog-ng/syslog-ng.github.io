@@ -13,7 +13,7 @@ description: >-
 |  Type:|     string|
 |Default:| `"--scope rfc5424,all-nv-pairs --exclude MESSAGE"`|
 
-*Description:* A JSON object representing key-value pairs for the Pub/Sub Event, formatted as syslog-ng OSE value-pairs. By default, the `google-pubsub()` destination sends the RFC-5424 fields as attributes. If different fields are required, override the default template. By default, the message part is sent in the `data()` option
+*Description:* A JSON object representing key-value pairs for the Pub/Sub Event, formatted as {{ site.product.short_name }} value-pairs. By default, the `google-pubsub()` destination sends the RFC-5424 fields as attributes. If different fields are required, override the default template. By default, the message part is sent in the `data()` option
 
 ## auth()
 
@@ -45,11 +45,11 @@ See the example for `auth()` above.
 |  Type:|     string/template|
 |Default:| |
 
-*Description:* The ID of the Google Cloud project where syslog-ng OSE sends the data. The Pub/Sub API must be enabled for the project.
+*Description:* The ID of the Google Cloud project where {{ site.product.short_name }} sends the data. The Pub/Sub API must be enabled for the project.
 
 ## topic()
 
 |  Type:|     string|
 |Default:| |
 
-*Description:* The name of the Google Pub/Sub target topic to where syslog-ng OSE sends the data.
+*Description:* The name of the Google Pub/Sub target topic to where {{ site.product.short_name }} sends the data.

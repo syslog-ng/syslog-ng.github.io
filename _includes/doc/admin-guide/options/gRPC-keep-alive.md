@@ -1,6 +1,6 @@
 ## keep-alive()
 
-This option configures the forwarding of gRPC keepalive pings in syslog-ng OSE.
+This option configures the forwarding of gRPC keepalive pings in {{ site.product.short_name }}.
 
 ### max-pings-without-data()
 
@@ -14,11 +14,11 @@ This option configures the forwarding of gRPC keepalive pings in syslog-ng OSE.
 |   Type:|      number[milliseconds]|
 |Default:|                          |
 
-*Description:* syslog-ng OSE sends a gRPC keepalive ping after the amount of time defined in the `time()` option elapsed.
+*Description:* {{ site.product.short_name }} sends a gRPC keepalive ping after the amount of time defined in the `time()` option elapsed.
 
 ### timeout()
 
 |   Type:|      number[milliseconds]|
 |Default:|                        10|
 
-*Description:* The time syslog-ng OSE waits for an acknowledgement.
+*Description:* The time {{ site.product.short_name }} waits for an acknowledgement.

@@ -2,19 +2,19 @@
 title: Orphan disk-buffer files
 id: adm-log-diskbuff-orphan
 description: >-
-    This section describes orphan disk-buffer files used in syslog-ng Open
-    Source Edition(syslog-ng OSE).
+    This section describes orphan disk-buffer files used in {{ site.product.short_name }} Open
+    Source Edition({{ site.product.short_name }}).
 ---
 
 ## Orphan disk-buffer files
 
 In certain situations (for example, after modifying the disk-buffer
-configuration or losing the persist information), syslog-ng OSE creates
+configuration or losing the persist information), {{ site.product.short_name }} creates
 a new disk-buffer file instead of using the already existing one. In
 these situations, the already existing disk-buffer file becomes a
 so-called orphan disk-buffer file.
 
-**NOTE:** The syslog-ng OSE application does not store messages in orphan
+**NOTE:** The {{ site.product.short_name }} application does not store messages in orphan
 disk-buffer files or forward the messages stored in the disk-buffer
 file.
 {: .notice--info}
@@ -55,6 +55,6 @@ exist in the persist file. These two files are the orphan disk-buffer
 files.
 
 For more information about orphan disk-buffer files and how to process
-the messages in orphan disk-buffer files using a separate syslog-ng OSE
+the messages in orphan disk-buffer files using a separate {{ site.product.short_name }}
 instance, see How to process messages from an orphan disk-buffer file using a
-separate syslog-ng OSE instance.
+separate {{ site.product.short_name }} instance.

@@ -6,9 +6,9 @@ description: >-
     The snmp() driver sends SNMP traps using the Simple Network Management
     Protocol version 2c or version 3. Incoming log messages can be converted
     to SNMP traps, as the fields of the SNMP messages can be customized
-    using syslog-ng OSE macros.
+    using {{ site.product.short_name }} macros.
 
-    The snmp() driver is available in syslog-ng OSE version 3.22 and later.
+    The snmp() driver is available in {{ site.product.short_name }} version 3.22 and later.
 ---
 
 **NOTE:** The snmp destination driver currently supports sending SNMP traps
@@ -26,7 +26,7 @@ destination d_snmp {snmp(host() trap-obj() snmp-obj() ...);};
 ```
 
 ![]({{ site.baseurl}}/assets/images/caution.png) **CAUTION:**
-If syslog-ng OSE cannot resolve the destination hostname during startup,
+If {{ site.product.short_name }} cannot resolve the destination hostname during startup,
 it will try to resolve the hostname again when the next message to be
 sent as an SNMP trap is received. However, if this name resolution fails,
 the trap will be dropped.

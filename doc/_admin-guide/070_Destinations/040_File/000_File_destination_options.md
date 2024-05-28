@@ -8,13 +8,13 @@ The file() driver outputs messages to the specified text file, or to a
 set of files. The file() destination has the following options:
 
 ![]({{ site.baseurl}}/assets/images/caution.png) **CAUTION:** When
-creating several thousands separate log files, syslog-ng Open Source Edition
-(syslog-ng OSE) might not be able to open the required number of files.
+creating several thousands separate log files, {{ site.product.name }}
+({{ site.product.short_name }}) might not be able to open the required number of files.
 This might happen for example, when using the ${HOST} macro in the
 filename while receiving messages from a large number of hosts. To overcome
-this problem, adjust the --fd-limit command-line parameter of syslog-ng OSE
+this problem, adjust the --fd-limit command-line parameter of {{ site.product.short_name }}
 or the global ulimit parameter of your host. For setting the --fd-limit
-command-line parameter ofsyslog-ng OSE see the The syslog-ng manual page.
+command-line parameter of{{ site.product.short_name }} see the The {{ site.product.short_name }} manual page.
 For setting the ulimit parameter of the host, see the documentation
 of your operating system.
 {: .notice--warning}
@@ -29,7 +29,7 @@ of your operating system.
 
 - *threaded*: The threaded flag enables multithreading for the
     destination. For details on multithreading, see
-    Multithreading and scaling in syslog-ng OSE.
+    Multithreading and scaling in {{ site.product.short_name }}.
 
     **NOTE:** The file destination uses multiple threads only if the
     destination filename contains macros.
@@ -74,10 +74,10 @@ without specifying an attribute: group().
 |  Type:|      number (seconds)|
   |Default:|   0|
 
-*Description:* If set to a value higher than 0, syslog-ng OSE checks
+*Description:* If set to a value higher than 0, {{ site.product.short_name }} checks
 when the file was last modified before starting to write into the file.
 If the file is older than the specified amount of time (in seconds),
-then syslog-ng removes the existing file and opens a new file with the
+then {{ site.product.short_name }} removes the existing file and opens a new file with the
 same name. In combination with for example, the ${WEEKDAY} macro, this
 can be used for simple log rotation, in case not all history has to be
 kept. (Note that in this weekly log rotation example if its Monday
@@ -100,7 +100,7 @@ without specifying an attribute: owner().
 
 ![]({{ site.baseurl}}/assets/images/caution.png) **CAUTION:**
 Hazard of data loss! If the size of the incoming message is larger
-than the previously set pad-size() value, syslog-ng will truncate
+than the previously set pad-size() value, {{ site.product.short_name }} will truncate
 the message to the specified size. Therefore, all message content
 above that size will be lost.
 {: .notice--danger}

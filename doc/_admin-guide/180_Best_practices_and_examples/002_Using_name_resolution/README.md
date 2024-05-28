@@ -2,16 +2,16 @@
 title: Using name resolution in syslog-ng
 id: adm-pract-nameres
 description: >-
-    The syslog-ng application can resolve the hostnames of the clients and
+    The {{ site.product.short_name }} application can resolve the hostnames of the clients and
     include them in the log messages. However, the performance of syslog-ng
     is severely degraded if the domain name server is unaccessible or slow.
     Therefore, it is not recommended to resolve hostnames in syslog-ng. 
 ---
 
-If you must use name resolution from syslog-ng, consider the following:
+If you must use name resolution from {{ site.product.short_name }}, consider the following:
 
 - Use DNS caching. Verify that the DNS cache is large enough to store
-    all important hostnames. (By default, the syslog-ng DNS cache stores
+    all important hostnames. (By default, the {{ site.product.short_name }} DNS cache stores
     1007 entries.)
 
     ```config

@@ -16,8 +16,8 @@ The stomp() destination has the following options:
 
 *Description:* Request the STOMP server to acknowledge the receipt of
 the messages. If you enable this option, then after sending a message,
-syslog-ng OSE waits until the server confirms that it has received the
-message. This delay can seriously limit the performance of syslog-ng OSE
+{{ site.product.short_name }} waits until the server confirms that it has received the
+message. This delay can seriously limit the performance of {{ site.product.short_name }}
 if the message rate is high, and the server cannot acknowledge the
 messages fast enough.
 

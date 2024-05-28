@@ -57,9 +57,8 @@ identical with the given literal string.
 
 ## Perl Compatible Regular Expressions (PCRE)
 
-Starting with syslog-ng OSE version 3.1, PCRE expressions are supported
-on every platform. If the type() parameter is not specified, syslog-ng
-OSE uses PCRE regular expressions by default.
+Starting with {{ site.product.short_name }} version 3.1, PCRE expressions are supported
+on every platform. If the type() parameter is not specified, {{ site.product.short_name }} uses PCRE regular expressions by default.
 
 The following example shows the structure of PCRE-style regular
 expressions in use.

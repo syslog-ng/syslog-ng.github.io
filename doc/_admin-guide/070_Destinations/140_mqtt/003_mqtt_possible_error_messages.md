@@ -17,43 +17,43 @@ possible reasons behind them, and potential workaround methods.
     </tr>
     <tr>
         <td>"ERROR, while init threaded dest. ..."</td>
-        <td>The syslog-ng OSE application will not start.</td>
+        <td>The {{ site.product.short_name }} application will not start.</td>
         <td>You can try the following methods:  
             <ul>
-                <li>Restart syslog-ng OSE.</li>
+                <li>Restart {{ site.product.short_name }}.</li>
                 <li>Stop some of the programs running on your computer.</li>
-                <li>Restart your computer, and then restart syslog-ng OSE.</li>
+                <li>Restart your computer, and then restart {{ site.product.short_name }}.</li>
             </ul>
         </td>
     </tr>
     <tr>
         <td>"mqtt: the topic() argument is required for mqtt destinations. ..."</td>
-        <td>The topic() option is not set in your configuration. The syslog-ng OSE application will not start.</td>
+        <td>The topic() option is not set in your configuration. The {{ site.product.short_name }} application will not start.</td>
         <td>Set the missing topic() option in your configuration, then restart.</td>
     </tr>
     <tr>
         <td>"The mqtt destination does not support the batching of messages, ..."</td>
-        <td> Your configuration may contain the batch-timeout() and / or batch-lines() options, which are not supported by the mqtt() destination. The syslog-ng OSE application will not start.</td>
+        <td> Your configuration may contain the batch-timeout() and / or batch-lines() options, which are not supported by the mqtt() destination. The {{ site.product.short_name }} application will not start.</td>
         <td>If your configuration contains the batch-timeout() and / or batch-lines() options, remove them from your configuration, and restart.</td>
     </tr>
     <tr>
         <td>"Disconnected during publish!</td>
-        <td>The syslog-ng OSE application can not send the message, because syslog-ng OSE disconnected from the broker. By default, syslog-ng OSE attempts to reconnect to the broker and send the messages 3 times.</td>
-        <td>If syslog-ng OSE fails all 3 attempts to reconnect to the broker and send the messages, you can try checking your configuration or restarting your MQTT system with syslog-ng OSE as a client.</td>
+        <td>The {{ site.product.short_name }} application can not send the message, because {{ site.product.short_name }} disconnected from the broker. By default, {{ site.product.short_name }} attempts to reconnect to the broker and send the messages 3 times.</td>
+        <td>If {{ site.product.short_name }} fails all 3 attempts to reconnect to the broker and send the messages, you can try checking your configuration or restarting your MQTT system with {{ site.product.short_name }} as a client.</td>
     </tr>
     <tr>
         <td>"Max message inflight! (publish)"</td>
-        <td>The syslog-ng OSE application can not send the message due to the max message inflight broker response code (which signals that the broker has received too many messages, and it needs more time to process them). The syslog-ng OSE application will attempt to resend the message.</td>
-        <td>Wait until the broker can process the in-flight messages and syslog-ng OSE can attempt to resend the message.</td>
+        <td>The {{ site.product.short_name }} application can not send the message due to the max message inflight broker response code (which signals that the broker has received too many messages, and it needs more time to process them). The {{ site.product.short_name }} application will attempt to resend the message.</td>
+        <td>Wait until the broker can process the in-flight messages and {{ site.product.short_name }} can attempt to resend the message.</td>
     </tr>
     <tr>
         <td>"Failure during publishing!"</td>
-        <td>The syslog-ng OSE application can not send the message due to the failure broker response code. The syslog-ng OSE application will attempt to resend the message.</td>
+        <td>The {{ site.product.short_name }} application can not send the message due to the failure broker response code. The {{ site.product.short_name }} application will attempt to resend the message.</td>
         <td>N/A</td>
     </tr>
     <tr>
         <td>"Error during publish!"</td>
-        <td>The syslog-ng OSE application can not send the message, and drops it.  
+        <td>The {{ site.product.short_name }} application can not send the message, and drops it.  
 Possible reason:    
 bad\_utf8\_string (topic), NULL parameter.                    
 
@@ -67,12 +67,12 @@ That is, the most probable reasons behind this issue are either that the topic n
     </tr>
     <tr>
         <td>"Disconnected while waiting the response!"</td>
-        <td>The syslog-ng OSE application has sent the message, but the client disconnected from the broker before syslog-ng OSE received the response. The syslog-ng OSE application will attempt to reconnect, or to resend the message.</td>
-        <td>The syslog-ng OSE application will attempt to reconnect to the broker and send the in-flight message. If the reconnect attempt fails, syslog-ng OSE will resend the message.</td>
+        <td>The {{ site.product.short_name }} application has sent the message, but the client disconnected from the broker before {{ site.product.short_name }} received the response. The {{ site.product.short_name }} application will attempt to reconnect, or to resend the message.</td>
+        <td>The {{ site.product.short_name }} application will attempt to reconnect to the broker and send the in-flight message. If the reconnect attempt fails, {{ site.product.short_name }} will resend the message.</td>
     </tr>
     <tr>
         <td>"Error while waiting the response!"</td>
-        <td>The syslog-ng OSE application can not get any response from the broker, due to the failure broker response code. The syslog-ng OSE will attempt to resend the message.</td>
+        <td>The {{ site.product.short_name }} application can not get any response from the broker, due to the failure broker response code. The {{ site.product.short_name }} will attempt to resend the message.</td>
         <td>In this case, you will receive a further error message, depending on what the problem is. Wait for the second error message for more information about how you can proceed.</td>
     </tr>
     <tr>
@@ -87,12 +87,12 @@ That is, the most probable reasons behind this issue are either that the topic n
     </tr>
     <tr>
         <td>"Error connecting mqtt client ..."</td>
-        <td>The syslog-ng OSE application can not connect to broker, and it will attempt to reconnect later.</td>
-        <td> **If the issue persists, you can try the following: Update your eclipse-paho-mqtt-c library.Restart syslog-ng OSE.**</td>
+        <td>The {{ site.product.short_name }} application can not connect to broker, and it will attempt to reconnect later.</td>
+        <td> **If the issue persists, you can try the following: Update your eclipse-paho-mqtt-c library.Restart {{ site.product.short_name }}.**</td>
     </tr>
     <tr>
         <td>"Error creat mqtt client ..."</td>
-        <td>The syslog-ng OSE application encountered an error while creating the MQTT client, and it will attempt to create it later. Possible reasons:
+        <td>The {{ site.product.short_name }} application encountered an error while creating the MQTT client, and it will attempt to create it later. Possible reasons:
             <ul>
                 <li>There is a wrong address() set in your configuration.</li>
                 <li>The broker is not running.</li>

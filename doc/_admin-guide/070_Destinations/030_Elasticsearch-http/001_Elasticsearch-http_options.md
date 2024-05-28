@@ -4,14 +4,14 @@ batch_lines: '25'
 workers: '4'
 id: adm-dest-es-http-opt
 description: >-
-  The elasticsearch-http destination of syslog-ng OSE can directly post
+  The elasticsearch-http destination of {{ site.product.short_name }} can directly post
   log messages to an Elasticsearch deployment using the Elasticsearch Bulk
   API over the HTTP and Secure HTTP (HTTPS) protocols. The
   elasticsearch-http destination has the following options. The required
   options are: index(), type(), and url().
 ---
 
-This destination is available in syslog-ng OSE version 3.21 and later.
+This destination is available in {{ site.product.short_name }} version 3.21 and later.
 
 {% include doc/admin-guide/options/batch-bytes.md %}
 
@@ -80,12 +80,12 @@ Batch mode and load balancing with ElasticSearch.
   |Default:|           None|
 
 *Description:* The name of the Elasticsearch index where Elasticsearch
-will store the messages received from syslog-ng OSE. This option is
+will store the messages received from {{ site.product.short_name }}. This option is
 mandatory for this destination.
 
 You can use macros and template functions, but you must ensure that the
 resolved template contains only characters that Elasticsearch permits in
-the name of the index. The syslog-ng OSE application does not validate
+the name of the index. The {{ site.product.short_name }} application does not validate
 the name of the index. For details on the characters permitted in the
 name of Elasticsearch indices, see the documentation of Elasticsearch.
 
@@ -125,9 +125,9 @@ destination {
 {% include doc/admin-guide/options/retries.md %}
 
 To handle HTTP error responses, if the HTTP server returns 5xx codes,
-syslog-ng OSE will attempt to resend messages until the number of
+{{ site.product.short_name }} will attempt to resend messages until the number of
 attempts reaches retries. If the HTTP server returns 4xx codes,
-syslog-ng OSE will drop the messages.
+{{ site.product.short_name }} will drop the messages.
 
 {% include doc/admin-guide/options/ssl-version.md %}
 
@@ -167,10 +167,10 @@ address to specify the port number of the server. For example:
 This option is mandatory for this destination.
 
 Make sure that the URL ends with _bulk, this is the Elasticsearch API
-endpoint that properly parses the messages sent by syslog-ng OSE.
+endpoint that properly parses the messages sent by {{ site.product.short_name }}.
 
 In case the server on the specified URL returns a redirect request,
-syslog-ng OSE automatically follows maximum 3 redirects. Only HTTP and
+{{ site.product.short_name }} automatically follows maximum 3 redirects. Only HTTP and
 HTTPS based redirections are supported.
 
 {% include doc/admin-guide/load-balancing.md %}
@@ -180,7 +180,7 @@ HTTPS based redirections are supported.
 |  Type:|      string|
 |Default:|   |
 
-*Description:* The username that syslog-ng OSE uses to authenticate on
+*Description:* The username that {{ site.product.short_name }} uses to authenticate on
 the server where it sends the messages.
 
 {% include doc/admin-guide/options/use-system-cert-store.md %}

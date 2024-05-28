@@ -1,5 +1,5 @@
 ---
-title: The syslog-ng control tool manual page
+title: The {{ site.product.short_name }} control tool manual page
 app: syslog-ng-ctl
 id: adm-man-ctl
 ---
@@ -19,15 +19,15 @@ syslog-ng-ctl \[command\] \[options\]
 
 The syslog-ng-ctl application is a utility that can be used to:
 
-- enable/disable various syslog-ng OSE messages for troubleshooting
+- enable/disable various {{ site.product.short_name }} messages for troubleshooting
 
 - display statistics about the processed messages
 
 - handling password-protected private keys
 
-- display the currently running configuration of syslog-ng OSE
+- display the currently running configuration of {{ site.product.short_name }}
 
-- reload the configuration of syslog-ng OSE.
+- reload the configuration of {{ site.product.short_name }}.
 
 ## Enabling troubleshooting messages
 
@@ -44,29 +44,29 @@ debug messages does not enable verbose and trace messages.
 Use syslog-ng-ctl \<command\> without any parameters to display whether
 the particular type of messages are enabled or not.
 
-If you need to use a non-standard control socket to access syslog-ng,
+If you need to use a non-standard control socket to access {{ site.product.short_name }},
 use the syslog-ng-ctl \<command\> \--set=on \--control=\<socket\>
 command to specify the socket to use.
 
 - verbose
 
-    Print verbose messages. If syslog-ng OSE was started with the
+    Print verbose messages. If {{ site.product.short_name }} was started with the
     \--stderr or -e option, the messages will be sent to stderr. If not
-    specified, syslog-ng OSE will log such messages to its internal
+    specified, {{ site.product.short_name }} will log such messages to its internal
     source.
 
 - trace
 
-    Print trace messages of how messages are processed. If syslog-ng OSE
+    Print trace messages of how messages are processed. If {{ site.product.short_name }}
     was started with the \--stderr or -e option, the messages will be
-    sent to stderr. If not specified, syslog-ng OSE will log such
+    sent to stderr. If not specified, {{ site.product.short_name }} will log such
     messages to its internal source.
 
 - debug
 
-    Print debug messages. If syslog-ng OSE was started with the
+    Print debug messages. If {{ site.product.short_name }} was started with the
     \--stderr or -e option, the messages will be sent to stderr. If not
-    specified, syslog-ng OSE will log such messages to its internal
+    specified, {{ site.product.short_name }} will log such messages to its internal
     source.
 
 ### Example
@@ -77,7 +77,7 @@ syslog-ng-ctl verbose --set=on
 
 ## syslog-ng-ctl query
 
-The syslog-ng OSE application stores various data, metrics, and
+The {{ site.product.short_name }} application stores various data, metrics, and
 statistics in a hash table. Every property has a name and a value. For
 example:
 
@@ -97,8 +97,7 @@ also use the ? and \* wildcards. For example:
 
 - Select all dropped value from every stats node: \*.stats.dropped
 
-The nodes and properties available in the tree depend on your syslog-ng
-OSE configuration (that is, the sources, destinations, and other objects
+The nodes and properties available in the tree depend on your {{ site.product.short_name }} configuration (that is, the sources, destinations, and other objects
 you have configured), and also on your stats-level() settings.
 
 ## The list command
@@ -106,7 +105,7 @@ you have configured), and also on your stats-level() settings.
 syslog-ng-ctl query list
 
 Use the syslog-ng-ctl query list command to display the list of metrics
-that syslog-ng OSE collects about the processed messages.
+that {{ site.product.short_name }} collects about the processed messages.
 
 An example output:
 
@@ -186,7 +185,7 @@ The syslog-ng-ctl query get command has the following options:
 
     For example, the syslog-ng-ctl query get \--sum
     \"destination\*.dropped\" command displays the number of messages
-    dropped by the syslog-ng OSE instance.
+    dropped by the {{ site.product.short_name }} instance.
 
 - \--reset
 
@@ -199,7 +198,7 @@ stats \[options\]
 
 Use the stats command to display statistics about the processed
 messages. For details about the displayed statistics,
-see The syslog-ng OSE Administration Guide.
+see The {{ site.product.short_name }} Administration Guide.
 The stats command has the following options:
 
 - \--control=\<socket\> or -c
@@ -272,18 +271,18 @@ An example output:
 syslog-ng-ctl credentials \[options\]
 
 The syslog-ng-ctl credentials status command allows you to query the
-status of the private keys that syslog-ng OSE uses in the network() and
+status of the private keys that {{ site.product.short_name }} uses in the network() and
 syslog() drivers. You can also provide the passphrase for
 password-protected private keys using the syslog-ng-ctl credentials add
 command. For details on using password-protected keys, see
-The syslog-ng Administrator Guide.
+The {{ site.product.short_name }} Administrator Guide.
 
 ## Displaying the status of private keys
 
 syslog-ng-ctl credentials status \[options\]
 
 The syslog-ng-ctl credentials status command allows you to query the
-status of the private keys that syslog-ng OSE uses in the network() and
+status of the private keys that {{ site.product.short_name }} uses in the network() and
 syslog() drivers. The command returns the list of private keys used, and
 their status. For example:
 
@@ -295,11 +294,11 @@ syslog-ng-ctl credentials status
 >/home/user/ssl_test/client-1/client-encrypted.key SUCCESS
 
 If the status of a key is PENDING, you must provide the passphrase for
-the key, otherwise syslog-ng OSE cannot use it. The sources and
+the key, otherwise {{ site.product.short_name }} cannot use it. The sources and
 destinations that use these keys will not work until you provide the
-passwords. Other parts of the syslog-ng OSE configuration will be
+passwords. Other parts of the {{ site.product.short_name }} configuration will be
 unaffected. You must provide the passphrase of the password-protected
-keys every time syslog-ng OSE is restarted.
+keys every time {{ site.product.short_name }} is restarted.
 
 The following log message also notifies you of PENDING passphrases:
 
@@ -307,7 +306,7 @@ The following log message also notifies you of PENDING passphrases:
 
 - \--control=\<socket\> or -c
 
-    Specify the socket to use to access syslog-ng OSE. Only needed when
+    Specify the socket to use to access {{ site.product.short_name }}. Only needed when
     using a non-standard socket.
 
 ## Opening password-protected private keys
@@ -315,7 +314,7 @@ The following log message also notifies you of PENDING passphrases:
 syslog-ng-ctl credentials add \[options\]
 
 You can add the passphrase to a password-protected private key file
-using the following command. syslog-ng OSE will display a prompt for you
+using the following command. {{ site.product.short_name }} will display a prompt for you
 to enter the passphrase. We recommend that you use this method.
 
 ```bash
@@ -344,7 +343,7 @@ echo "<passphrase-of-the-key>" | syslog-ng-ctl credentials add --id=<path-to-the
 - \--id=\<path-to-the-key\> or -i
 
     The path to the password-protected private key file. This is the
-    same path that you use in the key-file() option of the syslog-ng OSE
+    same path that you use in the key-file() option of the {{ site.product.short_name }}
     configuration file.
 
 - \--secret=\<passphrase-of-the-key\> or -s
@@ -356,7 +355,7 @@ echo "<passphrase-of-the-key>" | syslog-ng-ctl credentials add --id=<path-to-the
 syslog-ng-ctl config \[options\]
 
 Use the syslog-ng-ctl config command to display the configuration that
-syslog-ng OSE is currently running. Note by default, only the content of
+{{ site.product.short_name }} is currently running. Note by default, only the content of
 the main configuration file are displayed, included files are not
 resolved. To resolve included files and display the entire
 configuration, use the syslog-ng-ctl config \--preprocessed command.
@@ -366,7 +365,7 @@ configuration, use the syslog-ng-ctl config \--preprocessed command.
 syslog-ng-ctl reload \[options\]
 
 Use the syslog-ng-ctl reload command to reload the configuration file of
-syslog-ng OSE without having to restart the syslog-ng OSE application.
+{{ site.product.short_name }} without having to restart the {{ site.product.short_name }} application.
 The syslog-ng-ctl reload works like a SIGHUP.
 
 The syslog-ng-ctl reload command returns 0 if the operation was

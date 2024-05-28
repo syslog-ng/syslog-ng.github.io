@@ -18,6 +18,6 @@ use the network() driver, see Change an old destination driver to the
 network() driver.
 
 The tcp(), tcp6(), udp(), and udp6() drivers send messages to another
-host (for example, a syslog-ng server or relay) on the local intranet or
+host (for example, a {{ site.product.short_name }} server or relay) on the local intranet or
 internet using the UDP or TCP protocol. The tcp6() and udp6() drivers
 use the IPv6 network protocol.

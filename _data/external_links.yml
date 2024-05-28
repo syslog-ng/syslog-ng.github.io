@@ -20,12 +20,12 @@
 bb-syslog-ng-mail-list:
   id: bb-syslog-ng-mail-list
   url: https://lists.balabit.hu/mailman/listinfo/syslog-ng
-  title: [ "syslog-ng mailing list" ]
+  title: [ "syslog-ng OSE mailing list" ]
 
 gh-pages:
   id: gh-pages
   url: https://syslog-ng.github.io
-  title: [ "syslog-ng documentation center" ]
+  title: [ "syslog-ng OSE documentation center" ]
 
 gh-syslog-ng:
   id: gh-syslog-ng
@@ -35,17 +35,17 @@ gh-syslog-ng:
 gh-syslog-ng-doc:
   id: gh-syslog-ng-doc
   url: https://github.com/syslog-ng/syslog-ng.github.io
-  title: [ "syslog-ng Doc on GitHub" ]
+  title: [ "syslog-ng OSE Doc on GitHub" ]
 
 gh-syslog-ng-doc-issue-tracker:
   id: gh-syslog-ng-doc-issue-tracker
   url: https://github.com/syslog-ng/syslog-ng.github.io/issues
-  title: [ "syslog-ng documentation issue tracker on GitHub" ]
+  title: [ "syslog-ng OSE documentation issue tracker on GitHub" ]
 
 gh-syslog-ng-issue-tracker:
   id: gh-syslog-ng-issue-tracker
   url: https://github.com/syslog-ng/syslog-ng/issues
-  title: [ "syslog-ng issue tracker on GitHub" ]
+  title: [ "syslog-ng OSE issue tracker on GitHub" ]
 
 oi-sn-pe:
   id: oi-sn-pe
@@ -80,7 +80,7 @@ sn-con-sup:
 sn-docker:
   id: sn-docker
   url: https://syslog-ng.com/blog/central-log-server-docker/
-  title: [ "syslog-ng docker image" ]
+  title: [ "syslog-ng OSE docker image" ]
 
 sn-docker-log:
   id: sn-docker-log
@@ -110,7 +110,7 @@ sn-prod-binaries-dl:
 sn-selinux:
   id: sn-selinux
   url: https://syslog-ng.com/blog/using-syslog-ng-with-selinux-in-enforcing-mode/
-  title: [ "Using syslog-ng with SELinux in enforcing mode" ]
+  title: [ "Using syslog-ng OSE with SELinux in enforcing mode" ]
 
 
 ### One Identity site links ###
@@ -1059,7 +1059,7 @@ slack-web-api:
 slack-webhook-doc:
   id: slack-webhook-doc
   url: https://api.slack.com/incoming-webhooks
-  title: [ "Slack documentation" ]
+  title: [ "Slack webhook documentation" ]
 
 sn-graphite:
   id: sn-graphite

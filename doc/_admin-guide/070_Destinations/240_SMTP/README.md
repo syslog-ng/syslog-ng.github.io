@@ -7,7 +7,7 @@ description: >-
     trusted SMTP server. The goal is to send mail to trusted recipients,
     through a controlled channel. It hands mails over to an SMTP server, and
     that is all it does, therefore the resulting solution is as reliable as
-    sending an email in general. For example, syslog-ng OSE does not verify
+    sending an email in general. For example, {{ site.product.short_name }} does not verify
     whether the recipient exists.
 ---
 
@@ -18,12 +18,12 @@ email to multiple recipients, and so on.
 
 The subject(), body(), and header() fields may include macros which get
 expanded in the email. For more information on available macros see
-Macros of syslog-ng OSE. 
+Macros of {{ site.product.short_name }}. 
 The smtp() driver has the following required parameters: host(), port(),
 from(), to(), subject(), and body(). For the list of available optional
 parameters, see smtp() destination options.
 
-NOTE: The smtp() destination driver is available only in syslog-ng OSE
+NOTE: The smtp() destination driver is available only in {{ site.product.short_name }}
 3.4 and later.
 
 **Declaration**

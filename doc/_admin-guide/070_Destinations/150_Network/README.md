@@ -23,7 +23,7 @@ description: >-
     is broken, messages that the client has sent but were not yet
     received on the server are lost.
 
-- The syslog-ng application supports TLS (Transport Layer Security,
+- The {{ site.product.short_name }} application supports TLS (Transport Layer Security,
     also known as SSL) over TCP. For details, see
     Encrypting log messages with TLS.
 
@@ -36,7 +36,7 @@ network("<destination-address>" [options]);
 The network() destination has a single required parameter that specifies
 the destination host address where messages should be sent. If name
 resolution is configured, you can use the hostname of the target server.
-By default, syslog-ng OSE sends messages using the TCP protocol to port
+By default, {{ site.product.short_name }} sends messages using the TCP protocol to port
 514.
 
 ## Example: Using the network() driver

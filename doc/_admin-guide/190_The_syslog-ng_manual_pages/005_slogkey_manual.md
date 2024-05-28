@@ -5,7 +5,7 @@ id: adm-man-slogkey
 
 ## Name
 
-`slogkey` --- Manages the cryptographic keys for use with the syslog-ng OSE secure logging environment.
+`slogkey` --- Manages the cryptographic keys for use with the {{ site.product.short_name }} secure logging environment.
 
 ## Synopsis
 
@@ -15,7 +15,7 @@ slogkey [options] [arguments]
 
 ## Description
 
-The `slogkey` utility is used to manage cryptographic keys for use with the secure logging module of syslog-ng OSE. Use this utility to create a master key, derive a host key to be used by a secure logging configuration and to display the current sequence counter of a key. The options determine the operating mode and are mutually exclusive.
+The `slogkey` utility is used to manage cryptographic keys for use with the secure logging module of {{ site.product.short_name }}. Use this utility to create a master key, derive a host key to be used by a secure logging configuration and to display the current sequence counter of a key. The options determine the operating mode and are mutually exclusive.
 
 ## Arguments
 

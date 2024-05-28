@@ -15,11 +15,11 @@ $(slog --key-file <host key file> --mac-file <MAC file> ${RAWMSG})
 
 ## Description
 
-Secure logging is an extension of syslog-ng OSE which provides system log forward integrity and confidentiality. It is implemented in form of a module and is configured as a template in the syslog-ng OSE configuration file.
+Secure logging is an extension of {{ site.product.short_name }} which provides system log forward integrity and confidentiality. It is implemented in form of a module and is configured as a template in the {{ site.product.short_name }} configuration file.
 
 The main objective of the secure logging module is to provide tamper evident logging, for example to adequately protect log records of a system and to provide a sensor indicating breach-attempts. The secure logging module achieves this by the authentical encryption of each log record with an individual cryptographic key used only once and protecting the integrity of the whole log archive by a cryptographic authentication code. Every attempt to tamper with an individual log record or the log archive itself is immediately detected during log archive verification. Due to this, an attacker can no longer tamper with log records without being detected.
 
-To use the log file created by the secure logging module for analysis, the log file must first be decrypted and its integrity must be verified. This is achieved with a command line utility that is part of the secure logging module and is installed as part of the syslog-ng OSE package. This utility can be integrated into the import module of existing analysis environments.
+To use the log file created by the secure logging module for analysis, the log file must first be decrypted and its integrity must be verified. This is achieved with a command line utility that is part of the secure logging module and is installed as part of the {{ site.product.short_name }} package. This utility can be integrated into the import module of existing analysis environments.
 
 The secure logging environment uses a cryptographic key for encrypting log entries. Individual log entries are encrypted with their own keys which are immediately discarded after successful encryption to provide forward integrity. An efficient algorithm generates the key for the next log entry based the key used for encrypting the previous log entry. The resulting chain of keys preserves forward integrity, for example a potential attacker cannot deduce the previous key from the current key.
 
@@ -58,7 +58,7 @@ The following is the output of a successful verification run:
 ```
 The original log messages have been successfully restored, and the sequence counters are also assigned to the clear text messages. This helps in analyzing problems within a particular log entry. As real log files will contain thousands of entries. The sequence counter helps to identify faulty entries.
 
-Before the secure logging module can be used as part of an existing syslog-ng OSE installation, several preparatory activities are necessary.
+Before the secure logging module can be used as part of an existing {{ site.product.short_name }} installation, several preparatory activities are necessary.
 
 ## Key Generation
 
@@ -84,15 +84,15 @@ template("$(slog --key-file  <host key file> --mac-file <MAC file> ${RAWMSG})\n"
 The purpose of the elements within the statement:
 * `slog`
 
-    The name of the secure logging template function. This name can be also be found by calling syslog-ng with the `--module-registry` arguments and checking the `template-func` property of the secure logging module in the corresponding output.
+    The name of the secure logging template function. This name can be also be found by calling {{ site.product.short_name }} with the `--module-registry` arguments and checking the `template-func` property of the secure logging module in the corresponding output.
 
 * `--key-file` or `-k`
 
-    The host key file. `<host key file>` is the full path of the file storing the host key on the log host. If this arguments is not supplied or does not point to a valid key file, syslog-ng does not start and a displays an error message.
+    The host key file. `<host key file>` is the full path of the file storing the host key on the log host. If this arguments is not supplied or does not point to a valid key file, {{ site.product.short_name }} does not start and a displays an error message.
 
 * `--mac-file` or `-m`
 
-    The MAC file. `<MAC file>` is the full path of the MAC file on the log host. The file is automatically created upon the initial start. If the path is not correct, syslog-ng does not start and a displays a corresponding error message.
+    The MAC file. `<MAC file>` is the full path of the MAC file on the log host. The file is automatically created upon the initial start. If the path is not correct, {{ site.product.short_name }} does not start and a displays a corresponding error message.
 
 * `${RAWMSG}`
 
@@ -105,7 +105,7 @@ The purpose of the elements within the statement:
 The secure logging template can be combined with any source or destination with the following limitations:
 
 * Sources must be line-oriented. Secure logging uses a line separator in order to distinguish between individual log entries. Sources which provide data in a different format, for example, in the form of raw data obtained directly from a database system, cannot currently be used with the secure logging template, as the separation of log entries is not clearly defined for this type of data.
-* Only sources for which the store-raw-message flag is implemented and set do benefit from the integrity guarantee provided by the secure logging template. Secure logging aims at protecting the integrity of complete log messages including all associated meta-data, such as timestamps and host names. syslog-ng parses the log message into its internal format and provide easy access to parts of a message through macros. While this is convenient when rewriting log messages, it is not helpful for secure logging. syslog-ng provides the store-raw-message flag which provides access to a copy of the original log message after parsing. This is the log message processed and protected by the secure logging template. If the source does not support the `store-raw-message flag`, then the `${MSG}` macro can also be used. However, in this case the integrity guarantee provided by secure logging is limited to the content that this macro provides.
+* Only sources for which the store-raw-message flag is implemented and set do benefit from the integrity guarantee provided by the secure logging template. Secure logging aims at protecting the integrity of complete log messages including all associated meta-data, such as timestamps and host names. {{ site.product.short_name }} parses the log message into its internal format and provide easy access to parts of a message through macros. While this is convenient when rewriting log messages, it is not helpful for secure logging. {{ site.product.short_name }} provides the store-raw-message flag which provides access to a copy of the original log message after parsing. This is the log message processed and protected by the secure logging template. If the source does not support the `store-raw-message flag`, then the `${MSG}` macro can also be used. However, in this case the integrity guarantee provided by secure logging is limited to the content that this macro provides.
 * Log rotation of any kind cannot be used with destinations using secure logging, because log rotate overwrites or deletes previous log files. This compromises the cryptographic chain of trust of the log entries preve recovery. To efficiently handle log files, the secure logging environment features iterative verification. Using iterative verification, a log file can be verified in steps. For this to work, the log file must first be downloaded from the log host, together with the corresponding host key and MAC file to a verification host. After downloading, the log file can be safely deleted from the log host. Verification is then performed on the verification host using the iterative mode of the slogverify utility.
 
 ### Example: secure logging template on a file destination

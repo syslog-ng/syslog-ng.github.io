@@ -2,14 +2,14 @@
 title: Shell-style globbing in the selector
 id: adm-enrich-shell
 description: >-
-    Starting with in syslog-ng OSE 3.24 and later, you can use shell-style
+    Starting with in {{ site.product.short_name }} 3.24 and later, you can use shell-style
     globbing (* and ? wildcards) in the selector.
 ---
 
 To use globs in a selector
 
 1. Use the **glob()** option within the selector() option in your
-    syslog-ng OSE configuration file, for example:
+    {{ site.product.short_name }} configuration file, for example:
 
     ```config
     parser p_add_context_data {
@@ -41,7 +41,7 @@ Note the following points when using globbing in the selector:
     OSE appication does not evaluate other entries after the first
     match.
 
-- In debug mode, syslog-ng OSE sends log messages to its internal()
+- In debug mode, {{ site.product.short_name }} sends log messages to its internal()
     destination to help troubleshooting. For example:
 
     >[2019-09-21T06:01:10.748237] add-contextual-data(): Evaluating glob against message; glob-template='${PROGRAM}', string='postfix/smtpd', pattern='example-glob-entry1*', matched='0'

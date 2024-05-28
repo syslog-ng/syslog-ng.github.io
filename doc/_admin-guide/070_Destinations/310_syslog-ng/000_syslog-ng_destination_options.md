@@ -46,7 +46,7 @@ the TCP514 port of the server.
 |  Type:|      hostname or IP address|
 |Default: |  127.0.0.1|
 
-*Description:* The hostname or IP address of the syslog-ng server.
+*Description:* The hostname or IP address of the {{ site.product.short_name }} server.
 
 {% include doc/admin-guide/options/so-broadcast.md %}
 

@@ -19,7 +19,7 @@ STREAMS device to open, and the door() option. For the list of available
 optional parameters, see
 sun-streams() source options. 
 
-**NOTE:** Starting with version 3.7, the syslog-ng OSE system() driver
+**NOTE:** Starting with version 3.7, the {{ site.product.short_name }} system() driver
 automatically extracts the msgid from the message (if available), and
 stores it in the .solaris.msgid macro. To extract the msgid from the
 message without using the system() driver, use the
