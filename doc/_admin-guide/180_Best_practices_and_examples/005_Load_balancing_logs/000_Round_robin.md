@@ -8,7 +8,7 @@ description: >-
   balance your logs between multiple {{ site.product.short_name }} destinations.
 ---
 
-**TIP:** If ${R_MSEC} is not precise enough, you can replace it with R_USEC
+**TIP:** If ${R_MSEC} is not precise enough, you can replace it with ${R_USEC}
 (which uses microseconds instead of milliseconds).
 {: .notice--info}
 
@@ -62,4 +62,4 @@ any other {{ site.product.short_name }} destinations).
 
 For an alternative method to use the round robin load balancing method
 based on the ${R_MSEC} macro, see
-Configuration generator for the load balancing method based on MSEC hashing.
+Configuration generator for the load balancing method based on ${R_MSEC} hashing.
