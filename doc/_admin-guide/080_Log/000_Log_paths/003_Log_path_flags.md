@@ -89,7 +89,7 @@ log {
 
 ## Example: Using the drop-unmatched flag
 
-In the following example, if a log message arrives whose ${MSG} part does
+In the following example, if a log message arrives whose MSG part does
 not contain the string foo, then {{ site.product.short_name }} will discard the message
 and will not check compliance with the second if condition.
 

@@ -11,7 +11,7 @@ description: >-
 ---
 
 **NOTE:** Note that parsing will fail if the format string does not match
-the entire template or field. Since by default {{ site.product.short_name }}({{ site.product.short_name }}) uses the ${MESSAGE} part of the log message,
+the entire template or field. Since by default {{ site.product.short_name }}({{ site.product.short_name }}) uses the MESSAGE part of the log message,
 parsing will fail, unless the log message contains only a date, but that
 is unlikely, so practically you will have to segment the message (for
 example, using a [[csv-parser()|adm-parser-csv]].

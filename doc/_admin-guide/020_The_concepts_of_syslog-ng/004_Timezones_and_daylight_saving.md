@@ -88,7 +88,7 @@ includes timezone information. That way you do not need to adjust the
 recv-time-zone() parameter of syslog-ng.
 
 If you want {{ site.product.short_name }} to output timestamps in Unix (POSIX) time format,
-use the `S_UNIXTIME` and `R_UNIXTIME` macros. You do not need to
+use the ${S_UNIXTIME} and ${R_UNIXTIME} macros. You do not need to
 change any of the timezone related parameters, because the timestamp
 information of incoming messages is converted to Unix time internally,
 and Unix time is a timezone-independent time representation. (Actually,

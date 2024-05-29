@@ -226,7 +226,7 @@ First we need to get the message we want from the array. `num_msg` starts counti
   LogMessage *msg = msgs[num_msg - 1];
 ```
 
-Now that we have our `LogMessage`, we will extract the `${MESSAGE}` part from it to evaluate its length. To do so, we call the `log_msg_get_value` function with the appropriate constant.
+Now that we have our `LogMessage`, we will extract the MESSAGE part from it to evaluate its length. To do so, we call the `log_msg_get_value` function with the appropriate constant.
 ```
   const gchar *message_part = log_msg_get_value(msg, LM_V_MESSAGE, NULL);
 ```

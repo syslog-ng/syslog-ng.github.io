@@ -22,7 +22,7 @@ riemann(
 
 ### Example: Using the riemann() driver
 
-The following destination sends the value of the SEQNUM macro (the
+The following destination sends the value of the ${SEQNUM} macro (the
 number of messages sent to this destination) as a metric to the Riemann
 server.
 

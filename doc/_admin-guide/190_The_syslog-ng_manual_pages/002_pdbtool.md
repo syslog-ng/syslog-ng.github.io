@@ -171,7 +171,7 @@ The match command has the following options:
 
 - \--message or -M
 
-    The text of the log message to match (only the ${MESSAGE} part
+    The text of the log message to match (only the MESSAGE part
     without the syslog headers).
 
 - \--pdb or -p
@@ -180,7 +180,7 @@ The match command has the following options:
 
 - \--program or -P
 
-    Name of the program to use, as contained in the ${PROGRAM} part of
+    Name of the program to use, as contained in the PROGRAM part of
     the syslog message.
 
 - \--template=\<template-expression\> or -T
