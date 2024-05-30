@@ -70,6 +70,6 @@ destination d_syslog_tls {
 ```
 
 **NOTE:** If a message uses the IETF-syslog format (RFC-5424), only the text
-of the message can be customized (that is, the MESSAGEs part of the
+of the message can be customized (that is, the MESSAGE part of the
 log), the structure of the header is fixed.
 {: .notice--info}
