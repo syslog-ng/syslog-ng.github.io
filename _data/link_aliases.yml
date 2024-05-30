@@ -89,5 +89,14 @@ adm-temp-macro-ose#week_day_name-c_week_day_name-r_week_day_name-s_week_day_name
 adm-temp-macro-ose#year-c_year-r_year-s_year:
   aliases: [ "${YEAR}", "${C_YEAR}", "${R_YEAR}", "${S_YEAR}" ]
 
-adm-temp-macro-ose#year-c_year-r_year-s_year:
-  aliases: [ "[Ff]ully-qualified domain name", "FQDN" ]
+adm-about-glossary#fully-qualified-domain-name-fqdn:
+  aliases: [ "[Ff]ully [Qq]ualified [Dd]omain [Nn]ame", "FQDN" ]
+
+grpc-keep:
+  aliases: [ "gRPC keepalive pings", "gRPC keepalive ping", "gRPC ping" ]
+
+adm-about-glossary#bsd-syslog-protocol:
+  aliases: [ "BSD-syslog protocol", "legacy syslog (BSD-syslog) protocol" ]
+
+adm-about-glossary#ietf-syslog-protocol:
+  aliases: [ "IETF-syslog protocol", "IETF-syslog" ]
