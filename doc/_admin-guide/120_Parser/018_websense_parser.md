@@ -19,11 +19,11 @@ For example:
 
 {% include doc/admin-guide/parser-support.md %}
 
-The {{ site.product.short_name }} application sets the ${PROGRAM} field to Websense.
+The {{ site.product.short_name }} application sets the PROGRAM field to Websense.
 
 By default, the websense-specific fields are extracted into name-value
-pairs prefixed with .websense. For example, the product\_version in the
-previous message becomes ${.websense.product\_version}. You can change
+pairs prefixed with .websense. For example, the product_version in the
+previous message becomes ${.websense.product_version}. You can change
 the prefix using the **prefix** option of the parser.
 
 **Declaration**

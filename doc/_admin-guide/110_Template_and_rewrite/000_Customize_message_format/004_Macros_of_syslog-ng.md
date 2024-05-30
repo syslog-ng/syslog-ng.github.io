@@ -13,7 +13,7 @@ description: >-
 >  
 > If you are using the flags(no-parse) option, then syslog message parsing is
 > completely disabled, and the entire incoming message is treated as
-> the ${MESSAGE} part of a syslog message.  
+> the MESSAGE part of a syslog message.  
 > In this case, {{ site.product.short_name }} generates a new syslog header
 > (timestamp, host, and so on) automatically. Note that even
 > though flags(no-parse) disables message parsing, some flags can
@@ -64,7 +64,7 @@ When used, the output specifies the local IP address of the
 source from which the message originates.
 
 For an example use case when using the macro is recommended, see
-[[Example use case: using the ${DESTIP}, the ${DESTPORT}, and the ${PROTO} macros]]
+Example use case: using the ${DESTIP}, the ${DESTPORT}, and the ${PROTO} macros
 
 ## ${DESTPORT}
 
@@ -72,7 +72,7 @@ When used, the output specifies the local port of the
 source from which the message originates.
 
 For an example use case when using the macro is recommended, see
-[[Example use case: using the ${DESTIP}, the ${DESTPORT}, and the ${PROTO} macros]].
+Example use case: using the ${DESTIP}, the ${DESTPORT}, and the ${PROTO} macros.
 
 ## ${FACILITY}
 
@@ -152,8 +152,8 @@ Available in 3.24 and later.
 
 The priority (also called severity) of the message,
 represented as a numeric value, for example, 3. For the textual
-representation of this value, use the ${LEVEL} macro. See PRIORITY or
-LEVEL for details.
+representation of this value, use the ${LEVEL} macro. See ${PRIORITY} or
+${LEVEL} for details.
 
 ## ${LOGHOST}
 
@@ -170,11 +170,11 @@ The hostname of the computer running {{ site.product.short_name }}.
 
 Text contents of the log message without the program name
 and pid. The program name and the pid together are available in the
-MSGHDR and ${PID} macros.
+${MSGHDR} and ${PID} macros.
 
 If you are using the flags(no-parse) option, then syslog message parsing
 is completely disabled, and the entire incoming message is treated as
-the ${MESSAGE} part of a syslog message. In this case, {{ site.product.short_name }}
+the MESSAGE part of a syslog message. In this case, {{ site.product.short_name }}
 generates a new syslog header (timestamp, host, and so on)
 automatically. Note that even though flags(no-parse) disables message
 parsing, some flags can still be used, for example, the no-multi-line
@@ -372,7 +372,7 @@ one of the following:
         IETF-syslog protocol (**${.SDATA.meta.sequenceId}**), and can
         be added to BSD-syslog messages using the **${SEQNUM}** macro.
 
-**NOTE:** If you need a sequence number for every log message that {{ site.product.short_name }} receives, use the RCPTID macro.
+**NOTE:** If you need a sequence number for every log message that {{ site.product.short_name }} receives, use the ${RCPTID} macro.
 {: .notice--info}
 
 ## ${SOURCE}
@@ -494,8 +494,8 @@ The day of the week as a numerical value (1-7).
 
 ## ${WEEKDAY}, ${C_WEEKDAY}, ${R_WEEKDAY}, ${S_WEEKDAY}
 
-These macros are deprecated, use WEEK_DAY_ABBREV, R_WEEK_DAY_ABBREV,
-S_WEEK_DAY_ABBREV instead. The 3-letter name of the day of week the
+These macros are deprecated, use ${WEEK_DAY_ABBREV}, ${R_WEEK_DAY_ABBREV},
+${S_WEEK_DAY_ABBREV} instead. The 3-letter name of the day of week the
 message was sent, for example, Thu.
 
 ## ${WEEK_DAY_NAME}, ${C_WEEK_DAY_NAME}, ${R_WEEK_DAY_NAME}, ${S_WEEK_DAY_NAME}

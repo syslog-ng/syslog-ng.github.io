@@ -128,7 +128,7 @@ destination d_riemann {
 *Description:* The numeric value to add as the metric field of the
 Riemann event. If possible, include type-hinting as well, otherwise the
 Riemann server will interpret the value as a floating-point number. The
-following example specifies the SEQNUM macro as an integer.
+following example specifies the ${SEQNUM} macro as an integer.
 
 ```config
 metric(int("${SEQNUM}"))

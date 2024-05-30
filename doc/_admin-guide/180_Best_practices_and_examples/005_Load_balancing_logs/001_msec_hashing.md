@@ -1,10 +1,10 @@
 ---
-title: Configuration generator for the load balancing method based on MSEC hashing
+title: Configuration generator for the load balancing method based on ${R_MSEC} hashing
 short_title: Configuration generator
 id: adm-pract-msec
 description: >-
   This section describes a configuration generator for the load balancing
-  method based on MSEC hashing to load balance your logs between multiple
+  method based on ${R_MSEC} hashing to load balance your logs between multiple
   {{ site.product.short_name }} destinations.
 ---
 
@@ -29,4 +29,4 @@ destination d_lb {
 ```
 
 Where destinations share the same configuration except for the
-destination address, balancing is based on MSEC hashing.
+destination address, balancing is based on ${R_MSEC} hashing.

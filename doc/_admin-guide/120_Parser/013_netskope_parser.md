@@ -18,11 +18,11 @@ For example:
 
 {% include doc/admin-guide/parser-support.md %}
 
-The {{ site.product.short_name }} application sets the ${PROGRAM} field to Netskope.
+The {{ site.product.short_name }} application sets the PROGRAM field to Netskope.
 
 By default, the Netskope-specific fields are extracted into name-value
-pairs prefixed with .netskope. For example, the organization\_unit in
-the previous message becomes ${.netskope.organization\_unit}. You can
+pairs prefixed with .netskope. For example, the organization_unit in
+the previous message becomes ${.netskope.organization_unit}. You can
 change the prefix using the **prefix** option of the parser.
 
 **Declaration**

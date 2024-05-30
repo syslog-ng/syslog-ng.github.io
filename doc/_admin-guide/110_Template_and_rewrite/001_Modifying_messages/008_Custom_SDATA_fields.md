@@ -46,7 +46,7 @@ rewrite r_rewrite_set {
 ```
 
 If you use the **${.SDATA.custom@18372.4.sourceip}** macro in a
-template or SQL table, its value will be that of the SOURCEIP macro (as
+template or SQL table, its value will be that of the ${SOURCEIP} macro (as
 seen on the machine where the SDATA field was created) for every message
 that was processed with this rewrite rule, and empty for every other
 message.

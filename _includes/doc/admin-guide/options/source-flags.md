@@ -55,8 +55,8 @@
 
 - *no-hostname*: Enable the no-hostname flag if the log message does
     not include the hostname of the sender host. That way {{ site.product.short_name }}
-    assumes that the first part of the message header is ${PROGRAM}
-    instead of ${HOST}. For example:
+    assumes that the first part of the message header is PROGRAM
+    instead of HOST. For example:
 
     ```config
     source s_dell {

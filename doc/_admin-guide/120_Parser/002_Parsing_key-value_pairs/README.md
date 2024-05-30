@@ -36,7 +36,7 @@ are not permitted.
 
 To parse key=value pairs, define a parser that has the kv-parser()
 option. Defining the prefix is optional. By default, the parser will
-process the ${MESSAGE} part of the log message. You can also define the
+process the MESSAGE part of the log message. You can also define the
 parser inline in the log path.
 
 **Declaration**
