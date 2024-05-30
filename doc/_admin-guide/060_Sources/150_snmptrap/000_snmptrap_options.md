@@ -31,6 +31,6 @@ Default value: .snmp. option.
 name-value pairs, so you can handle the content of the trap as a
 structured message. Consequently, you might not even need the
 MESSAGE part of the log message. If set-message-macro() is set to
-**no**, {{ site.product.short_name }} leaves the MESSAGE part empty. If
+**no**, {{ site.product.short_name }} leaves the `MESSAGE` part empty. If
 set-message-macro() is set to **yes**, {{ site.product.short_name }} generates a regular
 log message from the trap.

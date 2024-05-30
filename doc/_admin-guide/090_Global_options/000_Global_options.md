@@ -507,15 +507,15 @@ restarts with 1).
 |Default:|           no|
 
 *Description:* This option enables generating a globally unique ID. It
-is generated from the HOSTID and the RCPTID in the format of
+is generated from the `HOSTID` and the `RCPTID` in the format of
 HOSTID@RCPTID. It has a fixed length: 16+@+8 characters. You can
 include the unique ID in the message by using the macro. For details,
 see ${UNIQID}.
 
-Enabling this option automatically generates the HOSTID. The HOSTID is a
+Enabling this option automatically generates the HOSTID. The `HOSTID` is a
 persistent, 32-bits-long cryptographically secure pseudo random number,
 that belongs to the host that the {{ site.product.short_name }} is running on. If the
-persist file is damaged, the HOSTID might change.
+persist file is damaged, the `HOSTID` might change.
 
 Enabling this option automatically enables the ${RCPTID} functionality. For
 details, see ${RCPTID}.

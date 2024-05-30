@@ -13,7 +13,7 @@ description: >-
 >  
 > If you are using the flags(no-parse) option, then syslog message parsing is
 > completely disabled, and the entire incoming message is treated as
-> the MESSAGE part of a syslog message.  
+> the `MESSAGE` part of a syslog message.  
 > In this case, {{ site.product.short_name }} generates a new syslog header
 > (timestamp, host, and so on) automatically. Note that even
 > though flags(no-parse) disables message parsing, some flags can
@@ -174,7 +174,7 @@ ${MSGHDR} and ${PID} macros.
 
 If you are using the flags(no-parse) option, then syslog message parsing
 is completely disabled, and the entire incoming message is treated as
-the MESSAGE part of a syslog message. In this case, {{ site.product.short_name }}
+the `MESSAGE` part of a syslog message. In this case, {{ site.product.short_name }}
 generates a new syslog header (timestamp, host, and so on)
 automatically. Note that even though flags(no-parse) disables message
 parsing, some flags can still be used, for example, the no-multi-line
@@ -226,9 +226,9 @@ see MESSAGE.
 
 ## ${MSGHDR}
 
-The name and the PID of the program that sent the log
+The name and the `PID` of the program that sent the log
 message in PROGRAM\[PID\]: format. Includes a trailing whitespace. Note
-that the macro returns an empty value if both the PROGRAM and PID fields
+that the macro returns an empty value if both the `PROGRAM` and `PID` fields
 of the message are empty.
 
 ## ${MSGID}
@@ -250,7 +250,7 @@ macro. For details, see MESSAGE.
 
 ## ${PID}
 
-The PID of the program sending the message.
+The `PID` of the program sending the message.
 
 ## ${PRI}
 
@@ -303,12 +303,12 @@ restarted, but not when reloaded.
 ## ${SDATA}, ${.SDATA.SDID.SDNAME}
 
 The {{ site.product.short_name }} application automatically parses the
-STRUCTURED-DATA part of IETF-syslog messages, which can be referenced in
-macros. The ${SDATA} macro references the entire STRUCTURED-DATA part
+`STRUCTURED-DATA` part of IETF-syslog messages, which can be referenced in
+macros. The ${SDATA} macro references the entire `STRUCTURED-DATA` part
 of the message, while structured data elements can be referenced using
 the ${.SDATA.SDID.SDNAME} macro.
 
->**NOTE:** When using STRUCTURED-DATA macros, consider the following:  
+>**NOTE:** When using `STRUCTURED-DATA` macros, consider the following:  
 >  
 >- When referencing an element of the structured data, the macro must
 >    begin with the dot (.) character. For example,
@@ -458,7 +458,7 @@ following macros are available in {{ site.product.short_name }} version 3.9 and 
 
 ## ${UNIQID}
 
-A globally unique ID generated from the HOSTID and the
+A globally unique ID generated from the `HOSTID` and the
 RCPTID in the format of HOSTID@RCPTID. For details, see
 use-uniqid() and
 RCPTID.

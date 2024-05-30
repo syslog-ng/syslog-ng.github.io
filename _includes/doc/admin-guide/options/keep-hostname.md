@@ -17,7 +17,7 @@
     details on using name resolution in {{ site.product.short_name }}, see
     Using name resolution in syslog-ng.
 
-**NOTE:** If the log message does not contain a hostname in its HOST field,
+**NOTE:** If the log message does not contain a hostname in its `HOST` field,
 {{ site.product.short_name }} automatically adds a hostname to the message.
 {: .notice--info}
 

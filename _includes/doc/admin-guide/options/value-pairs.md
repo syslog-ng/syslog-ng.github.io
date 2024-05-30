@@ -13,7 +13,7 @@ formatted to JSON format, or directly used in a mongodb() destination.
 The following example selects every available information about the log
 message, except for the date-related macros (R\_\* and S\_\*), selects
 the .SDATA.meta.sequenceId macro, and defines a new value-pair called
-MSGHDR that contains the program name and PID of the application that
+MSGHDR that contains the program name and `PID` of the application that
 sent the log message.
 
 ```config
@@ -55,7 +55,7 @@ are evaluated in the following order:
 
 *Description:* This option removes the specified macros from the selection. Use it to remove unneeded macros selected using the scope() parameter.  
 
-For example, the following example removes the SDATA macros from the selection.
+For example, the following example removes the `SDATA` macros from the selection.
 
 ```config
 value-pairs(
@@ -200,7 +200,7 @@ The rekey() option can be used with the format-json template-function as well, u
 
 - *rfc5424*: The macros that correspond to the RFC-5424 (IETF-syslog) message format: ${FACILITY}, ${PRIORITY}, ${HOST}, ${PROGRAM}, ${PID}, ${MESSAGE},   ${MSGID}, ${R_DATE}, and the metadata from the structured-data (SDATA) part of RFC-5424 formatted messages, that is, every macro that starts with .SDATA..
   
-  The rfc5424 group also has the following alias: syslog-proto. Note that the value of ${R_DATE} will be listed under the DATE key. The rfc5424 group does not contain any metadata about the message, only information that was present in the original message. To include the most commonly used metadata (for example, the ${SOURCEIP} macro), use the selected-macros group instead.
+  The rfc5424 group also has the following alias: syslog-proto. Note that the value of ${R_DATE} will be listed under the `DATE` key. The rfc5424 group does not contain any metadata about the message, only information that was present in the original message. To include the most commonly used metadata (for example, the ${SOURCEIP} macro), use the selected-macros group instead.
 
 - *all-macros*: Include every hard macro. This group is mainly useful for debugging, as it contains redundant information (for example, the date-related macros include the date-related information several times in various formats).
 

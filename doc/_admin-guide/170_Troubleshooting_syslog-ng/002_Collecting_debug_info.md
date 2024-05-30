@@ -28,7 +28,7 @@ In general, note the following points:
 
 The following are examples for tracing system calls of {{ site.product.short_name }} on some
 platforms. The output is saved into the /tmp/syslog-ng-trace.txt file,
-sufficed with the PID of the related {{ site.product.short_name }} process.The path of the
+sufficed with the `PID` of the related {{ site.product.short_name }} process.The path of the
 {{ site.product.short_name }} binary may be different for your installation, as
 distribution-specific packages may use different paths.
 

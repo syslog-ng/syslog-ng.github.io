@@ -27,7 +27,7 @@ following additional information:
 - It prepends the following message to the contents of the MESSAGE
     field: Error processing log message.
 
-- It sets the contents of the PROGRAM field to syslog-ng.
+- It sets the contents of the `PROGRAM` field to syslog-ng.
 
 - It sets the contents of the facility field to syslog.
 

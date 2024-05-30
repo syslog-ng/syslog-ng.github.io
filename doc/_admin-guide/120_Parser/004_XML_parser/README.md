@@ -12,7 +12,7 @@ description: >-
 ---
 
 To create an XML parser, define an xml_parser that has the xml()
-option. By default, the parser will process the MESSAGE part of the
+option. By default, the parser will process the `MESSAGE` part of the
 log message. To process other parts of a log message using the XML
 parser, use the template() option. You can also define the parser inline
 in the log path.

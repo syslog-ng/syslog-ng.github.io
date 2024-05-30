@@ -24,7 +24,7 @@ rewrite <name_of_the_rule> {
 
 ### Example: Unsetting a message field
 
-The following example unsets the HOST field of the message.
+The following example unsets the `HOST` field of the message.
 
 ```config
 rewrite r_rewrite_unset{
@@ -45,7 +45,7 @@ rewrite <name_of_the_rule> {
 
 ### Example: Unsetting a group of fields
 
-The following rule clears all SDATA fields:
+The following rule clears all `SDATA` fields:
 
 ```config
 rewrite r_rewrite_unset_SDATA{

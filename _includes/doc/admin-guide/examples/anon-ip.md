@@ -1,6 +1,6 @@
 ### Example: Anonymizing IP addresses
 
-The following example replaces every IPv4 address in the MESSAGE part
+The following example replaces every IPv4 address in the `MESSAGE` part
 with its SHA-1 hash:
 
 ```config

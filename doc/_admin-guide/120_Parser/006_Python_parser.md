@@ -73,7 +73,7 @@ False, or raises an exception, {{ site.product.short_name }} will drop the messa
 - To reference a name-value pair or a macro in the Python code, use
     the following format. For example, if the first argument in the
     definition of the function is called log-message, the value of the
-    HOST macro is log-message\[\'HOST\'\], and so on. (The log-message
+    `HOST` macro is log-message\[\'HOST\'\], and so on. (The log-message
     contains the entire log message (not just the text body) in a
     structure similar to a Python dict, but it is actually an object.)
 

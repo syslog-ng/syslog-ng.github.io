@@ -120,7 +120,7 @@ when a message matching the rule is received.
     {{ site.product.short_name }} application automatically adds fields to the
     message based on the context-scope parameter. For example, using
     context-scope=\"process\" automatically fills the HOST, PROGRAM,
-    and PID fields of the generated message.
+    and `PID` fields of the generated message.
 
   - *name*: Name of the message field set by the value element.
 
@@ -134,7 +134,7 @@ generates a message when a message matching the rule is received.
     <action>
         <message>
             <values>
-                <value name="MESSAGE">A log message from HOST matched rule number $.classifier.rule_id</value>
+                <value name="MESSAGE">A log message from `HOST` matched rule number $.classifier.rule_id</value>
             </values>
         </message>
     </action>
@@ -150,7 +150,7 @@ they will override the values of the original message.
 ### Example: Generating messages with inherited values
 
 The following action generates a message that is identical to the
-original message, but its PROGRAM field is set to
+original message, but its `PROGRAM` field is set to
 overriding-original-program-name
 
 ```xml

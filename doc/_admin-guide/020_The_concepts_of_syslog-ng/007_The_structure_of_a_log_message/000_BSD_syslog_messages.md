@@ -96,9 +96,9 @@ format. For details, see the ts-format() option in Global options.
 
 ## The MSG message part
 
-This section describes the MSG message part of a syslog message, according to
+This section describes the `MSG` message part of a syslog message, according to
 the legacy syslog (BSD-syslog) protocol.
 
-The MSG part contains the name of the program or process that generated
-the message, and the text of the message itself. The MSG part is usually
+The `MSG` part contains the name of the program or process that generated
+the message, and the text of the message itself. The `MSG` part is usually
 in the following format: *program\[pid\]: message text*.

@@ -9,8 +9,8 @@
 * `expect-hostname`: When this flag is used syslog-ng OSE expects a log message that contains a hostname and parses the message accordingly. This is the default behavior for TCP sources. Note that pipe sources use the `no-hostname` flag by default.
 * `guess-timezone`: This flag allows the source to attempt to guess the timezone of the message if this information is not available in the message. Works when the incoming message stream is close to real time, and the timezone information is missing from the timestamp.
 * `kernel`: This flag sets the source default to the `LOG_KERN | LOG_NOTICE` priority if not specified otherwise.
-* `no-header`: This flag triggers syslog-ng OSE to parse only the PRI field of incoming messages, and put the rest of the message contents into `$MSG`.
-The functionality of `no-header` is similar to the `no-parse` flag, but the `no-header` flag does not skip the `PRI` field. The `no-header` flag signals syslog-ng OSE that the syslog header is not present (or does not adhere to the conventions / RFCs), so the entire message (except from the PRI field) is put into `$MSG`.
+* `no-header`: This flag triggers syslog-ng OSE to parse only the `PRI` field of incoming messages, and put the rest of the message contents into `$MSG`.
+The functionality of `no-header` is similar to the `no-parse` flag, but the `no-header` flag does not skip the `PRI` field. The `no-header` flag signals syslog-ng OSE that the syslog header is not present (or does not adhere to the conventions / RFCs), so the entire message (except from the `PRI` field) is put into `$MSG`.
 ```config
     parser p_syslog {
       syslog-parser(

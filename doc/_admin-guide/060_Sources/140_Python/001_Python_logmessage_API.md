@@ -18,7 +18,7 @@ from syslogng import LogMessage
 # Initialize an empty message with default values (recvd timestamp, rcptid, hostid, ...)
 msg = LogMessage()
 
-# Initialize a message and set its MESSAGE field to the specified argument
+# Initialize a message and set its `MESSAGE` field to the specified argument
 msg = LogMessage("string or bytes-like object") 
 ```
 

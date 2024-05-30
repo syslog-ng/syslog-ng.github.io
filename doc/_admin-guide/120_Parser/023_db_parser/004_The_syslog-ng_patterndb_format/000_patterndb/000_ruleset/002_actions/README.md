@@ -32,7 +32,7 @@ generates a message when a message matching the rule is received.
     <action>
         <message>
             <values>
-                <value name="MESSAGE">A log message from HOST matched rule number $.classifier.rule_id</value>
+                <value name="MESSAGE">A log message from `HOST` matched rule number $.classifier.rule_id</value>
             </values>
         </message>
     </action>
@@ -48,7 +48,7 @@ they will override the values of the original message.
 ### Example: Generating messages with inherited values
 
 The following action generates a message that is identical to the
-original message, but its PROGRAM field is set to
+original message, but its `PROGRAM` field is set to
 overriding-original-program-name
 
 ```xml

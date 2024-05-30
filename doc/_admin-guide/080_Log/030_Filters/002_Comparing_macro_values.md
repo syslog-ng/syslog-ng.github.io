@@ -61,7 +61,7 @@ operators for strings as well.
 
 ### Example: Comparing macro values in filters
 
-The following expression selects log messages containing a PID (that is,
+The following expression selects log messages containing a `PID` (that is,
 ${PID} macro is not empty):
 
 ```config

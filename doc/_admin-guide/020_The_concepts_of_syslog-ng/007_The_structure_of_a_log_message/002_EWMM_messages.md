@@ -29,9 +29,9 @@ The message has the following parts:
 
 - The header of the complies with the
     IETF-syslog messages RFC-5424 message format,
-    where the PROGRAM field is set to @syslog-ng, and the SDATA field is empty.
+    where the `PROGRAM` field is set to @syslog-ng, and the `SDATA` field is empty.
 
-- The MESSAGE part is in JSON format, and contains the actual message,
+- The `MESSAGE` part is in JSON format, and contains the actual message,
     as well as any name-value pairs that {{ site.product.short_name }} has attached to
     or extracted from the message. The ${.\_TAGS} field contains the
     identifier of the {{ site.product.short_name }} source that has originally received the

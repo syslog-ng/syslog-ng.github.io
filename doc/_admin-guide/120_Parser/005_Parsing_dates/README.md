@@ -11,7 +11,7 @@ description: >-
 ---
 
 **NOTE:** Note that parsing will fail if the format string does not match
-the entire template or field. Since by default {{ site.product.short_name }}({{ site.product.short_name }}) uses the MESSAGE part of the log message,
+the entire template or field. Since by default {{ site.product.short_name }}({{ site.product.short_name }}) uses the `MESSAGE` part of the log message,
 parsing will fail, unless the log message contains only a date, but that
 is unlikely, so practically you will have to segment the message (for
 example, using a [[csv-parser()|adm-parser-csv]].
@@ -37,7 +37,7 @@ In the following example, {{ site.product.short_name }} parses dates like
 following format string: format(\"%d/%b/%Y:%H:%M:%S %Z\") (how you
 create this field from the incoming message is not shown in the
 example). In the destination template every message will begin with the
-timestamp in ISODATE format. Since the syslog parser is disabled,
+timestamp in `ISODATE` format. Since the syslog parser is disabled,
 {{ site.product.short_name }} will include the entire original message (including the
 original timestamp) in the ${MESSAGE} macro.
 

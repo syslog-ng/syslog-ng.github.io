@@ -29,7 +29,7 @@ rewrite <name_of_the_rule> {
 
 ### Example: Setting message fields to a particular value
 
-The following example sets the HOST field of the message to myhost.
+The following example sets the `HOST` field of the message to myhost.
 
 ```config
 rewrite r_rewrite_set{
@@ -46,8 +46,8 @@ rewrite r_rewrite_set{
 };
 ```
 
-For details on rewriting SDATA fields, see
-Creating custom SDATA fields.
+For details on rewriting `SDATA` fields, see
+Creating custom `SDATA` fields.
 You can also use the following options in rewrite rules that use the
 set() operator.
 

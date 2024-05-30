@@ -17,7 +17,7 @@ sends them to an external script.
 
     ```xml
     <values>
-        <value name="MESSAGE">A log message from HOST matched rule number $.classifier.rule_id</value>
+        <value name="MESSAGE">A log message from `HOST` matched rule number $.classifier.rule_id</value>
         <value name="TRIGGER">yes</value>
     </values>
     ```

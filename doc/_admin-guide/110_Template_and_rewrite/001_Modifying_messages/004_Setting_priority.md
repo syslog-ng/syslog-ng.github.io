@@ -3,14 +3,14 @@ title: Setting the priority of a message with the set-pri() rewrite function
 short_title: Setting priority
 id: adm-temp-priority
 description: >-
-    You can set the PRI value of a BSD or IETF syslog
+    You can set the `PRI` value of a BSD or IETF syslog
     message with the set-pri() rewrite function by specifying a template string.
-    This is useful, for example, if incoming messages do not have a PRI value
-    specified by default, but a PRI value is required for filtering
+    This is useful, for example, if incoming messages do not have a `PRI` value
+    specified by default, but a `PRI` value is required for filtering
     purposes.
 ---
 
-When configured, the set-pri() function will only rewrite the PRI value
+When configured, the set-pri() function will only rewrite the `PRI` value
 of the message field.
 
 {% include doc/admin-guide/notes/not-valid-param.md %}

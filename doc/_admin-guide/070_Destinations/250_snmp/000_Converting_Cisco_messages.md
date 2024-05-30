@@ -34,9 +34,9 @@ the Cisco website.
 
 ## Parsing Cisco-specific message fields with patterndb
 
-The PROGRAM part of the syslog messages sent by Cisco devices
+The `PROGRAM` part of the syslog messages sent by Cisco devices
 contain not only the program name, but other important protocol
-information part as well. The PROGRAM of these messages contains the
+information part as well. The `PROGRAM` of these messages contains the
 Facility, Severity, and the Mnemonic (the Cisco name) of the message.
 The following pattern database parses these values and makes them
 available as the .cisco.Facility, .cisco.Severity, and .cisco.MsgName,

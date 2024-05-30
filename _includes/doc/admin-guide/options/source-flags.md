@@ -28,15 +28,15 @@
     | LOG_NOTICE priority if not specified otherwise.
 
 - *no-header*: The no-header flag triggers {{ site.product.short_name }} to parse only
-    the PRI field of incoming messages, and put the rest of the message
+    the `PRI` field of incoming messages, and put the rest of the message
     contents into ${MSG}.
 
     Its functionality is similar to that of the no-parse flag, except
-    the no-header flag does not skip the PRI field.
+    the no-header flag does not skip the `PRI` field.
 
     **NOTE:** Essentially, the no-header flag signals {{ site.product.short_name }} that the
     syslog header is not present (or does not adhere to the conventions
-    / RFCs), so the entire message (except from the PRI field) is put
+    / RFCs), so the entire message (except from the `PRI` field) is put
     into ${MSG}.
     {: .notice--info}
 
@@ -78,7 +78,7 @@
     message parsing and processes the complete line as the message part
     of a syslog message. The {{ site.product.short_name }} application will generate a
     new syslog header (timestamp, host, and so on) automatically and put
-    the entire incoming message into the MESSAGE part of the syslog
+    the entire incoming message into the `MESSAGE` part of the syslog
     message (available using the ${MESSAGE} macro). This flag is useful
     for parsing messages not complying to the syslog format.
 
