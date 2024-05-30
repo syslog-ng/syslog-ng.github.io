@@ -109,7 +109,7 @@ counters or IP addresses. STRUCTURED-DATA consists of data blocks
 enclosed in brackets (*\[\]*). Every block includes the ID of the block,
 and one or more *name=value* pairs. The {{ site.product.short_name }} application
 automatically parses the STRUCTURED-DATA part of syslog messages, which
-can be referenced in macros (for details, see Macros of {{ site.product.short_name }}.
+can be referenced in macros (for details, see [[Macros of {{ site.product.short_name }}|adm-temp-macro-ose]].
 
 An example STRUCTURED-DATA block looks like:
 

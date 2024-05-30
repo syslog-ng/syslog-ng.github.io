@@ -5,7 +5,7 @@ description: >-
     The {{ site.product.short_name }} application can automatically execute scripts when it
     is started, and can include the output of such script in the
     configuration file. To create and use a script that generates a part of
-    the {{ site.product.short_name }} configuration file (actually, a configuration block),
+    [[the {{ site.product.short_name }} configuration file|adm-conf-file]] (actually, a configuration block),
     complete the following steps. 
 ---
 
@@ -18,7 +18,7 @@ valid {{ site.product.short_name }} configuration snippet.
 1. Navigate to the directory where you have installed {{ site.product.short_name }}
     (for example, /opt/syslog-ng/share/include/scl/), and create a new
     directory, for example, apache-access-logs. The name of the
-    directory will be used in the {{ site.product.short_name }} configuration file as
+    directory will be used in [[the {{ site.product.short_name }} configuration file|adm-conf-file]] as
     well, so use a descriptive name.
 
 2. Create a file called plugin.conf in this new directory.

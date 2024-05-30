@@ -7,7 +7,7 @@ description: >-
     can include strings, macros (for example, date, the hostname, and so
     on), and template functions. For example, you can use templates to
     create standard message formats or filenames. For a list of macros
-    available in {{ site.product.name }}, see Macros of {{ site.product.short_name }}.  
+    available in {{ site.product.name }}, see [[Macros of {{ site.product.short_name }}|adm-temp-macro-ose]].  
     Fields from the structured data (SD) part of messages using the new IETF-syslog standard
     can also be used as macros.
 ---

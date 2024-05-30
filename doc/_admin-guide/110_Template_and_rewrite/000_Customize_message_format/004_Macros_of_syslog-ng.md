@@ -377,7 +377,7 @@ one of the following:
 
 ## ${SOURCE}
 
-The identifier of the source statement in the {{ site.product.short_name }} configuration file that received the message. For example, if
+The identifier of the source statement in [[the {{ site.product.short_name }} configuration file|adm-conf-file]] that received the message. For example, if
 {{ site.product.short_name }} received the log message from the source s_local {
 internal(); }; source statement, the value of the ${SOURCE} macro is
 s_local. This macro is mainly useful for debugging and troubleshooting

@@ -25,4 +25,4 @@ Creating pattern databases
 Using pattern parsers  
 [[What&#8217;s new in the {{ site.product.short_name }} pattern database format V5|adm-parser-db-whatsnew]]  
   
-The {{ site.product.short_name }} pattern database format  
+[[The {{ site.product.short_name }} pattern database format|adm-parser-db-patterndb-format]]  

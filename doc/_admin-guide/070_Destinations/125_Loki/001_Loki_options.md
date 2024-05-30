@@ -85,7 +85,7 @@ labels(
 |   Type:|       template or template-function|
 |Default:| ${ISODATE} ${HOST} ${MSGHDR} ${MSG}|
 
-*Description:* This option specifies a template that defines the logformat to be used in the destination. For more information on macros and template functions, see Macros of {{ site.product.short_name }} and Template functions of {{ site.product.short_name }}.
+*Description:* This option specifies a template that defines the logformat to be used in the destination. For more information on macros and template functions, see [[Macros of {{ site.product.short_name }}|adm-temp-macro-ose]] and [[Template functions of {{ site.product.short_name }}|adm-temp-func]].
 
 ## tenant-id()
 

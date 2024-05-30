@@ -84,6 +84,6 @@ For details, see Customize message format using macros and templates.
 
 Options set global parameters of {{ site.product.short_name }}, like the parameters of name
 resolution and timezone handling.  
-For details, see Global options of {{ site.product.short_name }}.
+For details, see [[Global options of {{ site.product.short_name }}|adm-global-options]].
 
 For details on the above objects, see The configuration syntax in detail.

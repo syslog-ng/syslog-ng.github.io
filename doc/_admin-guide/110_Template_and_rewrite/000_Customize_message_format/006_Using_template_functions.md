@@ -35,7 +35,7 @@ $(echo $(echo ${HOST}))
 ```
 
 For details on the available template functions, see the descriptions of
-the individual template functions in Template functions of {{ site.product.short_name }}.
+the individual template functions in [[Template functions of {{ site.product.short_name }}|adm-temp-func]].
 
 You can define your own template function as a regular configuration
 object (for example, to reuse the same function in different places in

@@ -14,7 +14,7 @@ Currently {{ site.product.short_name }} can tag a message at two different place
     details on using the pattern database, see
     Using pattern databases,
     for details on creating tags in the pattern database, see
-    The {{ site.product.short_name }} pattern database format.
+    [[The {{ site.product.short_name }} pattern database format|adm-parser-db-patterndb-format]].
 
 - Tags can be also added and deleted using rewrite rules. For details,
     see Adding and deleting tags.

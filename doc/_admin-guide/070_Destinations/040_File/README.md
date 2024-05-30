@@ -12,7 +12,7 @@ The destination filename may include macros which get expanded when the
 message is written, thus a simple file() driver may create several
 files: for example, {{ site.product.short_name }} can store the messages of client hosts
 in a separate file for each host. For more information on available
-macros see Macros of {{ site.product.short_name }}.  
+macros see [[Macros of {{ site.product.short_name }}|adm-temp-macro-ose]].  
 If the expanded filename refers to a directory which does not exist, it
 will be created depending on the create-dirs() setting (both global and
 a per destination option).

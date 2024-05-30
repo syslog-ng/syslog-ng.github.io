@@ -30,7 +30,7 @@ limit this value using the **\--worker-threads** command-line option
 that sets the maximum total number of threads {{ site.product.short_name }} can use,
 including the main {{ site.product.short_name }} thread. However, the \--worker-threads
 option does not affect the supervisor of {{ site.product.short_name }}. The supervisor
-is a separate process (see The {{ site.product.short_name }} manual page,
+is a separate process (see [[The {{ site.product.short_name }} manual page|adm-man-syslogng]],
 but certain operating systems might display it as a thread. In
 addition, certain destinations always run in a separate thread,
 independently of the multithreading (threaded()) and \--worker-threads

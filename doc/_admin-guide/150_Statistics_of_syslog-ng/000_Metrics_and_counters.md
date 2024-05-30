@@ -14,7 +14,7 @@ The displayed metrics have the following structure.
 
 1. The type of the object (for example, dst.file, tag, src.facility)
 
-2. The ID of the object used in the {{ site.product.short_name }} configuration file, for
+2. The ID of the object used in [[the {{ site.product.short_name }} configuration file|adm-conf-file]], for
     example, d\_internal or source.src\_tcp. The \#0 part means that
     this is the first destination in the destination group.
 

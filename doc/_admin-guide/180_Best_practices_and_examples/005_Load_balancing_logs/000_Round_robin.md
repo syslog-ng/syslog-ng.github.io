@@ -13,7 +13,7 @@ description: >-
 {: .notice--info}
 
 For more information about the ${R_MSEC} macro and further macros,
-see Macros of {{ site.product.short_name }}.
+see [[Macros of {{ site.product.short_name }}|adm-temp-macro-ose]].
 
 ## Example: round robin load balancing between multiple destinations
 

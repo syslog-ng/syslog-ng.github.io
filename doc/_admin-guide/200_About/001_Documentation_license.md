@@ -4,8 +4,6 @@ short_title: Documentation license
 id: adm-about-doc-lic
 ---
 
-The {{ site.product.name }} Documentation License
-
 Copyright 2023 One Identity LLC.
 
 ALL RIGHTS RESERVED.

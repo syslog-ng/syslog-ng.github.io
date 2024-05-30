@@ -9,9 +9,9 @@ id: dev-macos-mod-sup-python-dest
 
 ### Important Information <a href="#important-information" id="important-information"></a>
 
-* The Python block must be a top-level block in the {{ site.product.short_name }} configuration file.\
+* The Python block must be a top-level block in [[the {{ site.product.short_name }} configuration file|adm-conf-file]].\
 
-* If you store the Python code in a separate Python file and only include it in the {{ site.product.short_name }} configuration file, make sure that the PYTHON\_PATH environment variable includes the path to the Python file, and export the PYTHON\_PATH environment variable.\
+* If you store the Python code in a separate Python file and only include it in [[the {{ site.product.short_name }} configuration file|adm-conf-file]], make sure that the PYTHON\_PATH environment variable includes the path to the Python file, and export the PYTHON\_PATH environment variable.\
 
 * Starting with 3.26, {{ site.product.short_name }} assigns a persist name to Python sources and destinations. The persist name is generated from the class name. If you want to use the same Python class multiple times in your {{ site.product.short_name }} configuration, add a unique persist-name() to each source or destination, otherwise {{ site.product.short_name }} will not start.
 

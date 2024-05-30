@@ -746,7 +746,7 @@ general:
     configuration file.
 
 - If you store the Python code in a separate Python file and only
-    include it in the {{ site.product.short_name }} configuration file, make sure that
+    include it in [[the {{ site.product.short_name }} configuration file|adm-conf-file]], make sure that
     the PYTHON\_PATH environment variable includes the path to the
     Python file, and export the PYTHON\_PATH environment variable. For
     example, if you start {{ site.product.short_name }} manually from a terminal and you

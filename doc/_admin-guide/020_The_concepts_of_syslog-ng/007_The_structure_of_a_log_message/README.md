@@ -19,4 +19,4 @@ Currently there are two standard syslog message formats:
     Enterprise-wide message model (EWMM).
 
 - How messages are represented in {{ site.product.short_name }}: see
-    Message representation in {{ site.product.short_name }}.
+    [[Message representation in {{ site.product.short_name }}|adm-conc-msg]].

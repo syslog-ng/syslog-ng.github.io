@@ -34,7 +34,7 @@ description: >-
 3. Extract the HDFS libraries into a temporary directory, then collect
     the various .jar files into a single directory (for example,
     /opt/hadoop/lib/) where {{ site.product.short_name }} can access them. You must
-    specify this directory in the {{ site.product.short_name }} configuration file. The
+    specify this directory in [[the {{ site.product.short_name }} configuration file|adm-conf-file]]. The
     files are located in the various lib directories under the share/
     directory of the Hadoop release package. (For example, in Hadoop
     2.7, required files are common/hadoop-common-2.7.0.jar,

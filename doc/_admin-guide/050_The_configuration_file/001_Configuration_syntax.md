@@ -147,7 +147,7 @@ As a {{ site.product.short_name }} user described on a Gentoo mailing list:
 - Some options are global options, or can be set globally, for
     example, whether {{ site.product.short_name }} should use DNS resolution to resolve
     IP addresses. Global options are detailed in
-    Global options of {{ site.product.short_name }}.  
+    [[Global options of {{ site.product.short_name }}|adm-global-options]].  
 
     ```config
     options {

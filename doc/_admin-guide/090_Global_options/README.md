@@ -7,7 +7,7 @@ description: >-
     may have parameters, similarly to driver specifications. 
 ---
 
-To set global options, add an options statement to the {{ site.product.short_name }} configuration file
+To set global options, add an options statement to [[the {{ site.product.short_name }} configuration file|adm-conf-file]]
 using the following syntax:
 
 ```config

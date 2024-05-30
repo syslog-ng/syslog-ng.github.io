@@ -3,7 +3,7 @@ title: Notes about the configuration syntax
 id: adm-conf-syn-notes
 ---
 
-When you are editing the {{ site.product.short_name }} configuration file, note the
+When you are editing [[the {{ site.product.short_name }} configuration file|adm-conf-file]], note the
 following points:
 
 - The configuration file can contain a maximum of 6665 source /

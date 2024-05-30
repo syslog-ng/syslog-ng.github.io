@@ -15,7 +15,7 @@ $(slog --key-file <host key file> --mac-file <MAC file> ${RAWMSG})
 
 ## Description
 
-Secure logging is an extension of {{ site.product.short_name }} which provides system log forward integrity and confidentiality. It is implemented in form of a module and is configured as a template in the {{ site.product.short_name }} configuration file.
+Secure logging is an extension of {{ site.product.short_name }} which provides system log forward integrity and confidentiality. It is implemented in form of a module and is configured as a template in [[the {{ site.product.short_name }} configuration file|adm-conf-file]].
 
 The main objective of the secure logging module is to provide tamper evident logging, for example to adequately protect log records of a system and to provide a sensor indicating breach-attempts. The secure logging module achieves this by the authentical encryption of each log record with an individual cryptographic key used only once and protecting the integrity of the whole log archive by a cryptographic authentication code. Every attempt to tamper with an individual log record or the log archive itself is immediately detected during log archive verification. Due to this, an attacker can no longer tamper with log records without being detected.
 

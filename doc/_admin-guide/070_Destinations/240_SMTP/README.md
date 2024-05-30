@@ -18,7 +18,7 @@ email to multiple recipients, and so on.
 
 The subject(), body(), and header() fields may include macros which get
 expanded in the email. For more information on available macros see
-Macros of {{ site.product.short_name }}. 
+[[Macros of {{ site.product.short_name }}|adm-temp-macro-ose]]. 
 The smtp() driver has the following required parameters: host(), port(),
 from(), to(), subject(), and body(). For the list of available optional
 parameters, see smtp() destination options.

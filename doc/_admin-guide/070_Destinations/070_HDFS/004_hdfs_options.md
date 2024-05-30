@@ -142,7 +142,7 @@ hdfs-uri(\"hdfs://\[FEDC:BA98:7654:3210:FEDC:BA98:7654:3210\]:8020\").
 {% include doc/admin-guide/options/jvm-options.md %}
 
 You can set this option only as a global option, by adding it
-to the options statement of the {{ site.product.short_name }} configuration file.
+to the options statement of [[the {{ site.product.short_name }} configuration file|adm-conf-file]].
 
 ## kerberos-keytab-file()
 
@@ -156,7 +156,7 @@ option is needed only if you want to authenticate using Kerberos in
 Hadoop. You also have to set the hdfs-option-kerberos-principal()
 option. For details on the using Kerberos authentication with the hdfs()
 destination, see
-Kerberos authentication with {{ site.product.short_name }} hdfs() destination.
+[[Kerberos authentication with {{ site.product.short_name }} hdfs() destination|adm-dest-hdfs-kerberos]].
 
 ```config
 destination d_hdfs {
@@ -181,7 +181,7 @@ needed only if you want to authenticate using Kerberos in Hadoop. You
 also have to set the hdfs-option-kerberos-keytab-file() option. For
 details on the using Kerberos authentication with the hdfs()
 destination, see
-Kerberos authentication with {{ site.product.short_name }} hdfs() destination.
+[[Kerberos authentication with {{ site.product.short_name }} hdfs() destination|adm-dest-hdfs-kerberos]].
 
 ```config
 destination d_hdfs {

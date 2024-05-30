@@ -27,7 +27,7 @@ log), the structure of the header is fixed.
 - For details on using templates and macros, see
     Templates and macros.
 - For a list and description of the macros available in {{ site.product.short_name }},
-    see Macros of {{ site.product.short_name }}.
+    see [[Macros of {{ site.product.short_name }}|adm-temp-macro-ose]].
 - For details on using custom macros created with CSV parsers and
     pattern databases, see [[parser: Parse and segment structured messages]]
     and Using parser results in filters and templates, respectively.

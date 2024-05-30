@@ -16,7 +16,7 @@ description: >-
     query command.
 
     For further information about using syslog-ng-ctl commands, see
-    The {{ site.product.short_name }} manual pages.
+    [[The {{ site.product.short_name }} manual page|adm-man-syslogng]]s.
 
 ## Legacy: Unstructured, bulk methods
 
@@ -25,7 +25,7 @@ description: >-
 - Using the syslog-ng-ctl stats command.
 
     For further information about using syslog-ng-ctl commands, see
-    The {{ site.product.short_name }} manual pages.
+    [[The {{ site.product.short_name }} manual page|adm-man-syslogng]]s.
 
 - Use the socat application:
 

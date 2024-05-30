@@ -3,7 +3,7 @@ title: Compiling options of {{ site.product.short_name }}
 id: adm-inst-compopt
 ---
 
-When compiling {{ site.product.short_name }} from source, you can use the following
+When [[compiling {{ site.product.short_name }} from source|adm-inst-comp]], you can use the following
 compiling options.
 
 - *\--enable-all-modules* This option will turn on or off all modules
@@ -66,7 +66,7 @@ compiling options.
     and format-json template functions.
 
 - *\--enable-linux-caps* Enable support for capabilities on Linux. For details, 
-    see The {{ site.product.short_name }} manual page.
+    see [[The {{ site.product.short_name }} manual page|adm-man-syslogng]].
   
 - *\--enable-mongodb* Enable the mongodb destination (enabled by
     default). To use mongodb(), an external MongoDB client is needed.

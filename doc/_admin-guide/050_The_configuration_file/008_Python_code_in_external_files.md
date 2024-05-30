@@ -13,7 +13,7 @@ code. You can store the Python code in any directory in your system, but
 make sure to include it in your Python path.
 
 When referencing a Python class from an external file in the class()
-option of a Python block in the {{ site.product.short_name }} configuration file, the
+option of a Python block in [[the {{ site.product.short_name }} configuration file|adm-conf-file]], the
 class name must include the name of the Python file containing the
 class, without the path and the .py extension. For example, if the
 MyDestination class is available in the
@@ -36,7 +36,7 @@ class("pythonexample.MyDestination"):
 {% include doc/admin-guide/notes/python-persist.md %}
 
 If you store the Python code in a separate Python file and only include
-it in the {{ site.product.short_name }} configuration file, make sure that the
+it in [[the {{ site.product.short_name }} configuration file|adm-conf-file]], make sure that the
 PYTHON_PATH environment variable includes the path to the Python file,
 and export the PYTHON\_PATH environment variable. For example, if you
 start {{ site.product.short_name }} manually from a terminal and you store your Python

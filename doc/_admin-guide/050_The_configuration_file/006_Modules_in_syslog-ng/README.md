@@ -1,6 +1,5 @@
 ---
 title: Modules in {{ site.product.name }}
-short_title: Modules in syslog-ng
 id: adm-modules
 description: >-
     To increase its flexibility and simplify the development of additional
@@ -30,4 +29,4 @@ Each module contains one or more plugins that add some functionality to
 
 For details on the command-line parameters of {{ site.product.short_name }} mentioned in
 the previous list, see the {{ site.product.short_name }} man page at
-The {{ site.product.short_name }} manual page.
+[[The {{ site.product.short_name }} manual page|adm-man-syslogng]].

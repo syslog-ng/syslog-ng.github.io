@@ -68,4 +68,4 @@ slogencrypt -k <key file> -m <MAC file> <new key file> <new MAC file> <plain tex
 ## Additional Information
 
 * The syslog-ng.conf manual page
-* The {{ site.product.short_name }} manual page
+* [[The {{ site.product.short_name }} manual page|adm-man-syslogng]]

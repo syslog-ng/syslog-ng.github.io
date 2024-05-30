@@ -10,9 +10,9 @@ id: dev-macos-mod-sup-python-src
 
 * This is used for server-style sources that receive messages. Server-style sources are used for an event-loop based, nonblocking server framework in Python.\
 
-* The Python block must be a top-level block in the {{ site.product.short_name }} configuration file.\
+* The Python block must be a top-level block in [[the {{ site.product.short_name }} configuration file|adm-conf-file]].\
 
-* If you store the Python code in a separate Python file and only include it in the {{ site.product.short_name }} configuration file, make sure that the PYTHON\_PATH environment variable includes the path to the Python file, and export the PYTHON\_PATH environment variable.\
+* If you store the Python code in a separate Python file and only include it in [[the {{ site.product.short_name }} configuration file|adm-conf-file]], make sure that the PYTHON\_PATH environment variable includes the path to the Python file, and export the PYTHON\_PATH environment variable.\
 
 
 Python sources consist of two parts. The first is a {{ site.product.short_name }} source object that you define in your {{ site.product.short_name }} configuration and use in the log path. This object references a Python class, which is the second part of the Python source. The Python class receives or fetches the log messages, and can do virtually anything that you can code in Python. You can either embed the Python class into your {{ site.product.short_name }} configuration file, or store it in an external Python file.\

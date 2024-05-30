@@ -12,7 +12,7 @@ id: adm-global-opt
 
 
 The following options can be specified in the options statement, as
-described in Global options of {{ site.product.short_name }}.  
+described in [[Global options of {{ site.product.short_name }}|adm-global-options]].  
 
 ## bad-hostname()
 
@@ -465,7 +465,7 @@ This is a deprecated legacy option. Use the stats() option.
 *Description:* Enable {{ site.product.short_name }} to run in multithreaded mode and use
 multiple CPUs. Available only in {{ site.product.name }} 3.3 and
 later. Note that setting **threaded(no)** does not mean that {{ site.product.short_name }} will use only a single thread. For details, see
-Multithreading and scaling in {{ site.product.short_name }}.
+[[Multithreading and scaling in {{ site.product.short_name }}|adm-multithread]].
 
 {% include doc/admin-guide/options/time-reap.md %}
 

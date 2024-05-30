@@ -10,14 +10,14 @@ description: >-
 ---
 
 - To configure {{ site.product.short_name }} as a client that sends log messages to a
-    central logserver, see Configuring {{ site.product.short_name }} on client hosts.
+    central logserver, see [[Configuring {{ site.product.short_name }} on client hosts|adm-qs-client-conf]].
 
 - To configure {{ site.product.short_name }} as a server that receives log messages
-    from client hosts, see Configuring {{ site.product.short_name }} on server hosts.
+    from client hosts, see [[Configuring {{ site.product.short_name }} on server hosts|adm-qs-server-conf]].
 
 - To configure {{ site.product.short_name }} as a relay that receives log messages
     from client hosts and forwards them to a central logserver, see
-    Configuring {{ site.product.short_name }} on server hosts.
+    [[Configuring {{ site.product.short_name }} on relay hosts|adm-qs-relay-conf]].
 - For information about managing and checking {{ site.product.short_name }} Open Source
     Edition ({{ site.product.short_name }}) services on Linux, see
-    Managing and checking {{ site.product.short_name }} service on Linux.
+    [[Managing and checking {{ site.product.short_name }} service on Linux|adm-qs-service]].

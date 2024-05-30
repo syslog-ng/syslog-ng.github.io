@@ -18,4 +18,4 @@ GNU Lesser General Public License and
 GNU General Public License, respectively.
 
 For clarity, the Documentation is licensed separately.
-For details, see The {{ site.product.name }} Documentation License.
+For details, see [[The {{ site.product.name }} Documentation License|adm-about-doc-lic]].

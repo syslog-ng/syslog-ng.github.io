@@ -106,7 +106,7 @@ validate the values of these elements.
     Ipaddress, Objectid. The type names are not case sensitive.
 
 - \<value\_of\_the\_object\>: The value of the object as a string. The
-    macros of {{ site.product.short_name }} can be used to set these values, making it
+    [[macros of {{ site.product.short_name }}|adm-temp-macro-ose]] can be used to set these values, making it
     possible to transfer the content and other metadata from the the
     syslog message to the SNMP trap. Note that if the value of an
     Integer, Counter32 or Timeticks object is not a number (for example,

@@ -155,7 +155,7 @@ For details, see [[The syslog-ng.conf manual page]].
 
 [[The syslog-ng.conf manual page]]
 
-[[The {{ site.product.short_name }} manual page]]
+[[[[The {{ site.product.short_name }} manual page|adm-man-syslogng]]]]
 
 Here comes an include doc/admin-guide/manpages-footnote.md test
 {% include doc/admin-guide/manpages-footnote.md %}

@@ -3,7 +3,7 @@ title: 'parser: Parse and segment structured messages'
 short_title: Parse and segment structured messages
 id: adm-parser
 description: >-
-    The filters and default macros of {{ site.product.short_name }} work well on the headers and
+    The filters and default [[macros of {{ site.product.short_name }}|adm-temp-macro-ose]] work well on the headers and
     metainformation of the log messages, but are rather limited when
     processing the content of the messages. Parsers can segment the content
     of the messages into name-value pairs, and these names can be used as

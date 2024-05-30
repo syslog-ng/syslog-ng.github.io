@@ -36,7 +36,7 @@ Complete the following steps on the {{ site.product.short_name }} server:
     The key must be in PEM format. If you want to use a
     password-protected key, see Password-protected keys.
 
-4. Add a source statement to the {{ site.product.short_name }} configuration file that uses
+4. Add a source statement to [[the {{ site.product.short_name }} configuration file|adm-conf-file]] that uses
     the tls( key-file(key_file_fullpathname)
     cert-file(cert_file_fullpathname) ) option and specify the key and
     certificate files. The source must use the source driver (network()

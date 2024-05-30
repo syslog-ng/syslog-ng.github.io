@@ -14,7 +14,7 @@ This might happen for example, when using the ${HOST} macro in the
 filename while receiving messages from a large number of hosts. To overcome
 this problem, adjust the --fd-limit command-line parameter of {{ site.product.short_name }}
 or the global ulimit parameter of your host. For setting the --fd-limit
-command-line parameter of{{ site.product.short_name }} see the The {{ site.product.short_name }} manual page.
+command-line parameter of{{ site.product.short_name }} see the [[The {{ site.product.short_name }} manual page|adm-man-syslogng]].
 For setting the ulimit parameter of the host, see the documentation
 of your operating system.
 {: .notice--warning}
@@ -29,7 +29,7 @@ of your operating system.
 
 - *threaded*: The threaded flag enables multithreading for the
     destination. For details on multithreading, see
-    Multithreading and scaling in {{ site.product.short_name }}.
+    [[Multithreading and scaling in {{ site.product.short_name }}|adm-multithread]].
 
     **NOTE:** The file destination uses multiple threads only if the
     destination filename contains macros.

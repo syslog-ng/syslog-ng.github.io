@@ -34,7 +34,7 @@ file:
 unknown-hostname,host-role,unknown
 ```
 
-In the {{ site.product.short_name }} configuration file:
+In [[the {{ site.product.short_name }} configuration file|adm-conf-file]]:
 
 ```config
 add-contextual-data(

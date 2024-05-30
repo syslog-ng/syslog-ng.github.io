@@ -13,7 +13,7 @@ description: >-
     referenced in message templates, file- and tablenames, and so on.
 ---
 
-Parsers are similar to filters: they must be defined in the {{ site.product.short_name }} configuration file and used in the log statement. You can also
+Parsers are similar to filters: they must be defined in [[the {{ site.product.short_name }} configuration file|adm-conf-file]] and used in the log statement. You can also
 define the parser inline in the log path.
 
 {% include doc/admin-guide/notes/parser-order.md %}

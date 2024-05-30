@@ -14,7 +14,7 @@ description: >-
 For this to work correctly, the following requirements must be met:
 
 - The {{ site.product.short_name }} Source Configuration Library (SCL) must be included in
-    the {{ site.product.short_name }} configuration file:
+    [[the {{ site.product.short_name }} configuration file|adm-conf-file]]:
 
     ```config
     @include "scl.conf"

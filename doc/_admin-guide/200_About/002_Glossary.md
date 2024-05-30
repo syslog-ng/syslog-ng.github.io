@@ -337,7 +337,7 @@ A host running {{ site.product.short_name }} in client mode.
 
 The {{ site.product.short_name }} application is a flexible
 and highly scalable system logging application that is ideal for creating
-centralized and trusted logging solutions, for more, see What {{ site.product.short_name }} is.
+centralized and trusted logging solutions, for more, see [[What {{ site.product.short_name }} is|adm-intro-what]].
 
 ### {{ site.product.short_name }}
 

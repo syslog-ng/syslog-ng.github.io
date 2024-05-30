@@ -135,7 +135,7 @@ and other platforms, see {{ site.product.name }} installation packages.
     feature and override autodetection. For example, to disable the
     TCP-wrapper support, use the *\--disable-tcp-wrapper* option. For
     the list of available compiling options, see
-    Compiling options of {{ site.product.short_name }}.
+    [[Compiling options of {{ site.product.short_name }}|adm-inst-compopt]].
     {: .notice--info}
 
 ![]({{ site.baseurl}}/assets/images/caution.png) **CAUTION:**

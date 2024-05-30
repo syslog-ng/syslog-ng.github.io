@@ -39,7 +39,7 @@ syslog() driver):
 
     `ln -s cacert.pem 6d2962a8.0`
 
-4. Add a destination statement to the {{ site.product.short_name }} configuration file that
+4. Add a destination statement to [[the {{ site.product.short_name }} configuration file|adm-conf-file]] that
     uses the tls( ca-dir(path_to_ca_directory) ) option and specify
     the directory using the CA certificate. The destination must use the
     network() or the syslog() destination driver, and the IP address and

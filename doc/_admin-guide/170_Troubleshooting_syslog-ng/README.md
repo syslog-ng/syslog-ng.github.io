@@ -36,7 +36,7 @@ description: >-
     options for more-detailed log messages. You can enable these
     messages without restarting {{ site.product.short_name }} using the **syslog-ng-ctl
     verbose \--set=on** command. For details, see the syslog-ng-ctl man
-    page at The {{ site.product.short_name }} control tool manual page.
+    page at [[The {{ site.product.short_name }} control tool manual page|adm-man-ctl]].
 
 - Build up encrypted connections step-by-step. First create a working,
     unencrypted (for example, TCP) connection, then add TLS encryption,
@@ -47,7 +47,7 @@ description: >-
     everything should work as expected. Unfortunately, there are some
     other combinations, that may seem to work, but result in losing
     parts of the messages. For details on the working combinations, see
-    Things to consider when forwarding messages between {{ site.product.short_name }} hosts.
+    [[Things to consider when forwarding messages between {{ site.product.short_name }} hosts|adm-conc-cons]].
 
 - In case you experience a problem that is not covered in this guide,
     send it to the {{ site.product.short_name }} mailing list.

@@ -16,7 +16,7 @@ description: >-
 2. {{ site.product.short_name }} checks if the path to the logfile exists. If a
     directory does not exist {{ site.product.short_name }} automatically creates it.
     {{ site.product.short_name }} creates the destination file (using the filename set
-    in the {{ site.product.short_name }} configuration file, with a UUID suffix to make
+    in [[the {{ site.product.short_name }} configuration file|adm-conf-file]], with a UUID suffix to make
     it unique, for example,
     /usr/hadoop/logfile.txt.3dc1c59e-ab3b-4b71-9e81-93db477ed9d9) and
     writes the message into the file. After the file is created,

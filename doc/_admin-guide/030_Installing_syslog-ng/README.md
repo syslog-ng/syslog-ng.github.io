@@ -12,7 +12,7 @@ description: >-
     platforms, see {{ site.product.name }} installation packages.
 
 - For instructions on compiling {{ site.product.name }} from the
-    source code, see Compiling {{ site.product.short_name }} from source
+    source code, [[see Compiling {{ site.product.short_name }} from source|adm-inst-comp]]
 
 - You can use a {{ site.product.short_name }} docker image.
 

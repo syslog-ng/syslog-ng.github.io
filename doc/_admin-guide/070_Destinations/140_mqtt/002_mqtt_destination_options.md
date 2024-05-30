@@ -65,7 +65,7 @@ that originate from templates.
 to the MQTT broker.
 
 If you want to use macros in templates, see
-Macros of {{ site.product.short_name }}.  
+[[Macros of {{ site.product.short_name }}|adm-temp-macro-ose]].  
 
 {% include doc/admin-guide/options/tls.md %}
 

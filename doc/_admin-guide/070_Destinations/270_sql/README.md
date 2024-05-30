@@ -36,7 +36,7 @@ packages are automatically installed by the binary {{ site.product.short_name }}
 {: .notice--info}
 
 The table and value parameters can include macros to create tables and
-columns dynamically (for details, see Macros of {{ site.product.short_name }}.
+columns dynamically (for details, see [[Macros of {{ site.product.short_name }}|adm-temp-macro-ose]].
 
 ![]({{ site.baseurl}}/assets/images/caution.png) **CAUTION:**
 When using macros in table names, note that some databases limit the maximum

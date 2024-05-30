@@ -1,7 +1,7 @@
 ## See also
 
 The syslog-ng.conf manual page  
-The {{ site.product.short_name }} manual page
+[[The {{ site.product.short_name }} manual page|adm-man-syslogng]]
 
 >**NOTE:**
 >If you experience any problems or need help with {{ site.product.short_name }}, visit

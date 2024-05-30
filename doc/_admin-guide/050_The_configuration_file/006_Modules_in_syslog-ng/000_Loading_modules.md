@@ -7,7 +7,7 @@ description: >-
 ---
 
 To load a module that is not loaded automatically, include the following
-statement in the {{ site.product.short_name }} configuration file:
+statement in [[the {{ site.product.short_name }} configuration file|adm-conf-file]]:
 
 ```config
 @module <module-name>
@@ -40,7 +40,7 @@ Note the following points about the @module statement:
 ## Use the @requires statement to ensure that the specified module is loaded
 
 To ensure that a module is loaded, include the following statement in
-the {{ site.product.short_name }} configuration file or the external files included in
+[[the {{ site.product.short_name }} configuration file|adm-conf-file]] or the external files included in
 the configuration file:
 
 ```config

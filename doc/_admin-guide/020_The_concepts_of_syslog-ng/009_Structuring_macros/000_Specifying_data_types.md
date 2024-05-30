@@ -99,7 +99,7 @@ onwards:
 ### json-parser() and the format-json template function
 
 For more information, see JSON parser and
-Template functions of {{ site.product.short_name }}.
+[[Template functions of {{ site.product.short_name }}|adm-temp-func]].
 
 {{ site.product.short_name }} converts all elements in a JSON object to name-value
 pairs, when using json-parser(). Any type related data present in

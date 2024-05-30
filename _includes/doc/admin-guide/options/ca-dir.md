@@ -7,7 +7,7 @@
 certificates in PEM format. The CA certificate files have to be named
 after the 32-bit hash of the subject\'s name. This naming can be created
 using the c\_rehash utility in openssl. For an example, see
-Configuring TLS on the {{ site.product.short_name }} clients.
+[[Configuring TLS on the {{ site.product.short_name }} clients|adm-tls-client-conf]].
 The {{ site.product.short_name }} application uses the CA
 certificates in this directory to validate the certificate of the peer.
 

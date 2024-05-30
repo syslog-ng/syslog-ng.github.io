@@ -11,4 +11,4 @@ description: >-
 ---
 
 For more information about the ${R_MSEC} macro and further macros of
-{{ site.product.short_name }}, see Macros of {{ site.product.short_name }}.
+{{ site.product.short_name }}, see [[Macros of {{ site.product.short_name }}|adm-temp-macro-ose]].

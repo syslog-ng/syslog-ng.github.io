@@ -133,7 +133,7 @@ log {
 ```
 
 For details on how to create your own pattern databases see
-The {{ site.product.short_name }} pattern database format.
+[[The {{ site.product.short_name }} pattern database format|adm-parser-db-patterndb-format]].
 
 ## Drop unmatched messages
 

@@ -8,7 +8,7 @@ id: dev-macos-system-drv
 
 ### Important Information
 
-If the system() driver is included in the {{ site.product.short_name }} configuration file, {{ site.product.short_name }} automatically adds the following sources to the {{ site.product.short_name }} configuration.\
+If the system() driver is included in [[the {{ site.product.short_name }} configuration file|adm-conf-file]], {{ site.product.short_name }} automatically adds the following sources to the {{ site.product.short_name }} configuration.\
 \
 It automatically links to the default logs destination of the given platform through a compatible driver. For example:&#x20;
 
