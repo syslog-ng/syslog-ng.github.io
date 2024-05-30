@@ -8,7 +8,7 @@ description: >-
 
 A syslog message consists of the following parts:
 
-- [[`HEADER`|adm-struct-ietf#the-header-message-part]] (includes the [[PRI|adm-struct-ietf#the-pri-message-part]] as well)
+- [[HEADER|adm-struct-ietf#the-header-message-part]] (includes the [[PRI|adm-struct-ietf#the-pri-message-part]] as well)
 - [[STRUCTURED-DATA|adm-struct-ietf#the-structured-data-message-part]]
 - [[MSG|adm-struct-ietf#the-msg-message-part]]
 
