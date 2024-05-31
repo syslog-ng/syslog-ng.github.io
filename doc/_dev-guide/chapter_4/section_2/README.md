@@ -59,7 +59,7 @@ Like every project {{ site.product.short_name }} also uses different libraries a
    * criterion
    * gcc@11
 
-**Hint:** If you you have [[{{ site.product.short_name }} installed via brew|dev-inst-macos#installation]], as a reference, you can check the dependencies of the brew built version using `brew deps syslog-ng`
+**Hint:** If you have [[{{ site.product.short_name }} installed via brew|dev-inst-macos#installation]], as a reference, you can check the dependencies of the brew built version using `brew deps syslog-ng`
 {: .notice--info}
 
 This is how it might look like if you start from the ground:

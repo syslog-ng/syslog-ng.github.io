@@ -1,11 +1,3 @@
 /* ==========================================================================
-   Custom js init stuff
+   Add custom, common js initialization related part here
    ========================================================================== */
-
-// $(function () {
-// 
-//   // Override the default lunr tokenizer options, as a quick fix added _ to the list to get ignored the differences like option-1 and option_1
-//   //lunr.tokenizer.separator = /[\s\-_]+/
-//   lunr.tokenizer.separator = /[\s]+/
-// 
-// });

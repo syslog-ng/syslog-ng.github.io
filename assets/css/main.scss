@@ -29,7 +29,7 @@ $footer-top-margin: {% if site.footer.top_margin %} {{ site.footer.top_margin }}
 // NOTE: Though it is not documented at all, but it seems jekyll scss build always require a main.(s)css file, no matter how many other presented already, so
 //       we use this for the minimal-mistakes default skin (name difference is handled in the head.html)
 //
-// WARNING: Even it suggests it is a kind of "deafult skin", but not at all !!! Default skin is the one that skins.html declars in its <link rel="stylesheet" id="skinedStylesheet" ...> statement
+// WARNING: Even it suggests it is a kind of "default skin", but not at all !!! Default skin is the one that skins.html declares in its <link rel="stylesheet" id="skinedStylesheet" ...> statement
 //
 @import "minimal-mistakes/skins/default"; // skin overrides
 @import "minimal-mistakes"; // main partials
