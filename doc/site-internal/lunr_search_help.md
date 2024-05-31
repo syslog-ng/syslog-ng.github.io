@@ -26,12 +26,6 @@ foo bar
 
 The above example will match documents that contain either “foo” or “bar”. Documents that contain both will score more highly and will be returned first.
 
-## Scoring
-
-The score (also known as relevance) of a document is calculated by the BM25 algorithm, along with other factors such as boosts. You don’t need to worry too much about the details of how BM25 works; to summarize, the more a search term occurs in a single document, the more that term will increase that document’s score, but the more a search term occurs in the overall collection of documents, the less that term will increase a document’s score.
-
-For example, let’s say you’re indexing a collection of documents about JavaScript testing libraries. The terms “JavaScript”, “library”, and “test” may occur very frequently throughout the entire collection, so finding a document that mentions one of these terms isn’t very significant. However, if you’re searching for “integration test”, only three documents in the collection have the term “integration” in them, and one of them mentions “integration” many times, that will bring the score for that one document higher up.
-
 ## Wildcards
 
 Lunr supports wildcards when performing searches. A wildcard is represented as an asterisk (*) and can appear anywhere in a search term. For example, the following will match all documents with words beginning with “foo”:
@@ -113,3 +107,9 @@ foo~1
 ```
 
 An edit distance of 1 allows words to match if either adding, removing, changing or transposing a character in the word would lead to a match. For example “boo” requires a single edit (replacing “f” with “b”) and would match, but “boot” would not as it also requires an additional “t” at the end.
+
+## Scoring
+
+The score (also known as relevance) of a document is calculated by the BM25 algorithm, along with other factors such as boosts. You don’t need to worry too much about the details of how BM25 works; to summarize, the more a search term occurs in a single document, the more that term will increase that document’s score, but the more a search term occurs in the overall collection of documents, the less that term will increase a document’s score.
+
+For example, let’s say you’re indexing a collection of documents about JavaScript testing libraries. The terms “JavaScript”, “library”, and “test” may occur very frequently throughout the entire collection, so finding a document that mentions one of these terms isn’t very significant. However, if you’re searching for “integration test”, only three documents in the collection have the term “integration” in them, and one of them mentions “integration” many times, that will bring the score for that one document higher up.
