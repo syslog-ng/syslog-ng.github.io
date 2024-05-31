@@ -3,12 +3,12 @@ title: Creating custom SDATA fields
 id: adm-temp-sdata
 description: >-
     If you use RFC-5424 formatted (IETF-syslog) messages, you can also create
-    custom fields in the SDATA part of the message (For details on the SDATA
+    custom fields in the `SDATA` part of the message (For details on the `SDATA`
     message part, see The STRUCTURED-DATA message part).
 ---
 
 According to RFC-5424, the name of the field (its SD-ID) must not contain
-the @ character for reserved SD-IDs. Custom SDATA fields must be in the
+the @ character for reserved SD-IDs. Custom `SDATA` fields must be in the
 following format: .SDATA.group-name@\<private enterprise
 number\>.field-name, for example,
 .SDATA.mySDATA-field-group@18372.4.mySDATA-field. (18372.4 is the
@@ -19,7 +19,7 @@ private enterprise number of One Identity LLC, the developer of
 
 The following example sets the sequence ID field of the
 RFC-5424 formatted (IETF-syslog) messages to a fixed value. This field is
-a predefined SDATA field with a reserved SD-ID, therefore its name does
+a predefined `SDATA` field with a reserved SD-ID, therefore its name does
 not contain the @ character.
 
 ```config
@@ -36,7 +36,7 @@ use the **${.SDATA.groupID.fieldID@18372.4}** macro in a template or
 SQL table, its value will be yes for every message that was processed
 with this rewrite rule, and empty for every other message.
 
-The next example creates a new SDATA field-group and field called custom
+The next example creates a new `SDATA` field-group and field called custom
 and sourceip, respectively:
 
 ```config
@@ -47,12 +47,12 @@ rewrite r_rewrite_set {
 
 If you use the **${.SDATA.custom@18372.4.sourceip}** macro in a
 template or SQL table, its value will be that of the ${SOURCEIP} macro (as
-seen on the machine where the SDATA field was created) for every message
+seen on the machine where the `SDATA` field was created) for every message
 that was processed with this rewrite rule, and empty for every other
 message.
 
 You can verify whether or not the format is correct by looking at the
-actual network traffic. The SDATA field-group will be called
+actual network traffic. The `SDATA` field-group will be called
 custom@18372.4, and sourceip will become a field within that group. If
 you decide to set up several fields, they will be listed in consecutive
-order within the field-group\'s SDATA block.
+order within the field-group\'s `SDATA` block.

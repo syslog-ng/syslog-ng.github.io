@@ -9,10 +9,10 @@ To set a field of the message to a specific value, you have to:
 
 - select the field where it should be included.
 
-You can set the value of available macros, for example, HOST, MESSAGE,
-PROGRAM, or any user-defined macros created using parsers (for details,
+You can set the value of available macros, for example, ${HOST}, ${MESSAGE},
+${PROGRAM}, or any user-defined macros created using parsers (for details,
 see [[parser: Parse and segment structured messages]] and
-[[db-parser: Process message content with a pattern database (patterndb)]].
+[[db-parser: Process message content with a pattern database (patterndb)]]).
 Note that the rewrite operation completely replaces any previous value of that field.
 
 {% include doc/admin-guide/notes/hard-macros.md %}
@@ -37,7 +37,7 @@ rewrite r_rewrite_set{
 };
 ```
 
-The following example appends the \"suffix\" string to the MESSAGE
+The following example appends the \"suffix\" string to the `MESSAGE`
 field:
 
 ```config

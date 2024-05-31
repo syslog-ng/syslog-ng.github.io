@@ -113,13 +113,13 @@ when a message matching the rule is received.
     <value name="MESSAGE">A log message matched rule number $.classifier.rule_id</value>
     ```
 
-    Note that currently it is not possible to add DATE, FACILITY, or
+    Note that currently it is not possible to add `DATE`, `FACILITY`, or
     SEVERITY fields to the message.
 
     When the action is used together with message correlation, the
     {{ site.product.short_name }} application automatically adds fields to the
     message based on the context-scope parameter. For example, using
-    context-scope=\"process\" automatically fills the HOST, PROGRAM,
+    context-scope=\"process\" automatically fills the `HOST`, `PROGRAM`,
     and `PID` fields of the generated message.
 
   - *name*: Name of the message field set by the value element.

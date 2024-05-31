@@ -12,8 +12,8 @@ formatted to JSON format, or directly used in a mongodb() destination.
 
 The following example selects every available information about the log
 message, except for the date-related macros (R\_\* and S\_\*), selects
-the .SDATA.meta.sequenceId macro, and defines a new value-pair called
-MSGHDR that contains the program name and `PID` of the application that
+the ${.SDATA.meta.sequenceId} macro, and defines a new value-pair called
+`MSGHDR` that contains the program name and `PID` of the application that
 sent the log message.
 
 ```config

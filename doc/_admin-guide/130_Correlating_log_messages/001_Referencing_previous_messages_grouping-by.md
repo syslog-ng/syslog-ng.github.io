@@ -11,7 +11,7 @@ macro. For example, if there are three log messages in a context, the
 ${HOST}@1 expression refers to the host field of the current (third)
 message in the context, the ${HOST}@2 expression refers to the host
 field of the previous (second) message in the context, ${PID}@3 to the
-PID of the first message, and so on. For example, the following message
+`PID` of the first message, and so on. For example, the following message
 can be created from SSH login/logout messages: An SSH session for
 ${SSH\_USERNAME}@1 from ${SSH\_CLIENT\_ADDRESS}@2 closed. Session
 lasted from ${DATE}@2 to ${DATE}.

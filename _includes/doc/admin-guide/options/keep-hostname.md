@@ -6,10 +6,10 @@
 *Description:* Enable or disable hostname rewriting.
 
 - If enabled (**keep-hostname(yes)**), {{ site.product.short_name }} assumes that the
-    incoming log message was sent by the host specified in the HOST
+    incoming log message was sent by the host specified in the `HOST`
     field of the message.
 
-- If disabled (**keep-hostname(no)**), {{ site.product.short_name }} rewrites the HOST
+- If disabled (**keep-hostname(no)**), {{ site.product.short_name }} rewrites the `HOST`
     field of the message, either to the IP address (if the use-dns()
     parameter is set to **no**), or to the hostname (if the use-dns()
     parameter is set to **yes** and the IP address can be resolved to a

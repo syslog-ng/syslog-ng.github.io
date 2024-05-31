@@ -41,7 +41,7 @@ Depending on the settings of syslog-ng-relay, the following can happen.
     (syslog-ng-server) as well, so if syslog-ng-relay is configured
     properly, use the **keep-hostname(yes)** option on syslog-ng-server
     to retain the proper `HOST` field. Setting **keep-hostname(no)** on
-    syslog-ng-server would result in {{ site.product.short_name }} rewriting the HOST
+    syslog-ng-server would result in {{ site.product.short_name }} rewriting the `HOST`
     field to the address of the host that sent the message to
     syslog-ng-server, which is syslog-ng-relay in this case.
 

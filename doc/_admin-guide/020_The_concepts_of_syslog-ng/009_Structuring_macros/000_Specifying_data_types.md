@@ -33,7 +33,7 @@ function supports data types.
 
 ## Example: Using type-hinting
 
-The following example stores the MESSAGE, PID, DATE, and `PROGRAM` fields
+The following example stores the `MESSAGE`, `PID`, `DATE`, and `PROGRAM` fields
 of a log message in a MongoDB database. The `DATE` and `PID` parts are
 stored as numbers instead of strings.  
 

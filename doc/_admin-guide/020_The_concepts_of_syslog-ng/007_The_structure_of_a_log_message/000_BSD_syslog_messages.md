@@ -34,10 +34,10 @@ size when using UDP destinations.
 
 ## The PRI message part
 
-This section describes the PRI message part of a syslog message, according to the
+This section describes the `PRI` message part of a syslog message, according to the
 legacy syslog (BSD-syslog) protocol.
 
-The PRI part of the syslog message (known as Priority value) represents
+The `PRI` part of the syslog message (known as Priority value) represents
 the Facility and Severity of the message. Facility represents the part
 of the system sending the message, while Severity marks its importance.
 
@@ -57,7 +57,7 @@ PRI field (that is, Priority value):
 
 >\<133\> Feb 25 14:09:07 webserver syslogd: restart
 
-In this example, \<133\> represents the PRI field (Priority value). The
+In this example, \<133\> represents the `PRI` field (Priority value). The
 syslog message\'s Facility value is 16, and the Severity value is 5.
 
 Substituting the numerical values into the \<PRI\> = ( \<facility\> \*

@@ -311,7 +311,7 @@ configured to do so.
 |Default:|           yes|
 
 *Description:* Enable {{ site.product.short_name }} to collect UNIX credential
-information (that is, the PID, user ID, and group of the sender process)
+information (that is, the `PID`, user ID, and group of the sender process)
 for messages received using UNIX domain sockets. Available only in
 {{ site.product.name }} 3.7 and later. Note that collecting UNIX
 credential information from sockets in high-traffic environments can be
@@ -431,7 +431,7 @@ The following sub-options are available within the stats() option:
 
 Available in {{ site.product.short_name }} 4.1 and later versions.
 
-*Description:* Configures the behavior of counting messages based on different syslog fields, like SEVERITY, FACILITY, HOST.
+*Description:* Configures the behavior of counting messages based on different syslog fields, like SEVERITY, `FACILITY`, `HOST`.
 
 Possible values:
 
@@ -512,7 +512,7 @@ HOSTID@RCPTID. It has a fixed length: 16+@+8 characters. You can
 include the unique ID in the message by using the macro. For details,
 see ${UNIQID}.
 
-Enabling this option automatically generates the HOSTID. The `HOSTID` is a
+Enabling this option automatically generates the `HOSTID`. The `HOSTID` is a
 persistent, 32-bits-long cryptographically secure pseudo random number,
 that belongs to the host that the {{ site.product.short_name }} is running on. If the
 persist file is damaged, the `HOSTID` might change.

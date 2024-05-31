@@ -222,7 +222,7 @@ Available in {{ site.product.short_name }} version 3.4 and later.
 
 The ${MSG} macro is an alias of the ${MESSAGE} macro, using ${MSG} in
 {{ site.product.short_name }} is equivalent to ${MESSAGE}. For details on this macro,
-see MESSAGE.
+see ${MESSAGE}.
 
 ## ${MSGHDR}
 
@@ -246,7 +246,7 @@ relayed without modification.
 Message contents without the program name or pid.
 Starting with {{ site.product.short_name }} 3.0, the following macros are equivalent:
 ${MSGONLY}, ${MSG}, ${MESSAGE}. For consistency, use the ${MESSAGE}
-macro. For details, see MESSAGE.
+macro. For details, see ${MESSAGE}.
 
 ## ${PID}
 
@@ -346,7 +346,7 @@ one of the following:
     timestamp format, then {{ site.product.short_name }} stores the sequence number from
     the message in this macro. If you forward this message the
     IETF-syslog protocol, {{ site.product.short_name }} includes the sequence number
-    received from the Cisco device in the ${.SDATA.meta.sequenceId}
+    received from the Cisco device in the `.SDATA.meta.sequenceId`
     part of the message.
 
     **NOTE:** To enable sequence numbering of log messages on Cisco devices,
@@ -459,9 +459,8 @@ following macros are available in {{ site.product.short_name }} version 3.9 and 
 ## ${UNIQID}
 
 A globally unique ID generated from the `HOSTID` and the
-RCPTID in the format of HOSTID@RCPTID. For details, see
-use-uniqid() and
-RCPTID.
+`RCPTID` in the format of HOSTID@RCPTID. For details, see
+use-uniqid() and ${RCPTID}.
 
 Available in {{ site.product.short_name }} version 3.7 and later.
 

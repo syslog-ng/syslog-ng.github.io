@@ -105,8 +105,8 @@ prerequisites:
 
 The following example selects every available information about the log
 message, except for the date-related macros (R\_\* and S\_\*), selects
-the .SDATA.meta.sequenceId macro, and defines a new value-pair called
-MSGHDR that contains the program name and `PID` of the application that
+the ${.SDATA.meta.sequenceId macro}, and defines a new value-pair called
+`MSGHDR` that contains the program name and `PID` of the application that
 sent the log message (since you will use the template-function in a
 template, you must escape the double-quotes).
 
@@ -246,8 +246,8 @@ value-pairs(): format-json uses a syntax similar to command lines.
 
 The following example selects every available information about the log
 message, except for the date-related macros (R\_\* and S\_\*), selects
-the .SDATA.meta.sequenceId macro, and defines a new value-pair called
-MSGHDR that contains the program name and `PID` of the application that
+the ${.SDATA.meta.sequenceId} macro, and defines a new value-pair called
+`MSGHDR` that contains the program name and `PID` of the application that
 sent the log message (since you will use the template-function in a
 template, you must escape the double-quotes).
 
@@ -302,8 +302,8 @@ value-pairs().
 
 The following example selects every available information about the log
 message, except for the date-related macros (R\_\* and S\_\*), selects
-the .SDATA.meta.sequenceId macro, and defines a new value-pair called
-MSGHDR that contains the program name and `PID` of the application that
+the ${.SDATA.meta.sequenceId} macro, and defines a new value-pair called
+`MSGHDR` that contains the program name and `PID` of the application that
 sent the log message (since you will use the template-function in a
 template, you must escape the double-quotes).
 
@@ -815,7 +815,7 @@ template <template-name> {
 ### Example: Writing template functions in Python
 
 The following example creates a Python template function called
-return\_message that returns the `MESSAGE` part of the log message.
+`return_message` that returns the `MESSAGE` part of the log message.
 
 ```config
 @version: 3.38
@@ -831,7 +831,7 @@ destination d_local {
 ```
 
 The following example creates a Python template function called
-resolve\_host that receives an IP address as an argument, and attempts
+`resolve_host` that receives an IP address as an argument, and attempts
 to resolve it into a hostname.
 
 ```config
