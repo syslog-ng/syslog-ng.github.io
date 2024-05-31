@@ -13,13 +13,13 @@ admin-guide-nav:
   - title: "Introduction to syslog-ng"
     url: /admin-guide/010_Introduction_to_syslog-ng/README
     subnav:
-    - title: "What syslog-ng is"
+    - title: "What {{ site.product.short_name }} is"
       url: /admin-guide/010_Introduction_to_syslog-ng/000_What_syslog-ng_is
-    - title: "What syslog-ng is not"
+    - title: "What {{ site.product.short_name }} is not"
       url: /admin-guide/010_Introduction_to_syslog-ng/001_What_syslog-ng_is_not
-    - title: "Why is syslog-ng needed?"
+    - title: "Why is {{ site.product.short_name }} needed?"
       url: /admin-guide/010_Introduction_to_syslog-ng/002_Why_is_syslog-ng_needed
-    - title: "Who uses syslog-ng?"
+    - title: "Who uses {{ site.product.short_name }}?"
       url: /admin-guide/010_Introduction_to_syslog-ng/003_Who_uses_syslog-ng
     - title: "Supported platforms"
       url: /admin-guide/010_Introduction_to_syslog-ng/004_Supported_platforms
@@ -49,48 +49,48 @@ admin-guide-nav:
         url: /admin-guide/020_The_concepts_of_syslog-ng/007_The_structure_of_a_log_message/001_IETF_syslog_messages
       - title: "Enterprise-wide message model (EWMM)"
         url: /admin-guide/020_The_concepts_of_syslog-ng/007_The_structure_of_a_log_message/002_EWMM_messages
-    - title: "Message representation in syslog-ng OSE"
+    - title: "Message representation in {{ site.product.short_name }}"
       url: /admin-guide/020_The_concepts_of_syslog-ng/008_Message_representation
     - title: "Structuring macros, metadata, and other value-pairs"
       url: /admin-guide/020_The_concepts_of_syslog-ng/009_Structuring_macros/README
       subnav:
       - title: "Specifying data types in value-pairs"
         url: /admin-guide/020_The_concepts_of_syslog-ng/009_Structuring_macros/000_Specifying_data_types
-    - title: "Things to consider when forwarding messages between syslog-ng OSE hosts"
+    - title: "Things to consider when forwarding messages between {{ site.product.short_name }} hosts"
       url: /admin-guide/020_The_concepts_of_syslog-ng/010_Things_to_consider
     - title: "Commercial version of syslog-ng"
       url: /admin-guide/020_The_concepts_of_syslog-ng/011_Commercial_version
   - title: "Installing syslog-ng"
     url: /admin-guide/030_Installing_syslog-ng/README
     subnav:
-    - title: "Compiling syslog-ng from source"
+    - title: "Compiling {{ site.product.short_name }} from source"
       url: /admin-guide/030_Installing_syslog-ng/000_Compiling_syslog-ng_from_source
-    - title: "Compiling options of syslog-ng OSE"
+    - title: "Compiling options of {{ site.product.short_name }}"
       url: /admin-guide/030_Installing_syslog-ng/001_Compiling_options
-    - title: "Uninstalling syslog-ng OSE"
+    - title: "Uninstalling {{ site.product.short_name }}"
       url: /admin-guide/030_Installing_syslog-ng/002_Uninstalling_syslog-ng
     - title: "Configuring MSSQL Server"
       url: /admin-guide/030_Installing_syslog-ng/003_Configuring_MSSQL_server
   - title: "Quick-start guide"
     url: /admin-guide/040_Quick-start_guide/README
     subnav:
-    - title: "Configuring syslog-ng on client hosts"
+    - title: "Configuring {{ site.product.short_name }} on client hosts"
       url: /admin-guide/040_Quick-start_guide/000_Configuring_syslog-ng_on_client_hosts
-    - title: "Configuring syslog-ng on server hosts"
+    - title: "Configuring {{ site.product.short_name }} on server hosts"
       url: /admin-guide/040_Quick-start_guide/001_Configuring_syslog-ng_on_server_hosts
-    - title: "Configuring syslog-ng relays"
+    - title: "Configuring {{ site.product.short_name }} relays"
       url: /admin-guide/040_Quick-start_guide/002_Configuring_syslog-ng_relays/README
       subnav:
-      - title: "Configuring syslog-ng on relay hosts"
+      - title: "Configuring {{ site.product.short_name }} on relay hosts"
         url: /admin-guide/040_Quick-start_guide/002_Configuring_syslog-ng_relays/000_Configuring_syslog-ng_on_relay_hosts
       - title: "How relaying log messages works"
         url: /admin-guide/040_Quick-start_guide/002_Configuring_syslog-ng_relays/001_How_relaying_works
-    - title: "Managing and checking syslog-ng OSE service on Linux"
+    - title: "Managing and checking {{ site.product.short_name }} service on Linux"
       url: /admin-guide/040_Quick-start_guide/003_Managing_and_checking_syslog-ng_OSE_service_on_Linux
   - title: "The configuration file"
     url: /admin-guide/050_The_configuration_file/README
     subnav:
-    - title: "Location of the syslog-ng configuration file"
+    - title: "Location of the {{ site.product.short_name }} configuration file"
       url: /admin-guide/050_The_configuration_file/000_Location_of_the_config_file
     - title: "The configuration syntax in detail"
       url: /admin-guide/050_The_configuration_file/001_Configuration_syntax
@@ -208,6 +208,11 @@ admin-guide-nav:
       subnav:
       - title: "osquery() source options"
         url: /admin-guide/060_Sources/100_osquery/000_osquery_source_options
+    - title: "OpenTelemetry"
+      url: /admin-guide/060_Sources/102_OpenTelemetry/README
+      subnav:
+      - title: "opentelemetry() source options"
+        url: /admin-guide/060_Sources/102_OpenTelemetry/000_opentelemetry_source_options
     - title: "Pi-hole FTL"
       url: /admin-guide/060_Sources/105_pi-hole-FTL/README
       subnav:
@@ -255,6 +260,11 @@ admin-guide-nav:
       subnav:
       - title: "syslog() source options"
         url: /admin-guide/060_Sources/170_Syslog/000_syslog_source_options
+    - title: "syslog-ng-otlp"
+      url: /admin-guide/060_Sources/175_syslog-otlp/README
+      subnav:
+      - title: "syslog-ng-otlp() source options"
+        url: /admin-guide/060_Sources/175_syslog-otlp/000_otlp_source_options
     - title: "system"
       url: /admin-guide/060_Sources/180_System/README
       subnav:
@@ -342,11 +352,11 @@ admin-guide-nav:
       subnav:
       - title: "Prerequisites"
         url: /admin-guide/070_Destinations/070_HDFS/000_hdfs_prerequisites
-      - title: "How syslog-ng OSE interacts with HDFS"
+      - title: "How {{ site.product.short_name }} interacts with HDFS"
         url: /admin-guide/070_Destinations/070_HDFS/001_hdfs_interaction
       - title: "Storing messages with MapR-FS"
         url: /admin-guide/070_Destinations/070_HDFS/002_hdfs_maprfs
-      - title: "Kerberos authentication with syslog-ng hdfs() destination"
+      - title: "Kerberos authentication with {{ site.product.short_name }} hdfs() destination"
         url: /admin-guide/070_Destinations/070_HDFS/003_hdfs_kerberos_authentication
       - title: "HDFS destination options"
         url: /admin-guide/070_Destinations/070_HDFS/004_hdfs_options
@@ -373,7 +383,7 @@ admin-guide-nav:
         url: /admin-guide/070_Destinations/100_Kafka-c/000_Shifting_from_Java_to_C
       - title: "Before you begin"
         url: /admin-guide/070_Destinations/100_Kafka-c/001_Before_you_begin
-      - title: "Flow control in syslog-ng OSE and the Kafka client"
+      - title: "Flow control in {{ site.product.short_name }} and the Kafka client"
         url: /admin-guide/070_Destinations/100_Kafka-c/002_Flow_control
       - title: "Options of the kafka() destination's C implementation"
         url: /admin-guide/070_Destinations/100_Kafka-c/003_Kafka-c_options
@@ -395,7 +405,7 @@ admin-guide-nav:
     - title: "mongodb"
       url: /admin-guide/070_Destinations/130_MongoDB/README
       subnav:
-      - title: "How syslog-ng OSE connects the MongoDB server"
+      - title: "How {{ site.product.short_name }} connects the MongoDB server"
         url: /admin-guide/070_Destinations/130_MongoDB/000_Connecting_to_mongodb
       - title: "mongodb() destination options"
         url: /admin-guide/070_Destinations/130_MongoDB/001_Mongodb_options
@@ -427,6 +437,11 @@ admin-guide-nav:
         url: /admin-guide/070_Destinations/155_opensearch/000_batch-mode
       - title: "OpenSearch() destination options "
         url: /admin-guide/070_Destinations/155_opensearch/001_opensearch()-destination-options
+    - title: "OpenTelemetry"
+      url: /admin-guide/070_Destinations/157_OpenTelemetry/README
+      subnav:
+      - title: "opentelemetry() destination options "
+        url: /admin-guide/070_Destinations/157_OpenTelemetry/000_opentelemetry-destination-options
     - title: "osquery"
       url: /admin-guide/070_Destinations/160_osquery/README
       subnav:
@@ -498,7 +513,7 @@ admin-guide-nav:
         url: /admin-guide/070_Destinations/270_sql/000_Using_sql_driver_with_Oracle
       - title: "Using the sql() driver with a Microsoft SQL database"
         url: /admin-guide/070_Destinations/270_sql/001_Using_sql_driver_with_MSSQL
-      - title: "The way syslog-ng interacts with the database"
+      - title: "The way {{ site.product.short_name }} interacts with the database"
         url: /admin-guide/070_Destinations/270_sql/002_Interaction/README
         subnav:
         - title: "MySQL-specific interaction methods"
@@ -538,6 +553,11 @@ admin-guide-nav:
       subnav:
       - title: "syslog-ng() destination options "
         url: /admin-guide/070_Destinations/310_syslog-ng/000_syslog-ng_destination_options
+    - title: "syslog-ng-otlp"
+      url: /admin-guide/070_Destinations/315_syslog-otlp/README
+      subnav:
+      - title: "syslog-ng-otlp() destination options "
+        url: /admin-guide/070_Destinations/315_syslog-otlp/000_otlp-destination-options
     - title: "tcp / udp (OBSOLETE)"
       url: /admin-guide/070_Destinations/320_tcp_tcp6_udp_udp6/README
       subnav:
@@ -653,7 +673,7 @@ admin-guide-nav:
           url: /admin-guide/080_Log/030_Filters/005_Filter_functions/012_tags
     - title: "Dropping messages"
       url: /admin-guide/080_Log/040_Dropping_messages
-  - title: "Global options of syslog-ng OSE"
+  - title: "Global options of {{ site.product.short_name }}"
     url: /admin-guide/090_Global_options/README
     subnav:
     - title: "Global options"
@@ -664,16 +684,16 @@ admin-guide-nav:
     - title: "Encrypting log messages with TLS"
       url: /admin-guide/100_TLS-encrypted_message_transfer/001_Encrypting_log_messages_with_TLS/README
       subnav:
-      - title: "Configuring TLS on the syslog-ng clients"
+      - title: "Configuring TLS on the {{ site.product.short_name }} clients"
         url: /admin-guide/100_TLS-encrypted_message_transfer/001_Encrypting_log_messages_with_TLS/000_Configuring_TLS_client
-      - title: "Configuring TLS on the syslog-ng server"
+      - title: "Configuring TLS on the {{ site.product.short_name }} server"
         url: /admin-guide/100_TLS-encrypted_message_transfer/001_Encrypting_log_messages_with_TLS/001_Configuring_TLS_server
     - title: "Mutual authentication using TLS"
       url: /admin-guide/100_TLS-encrypted_message_transfer/002_Mutual_authentication_using_TLS/README
       subnav:
-      - title: "Configuring syslog-ng clients with mutual authentication"
+      - title: "Configuring {{ site.product.short_name }} clients with mutual authentication"
         url: /admin-guide/100_TLS-encrypted_message_transfer/002_Mutual_authentication_using_TLS/000_Configuring_mutual_TLS_client
-      - title: "Configuring syslog-ng servers with mutual authentication"
+      - title: "Configuring {{ site.product.short_name }} servers with mutual authentication"
         url: /admin-guide/100_TLS-encrypted_message_transfer/002_Mutual_authentication_using_TLS/001_Configuring_mutual_TLS_server
     - title: "Password-protected keys"
       url: /admin-guide/100_TLS-encrypted_message_transfer/003_Password_protected_keys
@@ -693,13 +713,13 @@ admin-guide-nav:
         url: /admin-guide/110_Template_and_rewrite/000_Customize_message_format/002_Date_related_macros
       - title: "Hard versus soft macros"
         url: /admin-guide/110_Template_and_rewrite/000_Customize_message_format/003_Hard_vs_soft_macros
-      - title: "Macros of syslog-ng OSE"
+      - title: "Macros of {{ site.product.short_name }}"
         url: /admin-guide/110_Template_and_rewrite/000_Customize_message_format/004_Macros_of_syslog-ng
       - title: "Example use case"
         url: /admin-guide/110_Template_and_rewrite/000_Customize_message_format/005_Example
       - title: "Using template functions"
         url: /admin-guide/110_Template_and_rewrite/000_Customize_message_format/006_Using_template_functions
-      - title: "Template functions of syslog-ng OSE"
+      - title: "Template functions of {{ site.product.short_name }}"
         url: /admin-guide/110_Template_and_rewrite/000_Customize_message_format/007_Template_functions_of_syslog-ng
       - title: "Modifying the on-the-wire message format"
         url: /admin-guide/110_Template_and_rewrite/000_Customize_message_format/008_Modifying_the_on-the-wire_message_format
@@ -877,11 +897,11 @@ admin-guide-nav:
         subnav:
         - title: "Using pattern parsers"
           url: /admin-guide/120_Parser/023_db_parser/003_Creating_pattern_databases/000_Using_pattern_parsers
-        - title: "Pattern parsers of syslog-ng OSE"
+        - title: "Pattern parsers of {{ site.product.short_name }}"
           url: /admin-guide/120_Parser/023_db_parser/003_Creating_pattern_databases/001_Pattern_parsers
-        - title: "What's new in the syslog-ng pattern database format V5"
+        - title: "What's new in the {{ site.product.short_name }} pattern database format V5"
           url: /admin-guide/120_Parser/023_db_parser/003_Creating_pattern_databases/002_Whatsnew_in_patterndb_v5
-      - title: "The syslog-ng pattern database format"
+      - title: "The {{ site.product.short_name }} pattern database format"
         url: /admin-guide/120_Parser/023_db_parser/004_The_syslog-ng_patterndb_format/README
         subnav:
         - title: "patterndb"
@@ -926,6 +946,8 @@ admin-guide-nav:
             - title: "tags"
               url: /admin-guide/120_Parser/023_db_parser/004_The_syslog-ng_patterndb_format/000_patterndb/000_ruleset/003_tags/README
               subnav:
+    - title: "OpenTelemetry parser"
+      url: /admin-guide/120_Parser/024_opentelemetry_parser
   - title: "Correlating log messages"
     url: /admin-guide/130_Correlating_log_messages/README
     subnav:
@@ -961,14 +983,14 @@ admin-guide-nav:
   - title: "Statistics of syslog-ng"
     url: /admin-guide/150_Statistics_of_syslog-ng/README
     subnav:
-    - title: "Metrics and counters of syslog-ng OSE"
+    - title: "Metrics and counters of {{ site.product.short_name }}"
       url: /admin-guide/150_Statistics_of_syslog-ng/000_Metrics_and_counters
     - title: "Log statistics from the internal() source"
       url: /admin-guide/150_Statistics_of_syslog-ng/001_Log_statistic_from_internal_source
   - title: "Multithreading and scaling"
     url: /admin-guide/160_Multithreading_and_scaling/README
     subnav:
-    - title: "Multithreading concepts of syslog-ng OSE"
+    - title: "Multithreading concepts of {{ site.product.short_name }}"
       url: /admin-guide/160_Multithreading_and_scaling/000_Multithreading_concepts
     - title: "Configuring multithreading"
       url: /admin-guide/160_Multithreading_and_scaling/001_Configuring_multithreading
@@ -979,7 +1001,7 @@ admin-guide-nav:
     subnav:
     - title: "Possible causes of losing log messages"
       url: /admin-guide/170_Troubleshooting_syslog-ng/000_Possible_causes_of_losing_log_messages
-    - title: "Creating syslog-ng core files"
+    - title: "Creating {{ site.product.short_name }} core files"
       url: /admin-guide/170_Troubleshooting_syslog-ng/001_Creating_core_files
     - title: "Collecting debugging info"
       url: /admin-guide/170_Troubleshooting_syslog-ng/002_Collecting_debug_info
@@ -1022,7 +1044,7 @@ admin-guide-nav:
         url: /admin-guide/180_Best_practices_and_examples/005_Load_balancing_logs/000_Round_robin
       - title: "Configuration generator"
         url: /admin-guide/180_Best_practices_and_examples/005_Load_balancing_logs/001_msec_hashing
-  - title: "The syslog-ng manual pages"
+  - title: "The {{ site.product.short_name }} manual pages"
     url: /admin-guide/190_The_syslog-ng_manual_pages/README
     subnav:
     - title: "The dqtool tool manual page"
@@ -1039,11 +1061,11 @@ admin-guide-nav:
       url: /admin-guide/190_The_syslog-ng_manual_pages/005_slogkey_manual
     - title: "The slogverify manual page"
       url: /admin-guide/190_The_syslog-ng_manual_pages/006_slogverify_manual
-    - title: "The syslog-ng control tool manual page"
+    - title: "The {{ site.product.short_name }} control tool manual page"
       url: /admin-guide/190_The_syslog-ng_manual_pages/007_syslog-ng_control_tool
     - title: "The syslog-debun manual page"
       url: /admin-guide/190_The_syslog-ng_manual_pages/008_syslog_debun_tool
-    - title: "The syslog-ng manual page"
+    - title: "The {{ site.product.short_name }} manual page"
       url: /admin-guide/190_The_syslog-ng_manual_pages/009_syslog-ng_manual
     - title: "The syslog-ng.conf manual page"
       url: /admin-guide/190_The_syslog-ng_manual_pages/010_syslog-ng_conf
@@ -1064,7 +1086,7 @@ dev-guide-nav:
   - title: "Developer guide"
     url: /dev-guide/README
     subnav:
-  - title: "Install syslog-ng on different platforms"
+  - title: "Install {{ site.product.short_name }} on different platforms"
     url: /dev-guide/chapter_0/README
     subnav:
     - title: "Debian and Ubuntu"
@@ -1218,7 +1240,7 @@ dev-guide-nav:
       url: /dev-guide/chapter_6/section_5
     - title: "Simple Python Source"
       url: /dev-guide/chapter_6/section_6
-  - title: "Docker images for syslog-ng"
+  - title: "Docker images for {{ site.product.short_name }}"
     url: /dev-guide/chapter_7/README
     subnav:
   - title: "Plugin Development Guide"
@@ -1249,6 +1271,8 @@ doc-guide-nav:
     - title: "Self made helper tools"
       url: /doc-guide/02_Tools/01_Self_made_tools/README
       subnav:
-      - title: "This's a self made tools testing page of {{ site.title }}"
+      - title: "Self made tools testing page"
         url: /doc-guide/02_Tools/01_Self_made_tools/01_Tests/README
         subnav:
+    - title: "Jekyll extensions, plug-ins"
+      url: /doc-guide/02_Tools/02_Jekyll_extensions

@@ -37,6 +37,11 @@ gh-syslog-ng-doc:
   url: https://github.com/syslog-ng/syslog-ng.github.io
   title: [ "syslog-ng OSE Doc on GitHub" ]
 
+gh-syslog-ng-doc-actions:
+  id: gh-syslog-ng-doc-actions
+  url: https://github.com/syslog-ng/syslog-ng.github.io/actions
+  title: [ "syslog-ng Doc Actions on GitHub" ]
+
 gh-syslog-ng-doc-issue-tracker:
   id: gh-syslog-ng-doc-issue-tracker
   url: https://github.com/syslog-ng/syslog-ng.github.io/issues
@@ -180,6 +185,11 @@ lic-lgpl:
 
 ### Site engine related links ### 
 
+jekyll:
+  id: jekyll
+  url: https://jekyllrb.com/
+  title: [ "Jekyll" ]
+
 jekyll-config:
   id: jekyll-config
   url: https://jekyllrb.com/docs/configuration/
@@ -190,10 +200,40 @@ jekyll-dir-struct:
   url: https://jekyllrb.com/docs/structure/
   title: [ "Jekyll doc structure" ]
 
+jekyll-sass:
+  id: jekyll-sass
+  url: https://jekyllrb.com/docs/assets/#sassscss
+  title: [ "Jekyll Sass" ]
+
 jekyll-ruby-gems:
   id: jekyll-ruby-gems
   url: https://jekyllrb.com/docs/ruby-101/
   title: [ "Jekyll Ruby Gems" ]
+
+jekyll-liquid-filters:
+  id: jekyll-liquid-filters
+  url: https://jekyllrb.com/docs/liquid/filters/
+  title: [ "Jekyll liquid filter" ]
+
+jekyll-plugins:
+  id: jekyll-plugins
+  url: https://jekyllrb.com/docs/plugins/
+  title: [ "Jekyll plugin" ]
+
+jekyll-render-hooks:
+  id: jekyll-render-hooks
+  url: https://jekyllrb.com/docs/plugins/hooks/
+  title: [ "Jekyll plugin Hooks" ]
+
+liquid:
+  id: liquid
+  url: https://shopify.github.io/liquid/
+  title: [ "liquid" ]
+
+liquify-rb:
+  id: liquify-rb
+  url: https://fettblog.eu/snippets/jekyll/liquid-in-frontmatter/
+  title: [ "liquify.rb" ]
 
 lunr-search-help:
   id: lunr-search-help
@@ -237,6 +277,26 @@ apple-launchd:
   id: apple-launchd
   url: https://developer.apple.com/library/archive/documentation/MacOSX/Conceptual/BPSystemStartup/Chapters/CreatingLaunchdJobs.html
   title: [ "Apple launchd" ]
+
+apple-predicates:
+  id: apple-predicates
+  url: https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/Predicates/Articles/pSyntax.html
+  title: [ "native macOS log message filtering using predicates" ]
+
+apple-oslog-api:
+  id: apple-oslog-api
+  url: https://developer.apple.com/documentation/os/oslog
+  title: [ "OSLog API" ]
+
+apple-oslog-api-bug:
+  id: apple-oslog-api-bug
+  url: https://openradar.appspot.com/radar?id=5597032077066240
+  title: [ "OSLog API bug" ]
+
+apple-oslog-framwrk:
+  id: apple-oslog-framwrk
+  url: https://developer.apple.com/documentation/oslog?language=objc
+  title: [ "OSLog Framework" ]
 
 autoconf-arch:
   id: autoconf-arch
@@ -387,21 +447,6 @@ linux-ha:
   id: linux-ha
   url: https://web.archive.org/web/20230422234943/http://www.linux-ha.org/wiki/Main_Page
   title: [ "archived page of Linux-HA" ]
-
-nat-macos:
-  id: nat-macos
-  url: https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/Predicates/Articles/pSyntax.html
-  title: [ "native macOS log message filtering using predicates" ]
-
-oslog-api-bug:
-  id: oslog-api-bug
-  url: https://openradar.appspot.com/radar?id=5597032077066240
-  title: [ "OSLog API bug" ]
-
-oslog-fra:
-  id: oslog-fra
-  url: https://developer.apple.com/documentation/oslog?language=objc
-  title: [ "OSLog Framework" ]
 
 proxy-pro:
   id: proxy-pro
