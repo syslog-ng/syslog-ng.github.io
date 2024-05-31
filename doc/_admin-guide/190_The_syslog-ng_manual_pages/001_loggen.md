@@ -175,9 +175,9 @@ statistics:
 
 - \--syslog-proto or -P
 
-    Use the new IETF-syslog message format as specified in RFC-5424. By
-    default, loggen uses the legacy BSD-syslog message format (as
-    described in RFC-3164). See also the \--no-framing option.
+    Use the new IETF-syslog message format. By
+    default, loggen uses the legacy BSD-syslog message format.
+	See also the \--no-framing option.
 
 - \--unix \</path/to/socket\> or -x \</path/to/socket\>
 

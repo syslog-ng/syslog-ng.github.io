@@ -432,32 +432,32 @@ welf:
 
 rfc-822:
   id: rfc-822
-  url: https://www.ietf.org/rfc/rfc822.txt
+  url: https://tools.ietf.org/html/rfc822
   title: [ "RFC-822" ]
 
 rfc-3162:
   id: rfc-3162
-  url: https://www.ietf.org/rfc/rfc3162.txt
+  url: https://tools.ietf.org/html/rfc3162
   title: [ "RFC-3162" ]
 
 rfc-3164:
   id: rfc-3164
-  url: https://www.ietf.org/rfc/rfc3164.txt
+  url: https://tools.ietf.org/html/rfc3164
   title: [ "RFC-3164" ]
 
 rfc-3339:
   id: rfc-3339
-  url: https://www.ietf.org/rfc/rfc3339.txt
+  url: https://tools.ietf.org/html/rfc3339
   title: [ "RFC-3339" ]
 
 rfc-3526:
   id: rfc-3526
-  url: https://www.ietf.org/rfc/rfc3526.txt
+  url: https://tools.ietf.org/html/rfc3526
   title: [ "RFC-3526" ]
 
 rfc-4122:
   id: rfc-4122
-  url: https://www.ietf.org/rfc/rfc4122.txt
+  url: https://tools.ietf.org/html/rfc4122
   title: [ "RFC-4122" ]
 
 rfc-4180:
@@ -472,7 +472,7 @@ rfc-4627:
 
 rfc-5424:
   id: rfc-5424
-  url: https://tools.ietf.org/html/rfc5424#page-8
+  url: https://tools.ietf.org/html/rfc5424
   title: [ "RFC-5424" ]
 
 rfc-base64:
@@ -480,15 +480,15 @@ rfc-base64:
   url: https://tools.ietf.org/html/rfc4648
   title: [ "base64-encode" ]
 
-rfc-bsd-syslog-proto:
-  id: rfc-bsd-syslog-proto
-  url: https://www.ietf.org/rfc/rfc3164.txt
-  title: [ "legacy syslog (BSD-syslog) protocol" ]
+rfc-bsd-syslog-msg:
+  id: rfc-bsd-syslog-msg
+  url: https://tools.ietf.org/html/rfc3164#section-4.1
+  title: [ "legacy BSD-syslog message format" ]
 
-rfc-ietf-syslog-proto:
-  id: rfc-ietf-syslog-proto
-  url: https://tools.ietf.org/html/rfc5424
-  title: [ "IETF-syslog" ]
+rfc-ietf-syslog-msg:
+  id: rfc-ietf-syslog-msg
+  url: https://tools.ietf.org/html/rfc5424#page-8
+  title: [ "IETF-syslog message format" ]
 
 rfc-octet:
   id: rfc-octet
