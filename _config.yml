@@ -56,7 +56,7 @@ include:
   - assets/js/main.min.js
   # Only lunr is not included now to main.min.js
   - assets/js/lunr
-  # site.data.links input
+  # Input of site.data.links
   - _data/links/
 exclude:
   - .reftime
@@ -178,9 +178,11 @@ search_from_masthead: true
 
 search_provider: lunr
 lunr:
-  # No we have all the valuable content in collections
+  # No we have all the valuable content in collections (collection.docs) 
+  # that lunr indexes by default if search: true
   # Standalone pages like, sitemap.xml, 404, etc. should not be searched
   search_within_pages: false
+  test_text_1: "abrakadabra"
 
 # search_provider: algolia
 # algolia:
