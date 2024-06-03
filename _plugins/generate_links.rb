@@ -44,8 +44,14 @@ module Jekyll
         end
       end
 
+      def render_title(page, title)
+        context = page.site.site_payload['site']
+        template = Liquid::Template.parse(title)
+        return template.render('site' => context)
+      end
+    
     public
-      
+
       def generate_links(page, ids, titles)
         #puts page.relative_path
         # Must have to get it parsed by jekyll, these links will be part of the site.data.links array as well, do not touch them
@@ -81,7 +87,7 @@ module Jekyll
               link_data = {
                 "id" => page_id + "##{heading_id}",
                 "url" => page_url + "##{heading_id}",
-                "title" => '"' + heading.text + '"',
+                "title" => '"' + render_title(page, heading.text) + '"',
               }
               #register_id(page, link_data["id"], link_data["title"], ids, titles)
 
@@ -104,7 +110,7 @@ module Jekyll
             link_data = {
               "id" => anchor_id,
               "url" => page_url + "##{anchor_name}",
-              "title" => '"' + (anchor_text.empty? ? anchor_id : anchor_text) + '"',
+              "title" => '"' + (anchor_text.empty? ? anchor_id : render_title(page, anchor_text)) + '"',
             }
             #register_id(page, link_data["id"], link_data["title"], ids, titles)
 
@@ -114,7 +120,7 @@ module Jekyll
           end
 
           # Create links data for the page itself too
-          page_title = page.data["title"]
+          page_title = render_title(page, page.data["title"])
           page_link_data = {
             "id" => page_id,
             "url" => page_url,
