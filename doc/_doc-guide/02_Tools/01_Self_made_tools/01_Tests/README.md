@@ -61,6 +61,10 @@ options {
 };
 ```
 
+## Tests of custom markdown in header [[source]] and [[with turumturum id|doc-jekyll-extensions#titleid-markdown-extension]]
+
+## Tests of liquid expression {{ site.lunr.test_text_1 }} in header of {{ site.title }}
+
 ---------------------
 
 Introduction to {{ site.product.short_name }} is a test for pages without description/subtitle, but text part between the title and the first heading which can have tooltips too this way.

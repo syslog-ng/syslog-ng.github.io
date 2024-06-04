@@ -81,7 +81,7 @@ $(document).ready(function() {
           '<div class="list__item">' +
           '<article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">' +
           '<h2 class="archive__item-title" itemprop="headline">' +
-          '<a href="' + removeExtension(tore[ref].url) + '" onclick="searchResultLinkClickHandler(event)" rel="permalink">' + store[ref].title + '</a>' +
+          '<a href="' + removeExtension(store[ref].url) + '" onclick="searchResultLinkClickHandler(event)" rel="permalink">' + store[ref].title + '</a>' +
           '</h2>' +
           '<div class="archive__item-teaser">' +
           '<img src="' + store[ref].teaser + '" alt="">' +
