@@ -86,11 +86,13 @@ module Jekyll
       end
 
       def is_regex_title?(title)
-        return title.start_with?('/') && title.end_with?('/') 
+        return title.start_with?('/') && title.length > 2 && title.end_with?('/') 
       end
 
       def regex_body(title)
-        return title[1..title.length-2]
+        if is_regex_title?(title)
+          return title[1..title.length-2]
+        return title
       end
 
       def process_markdown_part(page, markdown_part, page_links, full_pattern, id, url, add_separator)
