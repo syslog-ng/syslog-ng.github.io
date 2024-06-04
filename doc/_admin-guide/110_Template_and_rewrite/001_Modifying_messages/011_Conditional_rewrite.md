@@ -45,16 +45,16 @@ To configure condtional rewrite
 1. The log path receives a message from the source (s1).
 
 2. The rewrite rule (r\_rewrite\_set) evaluates the condition. If the
-    message matches the condition (the PROGRAM field of the message is
+    message matches the condition (the `PROGRAM` field of the message is
     \"myapplication\"), {{ site.product.short_name }} rewrites the log message (sets the
-    value of the HOST field to \"myhost\"), otherwise it is not
+    value of the `HOST` field to \"myhost\"), otherwise it is not
     modified.
 
 3. The next element of the log path processes the message (d1).
 
 ### Example: Using conditional rewriting
 
-The following example sets the HOST field of the message to myhost only
+The following example sets the `HOST` field of the message to myhost only
 if the message was sent by the myapplication program.
 
 ```config

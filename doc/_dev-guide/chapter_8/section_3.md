@@ -476,7 +476,7 @@ parse_ordered_list_into_log_message_no_check(const gchar *ordered_list)
   /* First get a copy of our parser */
   cloned_parser = (LogParser *) log_pipe_clone(&ordered_parser->super);
 
-  /* Set the MESSAGE part of our dummy log message */
+  /* Set the `MESSAGE` part of our dummy log message */
   msg = log_msg_new_empty();
   log_msg_set_value(msg, LM_V_MESSAGE, ordered_list, -1);
 

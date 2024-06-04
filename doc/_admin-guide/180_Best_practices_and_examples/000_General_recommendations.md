@@ -18,9 +18,9 @@ below:
 
 - Standard log messages include the local time of the sending host,
     without any time zone information. It is recommended to replace this
-    timestamp with an ISODATE timestamp, because the ISODATE format
+    timestamp with an `ISODATE` timestamp, because the `ISODATE` format
     includes the year and timezone as well. To convert all timestamps to
-    the ISODATE format, include the following line in the syslog-ng
+    the `ISODATE` format, include the following line in the syslog-ng
     configuration file:
 
     ```config

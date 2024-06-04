@@ -9,7 +9,7 @@ id: adm-log-filters-inlist
 in a file, allowing you to do simple, file-based black- and
 whitelisting. The file must be a plain-text file, containing one entry
 per line. The {{ site.product.short_name }} application loads the entire file, and
-compares the value of the specified field (for example, PROGRAM) to
+compares the value of the specified field (for example, `PROGRAM`) to
 entries in the file. When you use the in-list() filter, note the
 following points:
 
@@ -25,7 +25,7 @@ Available in {{ site.product.short_name }} 3.5 and later.
 
 ## Example: Selecting messages using the in-list() filter
 
-Create a text file that contains the programs (as in the PROGRAM
+Create a text file that contains the programs (as in the `PROGRAM`
 field of their log messages) you want to select. For example, you want
 to forward only the logs of a few applications from a host: kernel,
 sshd, and sudo. Create the /etc/syslog-ng/programlist.list file with the

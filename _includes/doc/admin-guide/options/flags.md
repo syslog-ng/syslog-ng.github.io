@@ -9,8 +9,9 @@
 * `expect-hostname`: When this flag is used syslog-ng OSE expects a log message that contains a hostname and parses the message accordingly. This is the default behavior for TCP sources. Note that pipe sources use the `no-hostname` flag by default.
 * `guess-timezone`: This flag allows the source to attempt to guess the timezone of the message if this information is not available in the message. Works when the incoming message stream is close to real time, and the timezone information is missing from the timestamp.
 * `kernel`: This flag sets the source default to the `LOG_KERN | LOG_NOTICE` priority if not specified otherwise.
-* `no-header`: This flag triggers syslog-ng OSE to parse only the PRI field of incoming messages, and put the rest of the message contents into `$MSG`.
-The functionality of `no-header` is similar to the `no-parse` flag, but the `no-header` flag does not skip the `PRI` field. The `no-header` flag signals syslog-ng OSE that the syslog header is not present (or does not adhere to the conventions / RFCs), so the entire message (except from the PRI field) is put into `$MSG`.
+* `no-header`: This flag triggers syslog-ng OSE to parse only the `PRI` field of incoming messages, and put the rest of the message contents into `MSG`.
+The functionality of `no-header` is similar to the `no-parse` flag, but the `no-header` flag does not skip the `PRI` field. The `no-header` flag signals syslog-ng OSE that the syslog header is not present (or does not adhere to the conventions / RFCs), so the entire message (except from the `PRI` field) is put into `MSG`.
+
 ```config
     parser p_syslog {
       syslog-parser(
@@ -19,7 +20,7 @@ The functionality of `no-header` is similar to the `no-parse` flag, but the `no-
     };
 ```
 
-* `no-hostname`: Enable this flag if the log message does not include the hostname of the sender host. This results in syslog-ng OSE assuming that the first part of the message header is `${PROGRAM}` instead of `${HOST}`.
+* `no-hostname`: Enable this flag if the log message does not include the hostname of the sender host. This results in syslog-ng OSE assuming that the first part of the message header is `PROGRAM` instead of `HOST`.
 ```config
     source s_dell {
         network(
@@ -30,7 +31,7 @@ The functionality of `no-header` is similar to the `no-parse` flag, but the `no-
 ```
 
 * `no-multi-line`: This flag disables line-breaking in the messages and converts the entire message into a single line. Note that this happens only if the underlying transport method supports multi-line messages. Currently only the `file()` and `pipe()` drivers support multi-line messages.
-* `no-parse`: By default, syslog-ng OSE parses incoming messages as syslog messages. The `no-parse` flag disables syslog message parsing and processes the complete line as the message part of a syslog message. The syslog-ng OSE application generates a new syslog header (timestamp, host, and so on) automatically and puts the entire incoming message into the `MESSAGE` part of the syslog message (available using the `${MESSAGE}` macro). This flag is useful for parsing messages that do not complying to the syslog format.
+* `no-parse`: By default, syslog-ng OSE parses incoming messages as syslog messages. The `no-parse` flag disables syslog message parsing and processes the complete line as the message part of a syslog message. The syslog-ng OSE application generates a new syslog header (timestamp, host, and so on) automatically and puts the entire incoming message into the `MESSAGE` part of the syslog message (available using the ${MESSAGE} macro). This flag is useful for parsing messages that do not complying to the syslog format.
 * `dont-store-legacy-msghdr`: During default operation, syslog-ng OSE stores the original incoming header of the log message. This is useful if the original format of a non-syslog-compliant message must be retained. The syslog-ng OSE application automatically corrects minor header errors, for example, it adds a whitespace before "msg" in the following message: `Jan 22 10:06:11 host program:msg`. If storage of the original header of the message is not needed, enable the `dont-store-legacy-msghdr` flag.
 * `sanitize-utf8`: When this flag is used, syslog-ng OSE converts non-UTF-8 input to an escaped format, adhering to UTF-8.
 Prior to version 4.6, this only worked with parsing RFC3164 messages. In syslog-ng OSE 4.6 and later versions, RFC5424 and raw messages can also be parsed using this flag.

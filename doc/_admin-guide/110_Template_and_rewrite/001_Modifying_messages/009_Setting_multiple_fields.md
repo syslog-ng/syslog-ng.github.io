@@ -38,19 +38,19 @@ rewrite <name_of_the_rule> {
 The following examples show how to change the values of multiple fields
 at the same time.
 
-- Change the value of the HOST field to **myhost**.
+- Change the value of the `HOST` field to **myhost**.
 
     ```config
     groupset ("myhost" values("HOST"))
     ```
 
-- Change the value of the HOST and FULLHOST fields to **myhost**.
+- Change the value of the `HOST` and `FULLHOST` fields to **myhost**.
 
     ```config
     groupset ("myhost" values("HOST" "FULLHOST"))
     ```
 
-- Change the value of the HOST, FULLHOST and fields to lowercase.
+- Change the value of the `HOST` and `FULLHOST` fields to lowercase.
 
     ```config
     groupset ("$(lowercase "$_")" values("HOST" "FULLHOST"))

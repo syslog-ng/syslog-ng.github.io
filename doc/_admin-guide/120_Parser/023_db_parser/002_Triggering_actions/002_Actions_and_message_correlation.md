@@ -9,7 +9,7 @@ description: >-
 
 - The {{ site.product.short_name }} application automatically fills the fields for the
     generated message based on the scope of the context, for example,
-    the HOST and PROGRAM fields if the context-scope is program.
+    the `HOST` and `PROGRAM` fields if the context-scope is program.
 
 - When used together with message correlation, you can also refer to
     fields and values of earlier messages of the context by adding the

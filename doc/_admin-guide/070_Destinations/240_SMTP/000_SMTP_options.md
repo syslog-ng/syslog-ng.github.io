@@ -103,7 +103,7 @@ When using the header option, note the following points:
 - If you set the same custom header multiple times, only the first
     will be added to the email, other occurrences will be ignored.
 
-- It is not possible to set the DATE, Return-Path, Original-Recipient,
+- It is not possible to set the `DATE`, Return-Path, Original-Recipient,
     Content-\*, MIME-\*, Resent-\*, Received headers.
 
 {% include doc/admin-guide/options/hook.md %}

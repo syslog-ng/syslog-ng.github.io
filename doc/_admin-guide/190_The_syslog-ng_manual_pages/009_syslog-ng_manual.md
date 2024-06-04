@@ -146,7 +146,7 @@ other sources. The clients send all important log messages to the remote
 
 - \--pidfile \<pidfile\> or -p \<pidfile\>
 
-    Set path to the PID file where the pid of the main process is
+    Set path to the `PID` file where the pid of the main process is
     stored.
 
 - \--preprocess-into \<output-file\>

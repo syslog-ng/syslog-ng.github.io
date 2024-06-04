@@ -34,7 +34,7 @@ In {{ site.product.short_name }} 4.0 and later versions, each name-value pair is
 
 **NOTE:** By default, {{ site.product.short_name }} handles every message field as a string.
 For details on how to send selected fields as other types of data (for
-example, handle the PID as a number), see
+example, handle the `PID` as a number), see
 Specifying data types in value-pairs.
 {: .notice--info}
 

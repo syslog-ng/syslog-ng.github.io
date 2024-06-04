@@ -16,20 +16,20 @@ Depending on the settings of syslog-ng-relay, the following can happen.
 
 - By default, the keep-hostname() option is disabled, so
     syslog-ng-relay writes the IP address of the sender host (in this
-    case, 192.168.1.2) to the HOST field of the syslog message,
+    case, 192.168.1.2) to the `HOST` field of the syslog message,
     discarding any IP address or hostname that was originally in the
     message.
 
 - If the keep-hostname() option is enabled on syslog-ng-relay, but
     name resolution is disabled (the use-dns() option is set to **no**),
-    syslog-ng-relay uses the HOST field of the message as-is, which is
+    syslog-ng-relay uses the `HOST` field of the message as-is, which is
     probably 192.168.1.2.
 
 - To resolve the 192.168.1.2 IP address to a hostname on
     syslog-ng-relay using a DNS server, use the **keep-hostname(no)**
     and **use-dns(yes)** options. If the DNS server is properly
     configured and reverse DNS lookup is available for the 192.168.1.2
-    address, {{ site.product.short_name }} will rewrite the HOST field of the log
+    address, {{ site.product.short_name }} will rewrite the `HOST` field of the log
     message to client-host.
 
     **NOTE:** It is also possible to resolve IP addresses locally, without
@@ -40,8 +40,8 @@ Depending on the settings of syslog-ng-relay, the following can happen.
 - The above points apply to the {{ site.product.short_name }} server
     (syslog-ng-server) as well, so if syslog-ng-relay is configured
     properly, use the **keep-hostname(yes)** option on syslog-ng-server
-    to retain the proper HOST field. Setting **keep-hostname(no)** on
-    syslog-ng-server would result in {{ site.product.short_name }} rewriting the HOST
+    to retain the proper `HOST` field. Setting **keep-hostname(no)** on
+    syslog-ng-server would result in {{ site.product.short_name }} rewriting the `HOST`
     field to the address of the host that sent the message to
     syslog-ng-server, which is syslog-ng-relay in this case.
 

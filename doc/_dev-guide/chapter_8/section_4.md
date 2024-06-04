@@ -3,7 +3,7 @@ title: Filter Function
 id: dev-plugin-dev-filter-func
 ---
 
-This section will guide you through the process of creating a filter function, by going through the files of filter-length, a set of filter functions which filter log messages based on the length of their `${MESSAGE}`. `${MESSAGE}` refers to the {{ site.product.short_name }} macro and not MSG as defined by the syslog protocols.
+This section will guide you through the process of creating a filter function, by going through the files of filter-length, a set of filter functions which filter log messages based on the length of their ${MESSAGE}. ${MESSAGE} refers to the {{ site.product.short_name }} macro and not `MSG` as defined by the syslog protocols.
 
 Filter functions are written under `lib/filter/`, and so they do not belong to any module and are not technically plugins. To add a filter function we only need to modify the parser and grammar files; there is no plugin file.
 
@@ -226,7 +226,7 @@ First we need to get the message we want from the array. `num_msg` starts counti
   LogMessage *msg = msgs[num_msg - 1];
 ```
 
-Now that we have our `LogMessage`, we will extract the MESSAGE part from it to evaluate its length. To do so, we call the `log_msg_get_value` function with the appropriate constant.
+Now that we have our `LogMessage`, we will extract the `MESSAGE` part from it to evaluate its length. To do so, we call the `log_msg_get_value` function with the appropriate constant.
 ```
   const gchar *message_part = log_msg_get_value(msg, LM_V_MESSAGE, NULL);
 ```

@@ -23,7 +23,7 @@ rewrite {
 };
 ```
 
-By default, these rewrite rules process the MESSAGE part of the log
+By default, these rewrite rules process the `MESSAGE` part of the log
 message.
 
 ## credit-card-hash()

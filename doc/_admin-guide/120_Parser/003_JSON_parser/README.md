@@ -40,7 +40,7 @@ messages, therefore acting as a JSON-filter as well.
 
 To create a JSON parser, define a parser that has the json-parser()
 option. Defining the prefix and the marker are optional. By default, the
-parser will process the MESSAGE part of the log message. To process
+parser will process the `MESSAGE` part of the log message. To process
 other parts of a log message with the JSON parser, use the template()
 option. You can also define the parser inline in the log path.
 

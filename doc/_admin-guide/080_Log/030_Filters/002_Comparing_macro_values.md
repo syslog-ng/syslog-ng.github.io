@@ -61,14 +61,14 @@ operators for strings as well.
 
 ### Example: Comparing macro values in filters
 
-The following expression selects log messages containing a PID (that is,
+The following expression selects log messages containing a `PID` (that is,
 ${PID} macro is not empty):
 
 ```config
 filter f_pid {"${PID}" !=""};
 ```
 
-The following expression selects log messages that do not contain a PID.
+The following expression selects log messages that do not contain a `PID`.
 Also, it uses a template as the left argument of the operator and
 compares the values as strings:
 

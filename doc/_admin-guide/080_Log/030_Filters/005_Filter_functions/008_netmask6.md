@@ -8,7 +8,7 @@ id: adm-log-filters-netmask6
 *Description:* Select only messages sent by a host whose IP address
 belongs to the specified IPv6 subnet. Note that this filter checks the
 IP address of the last-hop relay (the host that actually sent the
-message to {{ site.product.short_name }}), not the contents of the HOST field of the
+message to {{ site.product.short_name }}), not the contents of the `HOST` field of the
 message. You can use both the regular and the compressed format to
 specify the IP address, for example, 1080:0:0:0:8:800:200C:417A or
 1080::8:800:200C:417A. If you do not specify the address, localhost is

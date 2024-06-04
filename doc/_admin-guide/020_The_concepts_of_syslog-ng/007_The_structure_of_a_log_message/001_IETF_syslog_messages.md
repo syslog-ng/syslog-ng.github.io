@@ -20,7 +20,7 @@ The message corresponds to the following format:
 
 >\<priority\>VERSION ISOTIMESTAMP HOSTNAME APPLICATION PID MESSAGEID STRUCTURED-DATA MSG
 
-- Facility is 4, severity is 2, so PRI is 34.
+- Facility is 4, severity is 2, so `PRI` is 34.
 
 - The VERSION is 1.
 
@@ -32,9 +32,9 @@ The message corresponds to the following format:
 
 - The APP-NAME is \"su\" and the PROCID is unknown.
 
-- The MSGID is \"ID47\".
+- The `MSGID` is \"ID47\".
 
-- The MSG is \"\'su root\' failed for lonvick\...\", encoded in UTF-8.
+- The `MSG` is \"\'su root\' failed for lonvick\...\", encoded in UTF-8.
 
 - In this example, the encoding is defined by the BOM:
 
@@ -44,14 +44,14 @@ The message corresponds to the following format:
 - There is no STRUCTURED-DATA present in the message, this is
     indicated by \"-\" in the STRUCTURED-DATA field.
 
-The HEADER part of the message must be in plain ASCII format, the
+The `HEADER` part of the message must be in plain ASCII format, the
 parameter values of the STRUCTURED-DATA part must be in UTF-8, while the
 MSG part should be in UTF-8. The different parts of the message are
 explained in the following sections.
 
 ## The PRI message part
 
-The PRI part of the syslog message (known as Priority value) represents
+The `PRI` part of the syslog message (known as Priority value) represents
 the Facility and Severity of the message. Facility represents the part
 of the system sending the message, while severity marks its importance.
 The Priority value is calculated by first multiplying the Facility
@@ -61,7 +61,7 @@ number by 8 and then adding the numerical value of the Severity.
 
 ## The HEADER message part
 
-The HEADER part contains the following elements:
+The `HEADER` part contains the following elements:
 
 - *VERSION*: Version number of the syslog protocol standard. Currently
     this can only be 1.
@@ -117,7 +117,7 @@ An example STRUCTURED-DATA block looks like:
 
 ## The MSG message part
 
-The MSG part contains the text of the message itself. The encoding of
+The `MSG` part contains the text of the message itself. The encoding of
 the text must be UTF-8 if the BOM1 character is present in the message.
 If the message does not contain the BOM character, the encoding is
 treated as unknown. Usually messages arriving from legacy sources do not

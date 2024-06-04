@@ -25,7 +25,7 @@ To enable core files, complete the following procedure:
     {{ site.product.short_name }} was started from.
 
 4. To test that {{ site.product.short_name }} can create a core file, you can create a
-    crash manually. For this, determine the PID of {{ site.product.short_name }} (for
+    crash manually. For this, determine the `PID` of {{ site.product.short_name }} (for
     example, using the `ps -All | grep syslog-ng` command), then issue
     the following command: `kill -ABRT <syslog-ng pid>`
 

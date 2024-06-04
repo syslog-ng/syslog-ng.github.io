@@ -31,7 +31,7 @@ Currently {{ site.product.short_name }} can tag a message at two different place
 
 - To include the tags in the message, use the **${TAGS}** macro in a
     template. Alternatively, if you are using the IETF-syslog message
-    format, you can include the ${TAGS} macro in the .SDATA.meta part
+    format, you can include the ${TAGS} macro in the `.SDATA.meta` part
     of the message. Note that the ${TAGS} macro is available only in
     {{ site.product.short_name }} 3.1.1 and later.
 

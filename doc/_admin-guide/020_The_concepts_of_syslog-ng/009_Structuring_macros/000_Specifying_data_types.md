@@ -33,8 +33,8 @@ function supports data types.
 
 ## Example: Using type-hinting
 
-The following example stores the MESSAGE, PID, DATE, and PROGRAM fields
-of a log message in a MongoDB database. The DATE and PID parts are
+The following example stores the `MESSAGE`, `PID`, `DATE`, and `PROGRAM` fields
+of a log message in a MongoDB database. The `DATE` and `PID` parts are
 stored as numbers instead of strings.  
 
 ```config
@@ -52,7 +52,7 @@ Use the following example to format the same fields into JSON.
 
 `$(format-json date=datetime("${UNIXTIME}") pid=int64("${PID}") program="${PROGRAM}" message="${MESSAGE}")`
 
-Use the following example to format the MESSAGE field as a JSON list.
+Use the following example to format the `MESSAGE` field as a JSON list.
 
 `$$(format-json message=list(${MESSAGE}))`
 
@@ -118,7 +118,7 @@ The type of the field can be set. Type-casting can be executed using
 the set() and groupset() template functions, to properly promote the
 type information.
 
-For more information, see Creating custom SDATA fields and
+For more information, see Creating custom `SDATA` fields and
 Setting multiple message fields to specific values.  
 
 ### db-parser()

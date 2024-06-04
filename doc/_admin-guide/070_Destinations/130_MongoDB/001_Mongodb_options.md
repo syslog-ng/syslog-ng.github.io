@@ -48,7 +48,7 @@ option supports template functions and macros as well.
 
 Using the following example configuration, the mongodb() destination
 sends incoming messages into separate MongoDB collections (for example,
-localhost_messages and anotherhost_messages) based on the HOST field
+localhost_messages and anotherhost_messages) based on the `HOST` field
 of the message :
 
 ```config

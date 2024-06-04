@@ -150,7 +150,7 @@ statistics:
 
 - \--sdata \<data-to-send\> or -p \<data-to-send\>
 
-    Send the argument of the \--sdata option as the SDATA part of
+    Send the argument of the \--sdata option as the `SDATA` part of
     IETF-syslog (RFC-5424 formatted) messages. Use it together with the
     \--syslog-proto option. For example: **\--sdata \"\[test
     name=\\\"value\\\"\]**

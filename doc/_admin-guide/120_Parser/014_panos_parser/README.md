@@ -7,7 +7,7 @@ description: >-
     version of Palo Alto Networks Operating System) parser can parse log
     messages originating from Palo Alto Networks
     devices. Even though these messages completely comply to the RFC standards,
-    their MESSAGE part is not a plain text. Instead, the MESSAGE part contains
+    their `MESSAGE` part is not a plain text. Instead, the `MESSAGE` part contains
     a data structure that requires additional parsing.
 ---
 

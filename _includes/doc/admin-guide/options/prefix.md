@@ -12,7 +12,7 @@ name-value pairs to help further processing. For example:
     the name of the macro, for example, **${my-parsed-data.name}**.
 
 - If you forward the parsed messages using the IETF-syslog protocol,
-    you can insert all the parsed data into the SDATA part of the
+    you can insert all the parsed data into the `SDATA` part of the
     message using the **prefix(.SDATA.my-parsed-data.)** option.
 
 Names starting with a dot (for example, .example) are reserved for use
