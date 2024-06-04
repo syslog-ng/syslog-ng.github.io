@@ -85,6 +85,16 @@ module Jekyll
         return replacement_text
       end
 
+      def is_regex_title?(title)
+        return title.start_with?('/') && title.length > 2 && title.end_with?('/') 
+      end
+
+      def regex_body(title)
+        if is_regex_title?(title)
+          return title[1..title.length-2]
+        return title
+      end
+
       def process_markdown_part(page, markdown_part, page_links, full_pattern, id, url, add_separator)
 
         markdown_part = markdown_part.gsub(full_pattern) do |match|
@@ -127,7 +137,7 @@ module Jekyll
             title = page_titles_data["title"]   # link_data["title"] is an array of titles that all must be represented by ID already in the filtered_page_ids_sorted_by_title_len array
             url = prefixed_url(link_data["url"], base_url)
 
-            pattern = Regexp.escape(title)
+            pattern = (is_regex_title?(title) ? regex_body(title) : Regexp.escape(title))
             # TODO: Even though this one helps finding the pattern e.g. if it spans to multiple line or separated inside with different whitespaces, but 
             #       also can cause unwanted sideffects and has generation time penalities, revise later!
             pattern = pattern.gsub('\ ', '[\s]+')
