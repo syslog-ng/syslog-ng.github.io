@@ -468,7 +468,7 @@ $JekyllTooltipGen_nav_links = nil
 $JekyllTooltipGen_should_build_tooltips = nil
 $JekyllTooltipGen_should_build_persistent_tooltips = nil
 
-# 1st pass
+# 2nd pass (1st pass is/must be generate_links.rb)
 #
 # This is used now to
 #       - set the page nav_ndx correctly to support our custom bottom collection elements navigator
@@ -520,7 +520,7 @@ Jekyll::Hooks.register :site, :pre_render do |site|
   end
 end
 
-# 2nd pass
+# 3rd pass
 #
 # This is used now to
 #     - render the page content manually and create the autolinks and tooltips
