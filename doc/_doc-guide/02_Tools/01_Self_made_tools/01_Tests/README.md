@@ -174,3 +174,19 @@ The following is a simple configuration file for {{ site.product.name }}  that c
 in a text file. {{ site.product.name }}.
 
 Aliast testing e.g ${LEVEL} or ${PRIORITY} should work like ${SDATA}
+
+Alias testing e.g ${LEVEL} or ${PRIORITY} should work like ${SDATA}
+
+Fully Qualified Domain Name
+
+fully qualified domain name
+
+Fully qualified domain Name
+
+fully Qualified domain Name
+
+Fully qualified domain name
+
+FQDN
+
+F.Q.D.N.
