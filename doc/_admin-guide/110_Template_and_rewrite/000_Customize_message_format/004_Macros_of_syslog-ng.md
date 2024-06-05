@@ -430,6 +430,43 @@ database column.
 
 An alias of the ${TZOFFSET} macro.
 
+## ${TRANSPORT}
+
+This macro is available in syslog-ng OSE 4.5 and later versions. The syslog-ng OSE application automatically populates this name-value pair with the transport-mechanism used to retrieve the message. The value depends on the source driver that received the message. The implemented values are the following:
+
+* BSD syslog drivers `tcp()`, `udp()` & `network()`
+  * `rfc3164+tls`
+  * `rfc3164+tcp`
+  * `rfc3164+udp`
+  * `rfc3164+proxied-tls`
+  * `rfc3164+<custom logproto like altp>`
+
+* UNIX domain drivers `unix-dgram()`, `unix-stream()`
+  * `unix-stream`
+  * `unix-dgram`
+
+* RFC5424-style syslog `syslog()`:
+  * `rfc5426`: syslog over udp
+  * `rfc5425`: syslog over tls
+  * `rfc6587`: syslog over tcp
+  * `rfc5424+<custom logproto like altp>`: syslog over a logproto plugin
+
+* Other drivers:
+  * otlp: `otel()` driver
+  * mqtt: `mqtt()` driver
+  * hypr-api: `hypr-audit-source()` driver
+
+* Locally created logs (available in 4.7 and later versions):
+  * `local+unix-stream`
+  * `local+unix-dgram`
+  * `local+file`
+  * `local+pipe`
+  * `local+program`
+  * `local+devkmsg`
+  * `local+journal`
+  * `local+afstreams`
+  * `local+openbsd`
+
 ## ${TZOFFSET}, ${C_TZOFFSET}, ${R_TZOFFSET}, ${S_TZOFFSET}
 
 The time-zone as hour offset from GMT, for example:
