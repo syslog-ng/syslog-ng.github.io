@@ -221,7 +221,7 @@ Available in {{ site.product.short_name }} version 3.4 and later.
 ## ${MQTT_TOPIC}
 
 This macro is available in syslog-ng OSE 4.7 and later versions.
-The mqtt() source sets the `${MQTT_TOPIC}` name-value pair automatically for the messages it receives. This macro can be used when the name of the topic contains MQTT wildcards characters ($, +, #). For more information, see mqtt: Receiving messages from an MQTT broker.
+The mqtt() source sets the ${MQTT_TOPIC} name-value pair automatically for the messages it receives. This macro can be used when the name of the topic contains MQTT wildcards characters ($, +, #). For more information, see mqtt: Receiving messages from an MQTT broker.
 
 ## ${MSG}
 
