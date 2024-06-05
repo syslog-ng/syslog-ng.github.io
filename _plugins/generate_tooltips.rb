@@ -92,6 +92,7 @@ module Jekyll
       def regex_body(title)
         if is_regex_title?(title)
           return title[1..title.length-2]
+        end
         return title
       end
 
