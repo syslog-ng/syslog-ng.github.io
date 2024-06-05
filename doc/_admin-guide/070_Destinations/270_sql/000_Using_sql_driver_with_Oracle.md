@@ -25,6 +25,14 @@ to note.
 - As certain database versions limit the maximum length of table
     names, macros in the table names should be used with care.
 
+- The Oracle Instant Client used by {{ site.product.short_name }} supports only the
+    following character sets:
+
+  - Single-byte character sets: US7ASCII, WE8DEC, WE8MSWIN1252, and
+        WE8ISO8859P1
+
+  - Unicode character sets: UTF8, AL16UTF16, and AL32UTF8
+
 - In the current version of {{ site.product.short_name }}, the types of database
     columns must be explicitly set for the Oracle destination. The
     column used to store the text part of the syslog messages should be
@@ -33,14 +41,6 @@ to note.
     **varchar2** or **clob** column type. (The maximum length of the
     messages can be set using the log-msg-size() option.) For details,
     see the following example.
-
-- The Oracle Instant Client used by {{ site.product.short_name }} supports only the
-    following character sets:
-
-  - Single-byte character sets: US7ASCII, WE8DEC, WE8MSWIN1252, and
-        WE8ISO8859P1
-
-  - Unicode character sets: UTF8, AL16UTF16, and AL32UTF8
 
 ### Example: Using the sql() driver with an Oracle database
 
