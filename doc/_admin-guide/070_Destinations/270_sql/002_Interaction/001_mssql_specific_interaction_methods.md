@@ -1,6 +1,8 @@
 ---
 title: MSSQL-specific interaction methods
 id: adm-dest-sql-interact-mssql
+description: >-
+	This section describes the MSSQL-specific interaction methods in {{ site.product.short_name }}.
 ---
 
 In SQL Server 2005 this restriction is lifted - kind of. The total

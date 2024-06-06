@@ -1,6 +1,8 @@
 ---
 title: 'Amazon s3 options'
 id: adm-opt-amazon
+description: >-
+	This section describes the options of the s3() destination in {{ site.product.short_name }}.
 ---
 
 The following options are specific to the s3 destination.

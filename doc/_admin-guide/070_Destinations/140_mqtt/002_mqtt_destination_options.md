@@ -2,6 +2,8 @@
 title: Options of the mqtt() destination
 srv: 'MQTT Broker'
 id: adm-dest-mqtt-opt
+description: >-
+	This section describes the options of the mqtt() destination in {{ site.product.short_name }}.
 ---
 
 The mqtt() destination has the following options.

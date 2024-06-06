@@ -1,6 +1,8 @@
 ---
 title: pseudofile() destination options
 id: adm-dest-pseudo-opt
+description: >-
+	This section describes the options of the pseudofile() destination in {{ site.product.short_name }}.
 ---
 
 The pseudofile() destination has the following options:

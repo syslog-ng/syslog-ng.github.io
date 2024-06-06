@@ -3,6 +3,8 @@ title: graphite() destination options
 srv: Graphite server
 port: '2003'
 id: adm-dest-graphite-opt
+description: >-
+	This section describes the options of the graphite() destination in {{ site.product.short_name }}.
 ---
 
 The graphite() destination has the following options:

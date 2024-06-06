@@ -2,8 +2,10 @@
 title: 'bigquery() destination options'
 id: adm-dest-bigquery-opt
 description: >-
-  The Google bigquery() destination has the following options.
+	This section describes the options of the Google bigquery() destination in {{ site.product.short_name }}.
 ---
+
+The Google bigquery() destination has the following options:
 
 {% include doc/admin-guide/options/batch-bytes.md %}
 

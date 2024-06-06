@@ -2,11 +2,10 @@
 title: amqp() destination options
 srv: 'AMQP server'
 port: '5672'
-id: adm-dest-aqmp-opt
+id: adm-dest-amqp-opt
+description: >-
+	This section describes the options of the amqp() destination in {{ site.product.short_name }}.
 ---
-
-The amqp() driver publishes messages using the AMQP (Advanced Message
-Queuing Protocol).
 
 The amqp() destination has the following options:
 

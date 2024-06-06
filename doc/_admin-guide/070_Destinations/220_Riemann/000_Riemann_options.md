@@ -3,6 +3,8 @@ title: riemann() destination options
 srv: Riemann server
 port: '5555'
 id: adm-dest-riemann-opt
+description: >-
+	This section describes the options of the riemann() destination in {{ site.product.short_name }}.
 ---
 
 The riemann() destination has the following options:

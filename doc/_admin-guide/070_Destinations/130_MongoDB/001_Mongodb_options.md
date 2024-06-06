@@ -1,6 +1,8 @@
 ---
 title: mongodb() destination options
 id: adm-dest-mongodb-opt
+description: >-
+	This section describes the options of the mongodb() destination in {{ site.product.short_name }}.
 ---
 
 The mongodb() driver sends messages to a MongoDB database. MongoDB is a

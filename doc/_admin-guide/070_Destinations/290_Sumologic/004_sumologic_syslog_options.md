@@ -5,6 +5,8 @@ srv: 'Sumo Logic server'
 token: 'Cloud Syslog Cloud Token'
 provider: 'Sumo Logic service'
 id: adm-dest-sumologic-syslog-opt
+description: >-
+	This section describes the options of the sumologic-syslog() destination in {{ site.product.short_name }}.
 ---
 
 The sumologic-syslog() destination supports all

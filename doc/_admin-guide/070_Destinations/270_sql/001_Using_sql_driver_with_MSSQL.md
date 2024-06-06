@@ -1,6 +1,8 @@
 ---
 title: Using the sql() driver with a Microsoft SQL database
 id: adm-dest-sql-mssql
+description: >-
+	This section describes how to use sql() driver of {{ site.product.short_name }} with an MSSQL database.
 ---
 
 The mssql database driver can access Microsoft SQL (MSSQL) destinations.
