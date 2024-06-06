@@ -74,9 +74,11 @@ jobs:
           # A double build is needed currently as the _data/links/ content must be rendered from the final html output, so
           # the first run cannot use the not yet existing links
           #
-          JEKYLL_BUILD_LINKS=yes bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path }}"
+          # NOTE: using full, final url instead of steps.pages.outputs.base_path to satisfy the sitemap.xml generator plugin as well
+          # FIXME: steps.deployment.outputs.page_url is empty at this phase, temporally added the hardcoded site URL
+          JEKYLL_BUILD_LINKS=yes bundle exec jekyll build --baseurl "https://syslog-ng.github.io"
 
-          JEKYLL_BUILD_TOOLTIPS=yes bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path }}"
+          JEKYLL_BUILD_TOOLTIPS=yes bundle exec jekyll build --baseurl "https://syslog-ng.github.io"
 
           ls -AlR ./_site/assets/js
         env:
