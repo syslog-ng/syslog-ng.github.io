@@ -14,6 +14,10 @@ skin_switchable: true
 # Disable caching of content to disk in order to skip creating a .jekyll-cache or similar directory
 disable_disk_cache: true
 
+# NOTE: For proper working of liquid `absolute_url` this must be provided (otherwise construct using it e.g. sitemap plugin, will not work properly)
+#       For local builds you can use the `jekyll serve --host` param to verride
+url: https://syslog-ng.github.io
+
 # If you’re publishing on GitHub Pages you should update only your _config.yml as GitHub Pages doesn’t load plugins via Bundler.
 plugins:
   - jekyll-remote-theme
