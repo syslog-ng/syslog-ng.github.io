@@ -1,6 +1,8 @@
 ---
 title: Uninstalling {{ site.product.short_name }}
 id: adm-inst-uninst
+description: >-
+	This chapter gives you instructions about the uninstallation of {{ site.product.short_name }}.
 ---
 
 If you need to uninstall {{ site.product.short_name }} for some reason, you have the
