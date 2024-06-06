@@ -144,6 +144,11 @@ module Jekyll
   end # class LinkGen
 end # module jekyll
 
+# 1st pass (must be the first one, so this is a separate run in the CI build !!!)
+#
+# This is used now to
+#     - generate all the page, heading, and named anchor links to `${PROJECT_ROOT}/_data/links/`
+#
 Jekyll::Hooks.register :site, :post_render do |site|
   puts ""
   shoud_build_links = (ENV['JEKYLL_BUILD_LINKS'] == 'yes')

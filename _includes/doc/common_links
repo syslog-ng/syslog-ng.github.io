@@ -3,10 +3,10 @@
     This could help common link usages, like
 
     {% include doc/common_links %}
-    [404 link via ref][ref:404]
+    {% include markdown_link_decl id="404" %}
 
     The final goal would be to add include of this file to _includes/doc/common_snippets and get it
-    automatically included to each page, so make possible pure 
+    automatically included to each page, so make possible a pure 
 
     [404 link via ref][ref:404]
 

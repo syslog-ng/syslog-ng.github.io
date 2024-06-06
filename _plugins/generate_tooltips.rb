@@ -47,39 +47,61 @@ module Jekyll
           return url
       end
 
+      def is_modifiable_markdown_part?(part)
+        # NOTE: This allows usage of our custom markdown notation in the other (h2-h6) headings as well.
+        #       Unlike in the case of the page titles (h1), the (lunr) search will work nicely for the text parts.
+        return part.start_with?('[[') || part.start_with?('#') 
+      end
+
       def make_tooltip(page, page_links, id, url, match)
-        match_parts = match.split(/\|/)
+        match_parts = match.split(/(?<!\\)\|/)
+        
         # If the text has an '|' it means it comes from our special autolink/tooltip [[text|id]] markdown block
         # We have to reparse it a bit and get the id  we must use
         if match_parts.length > 1
           #puts "match_parts: #{match_parts}"
-          match = match_parts[0]
+          title = match_parts[0]
+          if title.length <= 0
+            puts "Error: Empty title in matching part: '#{match}' -> #{match_parts}"
+            # nil means, show the original markdown part, instead of a half rendered one
+            return nil
+          end
           id = match_parts[1]
+          # This is a special use case [[title|-]] that protects the given title from further processing
+          if id == '-'
+            # Just use the original title text
+            return title
+          end
           link_data = page_links[id]
           if link_data != nil
             url = link_data["url"]
             url = prefixed_url(url, page.site.config["baseurl"])
           else
-            puts "Error: Unknown ID in matching part: #{match_parts}"
-            return match
+            puts "Error: Unknown ID in matching part: '#{match}' -> #{match_parts}"
+            # nil means, show the original markdown part, instead of a half rendered one
+            return nil
           end
+        else
+          title = match
         end
 
         if id == nil or id.length <= 0
-          puts "Error: Empty ID in matching part: #{match}"
-          return match
+          puts "Error: Empty ID in matching part: '#{match}' -> #{match_parts}"
+          # nil means, show the original markdown part, instead of a half rendered one
+          return nil
         end
         if url == nil or url.length <= 0
-          puts "Error: Empty URL for ID: #{id} in matching part: #{match}"
-          return match
+          puts "Error: Empty URL for ID: '#{id}' in matching part: '#{match}' -> #{match_parts}"
+          # nil means, show the original markdown part, instead of a half rendered one
+          return nil
         end
 
         # NOTE: Now we treat every link that has protocol prefix part as an external one
         #       that allows usage of direct links anywhere if needed (not recommended, plz use external_links.yml instead)
         #       but, at the same time requires e.g. all the really external links to be fully qualified (even in external_links.yml as well)
         external_url = is_prefixed_url?(url)
-        match = save_from_markdownify(match)
-        replacement_text = '<a href="' + url + '" class="nav-link content-tooltip"' + (external_url ? ' target="_blank"' : '') + '>' + match + '</a>'
+        title = save_from_markdownify(title)
+        replacement_text = '<a href="' + url + '" class="nav-link content-tooltip"' + (external_url ? ' target="_blank"' : '') + '>' + title + '</a>'
         # puts "replacement_text: " + replacement_text
 
         return replacement_text
@@ -102,11 +124,15 @@ module Jekyll
           left_separator = $1
           matched_text = $2
           right_separator = $3
-          #puts "\nmatch: #{match}\nleft_separator: #{left_separator}\nmatched_text: #{matched_text}\nright_separator: #{right_separator}"
+          # puts "\nmatch: #{match}\nleft_separator: #{left_separator}\nmatched_text: #{matched_text}\nright_separator: #{right_separator}"
 
           replacement_text = make_tooltip(page, page_links, id, url, matched_text)
-          if add_separator
-            replacement_text = left_separator + replacement_text + right_separator
+          if replacement_text != nil
+            if add_separator
+              replacement_text = left_separator + replacement_text + right_separator
+            end
+          else
+            replacement_text = markdown_part.gsub(/(?<!\\)\|/, "\\\|")
           end
           replacement_text
         end
@@ -121,10 +147,26 @@ module Jekyll
         # Regular expression pattern to match special Markdown blocks
         # Unlike the others this needs grouping as we use do |match| for enumeration
         # NOTE: Use multi line matching partially as e.g. code blocks can span to multiple lines
-        special_markdown_blocks_pattern = /((?m:````.*?````|```.*?```|``.*?``|`.*?`)|\[\[.*?\]\]|\[.*?\]\(.*?\)\{\:.*?\}|\[.*?\]\(.*?\)|\[.*?\]\{.*?\}|^#+\s.*?$)/
+        markdown_blocks_pattern = /((?m:````.*?````|```.*?```|``.*?``|`.*?`)|\[\[(?:[^\]^\[]|\\\[|\\\])*?\]\]|\[[^\]^\[]*?\]\(.*?\)\{\:.*?\}|\[[^\]^\[]*?\]\(.*?\)|\[[^\]^\[]*?\]:.*?$|\[[^\]^\[]*?\]\s*\[.*?\]|^#+\s.*?$)/
+        # TODO: Always sync the bellow with the one-liner version for readability
+        # FIXME: Check why the /x version bellow is not working the same way
+        # markdown_blocks_pattern = /(          # Either Code blocks
+        #   (?m:                                #   Even Multiline ones
+        #     ````.*?```` |                     #     Code block with 4 backticks
+        #     ```.*?``` |                       #     Code block with 3 backticks
+        #     ``.*?`` |                         #     Code block with 2 backticks
+        #     `.*?`                             #     Inline code with 1 backtick
+        #   ) |                                 #  
+        #   \[\[(?:[^\]^\[]|\\\[|\\\])*?\]\] |  # or Our special, custom markdown notation
+        #   \[[^\]^\[]*?\]\(.*?\)\{\:.*?\} |    # or Link with attribute
+        #   \[[^\]^\[]*?\]\(.*?\) |             #    Link without attribute
+        #   \[[^\]^\[]*?\]:.*?$ |               #    Link reference label declaration
+        #   \[[^\]^\[]*?\]\s*\[.*?\] |          #    Link using reference label
+        #   ^#+\s.*?$                           # or Headers
+        # )/x
 
         # Split the content by special Markdown blocks
-        markdown_parts = markdown.split(special_markdown_blocks_pattern)
+        markdown_parts = markdown.split(markdown_blocks_pattern)
         #puts markdown_parts
         markdown_parts.each_with_index do |markdown_part, markdown_index|
           # puts "---------------\nmarkdown_index: " + markdown_index.to_s + "\n" + (markdown_index.even? ? "NOT " : "") + "markdown_part: " + markdown_part
@@ -145,27 +187,36 @@ module Jekyll
             #puts "searching for #{title} with pattern #{pattern}"
 
             if markdown_index.even?
-              # Content outside of special Markdown blocks, aka. pure text (NOTE: Also excludes the reqursively self added <a ...>title</a> tooltips/links)
+              # Content outside of Markdown blocks, aka. pure text
 
               # Search for known link titles
               # NOTE: Using multi line matching here will not help either if the pattern itself is in the middle broken/spaned to multiple lines, so 
               #       using whitespace replacements now inside the patter to handle this, see above!
+              # NOTE: Also excludes the reqursively self added <a ...>title</a> tooltips/links
               full_pattern = /(^|[\s.,;:&'"(])(#{pattern})([\s.,;:&'")]|\z)(?![^<]*?<\/a>)/
               markdown_part = process_markdown_part(page, markdown_part, page_links, full_pattern, id, url, true)
             else
-              # Content inside of special Markdown blocks
+              # Content inside of Markdown blocks
 
-              # Handle own auto\tooltip links [[title]], but NOT [[title|id]], see bellow why
-              full_pattern = /(\[\[)(#{pattern})(\]\])/
-              markdown_part = process_markdown_part(page, markdown_part, page_links, full_pattern, id, url, false)
+              # Handle our special markdown notation autolink/tooltip links [[title]], but NOT [[title|id]], see bellow why
+              if is_modifiable_markdown_part?(markdown_part)
+                full_pattern = /(\[\[)(#{pattern})(\]\])/
+                markdown_part = process_markdown_part(page, markdown_part, page_links, full_pattern, id, url, false)
+              end
             end
           end
 
+          # Handle our special markdown notation autolink/tooltip links [[title|id]]
+          # This must be a separate run, as independent from the given title, if ID is presented it will always override the title, and the title exclusion as well
           if markdown_index.odd?
-            # Handle own auto\tooltip links [[title|id]]
-            # This must be a separate run, as independent from the given title, if ID is presented it will always override title, and title exclusion as well
-            full_pattern = /(\[\[)(.+\|.+)(\]\])/
-            markdown_part = process_markdown_part(page, markdown_part, page_links, full_pattern, nil, nil, false)
+            # Content inside of Markdown blocks
+
+            if is_modifiable_markdown_part?(markdown_part)
+              # puts "\nmarkdown_index: " + markdown_index.to_s + "\n" + (markdown_index.even? ? "NOT " : "") + "markdown_part: " + markdown_part
+              # NOTE: The differences in the patter is intentional, allowing empty part on both sides of | allows the same flow inside process_markdown_part
+              full_pattern = /(\[\[)(.*?(?<!\\)\|.*?)(\]\])/
+              markdown_part = process_markdown_part(page, markdown_part, page_links, full_pattern, nil, nil, false)
+            end
           end
 
           #puts "new markdown_part: " + markdown_part
@@ -294,7 +345,7 @@ module Jekyll
           page_id = yaml_content['id']
           page_url = yaml_content['url']
           page_title = yaml_content['title']
-          chars_to_remove = %{"'} #!?.:;}
+          chars_to_remove = %{"'}
           page_title = page_title.gsub(/\A[#{Regexp.escape(chars_to_remove)}]+|[#{Regexp.escape(chars_to_remove)}]+\z/, '')
           #puts "page_title: " + page_title
           if page_title.length == 0
@@ -418,7 +469,7 @@ $JekyllTooltipGen_nav_links = nil
 $JekyllTooltipGen_should_build_tooltips = nil
 $JekyllTooltipGen_should_build_persistent_tooltips = nil
 
-# 1st pass
+# 2nd pass (1st pass is/must be generate_links.rb)
 #
 # This is used now to
 #       - set the page nav_ndx correctly to support our custom bottom collection elements navigator
@@ -470,7 +521,7 @@ Jekyll::Hooks.register :site, :pre_render do |site|
   end
 end
 
-# 2nd pass
+# 3rd pass
 #
 # This is used now to
 #     - render the page content manually and create the autolinks and tooltips
