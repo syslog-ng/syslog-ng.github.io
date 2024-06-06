@@ -1,6 +1,6 @@
 ---
 title: syslog-ng-otlp() destination options 
-id: adm-dest-optel-opt
+id: adm-dest-sng-otlp-opt
 ---
 
 The following options are available for the `syslog-ng-otlp()` destination.
