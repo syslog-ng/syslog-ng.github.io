@@ -1,6 +1,8 @@
 ---
 title: Configuring TLS on the {{ site.product.short_name }} server
 id: adm-tls-server-conf
+description: >-
+	This chapter describes how to configure TLS on {{ site.product.short_name }} servers.
 ---
 
 ## Purpose
