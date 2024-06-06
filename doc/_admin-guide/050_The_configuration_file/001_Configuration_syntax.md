@@ -1,6 +1,9 @@
 ---
 title: The configuration syntax in detail
 id: adm-conf-syn
+description: >-
+	This chapter describes the configuration syntax of {{ site.product.short_name }}, with configuration
+	examples.
 ---
 
 Every {{ site.product.short_name }} configuration file must begin with a line containing the
