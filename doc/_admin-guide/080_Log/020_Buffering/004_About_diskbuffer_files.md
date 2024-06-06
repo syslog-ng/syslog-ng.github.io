@@ -1,6 +1,8 @@
 ---
 title: About disk queue files
 id: adm-log-diskbuff-about
+description: >-
+	This section describes disk queue files in {{ site.product.short_name }}.
 ---
 
 ## Normal and reliable queue files

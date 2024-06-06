@@ -1,6 +1,8 @@
 ---
 title: Filter functions
 id: adm-log-filters-functions
+description: >-
+	This section describes filter functions in {{ site.product.short_name }}.
 ---
 
 The following functions may be used in the filter statement, as

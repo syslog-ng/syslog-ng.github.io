@@ -1,6 +1,8 @@
 ---
 title: Enabling reliable disk-based buffering
 id: adm-log-diskbuff-reliable
+description: >-
+	This section describes how to enable reliable disk-based buffering in {{ site.product.short_name }}.
 ---
 
 To enable reliable disk-based buffering, use the

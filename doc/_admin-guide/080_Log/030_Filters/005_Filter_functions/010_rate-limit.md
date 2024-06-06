@@ -1,6 +1,8 @@
 ---
 title: rate-limit()
 id: adm-log-filters-ratelimit
+description: >-
+	This section describes rate-limit() filter function in {{ site.product.short_name }}.
 ---
 
 *Synopsis:* rate-limit(template(${HOST}) rate(5000))
