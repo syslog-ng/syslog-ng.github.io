@@ -215,6 +215,9 @@ kramdown:
 atom_feed:
   hide: true
 
+twitter:
+  username: sngOSE
+
 # https://jch.penibelst.de/
 compress_html:
   profile: true
