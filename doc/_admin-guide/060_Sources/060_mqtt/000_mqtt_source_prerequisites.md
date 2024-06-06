@@ -1,6 +1,8 @@
 ---
 title: Prerequisites to using the mqtt() source
 id: adm-src-mqtt-pre
+description: >-
+	In this chapter you can read about the prerequisites of using the mqtt() source in {{ site.product.short_name }}.
 ---
 
 Using the current implementation of the mqtt() source has the

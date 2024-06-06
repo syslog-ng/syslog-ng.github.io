@@ -1,6 +1,8 @@
 ---
 title: syslog-ng-otlp() source options
 id: adm-src-otlp-opt
+description: >-
+	This section describes the options of the syslog-ng-otlp() source in {{ site.product.short_name }}.
 ---
 
 The following options are available for the `syslog-ng-otlp()` source.

@@ -3,7 +3,7 @@ title: 'OpenTelemetry source'
 short_title: OpenTelemetry
 id: adm-src-optel
 description: >-
-    In syslog-ng OSE 4.3 and later versions it is possible to collect logs, metrics and traces from OpenTelemetry clients. For more information see the OpenTelemetry Protocol (OTLP/gRPC).
+    In {{ site.product.short_name }} 4.3 and later versions it is possible to collect logs, metrics and traces from OpenTelemetry clients. For more information see the OpenTelemetry Protocol (OTLP/gRPC).
 ---
 
 In the example below, an OpenTelemetry source and destination are defined. The incoming data is forwarded to a receiver.

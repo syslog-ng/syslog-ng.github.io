@@ -1,6 +1,8 @@
 ---
 title: osquery() source options
 id: adm-src-osquery-opt
+description: >-
+	This section describes the options of the osquery() source in {{ site.product.short_name }}.
 ---
 
 The osquery() driver has the following options.

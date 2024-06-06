@@ -4,6 +4,8 @@ python_class: MyPythonSource
 class_type: source
 time_reopen: '1'
 id: adm-src-python-opt
+description: >-
+	This section describes the options of the python() and python-fetcher() sources in {{ site.product.short_name }}.
 ---
 
 The python() and python-fetcher() drivers have the following options.

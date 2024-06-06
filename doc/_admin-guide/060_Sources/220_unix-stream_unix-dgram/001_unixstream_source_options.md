@@ -3,6 +3,8 @@ title: unix-stream() and unix-dgram() source options
 max_conn_default: '256'
 perm: '0666'
 id: adm-src-unix-opt
+description: >-
+	This section describes the options of the unix-stream() and unix-dgram() sources in {{ site.product.short_name }}.
 ---
 
 These two drivers behave similarly: they open an AF_UNIX socket and
