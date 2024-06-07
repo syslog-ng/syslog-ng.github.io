@@ -2,17 +2,15 @@
 title: 'Element: examples'
 short_title: examples
 id: adm-parser-db-elem-examples
+description: >-
+	A container element for sample log messages that should be
+	recognized by the pattern. These messages can be used also to test the
+	patterns and the parsers. (optional)
 ---
 
 ## Location
 
 / patterndb / ruleset / rules / rule / patterns / examples
-
-## Description
-
-OPTIONAL --- A container element for sample log messages that should be
-recognized by the pattern. These messages can be used also to test the
-patterns and the parsers.
 
 ## Attributes
 

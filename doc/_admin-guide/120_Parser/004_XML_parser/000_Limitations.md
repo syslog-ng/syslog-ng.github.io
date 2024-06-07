@@ -1,6 +1,8 @@
 ---
 title: Limitations of the XML parsers
 id: adm-parser-xml-lim
+description: >-
+	This section describes the limitations of the xml-parser() in {{ site.product.short_name }}.
 ---
 
 The XML parser comes with certain limitations.

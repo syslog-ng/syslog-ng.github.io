@@ -2,9 +2,9 @@
 title: OpenTelemetry parser
 parser: OpenTelemetry
 id: adm-parser-optel
+description: >-
+	The {{ site.product.short_name }} application does not parse the fields of the incoming messages into name-value pairs. It is only capable of forwarding messages using the OpenTelemetry destination. To parse the fields into name-value pairs, use the `opentelemetry()` parser.
 ---
-
-The syslog-ng OSE application does not parse the fields of the incoming messages into name-value pairs. It is only capable of forwarding messages using the `opentelemetry()` destination. To parse the fields into name-value pairs, use the `opentelemetry()` parser.
 
 This parser parses the fields into name-value pairs starting with the `.otel.` prefix.
 

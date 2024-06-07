@@ -1,6 +1,8 @@
 ---
 title: Using pattern databases
 id: adm-parser-db-patterndb
+description: >-
+	This section describes how to use pattern databases in {{ site.product.short_name }}.
 ---
 
 To classify messages using a pattern database, include a db-parser()

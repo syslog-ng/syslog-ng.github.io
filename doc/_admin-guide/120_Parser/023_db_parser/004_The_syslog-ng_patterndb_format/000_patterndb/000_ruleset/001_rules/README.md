@@ -2,15 +2,13 @@
 title: 'Element: rules'
 short_title: rules
 id: adm-parser-db-elem-rules
+description: >-
+	A container element for the rules of the ruleset.
 ---
 
 ## Location
 
 / patterndb / ruleset / rules
-
-## Description
-
-A container element for the rules of the ruleset.
 
 ## Attributes
 

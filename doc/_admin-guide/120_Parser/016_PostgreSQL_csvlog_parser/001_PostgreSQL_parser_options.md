@@ -1,6 +1,8 @@
 ---
 title: PostgreSQL csvlog parser options
 id: adm-parser-postgresql-opt
+description: >-
+	This section describes the options of the postgresql-csvlog-parser() in {{ site.product.short_name }}.
 ---
 
 The postgresql-csvlog-parser() has the following options:
