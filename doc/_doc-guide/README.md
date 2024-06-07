@@ -7,7 +7,7 @@ id: doc-guide
 ## How to contribute to the documentation
 
  1. If you do not already have a GitHub account, create one.
- 2. Fork the repository on GitHub (preferably, from the master branch)
+ 2. [[Fork the repository on GitHub|gh-syslog-ng-doc]] (preferably, from the master branch)
  3. Create a branch that will store your contribution, for example, `git checkout -b my-typo-fixes`
  4. Find the part of the source that you want to modify. The easiest thing is to search for a specific text using grep, regexxer, or a similar tool.
  5. If you modify a file in the `_includes/doc/` directory, it is probably included to multiple parts of the documentation. Make sure that your changes make sense in each context.
