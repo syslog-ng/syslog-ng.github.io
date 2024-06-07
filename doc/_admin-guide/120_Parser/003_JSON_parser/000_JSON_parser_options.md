@@ -2,7 +2,7 @@
 title: Options of JSON parsers
 id: adm-parser-json-opt
 description: >-
-	This section describes the options of the json-parser() in {{ site.product.short_name }}.
+    This section describes the options of the json-parser() in {{ site.product.short_name }}.
 ---
  
 The JSON parser has the following options.

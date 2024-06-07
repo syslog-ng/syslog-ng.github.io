@@ -3,7 +3,7 @@ title: file() destination options
 d_flags: 'no-multi-line, syslog-protocol, threaded'
 id: adm-dest-file-opt
 description: >-
-	This section describes the options of the file() destination in {{ site.product.short_name }}.
+    This section describes the options of the file() destination in {{ site.product.short_name }}.
 ---
 
 The file() destination has the following options:

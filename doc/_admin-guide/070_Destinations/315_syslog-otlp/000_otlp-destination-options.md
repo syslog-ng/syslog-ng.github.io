@@ -2,7 +2,7 @@
 title: syslog-ng-otlp() destination options 
 id: adm-dest-sng-otlp-opt
 description: >-
-	This section describes the options of the syslog-ng-otlp() destination in {{ site.product.short_name }}.
+    This section describes the options of the syslog-ng-otlp() destination in {{ site.product.short_name }}.
 ---
 
 The following options are available for the `syslog-ng-otlp()` destination.

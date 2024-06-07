@@ -2,7 +2,7 @@
 title: kubernetes() source options
 id: adm-src-k8s-opt
 description: >-
-	This section describes the options of the kubernetes() source in {{ site.product.short_name }}.
+    This section describes the options of the kubernetes() source in {{ site.product.short_name }}.
 ---
 
 The kubernetes() source has the following options:

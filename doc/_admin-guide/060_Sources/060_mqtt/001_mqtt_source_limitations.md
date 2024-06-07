@@ -2,7 +2,7 @@
 title: Limitations to using the mqtt() source
 id: adm-src-mqtt-lim
 description: >-
-	In this chapter you can read about the limitations of the mqtt() source in {{ site.product.short_name }}.
+    In this chapter you can read about the limitations of the mqtt() source in {{ site.product.short_name }}.
 ---
 
 Using the mqtt() source of {{ site.product.short_name }} has the following limitations:

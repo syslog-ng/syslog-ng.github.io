@@ -2,7 +2,7 @@
 title: pipe() destination options
 id: adm-dest-pipe-opt
 description: >-
-	This section describes the options of the pipe() destination in {{ site.product.short_name }}.
+    This section describes the options of the pipe() destination in {{ site.product.short_name }}.
 ---
 
 This driver sends messages to a named pipe like /dev/xconsole.

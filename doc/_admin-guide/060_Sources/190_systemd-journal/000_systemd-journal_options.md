@@ -5,7 +5,7 @@ priority_default: 'notice'
 src: 'systemd-journal()'
 id: adm-src-systemd-journal-opt
 description: >-
-	This section describes the options of the systemd-journal() source in {{ site.product.short_name }}.
+    This section describes the options of the systemd-journal() source in {{ site.product.short_name }}.
 ---
 
 The systemd-journal() driver has the following options:

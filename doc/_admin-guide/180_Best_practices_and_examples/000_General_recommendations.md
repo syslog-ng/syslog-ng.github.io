@@ -2,8 +2,8 @@
 title: General recommendations
 id: adm-pract-general
 description: >-
-	This section provides general tips and recommendations on using
-	{{ site.product.short_name }}. 
+    This section provides general tips and recommendations on using
+    {{ site.product.short_name }}. 
 ---
 
 Some of the recommendations are detailed in the sections below:

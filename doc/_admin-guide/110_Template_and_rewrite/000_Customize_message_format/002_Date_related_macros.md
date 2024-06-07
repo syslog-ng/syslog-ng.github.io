@@ -2,7 +2,7 @@
 title: Date-related macros
 id: adm-temp-date-macro
 description: >-
-	This chapter describes the date-related macros of {{ site.product.short_name }}.
+    This chapter describes the date-related macros of {{ site.product.short_name }}.
 ---
 
 The macros related to the date of the message (for example: ${ISODATE},

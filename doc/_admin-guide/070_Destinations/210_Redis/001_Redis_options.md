@@ -4,7 +4,7 @@ srv: Redis server
 port: '6379'
 id: adm-dest-redis-opt
 description: >-
-	This section describes the options of the redis() destination in {{ site.product.short_name }}.
+    This section describes the options of the redis() destination in {{ site.product.short_name }}.
 ---
 
 The redis() destination has the following options:

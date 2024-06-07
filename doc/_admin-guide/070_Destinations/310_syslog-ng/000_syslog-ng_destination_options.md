@@ -2,7 +2,7 @@
 title: syslog-ng() destination options 
 id: adm-dest-syslogng-opt
 description: >-
-	This section describes the options of the syslog-ng() destination in {{ site.product.short_name }}.
+    This section describes the options of the syslog-ng() destination in {{ site.product.short_name }}.
 ---
 
 The syslog-ng() destination is a special version of the network()

@@ -3,10 +3,10 @@ title: 'Element: patterns'
 short_title: patterns
 id: adm-parser-db-elem-patterns-rule
 description: >-
-	An element containing the patterns of the rule. If a *\<patterns\>*
-	element contains multiple *\<pattern\>* elements, the class of the
-	*\<rule\>* is assigned to every syslog message matching any of the
-	patterns.
+    An element containing the patterns of the rule. If a *\<patterns\>*
+    element contains multiple *\<pattern\>* elements, the class of the
+    *\<rule\>* is assigned to every syslog message matching any of the
+    patterns.
 ---
 
 ## Location

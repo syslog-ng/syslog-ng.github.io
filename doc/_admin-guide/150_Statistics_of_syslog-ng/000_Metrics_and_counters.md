@@ -2,7 +2,7 @@
 title: Metrics and counters of {{ site.product.short_name }}
 id: adm-stats-metrics
 description: >-
-	This section describes how to display metrics in {{ site.product.short_name }}.
+    This section describes how to display metrics in {{ site.product.short_name }}.
 ---
 
 You can list all active metrics on your {{ site.product.short_name }} host using the

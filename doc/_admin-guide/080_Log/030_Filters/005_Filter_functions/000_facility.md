@@ -2,7 +2,7 @@
 title: facility()
 id: adm-log-filters-facility
 description: >-
-	This section describes facility() filter function in {{ site.product.short_name }}.
+    This section describes facility() filter function in {{ site.product.short_name }}.
 ---
 
 *Synopsis:* facility(\<facility-name\>) or facility(\<facility-code\>) or facility(\<facility-name\>..\<facility-name\>)

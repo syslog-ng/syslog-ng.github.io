@@ -2,8 +2,8 @@
 title: Notes about the configuration syntax
 id: adm-conf-syn-notes
 description: >-
-	Things to consider when editing a {{ site.product.short_name }}
-	configuration file. 
+    Things to consider when editing a {{ site.product.short_name }}
+    configuration file. 
 ---
 
 When you are editing the {{ site.product.short_name }} configuration file, note the

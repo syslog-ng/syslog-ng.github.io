@@ -2,7 +2,7 @@
 title: Options of add-contextual-data()
 id: adm-enrich-add-contextual-data-opt
 description: >-
-	This section describes the options of add-contextual-data() in {{ site.product.short_name }}.
+    This section describes the options of add-contextual-data() in {{ site.product.short_name }}.
 ---
 
 The add-contextual-data() has the following options.

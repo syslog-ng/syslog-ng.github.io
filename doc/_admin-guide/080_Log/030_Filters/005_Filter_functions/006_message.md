@@ -2,7 +2,7 @@
 title: message()
 id: adm-log-filters-message
 description: >-
-	This section describes message() filter function in {{ site.product.short_name }}.
+    This section describes message() filter function in {{ site.product.short_name }}.
 ---
 
 *Synopsis:* message(regexp)

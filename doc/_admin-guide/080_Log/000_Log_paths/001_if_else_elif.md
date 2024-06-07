@@ -3,7 +3,7 @@ title: 'if-else-elif: Conditional expressions'
 short_title: if-else-elif - Conditional expressions
 id: adm-log-cond
 description: >-
-	This section describes how to use conditional expressions in {{ site.product.short_name }} configs.
+    This section describes how to use conditional expressions in {{ site.product.short_name }} configs.
 ---
 
 You can use **if {}**, **elif {}**, and **else {}** blocks to configure

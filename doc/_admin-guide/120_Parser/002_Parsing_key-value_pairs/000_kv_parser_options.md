@@ -4,7 +4,7 @@ parser: kv-parser
 prefix: kv
 id: adm-parser-kv-opt
 description: >-
-	This section describes the options of the kv-parser() in {{ site.product.short_name }}.
+    This section describes the options of the kv-parser() in {{ site.product.short_name }}.
 ---
 
 The kv-parser has the following options.

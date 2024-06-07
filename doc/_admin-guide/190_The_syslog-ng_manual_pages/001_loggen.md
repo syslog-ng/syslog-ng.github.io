@@ -3,7 +3,7 @@ title: The loggen manual page
 app: loggen
 id: adm-man-loggen
 description: >-
-	loggen --- Generate syslog messages at a specified rate
+    loggen --- Generate syslog messages at a specified rate
 ---
 
 ## Synopsis
@@ -175,7 +175,7 @@ statistics:
 
     Use the new IETF-syslog message format. By
     default, loggen uses the legacy BSD-syslog message format.
-	See also the \--no-framing option.
+    See also the \--no-framing option.
 
 - \--unix \</path/to/socket\> or -x \</path/to/socket\>
 

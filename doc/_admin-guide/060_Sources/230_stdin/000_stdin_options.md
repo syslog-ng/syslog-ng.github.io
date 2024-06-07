@@ -3,7 +3,7 @@ title: stdin() source options
 src: 'stdin'
 id: adm-src-stdin-opt
 description: >-
-	This section describes the options of the stdin() source in {{ site.product.short_name }}.
+    This section describes the options of the stdin() source in {{ site.product.short_name }}.
 ---
 
 The stdin() driver has the following options:

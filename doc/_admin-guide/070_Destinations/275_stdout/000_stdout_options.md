@@ -2,7 +2,7 @@
 title: stdout() options
 id: adm-opt-stdout
 description: >-
-	This section describes the options of the sql() destination in {{ site.product.short_name }}.
+    This section describes the options of the sql() destination in {{ site.product.short_name }}.
 ---
 
 The following options are available for an stdout destiantion.

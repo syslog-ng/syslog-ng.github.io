@@ -3,7 +3,7 @@ title: 'Element: example'
 short_title: example
 id: adm-parser-db-elem-example
 description: >-
-	A container element for a sample log message. (optional)
+    A container element for a sample log message. (optional)
 ---
 
 ## Location

@@ -2,8 +2,8 @@
 title: Customize message format using macros and templates
 id: adm-temp-custom
 description: >-
-	The following sections describe how to customize the names of logfiles,
-	and also how to use templates, macros, and template functions in {{ site.product.short_name }}.
+    The following sections describe how to customize the names of logfiles,
+    and also how to use templates, macros, and template functions in {{ site.product.short_name }}.
 ---
 
 - Formatting messages, filenames, directories, and tablenames

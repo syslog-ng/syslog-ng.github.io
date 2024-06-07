@@ -3,7 +3,7 @@ title: Configuring Microsoft SQL Server to accept logs from {{ site.product.shor
 short_title: Configuring MSSQL Server
 id: adm-inst-mssql
 description: >-
-	This chapter explains how to configure an MSSQL Server to work with {{ site.product.short_name }}.
+    This chapter explains how to configure an MSSQL Server to work with {{ site.product.short_name }}.
 ---
 
 {% assign crumb = page.url | split: '/' %}

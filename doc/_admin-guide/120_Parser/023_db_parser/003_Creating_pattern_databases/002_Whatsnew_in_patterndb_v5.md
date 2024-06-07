@@ -2,7 +2,7 @@
 title: "What's new in the {{ site.product.short_name }} pattern database format V5"
 id: adm-parser-db-whatsnew
 description: >-
-	This section describes the differences of V5 and V4 pattern database format in {{ site.product.short_name }}.
+    This section describes the differences of V5 and V4 pattern database format in {{ site.product.short_name }}.
 ---
 
 The V5 database format has the following differences compared to the V4

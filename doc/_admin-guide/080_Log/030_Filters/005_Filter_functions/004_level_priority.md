@@ -2,7 +2,7 @@
 title: level() or priority()
 id: adm-log-filters-level
 description: >-
-	This section describes level() filter function in {{ site.product.short_name }}.
+    This section describes level() filter function in {{ site.product.short_name }}.
 ---
 
 *Synopsis:* level(\<priority-level\>) or level(\<priority-level\>..\<priority-level\>)

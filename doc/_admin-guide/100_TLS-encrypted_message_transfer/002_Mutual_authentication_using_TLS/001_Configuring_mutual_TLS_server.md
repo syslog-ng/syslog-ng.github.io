@@ -2,7 +2,7 @@
 title: Configuring {{ site.product.short_name }} servers with mutual authentication
 id: adm-tls-server-conf-mutual
 description: >-
-	This chapter describes how to configure TLS on {{ site.product.short_name }} servers with mutual authentication
+    This chapter describes how to configure TLS on {{ site.product.short_name }} servers with mutual authentication
 ---
 
 ## Purpose

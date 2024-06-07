@@ -2,7 +2,7 @@
 title: graylog2() destination options
 id: adm-dest-graylog-opt
 description: >-
-	This section describes the options of the graylog2() destination in {{ site.product.short_name }}.
+    This section describes the options of the graylog2() destination in {{ site.product.short_name }}.
 ---
 
 The graylog2() destination has the following options:

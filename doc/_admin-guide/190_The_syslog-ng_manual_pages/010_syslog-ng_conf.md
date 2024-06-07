@@ -2,7 +2,7 @@
 title: The syslog-ng.conf manual page
 id: adm-man-syslogng-conf
 description: >-
-	syslog-ng.conf --- {{ site.product.short_name }} configuration file
+    syslog-ng.conf --- {{ site.product.short_name }} configuration file
 ---
 
 ## Synopsis

@@ -2,7 +2,7 @@
 title: Error messages
 id: adm-debug-err
 description: >-
-	This section describes the most common error messages of {{ site.product.short_name }}.
+    This section describes the most common error messages of {{ site.product.short_name }}.
 ---
 
 ## Destination queue full

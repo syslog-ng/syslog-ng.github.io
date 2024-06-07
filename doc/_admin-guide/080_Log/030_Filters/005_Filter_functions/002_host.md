@@ -2,7 +2,7 @@
 title: host()
 id: adm-log-filters-host
 description: >-
-	This section describes host() filter function in {{ site.product.short_name }}.
+    This section describes host() filter function in {{ site.product.short_name }}.
 ---
 
 *Synopsis:* host(regexp)

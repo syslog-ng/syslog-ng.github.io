@@ -2,7 +2,7 @@
 title: telegram() destination options
 id: adm-dest-telegram-opt
 description: >-
-	This section describes the options of the telegram() destination in {{ site.product.short_name }}.
+    This section describes the options of the telegram() destination in {{ site.product.short_name }}.
 ---
 
 The telegram() destination has the following options:

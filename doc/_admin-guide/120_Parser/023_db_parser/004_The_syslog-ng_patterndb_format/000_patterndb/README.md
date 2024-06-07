@@ -3,7 +3,7 @@ title: 'Element: patterndb'
 short_title: patterndb
 id: adm-parser-db-elem-patterndb
 description: >-
-	The container element of the pattern database.
+    The container element of the pattern database.
 ---
 
 ## Location

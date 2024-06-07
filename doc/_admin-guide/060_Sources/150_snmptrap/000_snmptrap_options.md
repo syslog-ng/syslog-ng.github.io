@@ -4,7 +4,7 @@ fn_source: snmptrapd
 fn_logs: traps
 id: adm-src-snmp-opt
 description: >-
-	This section describes the options of the snmptrap() source in {{ site.product.short_name }}.
+    This section describes the options of the snmptrap() source in {{ site.product.short_name }}.
 ---
 
 The snmptrap() driver has the following options. Only the filename()

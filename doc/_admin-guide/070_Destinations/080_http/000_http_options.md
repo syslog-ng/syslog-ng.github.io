@@ -2,7 +2,7 @@
 title: HTTP destination options
 id: adm-dest-http-opt
 description: >-
-	This section describes the options of the Java-based http() destination in {{ site.product.short_name }}.
+    This section describes the options of the Java-based http() destination in {{ site.product.short_name }}.
 ---
 
 The http destination of {{ site.product.short_name }} can directly post log messages to

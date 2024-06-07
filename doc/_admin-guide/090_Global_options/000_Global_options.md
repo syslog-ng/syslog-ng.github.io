@@ -9,8 +9,8 @@ dir_perm: '-1'
 on_error: 'drop-message'
 id: adm-global-opt
 description: >-
-	The following options can be specified in the options statement, as
-	described in Global options of {{ site.product.short_name }}.  
+    The following options can be specified in the options statement, as
+    described in Global options of {{ site.product.short_name }}.  
 ---
 
 ## bad-hostname()

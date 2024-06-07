@@ -3,8 +3,8 @@ title: 'Element: ruleset'
 short_title: ruleset
 id: adm-parser-db-elem-ruleset
 description: >-
-	A container element to group log patterns for an application or program.
-	A \<patterndb\> element may contain any number of \<ruleset\> elements.
+    A container element to group log patterns for an application or program.
+    A \<patterndb\> element may contain any number of \<ruleset\> elements.
 ---
 
 ## Location

@@ -2,7 +2,7 @@
 title: The slogkey manual page
 id: adm-man-slogkey
 description: >-
-	slogkey --- Manages the cryptographic keys for use with the {{ site.product.short_name }} secure logging environment.
+    slogkey --- Manages the cryptographic keys for use with the {{ site.product.short_name }} secure logging environment.
 ---
 
 ## Synopsis

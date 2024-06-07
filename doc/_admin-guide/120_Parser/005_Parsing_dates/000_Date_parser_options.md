@@ -2,7 +2,7 @@
 title: Options of date-parser() parsers
 id: adm-parser-date-opt
 description: >-
-	This section describes the options of the date-parser() in {{ site.product.short_name }}.
+    This section describes the options of the date-parser() in {{ site.product.short_name }}.
 ---
 
 The date-parser() parser has the following options.

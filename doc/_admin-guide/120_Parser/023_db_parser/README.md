@@ -3,7 +3,7 @@ title: 'db-parser: Process message content with a pattern database (patterndb)'
 short_title: db-parser
 id: adm-parser-db
 description: >-
-	This chapter describes the details of the db-parser() in {{ site.product.short_name }}. 
+    This chapter describes the details of the db-parser() in {{ site.product.short_name }}. 
 ---
 
 Classifying log messages  

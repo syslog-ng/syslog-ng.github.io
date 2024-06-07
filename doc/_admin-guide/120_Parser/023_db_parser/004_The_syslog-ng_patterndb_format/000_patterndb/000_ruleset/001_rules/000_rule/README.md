@@ -3,8 +3,8 @@ title: 'Element: rule'
 short_title: rule
 id: adm-parser-db-elem-rule
 description: >-
-	An element containing message patterns and how a message that matches
-	these patterns is classified.
+    An element containing message patterns and how a message that matches
+    these patterns is classified.
 ---
 
 ## Location

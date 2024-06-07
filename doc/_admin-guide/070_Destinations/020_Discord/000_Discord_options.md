@@ -4,7 +4,7 @@ batch_timeout: 'none'
 throttle: '5'
 id: adm-dest-discord-opt
 description: >-
-	This section describes the options of the discord() destination in {{ site.product.short_name }}.
+    This section describes the options of the discord() destination in {{ site.product.short_name }}.
 ---
 
 The discord() destination has the following options:

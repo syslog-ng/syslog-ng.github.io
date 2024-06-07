@@ -3,7 +3,7 @@ title: Cisco parser
 parser: cisco
 id: adm-parser-cisco
 description: >-
-	The Cisco parser can parse the log messages of various Cisco devices.
+    The Cisco parser can parse the log messages of various Cisco devices.
 ---
 
 {% include doc/admin-guide/parser-intro.md %}

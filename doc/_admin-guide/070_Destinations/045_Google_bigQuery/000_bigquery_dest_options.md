@@ -2,7 +2,7 @@
 title: 'bigquery() destination options'
 id: adm-dest-bigquery-opt
 description: >-
-	This section describes the options of the Google bigquery() destination in {{ site.product.short_name }}.
+    This section describes the options of the Google bigquery() destination in {{ site.product.short_name }}.
 ---
 
 The Google bigquery() destination has the following options:

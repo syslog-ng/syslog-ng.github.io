@@ -3,8 +3,8 @@ title: 'Element: action'
 short_title: action
 id: adm-parser-db-elem-action
 description: >-
-	A container element describing an action that is performed
-	when a message matching the rule is received. (optional)
+    A container element describing an action that is performed
+    when a message matching the rule is received. (optional)
 ---
 
 ## Location

@@ -3,7 +3,7 @@ title: 'Element: rules'
 short_title: rules
 id: adm-parser-db-elem-rules
 description: >-
-	A container element for the rules of the ruleset.
+    A container element for the rules of the ruleset.
 ---
 
 ## Location

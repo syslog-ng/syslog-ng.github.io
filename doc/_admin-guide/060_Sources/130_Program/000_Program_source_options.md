@@ -2,7 +2,7 @@
 title: program() source options
 id: adm-src-prog-opt
 description: >-
-	This section describes the options of the program() source in {{ site.product.short_name }}.
+    This section describes the options of the program() source in {{ site.product.short_name }}.
 ---
 
 {% include doc/admin-guide/options/source-flags.md %}

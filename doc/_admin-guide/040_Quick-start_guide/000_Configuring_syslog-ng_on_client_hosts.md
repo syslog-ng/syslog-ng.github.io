@@ -2,7 +2,7 @@
 title: Configuring {{ site.product.short_name }} on client hosts
 id: adm-qs-client-conf
 description: >-
-	This section explains how to configure {{ site.product.short_name }} on a client host.
+    This section explains how to configure {{ site.product.short_name }} on a client host.
 ---
 
 To configure {{ site.product.short_name }} on a client host, complete the following steps.

@@ -3,7 +3,7 @@ title: default-network-drivers() source options
 max_conn_default: 10
 id: adm-src-def-netw-opt
 description: >-
-	This section describes the options of the default-network-drivers() source in {{ site.product.short_name }}.
+    This section describes the options of the default-network-drivers() source in {{ site.product.short_name }}.
 ---
 
 The default-network-drivers() source has the following options.

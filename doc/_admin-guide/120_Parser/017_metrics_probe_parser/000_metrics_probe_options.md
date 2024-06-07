@@ -2,7 +2,7 @@
 title: 'metrics-probe options'
 id: adm-parser-metrics-opt
 description: >-
-	This section describes the options of the metrics-probe() parser in {{ site.product.short_name }}.
+    This section describes the options of the metrics-probe() parser in {{ site.product.short_name }}.
 ---
 
 ## increment()

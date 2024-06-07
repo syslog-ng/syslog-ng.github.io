@@ -2,7 +2,7 @@
 title: osquery() destination options
 id: adm-dest-osquery-opt
 description: >-
-	This section describes the options of the osquery() destination in {{ site.product.short_name }}.
+    This section describes the options of the osquery() destination in {{ site.product.short_name }}.
 ---
 
 The osquery() destination has the following options:

@@ -2,7 +2,7 @@
 title: source()
 id: adm-log-filters-source
 description: >-
-	This section describes source() filter function in {{ site.product.short_name }}.
+    This section describes source() filter function in {{ site.product.short_name }}.
 ---
 
 *Synopsis:* source id

@@ -2,7 +2,7 @@
 title: Limitations to using the mqtt() destination
 id: adm-dest-mqtt-lim
 description: >-
-	In this chapter you can read about the limitations of the mqtt() destination in {{ site.product.short_name }}.
+    In this chapter you can read about the limitations of the mqtt() destination in {{ site.product.short_name }}.
 ---
 
 Using the mqtt() destination of {{ site.product.short_name }} has the following

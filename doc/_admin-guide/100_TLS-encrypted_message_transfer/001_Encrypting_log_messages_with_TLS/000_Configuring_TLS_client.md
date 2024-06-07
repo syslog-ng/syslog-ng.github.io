@@ -2,7 +2,7 @@
 title: Configuring TLS on the {{ site.product.short_name }} clients
 id: adm-tls-client-conf
 description: >-
-	This chapter describes how to configure TLS on {{ site.product.short_name }} clients
+    This chapter describes how to configure TLS on {{ site.product.short_name }} clients
 ---
 
 ## Purpose

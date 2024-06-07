@@ -3,8 +3,8 @@ title: 'Example use case: using the ${DESTIP}, the ${DESTPORT}, and the ${PROTO}
 short_title: Example use case
 id: adm-temp-example
 description: >-
-	This section describes scenarios when One Identity recommends using the
-	${DESTIP}, the ${DESTPORT}, and the ${PROTO} macros.
+    This section describes scenarios when One Identity recommends using the
+    ${DESTIP}, the ${DESTPORT}, and the ${PROTO} macros.
 ---
 
 Using the ${DESTIP}, the ${DESTPORT}, and the ${PROTO} macros is relevant

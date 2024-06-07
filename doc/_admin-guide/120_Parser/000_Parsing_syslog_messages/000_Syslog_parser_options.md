@@ -2,7 +2,7 @@
 title: Options of syslog-parser() parsers
 id: adm-parser-opt
 description: >-
-	This section describes the options of the syslog-parser() in {{ site.product.short_name }}.
+    This section describes the options of the syslog-parser() in {{ site.product.short_name }}.
 ---
 
 The syslog-parser() has the following options:

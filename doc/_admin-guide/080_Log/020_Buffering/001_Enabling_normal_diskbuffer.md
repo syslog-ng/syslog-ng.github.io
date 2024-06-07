@@ -2,7 +2,7 @@
 title: Enabling normal disk-based buffering
 id: adm-log-diskbuff-normal
 description: >-
-	This section describes how to enable normal disk-based buffering in {{ site.product.short_name }}.
+    This section describes how to enable normal disk-based buffering in {{ site.product.short_name }}.
 ---
 
 If the reliable() option is not set, by default a normal disk-buffer is

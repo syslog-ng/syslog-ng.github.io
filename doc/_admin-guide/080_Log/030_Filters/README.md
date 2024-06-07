@@ -2,7 +2,7 @@
 title: Filters
 id: adm-log-filters
 description: >-
-	The following sections describe how to select and filter log messages in {{ site.product.short_name }}.
+    The following sections describe how to select and filter log messages in {{ site.product.short_name }}.
 ---
 
 - Using filters describes how to configure and use filters.

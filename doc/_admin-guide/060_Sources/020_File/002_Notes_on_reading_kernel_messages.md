@@ -2,7 +2,7 @@
 title: Notes on reading kernel messages
 id: adm-src-file-note
 description: >-
-	This section describes things to consider when reading kernel messages from various platforms.
+    This section describes things to consider when reading kernel messages from various platforms.
 ---
 
 Please note the following points:

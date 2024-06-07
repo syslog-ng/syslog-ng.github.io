@@ -2,7 +2,7 @@
 title: Global objects
 id: adm-conc-glob
 description: >-
-	This section explains some basic terminology used in {{ site.product.short_name }}. 
+    This section explains some basic terminology used in {{ site.product.short_name }}. 
 ---
 
 ## Source driver

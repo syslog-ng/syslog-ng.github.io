@@ -2,7 +2,7 @@
 title: The way {{ site.product.short_name }} interacts with the database
 id: adm-dest-sql-interact
 description: >-
-	This section describes the way {{ site.product.short_name }} interacts with the database.
+    This section describes the way {{ site.product.short_name }} interacts with the database.
 ---
 
 ## Used SQL operations by syslog-ng

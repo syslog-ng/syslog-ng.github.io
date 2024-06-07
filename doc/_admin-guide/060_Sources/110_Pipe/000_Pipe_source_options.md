@@ -2,7 +2,7 @@
 title: pipe() source options
 id: adm-src-pipe-opt
 description: >-
-	This section describes the options of the pipe() source in {{ site.product.short_name }}.
+    This section describes the options of the pipe() source in {{ site.product.short_name }}.
 ---
 
 The pipe driver has the following options:

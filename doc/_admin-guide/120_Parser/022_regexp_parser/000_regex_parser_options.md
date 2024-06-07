@@ -2,7 +2,7 @@
 title: Options of Regular expression parsers
 id: adm-parser-regexp-opt
 description: >-
-	This section describes the options of the regexp-parser() in {{ site.product.short_name }}.
+    This section describes the options of the regexp-parser() in {{ site.product.short_name }}.
 ---
 
 The Regular expression parser has the following options.

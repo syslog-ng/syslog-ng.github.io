@@ -3,7 +3,7 @@ title: HTTP-nonjava destination options
 batch_timeout: 'none'
 id: adm-dest-http-nonjava-opt
 description: >-
-	This section describes the options of the http() destination in {{ site.product.short_name }}.
+    This section describes the options of the http() destination in {{ site.product.short_name }}.
 ---
 
 The http destination of {{ site.product.short_name }} can directly post log messages to

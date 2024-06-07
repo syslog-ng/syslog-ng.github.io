@@ -2,7 +2,7 @@
 title: Compiling options of {{ site.product.short_name }}
 id: adm-inst-compopt
 description: >-
-	This chapter describes the compiling options of {{ site.product.short_name }}.
+    This chapter describes the compiling options of {{ site.product.short_name }}.
 ---
 
 When compiling {{ site.product.short_name }} from source, you can use the following

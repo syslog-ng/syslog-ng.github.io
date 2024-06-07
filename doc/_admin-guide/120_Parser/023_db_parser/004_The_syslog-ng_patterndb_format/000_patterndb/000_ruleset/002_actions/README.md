@@ -3,9 +3,9 @@ title: 'Element: actions'
 short_title: actions
 id: adm-parser-db-elem-actions
 description: >-
-	A container element for actions that are performed if a
-	message is recognized by the pattern. For details on actions, see
-	Triggering actions for identified messages. (optional)
+    A container element for actions that are performed if a
+    message is recognized by the pattern. For details on actions, see
+    Triggering actions for identified messages. (optional)
 ---
 
 ## Location

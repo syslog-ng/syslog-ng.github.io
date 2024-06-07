@@ -2,7 +2,7 @@
 title: file() source options
 id: adm-src-file-opt
 description: >-
-	This section describes the options of the file() source in {{ site.product.short_name }}.
+    This section describes the options of the file() source in {{ site.product.short_name }}.
 ---
 
 The file() driver has the following options:

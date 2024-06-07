@@ -4,7 +4,7 @@ srv: 'AMQP server'
 port: '5672'
 id: adm-dest-amqp-opt
 description: >-
-	This section describes the options of the amqp() destination in {{ site.product.short_name }}.
+    This section describes the options of the amqp() destination in {{ site.product.short_name }}.
 ---
 
 The amqp() destination has the following options:

@@ -2,7 +2,7 @@
 title: Configuring {{ site.product.short_name }} clients with mutual authentication
 id: adm-tls-client-conf-mutual
 description: >-
-	This chapter describes how to configure TLS on {{ site.product.short_name }} clients with mutual authentication.
+    This chapter describes how to configure TLS on {{ site.product.short_name }} clients with mutual authentication.
 ---
 
 ## Purpose

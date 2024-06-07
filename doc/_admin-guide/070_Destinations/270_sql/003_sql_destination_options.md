@@ -4,7 +4,7 @@ srv: 'database server'
 port: '1433 TCP for MSSQL, 3306 TCP for MySQL, 1521 for Oracle, and 5432 TCP for PostgreSQL'
 id: adm-dest-sql-opt
 description: >-
-	This section describes the options of the sql() destination in {{ site.product.short_name }}.
+    This section describes the options of the sql() destination in {{ site.product.short_name }}.
 ---
 
 This driver sends messages into an SQL database. The sql() destination
