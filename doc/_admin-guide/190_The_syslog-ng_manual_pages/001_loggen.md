@@ -2,11 +2,9 @@
 title: The loggen manual page
 app: loggen
 id: adm-man-loggen
+description: >-
+	loggen --- Generate syslog messages at a specified rate
 ---
-
-## Name
-
-loggen --- Generate syslog messages at a specified rate
 
 ## Synopsis
 

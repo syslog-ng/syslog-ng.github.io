@@ -1,10 +1,12 @@
 ---
 title: Configuring log rotation
 id: adm-pract-rotate
+description: >- 
+	The {{ site.product.short_name }} application does not rotate logs by itself. This chapter
+	describes how to use {{ site.product.short_name }} for log rotation.
 ---
 
-The {{ site.product.short_name }} application does not rotate logs by itself. To use
-{{ site.product.short_name }} for log rotation, consider the following approaches:
+Consider the following approaches:
 
 ## Use logrotate together with {{ site.product.short_name }}
 

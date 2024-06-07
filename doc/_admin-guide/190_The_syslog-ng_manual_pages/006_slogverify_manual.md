@@ -1,11 +1,9 @@
 ---
 title: The slogverify manual page
 id: adm-man-slogver
+description: >-
+	slogverify --- Verifies cryptographically secured logs.
 ---
-
-## Name
-
-`slogverify` --- Verifies cryptographically secured logs.
 
 ## Synopsis
 

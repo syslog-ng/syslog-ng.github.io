@@ -1,12 +1,12 @@
 ---
 title: Collecting logs from chroot
 id: adm-pract-chroot
+description: >-
+	This section describes how to collect logs from a chroot using a {{ site.product.short_name }}
+	client running on the host.
 ---
 
-## Purpose
-
-To collect logs from a chroot using a {{ site.product.short_name }} client running on the
-host, complete the following steps:
+Complete the following steps:
 
 ### Figure 23: Collecting logs from chroot
 

@@ -2,11 +2,9 @@
 title: The syslog-debun manual page
 app: syslog-debun
 id: adm-man-debun
+description: >-
+	syslog-debun --- syslog-ng DEBUg buNdle generator
 ---
-
-## Name
-
-syslog-debun --- syslog-ng DEBUg buNdle generator
 
 ## Synopsis
 

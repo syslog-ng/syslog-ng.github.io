@@ -1,12 +1,10 @@
 ---
 title: The pdbtool manual page
 id: adm-man-pdbtool
+description: >-
+	pdbtool --- An application to test and convert {{ site.product.short_name }} pattern
+	database rules
 ---
-
-## Name
-
-pdbtool --- An application to test and convert {{ site.product.short_name }} pattern
-database rules
 
 ## Synopsis
 

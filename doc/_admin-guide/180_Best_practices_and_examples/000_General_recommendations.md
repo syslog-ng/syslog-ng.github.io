@@ -1,11 +1,12 @@
 ---
 title: General recommendations
 id: adm-pract-general
+description: >-
+	This section provides general tips and recommendations on using
+	{{ site.product.short_name }}. 
 ---
 
-This section provides general tips and recommendations on using
-syslog-ng. Some of the recommendations are detailed in the sections
-below:
+Some of the recommendations are detailed in the sections below:
 
 - Do not base the separation of log messages in different files on the
     facility parameter. As several applications and processes can use
