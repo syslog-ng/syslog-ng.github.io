@@ -1,6 +1,8 @@
 ---
 title: Referencing earlier messages of the context
 id: adm-cor-prev
+description: >-
+	This chapter describes how to reference earlier messages of the context in {{ site.product.short_name }}
 ---
 
 When creating the aggregated message, or in the various parameters of

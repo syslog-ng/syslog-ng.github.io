@@ -2,6 +2,8 @@
 title: Options of geoip2 parsers
 parser: geoip2
 id: adm-enrich-geoip-opt
+description: >-
+	This section describes the options of geoip2() parser in {{ site.product.short_name }}.
 ---
 
 The geoip2 parser has the following options.

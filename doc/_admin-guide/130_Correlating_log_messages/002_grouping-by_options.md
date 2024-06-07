@@ -1,6 +1,8 @@
 ---
 title: Options of grouping-by parsers
 id: adm-cor-grouping-by-opt
+description: >-
+	This section describes the options of the grouping-by() parser in {{ site.product.short_name }}.
 ---
 
 The grouping-by has the following options.
