@@ -108,5 +108,6 @@ group :jekyll_plugins do
     # https://github.com/HofiOne/minimal-mistakes
     #
     gem "jekyll-include-cache"
+	gem "jekyll-github-metadata"
     # gem "github-pages"
 end
