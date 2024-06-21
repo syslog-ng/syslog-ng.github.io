@@ -114,7 +114,7 @@ The following table lists the source drivers available in syslog-ng.
 |internal()|Messages generated internally in syslog-ng.|
 |network()|Receives messages from remote hosts using the BSD-syslog protocol over IPv4 and IPv6. Supports the TCP, UDP, and TLS network protocols.|
 |nodejs()|Receives JSON messages from nodejs applications.|
-|mbox()|Read email messages from local mbox files, and convert them to multiline log messages.|
+|mbox()|Read email messages from local mbox files, and convert them to multi-line log messages.|
 |osquery()|Run osquery queries, and convert their results into log messages.|
 |pacct()|Reads messages from the process accounting logs on Linux.|
 |pipe()|Opens the specified named pipe and reads messages.|

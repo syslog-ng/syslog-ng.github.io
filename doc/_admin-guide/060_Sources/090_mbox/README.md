@@ -4,7 +4,7 @@ short_title: mbox
 id: adm-src-mbox
 description: >-
     Using the mbox() driver, {{ site.product.short_name }} can read email messages from
-    local mbox files, and convert them to multiline log messages.
+    local mbox files, and convert them to multi-line log messages.
 ---
 
 This driver has only one required option, the filename of the mbox file.

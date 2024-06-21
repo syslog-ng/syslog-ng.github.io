@@ -123,7 +123,7 @@ any of the following options:
 
 - Ensure that the XML is a single-line message.
 
-- In the case of multiline XML documents:
+- In the case of multi-line XML documents:
 
   - If the opening and closing tags are fixed and known, you can use
         **multi-line-mode(prefix-suffix)**. Using regular expressions,
