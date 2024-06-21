@@ -92,6 +92,11 @@ sn-docker-log:
   url: https://www.syslog-ng.com/whitepaper/logging-in-docker-using-syslogng8132325/
   title: [ "Logging in Docker using syslog-ng" ]
 
+sn-ml-timeout:
+  id: sn-ml-timeout
+  url: https://www.syslog-ng.com/community/b/blog/posts/multi-line-timeout-making-sure-your-last-multi-line-message-is-not-lost
+  title: [ "Multi-line-timeout: making sure your last multi-line message is not lost"]
+
 sn-ose:
   id: sn-ose
   url: https://syslog-ng.com/
