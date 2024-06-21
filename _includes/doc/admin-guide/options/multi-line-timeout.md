@@ -1,16 +1,13 @@
 ## multi-line-timeout()
 
-|  Type:|      time in seconds|
+|  Type:| number|
 |Default:| N/A|
 
-*Description:*  Specifies the time {{ site.product.short_name }} waits without reading new data from the source, before
-the last (potentially partial) message is flushed and sent through the pipeline as a LogMessage.
+*Description:*  Specifies the time (in seconds) {{ site.product.short_name }} waits without reading new data from the source, before the last (potentially partial) message is flushed and sent through the pipeline as a LogMessage.
 
-Since the multi-line source detects the end of a message after finding the beginning of the subsequent message
-(indented or no-garbage/suffix mode), this option can be used to flush the last multi-line message
-in the file after a multi-line-timeout()-second timeout.
+Since the multi-line source detects the end of a message via finding the beginning of the subsequent message (indented or no-garbage/suffix mode), this option can be used to flush the last multi-line message in the file after a given time.
 
-There is no default value, so it must be explicitly configured. It should be a higher value than follow-freq(), so we recommend to set it to a multiple value of follow-freq().
+There is no default value, so it must be explicitly configured with a value higher than follow-freq(). We recommend it to be set to a multiple of follow-freq().
 
 ### Example: multi-line-timeout()
 
@@ -25,4 +22,4 @@ source s_multi {
 }
 ```
 
-For more details see the blogpost Multi-line-timeout: making sure your last multi-line message is not lost.
+For more details see the blog post Multi-line-timeout: making sure your last multi-line message is not lost.
