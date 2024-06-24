@@ -31,6 +31,8 @@ The pipe driver has the following options:
 
 {% include doc/admin-guide/options/multi-line-suffix.md %}
 
+{% include doc/admin-guide/options/multi-line-timeout.md %}
+
 {% include doc/admin-guide/options/optional.md %}
 
 {% include doc/admin-guide/options/pad-size.md %}
