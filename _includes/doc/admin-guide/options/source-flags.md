@@ -1,6 +1,6 @@
 ## flags()
 
-|Type:| assume-utf8, empty-lines, expect-hostname, kernel, no-hostname, no-multi-line, no-parse, sanitize-utf8, store-legacy-msghdr, store-raw-message, syslog-protocol, validate-utf8|
+|Type:| assume-utf8, empty-lines, expect-hostname, kernel, no-hostname, no-multi-line, no-parse, sanitize-utf8, store-legacy-msghdr, store-raw-message, syslog-protocol, threaded, validate-utf8|
 |Default: |  empty set|
 
 *Description:* Specifies the log parsing options of the source.
@@ -112,6 +112,14 @@
     syslog protocol standard (RFC-5424), but without the frame header.
     Note that this flag is not needed for the syslog driver, which
     handles only messages that have a frame header.
+
+- *threaded*: The threaded flag enables multithreading for the
+    destination. For details on multithreading, see
+    Multithreading and scaling in {{ site.product.short_name }}.
+
+    **NOTE:** The file destination uses multiple threads only if the
+    destination filename contains macros.
+    {: .notice--info}
 
 - *validate-utf8*: The validate-utf8 flag enables
     encoding-verification for messages formatted according to the new
