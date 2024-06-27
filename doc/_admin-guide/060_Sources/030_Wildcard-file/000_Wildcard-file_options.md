@@ -105,16 +105,28 @@ monitor. If the wildcard-file source matches more files than the value
 of the max-files() option, it is random which files will {{ site.product.short_name }}
 actually monitor. The default value of max-files() is 100.
 
+## monitor-freq()
+
+|Type:    | number |
+|Default: | value of follow-freq() |
+
+*Description:* Indicates how frequently changes to the source file creation, move, or deletion should be checked if monitor-method() is set to `poll`.\
+Floating-point numbers (for example, **1.5**) can be used as well. Please note, for backward compatibility reasons, the default value of monitor-freq() is equal to the value of follow-freq().
+
+{% include doc/admin-guide/warnings/file-source-follow-warning.md %}
+
 ## monitor-method()
 
-|Accepted values:|      auto \| inotify \| poll|
-|Default:|   auto|
+|Accepted values:| auto \| inotify \| poll|
+|Default:        | auto |
 
 *Description:* If the platform supports inotify, {{ site.product.short_name }} uses it
-automatically to detect changes to the source files. If inotify is not
-available, {{ site.product.short_name }} polls the files as set in the follow-freq()
-option. To force {{ site.product.short_name }} poll the files even if inotify is
-available, set this option to **poll**.
+automatically to detect creation, move, or deletion of the source files. If inotify is not
+available, {{ site.product.short_name }} polls the above mentioned file changes as set in
+the monitor-freq() option. To force {{ site.product.short_name }} poll the file changes even if
+inotify is available, set this option to **poll**.
+
+{% include doc/admin-guide/warnings/file-source-follow-warning.md %}
 
 {% include doc/admin-guide/options/multi-line-garbage.md %}
 
@@ -154,8 +166,9 @@ source s_file_subdirectories {
         base-dir("/var/log")
         filename-pattern("*.log")
         recursive(yes)
+        monitor-freq(0.5)
         follow-freq(1)
-        log-fetch-limit(100)
+        log-fetch-limit(200)
     );
 };
 ```

@@ -142,8 +142,10 @@ admin-guide-nav:
       subnav:
       - title: "Notes on reading kernel messages"
         url: /admin-guide/060_Sources/020_File/000_Notes_on_reading_kernel_messages
+      - title: "How file sources are followed"
+        url: /admin-guide/060_Sources/020_File/001_File_following
       - title: "file() source options"
-        url: /admin-guide/060_Sources/020_File/001_File_source_options
+        url: /admin-guide/060_Sources/020_File/002_File_source_options
     - title: "Arr logs"
       url: /admin-guide/060_Sources/025_Arr_logs/README
       subnav:
