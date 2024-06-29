@@ -33,7 +33,7 @@ layout: default
           {% if page.title %}
           {% comment %}<!-- <h1 id="page-title" class="page__title p-name {% if page.subtitle == null and page.description == null %} page__title_decoration{% endif %}" itemprop="headline"> -->{% endcomment %}
           <h1 id="page-title" class="page__title p-name page__title_decoration" itemprop="headline">
-            <a href="{{ page.url | absolute_url }}" class="u-url nav-link" itemprop="url">{{ page.title | liquify | markdownify | remove: "<p>" | remove: "</p>" }}</a>
+            <a href="{{ page.url | relative_url }}" class="u-url nav-link" itemprop="url">{{ page.title | liquify | markdownify | remove: "<p>" | remove: "</p>" }}</a>
           </h1>
           {% endif %}
           {% comment %}<!--            
