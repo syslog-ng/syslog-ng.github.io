@@ -446,7 +446,7 @@ def JekyllTooltipGen_hack_description_in(page_has_subtitle, page_has_description
     end
   end
   if description
-    page.content = description + "\n" + page.content
+    page.content = JekyllTooltipGen_description_start_tag + description + "\n" + JekyllTooltipGen_description_end_tag + page.content
   end
 end
 
@@ -461,6 +461,8 @@ JekyllTooltipGen_navigation_yaml = '_data/navigation.yml'
 JekyllTooltipGen_link_aliases_yaml = '_data/link_aliases.yml'
 JekyllTooltipGen_excluded_yaml = '_data/excluded_titles.yml'
 JekyllTooltipGen_external_yaml = '_data/external_links.yml'
+JekyllTooltipGen_description_start_tag = '<---description_start--->'
+JekyllTooltipGen_description_end_tag = '<---description_end--->'
 
 $JekyllTooltipGen_markdown_extensions = nil
 $JekyllTooltipGen_page_links = nil
@@ -545,4 +547,7 @@ Jekyll::Hooks.register [:pages, :documents], :pre_render do |page, payload|
   page.content = template.render!(payload, info)
 
   Jekyll::TooltipGen.generate_tooltips(page, $JekyllTooltipGen_should_build_persistent_tooltips)
+
+  page.content = page.content.gsub(JekyllTooltipGen_description_start_tag, '<p id="page-description">')
+  page.content = page.content.gsub(JekyllTooltipGen_description_end_tag, '</p>')
 end

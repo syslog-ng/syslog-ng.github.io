@@ -37,8 +37,8 @@ layout: default
           </h1>
           {% endif %}
           {% comment %}<!--            
-          DO NOT ADD page.subtitle and page.description !!! 
-          It will be added by aour Jekyll plugin as simple text paragraph right at the beggining of the content, before the first heading instead, that will be used as description in the tooltips.
+          DO NOT ADD page.subtitle and page.description, as that is handled specially by Jekyll, and will not be rendered almost perfectly with markdown or liquid contents in every cases !!!
+          It will be added by our Jekyll plugin as simple text paragraph right at the beggining of the content, before the first heading instead, that will be used as description in the tooltips.
           This eliminates markdown and liquid rendering differences in the description part.
 
           {% if page.subtitle or page.description %}
