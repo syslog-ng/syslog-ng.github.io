@@ -379,27 +379,35 @@ $(function () {
     loadContentFromUrl(
       url,
       newContent => {
+        var content = '';
         var startHeading = newContent.querySelector('#' + startHeadingId);
-        if (startHeading) {
-          var content = '';
-          var heading = startHeading.outerHTML; // Include the starting <h> element itself
-          var nextSibling = startHeading.nextElementSibling;
 
-          // If handling a page title it will not have next sibling normally at all (we are removed and handling differently the description from the generated page)
-          // In that case the description is all the normal texts parts in the content, from the top (right bellow the title) to the first heading <h1-6>, try to get, it if there's any.
-          // If not presented, drop the whole content, return an empty one (a.k.a. do not show title only tooltips)
-          if (nextSibling == null && false == hasAnchor) {
-            startHeading = newContent.querySelector('.page__content');
-            nextSibling = startHeading.firstElementChild;
-            // First element is the TOC, skip it to be able to produce an empty content
-            if (nextSibling && nextSibling.classList.contains('sidebar__right'))
-              nextSibling = nextSibling.nextElementSibling;
+        if (startHeading) {
+          var heading = startHeading.outerHTML; // Include the starting <h> element itself
+          var description = newContent.querySelector('#page-description');
+
+          if (description && description.outerHTML.length > 0) {
+            content = description.outerHTML;
           }
-          // Collect all siblings until the next heading or the end of the initial content
-          // FIXME: This magic 6 must be maintained together now with generate_links.rb (and other places ?!), eliminate it!
-          while (nextSibling && nextSibling.tagName !== 'H1' && nextSibling.tagName !== 'H2' && nextSibling.tagName !== 'H3' && nextSibling.tagName !== 'H4' && nextSibling.tagName !== 'H5' && nextSibling.tagName !== 'H6') {
-            content += nextSibling.outerHTML;
-            nextSibling = nextSibling.nextElementSibling;
+          else {
+            var nextSibling = startHeading.nextElementSibling;
+
+            // If handling a page title it will not have next sibling normally at all (we are removed and handling differently the description from the generated page)
+            // In that case the description is all the normal texts parts in the content, from the top (right bellow the title) to the first heading <h1-6>, try to get, it if there's any.
+            // If not presented, drop the whole content, return an empty one (a.k.a. do not show title only tooltips)
+            if (nextSibling == null && false == hasAnchor) {
+              startHeading = newContent.querySelector('.page__content');
+              nextSibling = startHeading.firstElementChild;
+              // First element is the TOC, skip it to be able to produce an empty content
+              if (nextSibling && nextSibling.classList.contains('sidebar__right'))
+                nextSibling = nextSibling.nextElementSibling;
+            }
+            // Collect all siblings until the next heading or the end of the initial content
+            // FIXME: This magic 6 must be maintained together now with generate_links.rb (and other places ?!), eliminate it!
+            while (nextSibling && nextSibling.tagName !== 'H1' && nextSibling.tagName !== 'H2' && nextSibling.tagName !== 'H3' && nextSibling.tagName !== 'H4' && nextSibling.tagName !== 'H5' && nextSibling.tagName !== 'H6') {
+              content += nextSibling.outerHTML;
+              nextSibling = nextSibling.nextElementSibling;
+            }
           }
           
           if (content.length != 0 || hasAnchor)
@@ -468,8 +476,10 @@ $(function () {
   }
 
   function getRealZIndex(element) {
-    var zIndex = getComputedStyle(element).zIndex;
+    if (element == null)
+      return null;
 
+    var zIndex = getComputedStyle(element).zIndex;
     // If the element's z-index is not auto, return it
     if (zIndex !== "auto")
       return parseInt(zIndex);
