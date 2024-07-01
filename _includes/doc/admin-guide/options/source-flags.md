@@ -117,6 +117,17 @@
     destination. For details on multithreading, see
     Multithreading and scaling in {{ site.product.short_name }}.
 
+    If a parsing or syntax error occurs, use `"threaded"` nested in quotation marks.
+
+    ```config
+    flags(
+        validate-utf8
+        "threaded"
+        store-raw-message
+    )
+    ```
+  
+
     **NOTE:** The file destination uses multiple threads only if the
     destination filename contains macros.
     {: .notice--info}
