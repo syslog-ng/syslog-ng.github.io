@@ -1,10 +1,10 @@
 ---
-title: Setting severity with the set-severity() rewrite function
+title: Setting severity with the [[set-severity()|adm-temp-severity]] rewrite function
 short_title: Setting severity
 id: adm-temp-severity
 description: >-
-    It is possible to configure the severity field with the set-severity()
-    rewrite function. When configured, the set-severity() rewrite function
+    It is possible to configure the severity field with the [[set-severity()|adm-temp-severity]]
+    rewrite function. When configured, the [[set-severity()|adm-temp-severity]] rewrite function
     will only rewrite the ${SEVERITY} field in the message to the first
     parameter value specified in the function.
 ---
@@ -21,7 +21,7 @@ rewrite <name_of_the_rule> {
 
 ## Parameters
 
-The set-severity() rewrite function has a single, mandatory parameter
+The [[set-severity()|adm-temp-severity]] rewrite function has a single, mandatory parameter
 that can be defined as follows:
 
 ```config
@@ -30,12 +30,9 @@ set-severity( "parameter1" );
 
 ## Accepted values
 
-The set-severity() rewrite function accepts the following values:
+The [[set-severity()|adm-temp-severity]] rewrite function accepts the following values:
 
-- numeric strings: \[0-7\]
-
-- named values: emerg, emergency, panic, alert, crit, critical, err,
-    error, warning, warn, notice, info, informational, debug
+{% include doc/admin-guide/options/filter-severity.md %}
 
 ### Example usage for the set-severity() rewrite function
 
@@ -54,7 +51,7 @@ rewrite {
 
 ```config
 rewrite {
-    set-severity("6");
+    set-severity(6);
 };
 ```
 
@@ -65,3 +62,4 @@ rewrite {
     set-severity("${.json.severity}");
 };
 ```
+{% include doc/admin-guide/warnings/dotdot-stringonly.md %}
