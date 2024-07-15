@@ -1,12 +1,13 @@
 ---
 title: Who uses {{ site.product.short_name }}?
 id: adm-intro-who
+description: >-
+    The {{ site.product.short_name }} application is used worldwide by companies and
+    institutions who collect and manage the logs of several hosts, and want
+    to store them in a centralized, organized way.
 ---
 
-The {{ site.product.short_name }} application is used worldwide by companies and
-institutions who collect and manage the logs of several hosts, and want
-to store them in a centralized, organized way. Using {{ site.product.short_name }} is
-particularly advantageous for:
+Using {{ site.product.short_name }} is particularly advantageous for:
 
 - Internet Service Providers
 

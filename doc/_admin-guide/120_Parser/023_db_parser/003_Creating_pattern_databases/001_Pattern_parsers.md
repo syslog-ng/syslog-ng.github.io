@@ -1,6 +1,8 @@
 ---
 title: Pattern parsers of {{ site.product.short_name }}
 id: adm-parser-db-pattern-parsers
+description: >-
+    This section describes the pattern parsers of {{ site.product.short_name }}.
 ---
 
 The following parsers are available in {{ site.product.short_name }}.

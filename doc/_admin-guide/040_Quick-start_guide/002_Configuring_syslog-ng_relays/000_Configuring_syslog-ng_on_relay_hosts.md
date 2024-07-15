@@ -1,6 +1,8 @@
 ---
 title: Configuring {{ site.product.short_name }} on relay hosts
 id: adm-qs-relay-conf
+description: >-
+    This section explains how to configure {{ site.product.short_name }} on a relay host.
 ---
 
 To configure {{ site.product.short_name }} on a relay host, complete the following steps:

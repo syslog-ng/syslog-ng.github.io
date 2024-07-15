@@ -3,7 +3,7 @@ title: 'syslog-ng-otlp() destination'
 short_title: syslog-ng-otlp
 id: adm-dest-sng-otlp
 description: >-
-    In syslog-ng OSE 4.4 and later versions, the syslog-ng-otlp() source and destination make it possible to transfer the internal representation of log messages between syslog-ng OSE instances, using the OpenTelemetry protocol. The syslog-ng-otlp() utilizes the OpenTelemetry protocol for efficient and reliable log message transmission instead of the traditional syslog-ng() drivers, which rely on simple TCP connections.
+    In {{ site.product.short_name }} 4.4 and later versions, the syslog-ng-otlp() source and destination make it possible to transfer the internal representation of log messages between {{ site.product.short_name }} instances, using the OpenTelemetry protocol. The syslog-ng-otlp() utilizes the OpenTelemetry protocol for efficient and reliable log message transmission instead of the traditional syslog-ng() drivers, which rely on simple TCP connections.
 ---
 
 Advantages of using `syslog-ng-otlp()`:

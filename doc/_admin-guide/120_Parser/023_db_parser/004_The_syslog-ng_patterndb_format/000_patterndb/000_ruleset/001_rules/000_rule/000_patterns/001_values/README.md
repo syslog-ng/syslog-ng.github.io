@@ -2,18 +2,16 @@
 title: 'Element: values'
 short_title: values
 id: adm-parser-db-elem-values
+description: >-
+    Name-value pairs that are assigned to messages matching the
+    patterns, for example, the representation of the event in the message
+    according to the Common Event Format (CEF) or Common Event Exchange
+    (CEE). The names can be used as macros to reference the assigned values. (optional)
 ---
 
 ## Location
 
 / patterndb / ruleset / rules / rule / patterns / values
-
-## Description
-
-OPTIONAL --- Name-value pairs that are assigned to messages matching the
-patterns, for example, the representation of the event in the message
-according to the Common Event Format (CEF) or Common Event Exchange
-(CEE). The names can be used as macros to reference the assigned values.
 
 ## Attributes
 

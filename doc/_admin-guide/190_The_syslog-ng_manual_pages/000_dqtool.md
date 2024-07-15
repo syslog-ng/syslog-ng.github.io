@@ -2,12 +2,10 @@
 title: The dqtool tool manual page
 app: dqtool
 id: adm-man-dqtool
+description: >-
+    dqtool --- Display the contents of a disk-buffer file created with
+    {{ site.product.short_name }}.
 ---
-
-## Name
-
-dqtool --- Display the contents of a disk-buffer file created with
-{{ site.product.short_name }}.
 
 ## Synopsis
 

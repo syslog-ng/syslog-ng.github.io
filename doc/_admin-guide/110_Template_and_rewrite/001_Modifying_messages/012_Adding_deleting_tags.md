@@ -1,6 +1,8 @@
 ---
 title: Adding and deleting tags
 id: adm-temp-add-del-tag
+description: >-
+    This section describes how to add or delete a tag in {{ site.product.short_name }}.
 ---
 
 To add or delete a tag, you can use rewrite rules. To add a tag, use the

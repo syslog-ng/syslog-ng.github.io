@@ -1,6 +1,8 @@
 ---
 title: Slack destination options
 id: adm-dest-slack-opt
+description: >-
+    This section describes the options of the slack() destination in {{ site.product.short_name }}.
 ---
 
 The slack destination of {{ site.product.short_name }} can directly post log messages

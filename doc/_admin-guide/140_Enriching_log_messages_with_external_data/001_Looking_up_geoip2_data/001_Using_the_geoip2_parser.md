@@ -1,6 +1,8 @@
 ---
 title: Using the GeoIP2 parser
 id: adm-enrich-geoip-using
+description: >-
+    This section describes how to use the geoip2() parser in {{ site.product.short_name }}.
 ---
 
 **Declaration**

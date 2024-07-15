@@ -1,6 +1,8 @@
 ---
 title: Using the sql() driver with an Oracle database
 id: adm-dest-sql-oracle
+description: >-
+    This section describes how to use sql() driver of {{ site.product.short_name }} with an Oracle database.
 ---
 
 The Oracle sql destination has some special aspects that are important

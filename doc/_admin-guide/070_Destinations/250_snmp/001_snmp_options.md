@@ -3,6 +3,8 @@ title: snmp() destination options
 srv: 'SNMP server'
 port: '162'
 id: adm-dest-snmp-opt
+description: >-
+    This section describes the options of the snmp() destination in {{ site.product.short_name }}.
 ---
 
 This driver sends SNMP traps using the SNMP v2c or v3 protocol.

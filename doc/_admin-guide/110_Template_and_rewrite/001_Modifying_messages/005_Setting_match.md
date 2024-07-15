@@ -2,6 +2,8 @@
 title: Setting match variables with the set-matches() rewrite rule
 short_title: Setting match variables
 id: adm-temp-match
+description: >-
+    This section describes how to set match variables in {{ site.product.short_name }}.
 ---
 
 Match macros (**$1, $2, \... $255**) are temporary variables. You can

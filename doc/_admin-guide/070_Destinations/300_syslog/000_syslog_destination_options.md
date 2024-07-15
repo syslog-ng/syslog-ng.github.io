@@ -1,6 +1,8 @@
 ---
 title: syslog() destination options
 id: adm-dest-syslog-opt
+description: >-
+    This section describes the options of the syslog() destination in {{ site.product.short_name }}.
 ---
 
 The syslog() driver sends messages to a remote host (for example, a

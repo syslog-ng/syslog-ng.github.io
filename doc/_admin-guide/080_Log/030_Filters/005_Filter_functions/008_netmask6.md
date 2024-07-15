@@ -1,6 +1,8 @@
 ---
 title: netmask6()
 id: adm-log-filters-netmask6
+description: >-
+    This section describes netmask6() filter function in {{ site.product.short_name }}.
 ---
 
 *Synopsis:* netmask6(ipv6/mask)

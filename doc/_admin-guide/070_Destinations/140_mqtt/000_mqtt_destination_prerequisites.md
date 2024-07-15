@@ -1,6 +1,8 @@
 ---
 title: Prerequisites to using the mqtt() destination
 id: adm-dest-mqtt-pre
+description: >-
+    In this chapter you can read about the prerequisites of using the mqtt() destination in {{ site.product.short_name }}.
 ---
 
 Using the current implementation of the mqtt() destination has the

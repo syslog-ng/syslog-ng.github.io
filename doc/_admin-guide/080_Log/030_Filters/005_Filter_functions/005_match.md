@@ -1,6 +1,8 @@
 ---
 title: match()
 id: adm-log-filters-match
+description: >-
+    This section describes match() filter function in {{ site.product.short_name }}.
 ---
 
 *Synopsis:* match(regexp) \| match(regexp value(\"MACRO\")) \| match(regexp template(\"MACROS\"))

@@ -1,6 +1,8 @@
 ---
 title: program() destination options
 id: adm-dest-program-opt
+description: >-
+    This section describes the options of the program() destination in {{ site.product.short_name }}.
 ---
 
 This driver starts an external application or script and sends the log

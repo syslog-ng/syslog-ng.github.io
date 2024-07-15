@@ -1,6 +1,8 @@
 ---
 title: HDFS destination options
 id: adm-dest-hdfs-opt
+description: >-
+    This section describes the options of the hdfs() destination in {{ site.product.short_name }}.
 ---
 
 The hdfs destination stores the log messages in files on the Hadoop

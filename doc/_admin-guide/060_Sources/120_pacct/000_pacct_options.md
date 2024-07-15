@@ -1,6 +1,8 @@
 ---
 title: pacct() options
 id: adm-src-pacct-opt
+description: >-
+    This section describes the options of the pacct() source in {{ site.product.short_name }}.
 ---
 
 The pacct() driver has the following options:

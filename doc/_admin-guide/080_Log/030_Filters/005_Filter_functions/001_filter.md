@@ -1,6 +1,8 @@
 ---
 title: filter()
 id: adm-log-filters-filter
+description: >-
+    This section describes filter() filter function in {{ site.product.short_name }}.
 ---
 
 *Synopsis:* filter(filtername)

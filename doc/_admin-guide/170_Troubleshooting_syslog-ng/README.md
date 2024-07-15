@@ -3,7 +3,7 @@ title: Troubleshooting syslog-ng
 id: adm-debug
 description: >-
     This chapter provides tips and guidelines about troubleshooting problems
-    related to syslog-ng.
+    related to {{ site.product.short_name }}.
 ---
 
 - As a general rule, first try to log the messages to a local file.

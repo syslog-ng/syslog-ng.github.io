@@ -1,6 +1,8 @@
 ---
 title: The structure of the pattern database
 id: adm-parser-db-struct
+description: >-
+    This section describes the structure of a pattern database in {{ site.product.short_name }}.
 ---
 
 The pattern database is organized as follows:

@@ -2,11 +2,11 @@
 title: Possible error messages you may encounter while using the mqtt() destination
 short_title: Possible error messages
 id: adm-dest-mqtt-err
+description: >-
+    This chapter describes issues and corresponding error messages originating from the MQTT system.
 ---
 
-While using the mqtt() destination, you may encounter issues and
-corresponding error messages originating from the MQTT system. The
-following table contains the error messages you may encounter, the
+The following table contains the error messages you may encounter, the
 possible reasons behind them, and potential workaround methods.
 
 <table>

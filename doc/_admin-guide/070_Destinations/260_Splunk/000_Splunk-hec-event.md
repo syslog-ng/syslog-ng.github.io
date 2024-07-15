@@ -2,7 +2,7 @@
 title: 'splunk-hec-event: Send log messages to Splunk HEC'
 id: adm-dest-splunk-hec-event
 description: >-
-  In version 4.2 and later versions it is possible to send messages to the Splunk HTTP Event Collector(HEC).
+  In {{ site.product.short_name }} version 4.2 and later versions it is possible to send messages to the Splunk HTTP Event Collector(HEC).
 ---
 
 ### Prerequisites

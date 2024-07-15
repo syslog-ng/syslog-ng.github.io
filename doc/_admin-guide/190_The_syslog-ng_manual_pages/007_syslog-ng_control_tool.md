@@ -2,12 +2,10 @@
 title: The {{ site.product.short_name }} control tool manual page
 app: syslog-ng-ctl
 id: adm-man-ctl
+description: >-
+    syslog-ng-ctl --- Display message statistics and enable verbose, debug
+    and trace modes in {{ site.product.short_name }}
 ---
-
-## Name
-
-syslog-ng-ctl --- Display message statistics and enable verbose, debug
-and trace modes in syslog-ng PE
 
 ## Synopsis
 

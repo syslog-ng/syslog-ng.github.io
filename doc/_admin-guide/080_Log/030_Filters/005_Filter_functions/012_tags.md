@@ -1,6 +1,8 @@
 ---
 title: tags()
 id: adm-log-filters-tags
+description: >-
+    This section describes tags() filter function in {{ site.product.short_name }}.
 ---
 
 *Synopsis:* tag

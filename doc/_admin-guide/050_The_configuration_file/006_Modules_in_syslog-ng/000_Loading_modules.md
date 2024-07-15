@@ -2,9 +2,11 @@
 title: Loading modules
 id: adm-mod-loading
 description: >-
-    The {{ site.product.name }} application loads every available
-    module during startup.
+    This chapter describes how modules are loaded in {{ site.product.name }}.
 ---
+
+The {{ site.product.name }} application loads every available
+module during startup.
 
 To load a module that is not loaded automatically, include the following
 statement in the {{ site.product.short_name }} configuration file:

@@ -2,15 +2,13 @@
 title: 'Element: example'
 short_title: example
 id: adm-parser-db-elem-example
+description: >-
+    A container element for a sample log message. (optional)
 ---
 
 ## Location
 
 / patterndb / ruleset / rules / rule / patterns / examples / example
-
-## Description
-
-OPTIONAL --- A container element for a sample log message.
 
 ## Attributes
 

@@ -1,6 +1,8 @@
 ---
 title: collectd() destination options
 id: adm-dest-collectd-opt
+description: >-
+    This section describes the options of the collectd() destination in {{ site.product.short_name }}.
 ---
 
 The collectd() destination has the following options. The plugin() and

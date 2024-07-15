@@ -2,18 +2,16 @@
 title: 'Element: create-context'
 short_title: create-context
 id: adm-parser-db-elem-create-context
+description: >-
+    Creates a new correlation context from the current message
+    and its associated context. This can be used to \"split\" a context. (optional) 
+
+    Available in {{ site.product.short_name }} version 3.8 and later. 
 ---
 
 ## Location
 
 / patterndb / ruleset / actions / action / create-context
-
-## Description
-
-OPTIONAL --- Creates a new correlation context from the current message
-and its associated context. This can be used to \"split\" a context.
-
-Available in {{ site.product.short_name }} version 3.8 and later.
 
 ## Attributes
 

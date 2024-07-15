@@ -1,6 +1,8 @@
 ---
 title: network() destination options
 id: adm-dest-netw-opt
+description: >-
+    This section describes the options of the network() destination in {{ site.product.short_name }}.
 ---
 
 The network() driver sends messages to a remote host (for example, a

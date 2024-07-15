@@ -1,10 +1,11 @@
 ---
 title: Notes on reading kernel messages
 id: adm-src-file-note
+description: >-
+    This section describes things to consider when reading kernel messages from various platforms.
 ---
 
-Note the following points when reading kernel messages on various
-platforms.
+Please note the following points:
 
 - The kernel usually sends log messages to a special file (/dev/kmsg
     on BSDs, /proc/kmsg on Linux). The file() driver reads log messages

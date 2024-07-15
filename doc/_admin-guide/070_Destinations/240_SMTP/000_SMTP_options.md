@@ -3,6 +3,8 @@ title: smtp() destination options
 srv: SMTP server
 port: '25'
 id: adm-dest-smtp-opt
+description: >-
+    This section describes the options of the smtp() destination in {{ site.product.short_name }}.
 ---
 
 The smtp() sends email messages using SMTP, without needing external

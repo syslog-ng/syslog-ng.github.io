@@ -2,6 +2,8 @@
 title: stomp() destination options
 srv: STOMP server
 id: adm-dest-stomp-opt
+description: >-
+    This section describes the options of the stomp() destination in {{ site.product.short_name }}.
 ---
 
 The stomp() driver publishes messages using the Simple (or Streaming)

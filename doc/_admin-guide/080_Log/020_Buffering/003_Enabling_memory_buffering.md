@@ -1,6 +1,8 @@
 ---
 title: Enabling memory buffering
 id: adm-log-diskbuff-memory
+description: >-
+    This section describes how to enable memory buffering in {{ site.product.short_name }}.
 ---
 
 To enable memory buffering, use the **log-fifo-size()** parameter in the
