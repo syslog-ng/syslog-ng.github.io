@@ -17,6 +17,8 @@ The file driver has a single required parameter specifying the file to
 open. If you want to use wildcards in the filename, use the [[wildcard-file() source|adm-src-wild]].
 For the list of available optional parameters, see file() source options.
 
+{% include doc/admin-guide/warnings/file-source-follow-warning.md %}
+
 **Declaration**
 
 ```config
