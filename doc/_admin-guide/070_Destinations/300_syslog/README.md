@@ -35,7 +35,7 @@ multicast destination address is specified. The tcp and tls methods do
 not support multicasting.
 
 **NOTE:** The default ports for the different transport protocols are as
-follows: UDP --- 514, TCP --- 514, TLS --- 6514.
+follows: UDP --- 514, TCP --- 601, TLS --- 6514.
 {: .notice--info}
 
 ### Example: Using the syslog() driver
