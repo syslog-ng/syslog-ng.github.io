@@ -454,7 +454,7 @@ This macro is available in syslog-ng OSE 4.5 and later versions. The syslog-ng O
 * Other drivers:
   * otlp: `otel()` driver
   * mqtt: `mqtt()` driver
-  * hypr-api: `hypr-audit-source()` driver
+  * hypr-api: `hypr-audit-trail()` driver
 
 * Locally created logs (available in 4.7 and later versions):
   * `local+unix-stream`
