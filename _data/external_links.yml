@@ -881,6 +881,11 @@ hadoop-rel:
   url: http://hadoop.apache.org/releases.html
   title: [ "Hadoop release page" ]
 
+hypr-audit:
+  id: hypr-audit
+  url: https://apidocs.hypr.com/
+  title: [ "Hypr REST API" ]
+
 jellyfin:
   id: jellyfin
   url: https://jellyfin.org/
