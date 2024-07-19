@@ -6,19 +6,22 @@ description:  >-
     The {{ site.product.short_name }} application can use various methods to detect changes
     in the followed [[file()|adm-src-file]] and wildcard-file() sources. Under the hood, two different change
     watchers operate: one for detecting changes in the followed directories and one for
-    monitoring changes in the watched files.
+    monitoring changes in the followed files.
 ---
 
-The detection method for directory changes can be controlled via monitor-method(). If the method is `poll`, {{ site.product.short_name }} will set up an (ivykis) timer that periodically checks and compares the content of the given directory at the frequency specified by monitor-freq(). This periodic polling can be resource-intensive (mainly CPU), so selecting the proper value for monitor-freq() is important. This is not an issue on Linux, where you can use `inotify` for monitor-method(), which automatically notifies {{ site.product.short_name }} about changes with no significant resource usage impact.
+## Directory monitoring
 
-**NOTE:** For macOS and FreeBSD, a `kqueue` based implementation will be available in the near future, offering similar performance to `inotify` on Linux. Stay tuned!
-{: .notice--info}
+The detection method for directory changes can be controlled via monitor-method(). If the method is `poll`, {{ site.product.short_name }} will set up an (ivykis) timer that periodically checks and compares the content of the given directory at the frequency specified by monitor-freq(). This periodic polling can be resource-intensive (mainly CPU), so selecting the proper value for monitor-freq() is important!\
+This is not an issue on Linux, where you can use `inotify` for monitor-method(), or on BSD-based systems, where `kqueue` is available. These methods can automatically notify {{ site.product.short_name }} about changes with no significant resource usage impact.\
+Setting the `auto` method will select the best available method on the given OS.
+
+## Following file changes
 
 Detecting file content changes involves more factors that can affect resource usage and overall performance. {{ site.product.short_name }} uses two main methods to monitor file content changes.
 
 The first method is automatically selected if the follow-freq() option has a value greater than 0. It works like the directory monitoring `poll` monitor-method() and uses an (ivykis) timer with the frequency of follow-freq(). It tries to detect changes in the file content (as well as state, file deletion, and moves) each time the timer fires. Similar to directory change monitoring, this process can be resource-intensive, so you should find the proper setting to balance performance, resource usage, and fault tolerance (such as avoiding log message loss).
 
-The second method is activated if the follow-freq() option is set to 0. It uses ivykis poll methods, sometimes resembling the poll method for directory change watching described above (with its performance penalties), but often working similarly to the `inotify` version (with seamless performance).
+The second method is activated if the follow-freq() option is set to 0. It uses ivykis poll methods, sometimes resembling the poll method for directory change watching described above (with its performance penalties), but often working similarly to the `inotify` or `kqueue` version (with seamless performance).
 
 The following table shows which method is selected in different cases.
 
@@ -154,7 +157,7 @@ A bit more detail about the notation in the platform columns and what they reall
 `n.a.` - Means that the feature is not supported on the given platform by default, which has a significant impact on how the final ivykis poll method is selected. Ivykis tries to set up (at initialization time) the method to be used in the order enumerated in the table above. If an option is `n.a.` (determined at build time), then the next option will be used automatically. The first available option will be used, and if it does not work on the given platform (see `does not work` below), then {{ site.product.short_name }} will stop that file source with an error. This can be controlled using the `IV_EXCLUDE_POLL_METHOD` environment variable. Methods enumerated in it will be excluded from the ivykis initialization flow, and the next available (and not excluded) one will be used. The strings that can be used in `IV_EXCLUDE_POLL_METHOD` are `port-timer port dev_poll epoll-timerfd epoll kqueue ppoll poll` in the same order as in the table.\
 e.g., on Linux you should use `IV_EXCLUDE_POLL_METHOD="epoll-timerfd epoll"` to force the usage of the `ppoll` method, as `port-timer port dev_poll` are not available, and `epoll-timerfd epoll` are not working currently. However, note that currently `ppoll` and `poll` are the only working options on Linux, and they are far from optimal, unlike on BSD-based systems like macOS, where the default `kqueue` is a perfect option to use.
 
-  **NOTE:** We are planning to add an `inotify` or similar-based solution to ivykis that could perform similarly to `kqueue`. Stay tuned!
+  **NOTE:** We are planning to add an `inotify`, `io_uring` or similar-based solution to ivykis that could perform similarly to `kqueue`. Stay tuned!
   {: .notice--info}
 
 `works` - Means it is tested and works seamlessly (based on our tests).

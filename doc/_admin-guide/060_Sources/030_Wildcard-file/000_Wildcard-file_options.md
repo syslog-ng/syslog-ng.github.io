@@ -117,14 +117,14 @@ Floating-point numbers (for example, **1.5**) can be used as well. Please note, 
 
 ## monitor-method()
 
-|Accepted values:| auto \| inotify \| poll|
+|Accepted values:| auto \| inotify \| kqueue \| poll |
 |Default:        | auto |
 
-*Description:* If the platform supports inotify, {{ site.product.short_name }} uses it
-automatically to detect creation, move, or deletion of the source files. If inotify is not
-available, {{ site.product.short_name }} polls the above mentioned file changes as set in
-the monitor-freq() option. To force {{ site.product.short_name }} poll the file changes even if
-inotify is available, set this option to **poll**.
+*Description:* If the platform supports `inotify`, {{ site.product.short_name }} uses it
+automatically to detect the creation, move, or deletion of source files. If the platform
+supports `kqueue`, that will be used. If neither is available, {{ site.product.short_name }}
+polls the aforementioned file changes as set in the monitor-freq() option. To force {{ site.product.short_name }}
+to poll the file changes even if `inotify` or `kqueue` is available, set this option to **poll**.
 
 {% include doc/admin-guide/warnings/file-source-follow-warning.md %}
 
