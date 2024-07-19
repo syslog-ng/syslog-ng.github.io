@@ -1,5 +1,5 @@
 ---
-title: `hypr-audit-trail()` and `hypr-app-audit-trail() `source options
+title: `hypr-audit-trail()` and `hypr-app-audit-trail()` source options
 id: adm-src-hypr-opt
 ---
 
