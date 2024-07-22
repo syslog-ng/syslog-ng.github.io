@@ -10,7 +10,7 @@ The `hypr-audit-trail()` and `hypr-app-audit-trail() sources have the following 
 |  Type:   |      url|
 |  Default:|         |
 
-*Description:* A custom URL for Hypr API access ("https://<custom domain>.hypr.com")
+*Description:* A custom URL for Hypr API access ("https://\<custom domain\>.hypr.com")
 
 ## bearer-token()
 
