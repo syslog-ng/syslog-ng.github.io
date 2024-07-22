@@ -50,4 +50,4 @@ The `hypr-app-audit-trail()` monitors the audit trail for one specific RP Applic
 
 ## Acknowledgements
 
-These chapters are based on the hypr-audit-trail() content, written by Dan Elder.
+These chapters are based on hypr-audit-trail() documentation written by Dan Elder and Axoflow.
