@@ -18,8 +18,10 @@ You can use the facility filter the following ways:
 
 - Use a single facility code, for example, **facility(1)**
 
-- Use a facility range (works only with facility names), for example,
+- Use a facility range, for example,
     **facility(local0..local5)**
+
+{% include doc/admin-guide/warnings/dotdot-stringonly.md %}
 
 The {{ site.product.short_name }} application recognizes the following facilities: (Note
 that some of these facilities are available only on specific platforms.)
