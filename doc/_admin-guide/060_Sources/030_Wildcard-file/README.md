@@ -17,6 +17,8 @@ persist file depends on the package you installed {{ site.product.short_name }} 
 typically it is /var/lib/syslog-ng/syslog-ng.persist or
 /var/lib/syslog-ng/syslog-ng.persist.
 
+{% include doc/admin-guide/warnings/file-source-follow-warning.md %}
+
 **Declaration**
 
 ```config

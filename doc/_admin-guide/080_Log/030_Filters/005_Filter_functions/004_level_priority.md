@@ -21,6 +21,8 @@ every message of error or higher level, use the following filter:
 ```config
 level(err..emerg)
 ```
+{% include doc/admin-guide/warnings/dotdot-stringonly.md %}
 
-The [[level() filter|adm-log-filters-level]] accepts the following levels: emerg, alert, crit,
-err, warning, notice, info, debug.
+The [[level() filter|adm-log-filters-level]] accepts the following levels:
+
+{% include doc/admin-guide/options/filter-severity.md %}
