@@ -435,21 +435,22 @@ An alias of the ${TZOFFSET} macro.
 This macro is available in syslog-ng OSE 4.5 and later versions. The syslog-ng OSE application automatically populates this name-value pair with the transport-mechanism used to retrieve the message. The value depends on the source driver that received the message. The implemented values are the following:
 
 * BSD syslog drivers `tcp()`, `udp()` & `network()`
-  * RFC-3164 + tls
-  * RFC-3164 + tcp
-  * RFC-3164 + udp
-  * RFC-3164 + proxied-tls
-  * RFC-3164 + \<custom logproto like altp\>
+  * rfc3164+tls
+  * rfc3164+tcp
+  * rfc3164+udp
+  * rfc3164+proxied-tls
+  * rfc3164+ \<custom logproto like altp\>
 
 * UNIX domain drivers `unix-dgram()`, `unix-stream()`
   * `unix-stream`
   * `unix-dgram`
 
-* RFC-5424 style syslog `syslog()`:
-  * RFC-5426: syslog over udp
-  * RFC-5425: syslog over tls
-  * RFC-6587: syslog over tcp
-  * RFC-5424 + \<custom logproto like altp\>: syslog over a logproto plugin
+* rfc5424 style syslog `syslog()`:
+  * rfc5426+udp
+  * rfc5425+tls
+  * rfc6587+tcp
+  * rfc5424+\<custom logproto like altp\>: syslog over a logproto plugin
+  * rfc5424+proxied-tls-passthrough
 
 * Other drivers:
   * otlp: `otel()` driver
