@@ -438,7 +438,9 @@ This macro is available in syslog-ng OSE 4.5 and later versions. The syslog-ng O
   * rfc3164+tls
   * rfc3164+tcp
   * rfc3164+udp
+  * rfc3164+proxied-tcp
   * rfc3164+proxied-tls
+  * rfc3164+proxied-tls-passthrough
   * rfc3164+ \<custom logproto like altp\>
 
 * UNIX domain drivers `unix-dgram()`, `unix-stream()`
@@ -446,11 +448,14 @@ This macro is available in syslog-ng OSE 4.5 and later versions. The syslog-ng O
   * `unix-dgram`
 
 * rfc5424 style syslog `syslog()`:
+  * rfc5424+proxied-tls
   * rfc5426+udp
   * rfc5425+tls
   * rfc6587+tcp
-  * rfc5424+\<custom logproto like altp\>: syslog over a logproto plugin
+  * rfc6587+proxied-tcp
   * rfc5424+proxied-tls-passthrough
+  * rfc5424+\<custom logproto like altp\>: syslog over a logproto plugin
+
 
 * Other drivers:
   * otlp: `otel()` driver
