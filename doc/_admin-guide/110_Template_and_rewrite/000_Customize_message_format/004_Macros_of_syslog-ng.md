@@ -448,11 +448,11 @@ This macro is available in syslog-ng OSE 4.5 and later versions. The syslog-ng O
   * `unix-dgram`
 
 * rfc5424 style syslog `syslog()`:
-  * rfc5424+proxied-tls
   * rfc5426+udp
-  * rfc5425+tls
   * rfc6587+tcp
   * rfc6587+proxied-tcp
+  * rfc5425+tls
+  * rfc5424+proxied-tls
   * rfc5424+proxied-tls-passthrough
   * rfc5424+\<custom logproto like altp\>: syslog over a logproto plugin
 
