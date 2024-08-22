@@ -28,7 +28,7 @@ differences, for example, pipe() opens its argument in read-write mode,
 therefore it is not recommended to be used on special files like
 /proc/kmsg.
 
-**NOTE:** If the `fifo` file is deleted, syslog-ng OSE automatically recreates it. When a new `pipe()` is created, syslog-ng OSE continues to use the old file until the system is restarted.
+**NOTE:** If the `fifo` file is deleted, and the user creates a new one, syslog-ng OSE will still attempt to access the old file until the system is restarted. Make sure to restart syslog-ng OSE after creating a new `fifo` file.
 {: .notice--info}
 
 >![]({{ site.baseurl}}/assets/images/caution.png) **CAUTION:**
