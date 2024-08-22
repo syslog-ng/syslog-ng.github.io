@@ -107,3 +107,13 @@ log {
     destination(d_json);
 };
 ```
+The log declaration can also be modified to include typing specifications.
+
+```config
+log {
+    source { ... };
+    parser { json-parser(prefix('.json.')); };
+    destination { file(... template("$(format-json .json.* .json.value=int64(${.json.value})\n")); };
+};
+```
+
