@@ -23,7 +23,7 @@
     this information is not available in the message. Works when the
     incoming message stream is close to real time, and the timezone
     information is missing from the timestamp.
-
+- *ignore-aux-data*: This flag enables the source to ignore  auxiliary data.
 - *kernel*: The kernel flag makes the source default to the LOG_KERN
     | LOG_NOTICE priority if not specified otherwise.
 
