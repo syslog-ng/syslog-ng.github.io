@@ -34,13 +34,14 @@ Like every project {{ site.product.short_name }} also uses different libraries a
    * autoconf-archive
    * automake
    * bison
+   * cmake
    * flex
    * glib
    * ivykis
    * json-c
    * libtool
    * openssl
-   * pcre
+   * pcre2
    * pkg-config
 4. The following package might be needed too depending on your macOS version and architecture:
    * net-snmp
@@ -49,15 +50,15 @@ Like every project {{ site.product.short_name }} also uses different libraries a
    * ~~libdbi~~ - See bellow!
    * libmaxminddb
    * libnet
+   * libpaho-mqtt
    * librdkafka
    * mongo-c-driver
    * python3
    * rabbitmq-c
    * riemann-client
 6. Extra tools you might require
-   * cmake
    * criterion
-   * gcc@11
+   * ~~gcc@11~~ - See bellow!
 
 **Hint:** If you have [[{{ site.product.short_name }} installed via brew|dev-inst-macos#installation]], as a reference, you can check the dependencies of the brew built version using `brew deps syslog-ng`
 {: .notice--info}
@@ -76,6 +77,7 @@ brew install \
     autoconf-archive \
     automake \
     bison \
+    # cmake - Optional, a better replacement of autotools making system
     flex \
     glib \
     ivykis \
@@ -83,7 +85,7 @@ brew install \
     libtool \
     net-snmp \
     openssl \
-    pcre \
+    pcre2 \
     pkg-config \
     # Optional {{ site.product.short_name }} module dependencies
     hiredis \
@@ -91,15 +93,15 @@ brew install \
     # libdbi 
     libmaxminddb \
     libnet \
+    libpaho-mqtt \
     librdkafka \
     mongo-c-driver \
     python3 \
     rabbitmq-c \
     riemann-client
     # Optional development modules
-    # cmake - Optional, a better replacement of autotools making system
     # criterion - Optional, needed for unit testing
-    # gcc@11 - Optional, clang now should compile all modules nicely
+    # gcc@11 - Optional, clang now should compile all modules nicely and it is the oficially supported compiler on macOS
 ```
 
 > **Note:**
@@ -162,9 +164,10 @@ git clone https://github.com/syslog-ng/syslog-ng .
 
 ### Select the compiler
 
-Latest version of {{ site.product.short_name }} [has dropped support of gcc](https://github.com/syslog-ng/syslog-ng/pull/4897), so now the platform default llvm/clang must be used to complie the source
+Latest version of {{ site.product.short_name }} [has dropped support of gcc](https://github.com/syslog-ng/syslog-ng/pull/4897), so now the platform default llvm/clang must be used to complie the source.\
+`gcc` still might compile most of syslog-ng and its modules, but there is no guarantie and support of it anymore (HINT: you can turn off any problematic module via is feature switch)
 
-To make sure clang is used (optional) you can use:
+To make sure clang is used you can use (optional):
 
 ```shell
 export CC=clang
@@ -192,7 +195,7 @@ mkdir build; cd build
 For a full (urrently supported) feature set you can add further configure flags (excluded the not yet supported modules on macOS), for example
 
 ```shell
-../configure --enable-all-modules --with-ivykis=system --with-systemd-journal=no --disable-java --disable-java-modules --disable-smtp --disable-mqtt --disable-pacct --disable-grpc    
+../configure --enable-all-modules --with-ivykis=system --with-systemd-journal=no --disable-java --disable-java-modules --disable-smtp --disable-pacct
 ```
 
 > **Note:**
@@ -208,7 +211,7 @@ For more details please see the [[actual state of supported features|dev-macos-m
 For the full feature set you can use
 
 ```shell
-cmake --install-prefix /full_path_of/installdir -B build . -Wno-dev -DIVYKIS_SOURCE=system -DENABLE_JAVA=OFF -DENABLE_JAVA_MODULES=OFF -DENABLE_PYTHON=ON -DENABLE_PYTHON_MODULES=ON -DBUILD_TESTING=OFF -DENABLE_AFSMTP=OFF -DENABLE_MQTT=OFF -DENABLE_PACCT=OFF -DENABLE_CPP=ON -DENABLE_GRPC=OFF --fresh 
+cmake --install-prefix /full_path_of/installdir -B build . -Wno-dev -DIVYKIS_SOURCE=system -DENABLE_JAVA=OFF -DENABLE_JAVA_MODULES=OFF -DENABLE_PYTHON=ON -DENABLE_PYTHON_MODULES=ON -DBUILD_TESTING=OFF -DENABLE_AFSMTP=OFF -DENABLE_PACCT=OFF -DENABLE_CPP=ON -DENABLE_GRPC=ON --fresh
 ```
 
 ### Compile and install
