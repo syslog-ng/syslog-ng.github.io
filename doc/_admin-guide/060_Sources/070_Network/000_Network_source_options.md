@@ -1,6 +1,8 @@
 ---
 title: network() source options
 id: adm-src-netw-opt
+description: >-
+    This section describes the options of the network() source in {{ site.product.short_name }}.
 ---
 
 The network() driver has the following options:

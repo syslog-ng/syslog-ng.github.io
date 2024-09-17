@@ -1,6 +1,8 @@
 ---
 title: in-list()
 id: adm-log-filters-inlist
+description: >-
+    This section describes inlist() filter function in {{ site.product.short_name }}.
 ---
 
 *Synopsis:* in-list(\"\</path/to/file.list\>\", value(\"\<field-to-filter\>\"))

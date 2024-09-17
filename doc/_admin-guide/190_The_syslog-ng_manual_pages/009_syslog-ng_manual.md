@@ -1,11 +1,9 @@
 ---
 title: The {{ site.product.short_name }} manual page
 id: adm-man-syslogng
+description: >-
+    syslog-ng --- syslog-ng system logger application
 ---
-
-## Name
-
-syslog-ng --- syslog-ng system logger application
 
 ## Synopsis
 

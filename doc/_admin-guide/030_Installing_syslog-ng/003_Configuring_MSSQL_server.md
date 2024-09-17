@@ -1,14 +1,16 @@
 ---
-title: Configuring Microsoft SQL Server to accept logs from syslog-ng
+title: Configuring Microsoft SQL Server to accept logs from {{ site.product.short_name }}
 short_title: Configuring MSSQL Server
 id: adm-inst-mssql
+description: >-
+    This chapter explains how to configure an MSSQL Server to work with {{ site.product.short_name }}.
 ---
 
 {% assign crumb = page.url | split: '/' %}
 {% assign img_folder = crumb[-2] | prepend: '/assets/images/admin-guide/'%}
 
 Complete the following steps to configure your Microsoft SQL Server to
-enable remote logins and accept log messages from syslog-ng.
+enable remote logins and accept log messages from {{ site.product.short_name }}.
 
 1. Start the SQL Server Management Studio application. Select
     **Start \> Programs \> Microsoft SQL Server 2005 \> SQL Server

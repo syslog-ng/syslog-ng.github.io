@@ -2,6 +2,8 @@
 title: nodejs() source options
 port_default: '9003'
 id: adm-src-nodejs-opt
+description: >-
+    This section describes the options of the nodejs() source in {{ site.product.short_name }}.
 ---
 
 The nodejs() driver has the following options.

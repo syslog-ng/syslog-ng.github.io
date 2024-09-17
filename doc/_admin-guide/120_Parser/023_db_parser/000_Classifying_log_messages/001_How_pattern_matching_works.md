@@ -1,6 +1,8 @@
 ---
 title: How pattern matching works
 id: adm-parser-db-match
+description: >-
+    This section describes how pattern matching works in {{ site.product.short_name }}.
 ---
 
 ## Figure 21: Applying patterns

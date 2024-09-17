@@ -1,6 +1,8 @@
 ---
 title: unix-stream() and unix-dgram() destination options
 id: adm-dest-unix-opt
+description: >-
+    This section describes the options of the unix-stream() and unix-dgram() destinations in {{ site.product.short_name }}.
 ---
 
 These drivers send messages to a unix socket in either SOCK_STREAM or

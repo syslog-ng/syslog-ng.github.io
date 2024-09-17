@@ -1,6 +1,8 @@
 ---
 title: netmask()
 id: adm-log-filters-netmask
+description: >-
+    This section describes netmask() filter function in {{ site.product.short_name }}.
 ---
 
 *Synopsis:* netmask(ipv4/mask)

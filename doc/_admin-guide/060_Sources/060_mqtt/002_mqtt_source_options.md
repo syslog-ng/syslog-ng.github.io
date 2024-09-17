@@ -2,6 +2,8 @@
 title: Options of the mqtt() source
 srv: 'MQTT broker'
 id: adm-src-mqtt-opt
+description: >-
+    This section describes the options of the mqtt() source in {{ site.product.short_name }}.
 ---
 
 The mqtt() source has the following options.

@@ -2,10 +2,11 @@
 title: file() destination options
 d_flags: 'no-multi-line, syslog-protocol, threaded'
 id: adm-dest-file-opt
+description: >-
+    This section describes the options of the file() destination in {{ site.product.short_name }}.
 ---
 
-The file() driver outputs messages to the specified text file, or to a
-set of files. The file() destination has the following options:
+The file() destination has the following options:
 
 ![]({{ site.baseurl}}/assets/images/caution.png) **CAUTION:** When
 creating several thousands separate log files, {{ site.product.name }}

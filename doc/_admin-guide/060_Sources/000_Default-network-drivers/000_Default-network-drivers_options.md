@@ -2,9 +2,11 @@
 title: default-network-drivers() source options
 max_conn_default: 10
 id: adm-src-def-netw-opt
+description: >-
+    This section describes the options of the default-network-drivers() source in {{ site.product.short_name }}.
 ---
 
-The systemd-journal() driver has the following options.
+The default-network-drivers() source has the following options.
 
 {% include doc/admin-guide/options/ca-dir.md %}
 
