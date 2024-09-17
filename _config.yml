@@ -24,6 +24,7 @@ plugins:
   - jekyll-sitemap        # Jekyll plugin to silently generate a sitemaps.org compliant sitemap for your Jekyll site.
   - jekyll-gist 	        # Liquid tag for displaying GitHub Gists in Jekyll sites.
   - jekyll-include-cache  # Liquid tag that caches Liquid includes.
+  - "jekyll-github-metadata"
 
 # Whitelist plugins under safe mode.
 whitelist:
@@ -256,3 +257,5 @@ footer:
 product:
   name: 'syslog-ng Open Source Edition'
   short_name: 'syslog-ng OSE'
+
+repository: syslog-ng/syslog-ng
