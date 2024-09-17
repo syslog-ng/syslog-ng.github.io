@@ -140,12 +140,12 @@ admin-guide-nav:
     - title: "file"
       url: /admin-guide/060_Sources/020_File/README
       subnav:
-      - title: "Notes on reading kernel messages"
-        url: /admin-guide/060_Sources/020_File/000_Notes_on_reading_kernel_messages
+      - title: "file() source options"
+        url: /admin-guide/060_Sources/020_File/000_File_source_options
       - title: "How file sources are followed"
         url: /admin-guide/060_Sources/020_File/001_File_following
-      - title: "file() source options"
-        url: /admin-guide/060_Sources/020_File/002_File_source_options
+      - title: "Notes on reading kernel messages"
+        url: /admin-guide/060_Sources/020_File/002_Notes_on_reading_kernel_messages
     - title: "Arr logs"
       url: /admin-guide/060_Sources/025_Arr_logs/README
       subnav:
@@ -154,6 +154,11 @@ admin-guide-nav:
       subnav:
       - title: "wildcard-file() source options"
         url: /admin-guide/060_Sources/030_Wildcard-file/000_Wildcard-file_options
+    - title: "hypr"
+      url: /admin-guide/060_Sources/031_Hypr/README
+      subnav:
+      - title: "hypr-audit-trail() and hypr-app-audit-trail() source options"
+        url: /admin-guide/060_Sources/031_Hypr/000_Hypr_options
     - title: "Jellyfin"
       url: /admin-guide/060_Sources/035_Jellyfin/README
       subnav:

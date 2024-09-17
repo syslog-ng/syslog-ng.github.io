@@ -121,11 +121,11 @@ Developer guide is a double (page title amd section heading) example with a desc
 
 This one is a [[Self page link|doc-testing-page]] test with ID, this one with the title only - This's a self made tools testing page of {{ site.title }}, and a last one with direkt liquid usage - This's a self made tools testing page of {{ site.title }}.
 
-Test of forced link with anchored ID part [[Install Homebrew|dev-inst-macos#homebrew]].
+Test of forced link with anchored ID part [[Install Homebrew|dev-inst-macos#using-homebrew]].
 
-1. Same test like above in an enumeration [[Install Homebrew|dev-inst-macos#homebrew]].
+1. Same test like above in an enumeration [[Install Homebrew|dev-inst-macos#using-homebrew]].
 
-**Hint:** Same again in a notice block [[Install Homebrew|dev-inst-macos#homebrew]]. If you have {{ site.product.short_name }} [[installed via brew|dev-inst-macos#installation]], as a reference, you can check the dependencies of the brew built version using `brew deps syslog-ng`
+**Hint:** Same again in a notice block [[Install Homebrew|dev-inst-macos#using-homebrew]]. If you have {{ site.product.short_name }} [[installed via brew|dev-inst-macos#installation]], as a reference, you can check the dependencies of the brew built version using `brew deps syslog-ng`
 {: .notice--info}
 
 Embedded markdown style [link test](https://grpc.io/docs/guides/keepalive/) from a different domain
