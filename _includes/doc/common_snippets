@@ -12,6 +12,8 @@ that contains the include tag, further inherited e.g. layouts will not see the i
 
 {% assign img_folder = '/assets/images' | relative_url %}
 
+{% assign ose_latest = site.github.latest_release.name | remove: '.tar.gz' | remove: 'syslog-ng-' %}
+
 {% include doc/dev-guide/common_snippets %}
 
 {% include doc/admin-guide/common_snippets %}
