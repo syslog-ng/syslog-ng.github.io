@@ -1,6 +1,8 @@
 ---
 title: Glossary
 id: adm-about-glossary
+description: >-
+    Glossary of {{ site.product.short_name }}
 ---
 
 ## A

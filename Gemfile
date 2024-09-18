@@ -89,7 +89,9 @@ gem "faraday-retry"
 # that could lead to build error:
 # /opt/homebrew/Cellar/ruby/3.3.0/lib/ruby/3.3.0/logger.rb:384:in `level': undefined method `[]' for nil (NoMethodError)
 #    @level_override[Fiber.current] || @level
+gem "logger"
 gem "mercenary", "~> 0.4"
+gem "ostruct"
 
 # self made plugins dependencies
 gem "nokogiri"
@@ -100,6 +102,7 @@ gem "nokogiri"
 group :jekyll_plugins do
 
     gem "jekyll-remote-theme"
+	gem "jekyll-github-metadata"
     # gem "jekyll-paginate"
     # gem "jekyll-sitemap"
     # gem "jekyll-gist"

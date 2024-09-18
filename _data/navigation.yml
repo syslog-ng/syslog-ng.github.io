@@ -836,13 +836,13 @@ admin-guide-nav:
         url: /admin-guide/120_Parser/014_panos_parser/001_Panos_parser_options
     - title: "Sudo parser"
       url: /admin-guide/120_Parser/015_sudo_parser
+    - title: "MariaDB parser"
+      url: /admin-guide/120_Parser/016_mariadb_parser
     - title: "PostgreSQL parser"
       url: /admin-guide/120_Parser/016_PostgreSQL_csvlog_parser/README
       subnav:
       - title: "PostgreSQL csvlog parser options"
         url: /admin-guide/120_Parser/016_PostgreSQL_csvlog_parser/001_PostgreSQL_parser_options
-    - title: "MariaDB parser"
-      url: /admin-guide/120_Parser/016_mariadb_parser
     - title: "metrics-probe()"
       url: /admin-guide/120_Parser/017_metrics_probe_parser/README
       subnav:

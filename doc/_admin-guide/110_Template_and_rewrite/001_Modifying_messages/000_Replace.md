@@ -1,6 +1,8 @@
 ---
 title: Replacing message parts
 id: adm-temp-replace
+description: >-
+    This section describes how to replace message parts in {{ site.product.short_name }}.
 ---
 
 To replace a part of the log message, you have to:

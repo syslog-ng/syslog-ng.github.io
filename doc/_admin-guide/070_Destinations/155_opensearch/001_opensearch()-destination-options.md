@@ -1,6 +1,8 @@
 ---
 title: OpenSearch() destination options 
 id: adm-dest-os-opt
+description: >-
+    This section describes the options of the opensearch() destination in {{ site.product.short_name }}.
 ---
 
 

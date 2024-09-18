@@ -10,7 +10,7 @@ subtitle: >-
     Slack destination options, but the linking can be forced as well via our custom markdown [[[[Timezones and daylight saving]]]] format.<br>
     Linking also could work with our {% include markdown_link id='doc-own-tools' title='markdown_link liquid include' withTooltip=true %}.<br>
     One more [[destination|adm-about-glossary#bom]] id=adm-about-glossary#bom override test from subtutle.<br>
-    Macros test ${HOST}.
+    Macros test ${HOST}. Liquid test {{ site.title }}.
 # this can be tested as well, but do not send to the final version
 search: false
 # See warning bellow, or frontmatter of doc/_doc-guide/02_Tools/02_Jekyll_extensions.md 

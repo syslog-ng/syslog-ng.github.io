@@ -1,6 +1,8 @@
 ---
 title: Options of the XML parsers
 id: adm-parser-xml-opt
+description: >-
+    This section describes the options of the xml-parser() in {{ site.product.short_name }}.
 ---
 
 ## drop-invalid()

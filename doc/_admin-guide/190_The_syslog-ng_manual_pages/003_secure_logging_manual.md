@@ -1,11 +1,9 @@
 ---
 title: The secure-logging manual page
 id: adm-man-sec-log
+description: >-
+    secure-logging --- Provides forward integrity and confidentiality for system logs.
 ---
-
-## Name
-
-`secure-logging` --- Provides forward integrity and confidentiality for system logs.
 
 ## Synopsis
 

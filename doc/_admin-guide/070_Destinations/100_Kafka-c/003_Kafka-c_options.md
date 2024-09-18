@@ -1,6 +1,8 @@
 ---
 title: "Options of the kafka() destination's C implementation"
 id: adm-dest-kafkac-opt
+description: >-
+    This section describes the options of the kafka() destination in {{ site.product.short_name }}.
 ---
 
 The C implementation of the kafka() destination of {{ site.product.short_name }} can

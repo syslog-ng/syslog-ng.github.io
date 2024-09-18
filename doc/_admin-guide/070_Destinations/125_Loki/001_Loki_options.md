@@ -1,6 +1,8 @@
 ---
 title: loki() destination options
 id: adm-dest-loki-opt
+description: >-
+    This section describes the options of the loki() destination in {{ site.product.short_name }}.
 ---
 
 The `loki()` driver sends messages to a Loki Grafana database and has the following options:

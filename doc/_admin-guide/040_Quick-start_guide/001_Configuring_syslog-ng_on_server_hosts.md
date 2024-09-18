@@ -2,8 +2,10 @@
 title: Configuring {{ site.product.short_name }} on server hosts
 id: adm-qs-server-conf
 description: >-
-    To configure {{ site.product.short_name }} on a server host, complete the following steps.
+    This section explains how to configure {{ site.product.short_name }} on a server host.
 ---
+
+To configure {{ site.product.short_name }} on a server host, complete the following steps.
 
 ## Steps
 
