@@ -11,7 +11,7 @@ drivers:
 
 or
 
-> Automatic assignment of persist names failed, as conflicting persist-names were found. Please override the automatically assigned identifier using an explicit perist-name() option or remove the duplicated configuration elements
+> Automatic assignment of persist names failed, as conflicting persist names were found. Please override the automatically assigned identifier using an explicit persist-name() option or remove the duplicated configuration elements.
 
 This error happens if you use identical drivers in multiple sources, for
 example, if you configure two file sources to read from the same file.
