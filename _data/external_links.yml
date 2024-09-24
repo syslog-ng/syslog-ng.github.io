@@ -343,6 +343,11 @@ flask:
   url: http://flask.pocoo.org/
   title: [ "Flask" ]
 
+freebsd-ports:
+  id: freebsd-ports
+  url: https://ports.freebsd.org/cgi/ports.cgi
+  title: [ "/FreeBSD [Pp]orts/" ]
+
 freepascal-launchd:
   id: freepascal-launchd
   url: https://wiki.freepascal.org/macOS_daemons_and_agents

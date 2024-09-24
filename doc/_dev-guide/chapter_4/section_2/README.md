@@ -268,11 +268,11 @@ sudo port install \
    export PKG_CONFIG_PATH=${HOMEBREW_PREFIX}/opt/openssl/lib/pkgconfig:${HOMEBREW_PREFIX}/opt/net-snmp/lib/pkgconfig:${HOMEBREW_PREFIX}/lib/pkgconfig:${PKG_CONFIG_PATH}
    ```
 
-   Some of the modules will not, or will incorrectly provide pkg-config support (even if added to `PKG\_CONFIG\_PATH`, e.g. libmaxminddb), to help the automatic configurations find them you can add brew to `CFLAGS`, `CPPFLAGS`, and `LDFLAGS`
+   Some of the modules will not, or will incorrectly provide pkg-config support (even if added to `PKG\_CONFIG\_PATH`, e.g. libmaxminddb), to help the automatic configurations find them you can add brew to `CFLAGS`, `CXXFLAGS`, and `LDFLAGS`
 
    ```shell
    export CFLAGS="-I${HOMEBREW_PREFIX}/include/ ${CFLAGS}"
-   export CPPFLAGS="${CFLAGS} ${CPPFLAGS}"
+   export CXXFLAGS="${CFLAGS} ${CXXFLAGS}"
    export LDFLAGS="-L${HOMEBREW_PREFIX}/lib ${LDFLAGS}"
    ```
 
@@ -304,11 +304,11 @@ sudo port install \
    export PKG_CONFIG_PATH=${MACPORTS_PREFIX}/opt/openssl/lib/pkgconfig:${MACPORTS_PREFIX}/opt/net-snmp/lib/pkgconfig:${MACPORTS_PREFIX}/lib/pkgconfig:${PKG_CONFIG_PATH}
    ```
 
-   Some of the modules will not, or will incorrectly provide pkg-config support (even if added to `PKG\_CONFIG\_PATH`, e.g. libmaxminddb), to help the automatic configurations find them you can add brew to `CFLAGS`, `CPPFLAGS`, and `LDFLAGS`
+   Some of the modules will not, or will incorrectly provide pkg-config support (even if added to `PKG\_CONFIG\_PATH`, e.g. libmaxminddb), to help the automatic configurations find them you can add brew to `CFLAGS`, `CXXFLAGS`, and `LDFLAGS`
 
    ```shell
    export CFLAGS="-I${MACPORTS_PREFIX}/include/ ${CFLAGS}"
-   export CPPFLAGS="${CFLAGS} ${CPPFLAGS}"
+   export CXXFLAGS="${CFLAGS} ${CXXFLAGS}"
    export LDFLAGS="-L${MACPORTS_PREFIX}/lib ${LDFLAGS}"
    ```
 
@@ -329,7 +329,7 @@ git clone https://github.com/syslog-ng/syslog-ng .
 Latest version of {{ site.product.short_name }} [has dropped support of gcc](https://github.com/syslog-ng/syslog-ng/pull/4897), so now the platform default llvm/clang must be used to complie the source.\
 `gcc` still might compile {{ site.product.short_name }} and most of its modules, but there is no guarantie and support of it anymore
 
-**Hint:** You can turn off any problematic module via its feature switch
+**Hint:** You can always turn off any problematic module via its feature switch
 {: .notice--info}
 
 To make sure clang is used you can use (optional):
@@ -395,7 +395,7 @@ syslog-ng Open Source Edition 4.8.0.155.g8590bdc.dirty configured
   C++ compiler                : clang++ -std=gnu++11 -std=gnu++17 - Apple clang version 15.0.0 (clang-1500.3.9.4) - /usr/bin/clang++
   C++ compiler options        : -fno-omit-frame-pointer -O2 -g
   linker flags                : -L/opt/homebrew/opt/ruby/lib  -L/opt/homebrew/opt/openssl@3/lib -L/opt/homebrew/lib  -L/opt/local/lib
-  prefix                      : /Users/hofi/Develop/Balabit/syslog-ng/build/install
+  prefix                      : /full_path_of_your/installdir
   linking mode                : dynamic
   classic linking mode        : no
   embedded crypto             : no
@@ -561,6 +561,34 @@ make install
 
 # add -v as well for detailed compilation logging
 cmake --build build/. --target install -j4
+```
+
+After a succesful build you can check the built and supported modules via
+
+```shell
+`/full_path_of_your/installdir`/syslog-ng -V
+```
+
+The `Available-Modules:` entry of the output of the above command will show the available modules
+
+```shell
+syslog-ng 4.8.0.240.gcf39eb3.dirty
+Config version: 4.2
+Installer-Version: 4.8.0.240.gcf39eb3.dirty
+Revision: 4.8.0.240.gcf39eb3.dirty
+Compile-Date: Sep 24 2024 17:57:15
+Module-Directory: /full_path_of_your/installdir/lib/syslog-ng
+Module-Path: /full_path_of_your/installdir/lib/syslog-ng
+Include-Path: /full_path_of_your/installdir/share/syslog-ng/include
+Available-Modules: bigquery,timestamp,darwinosl,kvformat,redis,riemann,afamqp,appmodel,afprog,loki,examples,metrics-probe,cef,map_value_pairs,otel,afsnmp,kafka,stardate,system-source,confgen,afuser,xml,disk-buffer,tfgetent,linux-kmsg-format,cloud_auth,correlation,json-plugin,pseudofile,affile,afsmtp,csvparser,basicfuncs,syslogformat,hook-commands,mqtt,afmongodb,graphite,tags-parser,geoip2-plugin,afstomp,http,secure-logging,afsql,mod-python,afsocket,add_contextual_data,mod-java,cryptofuncs,azure-auth-header,regexp-parser,rate_limit_filter
+Enable-Debug: on
+Enable-GProf: off
+Enable-Memtrace: off
+Enable-IPv6: on
+Enable-Spoof-Source: on
+Enable-TCP-Wrapper: off
+Enable-Linux-Caps: off
+Enable-Systemd: off
 ```
 
 ### Testing

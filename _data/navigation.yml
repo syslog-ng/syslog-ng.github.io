@@ -81,8 +81,6 @@ admin-guide-nav:
     - title: "Configuring {{ site.product.short_name }} relays"
       url: /admin-guide/040_Quick-start_guide/002_Configuring_syslog-ng_relays/README
       subnav:
-      - title: "Configuring {{ site.product.short_name }} on relay hosts"
-        url: /admin-guide/040_Quick-start_guide/002_Configuring_syslog-ng_relays/000_Configuring_syslog-ng_on_relay_hosts
       - title: "How relaying log messages works"
         url: /admin-guide/040_Quick-start_guide/002_Configuring_syslog-ng_relays/001_How_relaying_works
     - title: "Managing and checking {{ site.product.short_name }} service on Linux"
@@ -841,13 +839,13 @@ admin-guide-nav:
         url: /admin-guide/120_Parser/014_panos_parser/001_Panos_parser_options
     - title: "Sudo parser"
       url: /admin-guide/120_Parser/015_sudo_parser
-    - title: "MariaDB parser"
-      url: /admin-guide/120_Parser/016_mariadb_parser
     - title: "PostgreSQL parser"
       url: /admin-guide/120_Parser/016_PostgreSQL_csvlog_parser/README
       subnav:
       - title: "PostgreSQL csvlog parser options"
         url: /admin-guide/120_Parser/016_PostgreSQL_csvlog_parser/001_PostgreSQL_parser_options
+    - title: "MariaDB parser"
+      url: /admin-guide/120_Parser/016_mariadb_parser
     - title: "metrics-probe()"
       url: /admin-guide/120_Parser/017_metrics_probe_parser/README
       subnav:
@@ -1193,6 +1191,9 @@ dev-guide-nav:
           url: /dev-guide/chapter_4/section_2/macos-testing-status/afuser
         - title: "elasticsearch-http"
           url: /dev-guide/chapter_4/section_2/macos-testing-status/elasticsearch-http
+        - title: "grpc"
+          url: /dev-guide/chapter_4/section_2/macos-testing-status/grpc/README
+          subnav:
         - title: "http"
           url: /dev-guide/chapter_4/section_2/macos-testing-status/http
         - title: "mod-python"
@@ -1217,6 +1218,9 @@ dev-guide-nav:
             url: /dev-guide/chapter_4/section_2/macos-testing-status/system-source/01_collecting-native-logs
           - title: "Collecting local macOS logs"
             url: /dev-guide/chapter_4/section_2/macos-testing-status/system-source/02_collecting-local-logs
+    - title: "FreeBSD"
+      url: /dev-guide/chapter_4/section_3/README
+      subnav:
   - title: "Contribution"
     url: /dev-guide/chapter_5/README
     subnav:
