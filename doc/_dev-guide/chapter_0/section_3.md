@@ -64,8 +64,7 @@ this will give you detailed information of what {{ site.product.short_name }} do
 
 First, check [[this|dev-platform-build-macos#dependencies]] if you have not got MacPorts installed and pre-configured yet.
 
-Installation location of MacPorts will be referenced as `${MACPORTS_PREFIX}` in this document, as if you follow the installation instructions above it will be set already correctly independenty of your system.
-
+The installation location of MacPorts will be referenced as `${MACPORTS_PREFIX}` in this document. If you follow the installation instructions above, it will already be set correctly, regardless of your system.
 **Hint**: you can use `export MACPORTS_PREFIX=/opt/local` in your scripts or shell environments to get and reference the actual location of your MacPorts installation
 {: .notice--info}
 
@@ -114,7 +113,7 @@ this will give you detailed information of what {{ site.product.short_name }} do
 
 > **Note:**
 >
-> Bellow examples use `YOUR_INSTALLATION_ROOT` which is depending on the package manager you used to install {{ site.product.short_name }}.
+> Below examples use `YOUR_INSTALLATION_ROOT` which is depending on the package manager you used to install {{ site.product.short_name }}.
 {: .notice}
 
 You can start it manually as a backround daemon

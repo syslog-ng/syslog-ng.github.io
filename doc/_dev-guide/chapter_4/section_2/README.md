@@ -20,7 +20,7 @@ Like every project {{ site.product.short_name }} also uses different libraries a
 
 ### Dependencies
 
-The above mentioned dependencies can be satisfied by compiling every-each libs and tools manually, but it might be preferred to do it the easy way. Homebrew and MacPorts are package managers for macOS which has great community and support. You can also use them to install the dependencies you need.
+The above mentioned dependencies can be satisfied by compiling every-each libs and tools manually, but it might be preferred to do it the easy way. Homebrew and MacPorts are package managers for macOS which have great communities and support. You can also use them to install the dependencies you need.
 
 #### Using HomeBrew
 
@@ -33,7 +33,7 @@ The above mentioned dependencies can be satisfied by compiling every-each libs a
    {: .notice}
 
 2. Perform `brew update` if you have not done it yet.
-3. The following packages should be installed for {{ site.product.short_name }}ng
+3. The following packages should be installed for {{ site.product.short_name }}
    * autoconf
    * autoconf-archive
    * automake
@@ -53,8 +53,8 @@ The above mentioned dependencies can be satisfied by compiling every-each libs a
    * gracle
    * grpc
    * hiredis
-   * ~~libdbi~~ - See [bellow](#packages-note)!
-   * ~~libesmtp~~ - See [bellow](#packages-note)!
+   * ~~libdbi~~ - See [below](#packages-note)!
+   * ~~libesmtp~~ - See [below](#packages-note)!
    * libmaxminddb
    * libnet
    * libpaho-mqtt
@@ -65,7 +65,7 @@ The above mentioned dependencies can be satisfied by compiling every-each libs a
    * riemann-client
 6. Extra development tools you might require
    * criterion
-   * ~~gcc@14~~ - See [bellow](#packages-note)!
+   * ~~gcc@14~~ - See [below](#packages-note)!
 
 **Hint:** If you have [[{{ site.product.short_name }} installed via brew|dev-inst-macos#installation]], as a reference, you can check the dependencies of the brew built version using `brew deps syslog-ng`
 {: .notice--info}
@@ -100,7 +100,7 @@ brew install \
     gradle \
     grpc \
     hiredis \
-    # Do not use the homebrew provided one, see !
+    # Do not use the homebrew provided one, see below!
     # libdbi
     # Homebrew does not have this lib yet
     # libesmtp
@@ -149,7 +149,7 @@ brew install \
    * gradle
    * grpc
    * hiredis
-   * ~~libdbi~~ - See [bellow](#packages-note)!
+   * ~~libdbi~~ - See [below](#packages-note)!
    * libesmtp
    * libmaxminddb
    * libnet
@@ -158,10 +158,10 @@ brew install \
    * paho.mqtt.c
    * python3
    * rabbitmq-c
-   * ~~riemann-client~~ - See [bellow](#packages-note)!
+   * ~~riemann-client~~ - See [below](#packages-note)!
 7. Extra development tools you might require
    * criterion
-   * ~~gcc@14~~ - See [bellow](#packages-note)!
+   * ~~gcc@14~~ - See [below](#packages-note)!
 
 **Hint:** If you have [[{{ site.product.short_name }} installed via MacPorts|dev-inst-macos#installation-via-macports]], as a reference, you can check the dependencies of the MacPorts built version using `port deps syslog-ng`
 {: .notice--info}
@@ -170,9 +170,9 @@ This is how it might look like if you start from the ground:
 
 ```shell
 # DO NOT FORGET! Install the MacPorts package first which has a GUI installer. https://www.macports.org/install.php
-# But, you can install it from the comamnd line as well, like
+# But, you can install it from the command line as well, like
 
-# WARNING! SET the bellow url and package name according to your needs and OS version !!!
+# WARNING! SET the below url and package name according to your needs and OS version !!!
 export MACPORTS_PKG_NAME=MacPorts-2.10.1-Sonoma.pkg
 export MACPORTS_URL=https://github.com/macports/macports-base/releases/download/v2.10.1/${MACPORTS_PKG_NAME}
 
@@ -203,7 +203,7 @@ sudo port install \
     gradle \
     grpc \
     hiredis \
-    # Do not use the homebrew provided one, see !
+    # Do not use the homebrew provided one, see below!
     # libdbi 
     libesmtp \
     libmaxminddb \
@@ -312,7 +312,7 @@ sudo port install \
    export LDFLAGS="-L${MACPORTS_PREFIX}/lib ${LDFLAGS}"
    ```
 
-**Note:** It could also happen that you must provide here further library inlcude and lib paths, e.g. for openssl 1.1.x, etc.
+**Note:** Providing further library paths might be necessary. (e.g. for openssl 1.1.x, etc.)
 {: .notice}
 
 ### Getting the source
@@ -365,7 +365,7 @@ export CXX=g++    # More precisly, the full path of your installed g++ compiler
 mkdir build; cd build
 
 # Finally, you can start the configuration with enabling or disabling the various modules e.g. like this
-# NOTE: you might want to use the --prefix /full_path_of_your/installdir/ parameters as well, see bellow Warning!
+# NOTE: you might want to use the --prefix /full_path_of_your/installdir/ parameters as well, see below Warning!
 ../configure --with-ivykis=system --with-systemd-journal=no --disable-java --disable-java-modules
 ```
 
@@ -460,11 +460,11 @@ For trying force enable a given module you can use e.g. `--enable-kafka` that wi
 If you have all the above mentioned dependencies installed, for the full (currently supported) feature set you can simply use
 
 ```shell
-# NOTE: you might want to use the --install-prefix /full_path_of_your/installdir/ parameters as well, see bellow Warning!
+# NOTE: you might want to use the --install-prefix /full_path_of_your/installdir/ parameters as well, see below Warning!
 cmake --install-prefix /full_path_of_your/installdir -B build . -Wno-dev -DIVYKIS_SOURCE=system --fresh
 ```
 
-**Warning:** By a good chance, you might want to install the self built instance first to a custom location to prevent overwriting a possibly already existing installed version. In that case pass `---install-prefix /full_path_of_your/installdir/` parameter to the `cmake` command like you see in the above steps.
+**Warning:** You may want to install the self-built instance to a custom location first to avoid overwriting an existing installed version. In that case, pass the `--install-prefix /full_path_of_your/installdir/` parameter to the `cmake` command, as shown in the steps above.
 {: .notice--danger}
 
 At the end of the configure step you should see the module list will be used during the compilation and installation steps, it should look similar to this

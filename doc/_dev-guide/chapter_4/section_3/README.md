@@ -34,14 +34,14 @@ The above mentioned dependencies can be satisfied by compiling every-each libs a
    * gperf
    * glib
    * gmake
-   * ivykis - See [bellow](#packages-note)!
+   * ivykis - See [below](#packages-note)!
    * json-c
    * libtool
    * pcre2
    * pkg-config
 1. The extra modules would require the following
    * gradle
-   * grpc - See [bellow](#packages-note)!
+   * grpc - See [below](#packages-note)!
    * hiredis
    * libdbi
    * libdbi-drivers
@@ -57,10 +57,7 @@ The above mentioned dependencies can be satisfied by compiling every-each libs a
    * riemann-c-client
 1. Extra development tools you might require
    * criterion
-   * gcc14 - See [bellow](#packages-note)!
-
-**Hint:** If you have [[{{ site.product.short_name }} installed already via FreeBSD Ports, as a reference, you can check the dependencies of the installed version using `brew deps syslog-ng`
-{: .notice--info}
+   * gcc14 - See [below](#packages-note)!
 
 This is how it might look like if you start from the ground:
 
@@ -101,7 +98,7 @@ sudo pkg install \
     riemann-c-client \
     # Optional, needed for unit testing
     criterion \
-    # Optional, clang now should compile all modules nicely and it is the oficially supported compiler on FreeBSD
+    # Optional, clang now should compile all modules nicely and it is the officially supported compiler on FreeBSD
     gcc14
 ```
 
@@ -140,7 +137,7 @@ export CXXFLAGS="${CFLAGS} ${CXXFLAGS}"
 export LDFLAGS="-L${BSDPORTS_PREFIX}/lib ${LDFLAGS}"
 ```
 
-**Note:** It could also happen that you must provide here further library inlcude and lib paths
+**Note:** Providing further library paths might be necessary.
 {: .notice}
 
 ### Getting the source
@@ -155,7 +152,7 @@ git clone https://github.com/syslog-ng/syslog-ng .
 ### Select the compiler
 
 Latest version of {{ site.product.short_name }} [has dropped support of gcc](https://github.com/syslog-ng/syslog-ng/pull/4897), so now the platform default llvm/clang must be used to complie the source.\
-`gcc` still might compile {{ site.product.short_name }} and most of its modules, but there is no guarantie and support of it anymore.
+`gcc` still might compile {{ site.product.short_name }} and most of its modules, but there is no guarantee and support of it anymore.
 
 **Hint:** You can always turn off any problematic module via its feature switch.
 {: .notice--info}
@@ -186,21 +183,21 @@ export CXX=g++    # More precisly, the full path of ypur installed g++ compiler
 #### Using autotool
 
 ```shell
-# you should use `gmake` instead of `make` on FreeBSD to configure and build syslog-ng with autotools.
+# You should use `gmake` instead of `make` on FreeBSD to configure and build syslog-ng with autotools.
 export MAKE=gmake
 
 ./autogen.sh
 
-# it is always a good idea keeping as clean the source folder as pissible, so
+# It is always a good idea to keep the source folder as clean as possible, so
 # use a dedicated build folder for easier cleanup
 mkdir build; cd build
 
 # Finally, you can start the configuration with enabling or disabling the various modules e.g. like this
-# NOTE: you might want to use the --prefix /full_path_of_your/installdir/ parameters as well, see bellow Warning!
+# NOTE: you might want to use the --prefix /full_path_of_your/installdir/ parameters as well, see below Warning!
 ../configure --enable-extra-warnings --with-ivykis=system --with-systemd-journal=no --disable-java --disable-java-modules
 ```
 
-**Warning:** By a good chance, you might want to install the self built instance first to a custom location to prevent overwriting a possibly already existing installed version. In that case pass `--prefix /full_path_of_your/installdir/` to the `configure` script in the above steps.
+**Warning:** You may want to install the self-built instance to a custom location first to avoid overwriting an existing installed version. In that case, pass the `--prefix /full_path_of_your/installdir/` parameter to the `configue` command, as shown in the steps above.
 {: .notice--danger}
 
 If you have all the above mentioned dependencies installed, for the full feature set you can simply use for example (excluded the not yet supported modules on FreeBSD)
@@ -388,7 +385,7 @@ gmake install
 cmake --build build/. --target install -j4
 ```
 
-After a succesful build you can check the built and supported modules via
+After a successful build you can check the built and the supported modules via
 
 ```shell
 `/full_path_of_your/installdir`/syslog-ng -V
