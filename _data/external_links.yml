@@ -343,6 +343,11 @@ flask:
   url: http://flask.pocoo.org/
   title: [ "Flask" ]
 
+freebsd-ports:
+  id: freebsd-ports
+  url: https://ports.freebsd.org/cgi/ports.cgi
+  title: [ "/FreeBSD [Pp]orts/" ]
+
 freepascal-launchd:
   id: freepascal-launchd
   url: https://wiki.freepascal.org/macOS_daemons_and_agents
@@ -411,12 +416,22 @@ grpc-keep:
 homebrew:
   id: homebrew
   url: http://brew.sh
-  title: [ "Homebrew" ]
+  title: [ "/[Hh]ome[Bb]rew/" ]
 
 homebrew-inst-detailed:
   id: homebrew-inst-detailed
   url: https://mac.install.guide/homebrew/3.html
-  title: [ "Homebrew" ]
+  title: [ "/[Hh]ome[Bb]rew [Ii]nstallation/", "/[Ii]nstall [Hh]ome[Bb]rew/" ]
+
+macports:
+  id: macports
+  url: https://www.macports.org
+  title: [ "/[Mm]ac[Pp]orts/" ]
+
+macports-inst-detailed:
+  id: macports-inst-detailed
+  url: https://www.macports.org/install.php
+  title: [ "/[Mm]ac[Pp]orts [Ii]nstallation/", "/[Ii]nstall [Mm]ac[Pp]orts/" ]
 
 iptables:
   id: iptables

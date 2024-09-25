@@ -10,9 +10,18 @@ id: dev-macos-mod-sup-afsmtp
 
 | Architecture |    Status    |
 | :----------: | :----------: |
-|      x86     | Doesn't Work |
-|      ARM     | Doesn't Work |
+|      x86     |     Works    |
+|      ARM     |     Works    |
 
-### Root Cause
+### Testing <a href="#testing" id="testing"></a>
 
-This driver has a dependency on the libesmtp driver. However, this driver does not compile on the latest version of macOS.
+**AFSMTP Setup**
+
+To test this driver, we need to set up AFSMTP first. You can use MacPorts to install all the necessary dependencies.
+
+To be able to successfully test this driver, we need to install libesmtp, for that, we can do the following:
+
+`$ sudo port install libesmtp`
+
+**Note:** HomeBrew does not have this library in its package list currently
+{: .notice--info}
