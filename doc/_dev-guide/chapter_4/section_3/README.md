@@ -34,6 +34,7 @@ The above mentioned dependencies can be satisfied by compiling every-each libs a
    * gperf
    * glib
    * gmake
+   * gperf
    * ivykis - See [below](#packages-note)!
    * json-c
    * libtool
@@ -75,6 +76,7 @@ sudo pkg install \
     flex \
     glib \
     gmake \
+    gperf \
     # Optional, if you use the internal ivykis source of {{ site.product.short_name }} for building
     ivykis \
     json-c \
