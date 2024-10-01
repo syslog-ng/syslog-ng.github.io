@@ -98,6 +98,34 @@ also use the ? and \* wildcards. For example:
 The nodes and properties available in the tree depend on your {{ site.product.short_name }} configuration (that is, the sources, destinations, and other objects
 you have configured), and also on your stats-level() settings.
 
+## The internal-logs command
+All messages generated internally by syslog-ng OSE can be collected by this command.
+
+internal-logs \[options\]
+
+- \--start or -s
+Start live collection of internal logs.
+
+- \--stop or -x
+Stops further collection and display collected internal log messages.
+
+- \--size or -l
+Get size of internal logs.
+
+**NOTE:** Internal source e.g. internal() should not be configured in source for this command to work.
+
+### Example - internal-logs 
+
+```bash
+syslog-ng-ctl debug --set 1
+syslog-ng-ctl internal-logs --start
+#wait 
+syslog-ng-ctl internal-logs --size
+
+syslog-ng-ctl internal-logs --stop
+syslog-ng-ctl debug --set 0
+```
+
 ## The list command
 
 syslog-ng-ctl query list
