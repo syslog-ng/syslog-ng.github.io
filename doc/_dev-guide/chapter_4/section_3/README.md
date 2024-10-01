@@ -38,7 +38,7 @@ The above mentioned dependencies can be satisfied by compiling every-each libs a
    * json-c
    * libtool
    * pcre2
-   * pkg-config
+   * pkgconf
 1. The extra modules would require the following
    * gradle
    * grpc - See [below](#packages-note)!
@@ -80,13 +80,13 @@ sudo pkg install \
     json-c \
     libtool \
     pcre2 \
-    pkg-config \
+    pkgconf \
     # Optional {{ site.product.short_name }} module dependencies
     gradle \
     grpc \
     hiredis \
-    libdbi
-    libesmtp
+    libdbi \
+    libesmtp \
     libmaxminddb \
     libnet \
     libpaho-mqtt3 \
