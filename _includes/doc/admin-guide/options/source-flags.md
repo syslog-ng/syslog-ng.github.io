@@ -1,6 +1,6 @@
 ## flags()
 
-|Type:| assume-utf8, empty-lines, expect-hostname, kernel, no-hostname, no-multi-line, no-parse, sanitize-utf8, store-legacy-msghdr, store-raw-message, syslog-protocol, threaded, validate-utf8|
+|Accepted values:| assume-utf8, empty-lines, expect-hostname, kernel, no-hostname, no-multi-line, no-parse, sanitize-utf8, store-legacy-msghdr, store-raw-message, syslog-protocol, threaded, validate-utf8, no-piggyback-errors|
 |Default: |  empty set|
 
 *Description:* Specifies the log parsing options of the source.
@@ -139,5 +139,6 @@
     If the BOM[^1] character is missing, but the message is otherwise UTF-8
     compliant, {{ site.product.short_name }} automatically adds the BOM character to the
     message.
+- *no-piggyback-errors*: This option configures syslog-ng OSE to ignore parsing errors caused by piggybacked messages. If the parser encounters issues separating multiple messages sent together, it skips them without raising an error.
 
 [^1]: The byte order mark (BOM) is a Unicode character used to signal the byte-order of the message text.
