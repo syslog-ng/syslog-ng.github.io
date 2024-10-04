@@ -1,0 +1,21 @@
+{% if site.github.repository_url %}
+{% assign contrib_view = site.github.repository_url | append: '/tree/master/' | append: site.collections_dir | append: '/' | append: page.relative_path %}
+{% assign contrib_edit = site.github.repository_url | append: '/edit/master/' | append: site.collections_dir | append: '/' | append: page.relative_path %}
+{% assign contrib_report = site.github.repository_url | append: '/issues/new?title=Issue with ' | append: page.relative_path %}
+ 
+<aside class="sidebar__right sticky contrib">
+	<div class="align-right">
+		<button id="view" class="masthead_button" type="button" onclick="window.open('{{contrib_view}}', '_blank')">
+			<i class="masthead_button_icon fas fa-eye content-tooltip tooltip-align-center text-content-tooltip" data-tooltip-text="View page source"></i>
+		</button>
+
+		<button id="edit" class="masthead_button" type="button" onclick="window.open('{{contrib_edit}}', '_blank')">
+			<i class="masthead_button_icon far fa-edit content-tooltip tooltip-align-center text-content-tooltip" data-tooltip-text="Edit this page"></i>
+		</button>
+
+		<button id="report" class="masthead_button" type="button" onclick="window.open('{{contrib_report}}', '_blank')">
+			<i class="masthead_button_icon fas fa-bug content-tooltip tooltip-align-center text-content-tooltip" data-tooltip-text="Report an issue"></i>
+		</button>
+	</div>
+</aside>
+{% endif %}
