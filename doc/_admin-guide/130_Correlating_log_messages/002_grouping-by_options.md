@@ -162,6 +162,15 @@ sends the triggered message (specified in the
 aggregate(), and clears the
 context.
 
+### Example: Configuring trigger() with a 100 message context length
+
+```config
+parser p_grouping-by {grouping-by(
+    ...
+    trigger("$(context-length)" > "100")
+);};
+```
+
 ## where()
 
 *Description:* Specifies a filter condition. Messages not matching the
