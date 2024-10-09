@@ -4,10 +4,8 @@ short_title: unix-stream, unix-dgram
 id: adm-src-unix
 description: >-
     The unix-stream() and unix-dgram() drivers open an AF_UNIX socket and
-    start listening on it for messages. The unix-stream() driver is
-    primarily used on Linux and uses SOCK_STREAM semantics (connection
-    oriented, no messages are lost), while unix-dgram() is used on BSDs and
-    uses SOCK_DGRAM semantics: this may result in lost local messages if
+    start listening on it for messages. On Linux both the unix-stream() and unix-dgram() drivers are used and are always reliable,
+    while unix-dgram() is used on BSDs and uses SOCK_DGRAM semantics: this may result in lost local messages if
     the system is overloaded.
 ---
 
