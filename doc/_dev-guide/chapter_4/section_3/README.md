@@ -34,11 +34,12 @@ The above mentioned dependencies can be satisfied by compiling every-each libs a
    * gperf
    * glib
    * gmake
+   * gperf
    * ivykis - See [below](#packages-note)!
    * json-c
    * libtool
    * pcre2
-   * pkg-config
+   * pkgconf
 1. The extra modules would require the following
    * gradle
    * grpc - See [below](#packages-note)!
@@ -75,18 +76,19 @@ sudo pkg install \
     flex \
     glib \
     gmake \
+    gperf \
     # Optional, if you use the internal ivykis source of {{ site.product.short_name }} for building
     ivykis \
     json-c \
     libtool \
     pcre2 \
-    pkg-config \
+    pkgconf \
     # Optional {{ site.product.short_name }} module dependencies
     gradle \
     grpc \
     hiredis \
-    libdbi
-    libesmtp
+    libdbi \
+    libesmtp \
     libmaxminddb \
     libnet \
     libpaho-mqtt3 \

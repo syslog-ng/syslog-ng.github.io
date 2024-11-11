@@ -44,6 +44,8 @@ Available in {{ site.product.short_name }} 4.5 and later versions.
 
 {% include doc/admin-guide/options/frac-digits.md %}
 
+{% include doc/admin-guide/options/headers-gRPC.md %}
+
 {% include doc/admin-guide/options/hook.md %}
 
 {% include doc/admin-guide/options/keep-alive.md %}
