@@ -3,7 +3,7 @@ title: 'elasticsearch-datastream: Elasticsearch data streams'
 short_title: elasticsearch-datastream
 id: adm-dest-es-datastream
 description: >-
-From syslog-ng OSE 4.8 and later versions, you  can send messages and metrics to [Elasticsearch data streams](https://www.elastic.co/guide/en/elasticsearch/reference/current/data-streams.html) to store your log and metrics data as time series data..
+    From syslog-ng OSE 4.8 and later versions, you  can send messages and metrics to [Elasticsearch data streams](https://www.elastic.co/guide/en/elasticsearch/reference/current/data-streams.html) to store your log and metrics data as time series data.
 ---
 
 **Declaration**
