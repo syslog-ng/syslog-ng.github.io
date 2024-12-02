@@ -3,7 +3,7 @@ title: 'elasticsearch-datastream: Elasticsearch data streams'
 short_title: elasticsearch-datastream
 id: adm-dest-es-datastream
 description: >-
-    From syslog-ng OSE 4.8 and later versions, you  can send messages and metrics to [Elasticsearch data streams](https://www.elastic.co/guide/en/elasticsearch/reference/current/data-streams.html) to store your log and metrics data as time series data.
+    From {{ site.product.short_name }} 4.8 and later versions, you  can send messages and metrics to Elasticsearch data streams to store your log and metrics data as time series data.
 ---
 
 **Declaration**
@@ -17,7 +17,8 @@ destination d_elastic_data_stream {
   );
 };
 ```
-This driver is a reusable configuration snippet configured to send log messages using the http() driver using a template. You can find the source of this configuration snippet on [GitHub](https://github.com/axoflow/axosyslog/blob/main/scl/elasticsearch/elastic-datastream.conf).
+
+This driver is a reusable configuration snippet configured to send log messages using the http() driver using a template. You can find the Elasticsearch datastream configuration snippet on GitHub.
 
 ## Prerequisites
 
