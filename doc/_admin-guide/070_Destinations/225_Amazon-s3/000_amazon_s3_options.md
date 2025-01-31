@@ -66,7 +66,7 @@ Description: Only has effect if compression() is set to `yes`. The level of the 
 
 ## max-object-size()
 
-|Type:|   number [GiB]|
+|Type:|   string|
 |Default:|           5120GiB|
 
 *Description:* The maximal size of the S3 object. If an object reaches this size, {{ site.product.short_name }} appends an index suffix ("-1", “-2”, …) to the object key and starts a new object after rotation.
