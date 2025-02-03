@@ -50,8 +50,7 @@ such messages without losing any information to CIM-aware applications
 |              | Note that on Linux, the so-rcvbuf() option of the system() source is automatically set to 8192.        |
 |              | If the host is running under systemd, {{ site.product.short_name }} reads directly from the systemd journal file using the systemd-journal() source.                        |
 |              | If the kernel of the host is version 3.5 or newer, and /dev/kmsg is seekable, {{ site.product.short_name }} will use that instead of /proc/kmsg, using the multi-line-mode(indented), keep-timestamp(no), and the format(linux-kmsg)options.                      |
-|              | If {{ site.product.short_name }} is running in a jail or a Linux Container (LXC), it will not read from the /dev/kmsg or /proc/kmsg files.                                 |
-|              |If syslog-ng OSE is running in a jail or a Linux Container (LXC), it will not read from the `/dev/kmsg` or `/proc/kmsg` files.
+|              |If {{ site.product.short_name }} is running in a jail or a Linux Container (LXC), it will not read from the `/dev/kmsg` or `/proc/kmsg` files.
 |              |With systemd: `systemd-journal();`
 |              |Without systemd, on kernel 3.5 or newer: `unix-dgram("/dev/log"); file("/dev/kmsg" program-override("kernel") flags(kernel) format("linux-kmsg") keep-timestamp(no));`
 |              |Without systemd, on kernels older than 3.5: `unix-dgram("/dev/log"); file("/proc/kmsg" program-override("kernel") flags(kernel) keep-timestamp(no));`
