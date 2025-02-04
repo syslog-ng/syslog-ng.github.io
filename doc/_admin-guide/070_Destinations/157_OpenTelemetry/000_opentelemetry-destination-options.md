@@ -75,4 +75,6 @@ Available in syslog-ng OSE 4.5 and later versions.
 
 *Description:* This option enables compression in gRPC requests. Currently, only the deflate compression method is supported.
 
+{% include doc/admin-guide/options/headers-gRPC.md %}
+
 {% include doc/admin-guide/options/workers.md %}
