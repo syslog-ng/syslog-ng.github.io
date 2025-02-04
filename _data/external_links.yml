@@ -610,7 +610,7 @@ gh-es:
 
 gh-es-ds:
   id: gh-es-ds
-  url: https://github.com/axoflow/axosyslog/blob/main/scl/elasticsearch/elastic-datastream.conf
+  url: https://github.com/syslog-ng/syslog-ng/blob/master/scl/elasticsearch/elastic-datastream.conf
   title: [ "Elasticsearch datastream configuration snippet on GitHub" ]
   
 gh-fortigate:
