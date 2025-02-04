@@ -503,6 +503,7 @@ following macros are available in {{ site.product.short_name }} version 3.9 and 
 - .tls.x509_o: The value of the Organization field.
 
 - .tls.x509_ou: The value of the Organization Unit field.
+- .tls.x509_fp: The key fingerprint of the peer, when the trusted-key() option is used. Available in {{ site.product.short_name }} 4.8 and later versions.
 
 ## ${UNIQID}
 
