@@ -1,5 +1,5 @@
 ---
-title: Setting severity with the [[set-severity()|adm-temp-severity]] rewrite function
+title: Setting severity with the set-severity() rewrite function
 short_title: Setting severity
 id: adm-temp-severity
 description: >-
@@ -62,4 +62,5 @@ rewrite {
     set-severity("${.json.severity}");
 };
 ```
+
 {% include doc/admin-guide/warnings/dotdot-stringonly.md %}
