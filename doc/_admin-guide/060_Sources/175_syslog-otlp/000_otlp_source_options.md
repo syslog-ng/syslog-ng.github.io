@@ -129,7 +129,9 @@ source {
 
 {% include doc/admin-guide/options/host-override.md %}
 
-{% include doc/admin-guide/options/keep-hostname.md %}
+## keep-hostname()
+
+The `syslog-ng-otlp()` and `opentelemetry()` sources ignore this option and use the hostname from the message as the `${HOST}`.
 
 {% include doc/admin-guide/options/keep-timestamp.md %}
 
