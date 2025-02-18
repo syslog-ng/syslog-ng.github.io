@@ -43,7 +43,7 @@ will not start.
 ![]({{ site.baseurl}}/assets/images/caution.png)
 **CAUTION:**   
 The systemd-journal() source cannot operate under an Ubuntu 24.04 LTS (Noble Numbat) platform. For more information on supported platforms, see Supported platforms.
-{: .notice--danger}
+{: .notice--warning}
 
 **Declaration**
 
