@@ -1,6 +1,8 @@
 ---
 title: sumologic-http() destination options
 id: adm-dest-sumologic-http-opt
+description: >-
+    This section describes the options of the sumologic-http() destination in {{ site.product.short_name }}.
 ---
 
 

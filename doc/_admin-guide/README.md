@@ -2,8 +2,7 @@
 title: syslog-ng Open Source Edition Administration Guides
 id: adm-guide
 description: >-
-    Welcome to the {{ site.product.name }} 4.6 Administration Guide.
-    This document describes how to configure and manage {{ site.product.name }} ({{ site.product.short_name }}). Background information for the technology and concepts used by the product is also discussed.
+    Welcome to the {{ site.product.name }} {{ site.github.latest_release.name | remove: '.tar.gz' | remove: 'syslog-ng-'}} Administration Guide. This document describes how to configure and manage {{ site.product.name }} ({{ site.product.short_name }}). Background information for the technology and concepts used by the product is also discussed. 
 ---
 
 ## Target audience

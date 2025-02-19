@@ -1,6 +1,8 @@
 ---
 title: opentelemetry() destination options 
 id: adm-dest-optel-opt
+description: >-
+    This section describes the options of the opentelemetry() destination in {{ site.product.short_name }}.
 ---
 
 The following options are available for the opentelemetry() destination.
@@ -72,5 +74,7 @@ destination {
 Available in syslog-ng OSE 4.5 and later versions.
 
 *Description:* This option enables compression in gRPC requests. Currently, only the deflate compression method is supported.
+
+{% include doc/admin-guide/options/headers-gRPC.md %}
 
 {% include doc/admin-guide/options/workers.md %}

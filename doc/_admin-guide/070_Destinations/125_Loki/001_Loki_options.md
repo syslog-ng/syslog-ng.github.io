@@ -1,6 +1,8 @@
 ---
 title: loki() destination options
 id: adm-dest-loki-opt
+description: >-
+    This section describes the options of the loki() destination in {{ site.product.short_name }}.
 ---
 
 The `loki()` driver sends messages to a Loki Grafana database and has the following options:
@@ -65,6 +67,8 @@ destination {
 {% include doc/admin-guide/options/batch-timeout.md %}
 
 {% include doc/admin-guide/options/channel-args.md %}
+
+{% include doc/admin-guide/options/headers-gRPC.md %}
 
 {% include doc/admin-guide/options/gRPC-keep-alive.md %}
 

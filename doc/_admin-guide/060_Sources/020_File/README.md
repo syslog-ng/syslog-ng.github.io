@@ -1,9 +1,9 @@
 ---
-title: 'file: Collecting messages from text files'
-short_title: file
+title: 'file: Collecting messages from text files (DEPRECATED)'
+short_title: file (DEPRECATED)
 id: adm-src-file
 description: >-
-    Collects log messages from plain-text files, for example, from the logfiles of
+    The file() source has been deprecated. For a more stable performance, use the [[wildcard-file() source|adm-src-wild]] instead. Collects log messages from plain-text files, for example, from the logfiles of
     an Apache webserver. If you want to use wildcards in the filename, use the [[wildcard-file() source|adm-src-wild]].
 ---
 

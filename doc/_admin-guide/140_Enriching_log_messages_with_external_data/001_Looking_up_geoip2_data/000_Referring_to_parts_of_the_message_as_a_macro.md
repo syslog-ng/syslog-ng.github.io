@@ -1,14 +1,13 @@
 ---
 title: Referring to parts of the message as a macro
 id: adm-enrich-geoip-macro
+description: >-
+    You can refer to the separated parts of the message using the key of the
+    value as a macro. For example, if the message contains
+    KEY1=value1,KEY2=value2, you can refer to the values as ${KEY1} and ${KEY2}.
 ---
 
-You can refer to the separated parts of the message using the key of the
-value as a macro. For example, if the message contains
-KEY1=value1,KEY2=value2, you can refer to the values as ${KEY1} and
-${KEY2}.
-
-for example, if the default prefix (.geoip2) is used, you can determine
+For example, if the default prefix (.geoip2) is used, you can determine
 the country code using **${.geoip2.country.iso\_code}**.
 
 To look up all keys:

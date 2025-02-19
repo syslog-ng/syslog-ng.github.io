@@ -9,9 +9,9 @@ description:  >-
 
 At present we are not supporting macOS {{ site.product.short_name }} on our [[official repository|gh-syslog-ng]] on GitHub. However, you can install pre-built {{ site.product.short_name }} binaries from various sources or can compile yourself following [[this guide|dev-platform-build-macos#compiling-from-source]].
 
-If you want to install {{ site.product.short_name }} on macOS you can use multiple packaga managers e.g. Homebrew
+If you want to install {{ site.product.short_name }} on macOS you can use multiple packaga managers like Homebrew or MacPorts
 
-### Homebrew
+### Using Homebrew
 
 First, check [[this|dev-platform-build-macos#dependencies]] if you have not got Homebrew installed and pre-configured yet.
 
@@ -20,7 +20,7 @@ Homebrew has now different home directories on ARM and X86 systems, also the loc
 **Hint**: you can use `export HOMEBREW_PREFIX=$(brew --prefix)` in your scripts or shell environments to get and reference the actual location of your homewbrew installation
 {: .notice--info}
 
-### Checking dependencies
+#### Checking dependencies
 
 The {{ site.product.short_name }} package on macOS in homebrew is organized into a formula called `syslog-ng`.
 
@@ -30,9 +30,9 @@ For checking [[dependencies|dev-platform-build-macos#dependencies]] of it you ca
 brew deps syslog-ng
 ```
 
-This will list all the required dependencies are needed to run {{ site.product.short_name }},  and homebrew would install automatically as needed.
+This will list all the required dependencies are needed to run {{ site.product.short_name }}, and homebrew would install automatically as needed.
 
-### Installation
+#### Installation
 
 Using homebrew it is simple, use
 
@@ -42,7 +42,7 @@ brew install syslog-ng
 
 This command line refers to the latest distribution of {{ site.product.short_name }} versions at the time of writing, and usually updated quickly by the homwbrew crew after a new release.
 
-### Starting syslog-ng
+#### Starting syslog-ng
 
 You can start `syslog-ng` many ways in foreground, e.g. in a terminal window
 
@@ -60,12 +60,66 @@ ${HOMEBREW_PREFIX}/sbin/syslog-ng -Fdevt
 
 this will give you detailed information of what {{ site.product.short_name }} does.
 
+### Using MacPorts
+
+First, check [[this|dev-platform-build-macos#dependencies]] if you have not got MacPorts installed and pre-configured yet.
+
+The installation location of MacPorts will be referenced as `${MACPORTS_PREFIX}` in this document. If you follow the installation instructions above, it will already be set correctly, regardless of your system.
+**Hint**: you can use `export MACPORTS_PREFIX=/opt/local` in your scripts or shell environments to get and reference the actual location of your MacPorts installation
+{: .notice--info}
+
+#### Checking dependencies in MacPorts
+
+For checking [[dependencies|dev-platform-build-macos#dependencies]] of it you can use
+
+```shell
+port deps syslog-ng-devel
+```
+
+**Note**: there is a `syslog-ng` package as well in MacPorts, the one with `-devel` suffix is usually a more fresh version.
+{: .notice--info}
+
+This will list all the required dependencies are needed to run {{ site.product.short_name }}, and MacPorts would install automatically as needed.
+
+#### Installation via MacPorts
+
+Using MacPorts it is simple, use
+
+```shell
+port install syslog-ng-devel
+```
+
+This command line refers to the latest distribution of {{ site.product.short_name }} versions at the time of writing, and usually updated quickly by the homwbrew crew after a new release.
+
+#### Starting syslog-ng which installed from MacPorts
+
+You can start `syslog-ng` many ways in foreground, e.g. in a terminal window
+
+```shell
+${MACPORTS_PREFIX}/sbin/syslog-ng -F
+```
+
+this will start it as a foreground process in the terminal and write only minimal information to the console during its run.
+
+To see more details you can specify some debug flags, like
+
+```shell
+${MACPORTS_PREFIX}/sbin/syslog-ng -Fdevt
+```
+
+this will give you detailed information of what {{ site.product.short_name }} does.
+
 ### Running {{ site.product.short_name }} as daemon
+
+> **Note:**
+>
+> Below examples use `YOUR_INSTALLATION_ROOT` which is depending on the package manager you used to install {{ site.product.short_name }}.
+{: .notice}
 
 You can start it manually as a backround daemon
 
 ```shell
-${HOMEBREW_PREFIX}/sbin/syslog-ng
+YOUR_INSTALLATION_ROOT/sbin/syslog-ng
 ```
 
 however this is not a persistent state, after a system restart {{ site.product.short_name }} will not start automatically by default.
@@ -93,14 +147,14 @@ You can find several pages about `launchd` and how to add System or User Launch 
        
        <key>ProgramArguments</key>
        <array>
-          <string>/opt/homebrew/sbin/syslog-ng</string>
+          <string>YOUR_INSTALLATION_ROOT/sbin/syslog-ng</string>
           <string>-F</string>
        </array>
 
        <key>StandardOutPath</key>
-       <string>/opt/homebrew/var/log/syslog-ng-daemon.stdout.log</string>
+       <string>YOUR_INSTALLATION_ROOT/var/log/syslog-ng-daemon.stdout.log</string>
        <key>StandardErrorPath</key>
-       <string>/opt/homebrew/var/log/syslog-ng-daemon.stderr.log</string>
+       <string>YOUR_INSTALLATION_ROOT/var/log/syslog-ng-daemon.stderr.log</string>
    </dict>
    </plist>
    ```

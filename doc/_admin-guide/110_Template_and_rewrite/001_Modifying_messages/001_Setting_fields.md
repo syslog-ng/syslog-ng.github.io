@@ -1,6 +1,8 @@
 ---
 title: Setting message fields to specific values
 id: adm-temp-set
+description: >-
+    This section describes how to set a message field in {{ site.product.short_name }}.
 ---
 
 To set a field of the message to a specific value, you have to:

@@ -1,6 +1,8 @@
 ---
 title: opentelemetry() source options
 id: adm-src-optel-opt
+description: >-
+    This section describes the options of the opentelemetry() source in {{ site.product.short_name }}.
 ---
 
 The following options are available for the `opentelemetry()` source.
@@ -68,6 +70,10 @@ destination {
 |Default:|             2|
 
 *Description:* This option configures the upper limit of in-flight gRPC requests per worker. It is advisd to set this value in the range of 10s or 100s when there are a high number of clients sending simultaneously. In an optimzed solution, the number of `workers()` and `concurrent-requests()` is greater than or equal to the number of clients. However, this can cause an increase in memory usage.
+
+## keep-hostname()
+
+The `syslog-ng-otlp()` and `opentelemetry()` sources ignore this option and use the hostname from the message as the `${HOST}`.
 
 ## log-fetch-limit()
 

@@ -1,6 +1,8 @@
 ---
 title: Options of grouping-by parsers
 id: adm-cor-grouping-by-opt
+description: >-
+    This section describes the options of the grouping-by() parser in {{ site.product.short_name }}.
 ---
 
 The grouping-by has the following options.
@@ -159,6 +161,15 @@ If the filter matches the incoming message, {{ site.product.short_name }} genera
 sends the triggered message (specified in the
 aggregate(), and clears the
 context.
+
+### Example: Configuring trigger() with a 100 message context length
+
+```config
+parser p_grouping-by {grouping-by(
+    ...
+    trigger("$(context-length)" > "100")
+);};
+```
 
 ## where()
 

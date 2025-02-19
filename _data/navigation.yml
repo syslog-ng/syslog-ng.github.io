@@ -81,8 +81,6 @@ admin-guide-nav:
     - title: "Configuring {{ site.product.short_name }} relays"
       url: /admin-guide/040_Quick-start_guide/002_Configuring_syslog-ng_relays/README
       subnav:
-      - title: "Configuring {{ site.product.short_name }} on relay hosts"
-        url: /admin-guide/040_Quick-start_guide/002_Configuring_syslog-ng_relays/000_Configuring_syslog-ng_on_relay_hosts
       - title: "How relaying log messages works"
         url: /admin-guide/040_Quick-start_guide/002_Configuring_syslog-ng_relays/001_How_relaying_works
     - title: "Managing and checking {{ site.product.short_name }} service on Linux"
@@ -140,12 +138,12 @@ admin-guide-nav:
     - title: "file"
       url: /admin-guide/060_Sources/020_File/README
       subnav:
-      - title: "Notes on reading kernel messages"
-        url: /admin-guide/060_Sources/020_File/000_Notes_on_reading_kernel_messages
+      - title: "file() source options"
+        url: /admin-guide/060_Sources/020_File/000_File_source_options
       - title: "How file sources are followed"
         url: /admin-guide/060_Sources/020_File/001_File_following
-      - title: "file() source options"
-        url: /admin-guide/060_Sources/020_File/002_File_source_options
+      - title: "Notes on reading kernel messages"
+        url: /admin-guide/060_Sources/020_File/002_Notes_on_reading_kernel_messages
     - title: "Arr logs"
       url: /admin-guide/060_Sources/025_Arr_logs/README
       subnav:
@@ -154,6 +152,11 @@ admin-guide-nav:
       subnav:
       - title: "wildcard-file() source options"
         url: /admin-guide/060_Sources/030_Wildcard-file/000_Wildcard-file_options
+    - title: "hypr"
+      url: /admin-guide/060_Sources/031_Hypr/README
+      subnav:
+      - title: "hypr-audit-trail() and hypr-app-audit-trail() source options"
+        url: /admin-guide/060_Sources/031_Hypr/000_Hypr_options
     - title: "Jellyfin"
       url: /admin-guide/060_Sources/035_Jellyfin/README
       subnav:
@@ -1188,6 +1191,9 @@ dev-guide-nav:
           url: /dev-guide/chapter_4/section_2/macos-testing-status/afuser
         - title: "elasticsearch-http"
           url: /dev-guide/chapter_4/section_2/macos-testing-status/elasticsearch-http
+        - title: "grpc"
+          url: /dev-guide/chapter_4/section_2/macos-testing-status/grpc/README
+          subnav:
         - title: "http"
           url: /dev-guide/chapter_4/section_2/macos-testing-status/http
         - title: "mod-python"
@@ -1212,6 +1218,9 @@ dev-guide-nav:
             url: /dev-guide/chapter_4/section_2/macos-testing-status/system-source/01_collecting-native-logs
           - title: "Collecting local macOS logs"
             url: /dev-guide/chapter_4/section_2/macos-testing-status/system-source/02_collecting-local-logs
+    - title: "FreeBSD"
+      url: /dev-guide/chapter_4/section_3/README
+      subnav:
   - title: "Contribution"
     url: /dev-guide/chapter_5/README
     subnav:

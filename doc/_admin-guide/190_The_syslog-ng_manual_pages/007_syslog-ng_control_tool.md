@@ -2,12 +2,10 @@
 title: The {{ site.product.short_name }} control tool manual page
 app: syslog-ng-ctl
 id: adm-man-ctl
+description: >-
+    syslog-ng-ctl --- Display message statistics and enable verbose, debug
+    and trace modes in {{ site.product.short_name }}
 ---
-
-## Name
-
-syslog-ng-ctl --- Display message statistics and enable verbose, debug
-and trace modes in syslog-ng PE
 
 ## Synopsis
 
@@ -225,8 +223,8 @@ The stats command has the following options:
     >dst.file;#anon-destination0#0;/tmp/2021-08-17.log;o;processed;156
     >dst.file;#anon-destination0#0;/tmp/2021-08-18.log;a;processed;961
 
-    **NOTE:** The stats-lifetime() can be used to do the same
-    automatically and periodically, but currently stats-lifetime()
+    **NOTE:** The stats(lifetime()) can be used to do the same
+    automatically and periodically, but currently stats(lifetime())
     removes only dynamic counters that have a timestamp field set.
     {: .notice--info}
 
