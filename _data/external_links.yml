@@ -608,6 +608,11 @@ gh-es:
   url: https://github.com/syslog-ng/syslog-ng/tree/master/scl/elasticsearch
   title: [ "Elasticsearch configuration snippet on GitHub" ]
 
+gh-es-ds:
+  id: gh-es-ds
+  url: https://github.com/syslog-ng/syslog-ng/blob/master/scl/elasticsearch/elastic-datastream.conf
+  title: [ "Elasticsearch datastream configuration snippet on GitHub" ]
+  
 gh-fortigate:
   id: gh-fortigate
   url: https://github.com/syslog-ng/syslog-ng/blob/master/scl/fortigate/fortigate.conf
@@ -795,6 +800,11 @@ ebpf:
   id: ebpf
   url: https://ebpf.io/
   title: [ "Extended Berkeley Packet Filter" ]
+
+elastic-ds:
+  id: elastic-ds
+  url: https://www.elastic.co/guide/en/elasticsearch/reference/current/data-streams.html
+  title: [ "Elasticsearch data streams" ]
 
 gcp-ser:
   id: gcp-ser

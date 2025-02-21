@@ -68,6 +68,8 @@ destination {
 
 {% include doc/admin-guide/options/channel-args.md %}
 
+{% include doc/admin-guide/options/headers-gRPC.md %}
+
 {% include doc/admin-guide/options/gRPC-keep-alive.md %}
 
 ## labels()

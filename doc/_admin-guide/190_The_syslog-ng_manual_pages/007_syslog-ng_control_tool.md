@@ -223,8 +223,8 @@ The stats command has the following options:
     >dst.file;#anon-destination0#0;/tmp/2021-08-17.log;o;processed;156
     >dst.file;#anon-destination0#0;/tmp/2021-08-18.log;a;processed;961
 
-    **NOTE:** The stats-lifetime() can be used to do the same
-    automatically and periodically, but currently stats-lifetime()
+    **NOTE:** The stats(lifetime()) can be used to do the same
+    automatically and periodically, but currently stats(lifetime())
     removes only dynamic counters that have a timestamp field set.
     {: .notice--info}
 

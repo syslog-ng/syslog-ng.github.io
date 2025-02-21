@@ -40,6 +40,11 @@ If there is more than one systemd-journal() source configured, {{ site.product.s
 will not start.
 {: .notice--warning}
 
+![]({{ site.baseurl}}/assets/images/caution.png)
+**CAUTION:**   
+The systemd-journal() source cannot operate under an Ubuntu 24.04 LTS (Noble Numbat) platform. For more information on supported platforms, see Supported platforms.
+{: .notice--warning}
+
 **Declaration**
 
 ```config

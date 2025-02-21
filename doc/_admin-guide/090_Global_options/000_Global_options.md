@@ -338,7 +338,7 @@ driver.
 
 ## stats()
 
-Available in {{ site.product.short_name }} 4.1 and later versions.
+Available in {{ site.product.short_name }} 4.1 and later versions, introduced by Axoflow.
 
 *Description:* The stats() option is an aggregated collection of statistic-related sub-options.
 
@@ -358,12 +358,16 @@ options {
 
 The following sub-options are available within the stats() option:
 
-- freq()
+### freq()
 
-|  Accepted values:|   number|
+|  Accepted values:|   number (seconds)|
 |Default:|           600|
 
-- level()
+*Description:* The period between two STATS messages in seconds. STATS
+are log messages sent by syslog-ng, containing statistics about dropped
+log messages. Set to **0** to disable the STATS messages.
+
+### level()
 
 |  Accepted values:|   0, 1, 2, 3|
 |Default:|           0|
@@ -379,8 +383,16 @@ The following sub-options are available within the stats() option:
 - Level 3 contains detailed statistics based on various message parameters like facility, severity, or tags.
 
 **NOTE:** Level 2 and 3 increase the memory requirements and CPU load. For details on message statistics, see Statistics of syslog-ng.
+{: .notice--info}
 
-- max-dynamics()
+### lifetime()
+
+|  Accepted values:|   number (seconds)|
+|Default:|           N/A|
+
+*Description:* Dynamic counters in metrics are pruned after lifetime expires. Note that orphaned counters are not pruned (you can prune them by running `syslog-ng-ctl stats --remove-orphans`)
+
+### max-dynamics()
 
 |  Accepted values:|   number|
 |Default:|           N/A|
@@ -392,27 +404,28 @@ The following sub-options are available within the stats() option:
     If this option is not used, dynamic counters are not limited. This can be useful in cases where you are extremely interested in dynamic counters, and use these statistics extensively.
 
     ![]({{ site.baseurl}}/assets/images/caution.png) **CAUTION:** In some cases, there might be even millions of dynamic counters.
+    {: .notice--warning}
 
 - **Limited dynamic counter clusters:**
 
-    To limit dynamic counters, enter a number, and only a maximum of <number> counters will be registered in the statistics.
+    To limit dynamic counters, enter a number, and only a maximum of \<number\> counters will be registered in the statistics.
 
     In practice, this means dynamic counter clusters. A program name produces one dynamic counter cluster, that can include several counters, such as processed, stamp, and so on.
 
     **Example: Limiting dynamic counter clusters 1:**
 
-    If stats-max-dynamics() is set to 1, and 2 programs send messages, only one of these programs will be tracked in the dynamic counters, but it will have more than one counters.
-
+    If max-dynamics() is set to 1, and 2 programs send messages, only one of these programs will be tracked in the dynamic counters, but it will have more than one counters.
 
     **Example: Limiting dynamic counter clusters 2:**
 
-    If you have 500 clients, and set stats-max-dynamics() to 1000, you will have enough number of counters reserved for these clients, but at the same time, you limit the use of your resources and therefore protect your system from being overloaded.
+    If you have 500 clients, and set max-dynamics() to 1000, you will have enough number of counters reserved for these clients, but at the same time, you limit the use of your resources and therefore protect your system from being overloaded.
 
 - **No dynamic counters:**
 
     To disable dynamic counters completely, set the value of this option to 0. This is the recommended value if  statistics are not used, or if dynamic counters are irrelevant (for example, the number of logs arriving from programs).
 
-**NOTE:** If a lower value is set to stats-max-dynamics() (or, any limiting value, if this option has not been configured before) and {{ site.product.short_name }} is restarted, the changes are only applied after stats-freq() time has passed. That is, the previously allocated dynamic clusters are only removed after this time.
+**NOTE:** If a lower value is set to max-dynamics() (or, any limiting value, if this option has not been configured before) and {{ site.product.short_name }} is restarted, the changes are only applied after freq() time has passed. That is, the previously allocated dynamic clusters are only removed after this time.
+{: .notice--info}
 
 ## so-passcred()
 
@@ -442,19 +455,19 @@ Possible values:
 
 ## stats-freq() (DEPRECATED)
 
-This is a deprecated legacy option. Use the stats() option.
+This is a deprecated legacy option. Use stats(freq()) instead.
 
 ## stats-level() (DEPRECATED)
 
-This is a deprecated legacy option. Use the stats() option.
+This is a deprecated legacy option. Use stats(level()) instead.
 
 ## stats-max-dynamics() (DEPRECATED)
 
-This is a deprecated legacy option. Use the stats() option.
+This is a deprecated legacy option. Use stats(max-dynamics()) instead.
 
 ## sync() or sync-freq() (DEPRECATED)
 
-This is a deprecated legacy option. Use the stats() option.
+Obsolete aliases for flush-lines().
 
 ## threaded()
 

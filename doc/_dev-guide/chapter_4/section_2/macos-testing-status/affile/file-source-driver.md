@@ -1,7 +1,7 @@
 ---
-title: file() Source Driver
+title: file() Source Driver (DEPRECATED)
 description: >-
-  The file() source driver is used to collect log messages from plain-text
+  The file() source has been deprecated. For a more stable performance, use the [[wildcard-file() source|adm-src-wild]] instead. The file() source driver is used to collect log messages from plain-text
   files, for example, from the logfiles of an Apache webserver.
 id: dev-macos-mod-sup-file-source
 ---

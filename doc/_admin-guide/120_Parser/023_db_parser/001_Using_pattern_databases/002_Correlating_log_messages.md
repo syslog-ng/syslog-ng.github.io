@@ -69,7 +69,7 @@ Note the following points about timeout values:
 
     Consider the following two messages:
 
-    ><38>1990-01-01T14:45:25 customhostname program6[1234]: program6 testmessage
+    ><38>1990-01-01T14:45:25 customhostname program6[1234]: program6 testmessage\
     ><38>1990-01-01T14:46:25 customhostname program6[1234]: program6 testmessage
 
     If the context-timeout is 10 seconds and {{ site.product.short_name }} receives the
