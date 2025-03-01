@@ -41,6 +41,10 @@ start_process() {
     # Either use navgen or build once with JEKYLL_BUILD_LINKS manually in a separate run
     # as the output of it must already be presented to be able to serve a valid content
     #
+    if [ "${JEKYLL_BUILD_LINKS}" == "yes" ]; then
+        echo -e "Generating navigation data..."
+        ./_tools/navgen ./doc ./_data/navigation.yml
+    fi
     JEKYLL_BUILD_LINKS='no' bundle exec jekyll serve ${ALL_PARAMS} &
     PROC_PID=$!
 
