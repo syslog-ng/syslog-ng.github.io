@@ -54,6 +54,7 @@ module Jekyll
       end
 
       def make_tooltip(page, page_links, id, url, match)
+        use_blank = false
         match_parts = match.split(/(?<!\\)\|/)
         
         # If the text has an '|' it means it comes from our special autolink/tooltip [[text|id]] markdown block
@@ -74,6 +75,7 @@ module Jekyll
           end
           link_data = page_links[id]
           if link_data != nil
+            use_blank = link_data["open_in_blank"]
             url = link_data["url"]
             url = prefixed_url(url, page.site.config["baseurl"])
           else
@@ -99,7 +101,7 @@ module Jekyll
         # NOTE: Now we treat every link that has protocol prefix part as an external one
         #       that allows usage of direct links anywhere if needed (not recommended, plz use external_links.yml instead)
         #       but, at the same time requires e.g. all the really external links to be fully qualified (even in external_links.yml as well)
-        external_url = is_prefixed_url?(url)
+        external_url = is_prefixed_url?(url) || use_blank
         title = save_from_markdownify(title)
         replacement_text = '<a href="' + url + '" class="nav-link content-tooltip"' + (external_url ? ' target="_blank"' : '') + '>' + title + '</a>'
         # puts "replacement_text: " + replacement_text
@@ -345,6 +347,7 @@ module Jekyll
           page_id = yaml_content['id']
           page_url = yaml_content['url']
           page_title = yaml_content['title']
+          open_in_blank = yaml_content['open_in_blank']
           chars_to_remove = %{"'}
           page_title = page_title.gsub(/\A[#{Regexp.escape(chars_to_remove)}]+|[#{Regexp.escape(chars_to_remove)}]+\z/, '')
           #puts "page_title: " + page_title
@@ -358,6 +361,7 @@ module Jekyll
             "id" => page_id,
             "url" => page_url,
             "title" => [ page_title ],
+            "open_in_blank" => open_in_blank,
           }
 
           # Add the page_link_data object to the ID dictionary
@@ -423,7 +427,7 @@ end
 def JekyllTooltipGen_debug_filter_pages?(page)
   debug_pages = {
     # "doc/README.md" => true,
-}
+  }
   debug_ok = true
   # Comment this line out if not debugging!!!
   # debug_ok = (debug_pages[page.relative_path] != nil && debug_pages[page.relative_path])
