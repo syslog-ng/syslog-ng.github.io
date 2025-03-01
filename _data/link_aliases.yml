@@ -104,3 +104,6 @@ adm-src-wild:
 
 adm-src-file:
   aliases: [ "/file(?:\\(\\))? source[s]?/" ]
+
+doxygen-home:
+  aliases: [ "/[Dd]oxygen/" ]

@@ -327,6 +327,9 @@ admin-guide-nav:
         url: /admin-guide/070_Destinations/030_Elasticsearch-http/000_Batch_mode_and_load_balancing
       - title: "elasticsearch-http() destination options"
         url: /admin-guide/070_Destinations/030_Elasticsearch-http/001_Elasticsearch-http_options
+    - title: "elasticsearch-datastream"
+      url: /admin-guide/070_Destinations/035_elasticsearch-datastream/README
+      subnav:
     - title: "file"
       url: /admin-guide/070_Destinations/040_File/README
       subnav:
@@ -1267,6 +1270,9 @@ dev-guide-nav:
       url: /dev-guide/chapter_8/section_4
     - title: "Template Function"
       url: /dev-guide/chapter_8/section_5
+  - title: "Source code documentation"
+    url: /dev-guide/chapter_9/README
+    subnav:
 
 # doc-guide
 doc-guide-nav:
