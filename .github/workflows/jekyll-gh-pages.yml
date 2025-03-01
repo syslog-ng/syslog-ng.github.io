@@ -96,6 +96,20 @@ jobs:
           ./_tools/pack debug
           ls -AlR _site/assets/js
 
+          # Generate and add Doxygen source documentation
+          sudo apt-get install doxygen graphviz -y
+
+          OSE_SRC_REPO=https://github.com/syslog-ng/syslog-ng.git
+          OSE_SRC_REPO_BRANCH=develop  # as this is a developer documentation use the latest develop branch instead of the master
+          git clone --branch ${OSE_SRC_REPO_BRANCH} --single-branch ${OSE_SRC_REPO} ./_work
+
+          pushd ./_work
+          # How to override Doxygen options from command line
+          # https://www.doxygen.nl/manual/faq.html#faq_cmdline
+          ( cat ./Doxyfile; echo "OUTPUT_DIRECTORY=../_site/dev-guide/chapter_9/" ) | doxygen -
+          popd
+          rm -Rf ./_work
+
       - name: Upload artifact
         # Automatically uploads an artifact from the './_site' directory by default
         uses: actions/upload-pages-artifact@v3
