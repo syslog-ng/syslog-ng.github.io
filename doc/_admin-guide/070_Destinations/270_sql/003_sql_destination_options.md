@@ -16,6 +16,13 @@ has the following options:
 
 {% include doc/admin-guide/options/batch-timeout.md %}
 
+## dbi_driver_dir()
+
+|   Type:|    directory|
+|Default:|   |
+
+*Description:* This option defines an optional DBI driver location for DBD initialization.
+
 ## columns()
 
 |  Type:|      string list|
@@ -180,6 +187,16 @@ NULL as well.
 {% include doc/admin-guide/options/password.md %}
 
 {% include doc/admin-guide/options/port.md %}
+
+## quote_char()
+
+|  Type:   |     separating character|
+|  Default:|   |
+
+*Description:* This option can be used to define custom quoting for table and index names. For example, `MySQL` requires this for specific identifiers.
+
+**NOTE:** {{ site.product.short_name }} generally uses the backtick character for configuration parameter names. When using the backtick character in the `quote_char` option, use the following formatting: `quote_char("``")`
+{: .notice--info}
 
 {% include doc/admin-guide/options/retries.md %}
 
