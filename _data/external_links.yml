@@ -107,6 +107,12 @@ sn-ose-adminguide:
   url: https://syslog-ng.github.io/admin-guide/README
   title: [ "The syslog-ng OSE Administration Guide" ]
 
+sn-ose-source-doc:
+  id: sn-ose-source-doc
+  url: /dev-guide/chapter_9/html/index.html
+  title: [ "syslog-ng OSE source code documentation" ]
+  open_in_blank: true
+
 sn-ose-upgrade:
   id: sn-ose-upgrade
   url: https://syslog-ng.com/blog/upgrading-from-syslog-ng-open-source-to-premium-edition/
@@ -795,7 +801,12 @@ discord-wh-intro:
   id: discord-wh-intro
   url: https://support.discord.com/hc/en-us/articles/228383668-Intro-to-Webhooks
   title: [ "Discord: Intro to Webhooks" ]
-  
+
+doxygen-home:
+  id: doxygen-home
+  url: https://www.doxygen.nl/
+  title: [ "Doxygen HomePage" ]
+
 ebpf:
   id: ebpf
   url: https://ebpf.io/
