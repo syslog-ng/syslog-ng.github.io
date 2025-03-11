@@ -20,6 +20,7 @@ guidelines the following:
     for syslog-ng. Please try to follow the existing conventions.
  4. Always add a `Signed-off-by` tag to the end of **every** commit
     message you submit.
+    Signing off on commits enables users to affirm that a commit complies with the rules and licensing governing a repository. This, in the case of {{ site.product.short_name }}, means that you accept our coding and contribution standards described in the Contribution section and accept that your code will be published with a `GPLv2` license.
  5. Always create a separate branch for the pull request, forked off
     from the appropriate {{ site.product.short_name }} branch.
  6. If your patch should be applied to multiple branches, submit
