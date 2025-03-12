@@ -28,7 +28,3 @@ guidelines the following:
     branch.
  7. If possible, write tests. We love tests.
  8. A well-documented pull request is much easier to review and merge.
-
-
-Before submitting a separate module, please consider submitting it to
-the [Incubator](https://github.com/balabit/syslog-ng-incubator) first, because it is easier to have your code accepted there. The Incubator is the repository of new and experimental modules.
