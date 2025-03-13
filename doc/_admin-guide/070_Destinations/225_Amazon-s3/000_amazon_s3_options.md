@@ -2,7 +2,7 @@
 title: 'Amazon s3 options'
 id: adm-opt-amazon
 description: >-
-    This section describes the options of the s3() destination in {{ site.product.short_name }}.
+  This section describes the options of the s3() destination in {{ site.product.short_name }}.
 ---
 
 The following options are specific to the s3 destination.
@@ -122,16 +122,16 @@ Description: The max-pending-uploads() and upload-threads() options configure th
 
 If an invalid value is configured, the default is used.
 
+## template()
+
+*Description:* The message as written to the Amazon S3 object. You can use templates and template functions to format the message.
+
 ## upload-threads()
 
 |Type:|   integer|
 |Default:|           8|
 
 *Description:* The number of {{ site.product.short_name }} worker threads that are used to upload data to S3 from this destination.
-
-## template()
-
-*Description:* The message as written to the Amazon S3 object. You can use templates and template functions to format the message.
 
 ## url()
 
