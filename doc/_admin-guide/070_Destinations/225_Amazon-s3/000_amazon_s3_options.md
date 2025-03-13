@@ -39,7 +39,7 @@ If an invalid value is configured, the default is used.
 |Type:|   string|
 |Default:|           5 MiB|
 
-*Description:* The size of log messages written by {{ site.product.short_name }} to the S3 object in a batch. If compression is enabled, the chunk-size() specifies the compressed size. Must be set to at least 5 MiB.
+*Description:* Only effective if `upload-threads()` is set higher than one. Signifies the part size in a multithreaded upload, but only if the uploaded object is at least 1.5 times the chunk size. If compression is enabled, the chunk-size() specifies the compressed size. Must be set to at least 5 MiB.
 
 ## compression()
 
@@ -60,7 +60,7 @@ Description: Only has effect if compression() is set to `yes`. The level of the 
 |Type:|   integer [minutes]|
 |Default:|           60|
 
-*Description:* After the grace period expires and no new messages are routed to the destination, {{ site.product.short_name }} flushes the contents of the buffer to the S3 object even if the volume of the messages in the buffer is lower than chunk-size().
+*Description:* After the grace period expires and no new messages are routed to the destination, {{ site.product.short_name }} flushes the contents of the buffer to the S3 object even if the volume of the messages in the buffer is lower than max-object-size().
 
 {% include doc/admin-guide/options/log-fifo-size.md %}
 
@@ -69,7 +69,7 @@ Description: Only has effect if compression() is set to `yes`. The level of the 
 |Type:|   string|
 |Default:|           5120GiB|
 
-*Description:* The maximal size of the S3 object. If an object reaches this size, {{ site.product.short_name }} appends an index suffix ("-1", “-2”, …) to the object key and starts a new object after rotation.
+*Description:* The maximal size of the S3 object. If an object reaches this size, {{ site.product.short_name }} appends an index suffix ("-1", “-2”, …) to the object key and starts a new object after rotation. The index is appended before the `object-key-suffix()` value.
 
 ## max-pending-uploads()
 
@@ -138,7 +138,7 @@ If an invalid value is configured, the default is used.
 |Type:|   integer|
 |Default:|           8|
 
-*Description:* The number of {{ site.product.short_name }} worker threads that are used to upload data to S3 from this destination.
+*Description:* The number of {{ site.product.short_name }} worker threads that are used to upload a single object to S3 from this destination, meaning the S3 destination uses a maximum of `max-pending-uploads() * upload-threads()` threads for uploading.
 
 ## url()
 
