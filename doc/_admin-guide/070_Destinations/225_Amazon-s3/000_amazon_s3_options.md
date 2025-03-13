@@ -88,6 +88,13 @@ Description: The max-pending-uploads() and upload-threads() options configure th
 
 *Description:* The unique object key (or key name), which identifies the object in an Amazon S3 bucket.
 
+## object-key-suffix()
+
+|Type:|   string|
+|Default:|          .log|
+
+*Description:* A suffix added to the very end of the object key, barring the `.gz` extension with enabled compression. Might be used to denote file extension, as in the default case.
+
 ## object-key-timestamp()
 
 |Type:|   template|
