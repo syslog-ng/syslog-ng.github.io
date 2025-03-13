@@ -195,7 +195,7 @@ NULL as well.
 
 *Description:* This option can be used to define custom quoting for table and index names. For example, `MySQL` requires this for specific identifiers.
 
-**NOTE:** {{ site.product.short_name }} generally uses the backtick character for configuration parameter names. When using the backtick character in the `quote_char` option, use the following formatting: `quote_char("``")`
+**NOTE:** {{ site.product.short_name }} generally uses the backtick character for configuration parameter names. When using the backtick character in the `quote_char` option, use the following formatting: **quote_char("\`\`")**
 {: .notice--info}
 
 {% include doc/admin-guide/options/retries.md %}
