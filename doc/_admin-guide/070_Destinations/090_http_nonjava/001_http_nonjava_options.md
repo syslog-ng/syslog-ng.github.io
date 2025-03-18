@@ -10,6 +10,23 @@ The http destination of {{ site.product.short_name }} can directly post log mess
 web services using the HTTP protocol. The http destination has the
 following options.
 
+## accept-encoding()
+
+|  Type:|      string|
+  |Accepted values:|   `identity`, `gzip`, `deflate`, `all`|
+
+*Description:* This option requests the compression of HTTP responses from the server. The available values are `gzip`, `deflate`, and `all` to enable all compression types. If no compression is required, use the `identity` value.
+
+### Example: configure an http destination with compression
+
+```config
+destination d_http_compressed{
+  http(url("127.0.0.1:80"), 
+  content-compression("deflate"), 
+  accept-encoding("all"));
+};
+```
+
 {% include doc/admin-guide/options/batch-bytes.md %}
 
 {% include doc/admin-guide/http-batch.md %}
@@ -58,6 +75,23 @@ version 3.18 and later.
 {% include doc/admin-guide/options/ca-file.md %}
 
 {% include doc/admin-guide/options/cert-file.md %}
+
+## content-compression()
+
+|  Type:|      string|
+  |Accepted values:|   `identity`, `gzip`, `deflate`, `all`|
+
+*Description:* This option requests {{ site.product.short_name }} to compress sent messages. The available values are `gzip`, `deflate`, and `all` to enable all compression types. If no compression is required, use the `identity` value.
+
+### Example: configure an http destination with compression
+
+```config
+destination d_http_compressed{
+  http(url("127.0.0.1:80"), 
+  content-compression("deflate"), 
+  accept-encoding("all"));
+};
+```
 
 {% include doc/admin-guide/tls-block.md %}
 
