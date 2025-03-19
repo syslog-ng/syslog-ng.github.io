@@ -7,6 +7,16 @@ description: >-
 
 The following options are specific to the s3 destination.
 
+![]({{ site.baseurl}}/assets/images/caution.png) **CAUTION:**
+Hazard of data loss!
+The {{ site.product.short_name }} Amazon S3 destination has been designed to work with the AWS implementation.
+While it is possible to use the {{ site.product.short_name }} S3 destination with other implementations,
+some options might suffer from reduced functionality or not work at all.
+
+We recommend carefully testing your configuration before sending any production data to other S3 compatible solutions.
+Some configurations, such as using the `storag-class()` option with MinIO could result in permanent data loss without any warning.
+{: .notice--danger}
+
 ## access-key()
 
 |Type:|   string|
