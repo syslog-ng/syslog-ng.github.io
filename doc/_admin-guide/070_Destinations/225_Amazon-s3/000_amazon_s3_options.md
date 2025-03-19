@@ -22,6 +22,8 @@ The following options are specific to the s3 destination.
 *Description:* The name of the S3 bucket.
 For example: `my-bucket`.
 
+{% include doc/admin-guide/warnings/s3-dataloss-warning.md %}
+
 ## canned-acl()
 
 |Type:|   string|
@@ -88,6 +90,8 @@ Description: The max-pending-uploads() and upload-threads() options configure th
 
 *Description:* The unique object key (or key name), which identifies the object in an Amazon S3 bucket.
 
+{% include doc/admin-guide/warnings/s3-dataloss-warning.md %}
+
 ## object-key-suffix()
 
 |Type:|   string|
@@ -146,3 +150,5 @@ If an invalid value is configured, the default is used.
 |Default:|           N/A|
 
 *Description:* The API endpoint URL of the S3 bucket. When used with Amazon AWS, the {{ site.product.short_name }} S3 destination automatically creates the service URL. It is recommended that you omit this option. This option is required only if the {{ site.product.short_name }} S3 driver is used in conjunction with third-party S3 service providers, such as MinIO or Google Cloud.
+
+{% include doc/admin-guide/warnings/s3-dataloss-warning.md %}
