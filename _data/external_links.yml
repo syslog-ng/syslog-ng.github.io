@@ -384,6 +384,16 @@ gh-hy:
   url: https://github.com/hylang/hy
   title: [ "hy" ]
 
+gh-libdbi-master:
+  id: gh-libdbi-master
+  url: https://github.com/balabit-deps/libdbi/tree/master
+  title: [ "libdbi master" ]
+  
+gh-libdbi-drivers:
+ id: gh-libdbi-drivers
+ url: https://github.com/balabit-deps/libdbi-drivers
+ title: [ "libdbi drivers" ]
+
 gh-mon-src:
   id: gh-mon-src
   url: https://github.com/syslog-ng/syslog-ng-incubator/tree/master/modules/monitor-source/

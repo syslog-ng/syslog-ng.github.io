@@ -17,11 +17,7 @@ id: dev-macos-mod-sup-afsql
 
 This driver has multilevel dependencies. To compile the driver needs the libdbi and libdbi-drivers packages, which are supported and updated in the OSE forks,`and`should work nicely both on ARM and X86 macOS systems now (tested on macOS 13.3.1 and 12.6.4)
 
-Please do not use the pre-built ones (e.g. 0.9.0 from Homebrew), build from the **master** of the following
-{: .notice--info}
-
-* [https://github.com/balabit-deps/libdbi-drivers](https://github.com/balabit-deps/libdbi-drivers)
-* [https://github.com/balabit-deps/libdbi](https://github.com/balabit-deps/libdbi)
+{% include doc/admin-guide/notes/libdb-driver.md %}
 
 To use a given database system you need the corresponding supporting system-specific packages as well.&#x20;
 

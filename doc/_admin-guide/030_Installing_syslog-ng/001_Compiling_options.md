@@ -101,6 +101,8 @@ compiling options.
     if the libdbi library version 0.9 or newer is installed and
     detected).
 
+{% include doc/admin-guide/notes/libdb-driver.md %}
+
 - *\--enable-ssl* Enable SSL support, required for encrypted message
     transfer, as well as template functions that calculate hashes and
     UUIDs (enabled automatically if the libopenssl library is detected).
