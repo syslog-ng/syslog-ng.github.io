@@ -2,10 +2,20 @@
 title: 'Amazon s3 options'
 id: adm-opt-amazon
 description: >-
-    This section describes the options of the s3() destination in {{ site.product.short_name }}.
+  This section describes the options of the s3() destination in {{ site.product.short_name }}.
 ---
 
 The following options are specific to the s3 destination.
+
+![]({{ site.baseurl}}/assets/images/caution.png) **CAUTION:**
+Hazard of data loss!
+The {{ site.product.short_name }} Amazon S3 destination has been designed to work with the AWS implementation.
+While it is possible to use the {{ site.product.short_name }} S3 destination with other implementations,
+some options might suffer from reduced functionality or not work at all.
+
+We recommend carefully testing your configuration before sending any production data to other S3 compatible solutions.
+Some configurations, such as using the `storag-class()` option with MinIO could result in permanent data loss without any warning.
+{: .notice--danger}
 
 ## access-key()
 
@@ -21,6 +31,8 @@ The following options are specific to the s3 destination.
 
 *Description:* The name of the S3 bucket.
 For example: `my-bucket`.
+
+{% include doc/admin-guide/warnings/s3-dataloss-warning.md %}
 
 ## canned-acl()
 
@@ -39,7 +51,7 @@ If an invalid value is configured, the default is used.
 |Type:|   string|
 |Default:|           5 MiB|
 
-*Description:* The size of log messages written by {{ site.product.short_name }} to the S3 object in a batch. If compression is enabled, the chunk-size() specifies the compressed size. Must be set to at least 5 MiB.
+*Description:* Only effective if `upload-threads()` is set higher than one. Signifies the part size in a multithreaded upload, but only if the uploaded object is at least 1.5 times the chunk size. If compression is enabled, the chunk-size() specifies the compressed size. Must be set to at least 5 MiB.
 
 ## compression()
 
@@ -60,7 +72,7 @@ Description: Only has effect if compression() is set to `yes`. The level of the 
 |Type:|   integer [minutes]|
 |Default:|           60|
 
-*Description:* After the grace period expires and no new messages are routed to the destination, {{ site.product.short_name }} flushes the contents of the buffer to the S3 object even if the volume of the messages in the buffer is lower than chunk-size().
+*Description:* After the grace period expires and no new messages are routed to the destination, {{ site.product.short_name }} flushes the contents of the buffer to the S3 object even if the volume of the messages in the buffer is lower than max-object-size().
 
 {% include doc/admin-guide/options/log-fifo-size.md %}
 
@@ -69,7 +81,7 @@ Description: Only has effect if compression() is set to `yes`. The level of the 
 |Type:|   string|
 |Default:|           5120GiB|
 
-*Description:* The maximal size of the S3 object. If an object reaches this size, {{ site.product.short_name }} appends an index suffix ("-1", “-2”, …) to the object key and starts a new object after rotation.
+*Description:* The maximal size of the S3 object. If an object reaches this size, {{ site.product.short_name }} appends an index suffix ("-1", “-2”, …) to the object key and starts a new object after rotation. The index is appended before the `object-key-suffix()` value.
 
 ## max-pending-uploads()
 
@@ -87,6 +99,15 @@ Description: The max-pending-uploads() and upload-threads() options configure th
 |Default:|           N/A|
 
 *Description:* The unique object key (or key name), which identifies the object in an Amazon S3 bucket.
+
+{% include doc/admin-guide/warnings/s3-dataloss-warning.md %}
+
+## object-key-suffix()
+
+|Type:|   string|
+|Default:|          .log|
+
+*Description:* A suffix added to the very end of the object key, barring the `.gz` extension with enabled compression. Might be used to denote file extension, as in the default case.
 
 ## object-key-timestamp()
 
@@ -122,16 +143,16 @@ Description: The max-pending-uploads() and upload-threads() options configure th
 
 If an invalid value is configured, the default is used.
 
+## template()
+
+*Description:* The message as written to the Amazon S3 object. You can use templates and template functions to format the message.
+
 ## upload-threads()
 
 |Type:|   integer|
 |Default:|           8|
 
-*Description:* The number of {{ site.product.short_name }} worker threads that are used to upload data to S3 from this destination.
-
-## template()
-
-*Description:* The message as written to the Amazon S3 object. You can use templates and template functions to format the message.
+*Description:* The number of {{ site.product.short_name }} worker threads that are used to upload a single object to S3 from this destination, meaning the S3 destination uses a maximum of `max-pending-uploads() * upload-threads()` threads for uploading.
 
 ## url()
 
@@ -139,3 +160,5 @@ If an invalid value is configured, the default is used.
 |Default:|           N/A|
 
 *Description:* The API endpoint URL of the S3 bucket. When used with Amazon AWS, the {{ site.product.short_name }} S3 destination automatically creates the service URL. It is recommended that you omit this option. This option is required only if the {{ site.product.short_name }} S3 driver is used in conjunction with third-party S3 service providers, such as MinIO or Google Cloud.
+
+{% include doc/admin-guide/warnings/s3-dataloss-warning.md %}
