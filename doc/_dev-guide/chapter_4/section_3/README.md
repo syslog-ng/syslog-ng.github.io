@@ -60,6 +60,8 @@ The above mentioned dependencies can be satisfied by compiling every-each libs a
    * criterion
    * gcc14 - See [below](#packages-note)!
 
+{% include doc/admin-guide/notes/libdb-driver.md %}
+
 This is how it might look like if you start from the ground:
 
 ```shell
