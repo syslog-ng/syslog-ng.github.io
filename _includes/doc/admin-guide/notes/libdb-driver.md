@@ -1,0 +1,2 @@
+**NOTE:** Make sure to access libdbi from the libdbi master and libdbi drivers repositories, dedicated for {{ site.product.short_name }}. Using versions from other sources can cause a malfunction.
+{: .notice--info}

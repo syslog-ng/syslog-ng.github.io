@@ -230,12 +230,15 @@ sudo port install \
 > * `bison` is required because the version provided by Apple Developer Tools is incomplete (e.g., missing the `-W` option). The reason bison needs to be installed via a package manager is that the `-W` option is supported only in versions after 2.3.
 > * `net-snmp` might also be needed because the options provided by Apple Developer Tools are somewhat incorrect. The reason Net-SNMP might be required from a package manager is that the default `pkg-config` may return incorrect library and include paths.
 > * `openssl` - since macOS provides LibreSSL by default, you may need to expand the search path of `pkg-config` to find the newly installed OpenSSL. (This seems to have been an issue only with OpenSSL version 1.1.x.)
-> * `libdbi` and `libdbi-drivers` are [[maintained and updated|dev-macos-mod-sup-afsql#dependencies]] in {{ site.product.short_name }} repositories, use the latest master version from there
+> * `libdbi` and `libdbi-drivers` are [[maintained and updated|dev-macos-mod-sup-afsql#dependencies]] in {{ site.product.short_name }} repositories, use the latest master version from there. For the repository links, see the note below.
+
 > * `libesmtp` - Homebrew does not have libesmtp package support yet, but you can build it yourself from source or use the MacPorts version
 > * `riemann-client` - MacPorts does not have riemann-client package support yet, but you can build it yourself from source or use the HomeBrew version
 > * `gcc` - see at [compiler selection](#select-the-compiler)
 > * actual state of supported features and the required dependencies can also be found [[here|dev-macos-mod-sup-status]].
 {: .notice}
+
+{% include doc/admin-guide/notes/libdb-driver.md %}
 
 ### Preparations
 
