@@ -155,6 +155,16 @@ compiled with JSON support, execute the **syslog-ng \--version**
 command.
 {: .notice--info}
 
+## $(format-date)
+
+|*Syntax:*|$(format-date parameters)|
+
+*Description:* The `$(format-date)` template function takes a timestamp in the `DATETIME` representation and formats it according to an `strftime()` format string. The `DATETIME` representation in syslog-ng is a UNIX timestamp formatted as a decimal number, with an optional fractional part, where the seconds and the fraction of seconds are separated by a dot. You can use the `--time-zone` option to override the original timestamp.
+
+```config
+$(format-date [options] format-string [timestamp])
+```
+
 ## $(format-ewmm)
 
 |*Syntax:*|$(format-ewmm)|
