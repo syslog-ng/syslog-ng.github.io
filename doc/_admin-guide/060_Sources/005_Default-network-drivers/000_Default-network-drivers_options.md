@@ -18,6 +18,8 @@ The default-network-drivers() source has the following options.
 
 {% include doc/admin-guide/options/max-connections.md %}
 
+{% include doc/admin-guide/options/multi-line-mode-network.md %}
+
 ## rfc5424-tcp-port()
 
 |  Type:|      number|
