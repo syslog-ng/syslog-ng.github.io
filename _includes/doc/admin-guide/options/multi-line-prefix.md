@@ -13,8 +13,6 @@ multi-line messages. If the multi-line-prefix() option is set, {{ site.product.s
 regular expression again, and treats the lines between the matching
 lines as a single message. See also the multi-line-garbage() option.
 
-{% include doc/admin-guide/examples/multi-line.md %}
-
 ### Example: Processing Tomcat logs
 
 The log messages of the Apache Tomcat server are a typical example for
