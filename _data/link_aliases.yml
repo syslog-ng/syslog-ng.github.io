@@ -105,5 +105,59 @@ adm-src-wild:
 adm-src-file:
   aliases: [ "/file(?:\\(\\))? source[s]?/" ]
 
+adm-src-program:
+  aliases: [ "program() source" ]
+
+adm-dest-program:
+  aliases: [ "program() destination" ]
+
+adm-src-mqtt:
+  aliases: [ "mqtt() source" ]
+
+adm-dest-mqtt:
+  aliases: [ "mqtt() destination" ]
+
+adm-src-netw:
+  aliases: [ "network() source" ]
+  
+adm-dest-netw:
+  aliases: [ "network() destination" ]
+
+adm-src-optel:
+  aliases: [ "opentelemetry() source" ]
+
+adm-dest-optel:
+  aliases: [ "opentelemetry() destination" ]
+
+adm-src-osquery:
+  aliases: [ "osquery() source" ]
+  
+adm-dest-osquery:
+  aliases: [ "osquery() destination" ]
+  
+adm-src-syslog:
+  aliases: [ "syslog() source" ]
+
+adm-dest-syslog:
+  aliases: [ "syslog() destination" ]
+
+adm-src-sng-otlp:
+  aliases: [ "syslog-ng-otlp() source" ]
+
+adm-dest-sng-otlp:
+  aliases: [ "syslog-ng-otlp() destination" ]
+
+adm-src-unix:
+  aliases: [ "unix-dgram() source", "unix-stream() source", "unix-dgram() and unix-stream() source" ]  
+
+adm-dest-unix:
+  aliases: [ "unix-dgram() destination", "unix-stream() destination", "unix-dgram() and unix-stream() destination" ]  
+
+adm-man-ctl:
+  aliases: [ "syslog-ng-ctl" ]
+
+adm-stats:
+  aliases: [ "syslog-ng-ctl stats", "syslog-ng-ctl query" ]
+
 doxygen-home:
   aliases: [ "/[Dd]oxygen/" ]

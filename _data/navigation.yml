@@ -918,7 +918,7 @@ admin-guide-nav:
           - title: "ruleset"
             url: /admin-guide/120_Parser/023_db_parser/004_The_syslog-ng_patterndb_format/000_patterndb/000_ruleset/README
             subnav:
-            - title: "patterns"
+            - title: "patterns container"
               url: /admin-guide/120_Parser/023_db_parser/004_The_syslog-ng_patterndb_format/000_patterndb/000_ruleset/000_patterns/README
               subnav:
             - title: "rules"
@@ -951,7 +951,7 @@ admin-guide-nav:
                 - title: "create-context"
                   url: /admin-guide/120_Parser/023_db_parser/004_The_syslog-ng_patterndb_format/000_patterndb/000_ruleset/002_actions/000_action/000_create_context/README
                   subnav:
-            - title: "tags"
+            - title: "element tags"
               url: /admin-guide/120_Parser/023_db_parser/004_The_syslog-ng_patterndb_format/000_patterndb/000_ruleset/003_tags/README
               subnav:
     - title: "OpenTelemetry parser"

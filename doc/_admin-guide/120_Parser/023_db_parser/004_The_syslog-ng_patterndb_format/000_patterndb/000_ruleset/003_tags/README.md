@@ -1,6 +1,6 @@
 ---
 title: 'Element: tags'
-short_title: tags
+short_title: element tags
 id: adm-parser-db-elem-tags
 description: >-
     An element containing custom keywords (tags) about the
