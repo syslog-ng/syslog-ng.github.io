@@ -1,7 +1,7 @@
 ---
-title: 'http: Posting messages over HTTP without Java'
-short_title: http-nonjava
-id: adm-dest-http-nonjava
+title: 'http: Posting messages over HTTP'
+short_title: http
+id: adm-dest-http
 description: >-
     Version 3.8 of {{ site.product.short_name }} can directly post log messages to web
     services using the HTTP protocol, without having to use Java.

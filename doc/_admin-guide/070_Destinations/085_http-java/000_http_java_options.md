@@ -1,6 +1,6 @@
 ---
-title: HTTP destination options
-id: adm-dest-http-opt
+title: HTTP Java destination options
+id: adm-dest-http-java-opt
 description: >-
     This section describes the options of the Java-based http() destination in {{ site.product.short_name }}.
 ---
