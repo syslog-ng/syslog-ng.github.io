@@ -1,6 +1,6 @@
 ---
 title: The Azure auth header plugin
-id: adm-dest-http-nonjava-azure
+id: adm-dest-http-azure
 description: >-
   This section describes the {{ site.product.short_name }}
   application's Azure auth header plugin.

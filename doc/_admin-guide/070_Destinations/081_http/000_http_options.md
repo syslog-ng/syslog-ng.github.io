@@ -1,7 +1,7 @@
 ---
-title: HTTP-nonjava destination options
+title: HTTP destination options
 batch_timeout: 'none'
-id: adm-dest-http-nonjava-opt
+id: adm-dest-http-opt
 description: >-
     This section describes the options of the http() destination in {{ site.product.short_name }}.
 ---

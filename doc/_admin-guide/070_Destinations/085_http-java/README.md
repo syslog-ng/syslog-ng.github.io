@@ -1,7 +1,7 @@
 ---
-title: Posting messages over HTTP
-short_title: http
-id: adm-dest-http
+title: Posting messages over HTTP using Java
+short_title: http-java
+id: adm-dest-http-java
 description: >-
     Version 3.7 of {{ site.product.short_name }} can directly post log messages to web
     services using the HTTP protocol. Error and status messages received
