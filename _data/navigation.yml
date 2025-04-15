@@ -236,6 +236,11 @@ admin-guide-nav:
       subnav:
       - title: "program() source options"
         url: /admin-guide/060_Sources/130_Program/000_Program_source_options
+    - title: "prometheus-stats"
+      url: /admin-guide/060_Sources/135_Prometheus/README
+      subnav:
+      - title: "prometheus-stats() source options"
+        url: /admin-guide/060_Sources/135_Prometheus/000_prometheus-stats_source_options
     - title: "python"
       url: /admin-guide/060_Sources/140_Python/README
       subnav:
