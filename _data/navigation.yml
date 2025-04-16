@@ -125,17 +125,20 @@ admin-guide-nav:
   - title: "Sources"
     url: /admin-guide/060_Sources/README
     subnav:
+    - title: "Arr logs"
+      url: /admin-guide/060_Sources/000_Arr_logs/README
+      subnav:
     - title: "default-network-drivers"
-      url: /admin-guide/060_Sources/000_Default-network-drivers/README
+      url: /admin-guide/060_Sources/005_Default-network-drivers/README
       subnav:
       - title: "default-network-drivers() source options"
-        url: /admin-guide/060_Sources/000_Default-network-drivers/000_Default-network-drivers_options
+        url: /admin-guide/060_Sources/005_Default-network-drivers/000_Default-network-drivers_options
     - title: "internal"
       url: /admin-guide/060_Sources/010_Internal/README
       subnav:
       - title: "internal() source options"
         url: /admin-guide/060_Sources/010_Internal/000_Internal_options
-    - title: "file"
+    - title: "file (DEPRECATED)"
       url: /admin-guide/060_Sources/020_File/README
       subnav:
       - title: "file() source options"
@@ -144,9 +147,6 @@ admin-guide-nav:
         url: /admin-guide/060_Sources/020_File/001_File_following
       - title: "Notes on reading kernel messages"
         url: /admin-guide/060_Sources/020_File/002_Notes_on_reading_kernel_messages
-    - title: "Arr logs"
-      url: /admin-guide/060_Sources/025_Arr_logs/README
-      subnav:
     - title: "wildcard-file"
       url: /admin-guide/060_Sources/030_Wildcard-file/README
       subnav:
@@ -255,6 +255,11 @@ admin-guide-nav:
       subnav:
       - title: "snmptrap() source options"
         url: /admin-guide/060_Sources/150_snmptrap/000_snmptrap_options
+    - title: "stdin"
+      url: /admin-guide/060_Sources/155_stdin/README
+      subnav:
+      - title: "stdin() source options"
+        url: /admin-guide/060_Sources/155_stdin/000_stdin_options
     - title: "sun-streams"
       url: /admin-guide/060_Sources/160_sun-streams/README
       subnav:
@@ -297,11 +302,6 @@ admin-guide-nav:
         url: /admin-guide/060_Sources/220_unix-stream_unix-dgram/000_Unix_credentials
       - title: "unix-stream() and unix-dgram() source options"
         url: /admin-guide/060_Sources/220_unix-stream_unix-dgram/001_unixstream_source_options
-    - title: "stdin"
-      url: /admin-guide/060_Sources/230_stdin/README
-      subnav:
-      - title: "stdin() source options"
-        url: /admin-guide/060_Sources/230_stdin/000_stdin_options
   - title: "Destinations"
     url: /admin-guide/070_Destinations/README
     subnav:
@@ -918,7 +918,7 @@ admin-guide-nav:
           - title: "ruleset"
             url: /admin-guide/120_Parser/023_db_parser/004_The_syslog-ng_patterndb_format/000_patterndb/000_ruleset/README
             subnav:
-            - title: "patterns"
+            - title: "patterns container"
               url: /admin-guide/120_Parser/023_db_parser/004_The_syslog-ng_patterndb_format/000_patterndb/000_ruleset/000_patterns/README
               subnav:
             - title: "rules"
@@ -951,7 +951,7 @@ admin-guide-nav:
                 - title: "create-context"
                   url: /admin-guide/120_Parser/023_db_parser/004_The_syslog-ng_patterndb_format/000_patterndb/000_ruleset/002_actions/000_action/000_create_context/README
                   subnav:
-            - title: "tags"
+            - title: "element tags"
               url: /admin-guide/120_Parser/023_db_parser/004_The_syslog-ng_patterndb_format/000_patterndb/000_ruleset/003_tags/README
               subnav:
     - title: "OpenTelemetry parser"
@@ -1145,7 +1145,7 @@ dev-guide-nav:
           subnav:
           - title: "file() Destination Driver"
             url: /dev-guide/chapter_4/section_2/macos-testing-status/affile/file-destination-driver
-          - title: "file() Source Driver"
+          - title: "file() Source Driver (DEPRECATED)"
             url: /dev-guide/chapter_4/section_2/macos-testing-status/affile/file-source-driver
           - title: "pipe() Destination Driver"
             url: /dev-guide/chapter_4/section_2/macos-testing-status/affile/pipe-destination-driver
@@ -1194,9 +1194,6 @@ dev-guide-nav:
           url: /dev-guide/chapter_4/section_2/macos-testing-status/afuser
         - title: "elasticsearch-http"
           url: /dev-guide/chapter_4/section_2/macos-testing-status/elasticsearch-http
-        - title: "grpc"
-          url: /dev-guide/chapter_4/section_2/macos-testing-status/grpc/README
-          subnav:
         - title: "http"
           url: /dev-guide/chapter_4/section_2/macos-testing-status/http
         - title: "mod-python"

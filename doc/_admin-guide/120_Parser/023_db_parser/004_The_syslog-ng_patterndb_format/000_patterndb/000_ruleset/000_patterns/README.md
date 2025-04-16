@@ -1,6 +1,6 @@
 ---
 title: 'Element: patterns container'
-short_title: patterns
+short_title: patterns container
 id: adm-parser-db-elem-patterns-ruleset
 description: >-
     A container element. A \<patterns\> element may contain any number of \<pattern\> elements.

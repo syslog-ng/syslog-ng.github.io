@@ -1,6 +1,6 @@
 ---
 title: program() source options
-id: adm-src-prog-opt
+id: adm-src-program-opt
 description: >-
     This section describes the options of the program() source in {{ site.product.short_name }}.
 ---
