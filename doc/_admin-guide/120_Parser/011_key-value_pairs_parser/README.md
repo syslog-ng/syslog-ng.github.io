@@ -1,5 +1,5 @@
 ---
-title: Parsing key=value pairs
+title: Key-Value pair parser
 id: adm-parser-kv
 description: >-
     The {{ site.product.short_name }} application can separate a message consisting of

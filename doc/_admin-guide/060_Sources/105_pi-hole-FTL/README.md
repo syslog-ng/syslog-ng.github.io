@@ -1,6 +1,6 @@
 ---
 title: Pi-hole Faster Than Light log source
-short_title: Pi-hole FTL
+short_title: pihole-ftl
 id: adm-src-piftl
 description: >-
     In {{ site.product.short_name }} 4.6 and later versions it is possible to collect logs of the Pi-hole FTL (Faster Than Light) application.

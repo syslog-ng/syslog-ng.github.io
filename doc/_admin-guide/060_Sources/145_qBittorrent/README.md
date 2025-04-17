@@ -1,6 +1,6 @@
 ---
 title: qBittorrent log source
-short_title: qBittorrent
+short_title: qbittorrent
 id: adm-src-qbit
 description: >-
     In {{ site.product.short_name }} 4.6 and later versions it is possible to collect logs of the qBittorrent application.

@@ -1,5 +1,5 @@
 ---
-title: Parsing dates and timestamps
+title: Dates and timestamps parsing
 id: adm-parser-date
 description: >-
     The date parser can extract dates from non-syslog messages. It operates

@@ -50,7 +50,7 @@ fields of the messages processed by metrics-probe(). Use the following format:
 
 ```config
 labels(
- "name-of-the-label-in-the-output" => "field-of-the-message"
+    "name-of-the-label-in-the-output" => "field-of-the-message"
 )
 ```
 
@@ -58,10 +58,10 @@ labels(
 
 ```config
 labels(
- "app" => "${APP}"
- "host" => "${HOST}"
- "program" => "${PROGRAM}"
- "source" => "${SOURCE}"
+    "app" => "${APP}"
+    "host" => "${HOST}"
+    "program" => "${PROGRAM}"
+    "source" => "${SOURCE}"
 )
 ```
 
@@ -82,11 +82,11 @@ in the labels, for example, key(), rekey(), pair(), or scope().
 
 ```config
 metrics-probe(
- key("foo")
- labels(
- static-label" => "bar"
- key(".my_prefix.*" rekey(shift-levels(1)))
- )
+    key("foo")
+    labels(
+        static-label" => "bar"
+        key(".my_prefix.*" rekey(shift-levels(1)))
+    )
 );
 ```
 

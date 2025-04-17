@@ -1,5 +1,5 @@
 ---
-title: Parsing tags
+title: Tags parser
 id: adm-parser-tags
 description: >-
     The {{ site.product.short_name }} application can tag

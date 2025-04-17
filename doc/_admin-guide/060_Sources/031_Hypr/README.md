@@ -1,6 +1,6 @@
 ---
 title: 'Hypr Audit Trail and Hyper App Audit Trail'
-short_title: hypr
+short_title: hypr-audit-trail
 id: adm-src-hypr
 description: >-
     This source is available in syslog-ng OSE 4.2 and later versions. Using this source syslog-ng OSE can fetch events from the Hypr REST API using the following drivers:

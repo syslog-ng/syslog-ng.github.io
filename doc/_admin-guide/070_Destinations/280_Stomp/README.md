@@ -1,6 +1,6 @@
 ---
 title: 'stomp: Publishing messages using STOMP'
-short_title: Stomp
+short_title: stomp
 id: adm-dest-stomp
 description: >-
     The stomp() driver sends messages to servers (message brokers) using the Simple (or Streaming) Text Oriented Message Protocol

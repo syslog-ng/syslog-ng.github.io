@@ -152,7 +152,7 @@ admin-guide-nav:
       subnav:
       - title: "wildcard-file() source options"
         url: /admin-guide/060_Sources/030_Wildcard-file/000_Wildcard-file_options
-    - title: "hypr"
+    - title: "hypr-audit-trail"
       url: /admin-guide/060_Sources/031_Hypr/README
       subnav:
       - title: "hypr-audit-trail() and hypr-app-audit-trail() source options"
@@ -165,7 +165,7 @@ admin-guide-nav:
       subnav:
       - title: "kubernetes() source options"
         url: /admin-guide/060_Sources/040_Kubernetes/000_Kubernetes_options
-    - title: "linux_audit"
+    - title: "linux-audit"
       url: /admin-guide/060_Sources/050_Linux-audit/README
       subnav:
       - title: "linux-audit() source options"
@@ -218,7 +218,7 @@ admin-guide-nav:
       subnav:
       - title: "opentelemetry() source options"
         url: /admin-guide/060_Sources/102_OpenTelemetry/000_opentelemetry_source_options
-    - title: "Pi-hole FTL"
+    - title: "pihole-ftl"
       url: /admin-guide/060_Sources/105_pi-hole-FTL/README
       subnav:
     - title: "pipe"
@@ -247,7 +247,7 @@ admin-guide-nav:
         url: /admin-guide/060_Sources/140_Python/002_Python_source_options
       - title: "Fetcher-style Python sources"
         url: /admin-guide/060_Sources/140_Python/003_Fetcher_style_Python_sources
-    - title: "qBittorrent"
+    - title: "qbittorrent"
       url: /admin-guide/060_Sources/145_qBittorrent/README
       subnav:
     - title: "snmptrap"
@@ -340,7 +340,7 @@ admin-guide-nav:
       subnav:
       - title: "bigquery() destination options"
         url: /admin-guide/070_Destinations/045_Google_bigQuery/000_bigquery_dest_options
-    - title: "Google PubSub"
+    - title: "google-pubsub"
       url: /admin-guide/070_Destinations/047_Google_PubSub/README
       subnav:
       - title: "pubsub() destination options"
@@ -350,7 +350,7 @@ admin-guide-nav:
       subnav:
       - title: "graphite() destination options"
         url: /admin-guide/070_Destinations/050_Graphite/000_Graphite_options
-    - title: "Graylog"
+    - title: "graylog2"
       url: /admin-guide/070_Destinations/060_Graylog/README
       subnav:
       - title: "graylog2() destination options"
@@ -369,28 +369,28 @@ admin-guide-nav:
       - title: "HDFS destination options"
         url: /admin-guide/070_Destinations/070_HDFS/004_hdfs_options
     - title: "http"
-      url: /admin-guide/070_Destinations/080_http/README
+      url: /admin-guide/070_Destinations/081_http/README
       subnav:
       - title: "HTTP destination options"
-        url: /admin-guide/070_Destinations/080_http/000_http_options
-    - title: "http-nonjava"
-      url: /admin-guide/070_Destinations/090_http_nonjava/README
-      subnav:
+        url: /admin-guide/070_Destinations/081_http/000_http_options
       - title: "Batch mode and load balancing with HTTP"
-        url: /admin-guide/070_Destinations/090_http_nonjava/000_Batch_mode_and_load_balancing
-      - title: "HTTP-nonjava destination options"
-        url: /admin-guide/070_Destinations/090_http_nonjava/001_http_nonjava_options
-      - title: "The Azure auth header plugin"
-        url: /admin-guide/070_Destinations/090_http_nonjava/002_Azure_auth_header_plugin
+        url: /admin-guide/070_Destinations/081_http/001_Batch_mode_and_load_balancing
       - title: "The Python HTTP header plugin"
-        url: /admin-guide/070_Destinations/090_http_nonjava/003_Python_http_header_plugin
-    - title: "kafka-c"
+        url: /admin-guide/070_Destinations/081_http/002_Python_http_header_plugin
+      - title: "The Azure auth header plugin"
+        url: /admin-guide/070_Destinations/081_http/003_Azure_auth_header_plugin
+    - title: "http-java"
+      url: /admin-guide/070_Destinations/085_http-java/README
+      subnav:
+      - title: "HTTP Java destination options"
+        url: /admin-guide/070_Destinations/085_http-java/000_http_java_options
+    - title: "kafka"
       url: /admin-guide/070_Destinations/100_Kafka-c/README
       subnav:
-      - title: "Shifting from Java implementation to C implementation"
-        url: /admin-guide/070_Destinations/100_Kafka-c/000_Shifting_from_Java_to_C
       - title: "Before you begin"
-        url: /admin-guide/070_Destinations/100_Kafka-c/001_Before_you_begin
+        url: /admin-guide/070_Destinations/100_Kafka-c/000_Before_you_begin
+      - title: "Shifting from Java implementation to C implementation"
+        url: /admin-guide/070_Destinations/100_Kafka-c/001_Shifting_from_Java_to_C
       - title: "Flow control in {{ site.product.short_name }} and the Kafka client"
         url: /admin-guide/070_Destinations/100_Kafka-c/002_Flow_control
       - title: "Options of the kafka() destination's C implementation"
@@ -433,7 +433,7 @@ admin-guide-nav:
       subnav:
       - title: "network() destination options"
         url: /admin-guide/070_Destinations/150_Network/000_Network_destination_options
-    - title: "OpenObserve"
+    - title: "openobserve-log"
       url: /admin-guide/070_Destinations/153_OpenObserve/README
       subnav:
       - title: "openobserve-log() destination options "
@@ -509,7 +509,7 @@ admin-guide-nav:
         url: /admin-guide/070_Destinations/250_snmp/000_Converting_Cisco_messages
       - title: "snmp() destination options"
         url: /admin-guide/070_Destinations/250_snmp/001_snmp_options
-    - title: "Splunk"
+    - title: "splunk-hec-event"
       url: /admin-guide/070_Destinations/260_Splunk/README
       subnav:
       - title: "splunk-hec-event: Send log messages to Splunk HEC"
@@ -535,7 +535,7 @@ admin-guide-nav:
       subnav:
       - title: "stdout() options"
         url: /admin-guide/070_Destinations/275_stdout/000_stdout_options
-    - title: "Stomp"
+    - title: "stomp"
       url: /admin-guide/070_Destinations/280_Stomp/README
       subnav:
       - title: "stomp() destination options"
@@ -779,183 +779,183 @@ admin-guide-nav:
   - title: "Parse and segment structured messages"
     url: /admin-guide/120_Parser/README
     subnav:
-    - title: "Parsing syslog messages"
-      url: /admin-guide/120_Parser/000_Parsing_syslog_messages/README
-      subnav:
-      - title: "Options of syslog-parser() parsers"
-        url: /admin-guide/120_Parser/000_Parsing_syslog_messages/000_Syslog_parser_options
-    - title: "CSV parser"
-      url: /admin-guide/120_Parser/001_Parsing_messages_with_comma/README
-      subnav:
-      - title: "Options of CSV parsers"
-        url: /admin-guide/120_Parser/001_Parsing_messages_with_comma/000_CSV_parser_options
-    - title: "Parsing key=value pairs"
-      url: /admin-guide/120_Parser/002_Parsing_key-value_pairs/README
-      subnav:
-      - title: "Options of key=value parsers"
-        url: /admin-guide/120_Parser/002_Parsing_key-value_pairs/000_kv_parser_options
-    - title: "JSON parser"
-      url: /admin-guide/120_Parser/003_JSON_parser/README
-      subnav:
-      - title: "Options of JSON parsers"
-        url: /admin-guide/120_Parser/003_JSON_parser/000_JSON_parser_options
-    - title: "XML parser"
-      url: /admin-guide/120_Parser/004_XML_parser/README
-      subnav:
-      - title: "Limitations of the XML parsers"
-        url: /admin-guide/120_Parser/004_XML_parser/000_Limitations
-      - title: "Options of the XML parsers"
-        url: /admin-guide/120_Parser/004_XML_parser/001_XML_Parser_options
-    - title: "Parsing dates and timestamps"
-      url: /admin-guide/120_Parser/005_Parsing_dates/README
-      subnav:
-      - title: "Options of date-parser() parsers"
-        url: /admin-guide/120_Parser/005_Parsing_dates/000_Date_parser_options
-    - title: "Python parser"
-      url: /admin-guide/120_Parser/006_Python_parser
-    - title: "Parsing tags"
-      url: /admin-guide/120_Parser/007_Parsing_tags
     - title: "Apache access log parser"
-      url: /admin-guide/120_Parser/008_Apache_access_log_parser/README
+      url: /admin-guide/120_Parser/001_Apache_access_log_parser/README
       subnav:
       - title: "Options of apache-accesslog-parser() parsers"
-        url: /admin-guide/120_Parser/008_Apache_access_log_parser/000_Apache_parser_options
-    - title: "Linux audit parser"
-      url: /admin-guide/120_Parser/009_Linux_audit_parser/README
-      subnav:
-      - title: "Options of linux-audit-parser() parsers"
-        url: /admin-guide/120_Parser/009_Linux_audit_parser/000_Linux_audit_parser_options
-    - title: "Cisco parser"
-      url: /admin-guide/120_Parser/010_Cisco_parser
-    - title: "Parsing EWWM messages"
-      url: /admin-guide/120_Parser/011_EWMM_parser
-    - title: "iptables parser"
-      url: /admin-guide/120_Parser/012_iptables_parser
-    - title: "Netskope parser"
-      url: /admin-guide/120_Parser/013_netskope_parser
-    - title: "panos-parser()"
-      url: /admin-guide/120_Parser/014_panos_parser/README
-      subnav:
-      - title: "Message format parsed by panos-parser()"
-        url: /admin-guide/120_Parser/014_panos_parser/000_Message_format
-      - title: "PAN-OS parser options"
-        url: /admin-guide/120_Parser/014_panos_parser/001_Panos_parser_options
-    - title: "Sudo parser"
-      url: /admin-guide/120_Parser/015_sudo_parser
-    - title: "PostgreSQL parser"
-      url: /admin-guide/120_Parser/016_PostgreSQL_csvlog_parser/README
-      subnav:
-      - title: "PostgreSQL csvlog parser options"
-        url: /admin-guide/120_Parser/016_PostgreSQL_csvlog_parser/001_PostgreSQL_parser_options
-    - title: "MariaDB parser"
-      url: /admin-guide/120_Parser/016_mariadb_parser
-    - title: "metrics-probe()"
-      url: /admin-guide/120_Parser/017_metrics_probe_parser/README
-      subnav:
-      - title: "metrics-probe options"
-        url: /admin-guide/120_Parser/017_metrics_probe_parser/000_metrics_probe_options
-    - title: "Websense parser"
-      url: /admin-guide/120_Parser/018_websense_parser
-    - title: "Windows XML Event Log (EVTX) parser"
-      url: /admin-guide/120_Parser/019_windows_xml_parser
-    - title: "Fortigate parser"
-      url: /admin-guide/120_Parser/020_Fortigate_parser/README
-      subnav:
-      - title: "Fortigate parser options"
-        url: /admin-guide/120_Parser/020_Fortigate_parser/000_Fortigate_parser_options
+        url: /admin-guide/120_Parser/001_Apache_access_log_parser/000_Apache_parser_options
     - title: "Check Point Log Exporter parser"
-      url: /admin-guide/120_Parser/021_Checkpoint_parser
-    - title: "Regular expression parser"
-      url: /admin-guide/120_Parser/022_regexp_parser/README
+      url: /admin-guide/120_Parser/002_Checkpoint_parser
+    - title: "Cisco parser"
+      url: /admin-guide/120_Parser/003_Cisco_parser
+    - title: "csv-parser"
+      url: /admin-guide/120_Parser/004_CSV_parser/README
       subnav:
-      - title: "Options of Regular expression parsers"
-        url: /admin-guide/120_Parser/022_regexp_parser/000_regex_parser_options
+      - title: "Options of CSV parsers"
+        url: /admin-guide/120_Parser/004_CSV_parser/000_CSV_parser_options
+    - title: "Parsing dates and timestamps"
+      url: /admin-guide/120_Parser/005_dates_parser/README
+      subnav:
+      - title: "Options of date-parser() parsers"
+        url: /admin-guide/120_Parser/005_dates_parser/000_Date_parser_options
     - title: "db-parser"
-      url: /admin-guide/120_Parser/023_db_parser/README
+      url: /admin-guide/120_Parser/006_db_parser/README
       subnav:
       - title: "Classifying log messages"
-        url: /admin-guide/120_Parser/023_db_parser/000_Classifying_log_messages/README
+        url: /admin-guide/120_Parser/006_db_parser/000_Classifying_log_messages/README
         subnav:
         - title: "The structure of the pattern database"
-          url: /admin-guide/120_Parser/023_db_parser/000_Classifying_log_messages/000_Structure_of_a_patterndb
+          url: /admin-guide/120_Parser/006_db_parser/000_Classifying_log_messages/000_Structure_of_a_patterndb
         - title: "How pattern matching works"
-          url: /admin-guide/120_Parser/023_db_parser/000_Classifying_log_messages/001_How_pattern_matching_works
+          url: /admin-guide/120_Parser/006_db_parser/000_Classifying_log_messages/001_How_pattern_matching_works
         - title: "Artificial ignorance"
-          url: /admin-guide/120_Parser/023_db_parser/000_Classifying_log_messages/002_Artificial_ignorance
+          url: /admin-guide/120_Parser/006_db_parser/000_Classifying_log_messages/002_Artificial_ignorance
       - title: "Using pattern databases"
-        url: /admin-guide/120_Parser/023_db_parser/001_Using_pattern_databases/README
+        url: /admin-guide/120_Parser/006_db_parser/001_Using_pattern_databases/README
         subnav:
         - title: "Using parser results in filters and templates"
-          url: /admin-guide/120_Parser/023_db_parser/001_Using_pattern_databases/000_Using_parser_results
+          url: /admin-guide/120_Parser/006_db_parser/001_Using_pattern_databases/000_Using_parser_results
         - title: "Downloading sample pattern databases"
-          url: /admin-guide/120_Parser/023_db_parser/001_Using_pattern_databases/001_Downloading_sample_patterndb
+          url: /admin-guide/120_Parser/006_db_parser/001_Using_pattern_databases/001_Downloading_sample_patterndb
         - title: "Correlating log messages using pattern databases"
-          url: /admin-guide/120_Parser/023_db_parser/001_Using_pattern_databases/002_Correlating_log_messages
+          url: /admin-guide/120_Parser/006_db_parser/001_Using_pattern_databases/002_Correlating_log_messages
       - title: "Triggering actions for identified messages"
-        url: /admin-guide/120_Parser/023_db_parser/002_Triggering_actions/README
+        url: /admin-guide/120_Parser/006_db_parser/002_Triggering_actions/README
         subnav:
         - title: "Conditional actions"
-          url: /admin-guide/120_Parser/023_db_parser/002_Triggering_actions/000_Conditional_actions
+          url: /admin-guide/120_Parser/006_db_parser/002_Triggering_actions/000_Conditional_actions
         - title: "External actions"
-          url: /admin-guide/120_Parser/023_db_parser/002_Triggering_actions/001_External_actions
+          url: /admin-guide/120_Parser/006_db_parser/002_Triggering_actions/001_External_actions
         - title: "Actions and message correlation"
-          url: /admin-guide/120_Parser/023_db_parser/002_Triggering_actions/002_Actions_and_message_correlation
+          url: /admin-guide/120_Parser/006_db_parser/002_Triggering_actions/002_Actions_and_message_correlation
       - title: "Creating pattern databases"
-        url: /admin-guide/120_Parser/023_db_parser/003_Creating_pattern_databases/README
+        url: /admin-guide/120_Parser/006_db_parser/003_Creating_pattern_databases/README
         subnav:
         - title: "Using pattern parsers"
-          url: /admin-guide/120_Parser/023_db_parser/003_Creating_pattern_databases/000_Using_pattern_parsers
+          url: /admin-guide/120_Parser/006_db_parser/003_Creating_pattern_databases/000_Using_pattern_parsers
         - title: "Pattern parsers of {{ site.product.short_name }}"
-          url: /admin-guide/120_Parser/023_db_parser/003_Creating_pattern_databases/001_Pattern_parsers
+          url: /admin-guide/120_Parser/006_db_parser/003_Creating_pattern_databases/001_Pattern_parsers
         - title: "What's new in the {{ site.product.short_name }} pattern database format V5"
-          url: /admin-guide/120_Parser/023_db_parser/003_Creating_pattern_databases/002_Whatsnew_in_patterndb_v5
+          url: /admin-guide/120_Parser/006_db_parser/003_Creating_pattern_databases/002_Whatsnew_in_patterndb_v5
       - title: "The {{ site.product.short_name }} pattern database format"
-        url: /admin-guide/120_Parser/023_db_parser/004_The_syslog-ng_patterndb_format/README
+        url: /admin-guide/120_Parser/006_db_parser/004_The_syslog-ng_patterndb_format/README
         subnav:
         - title: "patterndb"
-          url: /admin-guide/120_Parser/023_db_parser/004_The_syslog-ng_patterndb_format/000_patterndb/README
+          url: /admin-guide/120_Parser/006_db_parser/004_The_syslog-ng_patterndb_format/000_patterndb/README
           subnav:
           - title: "ruleset"
-            url: /admin-guide/120_Parser/023_db_parser/004_The_syslog-ng_patterndb_format/000_patterndb/000_ruleset/README
+            url: /admin-guide/120_Parser/006_db_parser/004_The_syslog-ng_patterndb_format/000_patterndb/000_ruleset/README
             subnav:
             - title: "patterns container"
-              url: /admin-guide/120_Parser/023_db_parser/004_The_syslog-ng_patterndb_format/000_patterndb/000_ruleset/000_patterns/README
+              url: /admin-guide/120_Parser/006_db_parser/004_The_syslog-ng_patterndb_format/000_patterndb/000_ruleset/000_patterns/README
               subnav:
             - title: "rules"
-              url: /admin-guide/120_Parser/023_db_parser/004_The_syslog-ng_patterndb_format/000_patterndb/000_ruleset/001_rules/README
+              url: /admin-guide/120_Parser/006_db_parser/004_The_syslog-ng_patterndb_format/000_patterndb/000_ruleset/001_rules/README
               subnav:
               - title: "rule"
-                url: /admin-guide/120_Parser/023_db_parser/004_The_syslog-ng_patterndb_format/000_patterndb/000_ruleset/001_rules/000_rule/README
+                url: /admin-guide/120_Parser/006_db_parser/004_The_syslog-ng_patterndb_format/000_patterndb/000_ruleset/001_rules/000_rule/README
                 subnav:
                 - title: "patterns"
-                  url: /admin-guide/120_Parser/023_db_parser/004_The_syslog-ng_patterndb_format/000_patterndb/000_ruleset/001_rules/000_rule/000_patterns/README
+                  url: /admin-guide/120_Parser/006_db_parser/004_The_syslog-ng_patterndb_format/000_patterndb/000_ruleset/001_rules/000_rule/000_patterns/README
                   subnav:
                   - title: "urls"
-                    url: /admin-guide/120_Parser/023_db_parser/004_The_syslog-ng_patterndb_format/000_patterndb/000_ruleset/001_rules/000_rule/000_patterns/000_urls/README
+                    url: /admin-guide/120_Parser/006_db_parser/004_The_syslog-ng_patterndb_format/000_patterndb/000_ruleset/001_rules/000_rule/000_patterns/000_urls/README
                     subnav:
                   - title: "values"
-                    url: /admin-guide/120_Parser/023_db_parser/004_The_syslog-ng_patterndb_format/000_patterndb/000_ruleset/001_rules/000_rule/000_patterns/001_values/README
+                    url: /admin-guide/120_Parser/006_db_parser/004_The_syslog-ng_patterndb_format/000_patterndb/000_ruleset/001_rules/000_rule/000_patterns/001_values/README
                     subnav:
                   - title: "examples"
-                    url: /admin-guide/120_Parser/023_db_parser/004_The_syslog-ng_patterndb_format/000_patterndb/000_ruleset/001_rules/000_rule/000_patterns/002_examples/README
+                    url: /admin-guide/120_Parser/006_db_parser/004_The_syslog-ng_patterndb_format/000_patterndb/000_ruleset/001_rules/000_rule/000_patterns/002_examples/README
                     subnav:
                     - title: "example"
-                      url: /admin-guide/120_Parser/023_db_parser/004_The_syslog-ng_patterndb_format/000_patterndb/000_ruleset/001_rules/000_rule/000_patterns/002_examples/000_example/README
+                      url: /admin-guide/120_Parser/006_db_parser/004_The_syslog-ng_patterndb_format/000_patterndb/000_ruleset/001_rules/000_rule/000_patterns/002_examples/000_example/README
                       subnav:
             - title: "actions"
-              url: /admin-guide/120_Parser/023_db_parser/004_The_syslog-ng_patterndb_format/000_patterndb/000_ruleset/002_actions/README
+              url: /admin-guide/120_Parser/006_db_parser/004_The_syslog-ng_patterndb_format/000_patterndb/000_ruleset/002_actions/README
               subnav:
               - title: "action"
-                url: /admin-guide/120_Parser/023_db_parser/004_The_syslog-ng_patterndb_format/000_patterndb/000_ruleset/002_actions/000_action/README
+                url: /admin-guide/120_Parser/006_db_parser/004_The_syslog-ng_patterndb_format/000_patterndb/000_ruleset/002_actions/000_action/README
                 subnav:
                 - title: "create-context"
-                  url: /admin-guide/120_Parser/023_db_parser/004_The_syslog-ng_patterndb_format/000_patterndb/000_ruleset/002_actions/000_action/000_create_context/README
+                  url: /admin-guide/120_Parser/006_db_parser/004_The_syslog-ng_patterndb_format/000_patterndb/000_ruleset/002_actions/000_action/000_create_context/README
                   subnav:
             - title: "element tags"
-              url: /admin-guide/120_Parser/023_db_parser/004_The_syslog-ng_patterndb_format/000_patterndb/000_ruleset/003_tags/README
+              url: /admin-guide/120_Parser/006_db_parser/004_The_syslog-ng_patterndb_format/000_patterndb/000_ruleset/003_tags/README
               subnav:
+    - title: "EWWM message parser"
+      url: /admin-guide/120_Parser/007_EWMM_parser
+    - title: "Fortigate parser"
+      url: /admin-guide/120_Parser/008_Fortigate_parser/README
+      subnav:
+      - title: "Fortigate parser options"
+        url: /admin-guide/120_Parser/008_Fortigate_parser/000_Fortigate_parser_options
+    - title: "iptables parser"
+      url: /admin-guide/120_Parser/009_iptables_parser
+    - title: "JSON parser"
+      url: /admin-guide/120_Parser/010_JSON_parser/README
+      subnav:
+      - title: "Options of JSON parsers"
+        url: /admin-guide/120_Parser/010_JSON_parser/000_JSON_parser_options
+    - title: "Key-Value pair parser"
+      url: /admin-guide/120_Parser/011_key-value_pairs_parser/README
+      subnav:
+      - title: "Options of key=value parsers"
+        url: /admin-guide/120_Parser/011_key-value_pairs_parser/000_kv_parser_options
+    - title: "Linux audit parser"
+      url: /admin-guide/120_Parser/012_Linux_audit_parser/README
+      subnav:
+      - title: "Options of linux-audit-parser() parsers"
+        url: /admin-guide/120_Parser/012_Linux_audit_parser/000_Linux_audit_parser_options
+    - title: "MariaDB parser"
+      url: /admin-guide/120_Parser/013_mariadb_parser
+    - title: "metrics-probe"
+      url: /admin-guide/120_Parser/014_metrics_probe_parser/README
+      subnav:
+      - title: "metrics-probe options"
+        url: /admin-guide/120_Parser/014_metrics_probe_parser/000_metrics_probe_options
+    - title: "Parsing tags"
+      url: /admin-guide/120_Parser/014_tags_parser
+    - title: "Netskope parser"
+      url: /admin-guide/120_Parser/015_netskope_parser
+    - title: "panos-parser"
+      url: /admin-guide/120_Parser/015_panos_parser/README
+      subnav:
+      - title: "Message format parsed by panos-parser()"
+        url: /admin-guide/120_Parser/015_panos_parser/000_Message_format
+      - title: "PAN-OS parser options"
+        url: /admin-guide/120_Parser/015_panos_parser/001_Panos_parser_options
     - title: "OpenTelemetry parser"
-      url: /admin-guide/120_Parser/024_opentelemetry_parser
+      url: /admin-guide/120_Parser/016_opentelemetry_parser
+    - title: "PostgreSQL parser"
+      url: /admin-guide/120_Parser/017_PostgreSQL_csvlog_parser/README
+      subnav:
+      - title: "PostgreSQL csvlog parser options"
+        url: /admin-guide/120_Parser/017_PostgreSQL_csvlog_parser/001_PostgreSQL_parser_options
+    - title: "Python parser"
+      url: /admin-guide/120_Parser/018_Python_parser
+    - title: "Regular expression parser"
+      url: /admin-guide/120_Parser/019_regexp_parser/README
+      subnav:
+      - title: "Options of Regular expression parsers"
+        url: /admin-guide/120_Parser/019_regexp_parser/000_regex_parser_options
+    - title: "Sudo parser"
+      url: /admin-guide/120_Parser/020_sudo_parser
+    - title: "syslog parser"
+      url: /admin-guide/120_Parser/021_syslog_messages_parser/README
+      subnav:
+      - title: "Options of syslog-parser() parsers"
+        url: /admin-guide/120_Parser/021_syslog_messages_parser/000_Syslog_parser_options
+    - title: "XML parser"
+      url: /admin-guide/120_Parser/022_XML_parser/README
+      subnav:
+      - title: "Limitations of the XML parsers"
+        url: /admin-guide/120_Parser/022_XML_parser/000_Limitations
+      - title: "Options of the XML parsers"
+        url: /admin-guide/120_Parser/022_XML_parser/001_XML_Parser_options
+    - title: "Websense parser"
+      url: /admin-guide/120_Parser/023_websense_parser
+    - title: "Windows XML Event Log (EVTX) parser"
+      url: /admin-guide/120_Parser/024_windows_xml_parser
   - title: "Correlating log messages"
     url: /admin-guide/130_Correlating_log_messages/README
     subnav:

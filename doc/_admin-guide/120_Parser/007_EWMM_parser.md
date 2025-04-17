@@ -1,6 +1,6 @@
 ---
 title: Parsing enterprise-wide message model (EWMM) messages
-short_title: Parsing EWWM messages
+short_title: EWWM message parser
 id: adm-parser-ewmm
 description: >-
     The ewmm-parser() can be used to parse messages sent by another

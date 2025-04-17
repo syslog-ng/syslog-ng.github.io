@@ -7,4 +7,4 @@ description: >-
 ---
 
 * `darwin-oslog()`: This source builds on the native OSLog framework, instead of the earlier file-source based solution.
-* `darwin-oslog-stream()`: This sourve provides a live log stream feed.
+* `darwin-oslog-stream()`: This source provides a live log stream feed.

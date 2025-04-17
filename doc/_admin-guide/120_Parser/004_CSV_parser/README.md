@@ -1,6 +1,6 @@
 ---
 title: Parsing messages with comma-separated and similar values
-short_title: CSV parser
+short_title: csv-parser
 id: adm-parser-csv
 description: >-
     The {{ site.product.short_name }} application can separate parts of log messages (that

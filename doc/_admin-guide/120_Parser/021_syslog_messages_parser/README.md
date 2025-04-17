@@ -1,6 +1,6 @@
 ---
-title: Parsing syslog messages
-id: adm-parser-parsing
+title: syslog parser
+id: adm-parser-syslog
 description: >-
     By default, {{ site.product.short_name }} parses every message using the syslog-parser
     as a syslog message, and fills the macros with values of the message.

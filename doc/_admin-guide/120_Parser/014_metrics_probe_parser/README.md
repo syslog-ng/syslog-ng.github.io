@@ -1,6 +1,6 @@
 ---
 title: 'metrics-probe'
-short_title: metrics-probe()
+short_title: metrics probe
 id: adm-metrics-probe
 description: >-
   Available in {{ site.product.short_name }} 4.1.1 or later versions.
@@ -59,11 +59,11 @@ on the value of the `custom_label_name_2` field.
 ```config
 parser p_metrics_probe {
   metrics-probe(
- key("custom_key")  # adds "syslogng_" prefix => "syslogng_custom_key"
- labels(
-   "custom_label_name_1" => "foobar"
-   "custom_label_name_2" => "${.custom.field}"
- )
+    key("custom_key")  # adds "syslogng_" prefix => "syslogng_custom_key"
+    labels(
+      "custom_label_name_1" => "foobar"
+      "custom_label_name_2" => "${.custom.field}"
+    )
   );
 };
 ```

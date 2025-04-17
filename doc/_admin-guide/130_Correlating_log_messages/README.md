@@ -8,7 +8,7 @@ description: >-
 ---
 
 - To group or correlate log messages that match a set of filters, use
-    the **group-by** parser. This works similarly to SQL GROUP BY
+    the **grouping-by** parser. This works similarly to SQL GROUP BY
     statements. For details, see
     Correlating messages using the grouping-by() parser.
 
