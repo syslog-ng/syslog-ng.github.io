@@ -1,6 +1,6 @@
 ---
 title: 'linux-audit: Collecting messages from Linux audit logs'
-short_title: linux_audit
+short_title: linux-audit
 id: adm-src-linux
 description: >-
     It reads and automatically parses the Linux audit logs. You can override

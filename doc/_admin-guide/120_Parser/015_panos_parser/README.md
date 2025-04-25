@@ -1,6 +1,6 @@
 ---
 title: 'panos-parser(): parsing PAN-OS log messages'
-short_title: panos-parser()
+short_title: panos parser
 id: adm-parser-panos
 description: >-
     The PAN-OS (a short
