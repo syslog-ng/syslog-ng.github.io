@@ -23,3 +23,6 @@ source s_multi {
 ```
 
 For more details see the blog post Multi-line-timeout: making sure your last multi-line message is not lost.
+
+>**NOTE:** This option has effect only if the file follow mode is `syslog-ng poll`, `follow-freq()` > 0. For details of file follow modes, refer to How content changes are followed in file() and wildcard-file() sources.
+{: .notice--info}
