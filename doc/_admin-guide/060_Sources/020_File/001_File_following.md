@@ -19,16 +19,22 @@ Setting the `auto` method will select the best available method on the given OS.
 
 Detecting file content changes involves more factors that can affect resource usage and overall performance. {{ site.product.short_name }} uses two main methods to monitor file content changes.
 
-The first method is automatically selected if the follow-freq() option has a value greater than 0. It works like the directory monitoring `poll` monitor-method() and uses an (ivykis) timer with the frequency of follow-freq(). It tries to detect changes in the file content (as well as state, file deletion, and moves) each time the timer fires. Similar to directory change monitoring, this process can be resource-intensive, so you should find the proper setting to balance performance, resource usage, and fault tolerance (such as avoiding log message loss).
+The first method is automatically selected in pre-4.9 version of {{ site.product.short_name }} if the follow-freq() option has a value greater than 0, or in version 4.9 or higher if follow-method() `legacy` or `poll` selected. It works like the directory monitoring `poll` monitor-method() and uses an (ivykis) timer with the frequency of follow-freq(). It tries to detect changes in the file content (as well as state, file deletion, and moves) each time the timer fires.\
+Similar to directory change monitoring, this process can be resource-intensive, so you should find the proper setting to balance performance, resource usage, and fault tolerance (such as avoiding log message loss).
 
-The second method is activated if the follow-freq() option is set to 0. It uses ivykis poll methods, sometimes resembling the poll method for directory change watching described above (with its performance penalties), but often working similarly to the `inotify` or `kqueue` version (with seamless performance).
+The second method is activated in pre-4.9 versions of {{ site.product.short_name }} if the follow-freq() option is set to 0, or in version 4.9 and higher if follow-method() is set to inotify or system.\
+If inotify is available on the system and selected in both follow-method() and monitor-method(), it will be used, resulting in significantly lower resource usage (especially on Linux). This option is accessible only on version 4.9 or later.\
+Otherwise, {{ site.product.short_name }} uses ivykis polling methods, which sometimes resemble the polling method used for directory change watching described above (with its associated performance penalties), but can also operate similarly to the kqueue version (offering seamless performance).
 
 The following table shows which method is selected in different cases.
 
 <table border="0" cellspacing="0" cellpadding="0" width="1397">
   <tr>
-    <td width="99" class="right-edged-col">
-      <p align="center">follow-freq()</p>
+    <td width="174" class="right-edged-col">
+      <p align="center">pre-4.9 version<br>or<br>follow-method(legacy)<br>or<br>follow-method(poll)</p>
+    </td>
+    <td width="151" class="right-edged-col">
+      <p align="center">version 4.9 or higher<br>follow-method()</p>
     </td>
     <td width="200" colspan="2" class="right-edged-col">
       <p align="center">file follow method</p>
@@ -44,8 +50,11 @@ The following table shows which method is selected in different cases.
     </td>
   </tr>
   <tr>
-    <td width="99" rowspan="8" class="right-edged-col">
-      <p align="center">0</p>
+    <td width="174" rowspan="8" class="right-edged-col">
+      <p align="center">follow-freq(0)</p>
+    </td>
+    <td width="150" rowspan="7" class="right-edged-col">
+      <p align="center">system</p>
     </td>
     <td width="150" rowspan="7" class="right-edged-col">
       <p align="center">ivykis poll</p>
@@ -148,7 +157,10 @@ The following table shows which method is selected in different cases.
     </td>
   </tr>
   <tr>
-    <td width="150"  colspan="2" class="right-edged-col">
+    <td width="150" class="right-edged-col">
+      <p align="center">inotify</p>
+    </td>
+    <td width="150" colspan="2" class="right-edged-col">
       <p align="center">inotify from ivykis directory monitor</p>
     </td>
     <td width="151" class="right-edged-col">
@@ -162,8 +174,11 @@ The following table shows which method is selected in different cases.
     </td>
   </tr>
   <tr>
-    <td width="99" rowspan="3" class="right-edged-col">
-      <p align="center">&gt; 0</p>
+    <td width="174" rowspan="3" class="right-edged-col">
+      <p align="center">follow-freq(n)<br> n &gt; 0</p>
+    </td>
+    <td width="150" rowspan="3" class="right-edged-col">
+      <p align="center">poll</p>
     </td>
     <td width="150" colspan="2" rowspan="3" class="right-edged-col">
       <p align="center">syslog-ng poll<br>using an ivykis timer with timer freq set to follow-freq() value</p>
@@ -180,7 +195,7 @@ The following table shows which method is selected in different cases.
   </tr>
 </table>
 
-  **NOTE:** As you can see, the best-performing option on Linux is the `inotify from ivykis directory monitor` method, which requires inotify kernel support, monitor-method() set to `inotify` or `auto` and follow-freq() set to 0.
+  **NOTE:** As you can see, the best-performing option on Linux is the `inotify from ivykis directory monitor` method, which requires inotify kernel support, monitor-method() set to `inotify` or `auto` and follow-method() set to `inotify`.
   {: .notice--info}
 
 A bit more detail about the notation in the platform columns and what they really mean:
