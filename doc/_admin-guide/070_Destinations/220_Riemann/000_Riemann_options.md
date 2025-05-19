@@ -109,8 +109,6 @@ destination d_riemann {
 
 {% include doc/admin-guide/options/hook.md %}
 
-{% include doc/admin-guide/options/host.md %}
-
 ## host()
 
 |  Type:|      template, macro, or string|
