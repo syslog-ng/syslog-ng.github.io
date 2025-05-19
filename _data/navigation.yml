@@ -793,7 +793,7 @@ admin-guide-nav:
       subnav:
       - title: "Options of CSV parsers"
         url: /admin-guide/120_Parser/004_CSV_parser/000_CSV_parser_options
-    - title: "Parsing dates and timestamps"
+    - title: "Dates and timestamps parsing"
       url: /admin-guide/120_Parser/005_dates_parser/README
       subnav:
       - title: "Options of date-parser() parsers"
@@ -908,16 +908,16 @@ admin-guide-nav:
         url: /admin-guide/120_Parser/012_Linux_audit_parser/000_Linux_audit_parser_options
     - title: "MariaDB parser"
       url: /admin-guide/120_Parser/013_mariadb_parser
-    - title: "metrics-probe"
+    - title: "metrics probe"
       url: /admin-guide/120_Parser/014_metrics_probe_parser/README
       subnav:
       - title: "metrics-probe options"
         url: /admin-guide/120_Parser/014_metrics_probe_parser/000_metrics_probe_options
-    - title: "Parsing tags"
+    - title: "Tags parser"
       url: /admin-guide/120_Parser/014_tags_parser
     - title: "Netskope parser"
       url: /admin-guide/120_Parser/015_netskope_parser
-    - title: "panos-parser"
+    - title: "panos parser"
       url: /admin-guide/120_Parser/015_panos_parser/README
       subnav:
       - title: "Message format parsed by panos-parser()"

@@ -18,6 +18,8 @@ The stdin() driver has the following options:
 
 {% include doc/admin-guide/options/follow-freq.md %}
 
+{% include doc/admin-guide/options/follow-method.md %}
+
 {% include doc/admin-guide/options/hook.md %}
 
 {% include doc/admin-guide/options/keep-timestamp.md %}
