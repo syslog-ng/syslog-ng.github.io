@@ -53,6 +53,8 @@ Available in 3.19 and later.
 
 {% include doc/admin-guide/options/max-connections.md %}
 
+{% include doc/admin-guide/options/multi-line-mode-network.md %}
+
 {% include doc/admin-guide/options/pad-size.md %}
 
 {% include doc/admin-guide/options/port-localport.md %}

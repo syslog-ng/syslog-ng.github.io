@@ -1,11 +1,4 @@
-## multi-line-mode()
-
-| Type:  |  indented \| regexp|
-|Default: |  empty string|
-
-*Description:* Use the multi-line-mode() option when processing
-multi-line messages. The {{ site.product.short_name }} application provides the
-following methods to process multi-line messages:
+{% include doc/admin-guide/options/multi-line-mode-header.md %}
 
 - The *indented* mode can process messages where each line that
     belongs to the previous line is indented by whitespace, and the
@@ -29,7 +22,7 @@ following methods to process multi-line messages:
     multi-line-mode(prefix-garbage), see the multi-line-prefix() and
     multi-line-garbage() options.
 
-- The prefix-suffix mode uses a string or regular expression (set in
+- The *prefix-suffix* mode uses a string or regular expression (set in
     multi-line-prefix()) that matches the beginning of the log messages,
     ignores newline characters from the source until a line matches the
     regular expression set in multi-line-suffix(), and treats the lines
@@ -43,4 +36,8 @@ following methods to process multi-line messages:
     The prefix-suffix mode is similar to the prefix-garbage mode, but it
     appends the garbage part to the message instead of discarding it.
 
+{% include doc/admin-guide/options/multi-line-mode-empty-line-separated.md %}
+
 {% include doc/admin-guide/examples/multi-line.md %}
+
+{% include doc/admin-guide/options/multi-line-mode-footer.md %}
