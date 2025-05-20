@@ -15,9 +15,7 @@ description: >-
 - The kafka-bootstrap-servers() option has been renamed
     bootstrap-servers().
 
-- The properties-file() is a Java properties file with options that
-    are similar to, but not identical with, the options in the old, Java
-    implementation's properties-file(). For more information, click here. TODO
+- The properties-file() was replaced with the config() option of kafka-c, which is similiar but not identical to the properties-file() option.
 
 - The sync-send() option has been deprecated. Remove it from the
     configuration file.

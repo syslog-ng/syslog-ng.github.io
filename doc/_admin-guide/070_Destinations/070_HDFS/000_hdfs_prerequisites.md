@@ -5,8 +5,8 @@ description: >-
     To send messages from {{ site.product.short_name }} to HDFS, complete the following steps.
 ---
 
-1. If you want to use the Java-based modules of {{ site.product.short_name }} (for
-    example, the Elasticsearch, HDFS, or Kafka destinations), you must
+1. If you want to use the Java-based module of {{ site.product.short_name }} (for
+    example, HDFS destination), you must
     compile {{ site.product.short_name }} with Java support.
 
     - Download and install the Java Runtime Environment (JRE), 1.7 (or
