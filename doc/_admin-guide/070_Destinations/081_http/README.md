@@ -4,7 +4,7 @@ short_title: http
 id: adm-dest-http
 description: >-
     Version 3.8 of {{ site.product.short_name }} can directly post log messages to web
-    services using the HTTP protocol, without having to use Java.
+    services using the HTTP protocol.
 ---
 
 The current implementation has the following limitations:

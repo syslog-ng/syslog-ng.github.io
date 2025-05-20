@@ -379,11 +379,6 @@ admin-guide-nav:
         url: /admin-guide/070_Destinations/081_http/002_Python_http_header_plugin
       - title: "The Azure auth header plugin"
         url: /admin-guide/070_Destinations/081_http/003_Azure_auth_header_plugin
-    - title: "http-java"
-      url: /admin-guide/070_Destinations/085_http-java/README
-      subnav:
-      - title: "HTTP Java destination options"
-        url: /admin-guide/070_Destinations/085_http-java/000_http_java_options
     - title: "kafka"
       url: /admin-guide/070_Destinations/100_Kafka-c/README
       subnav:
