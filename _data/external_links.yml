@@ -734,7 +734,7 @@ gh-sumo:
   url: https://github.com/syslog-ng/syslog-ng/blob/master/scl/sumologic/sumologic.conf
   title: [ "Sumo Logic configuration snippet on GitHub" ]
   
- gh-webhook:
+gh-webhook:
   id: gh-webhook
   url: https://github.com/syslog-ng/syslog-ng/blob/develop/modules/python-modules/syslogng/modules/webhook/scl/webhook.conf
   title: [ "Webhook config file on GitHub" ]
