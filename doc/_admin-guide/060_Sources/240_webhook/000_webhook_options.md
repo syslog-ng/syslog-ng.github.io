@@ -13,7 +13,7 @@ The `webhook()` and `webhook-json()` drivers have the following options:
 |Type:|   string|
 |Default:|  none|
 
-*Description:* You can request an authentication token from the clients as an additional method of validation. Do not use this under plain HTTP. When `auth_token("<token>")` is set, {{ site.product.short_name }} only accepts requests that contain the Authorization: Basic <token>, Authorization: Bearer <token>, or a similar header. Other requests will be rejected with `403`.
+*Description:* You can request an authentication token from the clients as an additional method of validation. Do not use this under plain HTTP. When `auth_token("<token>")` is set, {{ site.product.short_name }} only accepts requests that contain the Authorization: Basic \<token\>, Authorization: Bearer \<token\>, or a similar header. Other requests will be rejected with `403`.
 
 ### Example:
 
