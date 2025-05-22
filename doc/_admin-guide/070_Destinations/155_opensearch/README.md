@@ -17,7 +17,7 @@ description: >-
 ```config
 d_opensearch {
     opensearch(
-        index("&lt;opensearch-index-to-store-messages&gt;")
+        index("opensearch-index-to-store-messages")
         url("https://your-opensearch-endpoint:9200/_bulk")
     );
 };
@@ -30,7 +30,7 @@ The following example defines an opensearch() destination, using only the requir
 ```config
 destination opensearch {
     opensearch(
-        index("&lt;name-of-the-index&gt;")
+        index("name-of-the-index")
         url("http://my-elastic-server:9200/_bulk")
     );
 };

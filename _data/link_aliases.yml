@@ -105,5 +105,146 @@ adm-src-wild:
 adm-src-file:
   aliases: [ "/file(?:\\(\\))? source[s]?/" ]
 
+adm-src-program:
+  aliases: [ "program() source" ]
+
+adm-dest-program:
+  aliases: [ "program() destination" ]
+
+adm-src-mqtt:
+  aliases: [ "mqtt() source" ]
+
+adm-dest-mqtt:
+  aliases: [ "mqtt() destination" ]
+
+adm-src-netw:
+  aliases: [ "network() source" ]
+  
+adm-dest-netw:
+  aliases: [ "network() destination" ]
+
+adm-src-optel:
+  aliases: [ "opentelemetry() source" ]
+
+adm-dest-optel:
+  aliases: [ "opentelemetry() destination" ]
+
+adm-src-osquery:
+  aliases: [ "osquery() source" ]
+  
+adm-dest-osquery:
+  aliases: [ "osquery() destination" ]
+  
+adm-src-syslog:
+  aliases: [ "syslog() source" ]
+
+adm-dest-syslog:
+  aliases: [ "syslog() destination" ]
+
+adm-src-sng-otlp:
+  aliases: [ "syslog-ng-otlp() source" ]
+
+adm-dest-sng-otlp:
+  aliases: [ "syslog-ng-otlp() destination" ]
+
+adm-src-unix:
+  aliases: [ "unix-dgram() source", "unix-stream() source", "unix-dgram() and unix-stream() source" ]  
+
+adm-dest-unix:
+  aliases: [ "unix-dgram() destination", "unix-stream() destination", "unix-dgram() and unix-stream() destination" ]  
+
+adm-man-ctl:
+  aliases: [ "syslog-ng-ctl" ]
+
+adm-src-hypr:
+  aliases: [ "hypr-app-audit-trail()" ]
+
+adm-src-macOS:
+  aliases: [ "darwin-oslog()", "darwin-oslog-stream()" ]
+
+adm-dest-google-bq:
+  aliases: [ "bigquery()" ]
+
+adm-parser-kv:
+  aliases: [ "kv-parser()" ]
+
+adm-parser-csv:
+  aliases: [ "csv-parser()" ]
+
+adm-parser-syslog:
+  aliases: [ "syslog-parser()" ]
+
+adm-parser-json:
+  aliases: [ "json-parser()" ]
+
+adm-parser-xml:
+  aliases: [ "xml()" ]
+
+adm-parser-date:
+  aliases: [ "date-parser()" ]
+
+adm-parser-tags:
+  aliases: [ "tags-parser()" ]
+
+adm-parser-apache:
+  aliases: [ "apache-accesslog-parser()" ]
+
+adm-parser-linux:
+  aliases: [ "linux-audit-parser()" ]
+
+adm-parser-cisco:
+  aliases: [ "cisco-parser()" ]
+
+adm-parser-ewmm:
+  aliases: [ "ewmm-parser()" ]
+
+adm-parser-iptables:
+  aliases: [ "iptables-parser()" ]
+
+adm-parser-netskope:
+  aliases: [ "netskope-parser()" ]
+
+adm-parser-panos:
+  aliases: [ "panos-parser()" ]
+
+adm-parser-sudo:
+  aliases: [ "sudo-parser()" ]
+
+adm-parser-postrgresql:
+  aliases: [ "postgresql-csvlog-parser()" ]
+
+adm-parser-mariadb:
+  aliases: [ "mariadb-audit-parser()" ]
+
+adm-metrics-probe:
+  aliases: [ "metrics-probe()" ]
+
+adm-parser-websense:
+  aliases: [ "websense-parser()" ]
+
+adm-parser-evtx:
+  aliases: [ "windows-eventlog-xml-parser()" ]
+
+adm-parser-fortigate:
+  aliases: [ "fortigate-parser()" ]
+
+adm-parser-checkpoint:
+  aliases: [ "checkpoint-parser()" ]
+
+adm-parser-regexp:
+  aliases: [ "regexp-parser()" ]
+
+adm-parser-db:
+  aliases: [ "db-parser()" ]
+
+adm-parser-optel:
+  aliases: [ "opentelemetry-parser()" ]
+
+adm-correlate:
+  aliases: [ "grouping-by()" ]
+
+adm-stats:
+  aliases: [ "syslog-ng-ctl stats", "syslog-ng-ctl query" ]
+
 doxygen-home:
   aliases: [ "/[Dd]oxygen/" ]

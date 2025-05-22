@@ -1178,7 +1178,7 @@ sn-graphite:
   title: [ "Collecting syslog-ng statistics to Graphite" ]
 
 sn-grouping-by:
-  id: sn--grouping-by
+  id: sn-grouping-by
   url: https://www.syslog-ng.com/community/b/blog/posts/the-grouping-by-parser-in-syslog-ng-3-8
   title: [ "The grouping-by() parser in syslog-ng blog post" ]
 

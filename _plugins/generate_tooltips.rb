@@ -308,6 +308,7 @@ module Jekyll
         page_links.each do |page_id, page_data|
           #puts "page_id: #{page_id}, page_data: #{page_data}"
           titles = page_data["title"]
+          pri = page_data["pri"]
 
           titles.each do |title|
             # Skip excluded titles
@@ -316,15 +317,16 @@ module Jekyll
             sorted_arr << page_link_data = {
               "id" => page_id,
               "title" => title,
+              "pri" => pri,
             }
           end
         end
 
-        # With this reversed length sort order we try to guarantie that
+        # With this reversed length sort order we try to guarantee that
         # the autolink/tooltip title pattern matching finds titles like
         # 'Soft macros' before 'macros'
         # In most of the cases matching the longer titles first will eliminate such issues
-        sorted_arr.sort_by { |page| page["title"].length }.reverse
+        sorted_arr.sort_by { |page| [page["title"].length, page["pri"].to_i] }.reverse
 
         # Just for debugging
         # sorted_arr.each do |data|
@@ -348,6 +350,7 @@ module Jekyll
           page_url = yaml_content['url']
           page_title = yaml_content['title']
           open_in_blank = yaml_content['open_in_blank']
+          page_pri = yaml_content['pri']
           chars_to_remove = %{"'}
           page_title = page_title.gsub(/\A[#{Regexp.escape(chars_to_remove)}]+|[#{Regexp.escape(chars_to_remove)}]+\z/, '')
           #puts "page_title: " + page_title
@@ -360,6 +363,7 @@ module Jekyll
           page_link_data = {
             "id" => page_id,
             "url" => page_url,
+            "pri" => (page_pri ? page_pri : 50),
             "title" => [ page_title ],
             "open_in_blank" => open_in_blank,
           }
