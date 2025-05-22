@@ -245,7 +245,7 @@ listed below.
 |Name                   |Description
 |---|---
 |amqp()|           Publishes messages using the AMQP (Advanced Message Queuing Protocol).
-|elasticsearch2|   Sends messages to an Elasticsearch server. The elasticsearch2 driver supports Elasticsearch version 2 and newer.
+|elasticsearch-http|   Sends messages to an Elasticsearch server.
 |file()|           Writes messages to the specified file.
 |graphite()|       Sends metrics to a Graphite server to store numeric time-series data.
 |graylog2()|       Sends syslog messages to Graylog.
