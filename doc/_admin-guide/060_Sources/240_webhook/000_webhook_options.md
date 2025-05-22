@@ -37,7 +37,7 @@ auth_token("dGVzdF9zZWdlskfoe0aF90b2tlbg==")
 
 For example, the `/events/(?P<HOST>.*)` path specifies the hostname for the data received in the request based on the second part of the URL: a request to the `/events/my-example-host` URL sets the host field of that message to `my-example-host`.
 
-You can set multiple endpoints, for example, paths(["/events","/events/(?P<HOST>.*)"])
+You can set multiple endpoints, for example, paths(["/events","/events/(?P\<HOST\>.*)"])
 
 ## port()
 
