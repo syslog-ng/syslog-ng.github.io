@@ -148,10 +148,15 @@ admin-guide-nav:
       - title: "Notes on reading kernel messages"
         url: /admin-guide/060_Sources/020_File/002_Notes_on_reading_kernel_messages
     - title: "wildcard-file"
-      url: /admin-guide/060_Sources/030_Wildcard-file/README
+      url: /admin-guide/060_Sources/021_Wildcard-file/README
       subnav:
       - title: "wildcard-file() source options"
-        url: /admin-guide/060_Sources/030_Wildcard-file/000_Wildcard-file_options
+        url: /admin-guide/060_Sources/021_Wildcard-file/000_Wildcard-file_options
+    - title: "freebsd-audit"
+      url: /admin-guide/060_Sources/030_Freebsd-audit/README
+      subnav:
+      - title: "freebsd-audit() source options"
+        url: /admin-guide/060_Sources/030_Freebsd-audit/000_freebsd_audit_source_options
     - title: "hypr-audit-trail"
       url: /admin-guide/060_Sources/031_Hypr/README
       subnav:
