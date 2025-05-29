@@ -30,8 +30,6 @@ description: >-
 **Declaration**
 
 ```config
-@define kafka-implementation kafka-c
-
 kafka(
     bootstrap-servers("1.2.3.4:9092,192.168.0.2:9092")
     topic("{MYTOPIC}")

@@ -33,8 +33,8 @@ and other platforms, see {{ site.product.name }} installation packages.
     - The {{ site.product.short_name }} application now uses PCRE-type regular
         expressions by default. It requires the libpcre library package.
 
-    - If you want to use the Java-based modules of {{ site.product.short_name }} (for
-        example, the Elasticsearch, HDFS, or Kafka destinations), you
+    - If you want to use a Java-based module of {{ site.product.short_name }} (for
+        example, the HDFS), you
         must compile {{ site.product.short_name }} with Java support.
 
         - Download and install the Java Runtime Environment (JRE), 1.7
@@ -59,8 +59,7 @@ and other platforms, see {{ site.product.name }} installation packages.
 3. If you want to post log messages as HTTP requests using the http()
     destination, install the development files of the *libcurl* library.
     This library is not needed if you use the \--disable-http compile
-    option. Alternatively, you can use a Java-based implementation of
-    the HTTP destination.
+    option.
 
 4. If you want to use the spoof-source function of {{ site.product.short_name }}, install
     the development files of the libnet library.
