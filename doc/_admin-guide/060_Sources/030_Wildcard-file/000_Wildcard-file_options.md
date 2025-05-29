@@ -10,9 +10,7 @@ The wildcard-file() driver has the following options:
 
 ## base-dir()
 
-**NOTE:** 
-This option is only available for the `wildcard-file()` source and unavailable for the `file()` source.
-{: .notice--info}
+{% include doc/admin-guide/notes/wildcard-option-warning.md %}
 
 |Type:|      path without filename|
 |Default:||
@@ -43,9 +41,7 @@ source s_files {
 
 ## filename-pattern()
 
-**NOTE:** 
-This option is only available for the `wildcard-file()` source and unavailable for the `file()` source.
-{: .notice--info}
+{% include doc/admin-guide/notes/wildcard-option-warning.md %}
 
 |Type:|filename without path|
 |Default:||
