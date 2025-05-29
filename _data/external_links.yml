@@ -1112,6 +1112,11 @@ postgresql:
   url: https://www.postgresql.org/docs/current/runtime-config-logging.html#RUNTIME-CONFIG-LOGGING-CSVLOG
   title: [ "PostgreSQL" ]
 
+prometheus-scraper:
+  id: prometheus-scraper
+  url: https://prometheus.io/docs/prometheus/latest/getting_started/#configure-prometheus-to-monitor-the-sample-targets
+  title: [ "/[Pp]rometheus [Ss]craper/" ]
+
 qbittorrent:
   id: qbittorrent
   url: https://www.qbittorrent.org/
