@@ -81,6 +81,9 @@ Its documentation is extensive and full of examples. More test examples can be f
 
 ### Installation on Ubuntu
 
+**NOTE:** Note that `apt-key` authentication command line, has been deprecated in Ubuntu 20.04 and later versions.
+{: .notice--info}
+
 ```
 $ curl http://download.opensuse.org/repositories/home:/laszlo_budai:/syslog-ng/xUbuntu_12.04/Release.key | sudo apt-key add -
 $ echo "deb http://download.opensuse.org/repositories/home:/laszlo_budai:/syslog-ng/xUbuntu_12.04 ./" | sudo tee --append /etc/apt/sources.list.d/syslog-ng-obs.list

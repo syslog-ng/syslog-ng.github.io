@@ -11,6 +11,9 @@ id: dev-inst-debuan-ubuntu
 This chapter describes how you can install {{ site.product.short_name }} on Debian and on Ubuntu
 operating systems from our APT repository.
 
+**NOTE:** Note that `apt-key` authentication command line, has been deprecated in Ubuntu 20.04 and later versions.
+{: .notice--info}
+
 ## syslog-ng
 
 ## Install {{ site.product.short_name }} from APT repository
@@ -80,6 +83,9 @@ Repositories are available [here][ref:obs-lbudai-36] and [here][ref:obs-lbudai-3
     ```shell
     wget -qO -  http://download.opensuse.org/repositories/home:/laszlo_budai:/syslog-ng/Debian_8.0/Release.key | sudo apt-key add -
     ```
+
+**NOTE:** Note that `apt-key` authentication command line, has been deprecated in Ubuntu 20.04 and later versions.
+{: .notice--info}
 
 2. add repo to APT sources
 
