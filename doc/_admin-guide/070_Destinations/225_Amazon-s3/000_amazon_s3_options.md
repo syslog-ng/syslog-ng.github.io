@@ -52,6 +52,13 @@ If an invalid value is configured, the default is used.
 
 *Description:* Only effective if `upload-threads()` is set higher than one. Signifies the part size in a multithreaded upload, but only if the uploaded object is at least 1.5 times the chunk size. If compression is enabled, the chunk-size() specifies the compressed size. Must be set to at least 5 MiB.
 
+## content-type()
+
+|Type:|   string|
+|Default:|      `application/octet-stream`|
+
+*Description:* This option allows the user to change the displayed content type of the log messages.
+
 ## compression()
 
 |Type:|   boolean|
@@ -145,6 +152,13 @@ If an invalid value is configured, the default is used.
 ## template()
 
 *Description:* The message as written to the Amazon S3 object. You can use templates and template functions to format the message.
+
+## use_compression()
+
+|Accepted values:|   `when_supported`, `when_required`|
+|Default:|           `when_supported`|
+
+*Description:* This option allows users to change the default `when_supported` value to `when_required` for `S3` compatible solutions that do not support checksums.
 
 ## upload-threads()
 
