@@ -10,13 +10,12 @@ directly publish log messages to the Apache Kafka message bus, where subscribers
 
 ## Required options
 
-The following options are required: bootstrap-servers(), topic(). Note
-that to use the kafka-c() destination, you must
-add the following lines to the beginning of your {{ site.product.short_name }}
-configuration:
+To use the kafka-c() destination, the following two options are required: `bootstrap-servers()` and `topic()`. Both must appear at the beginning of your {{ site.product.short_name }} configuration.
+
+You can specify multiple, comma-separated addresses, demonstrated in the following example:
 
 ```config
-@define kafka-implementation kafka-c
+bootstrap-servers("127.0.0.1:2525,remote-server-hostname:6464")
 ```
 
 {% include doc/admin-guide/notes/kafka-c.md %}
