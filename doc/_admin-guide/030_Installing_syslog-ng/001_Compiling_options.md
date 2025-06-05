@@ -54,7 +54,7 @@ compiling options.
 
 - *\--enable-ipv6* Enable IPv6 support.
 
-- *\--enable-java* Enable support for Java-based modules. For other
+- *\--enable-java* Enable support for the Java-based module. For other
     requirements, see the description of the Java-based module (for
     example,
     [[HDFS prerequisites|adm-dest-hdfs-pre]]) that you want to use.
@@ -134,7 +134,7 @@ compiling options.
 
 - *\--with-libcurl* Specifies the path to the libcurl library. For
     details on using this destination, see
-    [[http: Posting messages over HTTP without Java]].
+    [[http: Posting messages over HTTP]].
 
 - *\--with-libhiredis* Specifies the path to the libhiredis library
     (0.11 or newer). For details on using this destination, see

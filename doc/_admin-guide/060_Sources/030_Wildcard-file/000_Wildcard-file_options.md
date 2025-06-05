@@ -10,6 +10,8 @@ The wildcard-file() driver has the following options:
 
 ## base-dir()
 
+{% include doc/admin-guide/notes/wildcard-option-warning.md %}
+
 |Type:|      path without filename|
 |Default:||
 
@@ -38,6 +40,8 @@ source s_files {
 {% include doc/admin-guide/options/encoding.md %}
 
 ## filename-pattern()
+
+{% include doc/admin-guide/notes/wildcard-option-warning.md %}
 
 |Type:|filename without path|
 |Default:||
