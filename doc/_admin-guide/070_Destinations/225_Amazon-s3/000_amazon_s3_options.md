@@ -153,7 +153,7 @@ If an invalid value is configured, the default is used.
 
 *Description:* The message as written to the Amazon S3 object. You can use templates and template functions to format the message.
 
-## use_compression()
+## use_checksum()
 
 |Accepted values:|   `when_supported`, `when_required`|
 |Default:|           `when_supported`|
