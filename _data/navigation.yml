@@ -255,6 +255,11 @@ admin-guide-nav:
       subnav:
       - title: "snmptrap() source options"
         url: /admin-guide/060_Sources/150_snmptrap/000_snmptrap_options
+    - title: "stats-exporter"
+      url: /admin-guide/060_Sources/153_stats_exporter/README
+      subnav:
+      - title: "stats-exporter() source options"
+        url: /admin-guide/060_Sources/153_stats_exporter/000_stats_exporter_source_options
     - title: "stdin"
       url: /admin-guide/060_Sources/155_stdin/README
       subnav:
@@ -302,6 +307,11 @@ admin-guide-nav:
         url: /admin-guide/060_Sources/220_unix-stream_unix-dgram/000_Unix_credentials
       - title: "unix-stream() and unix-dgram() source options"
         url: /admin-guide/060_Sources/220_unix-stream_unix-dgram/001_unixstream_source_options
+    - title: "webhook"
+      url: /admin-guide/060_Sources/240_webhook/README
+      subnav:
+      - title: "webhook() source options"
+        url: /admin-guide/060_Sources/240_webhook/000_webhook_options
   - title: "Destinations"
     url: /admin-guide/070_Destinations/README
     subnav:

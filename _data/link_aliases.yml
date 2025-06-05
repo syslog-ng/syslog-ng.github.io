@@ -99,6 +99,9 @@ adm-about-glossary#bsd-syslog-protocol:
 adm-about-glossary#ietf-syslog-protocol:
   aliases: [ "IETF-syslog protocol", "IETF-syslog" ]
 
+adm-src-stats-exporter:
+  aliases: [ "stats-exporter-dont-log()" ]
+
 adm-src-wild:
   aliases: [ "/wildcard-file(?:\\(\\))? source[s]?/" ]
 
