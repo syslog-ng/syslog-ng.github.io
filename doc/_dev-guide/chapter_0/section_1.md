@@ -11,6 +11,8 @@ id: dev-inst-debuan-ubuntu
 This chapter describes how you can install {{ site.product.short_name }} on Debian and on Ubuntu
 operating systems from our APT repository.
 
+{% include doc/admin-guide/notes/apt-key-deprecation.md %}
+
 ## syslog-ng
 
 ## Install {{ site.product.short_name }} from APT repository
@@ -80,6 +82,8 @@ Repositories are available [here][ref:obs-lbudai-36] and [here][ref:obs-lbudai-3
     ```shell
     wget -qO -  http://download.opensuse.org/repositories/home:/laszlo_budai:/syslog-ng/Debian_8.0/Release.key | sudo apt-key add -
     ```
+
+{% include doc/admin-guide/notes/apt-key-deprecation.md %}
 
 2. add repo to APT sources
 
