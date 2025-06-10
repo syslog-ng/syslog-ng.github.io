@@ -1,6 +1,6 @@
 ## flags()
 
-|Accepted values:| assume-utf8, empty-lines, expect-hostname, kernel, no-hostname, no-multi-line, no-parse, sanitize-utf8, store-legacy-msghdr, store-raw-message, syslog-protocol, threaded, validate-utf8, no-piggyback-errors|
+|Accepted values:| `assume-utf8`, `empty-lines`, `expect-hostname`, `kernel`, `no-hostname`, `no-multi-line`, `no-parse`, `sanitize-utf8`, `store-legacy-msghdr`, `store-raw-message`, `syslog-protocol`, `threaded`, `validate-utf8`, `no-piggyback-errors`, `piggyback-errors`|
 |Default: |  empty set|
 
 *Description:* Specifies the log parsing options of the source.
