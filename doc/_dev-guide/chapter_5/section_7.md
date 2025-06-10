@@ -20,15 +20,13 @@ guidelines the following:
     for syslog-ng. Please try to follow the existing conventions.
  4. Always add a `Signed-off-by` tag to the end of **every** commit
     message you submit.
+    Signing off on commits enables users to affirm that a commit complies with the rules and licensing of a repository. This, in the case of {{ site.product.short_name }}, means that you accept our coding and contribution standards described in the Contribution section, and accept that your code will be published with a `GPLv2` license.
  5. Always create a separate branch for the pull request, forked off
-    from the appropriate {{ site.product.short_name }} branch.
+    from the {{ site.product.short_name }} `develop` branch.
+   The pull requests you create should always point to and be merged into the `develop` branch. Do not make PRs and try to merge into the `master` branch.
  6. If your patch should be applied to multiple branches, submit
     against the latest one only, and mention which other branches are
     affected. There is no need to submit pull requests for each
     branch.
  7. If possible, write tests. We love tests.
  8. A well-documented pull request is much easier to review and merge.
-
-
-Before submitting a separate module, please consider submitting it to
-the [Incubator](https://github.com/balabit/syslog-ng-incubator) first, because it is easier to have your code accepted there. The Incubator is the repository of new and experimental modules.

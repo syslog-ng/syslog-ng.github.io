@@ -81,6 +81,8 @@ Its documentation is extensive and full of examples. More test examples can be f
 
 ### Installation on Ubuntu
 
+{% include doc/admin-guide/notes/apt-key-deprecation.md %}
+
 ```
 $ curl http://download.opensuse.org/repositories/home:/laszlo_budai:/syslog-ng/xUbuntu_12.04/Release.key | sudo apt-key add -
 $ echo "deb http://download.opensuse.org/repositories/home:/laszlo_budai:/syslog-ng/xUbuntu_12.04 ./" | sudo tee --append /etc/apt/sources.list.d/syslog-ng-obs.list

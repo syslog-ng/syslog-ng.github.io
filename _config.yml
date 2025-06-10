@@ -258,4 +258,4 @@ product:
   name: 'syslog-ng Open Source Edition'
   short_name: 'syslog-ng OSE'
 
-repository: syslog-ng/syslog-ng
+repository: syslog-ng/syslog-ng.github.io

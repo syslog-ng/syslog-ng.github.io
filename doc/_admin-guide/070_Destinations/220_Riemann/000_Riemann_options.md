@@ -109,10 +109,6 @@ destination d_riemann {
 
 {% include doc/admin-guide/options/hook.md %}
 
-{% include doc/admin-guide/options/host.md %}
-
-{% include doc/admin-guide/options/batch-timeout.md %}
-
 ## host()
 
 |  Type:|      template, macro, or string|

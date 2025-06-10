@@ -109,9 +109,6 @@ An example output:
 
 >center.received.stats.processed
 >center.queued.stats.processed
->destination.java.d_elastic#0.java_dst(ElasticSearch,elasticsearch-syslog-ng-test,t7cde889529c034aea9ec_micek).stats.>dropped
->destination.java.d_elastic#0.java_dst(ElasticSearch,elasticsearch-syslog-ng-test,t7cde889529c034aea9ec_micek).stats.>processed
->destination.java.d_elastic#0.java_dst(ElasticSearch,elasticsearch-syslog-ng-test,t7cde889529c034aea9ec_micek).stats.>queued
 >destination.d_elastic.stats.processed
 >source.s_tcp.stats.processed
 >source.severity.7.stats.processed
@@ -169,9 +166,6 @@ the query, and their values.
 For example, the destination query lists the configured destinations,
 and the metrics related to each destination. An example output:
 
->destination.java.d_elastic#0.java_dst(ElasticSearch,elasticsearch-syslog-ng-test,t7cde889529c034aea9ec_micek).stats.dropped=0
->destination.java.d_elastic#0.java_dst(ElasticSearch,elasticsearch-syslog-ng-test,t7cde889529c034aea9ec_micek).stats.processed=0
->destination.java.d_elastic#0.java_dst(ElasticSearch,elasticsearch-syslog-ng-test,t7cde889529c034aea9ec_micek).stats.queued=0
 >destination.d_elastic.stats.processed=0
 
 The syslog-ng-ctl query get command has the following options:
@@ -223,8 +217,8 @@ The stats command has the following options:
     >dst.file;#anon-destination0#0;/tmp/2021-08-17.log;o;processed;156
     >dst.file;#anon-destination0#0;/tmp/2021-08-18.log;a;processed;961
 
-    **NOTE:** The stats-lifetime() can be used to do the same
-    automatically and periodically, but currently stats-lifetime()
+    **NOTE:** The stats(lifetime()) can be used to do the same
+    automatically and periodically, but currently stats(lifetime())
     removes only dynamic counters that have a timestamp field set.
     {: .notice--info}
 

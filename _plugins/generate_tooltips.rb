@@ -54,6 +54,7 @@ module Jekyll
       end
 
       def make_tooltip(page, page_links, id, url, match)
+        use_blank = false
         match_parts = match.split(/(?<!\\)\|/)
         
         # If the text has an '|' it means it comes from our special autolink/tooltip [[text|id]] markdown block
@@ -74,6 +75,7 @@ module Jekyll
           end
           link_data = page_links[id]
           if link_data != nil
+            use_blank = link_data["open_in_blank"]
             url = link_data["url"]
             url = prefixed_url(url, page.site.config["baseurl"])
           else
@@ -99,7 +101,7 @@ module Jekyll
         # NOTE: Now we treat every link that has protocol prefix part as an external one
         #       that allows usage of direct links anywhere if needed (not recommended, plz use external_links.yml instead)
         #       but, at the same time requires e.g. all the really external links to be fully qualified (even in external_links.yml as well)
-        external_url = is_prefixed_url?(url)
+        external_url = is_prefixed_url?(url) || use_blank
         title = save_from_markdownify(title)
         replacement_text = '<a href="' + url + '" class="nav-link content-tooltip"' + (external_url ? ' target="_blank"' : '') + '>' + title + '</a>'
         # puts "replacement_text: " + replacement_text
@@ -306,6 +308,7 @@ module Jekyll
         page_links.each do |page_id, page_data|
           #puts "page_id: #{page_id}, page_data: #{page_data}"
           titles = page_data["title"]
+          pri = page_data["pri"]
 
           titles.each do |title|
             # Skip excluded titles
@@ -314,15 +317,16 @@ module Jekyll
             sorted_arr << page_link_data = {
               "id" => page_id,
               "title" => title,
+              "pri" => pri,
             }
           end
         end
 
-        # With this reversed length sort order we try to guarantie that
+        # With this reversed length sort order we try to guarantee that
         # the autolink/tooltip title pattern matching finds titles like
         # 'Soft macros' before 'macros'
         # In most of the cases matching the longer titles first will eliminate such issues
-        sorted_arr.sort_by { |page| page["title"].length }.reverse
+        sorted_arr.sort_by { |page| [page["title"].length, page["pri"].to_i] }.reverse
 
         # Just for debugging
         # sorted_arr.each do |data|
@@ -345,6 +349,8 @@ module Jekyll
           page_id = yaml_content['id']
           page_url = yaml_content['url']
           page_title = yaml_content['title']
+          open_in_blank = yaml_content['open_in_blank']
+          page_pri = yaml_content['pri']
           chars_to_remove = %{"'}
           page_title = page_title.gsub(/\A[#{Regexp.escape(chars_to_remove)}]+|[#{Regexp.escape(chars_to_remove)}]+\z/, '')
           #puts "page_title: " + page_title
@@ -357,7 +363,9 @@ module Jekyll
           page_link_data = {
             "id" => page_id,
             "url" => page_url,
+            "pri" => (page_pri ? page_pri : 50),
             "title" => [ page_title ],
+            "open_in_blank" => open_in_blank,
           }
 
           # Add the page_link_data object to the ID dictionary
@@ -423,7 +431,7 @@ end
 def JekyllTooltipGen_debug_filter_pages?(page)
   debug_pages = {
     # "doc/README.md" => true,
-}
+  }
   debug_ok = true
   # Comment this line out if not debugging!!!
   # debug_ok = (debug_pages[page.relative_path] != nil && debug_pages[page.relative_path])

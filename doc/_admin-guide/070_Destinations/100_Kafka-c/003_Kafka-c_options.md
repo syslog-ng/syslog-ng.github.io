@@ -10,14 +10,7 @@ directly publish log messages to the Apache Kafka message bus, where subscribers
 
 ## Required options
 
-The following options are required: bootstrap-servers(), topic(). Note
-that to use the C implementation of the kafka() destination, you must
-add the following lines to the beginning of your {{ site.product.short_name }}
-configuration:
-
-```config
-@define kafka-implementation kafka-c
-```
+The following options are required: bootstrap-servers(), topic().
 
 {% include doc/admin-guide/notes/kafka-c.md %}
 
@@ -80,8 +73,7 @@ The programming language accepts this option for better compatibility.
 |  Type:|      |
   |Default:|   |
 
-*Description:* You can use this option to expand or override the options
-of the properties-file().
+*Description:* You can use this option to set the properties of the kafka producer.
 
 {% include doc/admin-guide/notes/kafka-c.md %}
 
@@ -153,31 +145,6 @@ key(\"${PROGRAM}\").
 client about the amount of messages sent since the last poll-timeout ().
 In case of multithreading, the first {{ site.product.short_name }} worker is responsible for
 poll-timeout().
-
-## properties-file()
-
-|  Type:|      string (absolute path)|
-  |Default:|   N/A|
-
-*Description:* The absolute path and filename of the Kafka properties
-file to load. For example,
-properties-file(\"/opt/syslog-ng/etc/kafka_dest.properties\"). The
-{{ site.product.short_name }} application reads this file and passes the properties to
-the Kafka Producer.
-
-The {{ site.product.short_name }} kafka destination supports all properties of the
-official Kafka producer. For details, see the librdkafka documentation.
-
-The bootstrap-servers option is translated to the bootstrap.servers
-property.
-
-For example, the following properties file defines the acknowledgment
-method and compression:
-
-```config
-acks=all
-compression.type=snappy.
-```
 
 {% include doc/admin-guide/notes/kafka-c.md %}
 

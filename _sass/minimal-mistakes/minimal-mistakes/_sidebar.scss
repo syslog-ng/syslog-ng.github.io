@@ -76,6 +76,14 @@
 .sidebar__right {
   margin-bottom: 1em;
 
+  &.contrib {
+    div {
+      // .align-right turns this off at small sizes
+      float: right;
+      margin-left: 1em;
+    }
+  }
+
   @include breakpoint($large) {
     position: absolute;
     top: 0;
@@ -99,6 +107,15 @@
         }
       }
     }
+
+    &.contrib {
+      z-index: 0;
+      top: calc(#{$masthead-sticky} * 2 * #{$nav-height});
+      margin-bottom: -2.5em;
+      width: $right-sidebar-width-wide;
+      margin-right: 0;
+      margin-top: 0.5em;
+    }
   }
 
   @include breakpoint($x-large) {
@@ -118,6 +135,7 @@
     margin-right: 0;
   }
 }
+  
 
 /*
    Author profile and links

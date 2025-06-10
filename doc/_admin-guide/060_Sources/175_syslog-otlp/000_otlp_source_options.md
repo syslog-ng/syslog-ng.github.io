@@ -1,6 +1,6 @@
 ---
 title: syslog-ng-otlp() source options
-id: adm-src-otlp-opt
+id: adm-src-sng-otlp-opt
 description: >-
     This section describes the options of the syslog-ng-otlp() source in {{ site.product.short_name }}.
 ---
@@ -129,7 +129,9 @@ source {
 
 {% include doc/admin-guide/options/host-override.md %}
 
-{% include doc/admin-guide/options/keep-hostname.md %}
+## keep-hostname()
+
+The `syslog-ng-otlp()` and `opentelemetry()` sources ignore this option and use the hostname from the message as the `${HOST}`.
 
 {% include doc/admin-guide/options/keep-timestamp.md %}
 

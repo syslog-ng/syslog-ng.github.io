@@ -107,6 +107,12 @@ sn-ose-adminguide:
   url: https://syslog-ng.github.io/admin-guide/README
   title: [ "The syslog-ng OSE Administration Guide" ]
 
+sn-ose-source-doc:
+  id: sn-ose-source-doc
+  url: /dev-guide/chapter_9/html/index.html
+  title: [ "syslog-ng OSE source code documentation" ]
+  open_in_blank: true
+
 sn-ose-upgrade:
   id: sn-ose-upgrade
   url: https://syslog-ng.com/blog/upgrading-from-syslog-ng-open-source-to-premium-edition/
@@ -122,6 +128,10 @@ sn-selinux:
   url: https://syslog-ng.com/blog/using-syslog-ng-with-selinux-in-enforcing-mode/
   title: [ "Using syslog-ng OSE with SELinux in enforcing mode" ]
 
+sn-freebsd-audit:
+  id: sn-freebsd-audit
+  url: https://www.syslog-ng.com/community/b/blog/posts/freebsd-audit-source-for-syslog-ng
+  title: [ "FreeBSD audit source for syslog-ng" ]
 
 ### One Identity site links ###
 
@@ -378,6 +388,16 @@ gh-hy:
   url: https://github.com/hylang/hy
   title: [ "hy" ]
 
+gh-libdbi-master:
+  id: gh-libdbi-master
+  url: https://github.com/balabit-deps/libdbi/tree/master
+  title: [ "libdbi master" ]
+  
+gh-libdbi-drivers:
+ id: gh-libdbi-drivers
+ url: https://github.com/balabit-deps/libdbi-drivers
+ title: [ "libdbi drivers" ]
+
 gh-mon-src:
   id: gh-mon-src
   url: https://github.com/syslog-ng/syslog-ng-incubator/tree/master/modules/monitor-source/
@@ -608,6 +628,11 @@ gh-es:
   url: https://github.com/syslog-ng/syslog-ng/tree/master/scl/elasticsearch
   title: [ "Elasticsearch configuration snippet on GitHub" ]
 
+gh-es-ds:
+  id: gh-es-ds
+  url: https://github.com/syslog-ng/syslog-ng/blob/master/scl/elasticsearch/elastic-datastream.conf
+  title: [ "Elasticsearch datastream configuration snippet on GitHub" ]
+  
 gh-fortigate:
   id: gh-fortigate
   url: https://github.com/syslog-ng/syslog-ng/blob/master/scl/fortigate/fortigate.conf
@@ -712,6 +737,11 @@ gh-sumo:
   id: gh-sumo
   url: https://github.com/syslog-ng/syslog-ng/blob/master/scl/sumologic/sumologic.conf
   title: [ "Sumo Logic configuration snippet on GitHub" ]
+  
+gh-webhook:
+  id: gh-webhook
+  url: https://github.com/syslog-ng/syslog-ng/blob/develop/modules/python-modules/syslogng/modules/webhook/scl/webhook.conf
+  title: [ "Webhook config file on GitHub" ]
 
 gh-websense:
   id: gh-websense
@@ -790,11 +820,21 @@ discord-wh-intro:
   id: discord-wh-intro
   url: https://support.discord.com/hc/en-us/articles/228383668-Intro-to-Webhooks
   title: [ "Discord: Intro to Webhooks" ]
-  
+
+doxygen-home:
+  id: doxygen-home
+  url: https://www.doxygen.nl/
+  title: [ "Doxygen HomePage" ]
+
 ebpf:
   id: ebpf
   url: https://ebpf.io/
   title: [ "Extended Berkeley Packet Filter" ]
+
+elastic-ds:
+  id: elastic-ds
+  url: https://www.elastic.co/guide/en/elasticsearch/reference/current/data-streams.html
+  title: [ "Elasticsearch data streams" ]
 
 gcp-ser:
   id: gcp-ser
@@ -1076,6 +1116,11 @@ postgresql:
   url: https://www.postgresql.org/docs/current/runtime-config-logging.html#RUNTIME-CONFIG-LOGGING-CSVLOG
   title: [ "PostgreSQL" ]
 
+prometheus-scraper:
+  id: prometheus-scraper
+  url: https://prometheus.io/docs/prometheus/latest/getting_started/#configure-prometheus-to-monitor-the-sample-targets
+  title: [ "/[Pp]rometheus [Ss]craper/" ]
+
 qbittorrent:
   id: qbittorrent
   url: https://www.qbittorrent.org/
@@ -1142,7 +1187,7 @@ sn-graphite:
   title: [ "Collecting syslog-ng statistics to Graphite" ]
 
 sn-grouping-by:
-  id: sn--grouping-by
+  id: sn-grouping-by
   url: https://www.syslog-ng.com/community/b/blog/posts/the-grouping-by-parser-in-syslog-ng-3-8
   title: [ "The grouping-by() parser in syslog-ng blog post" ]
 
