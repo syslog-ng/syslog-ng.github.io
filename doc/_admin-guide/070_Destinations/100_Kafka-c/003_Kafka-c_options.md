@@ -1,16 +1,22 @@
 ---
-title: "Options of the kafka() destination's C implementation"
+title: "Options of the kafka-c() destination"
 id: adm-dest-kafkac-opt
 description: >-
-    This section describes the options of the kafka() destination in {{ site.product.short_name }}.
+    This section describes the options of the kafka-c() destination in {{ site.product.short_name }}.
 ---
 
-The C implementation of the kafka() destination of {{ site.product.short_name }} can
-directly publish log messages to the Apache Kafka message bus, where subscribers can access them. The C implementation of the kafka() destination has the following options.
+The kafka-c() destination of {{ site.product.short_name }} can
+directly publish log messages to the Apache Kafka message bus, where subscribers can access them. The destination has the following options.
 
 ## Required options
 
-The following options are required: bootstrap-servers(), topic().
+To use the kafka-c() destination, the following two options are required: `bootstrap-servers()` and `topic()`. Both must appear at the beginning of your {{ site.product.short_name }} configuration.
+
+You can specify multiple, comma-separated addresses, demonstrated in the following example:
+
+```config
+bootstrap-servers("127.0.0.1:2525,remote-server-hostname:6464")
+```
 
 {% include doc/admin-guide/notes/kafka-c.md %}
 
@@ -56,8 +62,6 @@ the address to specify the port number of the server. When specifying
 multiple addresses, use a comma to separate the addresses, for example,
 bootstrap-servers(\"127.0.0.1:2525,remote-server-hostname:6464\")
 
-{% include doc/admin-guide/options/client-lib-dir.md %}
-
 For the kafka destination, include the path to the directory where you
 copied the required libraries (see [[Prerequisites|adm-dest-hdfs-pre]]), for example,
 **client-lib-dir("/opt/syslog-ng/lib/syslog-ng/java-modules/KafkaDestination.jar:/usr/share/kafka/lib/*.jar")**.
@@ -90,6 +94,16 @@ config(
 ```
 
 {% include doc/admin-guide/options/disk-buffer.md %}
+
+## fallback-topic()
+
+|  Type:|      string|
+  |Default:|   N/A|
+
+*Description:* If the resolved `topic()` template is not a valid Kafka topic , {{ site.product.short_name }} will use `fallback-topic()` to send messages.
+
+**NOTE:** If instead of strings, you use actual templates (that is, a macro like `${MESSAGE}`, or a template function like `$(format-json)`) in the `topic()` option, configuring the `fallback-topic()` option is required.
+{: .notice--info}
 
 {% include doc/admin-guide/options/frac-digits.md %}
 
@@ -179,9 +193,9 @@ recommends that you set sync-send() to "yes", as this setting
 delivers messages to the Kafka client more reliably.
 {: .notice--danger}
 
-## template()
+## message()
 
-|  Type:|      template or template function|
+|  Type:|      message template|
   |Default:|   ${ISODATE} ${HOST} ${MSGHDR}${MSG}\\n|
 
 *Description:* The message as published to Apache Kafka. You can use
@@ -195,6 +209,13 @@ For details on formatting messages in JSON format, see
 {% include doc/admin-guide/options/throttle.md %}
 
 {% include doc/admin-guide/options/time-zone.md %}
+
+## time-reopen()
+
+|  Type:|      number (seconds)|
+  |Default:|   60|
+
+*Description:* This is an optional parameter. If message delivery fails, {{ site.product.short_name }} retries sending the messages for `retries()` time (3 times by default) before waiting for `time-reopen()` time to try sending it again.
 
 ## topic()
 
