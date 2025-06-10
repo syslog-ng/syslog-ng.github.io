@@ -128,6 +128,10 @@ sn-selinux:
   url: https://syslog-ng.com/blog/using-syslog-ng-with-selinux-in-enforcing-mode/
   title: [ "Using syslog-ng OSE with SELinux in enforcing mode" ]
 
+sn-freebsd-audit:
+  id: sn-freebsd-audit
+  url: https://www.syslog-ng.com/community/b/blog/posts/freebsd-audit-source-for-syslog-ng
+  title: [ "FreeBSD audit source for syslog-ng" ]
 
 ### One Identity site links ###
 
@@ -733,6 +737,11 @@ gh-sumo:
   id: gh-sumo
   url: https://github.com/syslog-ng/syslog-ng/blob/master/scl/sumologic/sumologic.conf
   title: [ "Sumo Logic configuration snippet on GitHub" ]
+  
+gh-webhook:
+  id: gh-webhook
+  url: https://github.com/syslog-ng/syslog-ng/blob/develop/modules/python-modules/syslogng/modules/webhook/scl/webhook.conf
+  title: [ "Webhook config file on GitHub" ]
 
 gh-websense:
   id: gh-websense
@@ -1107,6 +1116,11 @@ postgresql:
   url: https://www.postgresql.org/docs/current/runtime-config-logging.html#RUNTIME-CONFIG-LOGGING-CSVLOG
   title: [ "PostgreSQL" ]
 
+prometheus-scraper:
+  id: prometheus-scraper
+  url: https://prometheus.io/docs/prometheus/latest/getting_started/#configure-prometheus-to-monitor-the-sample-targets
+  title: [ "/[Pp]rometheus [Ss]craper/" ]
+
 qbittorrent:
   id: qbittorrent
   url: https://www.qbittorrent.org/
@@ -1173,7 +1187,7 @@ sn-graphite:
   title: [ "Collecting syslog-ng statistics to Graphite" ]
 
 sn-grouping-by:
-  id: sn--grouping-by
+  id: sn-grouping-by
   url: https://www.syslog-ng.com/community/b/blog/posts/the-grouping-by-parser-in-syslog-ng-3-8
   title: [ "The grouping-by() parser in syslog-ng blog post" ]
 

@@ -41,7 +41,7 @@ The above mentioned dependencies can be satisfied by compiling every-each libs a
    * cmake
    * flex
    * glib
-   * ivykis
+   * ~~ivykis~~ - Use the internal version instead 
    * json-c
    * libtool
    * openssl3
@@ -88,15 +88,15 @@ brew install \
     cmake \
     flex \
     glib \
-    # Optional, if you use the internal ivykis source of {{ site.product.short_name }} for building
-    ivykis \
+    # Optional if you use the internal ivykis source of {{ site.product.short_name }} for building
+    #ivykis \
     json-c \
     libtool \
     net-snmp \
     openssl3 \
     pcre2 \
     pkg-config \
-    # Optional {{ site.product.short_name }} module dependencies
+    # Optional {{ site.product.short_name }} module dependency
     gradle \
     grpc \
     hiredis \
@@ -137,13 +137,13 @@ brew install \
    * cmake
    * flex
    * glib2
-   * ivykis
+   * ~~ivykis~~ - Use the internal version instead
    * json-c
    * libtool
    * openssl3
    * pcre2
    * pkgconfig
-5. The following package might be needed too depending on your macOS version and architecture
+5. The following package might be needed too, depending on your macOS version and architecture
    * net-snmp
 6. The extra modules would require the following
    * gradle
@@ -192,14 +192,14 @@ sudo port install \
     # cmake - Optional, a better replacement of autotools making system
     flex \
     glib2 \
-    # Optional {{ site.product.short_name }} module dependencies
-    ivykis \
+    # Optional if you use the internal ivykis source of {{ site.product.short_name }} for building
+    #ivykis \
     json-c \
     libtool \
     openssl3 \
     pcre2 \
     pkgconfig \
-    # Optional {{ site.product.short_name }} module dependencies
+    # Optional {{ site.product.short_name }} module dependency
     gradle \
     grpc \
     hiredis \
@@ -218,7 +218,7 @@ sudo port install \
     # riemann-client
     # Optional, needed for unit testing
     criterion \
-    # Optional, clang now should compile all modules nicely and it is the oficially supported compiler on macOS
+    # Optional, clang now should compile all modules nicely, and it is the officially supported compiler on macOS
     gcc@14
 ```
 
@@ -369,7 +369,7 @@ mkdir build; cd build
 
 # Finally, you can start the configuration with enabling or disabling the various modules e.g. like this
 # NOTE: you might want to use the --prefix /full_path_of_your/installdir/ parameters as well, see below Warning!
-../configure --with-ivykis=system --with-systemd-journal=no --disable-java --disable-java-modules
+../configure --with-ivykis=internal --with-systemd-journal=no --disable-java --disable-java-modules
 ```
 
 **Warning:** By a good chance, you might want to install the self built instance first to a custom location to prevent overwriting a possibly already existing installed version. In that case pass `--prefix /full_path_of_your/installdir/` to the `configure` script in the above steps.
@@ -378,7 +378,7 @@ mkdir build; cd build
 If you have all the above mentioned dependencies installed, for the full feature set you can simply use for example (excluded the not yet supported modules on macOS)
 
 ```shell
-../configure --enable-all-modules --with-ivykis=system --with-systemd-journal=no
+../configure --enable-all-modules --with-ivykis=internal --with-systemd-journal=no
 ```
 
 At the end of the configure step you should see the module list will be used during the compilation and installation steps, it should look like this
@@ -407,7 +407,7 @@ syslog-ng Open Source Edition 4.8.0.155.g8590bdc.dirty configured
   Criterion                   : system
   Unit tests                  : yes
  Submodules:
-  ivykis                      : system
+  ivykis                      : internal
  Features:
   Forced server mode          : yes
   Debug symbols               : no
@@ -464,7 +464,7 @@ If you have all the above mentioned dependencies installed, for the full (curren
 
 ```shell
 # NOTE: you might want to use the --install-prefix /full_path_of_your/installdir/ parameters as well, see below Warning!
-cmake --install-prefix /full_path_of_your/installdir -B build . -Wno-dev -DIVYKIS_SOURCE=system --fresh
+cmake --install-prefix /full_path_of_your/installdir -B build . -Wno-dev -DIVYKIS_SOURCE=internal
 ```
 
 **Warning:** You may want to install the self-built instance to a custom location first to avoid overwriting an existing installed version. In that case, pass the `--install-prefix /full_path_of_your/installdir/` parameter to the `cmake` command, as shown in the steps above.
@@ -490,7 +490,7 @@ BUILD_TESTING                   On
 ENABLE_EXTRA_WARNINGS           On
 FORCE_CLASSIC_LINKING           Off
 ------------- Sub-modules -------------
-IVYKIS_SOURCE                   system
+IVYKIS_SOURCE                   internal
 --------------- Modules ---------------
 ENABLE_AFAMQP                   On
 ENABLE_AFSMTP                   On
@@ -543,7 +543,7 @@ TODO: once the ENABLE_ALL_MODULES implemented for cmake as well add an example o
 -DENABLE_ALL_MODULES=ON -DENABLE_EBPF=OFF -DENABLE_JOURNALD=OFF -DENABLE_OPENBSD_SYS_DRIVER=OFF -DENABLE_SUN_STREAMS=OFF -DENABLE_PACCT=OFF
 --->
 ```shell
-cmake --install-prefix /full_path_of_your/installdir -B build . -Wno-dev -DIVYKIS_SOURCE=system --fresh -DENABLE_GETENT=ON -DENABLE_HOOK_COMMANDS=ON -DENABLE_IPV6=ON -DENABLE_MAP_VALUE_PAIRS=ON -DENABLE_NATIVE=ON -DENABLE_STARDATE=ON -DENABLE_STOMP=ON -DENABLE_XML=ON -DENABLE_AFAMQP=ON -DENABLE_AFSMTP=ON -DENABLE_AFSNMP=ON -DENABLE_AFUSER=ON -DENABLE_APPMODEL=ON -DENABLE_AZURE_AUTH_HEADER=ON -DENABLE_CLOUD_AUTH==ON -DENABLE_CLOUD_AUTH_CURL=ON -DENABLE_CPP=ON -DENABLE_CURL=ON -DENABLE_DARWIN_OSL=ON -DENABLE_EXAMPLE_MODULES=ON -DENABLE_GEOIP2=ON -DENABLE_GRPC=ON -DENABLE_JAVA=ON -DENABLE_JAVA_MODULES=ON -DENABLE_JSON=ON -DENABLE_KAFKA=ON -DENABLE_MONGODB=ON -DENABLE_MQTT=ON -DENABLE_PYTHON=ON -DENABLE_PYTHON_MODULES=ON -DENABLE_REDIS=ON -DENABLE_RIEMANN=ON -DENABLE_SQL=ON
+cmake --install-prefix /full_path_of_your/installdir -B build . -Wno-dev -DIVYKIS_SOURCE=internal -DENABLE_GETENT=ON -DENABLE_HOOK_COMMANDS=ON -DENABLE_IPV6=ON -DENABLE_MAP_VALUE_PAIRS=ON -DENABLE_NATIVE=ON -DENABLE_STARDATE=ON -DENABLE_STOMP=ON -DENABLE_XML=ON -DENABLE_AFAMQP=ON -DENABLE_AFSMTP=ON -DENABLE_AFSNMP=ON -DENABLE_AFUSER=ON -DENABLE_APPMODEL=ON -DENABLE_AZURE_AUTH_HEADER=ON -DENABLE_CLOUD_AUTH==ON -DENABLE_CLOUD_AUTH_CURL=ON -DENABLE_CPP=ON -DENABLE_CURL=ON -DENABLE_DARWIN_OSL=ON -DENABLE_EXAMPLE_MODULES=ON -DENABLE_GEOIP2=ON -DENABLE_GRPC=ON -DENABLE_JAVA=ON -DENABLE_JAVA_MODULES=ON -DENABLE_JSON=ON -DENABLE_KAFKA=ON -DENABLE_MONGODB=ON -DENABLE_MQTT=ON -DENABLE_PYTHON=ON -DENABLE_PYTHON_MODULES=ON -DENABLE_REDIS=ON -DENABLE_RIEMANN=ON -DENABLE_SQL=ON
 ```
 
 ### Compile and install

@@ -1,6 +1,6 @@
 ---
 title: 'graylog2(): Sending logs to Graylog'
-short_title: Graylog
+short_title: graylog2
 id: adm-dest-graylog
 description: >-
   You can use the graylog2() destination and a Graylog Extended Log Format

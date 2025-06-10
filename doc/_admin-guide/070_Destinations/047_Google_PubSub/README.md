@@ -1,6 +1,6 @@
 ---
 title: 'PubSub: Send data to Google Pub/Sub'
-short_title: Google PubSub
+short_title: google-pubsub
 id: adm-dest-google-pubsub
 description: >-
     In {{ site.product.short_name }} 4.5 and later versions it is possible to send data to Google Cloud Pub/Sub using its HTTP REST API.

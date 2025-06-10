@@ -1,10 +1,10 @@
 ---
-title: 'file: Collecting messages from text files (DEPRECATED)'
-short_title: file (DEPRECATED)
+title: 'file: Collecting messages from text files'
+short_title: file
 id: adm-src-file
 description: >-
-    The file() source has been deprecated. For a more stable performance, use the [[wildcard-file() source|adm-src-wild]] instead. Collects log messages from plain-text files, for example, from the logfiles of
-    an Apache webserver. If you want to use wildcards in the filename, use the [[wildcard-file() source|adm-src-wild]].
+    Collects log messages from plain-text files, for example, from the logfiles of
+    an Apache webserver. If you want to use wildcards in the filename, use the [[wildcard-file() source|adm-src-wild]]. Currently, {{ site.product.short_name }} supports the file() source to maintain certain compatibilities, but it is advised to use the wildcard-file() source for longevity reasons and more configuration options.
 ---
 
 The {{ site.product.short_name }} application notices if a file is renamed or replaced with
@@ -49,3 +49,5 @@ treats messages received from files as sent by the kern facility. Use
 the **default-facility()** and **default-priority()** options in the
 source definition to assign a different facility if needed.
 {: .notice--info}
+
+For the configuration options available in the `file()` source, see wildcard-file() source options.

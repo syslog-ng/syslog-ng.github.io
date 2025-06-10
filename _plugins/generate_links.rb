@@ -21,6 +21,7 @@ module Jekyll
           file.write("id: " + data["id"] + "\n")
           file.write("url: " + data["url"] + "\n")
           file.write("title: " + data["title"] + "\n")
+          file.write("pri: " + data["pri"].to_s + "\n")
         end
         #puts file_path
       end
@@ -88,6 +89,7 @@ module Jekyll
                 "id" => page_id + "##{heading_id}",
                 "url" => page_url + "##{heading_id}",
                 "title" => '"' + render_title(page, heading.text) + '"',
+                "pri" => 50,
               }
               #register_id(page, link_data["id"], link_data["title"], ids, titles)
 
@@ -111,6 +113,7 @@ module Jekyll
               "id" => anchor_id,
               "url" => page_url + "##{anchor_name}",
               "title" => '"' + (anchor_text.empty? ? anchor_id : render_title(page, anchor_text)) + '"',
+              "pri" => 50,
             }
             #register_id(page, link_data["id"], link_data["title"], ids, titles)
 
@@ -125,11 +128,29 @@ module Jekyll
             "id" => page_id,
             "url" => page_url,
             "title" => '"' + page_title + '"',
+            "pri" => 50,
           }
           register_id(page, page_link_data["id"], page_link_data["title"], ids, titles)
 
           # Write data to separate YAML file for each page
-          page_file_path = "#{page_id}.#{link_ext}"
+          page_file_path = "#{page_link_data["id"]}.#{link_ext}"
+          page_file_path = "_data/links/" + page_file_path.gsub(/\/|:|\s/, "-").downcase
+          write_yaml_file(page_file_path, page_link_data)
+
+          # Create links data for the page short_title too
+          page_short_title = page.data["short_title"]
+          if page_short_title and not page_short_title.empty?
+            page_link_data = {
+              "id" => page_id + "_short_title",
+              "url" => page_url,
+              "title" => '"' + page_short_title + '()"',
+              "pri" => 100,
+            }
+            register_id(page, page_link_data["id"], page_link_data["title"], ids, titles)
+          end
+
+          # Write data to separate YAML file for each page short_title
+          page_file_path = "#{page_link_data["id"]}.#{link_ext}"
           page_file_path = "_data/links/" + page_file_path.gsub(/\/|:|\s/, "-").downcase
           write_yaml_file(page_file_path, page_link_data)
         

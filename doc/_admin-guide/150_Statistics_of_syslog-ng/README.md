@@ -12,8 +12,7 @@ description: >-
 
 ## Recommended: Structured, selective methods
 
-- Using the syslog-ng-ctl
-    query command.
+- Using the syslog-ng-ctl query command.
 
     For further information about using syslog-ng-ctl commands, see
     The {{ site.product.short_name }} manual pages.

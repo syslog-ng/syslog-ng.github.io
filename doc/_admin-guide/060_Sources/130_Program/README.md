@@ -1,7 +1,7 @@
 ---
 title: 'program: Receiving messages from external applications'
 short_title: program
-id: adm-src-prog
+id: adm-src-program
 description: >-
     The program driver starts an external application and reads messages
     from the standard output (stdout) of the application. It is mainly

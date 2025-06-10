@@ -1,6 +1,6 @@
 ---
 title: 'OpenObserve: Send messages to OpenObserve'
-short_title: OpenObserve
+short_title: openobserve-log
 id: adm-dest-opobs
 description: >-
     In {{ site.product.short_name }} version 4.5 and later versions it is possible to send  messages to  OpenObserve using OpenObserve Log Ingestion - JSON API. This API receives multiple-record batches in JSON format.

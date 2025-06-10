@@ -1,7 +1,7 @@
 ---
 title: 'kafka-c(): Publishing messages to Apache Kafka using the
   librdkafka client (C implementation)'
-short_title: kafka-c
+short_title: kafka
 id: adm-dest-kafkac
 description: >-
   Starting with version 3.21, {{ site.product.name }} (syslog-ng
