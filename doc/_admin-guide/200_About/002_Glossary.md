@@ -348,7 +348,7 @@ See {{ site.product.name }}
 ### syslog-ng Premium Edition
 
 The syslog-ng Premium Edition is the commercial version of the open-source
-application. It offers additional features, like encrypted message
+application. It offers additional features, like reliable message
 transfer and an agent for Microsoft Windows platforms.
 
 ### {{ site.product.short_name }} relay
