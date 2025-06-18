@@ -43,6 +43,7 @@ The `tls()` option accepts the following nested sub-options.
 * ca-file()
 * key-file()
 * cert-file()
+* peer-verify()
 
 ```config
 destination {
@@ -53,6 +54,7 @@ destination {
           ca-file("/path/to/ca.pem")
           key-file("/path/to/key.pem")
           cert-file("/path/to/cert.pem")
+          peer-verify(yes)
         )
       )
     );
