@@ -30,7 +30,7 @@ log {
 };
 ```
 
-Example usage for a generic HTTP Scraper which sends the `GET /stats HTTP/1.1` HTTP request to get statistics of a syslog-ng PE system, which is not required to log or further process the HTTP requests in the log pipe, and needs the response in CSV format:
+Example usage for a generic HTTP Scraper which sends the `GET /stats HTTP/1.1` HTTP request to get statistics of a {{ site.product.short_name }} system, which is not required to log or further process the HTTP requests in the log pipe, and needs the response in CSV format:
 
 ``` config
 @version: 4.9

@@ -2,7 +2,7 @@
 title: stats-exporter() source options
 id: adm-src--stats-exporter-opt
 description: >-
-    The `stats-exporter()` sources directly can serve the output of `syslog-ng-ctl` stats and `syslog-ng-ctl` query to an HTTP Scraper. Unlike the stats-exporter-dont-log() that suppresses log messages from incoming scraper requests, the `stats-exporter()` logs the unparsed messages, storing incoming scraper HTTP requests in the `MSG` field.
+    The stats-exporter() sources directly can serve the output of syslog-ng-ctl stats and syslog-ng-ctl query to an HTTP Scraper. Unlike the stats-exporter-dont-log() that suppresses log messages from incoming scraper requests, the stats-exporter() logs the unparsed messages, storing incoming scraper HTTP requests in the MSG field.
 ---
 
 Technically, both sources are specialized versions of the `network()` source. For more options and details, see the network() source options.
