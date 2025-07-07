@@ -5,9 +5,9 @@ description: >-
     The stats-exporter() sources directly can serve the output of syslog-ng-ctl stats and syslog-ng-ctl query to an HTTP Scraper. Unlike the stats-exporter-dont-log() that suppresses log messages from incoming scraper requests, the stats-exporter() logs the unparsed messages, storing incoming scraper HTTP requests in the MSG field.
 ---
 
-Technically, both sources are specialized versions of the `network()` source. For more options and details, see the network() source options.
+Technically, both sources are specialized versions of the network() source. For more options and details, see the network() source options.
 
->**NOTE:** A destination is not required for this source to work; the `stats-exporter()` sources will respond to the scraper regardless of whether a destination is present in the log path.
+>**NOTE:** A destination is not required for this source to work; the stats-exporter() sources will respond to the scraper regardless of whether a destination is present in the log path.
 {: .notice--info}
 
 These drivers have the following additional options:
@@ -17,7 +17,7 @@ These drivers have the following additional options:
 |Accepted values:| query \| stats |
 |Default:        | stats |
 
-*Description:* This option sets the desired stat type to be produced in response to an HTTP Scraper request. This method operates like the `syslog-ng-ctl` command line tool.
+*Description:* This option sets the desired stat type to be produced in response to an HTTP Scraper request. This method operates like the syslog-ng-ctl command line tool.
 
 ## stat-query()
 
@@ -31,7 +31,7 @@ These drivers have the following additional options:
 |Accepted values:| csv \| kv \| prometheus |
 |Default:        | prometheus |
 
-*Description:* This option specifies the format of the statistics output in HTTP responses, similar to the options available in `syslog-ng-ctl`. The available formats are the following:
+*Description:* This option specifies the format of the statistics output in HTTP responses, similar to the options available in syslog-ng-ctl. The available formats are the following:
 
 - `csv` – comma-separated values format
 - `kv` – key-value pairs, one per line
