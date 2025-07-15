@@ -47,7 +47,7 @@ implementation, using only the required parameters.
 @include "scl.conf"
 
 destination d_kafka {
-    kafka(
+    kafka-c(
     bootstrap-servers("1.2.3.4:9092,192.168.0.2:9092")
     topic("{MYTOPIC}")
     );
