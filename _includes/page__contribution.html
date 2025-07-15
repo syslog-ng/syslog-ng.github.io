@@ -1,7 +1,7 @@
 {% if site.github.repository_url %}
 {% assign contrib_view = site.github.repository_url | append: '/tree/master/' | append: site.collections_dir | append: '/' | append: page.relative_path %}
 {% assign contrib_edit = site.github.repository_url | append: '/edit/master/' | append: site.collections_dir | append: '/' | append: page.relative_path %}
-{% assign contrib_report = site.github.repository_url | append: '/issues/new?title=Issue with ' | append: page.relative_path %}
+{% assign contrib_report = site.github.repository_url | append: '/issues/new?template=10-doc-issue.md&title=Issue with `' | append: page.title | append: '` [' | append: page.relative_path | append: ']' %}
  
 <aside class="sidebar__right sticky contrib">
 	<div class="align-right">
@@ -14,7 +14,7 @@
 		</button>
 
 		<button id="report" class="masthead_button" type="button" onclick="window.open('{{contrib_report}}', '_blank')">
-			<i class="masthead_button_icon fas fa-bug content-tooltip tooltip-align-center text-content-tooltip" data-tooltip-text="Report an issue"></i>
+			<i class="masthead_button_icon fas fa-bug content-tooltip tooltip-align-center text-content-tooltip" data-tooltip-text="Report a documentation issue"></i>
 		</button>
 	</div>
 </aside>

@@ -1,11 +1,24 @@
 ---
-name: Documentation issue
+name: 📚 Documentation issue
 about: Use this template for reporting an issue in the documentation.
 title: ''
 labels: 'documentation'
 assignees: ''
 
 ---
+
+<!--
+*******************
+PLEASE TAKE CARE!!!
+*******************
+
+This is a syslog-ng documentation related ONLY request.
+
+For creating issue request related to the syslog-ng application, use
+
+https://github.com/syslog-ng/syslog-ng/issues/new/choose
+
+-->
 
 ## Incorrect section
 <!-- Which section of the documentation is wrong? Please include a link to it, if that is possible. -->

@@ -1,5 +1,5 @@
 ---
-name: Bug report
+name: 📚 Documentation building bug report
 about: Use this template for reporting a bug related to building the documentation.
 title: ''
 labels: bug

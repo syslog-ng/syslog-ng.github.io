@@ -1,6 +1,6 @@
 ---
-name: Feature request
-about: Use this template for raising a feature request.
+name: 📚 Documentation feature request
+about: Use this template for raising a feature request for the documentation site.
 title: ''
 labels: 'enhancement'
 assignees: ''
