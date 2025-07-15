@@ -43,7 +43,6 @@ The following example defines a kafka destination in the new C
 implementation, using only the required parameters.
 
 ```config
-@define kafka-implementation kafka-c 
 @include "scl.conf"
 
 destination d_kafka {

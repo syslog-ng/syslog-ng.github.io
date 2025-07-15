@@ -7,6 +7,8 @@ description: >-
     configuration file and considerations are necessary.
 ---
 
+- `kafka()` and `kafka-c()` is now interchangable as the first one is just an alias of the latter
+
 - Unlike the old one, the new topic() option can not handle templates.
     It must be a string.
 
@@ -15,7 +17,7 @@ description: >-
 - The kafka-bootstrap-servers() option has been renamed
     bootstrap-servers().
 
-- The properties-file() was replaced with the config() option of kafka-c, which is similiar but not identical to the properties-file() option.
+- The properties-file() was replaced with the config() option which is similiar but not identical to the properties-file() option.
 
 - The sync-send() option has been deprecated. Remove it from the
     configuration file.
