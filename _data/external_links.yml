@@ -748,6 +748,10 @@ gh-websense:
   url: https://github.com/syslog-ng/syslog-ng/blob/master/scl/websense/plugin.conf
   title: [ "Websense configuration snippet on GitHub" ]
 
+gh-syslog-ng-cfg-helper:
+  id: gh-syslog-ng-cfg-helper
+  url: https://github.com/syslog-ng/syslog-ng-cfg-helper
+  title: [ "syslog-ng-cfg-helper utility" ]
 
 ### Destinations, sources, parsers, templates ###
 

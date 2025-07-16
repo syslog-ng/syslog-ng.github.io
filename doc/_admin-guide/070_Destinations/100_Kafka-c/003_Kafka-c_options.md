@@ -1,16 +1,19 @@
 ---
-title: "Options of the kafka-c() destination"
+title: "Options of the kafka() destination"
 id: adm-dest-kafkac-opt
 description: >-
-    This section describes the options of the kafka-c() destination in {{ site.product.short_name }}.
+    This section describes the options of the kafka() destination in {{ site.product.short_name }}.
 ---
 
-The kafka-c() destination of {{ site.product.short_name }} can
+The kafka() destination of {{ site.product.short_name }} can
 directly publish log messages to the Apache Kafka message bus, where subscribers can access them. The destination has the following options.
+
+**NOTE:** `kafka()` and `kafka-c()` is now interchangable as the first one is just an alias of the latter
+{: .notice--info}
 
 ## Required options
 
-To use the kafka-c() destination, the following two options are required: `bootstrap-servers()` and `topic()`. Both must appear at the beginning of your {{ site.product.short_name }} configuration.
+To use the kafka() destination, the following two options are required: `bootstrap-servers()` and `topic()`. Both must appear at the beginning of your {{ site.product.short_name }} configuration.
 
 You can specify multiple, comma-separated addresses, demonstrated in the following example:
 

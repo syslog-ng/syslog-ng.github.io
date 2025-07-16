@@ -2,18 +2,18 @@
 title: Listing configuration options
 id: adm-mod-list
 description: >-
-    Starting with {{ site.product.short_name }} 3.25, you can use the syslog-ng-cfg-db.py
+    Starting with {{ site.product.short_name }} 3.25, you can use the syslog-ng-cfg-helper
     utility to list the available options of configuration objects. For
     example, you can list all the options that can be set in the file
     source, and so on.
 ---
 
-The syslog-ng-cfg-db.py utility has the following options:
+The syslog-ng-cfg-helper utility has the following options:
 
 - The following command lists the contexts that the utility supports.
 
     ```bash
-    syslog-ng-cfg-db.py
+    syslog-ng-cfg-helper
     ```
 
     **NOTE:** Currently, sources and destinations are supported.
@@ -22,60 +22,88 @@ The syslog-ng-cfg-db.py utility has the following options:
 - The following command lists the available drivers of a context:
 
     ```bash
-    syslog-ng-cfg-db.py -c <source|destination>
+    syslog-ng-cfg-helper -c <source|destination>
     ```
 
 - The following command lists the available options of a specific
     driver and specifies the context and the driver:
 
     ```bash
-    syslog-ng-cfg-db.py -c <source|destination> -d <driver>
+    syslog-ng-cfg-helper -c <source|destination> -d <driver>
     ```
 
-    For example, to list the options of the kafka-c() destination
+    For example, to list the options of the kafka() destination
     driver:
 
     ```bash
-    syslog-ng-cfg-db.py -c destination -d kafka-c
+    syslog-ng-cfg-helper -c destination -d kafka
     ```
 
     The output includes the available options of the driver in
     alphabetical order, and the type of the option. For example:
 
     ```config
-    destination kafka-c(
-        bootstrap-servers/kafka-bootstrap-servers(<string>)
-        client-lib-dir(<string>)
-        config/option()
-        config/option(<string> <arrow> <string-or-number>)
-        config/option(<string> <string-or-number>)
-        flush-timeout-on-reload(<number>)
-        flush-timeout-on-shutdown(<number>)
-        frac-digits(<number>)
-        key(<string>)
-        local-time-zone/time-zone(<string>)
-        log-fifo-size(<number>)
-        message/template(<string>)
-        on-error(<string>)
-        persist-name(<string>)
-        poll-timeout(<number>)
-        properties-file(<path>)
-        send-time-zone(<string>)
-        sync-send(<yesno>)
-        throttle(<number>)
-        time-zone(<string>)
-        topic(<string>)
-        ts-format(<string>)
-        workers(<number>)
-        config/option(
+    kafka-c(
+        batch-lines(<nonnegative-integer>)
+        batch-timeout(<positive-integer>)
+        bootstrap-servers(<string>)
+        config(
+            <empty>
+            <string> <string-or-number>
+            <string> => <string-or-number>
             <string>(<string-or-number>)
         )
-        key(
-            <identifier>(<string>)
+        disk-buffer(
+            capacity-bytes(<number>)
+            compaction(<yesno>)
+            dir(<string>)
+            disk-buf-size(<number>)
+            flow-control-window-bytes(<nonnegative-integer>)
+            flow-control-window-size(<nonnegative-integer>)
+            front-cache-size(<nonnegative-integer>)
+            mem-buf-length(<nonnegative-integer>)
+            mem-buf-size(<nonnegative-integer>)
+            prealloc(<yesno>)
+            qout-size(<nonnegative-integer>)
+            reliable(<yesno>)
+            truncate-size-ratio(<nonnegative-float>)
         )
-        message/template(
-            <identifier>(<string>)
+        fallback-topic(<string>)
+        flags(
+            <empty>
+            <string>
         )
+        flush-timeout-on-reload(<nonnegative-integer>)
+        flush-timeout-on-shutdown(<nonnegative-integer>)
+        frac-digits(<nonnegative-integer>)
+        hook-commands(
+            setup(<string>)
+            shutdown(<string>)
+            startup(<string>)
+            teardown(<string>)
+        )
+        internal(<yesno>)
+        key(<template-content>)
+        local-time-zone(<string>)
+        log-fifo-size(<positive-integer>)
+        message(
+            <template-content>
+            <template-reference>
+        )
+        on-error(<string>)
+        persist-name(<string>)
+        poll-timeout(<nonnegative-integer>)
+        retries(<positive-integer>)
+        send-time-zone(<string>)
+        sync-send(<yesno>)
+        template-escape(<yesno>)
+        throttle(<nonnegative-integer>)
+        time-reopen(<positive-integer>)
+        time-zone(<string>)
+        topic(<template-content>)
+        ts-format(<string>)
+        worker-partition-key(<template-content>)
+        workers(<positive-integer>)
     )
     ```
 
