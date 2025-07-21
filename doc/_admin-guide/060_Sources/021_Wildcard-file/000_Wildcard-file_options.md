@@ -76,6 +76,29 @@ source s_files {
 };
 ```
 
+## exclude-pattern()
+
+|Type:|filename without path|
+|Default:||
+
+*Description:* A filename to exclude from the filenames matched by **filename-pattern()**, without the path. You
+can use the **\*** and **?** wildcard characters, as with **filename-pattern()**.
+
+For example, if **filename-pattern("*.log")** matches the syslog.log and
+syslog.1.log files, **exclude-pattern("*.?.log")** would skip reading syslog.1.log.
+
+```config
+source s_files {
+    wildcard-file(
+        base-dir("/var/log")
+        filename-pattern("*.log")
+        exclude-pattern("*.?.log")
+        recursive(no)
+        follow-freq(1)
+    );
+};
+```
+
 {% include doc/admin-guide/options/source-flags.md %}
 
 {% include doc/admin-guide/options/follow-freq.md %}
