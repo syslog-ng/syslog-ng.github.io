@@ -19,12 +19,9 @@ The persist-tool application is a utility that can be used to dump the content o
 **CAUTION:** Persist-tool is a special tool for syslog-ng experts. Do use the tool unless you know exactly what you are doing. Misconfiguring it will result in irrecoverable damage to the persist file, without any warning.
 {: .notice--danger}
 
-**NOTE:** 
 Limitations:
 * The persist-state functions can be used only with `SLP4` or newer persist files. Older persist files are not supported.
 * Wildcard characters are not supported in file and directory names.
-
-{: .notice--info}
 
 ## The dump command
 
@@ -59,11 +56,14 @@ To use the `add` command: use `persist-tool dump` to print the content of the cu
 
 The `add` command has the following options:
 * `--help` or `-?`
-Display a brief help message.
+
+    Display a brief help message.
 * `--output-dir=<directory>` or `-o`
-Required parameter. The directory where the persist file is located at. The name of the persist file stored in this directory must be syslog-ng.persist.
+
+    Required parameter. The directory where the persist file is located at. The name of the persist file stored in this directory must be syslog-ng.persist.
 * `--persist-name=<filename>` or `-p`
-Optional parameter. The name of the persist file to generate. Default value: syslog-ng.persist.
+
+    Optional parameter. The name of the persist file to generate. Default value: syslog-ng.persist.
 
 ### Example: add dump_persist
 
