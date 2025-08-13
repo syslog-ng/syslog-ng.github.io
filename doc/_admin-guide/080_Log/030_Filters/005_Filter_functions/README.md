@@ -24,3 +24,5 @@ described in Filters.
 |rate-limit() |Limits messages rate based on arbitrary keys in each message. |
 |source()|Select messages of the specified {{ site.product.short_name }} source statement.|
 |tags()|Select messages having the specified tag.|
+|blank()|Filter messages where the specified value is blank (unset, empty, whitespace-only, empty list, or boolean false).|
+
