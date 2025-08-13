@@ -96,4 +96,4 @@ affile_sd_curpos(/var/aaa.txt)        OK
 
 The syslog-ng.conf manual page
 
-The syslog-ng manual page 
+The syslog-ng OSE manual page 
