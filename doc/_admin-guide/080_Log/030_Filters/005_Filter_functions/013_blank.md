@@ -8,7 +8,7 @@ description: >-
 *Synopsis:* blank("MESSAGE")
 
 
-*Description:* The blank() filter selects messages where the specified field or value is considered blank. A value is considered blank if it meets any of the following conditions:
+*Description:* The blank() filter selects messages where the specified key-value pair is considered blank. A value is considered blank if it meets any of the following conditions:
 
 * It is not set
 * It is an empty string ("")
