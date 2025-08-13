@@ -31,7 +31,8 @@ Use the `dump` command to print the current content of the persist file in JSON 
 
 The `dump` command has the following options:
 * `--help` or `-?`
-Display a brief help message.
+
+    Display a brief help message.
 
 ### Example: persist-tool dump
 
