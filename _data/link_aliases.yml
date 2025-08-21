@@ -165,6 +165,9 @@ adm-src-hypr:
 adm-src-macOS:
   aliases: [ "darwin-oslog()", "darwin-oslog-stream()" ]
 
+adm-src-file-note:
+  aliases: [ "read kernel messages" ]
+
 adm-dest-google-bq:
   aliases: [ "bigquery()" ]
 
