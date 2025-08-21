@@ -42,7 +42,8 @@ start_process() {
     # as the output of it must already be presented to be able to serve a valid content
     #
     if [ "${JEKYLL_BUILD_LINKS}" == "yes" ]; then
-        ./_tools/navgen ./doc ./_data/navigation.yml
+        # tooltips will be built at jekyll serve startup automatically if enabled, do not do it twice
+        JEKYLL_BUILD_TOOLTIPS='no' ./_tools/navgen ./doc ./_data/navigation.yml
     fi
 
     echo -e "\nStarting to serve...\n"
