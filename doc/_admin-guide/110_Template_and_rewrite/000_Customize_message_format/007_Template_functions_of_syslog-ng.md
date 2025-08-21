@@ -355,7 +355,7 @@ option is not mandatory.
 
 |*Syntax:*|$(getent)|
 
-Available in syslog-ng OSE 3.13 and later.
+Available in {{ site.product.short_name }} 3.13 and later.
 
 *Description:* You can use the `getent` template function to look up entries from the Name Service Switch libraries, such as, passwd, services, or protocols.
 
