@@ -26,10 +26,10 @@ stop_dir_watcher() {
 
 # Function to start to serve in the background
 start_process() {
+    echo ""
+
     # FIXME:This would report al the file changes, must parse and filter out waht we are really interested in
     #start_dir_watcher
-
-    echo -e "\nStarting to serve...\n"
 
     reset_watcher
 
@@ -42,13 +42,12 @@ start_process() {
     # as the output of it must already be presented to be able to serve a valid content
     #
     if [ "${JEKYLL_BUILD_LINKS}" == "yes" ]; then
-        echo -e "Generating navigation data..."
         ./_tools/navgen ./doc ./_data/navigation.yml
     fi
+
+    echo -e "\nStarting to serve...\n"
     JEKYLL_BUILD_LINKS='no' bundle exec jekyll serve ${ALL_PARAMS} &
     PROC_PID=$!
-
-    echo -e "\n\n\n"
 }
 
 stop_process() {
