@@ -30,9 +30,6 @@ string, for example, on myhost-1, myhost-2, and so on.
 filter f_wildcard {host("myhost*" type(glob));};
 ```
 
-For details on using regular expressions in {{ site.product.short_name }}, see Using
-wildcards, special characters, and regular expressions in filters.
-
 To filter for special control characters like the carriage return (CR),
 use the **\\r** escape prefix in {{ site.product.short_name }} version 3.0 and 3.1. In
 {{ site.product.short_name }} 3.2 and later, you can also use the \\x escape prefix and
