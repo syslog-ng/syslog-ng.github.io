@@ -65,7 +65,7 @@ The following expression selects log messages containing a `PID` (that is,
 ${PID} macro is not empty):
 
 ```config
-filter f_pid {"${PID}" !=""};
+filter f_pid {"${PID}" != ""};
 ```
 
 The following expression selects log messages that do not contain a `PID`.
@@ -79,7 +79,7 @@ filter f_pid {"${HOST}${PID}" eq "${HOST}"};
 The following example selects messages with priority level higher than 5.
 
 ```config
-filter f_level {"${LEVEL_NUM}" > "5"};
+filter f_level {${LEVEL_NUM} > 5};
 ```
 
 Note that:
