@@ -351,6 +351,68 @@ Starting with version 3.24, {{ site.product.short_name }} tries to automatically
 the location of the database. If that is successful, the database()
 option is not mandatory.
 
+## $(getent)
+
+|*Syntax:*|$(getent)|
+
+Available in {{ site.product.short_name }} 3.13 and later.
+
+*Description:* You can use the `getent` template function to look up entries from the Name Service Switch libraries, such as, passwd, services, or protocols.
+
+The following databases are supported:
+
+- passwd
+
+  Use this database to query data related to a user. Specify the user by either username or user ID. You can query the following data: username, user ID, group ID, GECOS field, home directory, or user shell.
+    ```config
+    $(getent passwd testuser name)
+    $(getent passwd testuser uid)
+    $(getent passwd testuser gid)
+    $(getent passwd testuser gecos)
+    $(getent passwd testuser dir)
+    $(getent passwd testuser shell)
+    ```
+    or
+    ```config
+    $(getent passwd 1000 name)
+    $(getent passwd 1000 uid)
+    $(getent passwd 1000 gid)
+    $(getent passwd 1000 gecos)
+    $(getent passwd 1000 dir)
+    $(getent passwd 1000 shell)
+    ```
+    The queried data is optional. When you do not query any data, the default behavior applies, which is as follows: user ID is returned for username, or username is returned for user ID.
+    - Username `$(getent passwd testuser)` returns user `ID 1000`.
+    - User ID `$(getent passwd 1000)` returns username `testuser`.
+- group
+
+    Use this database to query group-related data. The group can be specified using either group ID or group name. You can query the following data: group name, group ID, and members.
+    ```config
+    $(getent group adm name)
+    $(getent group adm gid)
+    $(getent group adm members)
+    ```
+    The queried data is optional. The default behavior is as follows: group ID is returned for group name, or group name is returned for user ID.
+    - Group name `$(getent group adm)` returns group ID `4`.
+    - Group ID `$(getent group 4)` returns group name `adm`.
+
+- protocols
+
+    Use this database to translate protocol name to protocol ID, or protocol ID to protocol string.
+    ```config
+    $(getent protocols tcp)
+    $(getent protocols 6)
+    ```
+
+- services
+
+    Use this database to translate service name to service ID, or service ID to service name.
+    ```config
+    $(getent services http)
+    $(getent services 80)
+    ```
+
+
 ## $(graphite-output)
 
 |*Syntax:*|$(graphite-output parameters)|
