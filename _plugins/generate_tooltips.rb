@@ -392,7 +392,6 @@ module Jekyll
 
       def generate_tooltips(page, write_back)
         puts "collection: " + (page.respond_to?(:collection) ? page.collection.label : "") + ", ndx: #{page.data["nav_ndx"]}, relative_path: #{page.relative_path}"
-        puts "------------------------------------"
 
         process_page(page)
         #puts "\n\n\n" + page.content
@@ -400,6 +399,8 @@ module Jekyll
         if write_back
           write_to_file(page.path, page.content)
         end
+
+        puts "-----------"
       end # def generate_tooltips
 
     end # class << self

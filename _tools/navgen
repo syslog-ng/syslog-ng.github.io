@@ -183,6 +183,7 @@ add_warning_header ()
 
 gen_navigation()
 {    
+    echo "Generating navigation data..."
     > "${OUTPUT_FILE}"
     add_warning_header "${OUTPUT_FILE}"
 
@@ -200,20 +201,22 @@ gen_navigation()
 
         shift
     done
-    echo "YAML navigation structure is generated and saved to $OUTPUT_FILE"
+    echo -e "YAML navigation structure is generated and saved to $OUTPUT_FILE\n\n\n"
 }
 
 gen_links()
 {
+    echo "Generating Jekyll page links..."
     rm -Rf _data/links
     JEKYLL_BUILD_LINKS='yes' JEKYLL_BUILD_TOOLTIPS='no'  bundle exec jekyll build
-    echo "Jekyll page links are generated and saved to _data/links"
+    echo -e "Jekyll page links are generated and saved to _data/links\n\n\n"
 }
 
 gen_tooltips()
 {
+    echo "Generating Jekyll tooltips..."
     JEKYLL_BUILD_LINKS='no' JEKYLL_BUILD_TOOLTIPS='yes' bundle exec jekyll build
-    echo "Jekyll tooltips are generated and saved"
+    echo -e "Jekyll tooltips are generated and saved\n\n\n"
 }
 
 process_params()
