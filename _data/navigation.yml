@@ -138,20 +138,20 @@ admin-guide-nav:
       subnav:
       - title: "internal() source options"
         url: /admin-guide/060_Sources/010_Internal/000_Internal_options
-    - title: "file (DEPRECATED)"
+    - title: "file"
       url: /admin-guide/060_Sources/020_File/README
       subnav:
       - title: "file() source options"
         url: /admin-guide/060_Sources/020_File/000_File_source_options
-      - title: "How file sources are followed"
-        url: /admin-guide/060_Sources/020_File/001_File_following
       - title: "Notes on reading kernel messages"
-        url: /admin-guide/060_Sources/020_File/002_Notes_on_reading_kernel_messages
+        url: /admin-guide/060_Sources/020_File/001_Notes_on_reading_kernel_messages
     - title: "wildcard-file"
       url: /admin-guide/060_Sources/021_Wildcard-file/README
       subnav:
       - title: "wildcard-file() source options"
         url: /admin-guide/060_Sources/021_Wildcard-file/000_Wildcard-file_options
+      - title: "How file sources are followed"
+        url: /admin-guide/060_Sources/021_Wildcard-file/001_File_following
     - title: "freebsd-audit"
       url: /admin-guide/060_Sources/030_Freebsd-audit/README
       subnav:
@@ -403,7 +403,7 @@ admin-guide-nav:
         url: /admin-guide/070_Destinations/100_Kafka-c/001_Shifting_from_Java_to_C
       - title: "Flow control in {{ site.product.short_name }} and the Kafka client"
         url: /admin-guide/070_Destinations/100_Kafka-c/002_Flow_control
-      - title: "Options of the kafka() destination's C implementation"
+      - title: "Options of the kafka() destination"
         url: /admin-guide/070_Destinations/100_Kafka-c/003_Kafka-c_options
     - title: "Loggly"
       url: /admin-guide/070_Destinations/110_Loggly/README
@@ -689,6 +689,8 @@ admin-guide-nav:
           url: /admin-guide/080_Log/030_Filters/005_Filter_functions/011_source
         - title: "tags()"
           url: /admin-guide/080_Log/030_Filters/005_Filter_functions/012_tags
+        - title: "blank()"
+          url: /admin-guide/080_Log/030_Filters/005_Filter_functions/013_blank
     - title: "Dropping messages"
       url: /admin-guide/080_Log/040_Dropping_messages
   - title: "Global options of {{ site.product.short_name }}"

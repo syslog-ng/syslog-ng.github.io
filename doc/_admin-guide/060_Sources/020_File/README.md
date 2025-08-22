@@ -4,8 +4,10 @@ short_title: file
 id: adm-src-file
 description: >-
     Collects log messages from plain-text files, for example, from the logfiles of
-    an Apache webserver. If you want to use wildcards in the filename, use the [[wildcard-file() source|adm-src-wild]]. Currently, {{ site.product.short_name }} supports the file() source to maintain certain compatibilities, but it is advised to use the wildcard-file() source for longevity reasons and more configuration options.
+    an Apache webserver.
 ---
+
+{% include doc/admin-guide/warnings/file-source-deprecation-warning.md %}
 
 The {{ site.product.short_name }} application notices if a file is renamed or replaced with
 a new file, so it can correctly follow the file even if logrotation is
@@ -14,7 +16,7 @@ sent log message in the /var/lib/syslog-ng/syslog-ng.persist file, and
 continues to send messages from this position after the restart.
 
 The file driver has a single required parameter specifying the file to
-open. If you want to use wildcards in the filename, use the [[wildcard-file() source|adm-src-wild]].
+open. If you want to use wildcards in the filename, use the wildcard-file() source.
 For the list of available optional parameters, see file() source options.
 
 {% include doc/admin-guide/warnings/file-source-follow-warning.md %}
@@ -49,5 +51,3 @@ treats messages received from files as sent by the kern facility. Use
 the **default-facility()** and **default-priority()** options in the
 source definition to assign a different facility if needed.
 {: .notice--info}
-
-For the configuration options available in the `file()` source, see wildcard-file() source options.
