@@ -24,7 +24,7 @@ These drivers have the following additional options:
 |Accepted values:| regular expression |
 |Default:        |  |
 
-*Description:* This option sets the query regex string which can be used to filter the output of a query type request.
+*Description:* This option sets the query regex string which can be used to filter the output of a `query` type request.
 
 ## stat-format()
 
@@ -36,6 +36,20 @@ These drivers have the following additional options:
 - `csv` – comma-separated values format
 - `kv` – key-value pairs, one per line
 - `prometheus` – Prometheus-compatible exposition format
+
+## stats-without-orphaned()
+
+|Accepted values:| yes \| no |
+|Default:        | no |
+
+*Description:* If this option is set to `yes`, the output of a `stats` type request will not include abandoned counters, similar to the `without-orphaned-metrics` option available in `syslog-ng-ctl`.
+
+## stats-with-legacy()
+
+|Accepted values:| yes \| no |
+|Default:        | no |
+
+*Description:* If this option is set to `yes`, the output of a `stats` type request — only when using the `prometheus` format — will not include legacy counters, similar to the `with-legacy-metrics` option available in `syslog-ng-ctl`.
 
 ## scrape-pattern()
 

@@ -1089,6 +1089,8 @@ admin-guide-nav:
       url: /admin-guide/190_The_syslog-ng_manual_pages/009_syslog-ng_manual
     - title: "The syslog-ng.conf manual page"
       url: /admin-guide/190_The_syslog-ng_manual_pages/010_syslog-ng_conf
+    - title: "The persist-tool manual page"
+      url: /admin-guide/190_The_syslog-ng_manual_pages/011_persist-tool
   - title: "About us"
     url: /admin-guide/200_About/README
     subnav:
