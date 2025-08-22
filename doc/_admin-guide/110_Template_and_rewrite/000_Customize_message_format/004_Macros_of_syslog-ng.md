@@ -406,6 +406,9 @@ The time elapsed since the {{ site.product.short_name }} instance was
 started (that is, the uptime of the {{ site.product.short_name }} process). The value of
 this macro is an integer containing the time in 1/100th of the second.
 
+**NOTE:** The ${SYSUPTIME} macro is calculated based on the system clock. This means that if the system clock runs normally without adjustments, ${SYSUPTIME} will accurately reflect the elapsed time since the process started. However, if the system clock is changed during runtime for any reason, ${SYSUPTIME} will also shift accordingly. After such a clock change, the value may no longer represent the actual process uptime.
+{: .notice--info}
+
 Available in {{ site.product.short_name }} version 3.4 and later.
 
 ## ${TAG}
