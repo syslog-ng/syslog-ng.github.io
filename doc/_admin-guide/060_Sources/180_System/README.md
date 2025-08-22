@@ -54,10 +54,9 @@ such messages without losing any information to CIM-aware applications
 |              |With systemd: `systemd-journal();`
 |              |Without systemd, on kernel 3.5 or newer: `unix-dgram("/dev/log"); file("/dev/kmsg" program-override("kernel") flags(kernel) format("linux-kmsg") keep-timestamp(no));`
 |              |Without systemd, on kernels older than 3.5: `unix-dgram("/dev/log"); file("/proc/kmsg" program-override("kernel") flags(kernel) keep-timestamp(no));`
-| macOS        |     file("/var/log/system.log" follow-freq(1));      |
-|              | **NOTE:** Starting with version 3.7, the {{ site.product.short_name }} system() driver automatically extracts the msgid  from the message (if available), and stores it in the .solaris.msgid macro. To extract the msgid from the message without using the system()driver, use the **extract-solaris-msgid()** parser. You can find the exact source of the Solaris parser on GitHub.|
+| macOS        |     darwin-oslog();      |
+|              | NOTE: By default it filters the macOS events using predicate (eventType == 'logEvent' || eventType == 'lossEvent' || eventType == 'stateEvent' || eventType == 'userActionEvent') && (logType != 'debug'). For more filtering options and for the details, see darwin-oslog() source options. |
 | NetBSD       |     unix-dgram("/var/run/log");                      |
-|              | NOTE: Starting with version 3.7, the {{ site.product.short_name }} system() driver automatically extracts the msgid  from the message (if available), and stores it in the .solaris.msgid macro. To extract the msgid from the message without using the system()driver, use the **extract-solaris-msgid()** parser. You can find the exact source of the Solaris parser on GitHub. |
 | Solaris 8    |     sun-streams("/dev/log");                         |
 |              | NOTE: Starting with version 3.7, the {{ site.product.short_name }} system() driver automatically extracts the msgid  from the message (if available), and stores it in the .solaris.msgid macro. To extract the msgid from the message without using the system()driver, use the **extract-solaris-msgid()** parser. You can find the exact source of the Solaris parser on GitHub. |
 | Solaris 9    | sun-streams("/dev/log" door("/etc/.syslog_door")); |
