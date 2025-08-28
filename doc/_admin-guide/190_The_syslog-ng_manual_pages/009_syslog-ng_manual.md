@@ -206,5 +206,3 @@ other sources. The clients send all important log messages to the remote
 /opt/syslog-ng/
 
 /opt/syslog-ng/etc/syslog-ng.conf
-
-{% include doc/admin-guide/manpages-footnote.md %}

@@ -236,5 +236,3 @@ loggen 127.0.0.1 1061 --read-file -
 ## Files
 
 /opt/syslog-ng/bin/loggen
-
-{% include doc/admin-guide/manpages-footnote.md %}
