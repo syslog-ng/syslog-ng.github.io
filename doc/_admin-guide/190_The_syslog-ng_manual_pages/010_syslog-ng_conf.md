@@ -289,5 +289,3 @@ listed below.
 /opt/syslog-ng/
 
 /opt/syslog-ng/etc/syslog-ng.conf
-
-{% include doc/admin-guide/manpages-footnote.md %}

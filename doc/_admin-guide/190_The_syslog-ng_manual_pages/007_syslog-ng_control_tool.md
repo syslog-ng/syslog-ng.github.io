@@ -366,5 +366,3 @@ successful, 1 otherwise.
 ## Files
 
 /opt/syslog-ng/sbin/syslog-ng-ctl
-
-{% include doc/admin-guide/manpages-footnote.md %}

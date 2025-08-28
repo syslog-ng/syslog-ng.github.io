@@ -117,5 +117,3 @@ bin/dqtool relocate --new_path /tmp/dq --persist var/syslog-ng.persist --all
 ## Files
 
 dqtool
-
-{% include doc/admin-guide/manpages-footnote.md %}

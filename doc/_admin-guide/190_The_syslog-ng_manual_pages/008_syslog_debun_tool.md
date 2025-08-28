@@ -197,5 +197,3 @@ Collect pcap and debug mode output following this scenario:
 ## Files
 
 /opt/syslog-ng/bin/loggen
-
-{% include doc/admin-guide/manpages-footnote.md %}
