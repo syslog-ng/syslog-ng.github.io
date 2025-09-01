@@ -3,7 +3,7 @@ title: Configuring flow-control
 id: adm-log-flow-conf
 description: >-
     For details on how flow-control works, see
-    [Managing incoming and outgoing messages with flow-control].
+    Managing incoming and outgoing messages with flow-control.
 ---
 
 The summary of the main points is as follows:
