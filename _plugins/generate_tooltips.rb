@@ -2,6 +2,19 @@ require 'fileutils'
 require 'liquid'
 
 module Jekyll
+  class SyslogNGTools
+    class << self
+      public
+
+        def write_to_file(file_path, content)
+          File.open(file_path, "w") do |file|
+            file.write(content)
+          end
+        end
+
+    end # self
+  end # SyslogNGTools
+
   class TooltipGen
     class << self
 
@@ -250,12 +263,6 @@ module Jekyll
         page.content = parts.join
       end
 
-      def write_to_file(file_path, content)
-        File.open(file_path, "w") do |file|
-          file.write(content)
-        end
-      end
-
       def process_nav_link_items(items, ndx, nav_links_dictionary)
         items.each do |item|
           item['nav_ndx'] = ndx
@@ -397,7 +404,7 @@ module Jekyll
         #puts "\n\n\n" + page.content
 
         if write_back
-          write_to_file(page.path, page.content)
+          SyslogNGTools.write_to_file(page.path, page.content)
         end
 
         puts "-----------"
@@ -405,6 +412,58 @@ module Jekyll
 
     end # class << self
   end # class TooltipGen
+
+  class ManpageGen
+    class << self
+
+    private
+
+    public
+      def generate_manpage(page, manpages_dir)
+        puts "collection: " + (page.respond_to?(:collection) ? page.collection.label : "") + ", ndx: #{page.data["nav_ndx"]}, relative_path: #{page.relative_path}"
+
+        FileUtils.mkdir_p(manpages_dir)
+
+        page_id = page.data['id']
+        page_links = page.data["page_links"]
+        version_string = page.site.config['product']['version']
+        link_data = page_links[page_id]
+        title = link_data["title"][0]   # link_data["title"] is an array of titles that all must be represented by ID already in the filtered_page_ids_sorted_by_title_len array
+
+        # Remove the description rendering helper part from the manpage content
+        page_content = page.content
+        pattern = /^.*#{Regexp.escape(JekyllTooltipGen_description_start_tag)}.*$\n?/
+        page_content = page_content.gsub(pattern, '')
+        page_content = page_content.gsub(JekyllTooltipGen_description_end_tag, '')
+
+        # Compose a manpage header for md2man like
+        #
+        # manname manid "11 MARCH 1969" 4.9.0 "title"
+        # "======================================="
+        #
+        # "## NAME"
+        # description
+        #
+        date_str = Time.now.strftime("%d %B %Y")
+        manpage_header = "#{page.data["manname"]} #{page.data["manid"]} \"#{date_str}\" #{version_string} \"#{title}\"\n=======================================\n\n"
+        if page.data["description"] && false == page.data["description"].empty?
+          manpage_header = manpage_header + "## NAME\n" + page.data["description"] + "\n\n"
+        end
+
+        page_content = manpage_header + page_content
+        # TODO: Check why these are not rendered yet
+        # Remove some special, not yet rendered liquid, markdown notations, we do not want in the manpage output either
+        page_content = page_content.gsub(/\{\:[^}]*\}/, "")
+
+        outfile = File.join(manpages_dir, File.basename(page.path))
+        SyslogNGTools.write_to_file(outfile, page_content)
+
+        puts "-----------"
+      end # def generate_tooltips
+
+  end # class << self
+  end # ManpageGen
+
 end # module jekyll
 
 def JekyllTooltipGen_debug_page_info(page, details = true)
@@ -485,7 +544,7 @@ $JekyllTooltipGen_should_build_persistent_tooltips = nil
 # This is used now to
 #       - set the page nav_ndx correctly to support our custom bottom collection elements navigator
 #       - set additional page data elements that will be used during all the passes
-#       - add the description to the beginning of the page.content to get it rendred correclty the same way, together with the page content
+#       - add the description to the beginning of the page.content to get it rendered correctly the same way, together with the page content
 #
 # NOTE: Do not use this site based enumeration directly for the page content manipulation as well
 #       as that needs proper per-page payload data (or TODO: figure out how to get it in that case properly)
@@ -532,10 +591,13 @@ Jekyll::Hooks.register :site, :pre_render do |site|
   end
 end
 
+JekyllManpageGen_manpages_folder = '_data/manpages'
+
 # 3rd pass
 #
 # This is used now to
 #     - render the page content manually and create the autolinks and tooltips
+#     - create manpage input markdown files for the manual pages
 #
 Jekyll::Hooks.register [:pages, :documents], :pre_render do |page, payload|
   next if false == $JekyllTooltipGen_should_build_tooltips
@@ -555,8 +617,16 @@ Jekyll::Hooks.register [:pages, :documents], :pre_render do |page, payload|
   }
   page.content = template.render!(payload, info)
 
-  Jekyll::TooltipGen.generate_tooltips(page, $JekyllTooltipGen_should_build_persistent_tooltips)
+  # Generate a manpage input markdown file if manid is defined in the page front-matter
+  if page.data['manid']
+    if page.data["manname"] == nil
+      puts "Error: manid found without manname in page: #{page.relative_path}"
+      exit 5
+    end
+    Jekyll::ManpageGen.generate_manpage(page, JekyllManpageGen_manpages_folder)
+  end
 
+  Jekyll::TooltipGen.generate_tooltips(page, $JekyllTooltipGen_should_build_persistent_tooltips)
   page.content = page.content.gsub(JekyllTooltipGen_description_start_tag, '<p id="page-description">')
   page.content = page.content.gsub(JekyllTooltipGen_description_end_tag, '</p>')
 end

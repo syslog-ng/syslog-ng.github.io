@@ -83,16 +83,16 @@ jobs:
           JEKYLL_ENV: production
 
       - name: Run custom after build steps
-        # Seems jekyll build finds references from the minimal-mistakes bundle to the assets/js folder scripts
-        # even though most of them are packed in assets/js/main.min.js
-        # Re-packing only the required ones and overwrite the assets/js with the minimal result needed
-        # For more see the _tools/pack script
-        # TODO: Eliminate this later (probably building purely from local source the minimal-mistakes will solve this)
-        # TODO: Double-check if it's still needed
         run: |
+          # Seems jekyll build finds references from the minimal-mistakes bundle to the assets/js folder scripts
+          # even though most of them are packed in assets/js/main.min.js
+          # Re-packing only the required ones and overwrite the assets/js with the minimal result needed
+          # For more see the _tools/pack script
+          # TODO: Eliminate this later (probably building purely from local source the minimal-mistakes will solve this)
+          # TODO: Double-check if it's still needed
+          #
           echo "Updating main.min.js and re-pack js scripts"
           pwd
-
           ./_tools/pack debug
           ls -AlR _site/assets/js
 
@@ -109,6 +109,11 @@ jobs:
           ( cat ./Doxyfile; echo "OUTPUT_DIRECTORY=../_site/dev-guide/chapter_9/" ) | doxygen -
           popd
           rm -Rf ./_work
+
+          # Generate final manpages from the pre-generated special markdown files
+          INPUT_DIRECTORY=./_data/manpages
+          OUTPUT_DIRECTORY=./_site/manpages
+          ./_tools/mangen "${INPUT_DIRECTORY}" "${OUTPUT_DIRECTORY}"
 
       - name: Upload artifact
         # Automatically uploads an artifact from the './_site' directory by default
