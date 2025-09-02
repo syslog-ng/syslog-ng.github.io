@@ -1068,29 +1068,29 @@ admin-guide-nav:
     url: /admin-guide/190_The_syslog-ng_manual_pages/README
     subnav:
     - title: "The dqtool tool manual page"
-      url: /admin-guide/190_The_syslog-ng_manual_pages/000_dqtool
+      url: /admin-guide/190_The_syslog-ng_manual_pages/001_dqtool_manual
     - title: "The loggen manual page"
-      url: /admin-guide/190_The_syslog-ng_manual_pages/001_loggen
+      url: /admin-guide/190_The_syslog-ng_manual_pages/002_loggen_manual
     - title: "The pdbtool manual page"
-      url: /admin-guide/190_The_syslog-ng_manual_pages/002_pdbtool
+      url: /admin-guide/190_The_syslog-ng_manual_pages/003_pdbtool_manual
     - title: "The secure-logging manual page"
-      url: /admin-guide/190_The_syslog-ng_manual_pages/003_secure_logging_manual
+      url: /admin-guide/190_The_syslog-ng_manual_pages/004_secure_logging_manual
     - title: "The slogencrypt manual page"
-      url: /admin-guide/190_The_syslog-ng_manual_pages/004_slogencrypt_manual
+      url: /admin-guide/190_The_syslog-ng_manual_pages/005_slogencrypt_manual
     - title: "The slogkey manual page"
-      url: /admin-guide/190_The_syslog-ng_manual_pages/005_slogkey_manual
+      url: /admin-guide/190_The_syslog-ng_manual_pages/006_slogkey_manual
     - title: "The slogverify manual page"
-      url: /admin-guide/190_The_syslog-ng_manual_pages/006_slogverify_manual
+      url: /admin-guide/190_The_syslog-ng_manual_pages/007_slogverify_manual
     - title: "The {{ site.product.short_name }} control tool manual page"
-      url: /admin-guide/190_The_syslog-ng_manual_pages/007_syslog-ng_control_tool
+      url: /admin-guide/190_The_syslog-ng_manual_pages/008_syslog-ng_control_tool_manual
     - title: "The syslog-debun manual page"
-      url: /admin-guide/190_The_syslog-ng_manual_pages/008_syslog_debun_tool
+      url: /admin-guide/190_The_syslog-ng_manual_pages/009_syslog_debun_tool_manual
     - title: "The {{ site.product.short_name }} manual page"
-      url: /admin-guide/190_The_syslog-ng_manual_pages/009_syslog-ng_manual
+      url: /admin-guide/190_The_syslog-ng_manual_pages/010_syslog-ng_manual
     - title: "The syslog-ng.conf manual page"
-      url: /admin-guide/190_The_syslog-ng_manual_pages/010_syslog-ng_conf
+      url: /admin-guide/190_The_syslog-ng_manual_pages/011_syslog-ng_conf
     - title: "The persist-tool manual page"
-      url: /admin-guide/190_The_syslog-ng_manual_pages/011_persist-tool
+      url: /admin-guide/190_The_syslog-ng_manual_pages/012_persist-tool_manual
   - title: "About us"
     url: /admin-guide/200_About/README
     subnav:

@@ -1,7 +1,15 @@
 ---
+# NOTE: In case of manpages these have multiple purpose
+#           - manid -> if presented, the page treated as a manpage, also represents the section number of the command in the manpage
+#           - manname -> will be rendered as the name of the command followed by manid as the section number in the manpage
+#           - title -> will be rendered as description / manual name. (the .TH macro’s 4th argument (the “manual name”).
+#           - description -> will be rendered as a top NAME section in the manpage
+#
 title: The syslog-debun manual page
 app: syslog-debun
 id: adm-man-debun
+manid: 9
+manname: syslog-debun
 description: >-
     syslog-debun --- syslog-ng DEBUg buNdle generator
 ---
