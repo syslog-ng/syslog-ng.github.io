@@ -5,24 +5,24 @@
 #           - title -> will be rendered as description / manual name. (the .TH macro’s 4th argument (the “manual name”).
 #           - description -> will be rendered as a top NAME section in the manpage
 #
-title: The syslog-debun manual page
-app: syslog-debun
+title: The syslog-ng-debun manual page
+app: syslog-ng-debun
 id: adm-man-debun
 manid: 1
-manname: syslog-debun
+manname: syslog-ng-debun
 description: >-
-    syslog-debun --- syslog-ng DEBUg buNdle generator
+    syslog-ng-debun --- syslog-ng DEBUg buNdle generator
 ---
 
 ## Synopsis
 
-syslog-debun \[options\]
+syslog-ng-debun \[options\]
 
 ## Description
 
 {% include doc/admin-guide/manpages-intro.md %}
 
-The syslog-debun tool collects and saves information about your
+The syslog-ng-debun tool collects and saves information about your
 {{ site.product.short_name }} installation, making troubleshooting easier, especially if
 you ask help about your {{ site.product.short_name }} related problem.
 
@@ -94,7 +94,7 @@ you ask help about your {{ site.product.short_name }} related problem.
 ## Packet capture options
 
 Capturing packets requires a packet capture tool on the host. The
-syslog-debun tool attempts to use tcpdump on most platforms, except for
+syslog-ng-debun tool attempts to use tcpdump on most platforms, except for
 Solaris, where it uses snoop.
 
 - -i \<interface\>
