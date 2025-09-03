@@ -88,7 +88,7 @@ other sources. The clients send all important log messages to the remote
 {: .notice--info}
 
 `--foreground` or `-F`
-    Do not daemonize, run in the foreground. When running in the foreground, {{ site.product.short_name }} starts from the current directory (*$\{CWD\}*) so it can create core files (normally, {{ site.product.short_name }} starts from *${PREFIX}/var*).
+    Do not daemonize, run in the foreground. When running in the foreground, {{ site.product.short_name }} starts from the current directory (*$\{CWD\}*) so it can create core files (normally, {{ site.product.short_name }} starts from */opt/syslog-ng/var*).
 
 `--group <group>` or `-g <group>`
     Switch to the specified group after initializing the configuration file.
