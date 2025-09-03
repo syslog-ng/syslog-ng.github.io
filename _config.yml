@@ -76,6 +76,7 @@ exclude:
   #- assets/js
   - _js/
   - _tools/
+  - _data/manpages
   - Gemfile
   - Gemfile.lock
   - node_modules
@@ -257,5 +258,7 @@ footer:
 product:
   name: 'syslog-ng Open Source Edition'
   short_name: 'syslog-ng OSE'
+  # NOTE: This is updated automatically in the GitHub workflow (jekyll-gh-pages.yml) from the current syslog-ng version
+  version: '4.9.0'
 
 repository: syslog-ng/syslog-ng.github.io

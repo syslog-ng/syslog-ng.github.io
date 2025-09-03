@@ -96,6 +96,9 @@ gem "ostruct"
 # self made plugins dependencies
 gem "nokogiri"
 
+# https://github.com/sunaku/md2man?tab=readme-ov-file
+gem "md2man"
+
 # Gems loaded irrespective of site configuration.
 # If you have any other plugins, put them here!
 # Cf. https://jekyllrb.com/docs/plugins/installation/
@@ -111,6 +114,5 @@ group :jekyll_plugins do
     # https://github.com/HofiOne/minimal-mistakes
     #
     gem "jekyll-include-cache"
-	gem "jekyll-github-metadata"
     # gem "github-pages"
 end

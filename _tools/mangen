@@ -1,0 +1,30 @@
+#!/bin/bash
+
+process_params()
+{
+    mkdir -p ${OUTPUT_DIRECTORY} || true
+
+    for FILE in $(/bin/ls ${INPUT_DIRECTORY}/*.md); do
+        echo "Processing ${FILE} file..."
+        BASENAME=$(basename "${FILE}")
+        OUTPUT_FILE_TYPE=$([[ $BASENAME == *_config ]] && echo 5 || echo 1)
+        MANNAME=$(head -n 1 "${FILE}" | awk '{print $1}')
+
+        bundle exec md2man-roff ${FILE} > ${OUTPUT_DIRECTORY}/${MANNAME}.${OUTPUT_FILE_TYPE}
+    done
+
+}
+
+
+# Check for the correct number of command-line parameters
+if [ "$#" -lt 2 ]; then
+    echo "Usage: $0 <input_folder> <output_folder>"
+    exit 1
+fi
+
+INPUT_DIRECTORY="${1}"
+OUTPUT_DIRECTORY="${2}"
+
+process_params "$@"
+
+exit 0

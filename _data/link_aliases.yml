@@ -3,6 +3,9 @@
 # Any not enclosed strings will be matched exactly like written.
 #
 
+adm-guide:
+  aliases: [ "/[Aa]dministration [Gg]uide/", "/[Aa]dministrator [Gg]uide/",  "/syslog-ng OSE [Aa]dministration [Gg]uide",  "/syslog-ng OSE [Aa]dministrator [Gg]uide"  ]
+
 adm-temp-macro-ose:
   aliases: [ "/[Mm]acros/" ]
 
