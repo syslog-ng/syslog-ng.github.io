@@ -8,7 +8,7 @@
 title: The syslog-debun manual page
 app: syslog-debun
 id: adm-man-debun
-manid: 9
+manid: 1
 manname: syslog-debun
 description: >-
     syslog-debun --- syslog-ng DEBUg buNdle generator

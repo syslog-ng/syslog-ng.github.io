@@ -7,7 +7,7 @@
 #
 title: The slogverify manual page
 id: adm-man-slogver
-manid: 7
+manid: 1
 manname: slogverify
 description: >-
     slogverify --- Verifies cryptographically secured logs.

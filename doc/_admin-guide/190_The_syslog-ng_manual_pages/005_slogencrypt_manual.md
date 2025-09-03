@@ -7,7 +7,7 @@
 #
 title: The slogencrypt manual page
 id: adm-man-slogscr
-manid: 5
+manid: 1
 manname: slogencrypt
 description: >-
     slogencrypt --- Encrypts existing plain text log files using the {{ site.product.short_name }} secure logging environment.

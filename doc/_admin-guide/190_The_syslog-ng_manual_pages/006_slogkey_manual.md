@@ -7,7 +7,7 @@
 #
 title: The slogkey manual page
 id: adm-man-slogkey
-manid: 6
+manid: 1
 manname: slogkey
 description: >-
     slogkey --- Manages the cryptographic keys for use with the {{ site.product.short_name }} secure logging environment.

@@ -7,7 +7,7 @@
 #
 title: The pdbtool manual page
 id: adm-man-pdbtool
-manid: 3
+manid: 1
 manname: pdbtool
 description: >-
     pdbtool --- An application to test and convert {{ site.product.short_name }} pattern
