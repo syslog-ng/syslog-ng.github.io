@@ -7,7 +7,7 @@
 #
 title: The persist-tool manual page
 id: adm-man-persist-tool
-manid: 12
+manid: 1
 manname: persist-tool
 description: >-
     persist-tool --- {{ site.product.short_name }} configuration file

@@ -8,7 +8,7 @@
 title: The loggen manual page
 app: loggen
 id: adm-man-loggen
-manid: 2
+manid: 1
 manname: loggen
 description: >-
     loggen --- Generate syslog messages at a specified rate

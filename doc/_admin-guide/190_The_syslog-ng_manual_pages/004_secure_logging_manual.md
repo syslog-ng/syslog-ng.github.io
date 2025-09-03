@@ -7,7 +7,7 @@
 #
 title: The secure-logging manual page
 id: adm-man-sec-log
-manid: 4
+manid: 7
 manname: slog
 description: >-
     secure-logging --- Provides forward integrity and confidentiality for system logs.

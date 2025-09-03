@@ -7,7 +7,7 @@
 #
 title: The syslog-ng.conf manual page
 id: adm-man-syslogng-conf
-manid: 11
+manid: 5
 manname: syslog-ng.conf
 description: >-
     syslog-ng.conf - {{ site.product.short_name }} configuration file

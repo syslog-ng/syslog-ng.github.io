@@ -7,12 +7,11 @@ process_params()
     for FILE in $(/bin/ls ${INPUT_DIRECTORY}/*.md); do
         echo "Processing ${FILE} file..."
         BASENAME=$(basename "${FILE}")
-        OUTPUT_FILE_TYPE=$([[ $BASENAME == *_config ]] && echo 5 || echo 1)
+        OUTPUT_FILE_TYPE=$(head -n 1 "${FILE}" | awk '{print $2}')
         MANNAME=$(head -n 1 "${FILE}" | awk '{print $1}')
 
         bundle exec md2man-roff ${FILE} > ${OUTPUT_DIRECTORY}/${MANNAME}.${OUTPUT_FILE_TYPE}
     done
-
 }
 
 

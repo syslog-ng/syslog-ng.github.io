@@ -7,7 +7,7 @@
 #
 title: The {{ site.product.short_name }} manual page
 id: adm-man-syslogng
-manid: 10
+manid: 8
 manname: syslog-ng
 description: >-
     syslog-ng - syslog-ng system logger application

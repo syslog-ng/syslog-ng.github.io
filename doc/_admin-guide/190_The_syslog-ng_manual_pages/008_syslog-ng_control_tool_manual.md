@@ -8,7 +8,7 @@
 title: The {{ site.product.short_name }} control tool manual page
 app: syslog-ng-ctl
 id: adm-man-ctl
-manid: 8
+manid: 1
 manname: syslog-ng-ctl
 description: >-
     syslog-ng-ctl --- Display message statistics and enable verbose, debug
