@@ -10,14 +10,14 @@ id: adm-man-persist-tool
 manid: 1
 manname: persist-tool
 description: >-
-    persist-tool --- {{ site.product.short_name }} configuration file
+    persist-tool - {{ site.product.short_name }} configuration file
 ---
 
-## Synopsis
+## SYNOPSIS
 
 persist-tool [command] [options]
 
-## Description
+## DESCRIPTION
 
 This manual page is only an abstract.
 
@@ -31,7 +31,7 @@ Limitations:
 * The persist-state functions can be used only with `SLP4` or newer persist files. Older persist files are not supported.
 * Wildcard characters are not supported in file and directory names.
 
-## The dump command
+## THE DUMP COMMAND
 
 dump [options] [persist_file]
 
@@ -42,20 +42,20 @@ The `dump` command has the following options:
 
     Display a brief help message.
 
-### Example: persist-tool dump
+    For example:
 
-```config
-persist-tool dump /opt/syslog-ng/var/syslog-ng.persist
-```
+    ```config
+        persist-tool dump /opt/syslog-ng/var/syslog-ng persist
+    ```
 
-A valid output is the following:
+    A valid output is the following:
 
-```config
-run_id = { "value": "00 00 00 00 0C 00 00 00 " }
-host_id = { "value": "00 00 00 00 5F 49 2F 01 " }
-```
+    ```config
+    run_id = { "value": "00 00 00 00 0C 00 00 00 " }
+    host_id = { "value": "00 00 00 00 5F 49 2F 01 " }
+    ```
 
-## The add command
+## THE ADD COMMAND
 
 add [options] [input_file] 
 
@@ -74,34 +74,34 @@ The `add` command has the following options:
 
     Optional parameter. The name of the persist file to generate. Default value: syslog-ng.persist.
 
-### Example: add dump_persist
+    For example:
 
-```config
-/opt/syslog-ng/bin/persist-tool add dump_persist -o .
-```
+    ``` shell
+    /opt/syslog-ng/bin/persist-tool add dump_persist -o .
+    ```
 
-A valid output is the following:
+    A valid output is the following:
 
-```config
-log_reader_curpos(Application)      OK
-affile_sd_curpos(/var/aaa.txt)        OK
-```
+    ```config
+    log_reader_curpos(Application)      OK
+    affile_sd_curpos(/var/aaa.txt)        OK
+    ```
 
-An invalid output is the following:
+    An invalid output is the following:
 
-```config
-log_reader_curpos(Application)      OK
-wrong
-FAILED (error: Invalid entry syntax)
-affile_sd_curpos(/var/aaa.txt)        OK
-```
+    ```config
+    log_reader_curpos(Application)      OK
+    wrong
+    FAILED (error: Invalid entry syntax)
+    affile_sd_curpos(/var/aaa.txt)        OK
+    ```
 
-## Files
+## FILES
 
 /opt/syslog-ng/bin/persist-tool
 
-## See also
+## SEE ALSO
 
-The syslog-ng.conf manual page
+`syslog-ng.conf`(5)
 
-The syslog-ng OSE manual page 
+{% include doc/admin-guide/manpages-footnote.md %}
