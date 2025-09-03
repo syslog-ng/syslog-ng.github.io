@@ -1,0 +1,9 @@
+echo "Updating version info"
+
+VERSION=$(curl -s https://raw.githubusercontent.com/syslog-ng/syslog-ng/develop/VERSION.txt)
+sed -E "s/(version: ')[0-9]+\.[0-9]+\.[0-9]+(')/\1$VERSION\2/" _config.yml > _config.yml.new
+
+mv -f _config.yml.new _config.yml
+
+echo "Version set to $VERSION"
+grep 'version:' _config.yml

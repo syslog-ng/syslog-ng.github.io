@@ -68,6 +68,10 @@ jobs:
           ./_tools/pack debug
           ls -AlR assets/js
 
+          # Update the site.config.version info in the _config.yml based on the current syslog-ng version
+          #
+          ./_tools/update_config_version
+
       - name: Build with Jekyll
         # Outputs to the './_site' directory by default
         run: |
@@ -97,6 +101,8 @@ jobs:
           ls -AlR _site/assets/js
 
           # Generate and add Doxygen source documentation
+          #
+          echo "Generating Doxygen source documentation"
           sudo apt-get install doxygen graphviz -y
 
           OSE_SRC_REPO=https://github.com/syslog-ng/syslog-ng.git
@@ -111,6 +117,8 @@ jobs:
           rm -Rf ./_work
 
           # Generate final manpages from the pre-generated special markdown files
+          #
+          echo "Generating manpages"
           INPUT_DIRECTORY=./_data/manpages
           OUTPUT_DIRECTORY=./_site/manpages
           ./_tools/mangen "${INPUT_DIRECTORY}" "${OUTPUT_DIRECTORY}"
