@@ -619,5 +619,5 @@ cmake --build build/. --target check -j4
 `/full_path_of_your/installdir`/syslog-ng -F
 ```
 
-**Note:** For more information read the [[run first|dev-run-first]] guide and the {{ site.product.short_name }} [[documentation|adm-guide]]
+**Note:** For more information read the [[run first|dev-run-first]] guide
 {: .notice}
