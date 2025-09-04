@@ -64,6 +64,41 @@ without specifying an attribute: group().
 
 {% include doc/admin-guide/options/local-time-zone.md %}
 
+## logrotate()
+
+*Description:* This option enables to rotate log files based on their size. The number of rotations and maximum filesize are set via a parameter list. 
+It has the following suboptions:
+
+### enable()
+
+|  Type:|      yes/no|
+  |Default:|   no|
+
+*Description:* Enable or disable logrotate feature.
+
+### size()
+
+|  Type:|      positive number (bytes)|
+  |Default:|   1MB|
+
+*Description:* Maximum filesize that should trigger logrotation.
+
+### rotations()
+
+|  Type:|      positive number|
+  |Default:|   1|
+
+*Description:* Maximum number of rotated files. This number does not include the *main* log file, meaning if this option is set to a number N then at most N+1 files are created.
+Rotated files are named based on the given log file name and the their rotation id (`<file-name>.<id>`).
+
+### Example: logrotate()
+An example to enable logrotation with a maximum filesize of 500KB and 5 rotations:
+
+```config
+file("/var/log/my-logfile.log" logrotate(enable(yes), size(500KB), rotations(5)));
+```
+This configuration snippet results in at most 6 files (/var/log/my-logfile.log, /var/log/my-logfile.log.1 ... /var/log/my-logfile.log.5).
+
 {% include doc/admin-guide/options/log-fifo-size.md %}
 
 {% include doc/admin-guide/options/mark-freq.md %}
