@@ -89,7 +89,7 @@ It has the following suboptions:
   |Default:|   1|
 
 *Description:* Maximum number of rotated files. This number does not include the *main* log file, meaning if this option is set to a number N then at most N+1 files are created.
-Rotated files are named based on the given log file name and the their rotation id (`<file-name>.<id>`).
+Rotated files are named based on the given log file name and their rotation id (`<file-name>.<id>`).
 
 ### Example: logrotate()
 An example to enable logrotation with a maximum filesize of 500KB and 5 rotations:
