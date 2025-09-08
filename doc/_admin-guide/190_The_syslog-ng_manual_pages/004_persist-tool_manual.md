@@ -57,7 +57,7 @@ The `dump` command has the following options:
 
 ## THE ADD COMMAND
 
-add [options] [input_file] 
+add [options] [input_file]
 
 Use the `add` command to add or modify a specified state-entry in the persist file. The state-entry should be in the same format as the `dump` command displays it. If the given state-entry already exists, it will be updated. Otherwise, a new value will be added. If the given persist state is invalid, it will be skipped.
 
