@@ -5,22 +5,36 @@ id: dev-docker-imgs
 
 ### Available docker images
 
-* **balabit/syslog-ng**:
-  * Within this docker image {{ site.product.short_name }} and {{ site.product.short_name }} incubator is installed from deb package.
-  * It is intended to be used as a system logging service.
-* **balabit/syslog-ng-dev**:
-  * This is a development image for building and testing syslog-ng.
-  * It contains all packages to build and debug {{ site.product.short_name }} within the container.
-* **balabit/syslog-ng-incubator-dev**:
-  * This is a development image for building and testing {{ site.product.short_name }} incubator.
-  * It contains all packages to build and debug syslog-ng-incubator within the container.
+* **[balabit/syslog-ng](https://hub.docker.com/r/balabit/syslog-ng)**
 
-### Availability and description of docker images
+  Within this docker image {{ site.product.short_name }} is installed from deb package.\
+  It is intended to be used as a system logging service.
 
-#### Place of docker images
+  You can get an image containing
 
-* https://hub.docker.com/r/balabit/
+  - the latest official release with
 
-#### Source project of docker images
+    `docker pull balabit/syslog-ng:latest`
 
-* https://github.com/balabit/syslog-ng-docker
+  - the latest developer nigthly build with
+
+    `docker pull balabit/syslog-ng:nightly`
+
+* **[ghcr.io/syslog-ng](https://github.com/orgs/syslog-ng/packages)**
+
+  These are development images for building and testing syslog-ng, containing all packages to build and debug {{ site.product.short_name }} within the container.\
+  There are images for multiple platforms to build installer packages, but for development purposes, you can use
+
+  - the [dbld-devshell](https://github.com/syslog-ng/syslog-ng/pkgs/container/dbld-devshell)
+
+    `docker pull ghcr.io/syslog-ng/dbld-devshell:latest`
+
+  - or its [ARM64](https://github.com/syslog-ng/syslog-ng/pkgs/container/dbld-devshell-arm64) counter part
+
+    `docker pull ghcr.io/syslog-ng/dbld-devshell-arm64:latest`
+
+
+
+
+
+
