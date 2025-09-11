@@ -15,11 +15,11 @@ description: >-
     and trace modes in {{ site.product.short_name }}
 ---
 
-## Synopsis
+## SYNOPSIS
 
 syslog-ng-ctl \[command\] \[options\]
 
-## Description
+## DESCRIPTION
 
 {% include doc/admin-guide/manpages-intro.md %}
 
@@ -35,7 +35,7 @@ The syslog-ng-ctl application is a utility that can be used to:
 
 - reload the configuration of {{ site.product.short_name }}.
 
-## Enabling troubleshooting messages
+## ENABLE TROUBLESHOOTING MESSAGES
 
 command \[options\]
 
@@ -75,7 +75,7 @@ command to specify the socket to use.
     specified, {{ site.product.short_name }} will log such messages to its internal
     source.
 
-### Example
+### EXAMPLE
 
 ```bash
 syslog-ng-ctl verbose --set=on
@@ -84,8 +84,8 @@ syslog-ng-ctl verbose --set=on
 ## syslog-ng-ctl query
 
 The {{ site.product.short_name }} application stores various data, metrics, and
-statistics in a hash table. Every property has a name and a value. For
-example:
+statistics in a hash table. Every property has a name and a value.
+For example:
 
 ```text
 [syslog-ng]
@@ -106,7 +106,7 @@ also use the ? and \* wildcards. For example:
 The nodes and properties available in the tree depend on your {{ site.product.short_name }} configuration (that is, the sources, destinations, and other objects
 you have configured), and also on your stats-level() settings.
 
-## The list command
+## THE LIST COMMAND
 
 syslog-ng-ctl query list
 
@@ -164,7 +164,7 @@ The syslog-ng-ctl query list command has the following options:
     Use \--reset to set the selected counters to 0 after executing the
     query.
 
-## Displaying metrics and statistics
+## DISPLAYING METRICS AND STATISTICS
 
 syslog-ng-ctl query get \[options\]
 
@@ -192,7 +192,7 @@ The syslog-ng-ctl query get command has the following options:
     Use \--reset to set the selected counters to 0 after executing the
     query.
 
-## The stats command
+## THE STATS COMMAND
 
 stats \[options\]
 
@@ -230,7 +230,7 @@ The stats command has the following options:
     removes only dynamic counters that have a timestamp field set.
     {: .notice--info}
 
-### Example - stats
+### EXAMPLE: STATS
 
 ```bash
 syslog-ng-ctl stats
@@ -266,7 +266,7 @@ An example output:
 >center;;queued;a;processed;0
 >destination;df_facility_dot_err;;a;processed;0
 
-## Handling password-protected private keys
+## HANDLING PASSWORD-PROTECTED PRIVATE KEYS
 
 syslog-ng-ctl credentials \[options\]
 
@@ -277,7 +277,7 @@ password-protected private keys using the syslog-ng-ctl credentials add
 command. For details on using password-protected keys, see
 The {{ site.product.short_name }} Administrator Guide.
 
-## Displaying the status of private keys
+## DISPLAYING THE STATUS OF PRIVATE KEYS
 
 syslog-ng-ctl credentials status \[options\]
 
@@ -288,7 +288,7 @@ their status. For example:
 
 ```bash
 syslog-ng-ctl credentials status
-```   
+```
 
 >Secret store status:
 >/home/user/ssl_test/client-1/client-encrypted.key SUCCESS
@@ -304,14 +304,14 @@ The following log message also notifies you of PENDING passphrases:
 
 >Waiting for password; keyfile='private.key'
 
-- \--control=\<socket\> or -c
+- `--control=<socket>` or `-c`
 
     Specify the socket to use to access {{ site.product.short_name }}. Only needed when
     using a non-standard socket.
 
-## Opening password-protected private keys
+## OPENING PASSWORD-PROTECTED PRIVATE KEYS
 
-syslog-ng-ctl credentials add \[options\]
+syslog-ng-ctl credentials add [options]
 
 You can add the passphrase to a password-protected private key file
 using the following command. {{ site.product.short_name }} will display a prompt for you
@@ -335,24 +335,24 @@ example:
 echo "<passphrase-of-the-key>" | syslog-ng-ctl credentials add --id=<path-to-the-key>
 ```
 
-- \--control=\<socket\> or -c
+- `--control=<socket>` or `-c`
 
     Specify the socket to use to access syslog-ng PE. Only needed when
     using a non-standard socket.
 
-- \--id=\<path-to-the-key\> or -i
+- `--id=<path-to-the-key>` or `-i`
 
     The path to the password-protected private key file. This is the
     same path that you use in the key-file() option of the {{ site.product.short_name }}
     configuration file.
 
-- \--secret=\<passphrase-of-the-key\> or -s
+- `--secret=<passphrase-of-the-key>` or `-s`
 
     The password or passphrase of the private key.
 
-## Displaying the configuration
+## DISPLAYING THE CONFIGURATION
 
-syslog-ng-ctl config \[options\]
+syslog-ng-ctl config [options]
 
 Use the syslog-ng-ctl config command to display the configuration that
 {{ site.product.short_name }} is currently running. Note by default, only the content of
@@ -360,9 +360,9 @@ the main configuration file are displayed, included files are not
 resolved. To resolve included files and display the entire
 configuration, use the syslog-ng-ctl config \--preprocessed command.
 
-## Reloading the configuration
+## RELOADING thE CONFIGURATION
 
-syslog-ng-ctl reload \[options\]
+syslog-ng-ctl reload [options]
 
 Use the syslog-ng-ctl reload command to reload the configuration file of
 {{ site.product.short_name }} without having to restart the {{ site.product.short_name }} application.
@@ -371,7 +371,7 @@ The syslog-ng-ctl reload works like a SIGHUP.
 The syslog-ng-ctl reload command returns 0 if the operation was
 successful, 1 otherwise.
 
-## Files
+## FILES
 
 /opt/syslog-ng/sbin/syslog-ng-ctl
 

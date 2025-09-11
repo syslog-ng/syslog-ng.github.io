@@ -13,13 +13,13 @@ description: >-
     secure-logging --- Provides forward integrity and confidentiality for system logs.
 ---
 
-## Synopsis
+## SYNOPSIS
 
 ```config
 $(slog --key-file <host key file> --mac-file <MAC file> ${RAWMSG})
 ```
 
-## Description
+## DESCRIPTION
 
 Secure logging is an extension of {{ site.product.short_name }} which provides system log forward integrity and confidentiality. It is implemented in form of a module and is configured as a template in the {{ site.product.short_name }} configuration file.
 
@@ -66,7 +66,7 @@ The original log messages have been successfully restored, and the sequence coun
 
 Before the secure logging module can be used as part of an existing {{ site.product.short_name }} installation, several preparatory activities are necessary.
 
-## Key Generation
+## KEY GENERATION
 
 To bootstrap the system, an initial key (`k0`) must be created and installed on the log host before secure logging environment is started for the first time.
 
@@ -75,7 +75,7 @@ The initially created host key (`k0`) has its counter set to `0` marking it as t
 2. Derive an initial host key (`k0`) from the master key (`key1`). Store the `k0` key in a safe location that is outside of the log host.
 3. Deploy `k0` on the log host, where the secure logging module is to be used.
 
-## Configuration
+## CONFIGURATION
 
 Secure logging can be configured by adding corresponding statements to the `syslog-ng.conf` file.
 
@@ -114,7 +114,7 @@ The secure logging template can be combined with any source or destination with 
 * Only sources for which the store-raw-message flag is implemented and set do benefit from the integrity guarantee provided by the secure logging template. Secure logging aims at protecting the integrity of complete log messages including all associated meta-data, such as timestamps and host names. {{ site.product.short_name }} parses the log message into its internal format and provide easy access to parts of a message through macros. While this is convenient when rewriting log messages, it is not helpful for secure logging. {{ site.product.short_name }} provides the store-raw-message flag which provides access to a copy of the original log message after parsing. This is the log message processed and protected by the secure logging template. If the source does not support the `store-raw-message flag`, then the `${MSG}` macro can also be used. However, in this case the integrity guarantee provided by secure logging is limited to the content that this macro provides.
 * Log rotation of any kind cannot be used with destinations using secure logging, because log rotate overwrites or deletes previous log files. This compromises the cryptographic chain of trust of the log entries preve recovery. To efficiently handle log files, the secure logging environment features iterative verification. Using iterative verification, a log file can be verified in steps. For this to work, the log file must first be downloaded from the log host, together with the corresponding host key and MAC file to a verification host. After downloading, the log file can be safely deleted from the log host. Verification is then performed on the verification host using the iterative mode of the slogverify utility.
 
-### Example: secure logging template on a file destination
+### EXAMPLE: SECURE LOGGING TEMPLATE ON A FILE DESTINATION
 
 ```config
 #############################################
@@ -159,11 +159,11 @@ log {
 };
 ```
 
-## Log verification
+## LOG VERIFICATION
 
 To analyze the log file created in a secure logging environment, the log files must be decrypted and their integrity be verified. Verification requires both the initial host key (`k0`) and the corresponding MAC file and is performed with the slogverify utility. It is not normally performed on the log host where the secure logging environment is producing log data. In a typical deployment, log files would be retrieved from the log host and transferred to a central log collector where verification it performed. As verification requires the use of  `k0`, it should only be performed in a trusted environment.
 
-### Normal mode
+### NORMAL MODE
 
 In normal mode, a complete log archive is verified at once. In a typical environment, this would mean retrieving a log file together with is MAC file from a log host and retrieving the corresponding initial key `k0` from a safe location and supplying them to the slogverify utility. A typical call sqeuence for normal mode is presented in the following example:
 
@@ -197,7 +197,7 @@ slogverify --key-file host.key --mac-file mac.dat /var/log/messages.slog /var/lo
 
 For more information on verification in normal mode, [[slogverify|adm-man-slogkey]].
 
-### Iterative mode
+### ITERATIVE MODE
 
 Verification in normal mode may not be suitable for some application scenarios. Many log hosts use log rotation in order to preserve storage space. In log rotation, a threshold for the maximum amount of storage space and the number of generations is defined for different type of log files. When either storage space is exhausted or the number of generations is reached, the oldest log file is overwritten by new incoming log data. This procedure is not possible in secure logging environment, as overwriting, i.e. deleting a log file would break the cryptographic chain that is established between the log entries. This comes as no surprise, as one of the main objectives of secure logging is to protect against deletion of log entries by a potential attacker.
 
@@ -240,7 +240,7 @@ The purpose of the elements within the statement:
 
 In a real deployment, the above steps would typically be automated using a scripting engine. See [[slogverify|adm-man-slogver]] for details on verification in iterative mode.
 
-## Files
+## FILES
 
 `/usr/bin/slogkey`
 
@@ -250,7 +250,7 @@ In a real deployment, the above steps would typically be automated using a scrip
 
 `/etc/syslog-ng.conf`
 
-## Additional Information
+## ADDITIONAL INFORMATION
 
 * The syslog-ng.conf manual page
 * The slogkey manual page
