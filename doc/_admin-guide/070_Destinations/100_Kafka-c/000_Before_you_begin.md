@@ -9,8 +9,6 @@ description: >-
 
 ## Prerequisites and restrictions
 
-- This destination is only supported on the Linux platform.
-
 - Since the new C implementation uses the librdkafka client library,
     the kafka destination has less memory usage than the previous Java
     implementation (which uses the official Java Kafka producer).
