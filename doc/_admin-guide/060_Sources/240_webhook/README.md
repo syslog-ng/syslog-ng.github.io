@@ -3,7 +3,7 @@ title: 'Webhook source'
 short_title: webhook
 id: adm-src-webhook
 description: >-
-        From version 4.8.0 and onwards, {{ site.product.short_name }} can collect logs through a webhook using the `webhook()` and `webhook-json()` sources. The webhook-json() source automatically parses the payload using the `json-parser()`.
+        From version 4.9.0 and onwards, {{ site.product.short_name }} can collect logs through a webhook using the `webhook()` and `webhook-json()` sources. The webhook-json() source automatically parses the payload using the `json-parser()`.
 ---
 
 **Declaration**
