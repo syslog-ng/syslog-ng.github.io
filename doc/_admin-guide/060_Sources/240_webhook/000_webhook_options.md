@@ -135,7 +135,7 @@ For untrusted certificates only the existence of the certificate is checked, but
  ![]({{ site.baseurl}}/assets/images/caution.png) **WARNING:** When validating a certificate, the entire certificate chain must be valid, including the CA certificate. If any certificate of the chain is invalid, {{ site.product.short_name }} will reject the connection.
 {: .notice--warning}
 
-## tls_peer_verify()
+## tls_use_system_cert_store()
 
 |Accepted values:|   `yes`, `no`|
 |Default:|   `no`   |
