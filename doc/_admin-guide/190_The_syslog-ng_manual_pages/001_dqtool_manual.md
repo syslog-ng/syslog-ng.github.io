@@ -15,18 +15,18 @@ description: >-
     {{ site.product.short_name }}.
 ---
 
-## Synopsis
+## SYNOPSIS
 
-dqtool \[command\] \[options\]
+dqtool [command] [options]
 
-## Description
+## DESCRIPTION
 
 {% include doc/admin-guide/manpages-intro.md %}
 
 The dqtool application is a utility that can be used to display and
 format the messages stored in a disk-buffer file.
 
-## The cat command
+## THE CAT COMMAND
 
 ```bash
 cat [options] [file]
@@ -41,40 +41,41 @@ particular log messages, for example, **dqtool cat /var/log/messages.lgs
 
 The cat command has the following options:
 
-- \--debug or -d
+- `--debug` or `-d`
 
     Print diagnostic and debugging messages to stderr.
 
-- \--help or -h
+- `--help` or `-h`
 
     Display a brief help message.
 
-- \--template=\<template\> or -t
+- `--template=<template>` or `-t`
 
     Format the messages using the specified template.
 
-- \--verbose or -v
+- `--verbose` or `-v`
 
     Print verbose messages to stderr.
 
-- \--version or -V
+- `--version` or `-V`
 
     Display version information.
 
-### Example: The cat command
+### EXAMPLE:
 
 ```bash
 ./dqtool cat ../var/syslog-ng-00000.qf
 ```
 
 The output looks like:
-
+```config
 >Disk-buffer state loaded;
 >filename='../var/syslog-ng-00000.qf', qout_length='65', qbacklog_length='0', qoverflow_length='9205', qdisk_length='0'
 >Mar  3 10:52:05 tristram localprg[1234]: seq: 0000011630, runid: 1267609923, stamp: 2010-03-03T10:52:05 PADDPADDPADDPADDPADDPADDPADDPADDPADDPADDPADDPADDPADDPADDPADDPADDPADDPADDPADDPADDPADDPADDPADDPADDPADDPADD
 >Mar  3 10:52:05 tristram localprg[1234]: seq: 0000011631, runid: 1267609923, stamp: 2010-03-03T10:52:05 PADDPADDPADDPADDPADDPADDPADDPADDPADDPADDPADDPADDPADDPADDPADDPADDPADDPADDPADDPADDPADDPADDPADDPADDPADDPADD
+```
 
-## The relocate command
+## THE RELOCATE COMMAND
 
 ```config
 relocate [options] [files]
@@ -86,23 +87,23 @@ disk-queue) files. Note that this option modifies the persist file. Stop
 
 The relocate command has the following options:
 
-- \--all or -a
+- `--all` or `-a`
 
     Relocate every disk-buffer file that is listed in the {{ site.product.short_name }}
     persist file.
 
-- \--new\_path or -n
+- `--new_path` or `-n`
 
     The directory where you want to move the disk-bufffer files. For
     example: /var/disk-buffers
 
-- \--persist or -p
+- `--persist` or `-p`
 
     The path to the {{ site.product.short_name }} persist file. The relocate command
     automatically updates the entries of the disk-buffer files in the
     persist file.
 
-### Examples
+### EXAMPLES:
 
 Relocate a single queue file:
 
@@ -122,7 +123,7 @@ Relocate every queue file:
 bin/dqtool relocate --new_path /tmp/dq --persist var/syslog-ng.persist --all
 ```
 
-## Files
+## FILES
 
 dqtool
 

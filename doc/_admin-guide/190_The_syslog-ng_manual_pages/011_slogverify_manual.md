@@ -13,13 +13,11 @@ description: >-
     slogverify --- Verifies cryptographically secured logs.
 ---
 
-## Synopsis
+## SYNOPSIS
 
-```
 slogverify [options] [arguments]
-```
 
-## Description
+## DESCRIPTION
 
 The slogverify utility is used to verify the integrity of cryptographically secured logs and to decrypt log entries produced in a {{ site.product.short_name }} secure logging environment.
 
@@ -28,7 +26,7 @@ The slogverify utility is used to verify the integrity of cryptographically secu
 * Iterative mode:
     `slogverify -i -p <previous host key> -r <previous MAC> -m <current MAC> <input file> <output file> [buffers]`
 
-## Arguments
+## ARGUMENTS
 
 * input file
 
@@ -40,7 +38,7 @@ The slogverify utility is used to verify the integrity of cryptographically secu
 
     Optional number of input buffers. The number of buffers can be used for performance adjustments in case the log file to be verified is very large and cannot be processed at once. It is a positive number of log entries that can be held in memory during verification. The minimum number if 10 and the maximum number is 4294967295. If this argument is not supplied the default of 1000 is used.
 
-## Options
+## OPTIONS
 
 * `--iterative` or `-i`
 
@@ -66,13 +64,13 @@ The slogverify utility is used to verify the integrity of cryptographically secu
 
     Display a help message.
 
-## Files
+## FILES
 
 `/usr/bin/slogverify`
 
 `/etc/syslog-ng.conf`
 
-## Additional Information
+## ADDITIONAL INFORMATION
 
 * The syslog-ng.conf manual page
 * The secure-logging manual page 
