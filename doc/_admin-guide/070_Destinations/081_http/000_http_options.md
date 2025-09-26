@@ -17,6 +17,9 @@ following options.
 
 *Description:* This option requests the compression of HTTP responses from the server. The available values are `gzip`, `deflate`, and `all` to enable all compression types. If no compression is required, use the `identity` value.
 
+**NOTE:** Since {{ site.product.short_name }} uses Zlib for deflate-type compressions, the `deflate` option also adds a header and footer to the compressed data. For more details consult [RFC1950](https://www.rfc-editor.org/info/rfc1950).
+{: .notice--info}
+
 ### Example: configure an http destination with compression
 
 ```config
