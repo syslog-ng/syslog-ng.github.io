@@ -134,7 +134,7 @@ To process the messages from an orphan disk-buffer file using a separate
     ```config
     network("10.21.10.20"
         disk-buffer(
-            disk-buf-size(1048576)
+            capacity-bytes(1048576)
             reliable(yes)
             dir(/tmp/qdisk/)
     );

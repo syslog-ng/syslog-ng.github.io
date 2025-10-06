@@ -18,31 +18,31 @@ Protocol (ALTP). Note that the Advanced Log Transport Protocol is
 available only in syslog-ng Premium Edition version 6 LTS. Of course, using the reliable(yes) option introduces a significant performance penalty as well.
 
 Both reliable and normal disk-buffers employ an in-memory output queue
-(set in quot-size()) and an in-memory overflow queue (set in
-mem-buf-size() for reliable disk-buffers, or mem-buf-length() for normal
+(set in front-cache-size()) and an in-memory overflow queue (set in
+flow-control-window-bytes() for reliable disk-buffers, or flow-control-window-size() for normal
 disk-buffers). The difference between reliable and normal disk-buffers
 is that when the reliable disk-buffer uses one of its in-memory queues,
 it also stores the message on the disk, whereas the normal disk-buffer
 stores the message only in memory. The normal disk-buffer only uses the
 disk if the in-memory output buffer is filled up completely. This
 approach has better performance (due to fewer disk I/O operations), but
-also carries the risk of losing a maximum of quot-size() plus
-mem-buf-length() number of messages in case of an unexpected power
+also carries the risk of losing a maximum of front-cache-size() plus
+flow-control-window-size() number of messages in case of an unexpected power
 failure or application crash.
 
 ## Size of the queue files
 
-Disk queue files tend to grow. Each may take up to disk-buf-size() bytes
+Disk queue files tend to grow. Each may take up to capacity-bytes() bytes
 on the disk. Due to the nature of reliable queue files, all the messages
 traversing the queue are written to disk, constantly increasing the size
 of the queue file.
 
 The disk-buffer file\'s size should be considered as the configured
-disk-buf-size() at any point of time, even if it does not have messages
+capacity-bytes() at any point of time, even if it does not have messages
 in it. Truncating the disk-buffer file can slow down disk I/O
 operations, so {{ site.product.short_name }} does not always truncate the file when it
 would be possible (see the truncate-size-ratio() option). If a large
-disk-buffer file is not desirable, you should set the disk-buf-size()
+disk-buffer file is not desirable, you should set the capacity-bytes()
 option to a smaller value.
 
 ![]({{ site.baseurl}}/assets/images/caution.png) **CAUTION:**
