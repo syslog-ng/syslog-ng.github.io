@@ -53,21 +53,21 @@ no, {{ site.product.short_name }} handles outgoing messages the following way:
     the disk-buffer file during {{ site.product.short_name }} reload, restart or stop,
     but they cannot be persisted if in the event of power failures, or
     if {{ site.product.short_name }} crashes. By default, the output queue can hold 1000
-    messages (you can adjust this number using the quot-size() option).
+    messages (you can adjust this number using the front-cache-size() option).
 
 - *Disk-buffer file*: Disk queue. If there is no space left in the
     output queue, the message is stored on the disk-buffer file.
     Messages stored here are persisted on the disk, even in case of
     power failures or if {{ site.product.short_name }} crashes. Using the disk-buffer
     file takes considerable amount of disk I/O and processor time. The
-    size of this queue can be set with the disk-buf-size() option.
+    size of this queue can be set with the capacity-bytes() option.
 
 - *Overflow queue*: In-memory queue. This queue is used to trigger
     flow-control if it is set. The contents of the in-memory overflow
     queue are persisted to the disk-buffer file in case of {{ site.product.short_name }}
     reload, restart or stop, but they are not persisted in case of power
     failures or if {{ site.product.short_name }} crashes. Setting the size of the
-    overflow queue can be done with the mem-buf-length() option.
+    overflow queue can be done with the flow-control-window-size() option.
 
 ![]({{ site.baseurl}}/assets/images/caution.png) **CAUTION:**
 Hazard of data loss! In case of normal disk-buffers, the messages stored
@@ -83,15 +83,15 @@ failures or if {{ site.product.short_name }} crashes.
 When you use disk-based buffering, and the reliable() option is set to
 yes, {{ site.product.short_name }} handles outgoing messages the following way.
 
-The mem-buf-size() option determines when flow-control is triggered.
-After the size of the disk-buffer file reaches (disk-buf-size() minus
-mem-buf-size()), messages are written into both the disk-buffer file and
+The flow-control-window-bytes() option determines when flow-control is triggered.
+After the size of the disk-buffer file reaches (capacity-bytes() minus
+flow-control-window-bytes()), messages are written into both the disk-buffer file and
 the overflow queue, indicating that flow-control needs to slow down the
 message source. These messages are not taken out from the control window
 (governed by log-iw-size()), causing the control window to fill up.
 
 If the control window is full, the flow-control completely stops reading
-incoming messages from the source. (As a result, mem-buf-size() must be
+incoming messages from the source. (As a result, flow-control-window-bytes() must be
 at least as large as log-iw-size() times the average message size.)
 
 ### Figure 18: Handling outgoing messages in {{ site.product.short_name }} with the reliable disk-buffer option
@@ -106,18 +106,18 @@ at least as large as log-iw-size() times the average message size.)
     faster, because {{ site.product.short_name }} can skip reading from the disk, and
     deserializing the message, saving I/O and processor time. By
     default, the output queue can hold 1000 messages (you can adjust it
-    using the quot-size() option).
+    using the front-cache-size() option).
 
 - *Disk-buffer file*: Disk queue. If there is no space left in the
     output queue, the message is stored on the disk-buffer file.
     Messages stored here are persisted on the disk, and survive
     {{ site.product.short_name }} crash or power failure. Using the disk-buffer file
     takes considerable amount of disk I/O and processor time. The size
-    of this queue can be set with the disk-buf-size() option.
+    of this queue can be set with the capacity-bytes() option.
 
 - *Overflow queue*: In-memory and disk queue. This queue is used to
     trigger flow-control if it is set. Similarly to the output queue, in
     case of reliable disk-buffer in addition to storing the message in
     memory, it is stored directly in the disk-buffer file as well for
     safety reasons. Setting the size of the overflow queue can be done
-    with the mem-buf-size() option.
+    with the flow-control-window-bytes() option.

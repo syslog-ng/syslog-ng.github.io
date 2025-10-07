@@ -21,8 +21,8 @@ destination d_BSD {
     network("127.0.0.1"
         port(3333)
         disk-buffer(
-            mem-buf-size(10000)
-            disk-buf-size(2000000)
+            flow-control-window-bytes(10000)
+            capacity-bytes(2000000)
             reliable(yes)
         )
     );
