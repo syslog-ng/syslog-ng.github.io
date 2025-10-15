@@ -24,3 +24,11 @@ rewrite <name_of_the_rule> {
 
 Templates (macros, template functions) can be used when specifying tags,
 for example, **set-tag(\"dyn::$HOST\");**.
+
+From version 3.27 of {{ site.product.short_name }} it is possible to set tags based on the value of a specified condition.
+
+Configuration example:
+
+```config
+rewrite { set-tag("tag" condition(match("test" value("MSG")))); };
+```
