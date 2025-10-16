@@ -53,15 +53,15 @@ dictionary [options]
 Lists every name-value pair that can be set by the rules of the pattern
 database.
 
-- `--dump-tag` or `-T`
+`--dump-tag` or `-T`
 
     List the tags instead of the names of the name-value pairs.
 
-- `--pdb <path-to-file>` or `-p <path-to-file>`
+`--pdb <path-to-file>` or `-p <path-to-file>`
 
     Name of the pattern database file to use.
 
-- `--program <programname>` or `-P <programname>`
+`--program <programname>` or `-P <programname>`
 
     List only the name-value pairs that can be set for the messages of
     the specified ${PROGRAM} application.
@@ -75,24 +75,24 @@ patterns represented in {{ site.product.short_name }} and it might also help to 
 down pattern-matching problems. The dump utility can dump the tree used
 for matching the `PROGRAM` or the `MSG` parts.
 
-- `--debug` or `-d`
+`--debug` or `-d`
 
     Enable debug/diagnostic messages on stderr.
 
-- `--pdb` or `-p`
+`--pdb` or `-p`
 
     Name of the pattern database file to use.
 
-- `--program` or `-P`
+`--program` or `-P`
 
     Displays the RADIX tree built from the patterns belonging to the
     ${PROGRAM} application.
 
-- `--program-tree` or `-T`
+`--program-tree` or `-T`
 
     Display the ${PROGRAM} tree.
 
-- `--verbose` or `-v`
+`--verbose` or `-v`
 
     Enable verbose messages on stderr.
 
@@ -143,26 +143,26 @@ information:
 
 The match command has the following options:
 
-- `--color-out` or `-c`
+`--color-out` or `-c`
 
     Color the terminal output to highlight the part of the message that
     was successfully parsed.
 
-- `--debug` or `-d`
+`--debug` or `-d`
 
     Enable debug/diagnostic messages on stderr.
 
-- `--debug-csv` or `-C`
+`--debug-csv` or `-C`
 
     Print the debugging information returned by the `--debug-pattern`
     option as comma-separated values.
 
-- `--debug-pattern` or `-D`
+`--debug-pattern` or `-D`
 
     Print debugging information about the pattern matching. See also the
     `--debug-csv` option.
 
-- `--file=<filename-with-path>` or `-f`
+`--file=<filename-with-path>` or `-f`
 
     Process the messages of the specified log file with the pattern
     database. This option allows to classify messages offline, and to
@@ -170,31 +170,31 @@ The match command has the following options:
     messages from the standard input (stdin), specify a hyphen (-)
     character instead of a filename.
 
-- `--filter=<filter-expression>` or `-F`
+`--filter=<filter-expression>` or `-F`
 
     Print only messages matching the specified {{ site.product.short_name }} filter
     expression.
 
-- `--message` or `-M`
+`--message` or `-M`
 
     The text of the log message to match (only the `MESSAGE` part
     without the syslog headers).
 
-- `--pdb` or `-p`
+`--pdb` or `-p`
 
     Name of the pattern database file to use.
 
-- `--program` or `-P`
+`--program` or `-P`
 
     Name of the program to use, as contained in the `PROGRAM` part of
     the syslog message.
 
-- `--template=<template-expression>` or `-T`
+`--template=<template-expression>` or `-T`
 
     A {{ site.product.short_name }} template expression that is used to format the output
     messages.
 
-- `--verbose` or `-v`
+`--verbose` or `-v`
 
     Enable verbose messages on stderr.
 
@@ -230,36 +230,36 @@ format, it is automatically updated to the latest format (V3). See the
 The {{ site.product.short_name }} Administrator Guide for
 details on the different pattern database versions.
 
-- `--debug` or `-d`
+`--debug` or `-d`
 
     Enable debug/diagnostic messages on stderr.
 
-- `--directory` or `-D`
+`--directory` or `-D`
 
     The directory that contains the pattern database XML files to be
     merged.
 
-- `--glob` or `-G`
+`--glob` or `-G`
 
     Specify filenames to be merged using a glob pattern, for example,
     using wildcards. For details on glob patterns, see man glob. This
     pattern is applied only to the filenames, and not on directory
     names.
 
-- `--pdb` or `-p`
+`--pdb` or `-p`
 
     Name of the output pattern database file.
 
-- `--recursive` or `-r`
+`--recursive` or `-r`
 
     Merge files from subdirectories as well.
 
-- `--sort` or `-s`
+`--sort` or `-s`
 
     Sort files into alphabetic order during the merge (first sort by
     filename, then by directory name).
 
-- `--verbose` or `-v`
+`--verbose` or `-v`
 
     Enable verbose messages on stderr.
 
@@ -286,36 +286,36 @@ databases and message parsers, see the [The {{ site.product.short_name }} Admini
 (https://www.syslog-ng.com/). The patternize command is available
 only in version 3.2 and later.
 
-- `--debug` or `-d`
+`--debug` or `-d`
 
     Enable debug/diagnostic messages on stderr.
 
-- `--file=<path>` or `-f`
+`--file=<path>` or `-f`
 
     The logfile containing the log messages to create patterns from. To
     receive the log messages from the standard input (stdin), use -.
 
-- `--iterate-outliers` or `-o`
+`--iterate-outliers` or `-o`
 
     Recursively iterate on the log lines to cover as many log messages
     with patterns as possible.
 
-- `--named-parsers` or `-n`
+`--named-parsers` or `-n`
 
     The number of example log messages to include in the pattern
     database for every pattern. Default value: 1
 
-- `--no-parse` or `-p`
+`--no-parse` or `-p`
 
     Do not parse the input file, treat every line as the message part of
     a log message.
 
-- `--samples=<number-of-samples>`
+`--samples=<number-of-samples>`
 
     Include a generated name in the parsers, for example,
     **.dict.string1**, **.dict.string2**, and so on.
 
-- `--support=<number>` or `-S`
+`--support=<number>` or `-S`
 
     A pattern is added to the output pattern database if at least the
     specified percentage of log messages from the input logfile match
@@ -327,7 +327,7 @@ only in version 3.2 and later.
 
     Default value: 4.0
 
-- `--verbose` or `-v`
+`--verbose` or `-v`
 
     Enable verbose messages on stderr.
 
@@ -345,28 +345,28 @@ Use the test command to validate a pattern database XML file. Note that
 you must have the xmllint application installed. The test command is
 available only in {{ site.product.short_name }} version 3.2 and later.
 
-- `--color-out` or `-c`
+`--color-out` or `-c`
 
     Enable coloring in terminal output.
 
-- `--debug` or `-d`
+`--debug` or `-d`
 
     Enable debug/diagnostic messages on stderr.
 
-- `--debug` or `-D`
+`--debug` or `-D`
 
     Print debugging information on non-matching patterns.
 
-- `--rule-id` or `-r`
+`--rule-id` or `-r`
 
     Test only the patterndb rule (specified by its rule id) against its
     example.
 
-- `--validate`
+`--validate`
 
     Validate a pattern database XML file.
 
-- `--verbose` or `-v`
+`--verbose` or `-v`
 
     Enable verbose messages on stderr.
 

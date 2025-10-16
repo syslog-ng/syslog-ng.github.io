@@ -40,27 +40,27 @@ The slogverify utility is used to verify the integrity of cryptographically secu
 
 ## OPTIONS
 
-* `--iterative` or `-i`
+`--iterative` or `-i`
 
     Iterative mode. This is useful in case the log files are periodically copied from the system on which they where generated to central collector. As log rotation, i.e. overwriting log files in order to preserve space cannot be done in a secure logging environment, the iterative mode can be used instead. This works as follows: If a certain storage limit is reached the log file together with the host key and the MAC file is copied to new destination and the old file is deleted. The verification is then performed in iterations, i.e. separately for each file that was retrieved from the log host. For this to work, it is important to always retrieve the corresponding host key and MAC files. The process can be automated, for example by calling slogverify in iterative mode from a script.
 
-* `--key-file` or `-k`
+`--key-file` or `-k`
 
     The initial host key (`k0`). This option is used in normal mode only.
 
-* `--mac-file` or `-m`
+`--mac-file` or `-m`
 
     The current MAC file used.
 
-* `--prev-key-file` or `-p`
+`--prev-key-file` or `-p`
 
     The host key corresponding to the previous log file. This option can be used in iterative mode only. In theory, this can be initial host key (`k0`) but using this key might generate warnings, as the gap between the first log entry ever (log entry 0) and the first log entry of the current log file might be large.
 
-* `--prev-mac-file` or `-r`
+`--prev-mac-file` or `-r`
 
     The MAC file from the previous log file. This option can only be used in iterative mode.
 
-* `--help` or `-h`
+`--help` or `-h`
 
     Display a help message.
 
@@ -70,7 +70,7 @@ The slogverify utility is used to verify the integrity of cryptographically secu
 
 `/etc/syslog-ng.conf`
 
-## ADDITIONAL INFORMATION
+## SEE ALSO
 
 * The syslog-ng.conf manual page
 * The secure-logging manual page 

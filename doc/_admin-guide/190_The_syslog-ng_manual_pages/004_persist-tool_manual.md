@@ -64,13 +64,13 @@ Use the `add` command to add or modify a specified state-entry in the persist fi
 To use the `add` command: use `persist-tool dump` to print the content of the current persist file, and redirect it to a file. Edit the content of this file. Use `persist-tool` add with this file to modify the persist.
 
 The `add` command has the following options:
-* `--help` or `-?`
+`--help` or `-?`
 
     Display a brief help message.
-* `--output-dir=<directory>` or `-o`
+`--output-dir=<directory>` or `-o`
 
     Required parameter. The directory where the persist file is located at. The name of the persist file stored in this directory must be syslog-ng.persist.
-* `--persist-name=<filename>` or `-p`
+`--persist-name=<filename>` or `-p`
 
     Optional parameter. The name of the persist file to generate. Default value: syslog-ng.persist.
 

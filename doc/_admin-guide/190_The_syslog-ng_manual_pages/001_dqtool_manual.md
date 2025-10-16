@@ -41,23 +41,23 @@ particular log messages, for example, **dqtool cat /var/log/messages.lgs
 
 The cat command has the following options:
 
-- `--debug` or `-d`
+`--debug` or `-d`
 
     Print diagnostic and debugging messages to stderr.
 
-- `--help` or `-h`
+`--help` or `-h`
 
     Display a brief help message.
 
-- `--template=<template>` or `-t`
+`--template=<template>` or `-t`
 
     Format the messages using the specified template.
 
-- `--verbose` or `-v`
+`--verbose` or `-v`
 
     Print verbose messages to stderr.
 
-- `--version` or `-V`
+`--version` or `-V`
 
     Display version information.
 
@@ -87,17 +87,17 @@ disk-queue) files. Note that this option modifies the persist file. Stop
 
 The relocate command has the following options:
 
-- `--all` or `-a`
+`--all` or `-a`
 
     Relocate every disk-buffer file that is listed in the {{ site.product.short_name }}
     persist file.
 
-- `--new_path` or `-n`
+`--new_path` or `-n`
 
     The directory where you want to move the disk-bufffer files. For
     example: /var/disk-buffers
 
-- `--persist` or `-p`
+`--persist` or `-p`
 
     The path to the {{ site.product.short_name }} persist file. The relocate command
     automatically updates the entries of the disk-buffer files in the
@@ -125,6 +125,6 @@ bin/dqtool relocate --new_path /tmp/dq --persist var/syslog-ng.persist --all
 
 ## FILES
 
-dqtool
+/opt/syslog-ng/bin/dqtool
 
 {% include doc/admin-guide/manpages-footnote.md %}

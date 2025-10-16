@@ -28,28 +28,28 @@ you ask help about your {{ site.product.short_name }} related problem.
 
 ## GENERAL OPTIONS
 
-- `-r`
+`-r`
 
     Run syslog-ng-debun. Using this option is required to actually
     execute the data collection with syslog-ng-debun. It is needed to
     prevent accidentally running syslog-ng-debun.
 
-- `-h`
+`-h`
 
     Display the help page.
 
-- `-l`
+`-l`
 
     Do not collect privacy-sensitive data, for example, process tree,
     fstab, and so on. If you use with -d, then the following parameters
     will be used for debug mode:-Fev
 
-- `-R <directory>`
+`-R <directory>`
 
     The directory where syslog-ng PE is installed instead of
     /opt/syslog-ng.
 
-- `-W <directory>`
+`-W <directory>`
 
     Set the working directory, where the debug bundle will be saved.
     Default value: /tmp. The name of the created file is
@@ -57,7 +57,7 @@ you ask help about your {{ site.product.short_name }} related problem.
 
 ## DEBUG MODE OPTIONS
 
-- `-d`
+`-d`
 
     Start {{ site.product.short_name }} in debug mode, using the -Fedv \--enable-core
     options.
@@ -68,23 +68,23 @@ you ask help about your {{ site.product.short_name }} related problem.
     mode, press Enter.
     {: .notice--warning}
 
-- `-D <options>`
+`-D <options>`
 
     Start {{ site.product.short_name }} in debug mode, using the specified command-line
     options. To exit debug mode, press Enter.
 
-- `-t <seconds>`
+`-t <seconds>`
 
     Run {{ site.product.short_name }} in noninteractive debug mode for \<seconds\>, and
     automatically exit debug mode after the specified number of seconds.
 
-- `-w <seconds>`
+`-w <seconds>`
 
     Wait <seconds> seconds before starting debug mode.
 
 ## SYSTEM CALL TRACING
 
-- `-s`
+`-s`
 
     Enable syscall tracing (strace -f or truss -f). Note that using `-s`
     itself does not enable debug mode, only traces the system calls of
@@ -97,20 +97,20 @@ Capturing packets requires a packet capture tool on the host. The
 syslog-ng-debun tool attempts to use tcpdump on most platforms, except for
 Solaris, where it uses snoop.
 
-- `-i <interface>`
+`-i <interface>`
 
     Capture packets only on the specified interface, for example, eth0.
 
-- `-p`
+`-p`
 
     Capture incoming packets using the following filter: port 514 or
     port 601 or port 53
 
-- `-P <options>`
+`-P <options>`
 
     Capture incoming packets using the specified filter.
 
-- `-t <seconds>`
+`-t <seconds>`
 
     Run {{ site.product.short_name }} in noninteractive debug mode for \<seconds\>, and
     automatically exit debug mode after the specified number of seconds.

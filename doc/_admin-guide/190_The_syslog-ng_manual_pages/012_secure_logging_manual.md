@@ -88,23 +88,23 @@ template("$(slog --key-file  <host key file> --mac-file <MAC file> ${RAWMSG})\n"
 ```
 
 The purpose of the elements within the statement:
-* `slog`
+`slog`
 
     The name of the secure logging template function. This name can be also be found by calling {{ site.product.short_name }} with the `--module-registry` arguments and checking the `template-func` property of the secure logging module in the corresponding output.
 
-* `--key-file` or `-k`
+`--key-file` or `-k`
 
     The host key file. `<host key file>` is the full path of the file storing the host key on the log host. If this arguments is not supplied or does not point to a valid key file, {{ site.product.short_name }} does not start and a displays an error message.
 
-* `--mac-file` or `-m`
+`--mac-file` or `-m`
 
     The MAC file. `<MAC file>` is the full path of the MAC file on the log host. The file is automatically created upon the initial start. If the path is not correct, {{ site.product.short_name }} does not start and a displays a corresponding error message.
 
-* `${RAWMSG}`
+`${RAWMSG}`
 
     `${RAWMSG}` provides access to the original log message received at the source. This macro is only available if the store-raw-message flag was set for the source. Otherwise, an empty string is passed to the secure logging template. If access to the original message is not available, for example, if the source does not support the `store-raw-message` flag, then the `${MSG}` macro can also be used. In this case, however, the integrity guarantee provided by secure logging is limited to the content that this macro provides and does not protect the complete original message.
 
-* `\n`
+`\n`
 
     `\n` is a line separator and its use is important, as the secure logging template expects log entries to be separated. When detecting a line separator, the log entry is regarded as complete and is encrypted with the current host key. Therefore, only a single line separator is allowed.
 
@@ -173,19 +173,19 @@ slogverify --key-file host0.key --mac-file mac.dat /var/log/messages.slog /var/l
 
 The purpose of the elements within the statement:
 
-* `host0.key`
+`host0.key`
 
     The initial host key (`k0`). Supplying `k0` is enough for decrypting all log entries, as the key derivation algorithm is able to generate the necessary keys for all subsequent log entries based on `k0`.
 
-* `mac.dat`
+`mac.dat`
 
     The MAC file from the log host.
 
-* `/var/log/messages.slog`
+`/var/log/messages.slog`
 
     The file containing the encrypted log entries as retrieved from a log host.
 
-* `/var/log/verified/messages`
+`/var/log/verified/messages`
 
     The file receiving the plain text log after decryption.
 
@@ -218,23 +218,23 @@ slogverify --iterative --prev-key-file host.key.2 --prev-mac-file mac.dat.2 --ma
 
 The purpose of the elements within the statement:
 
-* `host.key.2`
+`host.key.2`
 
     The host key from the previous iteration. In this example, this is the second iteration.
 
-* `mac.dat.2`
+`mac.dat.2`
 
     The MAC file from the previous iteration. In the example, verification is performed during the third iteration, so the MAC file from the second iteration is required.
 
-* `mac.dat`
+`mac.dat`
 
     The current MAC file from the log host.
 
-* `/var/log/messages.slog.3`
+`/var/log/messages.slog.3`
 
     The file element containing the encrypted log entries as retrieved from the log host during the third iteration.
 
-* `/var/log/verified/messages.3`
+`/var/log/verified/messages.3`
 
     The file receiving the plain text log after decryption during the third iteration.
 
@@ -250,7 +250,7 @@ In a real deployment, the above steps would typically be automated using a scrip
 
 `/etc/syslog-ng.conf`
 
-## ADDITIONAL INFORMATION
+## SEE ALSO
 
 * The syslog-ng.conf manual page
 * The slogkey manual page

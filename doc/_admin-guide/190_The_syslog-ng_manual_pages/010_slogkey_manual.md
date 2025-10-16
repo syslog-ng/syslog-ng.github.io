@@ -47,16 +47,16 @@ The arguments depend on the operating mode.
 
 ## OPTIONS
 
-* `--master-key` or `-m`
+`--master-key` or `-m`
 
     Generates a mew master key. `<filename>` is the name of the file storing the newly generated master key.
-* `--derive-key` or `-d`
+`--derive-key` or `-d`
 
     Derive a host key using a previously generated master key.
-* `--counter` or `-c`
+`--counter` or `-c`
 
     Display the current log sequence counter of a key.
-* `--help` or `-h`
+`--help` or `-h`
 
     Display a help message.
 
@@ -66,7 +66,7 @@ The arguments depend on the operating mode.
 
 `/etc/syslog-ng.conf`
 
-## ADDITIONAL INFORMATION
+## SEE ALSO
 
 * The syslog-ng.conf manual page
 * The secure-logging manual page 

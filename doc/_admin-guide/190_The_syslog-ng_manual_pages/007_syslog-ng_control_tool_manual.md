@@ -194,25 +194,25 @@ The syslog-ng-ctl query get command has the following options:
 
 ## THE STATS COMMAND
 
-stats \[options\]
+stats [options]
 
 Use the stats command to display statistics about the processed
 messages. For details about the displayed statistics,
 see The {{ site.product.short_name }} Administration Guide.
 The stats command has the following options:
 
-- \--control=\<socket\> or -c
+`--control=<socket>` or `-c`
 
     Specify the socket to use to access syslog-ng PE. Only needed when
     using a non-standard socket.
 
-- \--reset=\<socket\> or -r
+`--reset=<socket>` or `-r`
 
     Reset all statistics to zero, except for the queued counters. (The
     queued counters show the number of messages in the message queue of
     the destination driver, waiting to be sent to the destination.)
 
-- \--remove-orphans
+`--remove-orphans`
 
     Safely removes all counters that are not referenced by any syslog-ng
     stat producer objects.
@@ -268,7 +268,7 @@ An example output:
 
 ## HANDLING PASSWORD-PROTECTED PRIVATE KEYS
 
-syslog-ng-ctl credentials \[options\]
+syslog-ng-ctl credentials [options]
 
 The syslog-ng-ctl credentials status command allows you to query the
 status of the private keys that {{ site.product.short_name }} uses in the network() and
@@ -279,7 +279,7 @@ The {{ site.product.short_name }} Administrator Guide.
 
 ## DISPLAYING THE STATUS OF PRIVATE KEYS
 
-syslog-ng-ctl credentials status \[options\]
+syslog-ng-ctl credentials status [options]
 
 The syslog-ng-ctl credentials status command allows you to query the
 status of the private keys that {{ site.product.short_name }} uses in the network() and
@@ -304,7 +304,7 @@ The following log message also notifies you of PENDING passphrases:
 
 >Waiting for password; keyfile='private.key'
 
-- `--control=<socket>` or `-c`
+`--control=<socket>` or `-c`
 
     Specify the socket to use to access {{ site.product.short_name }}. Only needed when
     using a non-standard socket.
@@ -335,18 +335,18 @@ example:
 echo "<passphrase-of-the-key>" | syslog-ng-ctl credentials add --id=<path-to-the-key>
 ```
 
-- `--control=<socket>` or `-c`
+`--control=<socket>` or `-c`
 
     Specify the socket to use to access syslog-ng PE. Only needed when
     using a non-standard socket.
 
-- `--id=<path-to-the-key>` or `-i`
+`--id=<path-to-the-key>` or `-i`
 
     The path to the password-protected private key file. This is the
     same path that you use in the key-file() option of the {{ site.product.short_name }}
     configuration file.
 
-- `--secret=<passphrase-of-the-key>` or `-s`
+`--secret=<passphrase-of-the-key>` or `-s`
 
     The password or passphrase of the private key.
 
