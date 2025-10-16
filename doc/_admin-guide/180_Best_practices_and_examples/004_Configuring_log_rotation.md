@@ -2,11 +2,32 @@
 title: Configuring log rotation
 id: adm-pract-rotate
 description: >- 
-    The {{ site.product.short_name }} application does not rotate logs by itself. This chapter
-    describes how to use {{ site.product.short_name }} for log rotation.
+    This chapter describes how to use {{ site.product.short_name }} for log rotation, making use of builtin options
+    and external tools.
 ---
 
-Consider the following approaches:
+Log rotation is traditionally only applicable to files and, consequently,
+to file destination drivers in {{ site.product.short_name }}. Consider the following approaches:
+
+## Use builtin logrotate() option of file destination driver
+
+- It is available starting with {{ site.product.short_name }} version 4.10 or later.
+
+- It is performed based on file sizes.
+
+- No additional configuration files are required - log rotation is configured
+    with the rest of {{ site.product.short_name }}. For details, see [[file() destination options]].
+
+## Separate incoming logs based on time, host or other information
+
+- It is ideal for central log servers, where regular restart of
+    {{ site.product.short_name }} is unfavorable.
+
+- Requires shell scripts or cron jobs to remove old logs.
+
+- It can be done by using macros in the destination name (in the
+    filename, directory name, or the database table name). (For details
+    on using macros, see Templates and macros)
 
 ## Use logrotate together with {{ site.product.short_name }}
 
@@ -20,22 +41,14 @@ Consider the following approaches:
 - Requires frequent restart ({{ site.product.short_name }} must be reloaded/restarted
     when the files are rotated). After rotating the log files, reload
     {{ site.product.short_name }} using the **syslog-ng-ctl reload** command, or use
-    another method to send a SIGHUP to {{ site.product.short_name }}.
+    another method to send a SIGHUP to {{ site.product.short_name }}. Alternatively,
+    starting from {{ site.product.short_name }} version 3.13 or later **syslog-ng-ctl reopen**
+    may be used to signal file destination drivers to open log files again without stopping
+    or interrupting the rest of configured log pipes. 
 
 - The statistics collected by {{ site.product.short_name }}, and the correlation
     information gathered with Pattern Database, are lost with each
     restart.
-
-## Separate incoming logs based on time, host or other information
-
-- It is ideal for central log servers, where regular restart of
-    {{ site.product.short_name }} is unfavorable.
-
-- Requires shell scripts or cron jobs to remove old logs.
-
-- It can be done by using macros in the destination name (in the
-    filename, directory name, or the database table name). (For details
-    on using macros, see Templates and macros
 
 ### Example: File destination for log rotation
 
