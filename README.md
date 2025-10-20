@@ -14,7 +14,7 @@ This repository part contains the source code of `The syslog-ng OSE Administrati
 
 ## [Developer guide](https://syslog-ng.github.io/dev-guide/README)
 
-Do you like adding your idea, bug-fix to the fabolous syslog-ng? Help others to do the same, share your knwowledge in the [developer guide](https://syslog-ng.github.io/dev-guide/README).
+Do you like adding your idea, bug-fix to the fabulous syslog-ng? Help others to do the same, share your knowledge in the [developer guide](https://syslog-ng.github.io/dev-guide/README).
 
 ## [Generated document](https://syslog-ng.github.io/)
 
