@@ -38,13 +38,12 @@ to file destination drivers in {{ site.product.short_name }}. Consider the follo
 - Less scripting is required, only logrotate has to be configured
     correctly.
 
-- Requires frequent restart ({{ site.product.short_name }} must be reloaded/restarted
-    when the files are rotated). After rotating the log files, reload
+- Starting from {{ site.product.short_name }} version 3.13 or later **syslog-ng-ctl reopen**
+    must be used to signal file destination drivers to open log files again without stopping
+    or interrupting the rest of configured log pipes. Alternately, {{ site.product.short_name }} can
+    be reloaded/restarted when the files are rotated. After rotating the log files, reload
     {{ site.product.short_name }} using the **syslog-ng-ctl reload** command, or use
-    another method to send a SIGHUP to {{ site.product.short_name }}. Alternatively,
-    starting from {{ site.product.short_name }} version 3.13 or later **syslog-ng-ctl reopen**
-    may be used to signal file destination drivers to open log files again without stopping
-    or interrupting the rest of configured log pipes. 
+    another method to send a SIGHUP to {{ site.product.short_name }}
 
 - The statistics collected by {{ site.product.short_name }}, and the correlation
     information gathered with Pattern Database, are lost with each
