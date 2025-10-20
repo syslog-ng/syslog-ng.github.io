@@ -600,6 +600,22 @@ which is 3232235777 in decimal representation.
 module has been loaded.
 {: .notice--info}
 
+## $(iterate)
+
+|*Syntax:*|$(iterate $(parameter))|
+
+*Description:* This template function can be used to generate a series from an initial number and a `next` function.
+
+### Example: An applied iteration of non-negative numbers
+
+```config
+source
+
+{ example-msg-generator( num(3) template("$(iterate $(+ 1 $_) 0)") ); }
+
+;
+```
+
 ## List manipulation
 
 The list-\* template functions allow you to manipulate comma-separated
