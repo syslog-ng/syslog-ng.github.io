@@ -8,9 +8,13 @@
 **NOTE:** Increasing the value of this parameter (which lowers delay time) can increase log feed performance, but at could increase system load.
 {: .notice--info}
 
+{% include doc/admin-guide/options/deprecated-options.md old='fetch-delay' new='log-fetch-delay' %}
+
 ## log-fetch-retry-delay()
 
 |Type:|     integer|
 |Default:| `1`|
 
 *Description:* Controls how many seconds {{ site.product.short_name }} spends idle before checking for new logs, in case no new logs were read the last time.
+
+{% include doc/admin-guide/options/deprecated-options.md old='fetch-retry-delay' new='log-fetch-retry-delay' %}
