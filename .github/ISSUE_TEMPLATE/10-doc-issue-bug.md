@@ -1,8 +1,8 @@
 ---
-name: 📚 Documentation issue
-about: Use this template for reporting an issue in the documentation.
+name: 📚 Documentation bug
+about: Use this template for reporting a bug in the documentation.
 title: ''
-labels: 'documentation'
+labels: [documentation, bug]
 assignees: ''
 
 ---
