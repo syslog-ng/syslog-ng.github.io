@@ -66,8 +66,6 @@ For more info, see [oslog](https://developer.apple.com/documentation/oslog?langu
         attempt to read/send once it's out of available logs
   - default value: `1`
 - `log-fetch-limit()`
-  - **Warning**: _This option is now disabled due to an [OSLog API bug](https://openradar.appspot.com/radar?id=5597032077066240), once it's fixed it_
-        _will be enabled again_
   - integer value, that limits the number of logs {{ site.product.short_name }} will send in one run
   - default value: `0`, which means no limit
 
