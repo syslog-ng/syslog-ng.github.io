@@ -21,8 +21,6 @@ You can specify multiple, comma-separated addresses, demonstrated in the followi
 bootstrap-servers("127.0.0.1:2525,remote-server-hostname:6464")
 ```
 
-{% include doc/admin-guide/notes/kafka-c.md %}
-
 {% include doc/admin-guide/options/batch-lines.md %}
 
 **NOTE:** The {{ site.product.short_name }} configuration accepts this option with
@@ -81,8 +79,6 @@ The programming language accepts this option for better compatibility.
   |Default:|   |
 
 *Description:* You can use this option to set the properties of the kafka producer.
-
-{% include doc/admin-guide/notes/kafka-c.md %}
 
 The {{ site.product.short_name }} kafka destination supports all properties of the
 official Kafka producer. For details, see the librdkafka documentation.
@@ -175,8 +171,6 @@ For details on formatting messages in JSON format, see
 client about the amount of messages sent since the last poll-timeout ().
 In case of multithreading, the first {{ site.product.short_name }} worker is responsible for
 poll-timeout().
-
-{% include doc/admin-guide/notes/kafka-c.md %}
 
 {% include doc/admin-guide/options/retries.md %}
 
