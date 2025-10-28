@@ -21,8 +21,6 @@ You can specify multiple, comma-separated addresses, demonstrated in the followi
 bootstrap-servers("127.0.0.1:2525,remote-server-hostname:6464")
 ```
 
-{% include doc/admin-guide/notes/kafka-c.md %}
-
 {% include doc/admin-guide/options/batch-lines.md %}
 
 **NOTE:** The {{ site.product.short_name }} configuration accepts this option with
@@ -81,8 +79,6 @@ The programming language accepts this option for better compatibility.
   |Default:|   |
 
 *Description:* You can use this option to set the properties of the kafka producer.
-
-{% include doc/admin-guide/notes/kafka-c.md %}
 
 The {{ site.product.short_name }} kafka destination supports all properties of the
 official Kafka producer. For details, see the librdkafka documentation.
@@ -149,6 +145,19 @@ key(\"${PROGRAM}\").
 
 {% include doc/admin-guide/options/local-time-zone.md %}
 
+## message()
+
+|  Type:|      message template|
+  |Default:|   ${ISODATE} ${HOST} ${MSGHDR}${MSG}\\n|
+
+*Description:* The message as published to Apache Kafka. You can use
+templates and template functions (for example, format-json()) to format
+the message, for example, template(\"$(format-json \--scope rfc5424
+\--exclude DATE \--key ISODATE)\").
+
+For details on formatting messages in JSON format, see
+[[format-json|adm-temp-func#format-json]].
+
 {% include doc/admin-guide/options/on-error.md %}
 
 {% include doc/admin-guide/options/persist-name.md %}
@@ -162,8 +171,6 @@ key(\"${PROGRAM}\").
 client about the amount of messages sent since the last poll-timeout ().
 In case of multithreading, the first {{ site.product.short_name }} worker is responsible for
 poll-timeout().
-
-{% include doc/admin-guide/notes/kafka-c.md %}
 
 {% include doc/admin-guide/options/retries.md %}
 
@@ -195,19 +202,6 @@ to the Kafka client can be lost. To avoid data loss, One Identity
 recommends that you set sync-send() to "yes", as this setting
 delivers messages to the Kafka client more reliably.
 {: .notice--danger}
-
-## message()
-
-|  Type:|      message template|
-  |Default:|   ${ISODATE} ${HOST} ${MSGHDR}${MSG}\\n|
-
-*Description:* The message as published to Apache Kafka. You can use
-templates and template functions (for example, format-json()) to format
-the message, for example, template(\"$(format-json \--scope rfc5424
-\--exclude DATE \--key ISODATE)\").
-
-For details on formatting messages in JSON format, see
-[[format-json|adm-temp-func#format-json]].
 
 {% include doc/admin-guide/options/throttle.md %}
 
