@@ -45,7 +45,7 @@ destination d_file {
 
 **NOTE:** When using this destination, update the configuration of your log
 rotation program to rotate these files. Otherwise, the log files can
-become very large. See [[Configuring log rotation]] for available options.
+become very large. See Configuring log rotation for available options.
 {: .notice--info}
 
 Also, after rotating the log files, reload {{ site.product.short_name }} using the

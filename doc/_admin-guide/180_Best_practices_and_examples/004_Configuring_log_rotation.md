@@ -16,7 +16,7 @@ to file destination drivers in {{ site.product.short_name }}. Consider the follo
 - It is performed based on file sizes.
 
 - No additional configuration files are required - log rotation is configured
-    with the rest of {{ site.product.short_name }}. For details, see [[file() destination options]].
+    with the rest of {{ site.product.short_name }}. For details, see file() destination options.
 
 ## Separate incoming logs based on time, host or other information
 
