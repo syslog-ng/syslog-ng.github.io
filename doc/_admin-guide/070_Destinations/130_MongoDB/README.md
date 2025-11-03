@@ -63,18 +63,4 @@ destination d_mongodb {
 };
 ```
 
-The following example shows the same setup using the deprecated
-libmongo-client syntax, and is equivalent with the previous example.
-
-```config
-destination d_mongodb {
-    mongodb(
-        servers("localhost:27017")
-        database("syslog")
-        collection("messages")
-        value-pairs(
-            scope("selected-macros" "nv-pairs" "sdata")
-        )
-    );
-};
-```
+{% include doc/admin-guide/options/deprecated-options.md old='libmongo client syntax' new='mongodb' %}

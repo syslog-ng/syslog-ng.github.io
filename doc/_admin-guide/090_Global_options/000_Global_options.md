@@ -276,12 +276,7 @@ Higher log-levels automatically include messages from lower log-levels:
 
 ## mark() (DEPRECATED)
 
-|  Accepted values:|   number|
-  |Default:|           1200|
-
-*Description:* The mark-freq() option is an alias for the deprecated
-mark() option. This is retained for compatibility with {{ site.product.short_name }} version
-1.6.x.
+{% include doc/admin-guide/options/deprecated-options.md old='mark()' new='mark-freq()' %}
 
 {% include doc/admin-guide/options/mark-freq.md %}
 
@@ -306,7 +301,7 @@ configured to do so.
 
 ## pass-unix-credentials() (DEPRECATED)
 
-The `pass-unix-credentials()` option has been deprecated in {{ site.product.short_name }} 3.35 and later versions. Use the `so-passcred()` option.
+{% include doc/admin-guide/options/deprecated-options.md old='pass-unix-credentials()' new='so-passcred()' %}
 
 {% include doc/admin-guide/options/perm.md %}
 
@@ -455,19 +450,19 @@ Possible values:
 
 ## stats-freq() (DEPRECATED)
 
-This is a deprecated legacy option. Use stats(freq()) instead.
+{% include doc/admin-guide/options/deprecated-options.md old='stats-freq()' new='stats(freq())' %}
 
 ## stats-level() (DEPRECATED)
 
-This is a deprecated legacy option. Use stats(level()) instead.
+{% include doc/admin-guide/options/deprecated-options.md old='stats-level()' new='stats(level())' %}
 
 ## stats-max-dynamics() (DEPRECATED)
 
-This is a deprecated legacy option. Use stats(max-dynamics()) instead.
+{% include doc/admin-guide/options/deprecated-options.md old='stats-max-dynamics()' new='stats(max-dynamics())' %}
 
 ## sync() or sync-freq() (DEPRECATED)
 
-Obsolete aliases for flush-lines().
+{% include doc/admin-guide/options/deprecated-options.md old='sync() and sync-freq()' new='flush-lines()' %}
 
 ## threaded()
 
@@ -482,14 +477,6 @@ Multithreading and scaling in {{ site.product.short_name }}.
 {% include doc/admin-guide/options/time-reap.md %}
 
 {% include doc/admin-guide/options/time-reopen.md %}
-
-## time-sleep() (DEPRECATED)
-
-|  Accepted values:|   number|
-  |Default:|           0|
-
-*Description:* The time to wait in milliseconds between each invocation
-of the poll() iteration.
 
 {% include doc/admin-guide/options/time-zone.md %}
 
