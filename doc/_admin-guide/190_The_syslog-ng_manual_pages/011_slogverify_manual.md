@@ -66,9 +66,9 @@ The slogverify utility is used to verify the integrity of cryptographically secu
 
 ## FILES
 
-`/usr/bin/slogverify`
+/opt/syslog-ng/bin/slogverify
 
-`/etc/syslog-ng.conf`
+/opt/syslog-ng/etc/syslog-ng.conf
 
 ## SEE ALSO
 

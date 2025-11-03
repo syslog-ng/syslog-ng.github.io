@@ -242,13 +242,13 @@ In a real deployment, the above steps would typically be automated using a scrip
 
 ## FILES
 
-`/usr/bin/slogkey`
+/opt/syslog-ng/bin/slogkey
 
-`/usr/bin/slogencrypt`
+/opt/syslog-ng/bin/slogencrypt
 
-`/usr/bin/slogverify`
+/opt/syslog-ng/bin/slogverify
 
-`/etc/syslog-ng.conf`
+/opt/syslog-ng/etc/syslog-ng.conf
 
 ## SEE ALSO
 

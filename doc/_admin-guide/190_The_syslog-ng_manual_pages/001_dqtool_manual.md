@@ -64,7 +64,7 @@ The cat command has the following options:
 ### EXAMPLE:
 
 ```bash
-./dqtool cat ../var/syslog-ng-00000.qf
+/opt/syslog-ng/bin/dqtool/dqtool cat ../var/syslog-ng-00000.qf
 ```
 
 The output looks like:
@@ -108,19 +108,19 @@ The relocate command has the following options:
 Relocate a single queue file:
 
 ```bash
-bin/dqtool relocate --new_path /tmp/dq --persist var/syslog-ng.persist /tmp/syslog-ng-00000.rqf
+/opt/syslog-ng/bin/dqtool relocate --new_path /tmp/dq --persist var/syslog-ng.persist /tmp/syslog-ng-00000.rqf
 ```
 
 Relocate multiple queue files:
 
 ```bash
-bin/dqtool relocate --new_path /tmp/dq --persist var/syslog-ng.persist /tmp/syslog-ng-00000.rqf /tmp/syslog-ng-00001.rqf
+/opt/syslog-ng/bin/dqtool relocate --new_path /tmp/dq --persist var/syslog-ng.persist /tmp/syslog-ng-00000.rqf /tmp/syslog-ng-00001.rqf
 ```
 
 Relocate every queue file:
 
 ```bash
-bin/dqtool relocate --new_path /tmp/dq --persist var/syslog-ng.persist --all
+/opt/syslog-ng/bin/dqtool relocate --new_path /tmp/dq --persist var/syslog-ng.persist --all
 ```
 
 ## FILES

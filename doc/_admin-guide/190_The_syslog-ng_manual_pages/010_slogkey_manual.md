@@ -62,9 +62,9 @@ The arguments depend on the operating mode.
 
 ## FILES
 
-`/usr/bin/slogkey`
+/opt/syslog-ng/bin/slogkey
 
-`/etc/syslog-ng.conf`
+/opt/syslog-ng/etc/syslog-ng.conf
 
 ## SEE ALSO
 

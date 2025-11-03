@@ -67,9 +67,9 @@ slogencrypt -k <key file> -m <MAC file> <new key file> <new MAC file> <plain tex
 
 ## FILES
 
-`/usr/bin/slogencrypt`
+/opt/syslog-ng/bin/slogencrypt
 
-`/etc/syslog-ng.conf`
+/opt/syslog-ng/etc/syslog-ng.conf
 
 ## SEE ALSO
 
