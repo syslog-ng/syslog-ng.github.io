@@ -32,37 +32,29 @@ slogencrypt -k <key file> -m <MAC file> <new key file> <new MAC file> <plain tex
 ## ARGUMENTS
 
 `<new key file>`
-
     The file that containa the new encryption key after successful encryption.
 
 `<new MAC file>`
-
     The file receiving the new message authentication code (MAC) of the secure encrypted destination after encryption. In case an existing file is supplied, new entries are appended.
 
 `<input log file>`
-
     The plain text log file that is encrypted using the secure logging environment.
 
 `<output log file>`
-
     The file that contains the encrypted log entries from the supplied plain text log file after encryption.
 
 `counter`
-
     The current log entry counter of the secure encrypted destination after encryption. This is required if the log entries to be encrypted are appended to an existing secure encrypted destination
 
 ## OPTIONS
 
 `--key-file` or `-k`
-
     The current host key from the system where the encryption is performed.
 
 `--mac-file` or `-m`
-
     The current MAC file from the system where the encryption is performed.
 
 `--help` or `-h`
-
     Display a help message.
 
 ## FILES

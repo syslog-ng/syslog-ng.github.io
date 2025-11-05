@@ -28,7 +28,7 @@ format the messages stored in a disk-buffer file.
 
 ## THE CAT COMMAND
 
-```bash
+```shell
 cat [options] [file]
 ```
 
@@ -42,29 +42,24 @@ particular log messages, for example, **dqtool cat /var/log/messages.lgs
 The cat command has the following options:
 
 `--debug` or `-d`
-
     Print diagnostic and debugging messages to stderr.
 
 `--help` or `-h`
-
     Display a brief help message.
 
 `--template=<template>` or `-t`
-
     Format the messages using the specified template.
 
 `--verbose` or `-v`
-
     Print verbose messages to stderr.
 
 `--version` or `-V`
-
     Display version information.
 
 ### EXAMPLE:
 
 ```bash
-/opt/syslog-ng/bin/dqtool/dqtool cat ../var/syslog-ng-00000.qf
+dqtool cat ../var/syslog-ng-00000.qf
 ```
 
 The output looks like:
@@ -77,7 +72,7 @@ The output looks like:
 
 ## THE RELOCATE COMMAND
 
-```config
+```shell
 relocate [options] [files]
 ```
 
@@ -88,17 +83,14 @@ disk-queue) files. Note that this option modifies the persist file. Stop
 The relocate command has the following options:
 
 `--all` or `-a`
-
     Relocate every disk-buffer file that is listed in the {{ site.product.short_name }}
     persist file.
 
 `--new_path` or `-n`
-
     The directory where you want to move the disk-bufffer files. For
     example: /var/disk-buffers
 
 `--persist` or `-p`
-
     The path to the {{ site.product.short_name }} persist file. The relocate command
     automatically updates the entries of the disk-buffer files in the
     persist file.
@@ -108,19 +100,19 @@ The relocate command has the following options:
 Relocate a single queue file:
 
 ```bash
-/opt/syslog-ng/bin/dqtool relocate --new_path /tmp/dq --persist var/syslog-ng.persist /tmp/syslog-ng-00000.rqf
+dqtool relocate --new_path /tmp/dq --persist var/syslog-ng.persist /tmp/syslog-ng-00000.rqf
 ```
 
 Relocate multiple queue files:
 
 ```bash
-/opt/syslog-ng/bin/dqtool relocate --new_path /tmp/dq --persist var/syslog-ng.persist /tmp/syslog-ng-00000.rqf /tmp/syslog-ng-00001.rqf
+dqtool relocate --new_path /tmp/dq --persist var/syslog-ng.persist /tmp/syslog-ng-00000.rqf /tmp/syslog-ng-00001.rqf
 ```
 
 Relocate every queue file:
 
 ```bash
-/opt/syslog-ng/bin/dqtool relocate --new_path /tmp/dq --persist var/syslog-ng.persist --all
+dqtool relocate --new_path /tmp/dq --persist var/syslog-ng.persist --all
 ```
 
 ## FILES

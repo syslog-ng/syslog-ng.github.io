@@ -55,6 +55,7 @@ AAAAAAAAAAA=:k3/dYpLsgO2tUJKSauo6dycIBzW6OTC3pyA9TP+7AnqFgEojBzgC2rcK4OPfRtr8yg=
 AQAAAAAAAAA=:smw0ATISVgN+BYEu5d7OLBE7aQhHpK9Ro4MndmNgSVrqhcmRCBCj6DUnD6ku0Z29CKJ0N6LAJUgByX4Ev+g=
 AgAAAAAAAAA=:5UVybnKL1EAbgC4CLfd8HpgurjREf4LEN61/yWHSD2hbXjRD4QmQdtbwguT1chzdItKSQASps9QRIvR5Jd4AHzHfqxI4aRgdUBcNbAq26nwUCg5vPWygjmbtQaxZgCJYkry8slxCigmbTVs=
 ```
+
 The following is the output of a successful verification run:
 
 ```
@@ -62,6 +63,7 @@ The following is the output of a successful verification run:
 0000000000000001: And here comes another log message
 0000000000000002: This is a log message with a longer text that is processed without any problems
 ```
+
 The original log messages have been successfully restored, and the sequence counters are also assigned to the clear text messages. This helps in analyzing problems within a particular log entry. As real log files will contain thousands of entries. The sequence counter helps to identify faulty entries.
 
 Before the secure logging module can be used as part of an existing {{ site.product.short_name }} installation, several preparatory activities are necessary.
@@ -71,6 +73,7 @@ Before the secure logging module can be used as part of an existing {{ site.prod
 To bootstrap the system, an initial key (`k0`) must be created and installed on the log host before secure logging environment is started for the first time.
 
 The initially created host key (`k0`) has its counter set to `0` marking it as the initial host key. This host key must be kept secret and it cannot be disclosed to third any parties. It is required to successfully decrypt and verify log archives processed by the secure logging environment. As each log entry is encrypted with its own key, a new host key will be created after successful processing of a log entry and replaces the previous key. Therefore, the initial host key needs to be stored in a safe place before starting the secure logging environment, as it is deleted from the log host after processing of the first log entry. The following steps must be done before starting the secure logging environment. Steps 1 and 2 are performed with the slogkey utility. See the slogkey.1 manual page for details on how to generate a master key and to derive a host key from it. Step 3 and 4 depend on the actual deployment in a target environment.
+
 1. Create a master key.
 2. Derive an initial host key (`k0`) from the master key (`key1`). Store the `k0` key in a safe location that is outside of the log host.
 3. Deploy `k0` on the log host, where the secure logging module is to be used.
@@ -88,24 +91,20 @@ template("$(slog --key-file  <host key file> --mac-file <MAC file> ${RAWMSG})\n"
 ```
 
 The purpose of the elements within the statement:
-`slog`
 
+`slog`
     The name of the secure logging template function. This name can be also be found by calling {{ site.product.short_name }} with the `--module-registry` arguments and checking the `template-func` property of the secure logging module in the corresponding output.
 
 `--key-file` or `-k`
-
     The host key file. `<host key file>` is the full path of the file storing the host key on the log host. If this arguments is not supplied or does not point to a valid key file, {{ site.product.short_name }} does not start and a displays an error message.
 
 `--mac-file` or `-m`
-
     The MAC file. `<MAC file>` is the full path of the MAC file on the log host. The file is automatically created upon the initial start. If the path is not correct, {{ site.product.short_name }} does not start and a displays a corresponding error message.
 
 `${RAWMSG}`
-
     `${RAWMSG}` provides access to the original log message received at the source. This macro is only available if the store-raw-message flag was set for the source. Otherwise, an empty string is passed to the secure logging template. If access to the original message is not available, for example, if the source does not support the `store-raw-message` flag, then the `${MSG}` macro can also be used. In this case, however, the integrity guarantee provided by secure logging is limited to the content that this macro provides and does not protect the complete original message.
 
 `\n`
-
     `\n` is a line separator and its use is important, as the secure logging template expects log entries to be separated. When detecting a line separator, the log entry is regarded as complete and is encrypted with the current host key. Therefore, only a single line separator is allowed.
 
 The secure logging template can be combined with any source or destination with the following limitations:
@@ -174,19 +173,15 @@ slogverify --key-file host0.key --mac-file mac.dat /var/log/messages.slog /var/l
 The purpose of the elements within the statement:
 
 `host0.key`
-
     The initial host key (`k0`). Supplying `k0` is enough for decrypting all log entries, as the key derivation algorithm is able to generate the necessary keys for all subsequent log entries based on `k0`.
 
 `mac.dat`
-
     The MAC file from the log host.
 
 `/var/log/messages.slog`
-
     The file containing the encrypted log entries as retrieved from a log host.
 
 `/var/log/verified/messages`
-
     The file receiving the plain text log after decryption.
 
 Log files may become too large and not fit into the system memory. Verification is therefore performed in chunks. Each part of the log file is transferred to an internal buffer on which verification is performed. After the buffer has been processed, the next chunk is fetched. An optional buffer argument can be supplied to the slogverify utility in order to change the default buffer size of 1000 log entries to a number suitable for the system on which the verification is performed, for example:

@@ -50,36 +50,29 @@ statistics:
 ## OPTIONS
 
 `--active-connections <number-of-connections>`
-
     Number of connections loggen will use to send messages to the
     destination. This option is usable only when using TCP or TLS
     connections to the destination. Default value: 1
-
     The loggen utility waits until every connection is established
     before starting to send messages. See also the `--idle-connections`
     option.
 
 `--csv` or `-C`
-
     Send the statistics of the sent messages to stdout as CSV. This can
     be used for plotting the message rate.
 
 `--dgram` or `-D`
-
     Use datagram socket (UDP or unix-dgram) to send the messages to the
-    target. Requires the \--inet option as well.
+    target. Requires the --inet option as well.
 
 `--dont-parse` or `-d`
-
     Do not parse the lines read from the input files, send them as
     received.
 
 `--help` or `-h`
-
     Display a brief help message.
 
 `--idle-connection <number-of-connections>`
-
     Number of idle connections loggen will establish to the destination.
     Note that loggen will not send any messages on idle connections, but
     the connection is kept open using keep-alive messages. This option
@@ -87,12 +80,10 @@ statistics:
     See also the --active-connections option. Default value: 0
 
 `--inet` or `-i`
-
     Use the TCP (by default) or UDP (when used together with the
     \--dgram option) protocol to send the messages to the target.
 
 `--interval <seconds>` or `-I <seconds>`
-
     The number of seconds loggen will run. Default value: 10
 
     NOTE: When `--interval` and `--number` are used together, loggen will
@@ -101,18 +92,15 @@ statistics:
     first.
 
 `--ipv6` or `-6`
-
     Specify the destination using its IPv6 address. Note that the
     destination must have a real IPv6 address.
 
 `--loop-reading` or `-l`
-
     Read the file specified in `--read-file` option in loop: loggen will
     start reading from the beginning of the file when it reaches the end
     of the file.
 
 `--number <number-of-messages>` or `-n <number-of-messages>`
-
     Number of messages to generate.
 
     NOTE: When `--interval` and `--number` are used together, loggen will
@@ -121,21 +109,17 @@ statistics:
     first.
 
 `--no-framing` or `-F`
-
     Do not use the framing of the IETF-syslog protocol style, even if
     the `--syslog-proto` option is set.
 
 `--quiet` or `-Q`
-
     Display statistics only when loggen is finished. If not set, the
     statistics are displayed every second.
 
 `--permanent` or `-T`
-
     Keep sending logs indefinitely, without time limit.
 
 `--rate <message/second>` or `-r <message/second>`
-
     The number of messages generated per second for every active
     connection. Default value: 1000
 
@@ -145,17 +129,14 @@ statistics:
     kill `-USR1 <loggen-pid>kill` `-USR2 <loggen-pid>`
 
 `--read-file <filename>` or `-R <filename>`
-
     Read the messages from a file and send them to the target. See also
     the `--skip-tokens` option.
-
     Specify - as the input file to read messages from the standard input
     (stdio). Note that when reading messages from the standard input,
     loggen can only use a single thread. The -R -parameters must be
     placed at end of command, like: loggen 127.0.0.1 1061 `--read-file` -
 
 `--sdata <data-to-send>` or `-p <data-to-send>`
-
     Send the argument of the `--sdata` option as the `SDATA` part of
     IETF-syslog (RFC-5424 formatted) messages. Use it together with the
     `--syslog-proto` option. 
@@ -167,12 +148,10 @@ statistics:
     ```
 
 `--size <message-size>` or `-s <message-size>`
-
     The size of a syslog message in bytes. Default value: 256. Minimum
     value: 127 bytes, maximum value: 8192 bytes.
 
 `--skip-tokens <number>`
-
     Skip the specified number of space-separated tokens (words) at the
     beginning of every line. For example, if the messages in the file
     look like foo bar message, --skip-tokens 2 skips the foo bar part
@@ -180,28 +159,23 @@ statistics:
     together with the --read-file parameter. Default value: 0
 
 `--stream` or `-S`
-
     Use a stream socket (TCP or unix-stream) to send the messages to the
     target.
 
 `--syslog-proto` or `-P`
-
     Use the new IETF-syslog message format. By
     default, loggen uses the legacy BSD-syslog message format.
     See also the \--no-framing option.
 
 `--unix </path/to/socket>` or `-x </path/to/socket>`
-
     Use a UNIX domain socket to send the messages to the target.
 
 `--use-ssl` or `-U`
-
     Use an SSL-encrypted channel to send the messages to the target.
     Note that it is not possible to check the certificate of the target,
     or to perform mutual authentication.
 
 `--version` or `-V`
-
     Display version number of syslog-ng.
 
 ### EXAMPLES:

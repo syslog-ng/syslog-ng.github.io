@@ -33,21 +33,19 @@ Limitations:
 
 ## THE DUMP COMMAND
 
+```shell
 dump [options] [persist_file]
+```
 
 Use the `dump` command to print the current content of the persist file in JSON format to the console.
 
 The `dump` command has the following options:
-* `--help` or `-?`
-
-    Display a brief help message.
-
-    For example:
+`--help` or `-?`
+    Display a brief help message. For example:
 
     ```config
         persist-tool dump /opt/syslog-ng/var/syslog-ng persist
-    ```
-
+    ``` 
     A valid output is the following:
 
     ```config
@@ -57,7 +55,9 @@ The `dump` command has the following options:
 
 ## THE ADD COMMAND
 
+```shell
 add [options] [input_file]
+```
 
 Use the `add` command to add or modify a specified state-entry in the persist file. The state-entry should be in the same format as the `dump` command displays it. If the given state-entry already exists, it will be updated. Otherwise, a new value will be added. If the given persist state is invalid, it will be skipped.
 
@@ -65,16 +65,13 @@ To use the `add` command: use `persist-tool dump` to print the content of the cu
 
 The `add` command has the following options:
 `--help` or `-?`
-
     Display a brief help message.
+
 `--output-dir=<directory>` or `-o`
-
     Required parameter. The directory where the persist file is located at. The name of the persist file stored in this directory must be syslog-ng.persist.
+
 `--persist-name=<filename>` or `-p`
-
-    Optional parameter. The name of the persist file to generate. Default value: syslog-ng.persist.
-
-    For example:
+    Optional parameter. The name of the persist file to generate. Default value: syslog-ng.persist. For example:
 
     ``` shell
     /opt/syslog-ng/bin/persist-tool add dump_persist -o .

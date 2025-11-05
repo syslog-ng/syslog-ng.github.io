@@ -231,36 +231,29 @@ The {{ site.product.short_name }} Administrator Guide for
 details on the different pattern database versions.
 
 `--debug` or `-d`
-
     Enable debug/diagnostic messages on stderr.
 
 `--directory` or `-D`
-
     The directory that contains the pattern database XML files to be
     merged.
 
 `--glob` or `-G`
-
     Specify filenames to be merged using a glob pattern, for example,
     using wildcards. For details on glob patterns, see man glob. This
     pattern is applied only to the filenames, and not on directory
     names.
 
 `--pdb` or `-p`
-
     Name of the output pattern database file.
 
 `--recursive` or `-r`
-
     Merge files from subdirectories as well.
 
 `--sort` or `-s`
-
     Sort files into alphabetic order during the merge (first sort by
     filename, then by directory name).
 
 `--verbose` or `-v`
-
     Enable verbose messages on stderr.
 
 ### EXAMPLE: MERGE
@@ -275,7 +268,9 @@ format, you have to copy it into an empty directory.
 
 ## THE PATTERNIZE COMMAND
 
+```shell
 patternize [options]
+```
 
 Automatically create a pattern database from a log file containing a
 large number of log messages. The resulting pattern database is printed
@@ -287,36 +282,29 @@ databases and message parsers, see the [The {{ site.product.short_name }} Admini
 only in version 3.2 and later.
 
 `--debug` or `-d`
-
     Enable debug/diagnostic messages on stderr.
 
 `--file=<path>` or `-f`
-
     The logfile containing the log messages to create patterns from. To
     receive the log messages from the standard input (stdin), use -.
 
 `--iterate-outliers` or `-o`
-
     Recursively iterate on the log lines to cover as many log messages
     with patterns as possible.
 
 `--named-parsers` or `-n`
-
     The number of example log messages to include in the pattern
     database for every pattern. Default value: 1
 
 `--no-parse` or `-p`
-
     Do not parse the input file, treat every line as the message part of
     a log message.
 
 `--samples=<number-of-samples>`
-
     Include a generated name in the parsers, for example,
     **.dict.string1**, **.dict.string2**, and so on.
 
 `--support=<number>` or `-S`
-
     A pattern is added to the output pattern database if at least the
     specified percentage of log messages from the input logfile match
     the pattern. For example, if the input logfile contains 1000 log
@@ -324,11 +312,9 @@ only in version 3.2 and later.
     only if the pattern matches at least 3 percent of the log messages
     (that is, 30 log messages). If patternize does not create enough
     patterns, try to decrease the support value.
-
     Default value: 4.0
 
 `--verbose` or `-v`
-
     Enable verbose messages on stderr.
 
 ### EXAMPLE: PATTERINZE
@@ -339,35 +325,31 @@ pdbtool patternize --support=2.5 --file=/var/log/messages
 
 ## THE TEST COMMAND
 
+```shell
 test [options]
+```
 
 Use the test command to validate a pattern database XML file. Note that
 you must have the xmllint application installed. The test command is
 available only in {{ site.product.short_name }} version 3.2 and later.
 
 `--color-out` or `-c`
-
     Enable coloring in terminal output.
 
 `--debug` or `-d`
-
     Enable debug/diagnostic messages on stderr.
 
 `--debug` or `-D`
-
     Print debugging information on non-matching patterns.
 
 `--rule-id` or `-r`
-
     Test only the patterndb rule (specified by its rule id) against its
     example.
 
 `--validate`
-
     Validate a pattern database XML file.
 
 `--verbose` or `-v`
-
     Enable verbose messages on stderr.
 
 ### EXAMPLE: TEST

@@ -178,23 +178,20 @@ and the metrics related to each destination. An example output:
 
 The syslog-ng-ctl query get command has the following options:
 
-- \--sum
-
+`--sum`
     Add up the result of each matching node and return only a single
-    number.
-
-    For example, the syslog-ng-ctl query get \--sum
-    \"destination\*.dropped\" command displays the number of messages
+    number. For example, the syslog-ng-ctl query get `--sum "destination*.dropped"` command displays the number of messages
     dropped by the {{ site.product.short_name }} instance.
 
-- \--reset
-
-    Use \--reset to set the selected counters to 0 after executing the
+`--reset`
+    Use `--reset` to set the selected counters to `0` after executing the
     query.
 
 ## THE STATS COMMAND
 
+```shell
 stats [options]
+```
 
 Use the stats command to display statistics about the processed
 messages. For details about the displayed statistics,
@@ -202,18 +199,15 @@ see The {{ site.product.short_name }} Administration Guide.
 The stats command has the following options:
 
 `--control=<socket>` or `-c`
-
     Specify the socket to use to access syslog-ng PE. Only needed when
     using a non-standard socket.
 
 `--reset=<socket>` or `-r`
-
     Reset all statistics to zero, except for the queued counters. (The
     queued counters show the number of messages in the message queue of
     the destination driver, waiting to be sent to the destination.)
 
 `--remove-orphans`
-
     Safely removes all counters that are not referenced by any syslog-ng
     stat producer objects.
 
@@ -336,18 +330,15 @@ echo "<passphrase-of-the-key>" | syslog-ng-ctl credentials add --id=<path-to-the
 ```
 
 `--control=<socket>` or `-c`
-
     Specify the socket to use to access syslog-ng PE. Only needed when
     using a non-standard socket.
 
 `--id=<path-to-the-key>` or `-i`
-
     The path to the password-protected private key file. This is the
     same path that you use in the key-file() option of the {{ site.product.short_name }}
     configuration file.
 
 `--secret=<passphrase-of-the-key>` or `-s`
-
     The password or passphrase of the private key.
 
 ## DISPLAYING THE CONFIGURATION
