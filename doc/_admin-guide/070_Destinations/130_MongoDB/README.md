@@ -62,5 +62,3 @@ destination d_mongodb {
     );
 };
 ```
-
-{% include doc/admin-guide/options/deprecated-options.md old='libmongo client syntax' new='mongodb' %}
