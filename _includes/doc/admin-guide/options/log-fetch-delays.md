@@ -1,7 +1,7 @@
 ## log-fetch-delay()
 
-|Type:|     integer|
-|Default:| `10000`|
+|  Type: | integer [1 second / fetch_retry_delay * 1000000 milliseconds] |
+|Default:| 10000 (10 milliseconds)|
 
 *Description:* Sets the time {{ site.product.short_name }} waits between reading and sending log messages. The unit of this parameter is a fraction of a second, where `wait_time = 1 second / <defined value>`. For example, setting it to `1` results in approximately one log being read/sent per second, while `1000000` means a delay of only 1 microsecond between read/write attempts. The maximum value of this parameter is `1000000`.
 
@@ -12,8 +12,8 @@
 
 ## log-fetch-retry-delay()
 
-|Type:|     integer|
-|Default:| `1`|
+|Type:| integer in seconds |
+|Default:| 1|
 
 *Description:* Controls how many seconds {{ site.product.short_name }} remains idle before checking for new logs, in case no new logs were read during the previous check.
 
