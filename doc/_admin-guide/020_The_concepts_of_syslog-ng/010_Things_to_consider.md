@@ -21,9 +21,9 @@ There are two drivers you can use: the **network()** driver and the
 **syslog()** driver. The syslog() driver is for the syslog (RFC-5424)
 protocol and the network() driver is for the BSD (RFC-3164) protocol.
 
-The tcp() and udp() drivers are now deprecated, they are essentially
-equivalent with the network(transport(tcp)) and network(transport(udp))
-drivers.
+{% include doc/admin-guide/options/deprecated-options.md old='tcp()' new='network(transport(tcp))' %}
+
+{% include doc/admin-guide/options/deprecated-options.md old='udp()' new='network(transport(udp))' %}
 
 In addition to selecting the driver to use, both drivers allow you to
 use different transport-layer protocols: TCP and UDP, and optionally
