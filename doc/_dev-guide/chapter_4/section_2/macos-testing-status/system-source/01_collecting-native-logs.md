@@ -35,7 +35,7 @@ For more info, see [oslog](https://developer.apple.com/documentation/oslog?langu
   - boolean value, setting to `yes` will provide a reverse-ordered log list
         (from latest to oldest)
   - default value: `no`
-- `do-not-use-bookmark()`
+- `ignore-saved-bookmarks()`
   - boolean value, setting to `yes` will prevent {{ site.product.short_name }} from continuing to
         feed the logs from the last remembered position after a (re-)start, which means,
         depending on the other settings, the feed will always start from the end/beginning
