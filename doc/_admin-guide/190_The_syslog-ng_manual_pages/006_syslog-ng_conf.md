@@ -13,11 +13,11 @@ description: >-
     syslog-ng.conf - {{ site.product.short_name }} configuration file
 ---
 
-## Synopsis
+## SYNOPSIS
 
 syslog-ng.conf
 
-## Description
+## DESCRIPTION
 
 This manual page is only an abstract.
 
@@ -30,7 +30,7 @@ and collect the log messages from the various applications, files, and
 other sources. The clients send all important log messages to the remote
 {{ site.product.short_name }} PE server, where the server sorts and stores them.
 
-## Basic concepts of {{ site.product.short_name }}
+## BASIC CONCEPTS OF {{ site.product.short_name }}
 
 The {{ site.product.short_name }} application reads incoming messages and forwards them
 to the selected destinations. The {{ site.product.short_name }} application can receive
@@ -57,7 +57,7 @@ and rewriting rules. Parsers segment messages into different fields to
 help processing the messages, while rewrite rules modify the messages by
 adding, replacing, or removing parts of the messages.
 
-## Configuring {{ site.product.short_name }}
+## CONFIGURING {{ site.product.short_name }}
 
 - The main body of the configuration file consists of object
     definitions: sources, destinations, logpaths define which log
@@ -212,7 +212,7 @@ configuration file using the following syntax:
 options { option1(params); option2(params); ... };
 ```
 
-### Example: Using global options
+For example:
 
 To disable domain name resolving, add the following line to the
 {{ site.product.short_name }} configuration file:
@@ -224,7 +224,7 @@ options { use-dns(no); };
 The sources, destinations, and filters available in {{ site.product.short_name }} are
 listed below.  
 
-## Table 1: Source drivers available in {{ site.product.short_name }}
+## TABLE 1: SOURCE DRIVERS AVAILABLE IN {{ site.product.short_name }}
 
 |Name                                |Description
 |---|---
@@ -248,7 +248,7 @@ listed below.
 |unix-stream()                 |Opens the specified unix socket in SOCK_STREAM mode and listens for incoming messages.
 |stdin()                       |Collects messages from the standard input stream.
 
-## Table 2: Destination drivers available in syslog-ng
+## TABLE 2: DESTINATION DRIVERS AVAILABLE IN {{ site.product.short_name }}
 
 |Name                   |Description
 |---|---
@@ -276,7 +276,7 @@ listed below.
 |unix-stream()|    Sends messages to the specified unix socket in SOCK_STREAM style (Linux).
 |usertty()|        Sends messages to the terminal of the specified user, if the user is logged in.
 
-## Table 3: Filter functi|ons available in {{ site.product.short_name }}
+## TABLE 3: FILTER FUNCTIONS AVAILABLE IN {{ site.product.short_name }}
 
 |Name                         |Description
 |---------------------------- |-------------
@@ -292,7 +292,7 @@ listed below.
 |source()|               | Select messages of the specified {{ site.product.short_name }} source statement.
 |tags()|                 | Select messages having the specified tag.
 
-## Files
+## FILES
 
 /opt/syslog-ng/
 
