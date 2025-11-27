@@ -4,8 +4,7 @@ title: 'kafka(): Publishing messages to Apache Kafka using the
 short_title: kafka
 id: adm-dest-kafkac
 description: >-
-  Starting with version 3.21, {{ site.product.name }} (syslog-ng
-  OSE) can directly publish log messages to the Apache Kafka
+  Starting with version 3.21, {{ site.product.name }} can directly publish log messages to the Apache Kafka
   message bus, where subscribers can access them.
 ---
 
