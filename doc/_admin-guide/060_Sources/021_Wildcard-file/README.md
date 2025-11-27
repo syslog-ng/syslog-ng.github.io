@@ -50,7 +50,7 @@ Note the following important points:
 
 - If the message does not have a proper syslog header, {{ site.product.short_name }}
     treats messages received from files as sent by the user facility.
-    Use the **default-facility()** and **default-priority()** options in
+    Use the default-facility() and default-priority() options in
     the source definition to assign a different facility if needed.
 
 - For every message that {{ site.product.short_name }} reads from the source files,

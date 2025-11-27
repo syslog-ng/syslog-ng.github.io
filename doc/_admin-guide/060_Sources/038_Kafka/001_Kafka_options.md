@@ -1,6 +1,7 @@
 ---
 title: "Options of the kafka() source"
 id: adm-src-kafka-opt
+src: kafka
 description: >-
     This section describes the options of the kafka() source in {{ site.product.short_name }}.
 ---
@@ -13,17 +14,31 @@ To use the kafka() source, the following two options are required: bootstrap-ser
 
 {% include doc/admin-guide/options/bootstrap-servers.md %}
 
+{% include doc/admin-guide/options/chain-hostname.md %}
+
 {% include doc/admin-guide/options/config-kafka.md kafka_type='consumer' type='source' protected_options='`bootstrap.servers` `metadata.broker.list` `enable.auto.offset.store` `auto.offset.reset` `enable.auto.commit` `auto.commit.enable`' %}
+
+{% include doc/admin-guide/options/default-facility.md %}
+
+{% include doc/admin-guide/options/default-priority.md %}
 
 {% include doc/admin-guide/options/disable-bookmarks.md %}
 See Bookmarking in the kafka() source for more details.
 
+{% include doc/admin-guide/options/dns-cache.md %}
+
 {% include doc/admin-guide/options/hook.md %}
+
+{% include doc/admin-guide/options/host-override.md %}
 
 {% include doc/admin-guide/options/ignore-saved-bookmarks.md %} (depending on the setting of the read-old-records() option.\
 See Bookmarking in the kafka() source for more details.
 
 {% include doc/admin-guide/options/kafka-logging.md %}
+
+{% include doc/admin-guide/options/keep-hostname.md %}
+
+{% include doc/admin-guide/options/keep-timestamp.md %}
 
 ## log-fetch-limit()
 
@@ -72,6 +87,8 @@ For example, with `workers(3)` and `fetch-limit(100000)`, the 2 processor worker
 {% include doc/admin-guide/options/read-old-records.md %}\
 See Bookmarking in the kafka() source for more details.
 
+{% include doc/admin-guide/options/program-override.md %}
+
 ## separated-worker-queues()
 
 |  Type: | yes \| no |
@@ -81,6 +98,13 @@ See Bookmarking in the kafka() source for more details.
 
 **NOTE:** This approach can improve performance, especially in high-throughput scenarios, but may also lead to significantly increased memory usage.
 {: .notice--info}
+
+## state-update-timeout()
+
+|  Type: | integer in milliseconds |
+|Default:| 1000 |
+
+*Description:* Specifies the maximum amount of time {{ site.product.short_name }} waits during Kafka broker state queries or other requests, such as metadata queries, partition offset queries/seeking, etc.
 
 ## strategy-hint()
 
@@ -92,6 +116,10 @@ See Bookmarking in the kafka() source for more details.
 Why is it worth using dual consumer strategies? describes the differences between the two.
 
 For details about how the resulting topic names, partitions, and Kafka assign/subscribe strategies are determined in different scenarios, see Basic startegy usage cross-reference of the different topic configuration cases
+
+{% include doc/admin-guide/options/tags.md %}
+
+{% include doc/admin-guide/options/time-zone.md %}
 
 ## time-reopen()
 
@@ -129,6 +157,10 @@ The partition number must be:
 - a positive integer, or `-1`, which means all partitions of the topic
 
 For details about how the resulting topic names, partitions, and Kafka assign/subscribe strategies are determined in different scenarios, see Basic startegy usage cross-reference of the different topic configuration cases and Why is it worth using dual consumer strategies?
+
+{% include doc/admin-guide/options/use-dns.md %}
+
+{% include doc/admin-guide/options/use-fqdn.md %}
 
 ## workers()
 
