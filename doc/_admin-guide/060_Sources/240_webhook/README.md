@@ -10,6 +10,17 @@ description: >-
 
 ```config
 source s_webhook {
+    webhook(
+    port(8181)
+    paths(["/events","/events/(?P<HOST>.*)"])
+    );
+};
+```
+
+**Declaration for webhook-json**
+
+```config
+source s_webhook {
 webhook-json(
     port(8181)
     paths(["/events","/events/(?P<HOST>.*)"])
