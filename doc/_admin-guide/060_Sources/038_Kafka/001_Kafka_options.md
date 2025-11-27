@@ -1,6 +1,7 @@
 ---
 title: "Options of the kafka() source"
 id: adm-src-kafka-opt
+src: kafka
 description: >-
     This section describes the options of the kafka() source in {{ site.product.short_name }}.
 ---
@@ -13,17 +14,31 @@ To use the kafka() source, the following two options are required: bootstrap-ser
 
 {% include doc/admin-guide/options/bootstrap-servers.md %}
 
+{% include doc/admin-guide/options/chain-hostname.md %}
+
 {% include doc/admin-guide/options/config-kafka.md kafka_type='consumer' type='source' protected_options='`bootstrap.servers` `metadata.broker.list` `enable.auto.offset.store` `auto.offset.reset` `enable.auto.commit` `auto.commit.enable`' %}
+
+{% include doc/admin-guide/options/default-facility.md %}
+
+{% include doc/admin-guide/options/default-priority.md %}
 
 {% include doc/admin-guide/options/disable-bookmarks.md %}
 See Bookmarking in the kafka() source for more details.
 
+{% include doc/admin-guide/options/dns-cache.md %}
+
 {% include doc/admin-guide/options/hook.md %}
+
+{% include doc/admin-guide/options/host-override.md %}
 
 {% include doc/admin-guide/options/ignore-saved-bookmarks.md %} (depending on the setting of the read-old-records() option.\
 See Bookmarking in the kafka() source for more details.
 
 {% include doc/admin-guide/options/kafka-logging.md %}
+
+{% include doc/admin-guide/options/keep-hostname.md %}
+
+{% include doc/admin-guide/options/keep-timestamp.md %}
 
 ## log-fetch-limit()
 
@@ -60,6 +75,8 @@ For example, with `workers(3)` and `fetch-limit(100000)`, the 2 processor worker
 
 *Description:* When the main worker reaches the queued message limit defined by fetch-limit(), the kafka() source temporarily stops retrieving messages from the broker. It then waits for the duration specified by `fetch-queue-full-delay()` before attempting to fetch additional messages.
 
+{% include doc/admin-guide/options/normalize-hostnames.md %}
+
 {% include doc/admin-guide/options/persist-name.md %}
 
 ## persist-store()
@@ -77,6 +94,8 @@ For more details, see Bookmarking in the kafka() source.
 | Default:| 10000 |
 
 *Description:* Specifies the maximum amount of time {{ site.product.short_name }} waits during a Kafka broker poll request for new messages to become available.
+
+{% include doc/admin-guide/options/program-override.md %}\
 
 {% include doc/admin-guide/options/read-old-records.md %}\
 See Bookmarking in the kafka() source for more details.
@@ -121,12 +140,16 @@ Why is it worth using dual consumer strategies? describes the differences betwee
 
 For details on how the resulting topic names, partitions, and Kafka assign/subscribe strategies are determined in different scenarios, see the Basic strategy usage cross-reference of the different topic configuration cases ; for information on how the resulting strategy participates in offset storing and bookmarking, refer to Bookmarking in the kafka() source.
 
+{% include doc/admin-guide/options/tags.md %}
+
 ## time-reopen()
 
 | Type:   | integer in seconds |
 | Default:| 60 |
 
 *Description:* The time {{ site.product.short_name }} waits between attempts to recover from errors that require re-initialization of the full kafka connection and its internally used data structures.
+
+{% include doc/admin-guide/options/time-zone.md %}
 
 ## topic()
 
@@ -157,6 +180,10 @@ The partition number must be:
 + a positive integer, or `-1`, which means all partitions of the topic
 
 For details about how the resulting topic names, partitions, and Kafka assign/subscribe strategies are determined in different scenarios, see Basic startegy usage cross-reference of the different topic configuration cases and Why is it worth using dual consumer strategies?
+
+{% include doc/admin-guide/options/use-dns.md %}
+
+{% include doc/admin-guide/options/use-fqdn.md %}
 
 ## workers()
 

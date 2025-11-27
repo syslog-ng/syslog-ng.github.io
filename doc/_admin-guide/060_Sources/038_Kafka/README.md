@@ -22,24 +22,24 @@ no regexp-related characters) and only positive partition numbers are specified.
 
 ## Basic startegy usage cross-reference of the different topic configuration cases
 
-| topic(...) in config                                  | topic name(s)              | part. number(s) | strategy-hint() | resulting strategy |
+| topic(...)                                            | topic name(s)              | part. number(s) | strategy-hint() | resulting strategy |
 |-------------------------------------------------------|----------------------------|-----------------|-----------------|--------------------|
 | topic( "topic-name-1" => "1" }                        | topic-name-1               | 1               | assign          | assign             |
 | topic( "topic-name-1" => "1" }                        | topic-name-1               | 1               | subscribe       | subscribe          |
 | topic( "topic-name-1" => "1,2" }                      | topic-name-1               | 1-2             | assign          | assign             |
-| topic( "topic-name-1" => "1,2" }                      | topic-name-1               | 1-2             | subscribe       | N/A (error)        |
+| topic( "topic-name-1" => "1,2" }                      | topic-name-1               | N/A             | subscribe       | N/A (error)        |
 | topic( "topic-name-1" => "1" "topic-name-1" => "2" }  | topic-name-1               | 1-2             | assign          | assign             |
-| topic( "topic-name-1" => "1" "topic-name-1" => "2" }  | topic-name-1               | 1-2             | subscribe       | N/A (error)        |
+| topic( "topic-name-1" => "1" "topic-name-1" => "2" }  | topic-name-1               | N/A             | subscribe       | N/A (error)        |
 | topic( "topic-name-1" => "1" "topic-name-3" => "2" }  | topic-name-1, topic-name-3 | 1, 2            | assign          | assign             |
 | topic( "topic-name-1" => "1" "topic-name-3" => "2" }  | topic-name-1, topic-name-3 | 1, 2            | subscribe       | subscribe          |
 | topic( "topic-name-1" => "-1" }                       | topic-name-1               | all             | assign          | subscribe          |
 | topic( "topic-name-1" => "-1" }                       | topic-name-1               | all             | subscribe       | subscribe          |
-| topic( "topic-name-1" => "1" "topic-name-3" => "-1" } | topic-name-1, topic-name-3 | 1, all          | assign          | subscribe          |
-| topic( "topic-name-1" => "1" "topic-name-3" => "-1" } | topic-name-1, topic-name-3 | 1, all          | subscribe       | subscribe          |
-| topic( "topic-name-3" => "1" "topic-name-3" => "-1" } | topic-name-1, topic-name-3 | 1, all          | assign          | subscribe          |
-| topic( "topic-name-3" => "1" "topic-name-3" => "-1" } | topic-name-1, topic-name-3 | 1, all          | subscribe       | subscribe          |
-| topic( "^topic-name-[13]$" => "2" }                   | topic-name-1, topic-name-3 | 2, 2            | assign          | subscribe          |
-| topic( "^topic-name-[13]$" => "2" }                   | topic-name-1, topic-name-3 | 2, 2            | subscribe       | subscribe          |
+| topic( "topic-name-1" => "1" "topic-name-3" => "-1" } | topic-name-1, topic-name-3 | all, all        | assign          | subscribe          |
+| topic( "topic-name-1" => "1" "topic-name-3" => "-1" } | topic-name-1, topic-name-3 | all, all        | subscribe       | subscribe          |
+| topic( "topic-name-3" => "1" "topic-name-3" => "-1" } | topic-name-3               | N/A             | assign          | N/A (error)        |
+| topic( "topic-name-3" => "1" "topic-name-3" => "-1" } | topic-name-3               | N/A             | subscribe       | N/A (error)        |
+| topic( "^topic-name-[13]$" => "2" }                   | topic-name-1, topic-name-3 | N/A             | assign          | N/A (error)        |
+| topic( "^topic-name-[13]$" => "2" }                   | topic-name-1, topic-name-3 | N/A             | subscribe       | N/A (error)        |
 | topic( "^topic-name-[13]$" => "-1" }                  | topic-name-1, topic-name-3 | all, all        | assign          | subscribe          |
 | topic( "^topic-name-[13]$" => "-1" }                  | topic-name-1, topic-name-3 | all, all        | subscribe       | subscribe          |
 
@@ -59,6 +59,8 @@ Using both consumer strategies — `assign` and `subscribe` — provides the fle
   - The possible drawbacks of unordered and/or repeated messages are acceptable.
 
 By supporting both approaches, {{ site.product.short_name }} can be used effectively in a variety of Kafka consumption models — from tightly controlled, partition-specific pipelines to dynamic and scalable consumer setups that evolve with the broker configuration.
+
+For more details about Kafka consumer types and rebalancing, refer to the librdkafka documentation.
 
 ## Bookmarking in the kafka() source
 

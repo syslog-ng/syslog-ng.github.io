@@ -282,7 +282,7 @@ Higher log-levels automatically include messages from lower log-levels:
 
 {% include doc/admin-guide/options/mark-mode.md %}
 
-{% include doc/admin-guide/options/source-normalize-hostnames.md %}
+{% include doc/admin-guide/options/normalize-hostnames.md %}
 
 {% include doc/admin-guide/options/on-error.md %}
 

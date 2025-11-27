@@ -1,6 +1,8 @@
 ---
 title: syslog-ng-otlp() source options
 id: adm-src-sng-otlp-opt
+src: syslog-ng-otlp
+priority_default: notice 
 description: >-
     This section describes the options of the syslog-ng-otlp() source in {{ site.product.short_name }}.
 ---
@@ -66,12 +68,7 @@ destination {
   };
 ```
 
-## chain-hostname()
-
-|   Type:|       `yes`, `no`|
-|Default:|              `no`|
-
-*Description:* This option can be used to enable or disable the chained hostname format. For more information, see the chain-hostnames() global option.
+{% include doc/admin-guide/options/chain-hostname.md %}
 
 {% include doc/admin-guide/options/channel-args.md %}
 
@@ -82,28 +79,11 @@ destination {
 
 *Description:* This option configures the upper limit of in-flight gRPC requests per worker. It is advisd to set this value in the range of 10s or 100s when there are a high number of clients sending simultaneously. In an optimized solution, the number of `workers()` and `concurrent-requests()` is greater than or equal to the number of clients. However, this can cause an increase in memory usage.
 
-## default-facility()
-
-|   Type:|       facility string|
-|Default:|                  kern|
-
-*Description:* This option assigns a facility value to messages received from the file source if the message does not specify one.
-
-## default-level()
-
-|   Type:|       string|
-|Default:|       notice|
-
-*Description:* This option defines the default level value if the `PRIORITY` entry does not exist.
+{% include doc/admin-guide/options/default-facility.md %}
 
 {% include doc/admin-guide/options/default-priority.md %}
 
-## dns-cache()
-
-|   Type:|       `yes`, `no`|
-|Default:|              `no`|
-
-*Description:* This option enables or disables the DNS cache usage.
+{% include doc/admin-guide/options/dns-cache.md %}
 
 ## ebpf()
 
