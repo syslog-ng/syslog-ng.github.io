@@ -78,6 +78,7 @@ platforms:
 |Solaris (2.6 or above)| In addition to the STREAMS device used in earlier versions, 2.6 uses a new multithreaded IPC method called door. By default the door used by syslogd is /etc/.syslog_door.|
 |HP-UX 11 or later| HP-UX uses a named pipe called /dev/log that is padded to 2048 bytes, for example, source s_hp-ux {pipe ("/dev/log" pad-size(2048)}.|
 |AIX 5.2 and 5.3|A SOCK_STREAM or SOCK_DGRAM unix socket called /dev/log.|
+|macOS 10.15 and later|A stream of OSLog messages filtered by custom predicate expressions.|
 
 Each possible communication mechanism has a corresponding source driver
 in syslog-ng. For example, to open a unix socket with SOCK_DGRAM style
