@@ -121,6 +121,13 @@ format. See also the ${AMPM} macro. 12AM is midnight. Available in
 
 {% include doc/admin-guide/host-macro.md macro = '${HOST}' from = '${HOST_FROM}' %}
 
+## ${HOSTID}
+
+The HOSTID is a persistent, 32-bits-long cryptographically secure pseudo random number,
+that belongs to the host that the syslog-ng OSE is running on. If the
+persist file is damaged, the HOSTID might change. For more about its usage, see
+use-uniqid(), ${UNIQID} and ${RCPTID}.
+
 ## ${HOST_FROM}
 
 {% include doc/admin-guide/host-from-macro.md macro = '${HOST}' from = '${HOST_FROM}' %}
