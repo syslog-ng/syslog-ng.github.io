@@ -150,9 +150,19 @@ Use an empty string to omit the type from the index: type(""). For
 example, you need to do that when using Elasticsearch 7 or newer, and
 you use a mapping in Elasticsearch to modify the type of the data.
 
+**NOTE:** In {{ site.product.short_name }} 4.11 and later versions the `type()` option is deprecated for elasticsearch destinations and including it in the configuration does not affect any functionality.
+{: .notice--info}
+
 {% include doc/admin-guide/options/time-reopen.md %}
 
 {% include doc/admin-guide/options/timeout.md %}
+
+## op-type()
+
+|Accepted Values:| `index`, `create`|
+|Default:|    N/A| `index`|
+
+*Description:* This option can be used to modify the type of the data in Elasticsearch destinations. Use `op-type(create)` in case of datastreams.
 
 ## url()
 

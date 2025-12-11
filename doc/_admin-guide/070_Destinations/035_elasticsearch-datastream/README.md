@@ -3,7 +3,7 @@ title: 'elasticsearch-datastream: Elasticsearch data streams'
 short_title: elasticsearch-datastream
 id: adm-dest-es-datastream
 description: >-
-    From {{ site.product.short_name }} 4.8 and later versions, you  can send messages and metrics to Elasticsearch data streams to store your log and metrics data as time series data.
+    Note that the Elasticsearch datastream destination is deprecated. To achive the same functionality, use the `elasticsearch()` destiniation and include the `op_type("create")` option.
 ---
 
 **Declaration**
