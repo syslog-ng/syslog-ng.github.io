@@ -162,7 +162,7 @@ you use a mapping in Elasticsearch to modify the type of the data.
 |Accepted Values:| `index`, `create`|
 |Default:|    N/A| `index`|
 
-*Description:* This option can be used to modify the type of the data in Elasticsearch destinations. Use `op-type(create)` in case of datastreams.
+*Description:* This option can be used to modify how data is stored in Elasticsearch destinations. Use `op-type("create")` in case of datastreams.
 
 ## url()
 

@@ -30,10 +30,10 @@ Responses containing partial results still provide a 200 OK HTTP status code. Sh
 ```config
 destination d_opensearch {
     elasticsearch(
-        index("myds")
+        index("<elasticsearch-index-to-store-messages>")
         op_type("create")
-        user("elastic")
-        password("8h2OLVGJ")
+        user("<elastic-user>")
+        password("<your-password>")
         url("http://localhost:9200/_bulk")
         template("$(format-json --scope rfc5424 --scope dot-nv-pairs
         --rekey .* --shift 1 --scope nv-pairs
