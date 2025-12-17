@@ -28,8 +28,8 @@ Responses containing partial results still provide a 200 OK HTTP status code. Sh
 **Declaration**
 
 ```config
-destination d_opensearch {
-    elasticsearch(
+destination d_elasticsearch {
+    elasticsearch-http(
         index("<elasticsearch-index-to-store-messages>")
         op_type("create")
         user("<elastic-user>")
