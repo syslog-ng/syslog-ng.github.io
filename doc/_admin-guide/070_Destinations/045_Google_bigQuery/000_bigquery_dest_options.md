@@ -20,6 +20,8 @@ Available in {{ site.product.short_name }} 4.5 and later versions.
 
 *Description:* This option enables compression in gRPC requests. Currently only deflate-type (similar to gzip) compression is supported.
 
+{% include doc/admin-guide/options/cloud-auth.md %}
+
 ## dataset()
 
 |  Type:|     string|
