@@ -274,7 +274,7 @@ Higher log-levels automatically include messages from lower log-levels:
 
 {% include doc/admin-guide/options/log-msg-size.md %}
 
-## mark() (DEPRECATED)
+## mark()
 
 {% include doc/admin-guide/options/deprecated-options.md old='mark()' new='mark-freq()' %}
 
@@ -282,7 +282,7 @@ Higher log-levels automatically include messages from lower log-levels:
 
 {% include doc/admin-guide/options/mark-mode.md %}
 
-{% include doc/admin-guide/options/source-normalize-hostnames.md %}
+{% include doc/admin-guide/options/normalize-hostnames.md %}
 
 {% include doc/admin-guide/options/on-error.md %}
 
@@ -299,7 +299,7 @@ Starting with version 3.16, the default value of this option is -1, so
 {{ site.product.short_name }} does not change the ownership, unless explicitly
 configured to do so.
 
-## pass-unix-credentials() (DEPRECATED)
+## pass-unix-credentials()
 
 {% include doc/admin-guide/options/deprecated-options.md old='pass-unix-credentials()' new='so-passcred()' %}
 
@@ -448,19 +448,19 @@ Possible values:
 
 - auto: Use the settings of the stats-level() option.
 
-## stats-freq() (DEPRECATED)
+## stats-freq()
 
 {% include doc/admin-guide/options/deprecated-options.md old='stats-freq()' new='stats(freq())' %}
 
-## stats-level() (DEPRECATED)
+## stats-level()
 
 {% include doc/admin-guide/options/deprecated-options.md old='stats-level()' new='stats(level())' %}
 
-## stats-max-dynamics() (DEPRECATED)
+## stats-max-dynamics()
 
 {% include doc/admin-guide/options/deprecated-options.md old='stats-max-dynamics()' new='stats(max-dynamics())' %}
 
-## sync() or sync-freq() (DEPRECATED)
+## sync() or sync-freq()
 
 {% include doc/admin-guide/options/deprecated-options.md old='sync() and sync-freq()' new='flush-lines()' %}
 
