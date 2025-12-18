@@ -10,14 +10,14 @@ id: adm-man-persist-tool
 manid: 1
 manname: persist-tool
 description: >-
-    persist-tool --- {{ site.product.short_name }} configuration file
+    persist-tool - {{ site.product.short_name }} configuration file
 ---
 
-## Synopsis
+## SYNOPSIS
 
 persist-tool [command] [options]
 
-## Description
+## DESCRIPTION
 
 This manual page is only an abstract.
 
@@ -31,77 +31,74 @@ Limitations:
 * The persist-state functions can be used only with `SLP4` or newer persist files. Older persist files are not supported.
 * Wildcard characters are not supported in file and directory names.
 
-## The dump command
+## THE DUMP COMMAND
 
+```shell
 dump [options] [persist_file]
+```
 
 Use the `dump` command to print the current content of the persist file in JSON format to the console.
 
 The `dump` command has the following options:
-* `--help` or `-?`
+`--help` or `-?`
+    Display a brief help message. For example:
 
-    Display a brief help message.
+    ```config
+        persist-tool dump /opt/syslog-ng/var/syslog-ng persist
+    ``` 
+    A valid output is the following:
 
-### Example: persist-tool dump
+    ```config
+    run_id = { "value": "00 00 00 00 0C 00 00 00 " }
+    host_id = { "value": "00 00 00 00 5F 49 2F 01 " }
+    ```
 
-```config
-persist-tool dump /opt/syslog-ng/var/syslog-ng.persist
+## THE ADD COMMAND
+
+```shell
+add [options] [input_file]
 ```
-
-A valid output is the following:
-
-```config
-run_id = { "value": "00 00 00 00 0C 00 00 00 " }
-host_id = { "value": "00 00 00 00 5F 49 2F 01 " }
-```
-
-## The add command
-
-add [options] [input_file] 
 
 Use the `add` command to add or modify a specified state-entry in the persist file. The state-entry should be in the same format as the `dump` command displays it. If the given state-entry already exists, it will be updated. Otherwise, a new value will be added. If the given persist state is invalid, it will be skipped.
 
 To use the `add` command: use `persist-tool dump` to print the content of the current persist file, and redirect it to a file. Edit the content of this file. Use `persist-tool` add with this file to modify the persist.
 
 The `add` command has the following options:
-* `--help` or `-?`
-
+`--help` or `-?`
     Display a brief help message.
-* `--output-dir=<directory>` or `-o`
 
+`--output-dir=<directory>` or `-o`
     Required parameter. The directory where the persist file is located at. The name of the persist file stored in this directory must be syslog-ng.persist.
-* `--persist-name=<filename>` or `-p`
 
-    Optional parameter. The name of the persist file to generate. Default value: syslog-ng.persist.
+`--persist-name=<filename>` or `-p`
+    Optional parameter. The name of the persist file to generate. Default value: syslog-ng.persist. For example:
 
-### Example: add dump_persist
+    ``` shell
+    /opt/syslog-ng/bin/persist-tool add dump_persist -o .
+    ```
 
-```config
-/opt/syslog-ng/bin/persist-tool add dump_persist -o .
-```
+    A valid output is the following:
 
-A valid output is the following:
+    ```config
+    log_reader_curpos(Application)      OK
+    affile_sd_curpos(/var/aaa.txt)        OK
+    ```
 
-```config
-log_reader_curpos(Application)      OK
-affile_sd_curpos(/var/aaa.txt)        OK
-```
+    An invalid output is the following:
 
-An invalid output is the following:
+    ```config
+    log_reader_curpos(Application)      OK
+    wrong
+    FAILED (error: Invalid entry syntax)
+    affile_sd_curpos(/var/aaa.txt)        OK
+    ```
 
-```config
-log_reader_curpos(Application)      OK
-wrong
-FAILED (error: Invalid entry syntax)
-affile_sd_curpos(/var/aaa.txt)        OK
-```
-
-## Files
+## FILES
 
 /opt/syslog-ng/bin/persist-tool
 
-## See also
+## SEE ALSO
 
-The syslog-ng.conf manual page
+`syslog-ng.conf`(5)
 
-The syslog-ng OSE manual page 
+{% include doc/admin-guide/manpages-footnote.md %}

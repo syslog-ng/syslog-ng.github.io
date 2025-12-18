@@ -13,17 +13,15 @@ description: >-
     slogkey --- Manages the cryptographic keys for use with the {{ site.product.short_name }} secure logging environment.
 ---
 
-## Synopsis
+## SYNOPSIS
 
-```
 slogkey [options] [arguments]
-```
 
-## Description
+## DESCRIPTION
 
 The `slogkey` utility is used to manage cryptographic keys for use with the secure logging module of {{ site.product.short_name }}. Use this utility to create a master key, derive a host key to be used by a secure logging configuration and to display the current sequence counter of a key. The options determine the operating mode and are mutually exclusive.
 
-## Arguments
+## ARGUMENTS
 
 The arguments depend on the operating mode.
 
@@ -47,29 +45,27 @@ The arguments depend on the operating mode.
 
   * Sequence counter display
 
+## OPTIONS
 
-## Options
-
-* `--master-key` or `-m`
-
+`--master-key` or `-m`
     Generates a mew master key. `<filename>` is the name of the file storing the newly generated master key.
-* `--derive-key` or `-d`
 
+`--derive-key` or `-d`
     Derive a host key using a previously generated master key.
-* `--counter` or `-c`
 
+`--counter` or `-c`
     Display the current log sequence counter of a key.
-* `--help` or `-h`
 
+`--help` or `-h`
     Display a help message.
 
-## Files
+## FILES
 
-`/usr/bin/slogkey`
+/opt/syslog-ng/bin/slogkey
 
-`/etc/syslog-ng.conf`
+/opt/syslog-ng/etc/syslog-ng.conf
 
-## Additional Information
+## SEE ALSO
 
 * The syslog-ng.conf manual page
 * The secure-logging manual page 
