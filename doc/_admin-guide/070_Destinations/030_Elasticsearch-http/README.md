@@ -28,16 +28,24 @@ Responses containing partial results still provide a 200 OK HTTP status code. Sh
 **Declaration**
 
 ```config
-d_elasticsearch_http {
+destination d_elasticsearch {
     elasticsearch-http(
         index("<elasticsearch-index-to-store-messages>")
-        url("https://your-elasticsearch-server1:9200/_bulk" "https://your-elasticsearch-server2:9200/_bulk")
-        type("<type-of-the-index>")
+        op_type("create")
+        user("<elastic-user>")
+        password("<your-password>")
+        url("http://localhost:9200/_bulk")
+        template("$(format-json --scope rfc5424 --scope dot-nv-pairs
+        --rekey .* --shift 1 --scope nv-pairs
+        --exclude DATE @timestamp=${ISODATE})")
     );
 };
 ```
 
-Use an empty string to omit the type from the index: type(" "). For
+**NOTE:** In {{ site.product.short_name }} 4.11 and later versions the `type()` option is deprecated for elasticsearch destinations and including it in the configuration does not affect any functionality.
+{: .notice--info}
+
+In versions prior to 4.11, you can use an empty string to omit the type from the index: type(" "). For
 example, you need to do that when using Elasticsearch 7 or newer, and
 you use a mapping in Elasticsearch to modify the type of the data.
 
