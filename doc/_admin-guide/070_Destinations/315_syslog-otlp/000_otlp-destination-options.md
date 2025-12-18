@@ -66,6 +66,8 @@ destination {
 
 {% include doc/admin-guide/options/channel-args.md %}
 
+{% include doc/admin-guide/options/cloud-auth.md %}
+
 ## compression()
 
 |   Type:|       boolean|

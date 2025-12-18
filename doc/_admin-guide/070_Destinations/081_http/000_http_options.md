@@ -79,6 +79,8 @@ version 3.18 and later.
 
 {% include doc/admin-guide/options/cert-file.md %}
 
+{% include doc/admin-guide/options/cloud-auth.md %}
+
 ## content-compression()
 
 |  Type:|      string|
