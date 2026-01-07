@@ -14,7 +14,7 @@ standard syslog protocols, that is, the network() and syslog() drivers,
 for example, to forward log messages between two {{ site.product.short_name }} nodes, or to
 send log data to {{ site.product.short_name }} Store Box or another log server. Other
 destinations that support TLS-encryption are not discussed in this
-chapter (for example, [[http())|adm-dest-http-nonjava]]).
+chapter (for example, [[http())|adm-dest-http]]).
 {: .notice--info}
 
 TLS uses certificates to authenticate and encrypt the communication, as

@@ -175,15 +175,6 @@ admin-guide-nav:
       subnav:
       - title: "linux-audit() source options"
         url: /admin-guide/060_Sources/050_Linux-audit/000_Linux-audit_options
-    - title: "mqtt"
-      url: /admin-guide/060_Sources/060_mqtt/README
-      subnav:
-      - title: "Prerequisites to using the mqtt() source"
-        url: /admin-guide/060_Sources/060_mqtt/000_mqtt_source_prerequisites
-      - title: "Limitations to using the mqtt() source"
-        url: /admin-guide/060_Sources/060_mqtt/001_mqtt_source_limitations
-      - title: "Options of the mqtt() source"
-        url: /admin-guide/060_Sources/060_mqtt/002_mqtt_source_options
     - title: "network"
       url: /admin-guide/060_Sources/070_Network/README
       subnav:
@@ -213,16 +204,25 @@ admin-guide-nav:
       subnav:
       - title: "mbox() source options"
         url: /admin-guide/060_Sources/090_mbox/000_mbox_options
-    - title: "osquery"
-      url: /admin-guide/060_Sources/100_osquery/README
+    - title: "mqtt"
+      url: /admin-guide/060_Sources/095_mqtt/README
       subnav:
-      - title: "osquery() source options"
-        url: /admin-guide/060_Sources/100_osquery/000_osquery_source_options
+      - title: "Prerequisites to using the mqtt() source"
+        url: /admin-guide/060_Sources/095_mqtt/000_mqtt_source_prerequisites
+      - title: "Limitations to using the mqtt() source"
+        url: /admin-guide/060_Sources/095_mqtt/001_mqtt_source_limitations
+      - title: "Options of the mqtt() source"
+        url: /admin-guide/060_Sources/095_mqtt/002_mqtt_source_options
     - title: "OpenTelemetry"
-      url: /admin-guide/060_Sources/102_OpenTelemetry/README
+      url: /admin-guide/060_Sources/100_OpenTelemetry/README
       subnav:
       - title: "opentelemetry() source options"
-        url: /admin-guide/060_Sources/102_OpenTelemetry/000_opentelemetry_source_options
+        url: /admin-guide/060_Sources/100_OpenTelemetry/000_opentelemetry_source_options
+    - title: "osquery"
+      url: /admin-guide/060_Sources/102_osquery/README
+      subnav:
+      - title: "osquery() source options"
+        url: /admin-guide/060_Sources/102_osquery/000_osquery_source_options
     - title: "pihole-ftl"
       url: /admin-guide/060_Sources/105_pi-hole-FTL/README
       subnav:
