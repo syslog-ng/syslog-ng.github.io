@@ -29,7 +29,7 @@ codekit-config.json
 # These added back with warning headers to aid instant usage
 #_data/navigation.yml
 _data/links
+_data/manpages
 # _js/main.min.js
 assets/js
 _tools/package.json
-_data/manpages

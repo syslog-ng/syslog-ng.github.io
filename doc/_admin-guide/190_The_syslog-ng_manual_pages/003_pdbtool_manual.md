@@ -10,13 +10,13 @@ id: adm-man-pdbtool
 manid: 1
 manname: pdbtool
 description: >-
-    pdbtool --- An application to test and convert {{ site.product.short_name }} pattern
+    pdbtool - An application to test and convert {{ site.product.short_name }} pattern
     database rules
 ---
 
 ## SYNOPSIS
 
-pdbtool [command] [options]
+**pdbtool [command] [options]**
 
 ## DESCRIPTION
 
@@ -48,27 +48,24 @@ The pdbtool application is a utility that can be used to:
 
 ## THE DICTIONARY COMMAND
 
-dictionary [options]
+**dictionary [options]**
 
 Lists every name-value pair that can be set by the rules of the pattern
 database.
 
 `--dump-tag` or `-T`
-
     List the tags instead of the names of the name-value pairs.
 
 `--pdb <path-to-file>` or `-p <path-to-file>`
-
     Name of the pattern database file to use.
 
 `--program <programname>` or `-P <programname>`
-
     List only the name-value pairs that can be set for the messages of
     the specified ${PROGRAM} application.
 
 ## THE DUMP COMMAND
 
-dump [options]
+**dump [options]**
 
 Display the RADIX tree built from the patterns. This shows how are the
 patterns represented in {{ site.product.short_name }} and it might also help to track
@@ -76,29 +73,24 @@ down pattern-matching problems. The dump utility can dump the tree used
 for matching the `PROGRAM` or the `MSG` parts.
 
 `--debug` or `-d`
-
     Enable debug/diagnostic messages on stderr.
 
 `--pdb` or `-p`
-
     Name of the pattern database file to use.
 
 `--program` or `-P`
-
     Displays the RADIX tree built from the patterns belonging to the
     ${PROGRAM} application.
 
 `--program-tree` or `-T`
-
     Display the ${PROGRAM} tree.
 
 `--verbose` or `-v`
-
     Enable verbose messages on stderr.
 
-### EXAMPLE:
+### EXAMPLE
 
-```bash
+```shell
 pdbtool dump -p patterndb.xml  -P 'sshd'
 ```
 
@@ -124,7 +116,7 @@ pdbtool dump -p patterndb.xml  -P 'sshd'
 
 ## THE MATCH COMMAND
 
-match [options]
+**match [options]**
 
 Use the match command to test the rules in a pattern database. The
 command tries to match the specified message against the patterns of the
@@ -144,26 +136,21 @@ information:
 The match command has the following options:
 
 `--color-out` or `-c`
-
     Color the terminal output to highlight the part of the message that
     was successfully parsed.
 
 `--debug` or `-d`
-
     Enable debug/diagnostic messages on stderr.
 
 `--debug-csv` or `-C`
-
     Print the debugging information returned by the `--debug-pattern`
     option as comma-separated values.
 
 `--debug-pattern` or `-D`
-
     Print debugging information about the pattern matching. See also the
     `--debug-csv` option.
 
 `--file=<filename-with-path>` or `-f`
-
     Process the messages of the specified log file with the pattern
     database. This option allows to classify messages offline, and to
     apply the pattern database to already existing logfiles. To read the
@@ -171,31 +158,25 @@ The match command has the following options:
     character instead of a filename.
 
 `--filter=<filter-expression>` or `-F`
-
     Print only messages matching the specified {{ site.product.short_name }} filter
     expression.
 
 `--message` or `-M`
-
     The text of the log message to match (only the `MESSAGE` part
     without the syslog headers).
 
 `--pdb` or `-p`
-
     Name of the pattern database file to use.
 
 `--program` or `-P`
-
     Name of the program to use, as contained in the `PROGRAM` part of
     the syslog message.
 
 `--template=<template-expression>` or `-T`
-
     A {{ site.product.short_name }} template expression that is used to format the output
     messages.
 
 `--verbose` or `-v`
-
     Enable verbose messages on stderr.
 
 ### EXAMPLE: CHECK
@@ -203,7 +184,7 @@ The match command has the following options:
 The following command checks if the patterndb.xml file recognizes the
 Accepted publickey for myuser from 127.0.0.1 port 59357 ssh6 message:
 
-```bash
+```shell
 pdbtool match -p patterndb.xml -P sshd -M "Accepted publickey for myuser from 127.0.0.1 port 59357 ssh6"
 ```
 
@@ -213,7 +194,7 @@ The following example applies the sshd.pdb pattern database file to the
 log messages stored in the /var/log/messages file, and displays only the
 messages that received a useracct tag.
 
-```bash
+```shell
 pdbtool match -p sshd.pdb \
     –file /var/log/messages \
     –filter ‘tags(“usracct”);’
@@ -221,7 +202,7 @@ pdbtool match -p sshd.pdb \
 
 ## THE MERGE COMMAND
 
-merge [options]
+**merge [options]**
 
 Use the merge command to combine separate pattern database files into a
 single file (pattern databases are usually stored in separate files per
@@ -258,7 +239,7 @@ details on the different pattern database versions.
 
 ### EXAMPLE: MERGE
 
-```bash
+```shell
 pdbtool merge --recursive --directory /home/me/mypatterns/  --pdb /var/lib/syslog-ng/patterndb.xml
 ```
 
@@ -268,9 +249,7 @@ format, you have to copy it into an empty directory.
 
 ## THE PATTERNIZE COMMAND
 
-```shell
-patternize [options]
-```
+**patternize [options]**
 
 Automatically create a pattern database from a log file containing a
 large number of log messages. The resulting pattern database is printed
@@ -319,15 +298,13 @@ only in version 3.2 and later.
 
 ### EXAMPLE: PATTERINZE
 
-```config
+```shell
 pdbtool patternize --support=2.5 --file=/var/log/messages
 ```
 
 ## THE TEST COMMAND
 
-```shell
-test [options]
-```
+**test [options]**
 
 Use the test command to validate a pattern database XML file. Note that
 you must have the xmllint application installed. The test command is
@@ -354,7 +331,7 @@ available only in {{ site.product.short_name }} version 3.2 and later.
 
 ### EXAMPLE: TEST
 
-```bash
+```shell
 pdbtool test --validate /home/me/mypatterndb.pdb
 ```
 

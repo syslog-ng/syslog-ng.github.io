@@ -15,7 +15,7 @@ description: >-
 
 ## SYNOPSIS
 
-slogkey [options] [arguments]
+**slogkey [options] [arguments]**
 
 ## DESCRIPTION
 
@@ -27,9 +27,9 @@ The arguments depend on the operating mode.
 
 * Master key generation
 
-    Call sequence: slogkey `--master-ḱey <filename>`
+    Call sequence: `slogkey --master-ḱey <filename>`
 
-    `<filename>`: The name of the file to which the master key is written.
+  * `<filename>`: The name of the file to which the master key is written.
 
 * Host key derivation
 

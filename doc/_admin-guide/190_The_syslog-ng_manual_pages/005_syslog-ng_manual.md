@@ -15,7 +15,7 @@ description: >-
 
 ## SYNOPSIS
 
-syslog-ng [options]
+**syslog-ng [options]**
 
 ## DESCRIPTION
 
@@ -42,14 +42,14 @@ other sources. The clients send all important log messages to the remote
     For example:
 
     ``` shell
-        /opt/syslog-ng/sbin/syslog-ng -Fv --caps cap_sys_admin,cap_chown,cap_dac_override,cap_net_bind_service,cap_fowner=pi
+    /opt/syslog-ng/sbin/syslog-ng -Fv --caps cap_sys_admin,cap_chown,cap_dac_override,cap_net_bind_service,cap_fowner=pi
     ```
 
     **NOTE:** The capabilities are not case sensitive, the following command is also good:
     {: .notice--info}
 
     ``` shell
-        /opt/syslog-ng/sbin/syslog-ng -Fv --caps CAP_SYS_ADMIN,CAP_CHOWN,CAP_DAC_OVERRIDE,CAP_NET_BIND_SERVICE,CAP_FOWNER=pi
+    /opt/syslog-ng/sbin/syslog-ng -Fv --caps CAP_SYS_ADMIN,CAP_CHOWN,CAP_DAC_OVERRIDE,CAP_NET_BIND_SERVICE,CAP_FOWNER=pi
     ```
 
     For details on the capability flags, see the following man pages: `cap_from_text`(3) and `capabilities`(7)
@@ -65,8 +65,8 @@ other sources. The clients send all important log messages to the remote
     This option can be used to perform a complete configuration initialization with {{ site.product.short_name }}, then exit with the exit code indicating the result. This option can also be used to check if the configuration is semantically valid and that {{ site.product.short_name }} can actually start. (The `--syntax-only` option catches only syntactical errors.)
     Furthermore, `--check-startup` can also be used in a Kubernetes environment, to run it as a dedicated configuration check container.
 
-**NOTE:** This option is highly likely to fail if another {{ site.product.short_name }} instance is running in the background, since it initializes several processes, such as network listeners. In such a case, the network address would already be in use.
-{: .notice--info}
+  **NOTE:** This option is highly likely to fail if another {{ site.product.short_name }} instance is running in the background, since it initializes several processes, such as network listeners. In such a case, the network address would already be in use.
+  {: .notice--info}
 
 `--control <file>` or `-c <file>`
     Set the location of the {{ site.product.short_name }} control socket. Default value: */var/run/syslog-ng.ctl*
@@ -84,8 +84,8 @@ other sources. The clients send all important log messages to the remote
     Set the minimal number of required file descriptors (fd-s). This sets how many files {{ site.product.short_name }} can keep open simultaneously.
     Default value: 4096.
 
-**NOTE:** This does not override the global ulimit setting of the host.
-{: .notice--info}
+  **NOTE:** This does not override the global ulimit setting of the host.
+  {: .notice--info}
 
 `--foreground` or `-F`
     Do not daemonize, run in the foreground. When running in the foreground, {{ site.product.short_name }} starts from the current directory (*$\{CWD\}*) so it can create core files (normally, {{ site.product.short_name }} starts from */opt/syslog-ng/var*).
@@ -99,8 +99,8 @@ other sources. The clients send all important log messages to the remote
 `--module-registry`
     Display the list and description of the available modules.
 
-**NOTE:** Not all of these modules are loaded automatically, only the ones specified in the `--default-modules` option. Available only in {{ site.product.short_name }} 4.0 and later.
-{: .notice--info}
+  **NOTE:** Not all of these modules are loaded automatically, only the ones specified in the `--default-modules` option. Available only in {{ site.product.short_name }} 4.0 and later.
+  {: .notice--info}
 
 `--no-caps`
     Run {{ site.product.short_name }} as root, without capability-support. This is the default behavior. On Linux, it is possible to run {{ site.product.short_name }} as non-root with capability-support if {{ site.product.short_name }} was compiled with the `--enable-linux-caps` option enabled. (Run `syslog-ng --version` to display the list of enabled build parameters.)
@@ -127,8 +127,8 @@ other sources. The clients send all important log messages to the remote
 `--user <user>` or `-u <user>`
     Switch to the specified user after initializing the configuration file (and optionally chrooting).
 
-**NOTE:** It is not possible to reload the {{ site.product.short_name }} configuration if the specified user has no privilege to create the */dev/log* file.
-{: .notice--info}
+  **NOTE:** It is not possible to reload the {{ site.product.short_name }} configuration if the specified user has no privilege to create the */dev/log* file.
+  {: .notice--info}
 
 `--verbose` or `-v`
     Enable verbose logging used to troubleshoot {{ site.product.short_name }}.
@@ -136,15 +136,15 @@ other sources. The clients send all important log messages to the remote
 `--version` or `-V`
     Display version number and compilation information, and also the list and short description of the available modules. For detailed description of the available modules, see the `--module-registry` option.
 
-**NOTE:** Not all of these modules are loaded automatically, only the ones specified in the `--default-modules` option.
-{: .notice--info}
+  **NOTE:** Not all of these modules are loaded automatically, only the ones specified in the `--default-modules` option.
+  {: .notice--info}
 
 `--worker-threads`
     Sets the number of worker threads {{ site.product.short_name }} can use, including the main {{ site.product.short_name }} thread.
     See the *{{ site.product.short_name }} Administrator Guide*[1] for details.
 
-**NOTE:** Certain operations in {{ site.product.short_name }} can use threads that are not limited by this option. This setting has effect only when {{ site.product.short_name }} is running in multithreaded mode. Available only in {{ site.product.short_name }} 4.0 and later.
-{: .notice--info}
+  **NOTE:** Certain operations in {{ site.product.short_name }} can use threads that are not limited by this option. This setting has effect only when {{ site.product.short_name }} is running in multithreaded mode. Available only in {{ site.product.short_name }} 4.0 and later.
+  {: .notice--info}
 
 ## FILES
 
