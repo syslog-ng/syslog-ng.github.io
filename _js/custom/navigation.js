@@ -386,7 +386,7 @@ $(function () {
           var heading = startHeading.outerHTML; // Include the starting <h> element itself
           var description = newContent.querySelector('#page-description');
 
-          if (description && description.outerHTML.length > 0) {
+          if (false == hasAnchor &&  description && description.outerHTML.length > 0) {
             content = description.outerHTML;
           }
           else {
