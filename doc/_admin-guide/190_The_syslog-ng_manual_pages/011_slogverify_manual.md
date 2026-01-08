@@ -15,7 +15,7 @@ description: >-
 
 ## SYNOPSIS
 
-slogverify [options] [arguments]
+**slogverify [options] [arguments]**
 
 ## DESCRIPTION
 
@@ -23,7 +23,7 @@ The slogverify utility is used to verify the integrity of cryptographically secu
 
 Normal mode:
     `slogverify -k <host key file> -m <input MAC file> <input file> <output file> [buffers]`
-    
+
 Iterative mode:
     `slogverify -i -p <previous host key> -r <previous MAC> -m <current MAC> <input file> <output file> [buffers]`
 

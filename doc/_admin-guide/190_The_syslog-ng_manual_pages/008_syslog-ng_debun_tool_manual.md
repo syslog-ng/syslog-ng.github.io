@@ -16,7 +16,7 @@ description: >-
 
 ## SYNOPSIS
 
-syslog-ng-debun [options]
+**syslog-ng-debun [options]**
 
 ## DESCRIPTION
 
@@ -56,11 +56,11 @@ you ask help about your {{ site.product.short_name }} related problem.
     Start {{ site.product.short_name }} in debug mode, using the -Fedv \--enable-core
     options.
 
-    ![]({{ site.baseurl}}/assets/images/caution.png) **CAUTION:**
-    Using this option under high message load may increase disk I/O
-    during the debug, and the resulting debug bundle can be huge. To exit debug
-    mode, press Enter.
-    {: .notice--warning}
+**CAUTION:**
+Using this option under high message load may increase disk I/O
+during the debug, and the resulting debug bundle can be huge. To exit debug
+mode, press Enter.
+{: .notice--warning}
 
 `-D <options>`
     Start {{ site.product.short_name }} in debug mode, using the specified command-line
@@ -101,92 +101,84 @@ Solaris, where it uses snoop.
     Run {{ site.product.short_name }} in noninteractive debug mode for \<seconds\>, and
     automatically exit debug mode after the specified number of seconds.
 
-### EXAMPLES:
-
-```bash
-syslog-ng-debun -r
-```
+### EXAMPLES
 
 Create a simple debug bundle, collecting information about your
 environment, for example, list packages containing the word: syslog, ldd
 of your syslog-binary, and so on.
 
-```bash
-syslog-ng-debun -r -l
+```shell
+syslog-ng-debun -r
 ```
 
-Similar to syslog-ng-debun -r, but without privacy-sensitive
+Similar to `syslog-ng-debun -r`, but without privacy-sensitive
 information. For example, the following is NOT collected: fstab, df
 output, mount info, ip / network interface configuration, DNS resolv
 info, and process tree.
 
-```bash
-syslog-ng-debun -r -d
+```shell
+syslog-ng-debun -r -l
 ```
 
-Similar to syslog-ng-debun -r, but it also stops {{ site.product.short_name }}, then
-restarts it in debug mode (-Fedv \--enable-core). To stop debug mode,
+Similar to `syslog-ng-debun -r`, but it also stops {{ site.product.short_name }}, then
+restarts it in debug mode `-Fedv --enable-core`. To stop debug mode,
 press Enter. The output of the debug mode collected into a separate
 file, and also added to the debug bundle.
 
-```bash
-syslog-ng-debun -r -s
+```shell
+syslog-ng-debun -r -d
 ```
 
 Trace the system calls (using strace or truss) of an already running
 {{ site.product.short_name }} process.
 
-```bash
-syslog-ng-debun -r -d -s
+```shell
+syslog-ng-debun -r -s
 ```
 
 Restart {{ site.product.short_name }} in debug mode, and also trace the system calls
 (using strace or truss) of the {{ site.product.short_name }} process.
 
-```bash
+```shell
+syslog-ng-debun -r -d -s
+```
+
+Run packet capture (pcap) with the filter: port `514` or port `601` or port
+`53` Also waits for pressing Enter, like debug mode.
+
+```shell
 syslog-ng-debun -r -p
 ```
 
-Run packet capture (pcap) with the filter: port 514 or port 601 or port
-53 Also waits for pressing Enter, like debug mode.
+Noninteractive debug mode: Similar to `syslog-ng-debun -r -p`, but
+automatically exit after 10 seconds.
 
-```bash
+```shell
 syslog-ng-debun -r -p -t 10
 ```
 
-Noninteractive debug mode: Similar to syslog-ng-debun -r -p, but
-automatically exit after 10 seconds.
-
-```bash
-syslog-ng-debun -r -P "host 1.2.3.4"  -D "-Fev --enable-core"
-```
-
 Change the packet-capturing filter from the default to host 1.2.3.4.
-Also change debugging parameters from the default to -Fev
-\--enable-core. Since a timeout (-t) is not given, waits for pressing
-Enter.
+Also change debugging parameters from the default to `-Fev --enable-core`.
+Since a timeout `-t` is not given, waits for pressing Enter.
 
-```bash
-syslog-ng-debun -r -p -d -w 5 -t 10
+```shell
+syslog-ng-debun -r -P "host 1.2.3.4"  -D "-Fev --enable-core"
 ```
 
 Collect pcap and debug mode output following this scenario:
 
 - Start packet capture with default parameters (-p)
-
 - Wait 5 seconds (-w 5)
-
 - Stop syslog-ng
-
 - Start {{ site.product.short_name }} in debug mode with default parameters (-d)
-
 - Wait 10 seconds (-t 10)
-
 - Stop {{ site.product.short_name }} debuging
-
 - Start {{ site.product.short_name }}
-
 - Stop packet capturing
+
+```shell
+syslog-ng-debun -r -p -d -w 5 -t 10
+```
 
 ## FILES
 

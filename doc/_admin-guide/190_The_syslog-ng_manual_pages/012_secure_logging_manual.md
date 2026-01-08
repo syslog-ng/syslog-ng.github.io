@@ -15,9 +15,7 @@ description: >-
 
 ## SYNOPSIS
 
-```config
-$(slog --key-file <host key file> --mac-file <MAC file> ${RAWMSG})
-```
+**slog --key-file \<host key file\> --mac-file \<MAC file\> ${RAWMSG}**
 
 ## DESCRIPTION
 
@@ -33,7 +31,7 @@ To optimize log verification and analysis, a sequence number is added to each lo
 
 The follwoing is an example of three short original log messages that are sent to a destination with secure logging enabled:
 
-```
+```text
 This is a log message
 And here comes another log message
 This is a log message with a longer text that is processed without any problems
@@ -41,7 +39,7 @@ This is a log message with a longer text that is processed without any problems
 
 To identify the status of the secure logging environment, check the sequence counter by querying the key file with the `slogkey` utility:
 
-```config
+```shell
 user@host:~> slogkey --counter /etc/syslog-ng/host.key 
 counter=3
 ```
@@ -50,7 +48,7 @@ The numbering of log messages starts at zero, due to this, the counter is set to
 
 The output of the secure logging template for the three example messages is shown below. The sequence number that was prepended to each message can be observed. The colon indicates the end of the sequence number and the start of the original message. As three message were processed, the sequence counter of the key is also three.
 
-```
+```text
 AAAAAAAAAAA=:k3/dYpLsgO2tUJKSauo6dycIBzW6OTC3pyA9TP+7AnqFgEojBzgC2rcK4OPfRtr8yg==
 AQAAAAAAAAA=:smw0ATISVgN+BYEu5d7OLBE7aQhHpK9Ro4MndmNgSVrqhcmRCBCj6DUnD6ku0Z29CKJ0N6LAJUgByX4Ev+g=
 AgAAAAAAAAA=:5UVybnKL1EAbgC4CLfd8HpgurjREf4LEN61/yWHSD2hbXjRD4QmQdtbwguT1chzdItKSQASps9QRIvR5Jd4AHzHfqxI4aRgdUBcNbAq26nwUCg5vPWygjmbtQaxZgCJYkry8slxCigmbTVs=
@@ -58,7 +56,7 @@ AgAAAAAAAAA=:5UVybnKL1EAbgC4CLfd8HpgurjREf4LEN61/yWHSD2hbXjRD4QmQdtbwguT1chzdItK
 
 The following is the output of a successful verification run:
 
-```
+```text
 0000000000000000: This is a log message
 0000000000000001: And here comes another log message
 0000000000000002: This is a log message with a longer text that is processed without any problems
@@ -166,7 +164,7 @@ To analyze the log file created in a secure logging environment, the log files m
 
 In normal mode, a complete log archive is verified at once. In a typical environment, this would mean retrieving a log file together with is MAC file from a log host and retrieving the corresponding initial key `k0` from a safe location and supplying them to the slogverify utility. A typical call sqeuence for normal mode is presented in the following example:
 
-```config
+```shell
 slogverify --key-file host0.key --mac-file mac.dat /var/log/messages.slog /var/log/verified/messages
 ```
 
@@ -186,7 +184,7 @@ The purpose of the elements within the statement:
 
 Log files may become too large and not fit into the system memory. Verification is therefore performed in chunks. Each part of the log file is transferred to an internal buffer on which verification is performed. After the buffer has been processed, the next chunk is fetched. An optional buffer argument can be supplied to the slogverify utility in order to change the default buffer size of 1000 log entries to a number suitable for the system on which the verification is performed, for example:
 
-```config
+```shell
 slogverify --key-file host.key --mac-file mac.dat /var/log/messages.slog /var/log/verified/messages 8000
 ```
 
@@ -207,31 +205,21 @@ To enable a procedure similar to log rotation, the secure logging environment fe
 
 Steps 2-6 have to repeated each time the log file reaches a size of 50 MB. Assuming that the log file parts are named after the iteration, for example `log.1`, `log.2`, `log.3`, etc. and a similar convention is applied to the host keys and MAC files, a typical call sequence for the validation of a log file part in iterative mode after three iterations looks like this:
 
-```config
+```shell
 slogverify --iterative --prev-key-file host.key.2 --prev-mac-file mac.dat.2 --mac-file mac.dat /var/log/messages.slog.3 /var/log/verified/messages.3
 ```
 
 The purpose of the elements within the statement:
 
-`host.key.2`
+`host.key.2` - The host key from the previous iteration. In this example, this is the second iteration.
 
-    The host key from the previous iteration. In this example, this is the second iteration.
+`mac.dat.2` - The MAC file from the previous iteration. In the example, verification is performed during the third iteration, so the MAC file from the second iteration is required.
 
-`mac.dat.2`
+`mac.dat` - The current MAC file from the log host.
 
-    The MAC file from the previous iteration. In the example, verification is performed during the third iteration, so the MAC file from the second iteration is required.
+`/var/log/messages.slog.3` - The file element containing the encrypted log entries as retrieved from the log host during the third iteration.
 
-`mac.dat`
-
-    The current MAC file from the log host.
-
-`/var/log/messages.slog.3`
-
-    The file element containing the encrypted log entries as retrieved from the log host during the third iteration.
-
-`/var/log/verified/messages.3`
-
-    The file receiving the plain text log after decryption during the third iteration.
+`/var/log/verified/messages.3` - The file receiving the plain text log after decryption during the third iteration.
 
 In a real deployment, the above steps would typically be automated using a scripting engine. See [[slogverify|adm-man-slogver]] for details on verification in iterative mode.
 

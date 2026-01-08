@@ -116,7 +116,7 @@ jobs:
           popd
           rm -Rf ./_work
 
-          # Generate final manpages from the pre-generated special markdown files
+          # Generate final manpages from the generate_tooltips.rb pre-generated special markdown files
           #
           echo "Generating manpages"
           INPUT_DIRECTORY=./_data/manpages

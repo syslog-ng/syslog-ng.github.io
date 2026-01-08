@@ -17,7 +17,7 @@ description: >-
 
 ## SYNOPSIS
 
-syslog-ng-ctl \[command\] \[options\]
+**syslog-ng-ctl [command] [options]**
 
 ## DESCRIPTION
 
@@ -26,18 +26,14 @@ syslog-ng-ctl \[command\] \[options\]
 The syslog-ng-ctl application is a utility that can be used to:
 
 - enable/disable various {{ site.product.short_name }} messages for troubleshooting
-
 - display statistics about the processed messages
-
 - handling password-protected private keys
-
 - display the currently running configuration of {{ site.product.short_name }}
-
 - reload the configuration of {{ site.product.short_name }}.
 
 ## ENABLE TROUBLESHOOTING MESSAGES
 
-command \[options\]
+**command [options]**
 
 Use the syslog-ng-ctl \<command\> \--set=on command to display verbose,
 trace, or debug messages. If you are trying to solve configuration
@@ -54,34 +50,35 @@ If you need to use a non-standard control socket to access {{ site.product.short
 use the syslog-ng-ctl \<command\> \--set=on \--control=\<socket\>
 command to specify the socket to use.
 
-- verbose
+The following commands can be controlled via the `--set=` options
 
+- `verbose`
     Print verbose messages. If {{ site.product.short_name }} was started with the
-    \--stderr or -e option, the messages will be sent to stderr. If not
+    --stderr or -e option, the messages will be sent to stderr. If not
     specified, {{ site.product.short_name }} will log such messages to its internal
     source.
 
-- trace
-
+- `trace`
     Print trace messages of how messages are processed. If {{ site.product.short_name }}
-    was started with the \--stderr or -e option, the messages will be
+    was started with the --stderr or -e option, the messages will be
     sent to stderr. If not specified, {{ site.product.short_name }} will log such
     messages to its internal source.
 
-- debug
-
+- `debug`
     Print debug messages. If {{ site.product.short_name }} was started with the
-    \--stderr or -e option, the messages will be sent to stderr. If not
+    --stderr or -e option, the messages will be sent to stderr. If not
     specified, {{ site.product.short_name }} will log such messages to its internal
     source.
 
 ### EXAMPLE
 
-```bash
+```shell
 syslog-ng-ctl verbose --set=on
 ```
 
-## syslog-ng-ctl query
+## THE QUERY COMMAND
+
+**query [sub_command] [options]**
 
 The {{ site.product.short_name }} application stores various data, metrics, and
 statistics in a hash table. Every property has a name and a value.
@@ -99,74 +96,75 @@ You can query the nodes of this tree, and also use filters to select the
 information you need. A query is actually a path in the tree. You can
 also use the ? and \* wildcards. For example:
 
-- Select every property: \*
+- Select every property: `*`
 
-- Select all dropped value from every stats node: \*.stats.dropped
+- Select all dropped value from every stats node: `*.stats.dropped`
 
 The nodes and properties available in the tree depend on your {{ site.product.short_name }} configuration (that is, the sources, destinations, and other objects
 you have configured), and also on your stats-level() settings.
 
-## THE LIST COMMAND
+## DISPLAYING AVAILABLE METRICS AND STATISTICS
 
-syslog-ng-ctl query list
+**query list [options]**
 
 Use the syslog-ng-ctl query list command to display the list of metrics
 that {{ site.product.short_name }} collects about the processed messages.
 
 An example output:
 
->center.received.stats.processed
->center.queued.stats.processed
->destination.d_elastic.stats.processed
->source.s_tcp.stats.processed
->source.severity.7.stats.processed
->source.severity.0.stats.processed
->source.severity.1.stats.processed
->source.severity.2.stats.processed
->source.severity.3.stats.processed
->source.severity.4.stats.processed
->source.severity.5.stats.processed
->source.severity.6.stats.processed
->source.facility.7.stats.processed
->source.facility.16.stats.processed
->source.facility.8.stats.processed
->source.facility.17.stats.processed
->source.facility.9.stats.processed
->source.facility.18.stats.processed
->source.facility.19.stats.processed
->source.facility.20.stats.processed
->source.facility.0.stats.processed
->source.facility.21.stats.processed
->source.facility.1.stats.processed
->source.facility.10.stats.processed
->source.facility.22.stats.processed
->source.facility.2.stats.processed
->source.facility.11.stats.processed
->source.facility.23.stats.processed
->source.facility.3.stats.processed
->source.facility.12.stats.processed
->source.facility.4.stats.processed
->source.facility.13.stats.processed
->source.facility.5.stats.processed
->source.facility.14.stats.processed
->source.facility.6.stats.processed
->source.facility.15.stats.processed
->source.facility.other.stats.processed
->global.payload_reallocs.stats.processed
->global.msg_clones.stats.processed
->global.sdata_updates.stats.processed
->tag..source.s_tcp.stats.processed
+```text
+center.received.stats.processed
+center.queued.stats.processed
+destination.d_elastic.stats.processed
+source.s_tcp.stats.processed
+source.severity.7.stats.processed
+source.severity.0.stats.processed
+source.severity.1.stats.processed
+source.severity.2.stats.processed
+source.severity.3.stats.processed
+source.severity.4.stats.processed
+source.severity.5.stats.processed
+source.severity.6.stats.processed
+source.facility.7.stats.processed
+source.facility.16.stats.processed
+source.facility.8.stats.processed
+source.facility.17.stats.processed
+source.facility.9.stats.processed
+source.facility.18.stats.processed
+source.facility.19.stats.processed
+source.facility.20.stats.processed
+source.facility.0.stats.processed
+source.facility.21.stats.processed
+source.facility.1.stats.processed
+source.facility.10.stats.processed
+source.facility.22.stats.processed
+source.facility.2.stats.processed
+source.facility.11.stats.processed
+source.facility.23.stats.processed
+source.facility.3.stats.processed
+source.facility.12.stats.processed
+source.facility.4.stats.processed
+source.facility.13.stats.processed
+source.facility.5.stats.processed
+source.facility.14.stats.processed
+source.facility.6.stats.processed
+source.facility.15.stats.processed
+source.facility.other.stats.processed
+global.payload_reallocs.stats.processed
+global.msg_clones.stats.processed
+global.sdata_updates.stats.processed
+tag..source.s_tcp.stats.processed
+```
 
 The syslog-ng-ctl query list command has the following options:
 
-- \--reset
-
-    Use \--reset to set the selected counters to 0 after executing the
+  `--reset`
+    Use to set the selected counters to 0 after executing the
     query.
 
-## DISPLAYING METRICS AND STATISTICS
+## DISPLAYING METRICS AND STATISTICS DATA
 
-syslog-ng-ctl query get \[options\]
+**query get [options]**
 
 The syslog-ng-ctl query get \<query\> command lists the nodes that match
 the query, and their values.
@@ -174,7 +172,9 @@ the query, and their values.
 For example, the destination query lists the configured destinations,
 and the metrics related to each destination. An example output:
 
->destination.d_elastic.stats.processed=0
+```text
+destination.d_elastic.stats.processed=0
+```
 
 The syslog-ng-ctl query get command has the following options:
 
@@ -184,14 +184,12 @@ The syslog-ng-ctl query get command has the following options:
     dropped by the {{ site.product.short_name }} instance.
 
 `--reset`
-    Use `--reset` to set the selected counters to `0` after executing the
+    Use to set the selected counters to `0` after executing the
     query.
 
 ## THE STATS COMMAND
 
-```shell
-stats [options]
-```
+**stats [options]**
 
 Use the stats command to display statistics about the processed
 messages. For details about the displayed statistics,
@@ -210,59 +208,62 @@ The stats command has the following options:
 `--remove-orphans`
     Safely removes all counters that are not referenced by any syslog-ng
     stat producer objects.
-
     The flag can be used to prune dynamic and static counters manually.
     This is useful, for example, when a templated file destination
     produces a lot of stats:
 
-    >dst.file;#anon-destination0#0;/tmp/2021-08-16.log;o;processed;253592
-    >dst.file;#anon-destination0#0;/tmp/2021-08-17.log;o;processed;156
-    >dst.file;#anon-destination0#0;/tmp/2021-08-18.log;a;processed;961
+  ```text
+  dst.file;#anon-destination0#0;/tmp/2021-08-16.log;o;processed;253592
+  dst.file;#anon-destination0#0;/tmp/2021-08-17.log;o;processed;156
+  dst.file;#anon-destination0#0;/tmp/2021-08-18.log;a;processed;961
+  ```
 
-    **NOTE:** The stats(lifetime()) can be used to do the same
-    automatically and periodically, but currently stats(lifetime())
-    removes only dynamic counters that have a timestamp field set.
-    {: .notice--info}
+  **NOTE:** The stats(lifetime()) can be used to do the same
+  automatically and periodically, but currently stats(lifetime())
+  removes only dynamic counters that have a timestamp field set.
+  {: .notice--info}
 
 ### EXAMPLE: STATS
 
-```bash
+```shell
 syslog-ng-ctl stats
 ```
 
 An example output:
 
->src.internal;s_all#0;;a;processed;6445
->src.internal;s_all#0;;a;stamp;1268989330
->destination;df_auth;;a;processed;404
->destination;df_news_dot_notice;;a;processed;0
->destination;df_news_dot_err;;a;processed;0
->destination;d_ssb;;a;processed;7128
->destination;df_uucp;;a;processed;0
->source;s_all;;a;processed;7128
->destination;df_mail;;a;processed;0
->destination;df_user;;a;processed;1
->destination;df_daemon;;a;processed;1
->destination;df_debug;;a;processed;15
->destination;df_messages;;a;processed;54
->destination;dp_xconsole;;a;processed;671
->dst.tcp;d_network#0;10.50.0.111:514;a;dropped;5080
->dst.tcp;d_network#0;10.50.0.111:514;a;processed;7128
->dst.tcp;d_network#0;10.50.0.111:514;a;queued;2048
->destination;df_syslog;;a;processed;6724
->destination;df_facility_dot_warn;;a;processed;0
->destination;df_news_dot_crit;;a;processed;0
->destination;df_lpr;;a;processed;0
->destination;du_all;;a;processed;0
->destination;df_facility_dot_info;;a;processed;0
->center;;received;a;processed;0
->destination;df_kern;;a;processed;70
->center;;queued;a;processed;0
->destination;df_facility_dot_err;;a;processed;0
+```text
+src.internal;s_all#0;;a;processed;6445
+src.internal;s_all#0;;a;stamp;1268989330
+destination;df_auth;;a;processed;404
+destination;df_news_dot_notice;;a;processed;0
+destination;df_news_dot_err;;a;processed;0
+destination;d_ssb;;a;processed;7128
+destination;df_uucp;;a;processed;0
+source;s_all;;a;processed;7128
+destination;df_mail;;a;processed;0
+destination;df_user;;a;processed;1
+destination;df_daemon;;a;processed;1
+destination;df_debug;;a;processed;15
+destination;df_messages;;a;processed;54
+destination;dp_xconsole;;a;processed;671
+dst.tcp;d_network#0;10.50.0.111:514;a;dropped;5080
+dst.tcp;d_network#0;10.50.0.111:514;a;processed;7128
+dst.tcp;d_network#0;10.50.0.111:514;a;queued;2048
+destination;df_syslog;;a;processed;6724
+destination;df_facility_dot_warn;;a;processed;0
+destination;df_news_dot_crit;;a;processed;0
+destination;df_lpr;;a;processed;0
+destination;du_all;;a;processed;0
+destination;df_facility_dot_info;;a;processed;0
+center;;received;a;processed;0
+destination;df_kern;;a;processed;70
+center;;queued;a;processed;0
+destination;df_facility_dot_err;;a;processed;0
+```
 
 ## HANDLING PASSWORD-PROTECTED PRIVATE KEYS
 
-syslog-ng-ctl credentials [options]
+**credentials [options]**
 
 The syslog-ng-ctl credentials status command allows you to query the
 status of the private keys that {{ site.product.short_name }} uses in the network() and
@@ -273,14 +274,14 @@ The {{ site.product.short_name }} Administrator Guide.
 
 ## DISPLAYING THE STATUS OF PRIVATE KEYS
 
-syslog-ng-ctl credentials status [options]
+**credentials status [options]**
 
 The syslog-ng-ctl credentials status command allows you to query the
 status of the private keys that {{ site.product.short_name }} uses in the network() and
 syslog() drivers. The command returns the list of private keys used, and
 their status. For example:
 
-```bash
+```shell
 syslog-ng-ctl credentials status
 ```
 
@@ -299,33 +300,32 @@ The following log message also notifies you of PENDING passphrases:
 >Waiting for password; keyfile='private.key'
 
 `--control=<socket>` or `-c`
-
     Specify the socket to use to access {{ site.product.short_name }}. Only needed when
     using a non-standard socket.
 
 ## OPENING PASSWORD-PROTECTED PRIVATE KEYS
 
-syslog-ng-ctl credentials add [options]
+**credentials add [options]**
 
 You can add the passphrase to a password-protected private key file
 using the following command. {{ site.product.short_name }} will display a prompt for you
 to enter the passphrase. We recommend that you use this method.
 
-```bash
+```shell
 syslog-ng-ctl credentials add --id=<path-to-the-key>
 ```
 
 Alternatively, you can include the passphrase in the \--secret
 parameter:
 
-```bash
+```shell
 syslog-ng-ctl credentials add --id=<path-to-the-key> --secret=<passphrase-of-the-key>
 ```
 
 Or you can pipe the passphrase to the syslog-ng-ctl command, for
 example:
 
-```bash
+```shell
 echo "<passphrase-of-the-key>" | syslog-ng-ctl credentials add --id=<path-to-the-key>
 ```
 
@@ -343,7 +343,7 @@ echo "<passphrase-of-the-key>" | syslog-ng-ctl credentials add --id=<path-to-the
 
 ## DISPLAYING THE CONFIGURATION
 
-syslog-ng-ctl config [options]
+**config [options]**
 
 Use the syslog-ng-ctl config command to display the configuration that
 {{ site.product.short_name }} is currently running. Note by default, only the content of
@@ -353,7 +353,7 @@ configuration, use the syslog-ng-ctl config \--preprocessed command.
 
 ## RELOADING thE CONFIGURATION
 
-syslog-ng-ctl reload [options]
+**reload [options]**
 
 Use the syslog-ng-ctl reload command to reload the configuration file of
 {{ site.product.short_name }} without having to restart the {{ site.product.short_name }} application.

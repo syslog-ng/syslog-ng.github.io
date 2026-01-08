@@ -15,7 +15,7 @@ description: >-
 
 ## SYNOPSIS
 
-syslog-ng.conf
+**syslog-ng.conf**
 
 ## DESCRIPTION
 
@@ -59,126 +59,118 @@ adding, replacing, or removing parts of the messages.
 
 ## CONFIGURING {{ site.product.short_name }}
 
-- The main body of the configuration file consists of object
-    definitions: sources, destinations, logpaths define which log
-    message are received and where they are sent. All identifiers,
-    option names and attributes, and any other strings used in the
-    {{ site.product.short_name }} configuration file are case sensitive. Object definitions
-    (also called statements) have the following syntax:
+The main body of the configuration file consists of object
+definitions: sources, destinations, logpaths define which log
+message are received and where they are sent. All identifiers,
+option names and attributes, and any other strings used in the
+{{ site.product.short_name }} configuration file are case sensitive. Object definitions
+(also called statements) have the following syntax:
 
-    ```config
-    type-of-the-object identifier-of-the-object {<parameters>};
-    ```
+```config
+type-of-the-object identifier-of-the-object {<parameters>};
+```
 
-  - Type of the object: One of source, destination, log, filter,
-        parser, rewrite rule, or template.
+- Type of the object: One of source, destination, log, filter, parser, rewrite rule, or template.
 
-  - Identifier of the object: A unique name identifying the object.
-    When using a reserved word as an identifier, enclose the
-    identifier in quotation marks (\"\").
+- Identifier of the object: A unique name identifying the object. When using a reserved word as an identifier, enclose the identifier in quotation marks `""`. All identifiers, attributes, and any other strings used in the {{ site.product.short_name }} configuration file are case sensitive.
 
-    All identifiers, attributes, and any other strings used in the
-    {{ site.product.short_name }} configuration file are case sensitive.
+  **TIP:** Use identifiers that refer to the type of the object they
+  identify. For example, prefix source objects with `s_`,
+  destinations with `d_`, and so on
+  {: .notice--info}
 
-    **TIP:** Use identifiers that refer to the type of the object they
-    identify. For example, prefix source objects with s\_,
-    destinations with d\_, and so on.
-    {: .notice--info}
+  **NOTE:** Repeating a definition of an object (that is, defining the same
+  object with the same id more than once) is not allowed, unless
+  you use the `@define allow-config-dups 1` definition in the
+  configuration file
+  {: .notice--info}
 
-    **NOTE:** Repeating a definition of an object (that is, defining the same
-    object with the same id more than once) is not allowed, unless
-    you use the @define allow-config-dups 1 definition in the
-    configuration file.
-    {: .notice--info}
+- Parameters: The parameters of the object, enclosed in braces `{parameters}`
 
-  - Parameters: The parameters of the object, enclosed in braces
-        {parameters}.
+- Semicolon: Object definitions end with a semicolon `;`
 
-  - Semicolon: Object definitions end with a semicolon (;).
+For example, the following line defines a source and calls it s_internal.
 
-    For example, the following line defines a source and calls it
-    s\_internal.
+```config
+source s_internal { internal(); };
+```
 
-    ```config
-    source s_internal { internal(); };
-    ```
+The object can be later referenced in other statements using its ID,
+for example, the previous source is used as a parameter of the
+following log statement:
 
-    The object can be later referenced in other statements using its ID,
-    for example, the previous source is used as a parameter of the
-    following log statement:
+```config
+log { source(s_internal); destination(d_file); };
+```
 
-    ```config
-    log { source(s_internal); destination(d_file); };
-    ```
+The parameters and options within a statement are similar to
+function calls of the C programming language: the name of the option
+followed by a list of its parameters enclosed within brackets and
+terminated with a semicolon.
 
-- The parameters and options within a statement are similar to
-    function calls of the C programming language: the name of the option
-    followed by a list of its parameters enclosed within brackets and
-    terminated with a semicolon.
+```config
+option(parameter1, parameter2); option2(parameter1, parameter2);
+```
 
-    ```config
-    option(parameter1, parameter2); option2(parameter1, parameter2);
-    ```
+For example, the file() driver in the following source statement has
+three options: the filename `/var/log/apache/access.log`,
+follow-freq(), and flags(). The follow-freq() option also has a
+parameter, while the flags() option has two parameters.
 
-    For example, the file() driver in the following source statement has
-    three options: the filename (/var/log/apache/access.log),
-    follow-freq(), and flags(). The follow-freq() option also has a
-    parameter, while the flags() option has two parameters.
+```config
+source s_tail { file("/var/log/apache/access.log"
+follow-freq(1) flags(no-parse, validate-utf8)); };
+```
 
-    ```config
-    source s_tail { file("/var/log/apache/access.log"
-    follow-freq(1) flags(no-parse, validate-utf8)); };
-    ```
+Objects may have required and optional parameters. Required
+parameters are positional, meaning that they must be specified in a
+defined order. Optional parameters can be specified in any order
+using the **option(value)** format. If a parameter (optional or
+required) is not specified, its default value is used. The
+parameters and their default values are listed in the reference
+section of the particular object.
 
-    Objects may have required and optional parameters. Required
-    parameters are positional, meaning that they must be specified in a
-    defined order. Optional parameters can be specified in any order
-    using the **option(value)** format. If a parameter (optional or
-    required) is not specified, its default value is used. The
-    parameters and their default values are listed in the reference
-    section of the particular object.
+Using required and optional parameters.
 
-    Example: Using required and optional parameters
+The unix-stream() source driver has a single required argument: the
+name of the socket to listen on. Optional parameters follow the
+socket name in any order, so the following source definitions have
+the same effect:
 
-    The unix-stream() source driver has a single required argument: the
-    name of the socket to listen on. Optional parameters follow the
-    socket name in any order, so the following source definitions have
-    the same effect:
+```config
+source s_demo_stream1 {
+    unix-stream("<path-to-socket>" 
+    max-connections(10) group(log)); 
+};
 
-    ```config
-    source s_demo_stream1 {
-        unix-stream("<path-to-socket>" 
-        max-connections(10) group(log)); 
-    };
+source s_demo_stream2 {
+    unix-stream("<path-to-socket>" 
+    group(log) max-connections(10)); 
+};
+```
 
-    source s_demo_stream2 {
-        unix-stream("<path-to-socket>" 
-        group(log) max-connections(10)); 
-    };
-    ```
+Some options are global options, or can be set globally, for
+example, whether {{ site.product.short_name }} should use DNS resolution to resolve
+IP addresses.
 
-- Some options are global options, or can be set globally, for
-    example, whether {{ site.product.short_name }} should use DNS resolution to resolve
-    IP addresses.
+```config
+options { use-dns(no); };
+```
 
-    ```config
-    options { use-dns(no); };
-    ```
+Objects can be used before definition.
 
-- Objects can be used before definition.
+Objects can be defined inline as well. This is useful if you use the
+object only once (for example, a filter).
 
-- Objects can be defined inline as well. This is useful if you use the
-    object only once (for example, a filter).
+To add comments to the configuration file, start a line with \# and
+write your comments. These lines are ignored by {{ site.product.short_name }}.
 
-- To add comments to the configuration file, start a line with \# and
-    write your comments. These lines are ignored by {{ site.product.short_name }}.
+```config
+# Comment: This is a stream source
 
-    ```config
-    # Comment: This is a stream source
-
-    source s_demo_stream {
-    unix-stream("<path-to-socket>" max-connections(10) group(log)); };
-    ```
+source s_demo_stream {
+unix-stream("<path-to-socket>" max-connections(10) group(log)); };
+```
 
 The syntax of log statements is as follows:
 
@@ -212,9 +204,7 @@ configuration file using the following syntax:
 options { option1(params); option2(params); ... };
 ```
 
-For example:
-
-To disable domain name resolving, add the following line to the
+For example, to disable domain name resolving, add the following line to the
 {{ site.product.short_name }} configuration file:
 
 ```config
@@ -228,53 +218,93 @@ listed below.
 
 |Name                                |Description
 |---|---
+|arr sources                   |lidarr(), prowlarr(), radarr(), readarr(), sonarr() and whisparr() collect logs of Lidarr, Prowlarr, Radarr, Readarr, and Sonarr.
+|darwin-oslog(), darwin-oslog-stream()|Collects logs on macOS with the native OSLog framework.
+|default-network-drivers()     |A special source that uses multiple source drivers to receive and parse several different types of syslog messages from the network.
 |file()                        |Opens the specified file and reads messages.
 |wildcard-file()               |Reads messages from multiple files and directories.
+|freebsd-audit()               |Collects FreeBSD audit logs.
+|hypr-audit-trail(), hypr-app-audit-trail()|Can fetch events from the Hypr REST API.
 |internal()                    |Messages generated internally in {{ site.product.short_name }}.
+|jellyfin()                    |Reads Jellyfin logs from its log file output.
+|kafka()                       |Fetches messages from the Apache Kafka message bus.
+|kubernetes()                  |Collects container logs managed by the Kubelet.
+|linux-audit()                 |Reads and automatically parses the Linux audit logs.
+|mbox()                        |Read e-mail messages from local mbox files, and convert them to multi-line log messages.
+|mqtt()                        |Fetches messages from MQTT brokers.
 |network()                     |Receives messages from remote hosts using the BSD-syslog protocol over IPv4 and IPv6. Supports the TCP, UDP, and TLS network protocols.
 |nodejs()                      |Receives JSON messages from nodejs applications.
-|mbox()                        |Read e-mail messages from local mbox files, and convert them to multi-line log messages.
+|opentelemetry()               |Collects logs, metrics and traces from OpenTelemetry clients.
 |osquery()                     |Run osquery queries, and convert their results into log messages.
 |pacct()                       |Reads messages from the process accounting logs on Linux.
+|pihole-ftl()                  |Collect logs of the Pi-hole FTL (Faster Than Light) application.
 |pipe()                        |Opens the specified named pipe and reads messages.
+|pacct()                       |Collects process accounting logs on Linux systems.
 |program()                     |Opens the specified application and reads messages from its standard output.
+|python()                      |Allows you to write your own source in Python.
+|qbittorrent()                 |Collects logs of the qBittorrent application.
 |snmptrap()                    |Read and parse the SNMP traps of the Net-SNMP\'s snmptrapd application.
 |sun-stream(), sun-streams()   |Opens the specified STREAMS device on Solaris systems and reads incoming messages.
+|stats-exporter(), stats-exporter-dont-log()|Directly serves the output of syslog-ng-ctl stats and syslog-ng-ctl query to an HTTP scraper, such as Prometheus.
+|stdin()                       |Collects messages from the standard input stream.
+|sun-streams()                 |Collects syslogd process messages on Solaris using its STREAMS framework and its IPC mechanism called door.
 |syslog()                      |Listens for incoming messages using the new IETF-standard syslog protocol.
+|syslog-ng-otlp()              |The syslog-ng-otlp() source and destination make it possible to transfer the internal representation of log messages between syslog-ng OSE instances, using the OpenTelemetry protocol.
 |system()                      |Automatically detects which platform {{ site.product.short_name }} is running on, and collects the native log messages of that platform.
 |systemd-journal()             |Collects messages directly from the journal of platforms that use systemd.
 |systemd-syslog()              |Collects messages from the journal using a socket on platforms that use systemd.
 |unix-dgram()                  |Opens the specified unix socket in SOCK_DGRAM mode and listens for incoming messages.
 |unix-stream()                 |Opens the specified unix socket in SOCK_STREAM mode and listens for incoming messages.
-|stdin()                       |Collects messages from the standard input stream.
+|webhook(), webhook-json()     |Collects logs through a webhook using the webhook() and webhook-json() sources. The webhook-json() source automatically parses the payload using the json-parser().
 
 ## TABLE 2: DESTINATION DRIVERS AVAILABLE IN {{ site.product.short_name }}
 
 |Name                   |Description
 |---|---
-|amqp()|           Publishes messages using the AMQP (Advanced Message Queuing Protocol).
-|elasticsearch-http|   Sends messages to an Elasticsearch server.
-|file()|           Writes messages to the specified file.
-|graphite()|       Sends metrics to a Graphite server to store numeric time-series data.
-|graylog2()|       Sends syslog messages to Graylog.
-|hdfs()|           Sends messages into a file on a Hadoop Distributed File System (HDFS) node.
-|http()|            Sends messages over the HTTP protocol. There are two different implementations of this driver: a Java-based http driver, and an http driver without Java.
-|kafka()|          Publishes log messages to the Apache Kafka message bus, where subscribers can access them.
-|loggly()|         Sends log messages to the Loggly Logging-as-a-Service provider.
-|logmatic()|       Sends log messages to the Logmatic.io Logging-as-a-Service provider.
-|mongodb()|        Sends messages to a MongoDB database.
-|network()|        Sends messages to a remote host using the BSD-syslog protocol over IPv4 and IPv6. Supports the TCP, UDP, and TLS network protocols.
-|pipe()|           Writes messages to the specified named pipe.
-|program()|        Forks and launches the specified program, and sends messages to its standard input.
-|redis()|          Sends messages as name-value pairs to a Redis key-value store.
-|riemann()|        Sends metrics or events to a Riemann monitoring system.
-|smtp()|           Sends e-mail messages to the specified recipients.
-|sql()|            Sends messages into an SQL database. In addition to the standard {{ site.product.short_name }} packages, the sql() destination requires database-specific packages to be installed.
-|stomp()|          Sends messages to a STOMP server.
-|syslog()|         Sends messages to the specified remote host using the IETF-syslog protocol. The IETF standard supports message transport using the UDP, TCP, and TLS networking protocols.
-|unix-dgram()|     Sends messages to the specified unix socket in SOCK_DGRAM style (BSD).
-|unix-stream()|    Sends messages to the specified unix socket in SOCK_STREAM style (Linux).
-|usertty()|        Sends messages to the terminal of the specified user, if the user is logged in.
+|amqp()            |Publishes messages using the AMQP (Advanced Message Queuing Protocol).
+|bigquery()        |Send data to Google Cloud BigQuery through the BigQuery Storage Write API using a gRCP based high performance implementation.
+|collectd()        |Uses the unixsock plugin of the collectd application to send log messages to the collectd system statistics collection daemon.
+|discord()         |Sends messages to Discord using Discord Webhook.
+|elasticsearch-http|Sends messages to an Elasticsearch server.
+|file()            |Writes messages to the specified file.
+|google-pubsub()   |Send data to Google Cloud Pub/Sub using its HTTP REST API.
+|graphite()        |Sends metrics to a Graphite server to store numeric time-series data.
+|graylog2()        |Sends syslog messages to Graylog.
+|hdfs()            |Sends messages into a file on a Hadoop Distributed File System (HDFS) node.
+|http()            |Sends messages over the HTTP protocol. There are two different implementations of this driver: a Java-based http driver, and an http driver without Java.
+|kafka()           |Publishes log messages to the Apache Kafka message bus, where subscribers can access them.
+|loggly()          |Sends log messages to the Loggly Logging-as-a-Service provider.
+|logmatic()        |Sends log messages to the Logmatic.io Logging-as-a-Service provider.
+|loki()            |Sends log data to Grafana Loki. 
+|mongodb()         |Sends messages to a MongoDB database.
+|mqtt()            |Publishes messages to MQTT brokers.
+|network()         |Sends messages to a remote host using the BSD-syslog protocol over IPv4 and IPv6. Supports the TCP, UDP, and TLS network protocols.
+|openobserve-log() |Sends messages to OpenObserve using OpenObserve Log Ingestion - JSON API.
+|opensearch()      |Posts log messages to OpenSearch using its HTTP endpoint.
+|opentelemetry()   |Send logs, metrics and traces from OpenTelemetry clients using the OpenTelemetry Protocol (OTLP/gRPC).
+|osquery()         |Sends log messages to osquery’s syslog table.
+|pipe()            |Writes messages to the specified named pipe.
+|program()         |Forks and launches the specified program, and sends messages to its standard input.
+|pseudofile()      |A very simple driver, aimed at delivering messages to special files such as files in the /proc, /dev or /sys directories.
+|python()          |Allows you to write your own destination in Python.
+|redis()           |Sends messages as name-value pairs to a Redis key-value store.
+|riemann()         |Sends metrics or events to a Riemann monitoring system.
+|s3()              |Sends log messages to the Amazon Simple Storage Service (Amazon S3) object storage service.
+|slack()           |Sends messages to a Slack channel using the Slack Web API.
+|smtp()            |Sends e-mail messages to the specified recipients.
+|snmp()            |Sends SNMP traps using the Simple Network Management Protocol version 2c or version 3.
+|splunk-hec-raw(), splunk-hec-event()|Sends messages to the Splunk HTTP Event Collector(HEC).
+|sql()             |Sends messages into an SQL database. In addition to the standard {{ site.product.short_name }} packages, the sql() destination requires database-specific packages to be installed.
+|stdout()          |Sends messages to the standard output.
+|stomp()           |Sends messages to a STOMP server.
+|sumologic-http(), sumologic-syslog()|Sends log messages to Sumo Logic, a cloud-based log management and security analytics service.
+|syslog()          |Sends messages to the specified remote host using the IETF-syslog protocol. The IETF standard supports message transport using the UDP, TCP, and TLS networking protocols.
+|syslog-ng()       |Forwards log messages to another syslog-ng OSE node in EWMM format.
+|syslog-ng-otlp()  |The syslog-ng-otlp() source and destination make it possible to transfer the internal representation of log messages between syslog-ng OSE instances, using the OpenTelemetry protocol.
+|telegram()        |Sends log messages to Telegram, which is a secure, cloud-based mobile and desktop messaging app.
+|unix-dgram()      |Sends messages to the specified unix socket in SOCK_DGRAM style (BSD).
+|unix-stream()     |Sends messages to the specified unix socket in SOCK_STREAM style (Linux).
+|usertty()         |Sends messages to the terminal of the specified user, if the user is logged in.
 
 ## TABLE 3: FILTER FUNCTIONS AVAILABLE IN {{ site.product.short_name }}
 

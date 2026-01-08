@@ -15,9 +15,7 @@ description: >-
 
 ## SYNOPSIS
 
-```
-slogencrypt [options] [arguments]
-```
+**slogencrypt [options] [arguments]**
 
 ## DESCRIPTION
 
@@ -25,7 +23,7 @@ The `slogencrypt` utility encrypts plain text log files using an existing secure
 
 ### EXAMPLE: A GENERAL CALL SEQUENCE
 
-```
+```shell
 slogencrypt -k <key file> -m <MAC file> <new key file> <new MAC file> <plain text log> <output file> [counter]
 ```
 

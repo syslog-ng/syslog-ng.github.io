@@ -11,14 +11,12 @@ id: adm-man-loggen
 manid: 1
 manname: loggen
 description: >-
-    loggen --- Generate syslog messages at a specified rate
+    loggen - Generate syslog messages at a specified rate
 ---
 
 ## SYNOPSIS
 
-loggen [options]
-
-target [port]
+**loggen [options] target [port]**
 
 ## DESCRIPTION
 
@@ -86,10 +84,11 @@ statistics:
 `--interval <seconds>` or `-I <seconds>`
     The number of seconds loggen will run. Default value: 10
 
-    NOTE: When `--interval` and `--number` are used together, loggen will
-    send messages until the period set in `--interval` expires or the
-    amount of messages set in `--number` is reached, whichever happens
-    first.
+  **NOTE:** When `--interval` and `--number` are used together, loggen will
+  send messages until the period set in `--interval` expires or the
+  amount of messages set in `--number` is reached, whichever happens
+  first.
+  {: .notice--info}
 
 `--ipv6` or `-6`
     Specify the destination using its IPv6 address. Note that the
@@ -103,10 +102,11 @@ statistics:
 `--number <number-of-messages>` or `-n <number-of-messages>`
     Number of messages to generate.
 
-    NOTE: When `--interval` and `--number` are used together, loggen will
-    send messages until the period set in `--interval` expires or the
-    amount of messages set in `--number` is reached, whichever happens
-    first.
+  **NOTE:**  When `--interval` and `--number` are used together, loggen will
+  send messages until the period set in `--interval` expires or the
+  amount of messages set in `--number` is reached, whichever happens
+  first.
+  {: .notice--info}
 
 `--no-framing` or `-F`
     Do not use the framing of the IETF-syslog protocol style, even if
@@ -123,29 +123,38 @@ statistics:
     The number of messages generated per second for every active
     connection. Default value: 1000
 
-    If you want to change the message rate while loggen is running, send
-    SIGUSR1 to double the message rate, or SIGUSR2 to halve it:
+  **NOTE:** If you want to change the message rate while loggen is running, send
+  SIGUSR1 to double the message rate, or SIGUSR2 to halve it.
+  For example:
+  {: .notice--info}
 
-    kill `-USR1 <loggen-pid>kill` `-USR2 <loggen-pid>`
+  ```shell
+  kill -USR1 <loggen-pid>kill -USR2 <loggen-pid>
+  ```
 
 `--read-file <filename>` or `-R <filename>`
     Read the messages from a file and send them to the target. See also
     the `--skip-tokens` option.
     Specify - as the input file to read messages from the standard input
-    (stdio). Note that when reading messages from the standard input,
-    loggen can only use a single thread. The -R -parameters must be
-    placed at end of command, like: loggen 127.0.0.1 1061 `--read-file` -
+    (stdio).
+
+  **NOTE:** When reading messages from the standard input,
+  loggen can only use a single thread. The -R -parameters must be
+  placed at end of command, like:
+  {: .notice--info}
+
+  ```shell
+  loggen 127.0.0.1 1061 `--read-file` -
+  ```
 
 `--sdata <data-to-send>` or `-p <data-to-send>`
     Send the argument of the `--sdata` option as the `SDATA` part of
     IETF-syslog (RFC-5424 formatted) messages. Use it together with the
-    `--syslog-proto` option. 
-    
-    For example: 
+    `--syslog-proto` option, for example:
 
-    ```config
-    --sdata "[test name=\"value\"]
-    ```
+  ```config
+  --syslog-proto --sdata "[test name=\"value\"]"
+  ```
 
 `--size <message-size>` or `-s <message-size>`
     The size of a syslog message in bytes. Default value: 256. Minimum
@@ -165,7 +174,7 @@ statistics:
 `--syslog-proto` or `-P`
     Use the new IETF-syslog message format. By
     default, loggen uses the legacy BSD-syslog message format.
-    See also the \--no-framing option.
+    See also the --no-framing option.
 
 `--unix </path/to/socket>` or `-x </path/to/socket>`
     Use a UNIX domain socket to send the messages to the target.
@@ -178,45 +187,45 @@ statistics:
 `--version` or `-V`
     Display version number of syslog-ng.
 
-### EXAMPLES:
+### EXAMPLES
 
 The following command generates 100 messages per second for ten minutes,
 and sends them to port 2010 of the localhost via TCP. Each message is
 300 bytes long.
 
-```bash
+```shell
 loggen --size 300 --rate 100 --interval 600 127.0.0.1 2010
 ```
 
 The following command is similar to the one above, but uses the UDP
 protocol.
 
-```bash
+```shell
 loggen --inet --dgram --size 300 --rate 100 --interval 600 127.0.0.1 2010
 ```
 
 Send a single message on TCP6 to the ::1 IPv6 address, port 1061:
 
-```bash
+```shell
 loggen --ipv6 --number 1 ::1 1061
 ```
 
 Send a single message on UDP6 to the ::1 IPv6 address, port 1061:
 
-```bash
+```shell
 loggen --ipv6 --dgram --number 1 ::1 1061
 ```
 
 Send a single message using a unix domain-socket:
 
-```bash
+```shell
 loggen --unix --stream --number 1 </path/to/socket>
 ```
 
 Read messages from the standard input (stdio) and send them to the
 localhost:
 
-```bash
+```shell
 loggen 127.0.0.1 1061 --read-file -
 ```
 
