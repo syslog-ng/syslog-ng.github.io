@@ -1,6 +1,6 @@
 ## cloud-auth()
 
-*Description:* Configures cloud authentication module for the for gRPC and http based destinations. This option enables OAuth2 authentication for gRPC connections using the syslog-ng cloud authentication framework.
+*Description:* Configures the cloud authentication module for gRPC- and HTTP-based destinations, enabling OAuth2 authentication using the {{ site.product.short_name }} cloud authentication framework.
 
 The following authentication methods are available:
 
@@ -26,7 +26,7 @@ The `gcp()` option supports the following parameters:
 
 ### oauth2()
 
-Configures OAuth2 authentication for gRPC-based and http destinations. Tokens are automatically injected into gRPC metadata for each request.
+Configures OAuth2 authentication for gRPC-based and http destinations. Tokens are automatically injected into gRPC metadata and HTTP headers for each request.
 
 The `oauth2()` option supports the following parameters:
 - `client_id`
