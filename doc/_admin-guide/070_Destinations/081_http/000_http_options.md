@@ -29,6 +29,9 @@ destination d_http_compressed{
   accept-encoding("all"));
 };
 ```
+## azure-auth-header()
+
+See The Azure auth header plugin.
 
 {% include doc/admin-guide/options/batch-bytes.md %}
 
@@ -78,6 +81,8 @@ version 3.18 and later.
 {% include doc/admin-guide/options/ca-file.md %}
 
 {% include doc/admin-guide/options/cert-file.md %}
+
+{% include doc/admin-guide/options/cloud-auth.md %}
 
 ## content-compression()
 
