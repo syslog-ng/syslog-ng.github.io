@@ -75,9 +75,7 @@ Default value for tcp-probe-interval(): 60 seconds
 
 Default value for successful-probes-required(): 3  
 
-**NOTE:** This option is not available for the connection-less UDP protocol,
-because in this case the client does not detect that the destination
-becomes inaccessible.
+**NOTE:** This option will work for UDP *only if* the destination is reachable on TCP on the same port, otherwise the client does not detect that the destination becomes inaccessible.
 {: .notice--info}
 
 #### Example: Specifying failover servers for syslog() destinations
