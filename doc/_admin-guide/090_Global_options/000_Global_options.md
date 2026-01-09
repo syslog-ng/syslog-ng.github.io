@@ -331,6 +331,15 @@ driver.
 
 {% include doc/admin-guide/options/send-time-zone.md %}
 
+## so-passcred()
+
+|Accepted values:|   `yes`, `no`|
+|Default:        |         `yes`|
+
+*Description:* Enable {{ site.product.short_name }} to collect credential
+information (that is, the `PID`, user ID, and group of the sender process)
+for messages received using UNIX domain sockets.
+
 ## stats()
 
 Available in {{ site.product.short_name }} 4.1 and later versions, introduced by Axoflow.
@@ -422,16 +431,7 @@ log messages. Set to **0** to disable the STATS messages.
 **NOTE:** If a lower value is set to max-dynamics() (or, any limiting value, if this option has not been configured before) and {{ site.product.short_name }} is restarted, the changes are only applied after freq() time has passed. That is, the previously allocated dynamic clusters are only removed after this time.
 {: .notice--info}
 
-## so-passcred()
-
-|Accepted values:|   `yes`, `no`|
-|Default:        |         `yes`|
-
-*Description:* Enable {{ site.product.short_name }} to collect credential
-information (that is, the `PID`, user ID, and group of the sender process)
-for messages received using UNIX domain sockets.
-
-## syslog-stats()
+### syslog-stats()
 
 |  Accepted values:|   yes, no, auto|
 |Default:|           auto|
