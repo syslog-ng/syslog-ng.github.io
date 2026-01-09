@@ -274,7 +274,7 @@ Higher log-levels automatically include messages from lower log-levels:
 
 {% include doc/admin-guide/options/log-msg-size.md %}
 
-## mark() (DEPRECATED)
+## mark()
 
 {% include doc/admin-guide/options/deprecated-options.md old='mark()' new='mark-freq()' %}
 
@@ -282,7 +282,7 @@ Higher log-levels automatically include messages from lower log-levels:
 
 {% include doc/admin-guide/options/mark-mode.md %}
 
-{% include doc/admin-guide/options/source-normalize-hostnames.md %}
+{% include doc/admin-guide/options/normalize-hostnames.md %}
 
 {% include doc/admin-guide/options/on-error.md %}
 
@@ -299,7 +299,7 @@ Starting with version 3.16, the default value of this option is -1, so
 {{ site.product.short_name }} does not change the ownership, unless explicitly
 configured to do so.
 
-## pass-unix-credentials() (DEPRECATED)
+## pass-unix-credentials()
 
 {% include doc/admin-guide/options/deprecated-options.md old='pass-unix-credentials()' new='so-passcred()' %}
 
@@ -330,6 +330,15 @@ driver.
 {% include doc/admin-guide/examples/timezone.md %}
 
 {% include doc/admin-guide/options/send-time-zone.md %}
+
+## so-passcred()
+
+|Accepted values:|   `yes`, `no`|
+|Default:        |         `yes`|
+
+*Description:* Enable {{ site.product.short_name }} to collect credential
+information (that is, the `PID`, user ID, and group of the sender process)
+for messages received using UNIX domain sockets.
 
 ## stats()
 
@@ -422,16 +431,7 @@ log messages. Set to **0** to disable the STATS messages.
 **NOTE:** If a lower value is set to max-dynamics() (or, any limiting value, if this option has not been configured before) and {{ site.product.short_name }} is restarted, the changes are only applied after freq() time has passed. That is, the previously allocated dynamic clusters are only removed after this time.
 {: .notice--info}
 
-## so-passcred()
-
-|Accepted values:|   `yes`, `no`|
-|Default:        |         `yes`|
-
-*Description:* Enable {{ site.product.short_name }} to collect credential
-information (that is, the `PID`, user ID, and group of the sender process)
-for messages received using UNIX domain sockets.
-
-## syslog-stats()
+### syslog-stats()
 
 |  Accepted values:|   yes, no, auto|
 |Default:|           auto|
@@ -448,19 +448,19 @@ Possible values:
 
 - auto: Use the settings of the stats-level() option.
 
-## stats-freq() (DEPRECATED)
+## stats-freq()
 
 {% include doc/admin-guide/options/deprecated-options.md old='stats-freq()' new='stats(freq())' %}
 
-## stats-level() (DEPRECATED)
+## stats-level()
 
 {% include doc/admin-guide/options/deprecated-options.md old='stats-level()' new='stats(level())' %}
 
-## stats-max-dynamics() (DEPRECATED)
+## stats-max-dynamics()
 
 {% include doc/admin-guide/options/deprecated-options.md old='stats-max-dynamics()' new='stats(max-dynamics())' %}
 
-## sync() or sync-freq() (DEPRECATED)
+## sync() or sync-freq()
 
 {% include doc/admin-guide/options/deprecated-options.md old='sync() and sync-freq()' new='flush-lines()' %}
 
