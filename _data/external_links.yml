@@ -829,6 +829,21 @@ doxygen-home:
   id: doxygen-home
   url: https://www.doxygen.nl/
   title: [ "Doxygen HomePage" ]
+  
+clickhouse-home:
+  id: clickhouse-home
+  url: https://clickhouse.com/
+  title: [ "ClickHouse databases" ]
+  
+clickhouse-grpc:
+  id: clickhouse-grpc
+  url: https://clickhouse.com/docs/interfaces/grpc
+  title: [ "ClickHouse gRPC interface" ]
+
+clickhouse-install:
+  id: clickhouse-install
+  url: https://clickhouse.com/docs/install
+  title: [ "ClickHouse installation" ]
 
 ebpf:
   id: ebpf
