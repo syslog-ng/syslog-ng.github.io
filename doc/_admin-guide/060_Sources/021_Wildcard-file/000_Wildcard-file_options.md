@@ -151,11 +151,11 @@ Floating-point numbers (for example, **1.5**) can be used as well. Please note, 
 |Accepted values:| auto \| inotify \| kqueue \| poll |
 |Default:        | auto |
 
-*Description:* If the platform supports `inotify`, {{ site.product.short_name }} uses it
+*Description:* Using the `auto` value, if the platform supports `inotify`, {{ site.product.short_name }} uses it
 automatically to detect the creation, move, or deletion of source files. If the platform
 supports `kqueue`, that will be used. If neither is available, {{ site.product.short_name }}
-polls the aforementioned file changes as set in the monitor-freq() option. To force {{ site.product.short_name }}
-to poll the file changes even if `inotify` or `kqueue` is available, set this option to **poll**.
+polls the aforementioned file changes as set in the monitor-freq() option.\
+To force {{ site.product.short_name }} to poll the file changes even if `inotify` or `kqueue` is available, set this option to `poll`.
 
 {% include doc/admin-guide/warnings/file-source-follow-warning.md %}
 

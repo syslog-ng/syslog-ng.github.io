@@ -22,9 +22,9 @@ Detecting file content changes involves more factors that can affect resource us
 The first method is automatically selected in pre-4.9 version of {{ site.product.short_name }} if the follow-freq() option has a value greater than 0, or in version 4.9 or higher if follow-method() `legacy` or `poll` selected. It works like the directory monitoring `poll` monitor-method() and uses an (ivykis) timer with the frequency of follow-freq(). It tries to detect changes in the file content (as well as state, file deletion, and moves) each time the timer fires.\
 Similar to directory change monitoring, this process can be resource-intensive, so you should find the proper setting to balance performance, resource usage, and fault tolerance (such as avoiding log message loss).
 
-The second method is activated in pre-4.9 versions of {{ site.product.short_name }} if the follow-freq() option is set to 0, or in version 4.9 and higher if follow-method() is set to inotify or system.\
+The second method is activated in pre-4.9 versions of {{ site.product.short_name }} if the follow-freq() option is set to 0, or in version 4.9 and higher if follow-method() is set to `inotify`, `system` or (on version 4.11 and higher) `auto`.\
 If inotify is available on the system and selected in both follow-method() and monitor-method(), it will be used, resulting in significantly lower resource usage (especially on Linux). This option is accessible only on version 4.9 or later.\
-Otherwise, {{ site.product.short_name }} uses ivykis polling methods, which sometimes resemble the polling method used for directory change watching described above (with its associated performance penalties), but can also operate similarly to the kqueue version (offering seamless performance).
+Otherwise, {{ site.product.short_name }} uses ivykis polling methods, which sometimes resemble the polling method used for directory change watching described above (with its associated performance penalties), but can also operate similarly to the `kqueue` version (offering seamless performance).
 
 The following table shows which method is selected in different cases.
 
@@ -34,7 +34,7 @@ The following table shows which method is selected in different cases.
       <p align="center">pre-4.9 version<br>or<br>follow-method(legacy)<br>or<br>follow-method(poll)</p>
     </td>
     <td width="151" class="right-edged-col">
-      <p align="center">version 4.9 or higher<br>follow-method()</p>
+      <p align="center">version 4.9 or higher<br> follow-method() </p>
     </td>
     <td width="200" colspan="2" class="right-edged-col">
       <p align="center">file follow method</p>
@@ -50,9 +50,17 @@ The following table shows which method is selected in different cases.
     </td>
   </tr>
   <tr>
-    <td width="174" rowspan="8" class="right-edged-col">
+    <td width="174" rowspan="9" class="right-edged-col">
       <p align="center">follow-freq(0)</p>
     </td>
+    <td width="150" class="right-edged-col">
+      <p align="center">auto</p>
+    </td>
+    <td width="656" colspan="5">
+      <p align="center">for details see The auto file follow method below</p>
+    </td>
+  </tr>
+  <tr>
     <td width="150" rowspan="7" class="right-edged-col">
       <p align="center">system</p>
     </td>
@@ -195,8 +203,12 @@ The following table shows which method is selected in different cases.
   </tr>
 </table>
 
-  **NOTE:** As you can see, the best-performing option on Linux is the `inotify from ivykis directory monitor` method, which requires inotify kernel support, monitor-method() set to `inotify` or `auto` and follow-method() set to `inotify`.
-  {: .notice--info}
+(*) - `inotify` is ignored and `system` is used instead if any of the `IV_SELECT_POLL_METHOD` or the `IV_EXCLUDE_POLL_METHOD` environment variables are set, see the notation explanation below for more details.
+
+**NOTE:** As you can see, the best-performing option on\
+  \- Linux is the `inotify from ivykis directory monitor` method, which requires inotify kernel support, monitor-method() set to `inotify` or `auto` and follow-method() set to `inotify` or `auto`\
+  \- BSD based systems like FreeBSD and macOS is `kqueue`, which requires follow-method() set to `system` or `auto`
+{: .notice--info}
 
 A bit more detail about the notation in the platform columns and what they really mean:
 
@@ -206,6 +218,9 @@ The method appears in `IV_SELECT_POLL_METHOD` will be forced at startup if avail
 Methods enumerated in `IV_EXCLUDE_POLL_METHOD` will be excluded from the ivykis initialization flow, and the next available (and not excluded) one will be used. The strings that can be used in `IV_EXCLUDE_POLL_METHOD` are `port-timer port dev_poll epoll-timerfd epoll kqueue ppoll poll uring` in the same order as in the table.\
 e.g., on Linux you should use `IV_EXCLUDE_POLL_METHOD="epoll-timerfd epoll"` to force the usage of the `ppoll` method, as `port-timer port dev_poll` are not available, and `epoll-timerfd epoll` are not working currently. However, note that all the options marked as `works, but always signals readability` (like `ppoll`, `poll`, etc.) are far from optimal, unlike on BSD-based systems like macOS, where the default `kqueue` is a perfect option to use.
 
+**NOTE:** `IV_SELECT_POLL_METHOD` is available only if {{ site.product.short_name }} built with the internal ivykis version (configure options `-DIVYKIS_SOURCE=internal` for CMake and `--with-ivykis=internal` for Autotools), as the default upstream version currently has no such support.
+{: .notice--info}
+
 `works` - Means it has been tested and works seamlessly (based on our tests).
 
 `works best` - Means it has been tested and functions seamlessly, delivering the best performance on the given platform (based on our tests).
@@ -213,3 +228,13 @@ e.g., on Linux you should use `IV_EXCLUDE_POLL_METHOD="epoll-timerfd epoll"` to 
 `works, but always signals readability` - Means that the method is available on the given platform, but it is primarily designed for sockets, pipes, and similar uses, not for regular files. For regular files, it is always triggered (because regular files are always readable), behaving similarly to the `poll` method of directory monitoring with all of its disadvantages. Moreover, it could lead to even higher resource consumption (mainly CPU load) because follow-freq() does not control the frequency of the triggered internal file checks, which could occur hundreds or thousands of times per second.
 
 `does not work` - Means that the method is available on the given platform but currently does not work as expected for various reasons.
+
+### The auto file follow method
+
+From {{ site.product.short_name }} version 4.11 and higher, a new follow-method() option, `auto`, has been added. In this automatic mode, {{ site.product.short_name }} uses the following sequence to decide which method to use:
+
+- the `inotify` method is used automatically if the system supports it (and none of the `IV_SELECT_POLL_METHOD` or `IV_EXCLUDE_POLL_METHOD` environment variables are set); otherwise
+- the best available (or the `IV_SELECT_POLL_METHOD` or `IV_EXCLUDE_POLL_METHOD` forced) `system` (ivykis) poll of the platform is used; if none is available,
+- the old `poll` method is used
+
+Unfortunately, for backward compatibility reasons, the new `auto` option could not become the default for follow-method(), but for new configurations, we recommend using monitor-method("auto") and follow-method("auto") to achieve the best available performance on the given platform.
