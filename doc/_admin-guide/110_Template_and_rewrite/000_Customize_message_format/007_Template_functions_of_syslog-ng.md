@@ -54,6 +54,32 @@ ${HOST}) is equivalent to ${HOST}.
 *Description:* Returns the value of the specified environment variable.
 Available in {{ site.product.short_name }} 3.5 and later.
 
+## $(explode)
+
+ Available in {{ site.product.short_name }} 3.21 and later versions.
+
+|*Syntax:*|$(explode <separator> <string1> <string2> ...)|
+
+*Description:* Turns a string separated by a specific character into a list. You can also use the implode template function, which turns a list into a string combining the pieces together with a separator.
+
+### Example: Using the explode template function
+
+The following configuration example turns strings into a list. If there are several strings, {{ site.product.short_name }} looks for a separator within each individual string. For example, `string 2` is separated as `string, 2` in the following example:
+
+|Configuration: |Result: |
+|`$(explode ';' string1;string 2;string3;string4)`| `"string1,string,2,string3,string4"`|
+
+Enclose the strings in double-quotes or apostrophes and string 2 is separated as presented in the following example:
+
+|Configuration: |Result: |
+|`$(explode ' ' 'string1 string 2 string3 string4 string5')`|`"string1,string 2,string3,string4,string5"`|
+
+The following examples replace the separator `';'` character with a `','` character:
+
+|Configuration: |Result: |
+|`$(implode ',' $(explode ';' 'string1;string2;string3'))` |`$(implode ',' $(explode ';' 'string1;string2;string3'))`|
+|`$(explode ';' 'string1;string2;string3;string4;string5')`|`"string1,string2,string3,string4,string5"`|
+
 ## $(format-cef-extension)
 
 {{ site.product.short_name }} includes a template function (format-cef-extension) to
@@ -565,6 +591,26 @@ admin if the username is joe, and normal user otherwise.
         "root"
         $(if ("${username}" == "joe") "admin" "normal user"))</value>
 ```
+
+## $(implode)
+
+ Available in {{ site.product.short_name }} 3.21 and later versions.
+
+|*Syntax:*|$(implode <separator> <string1>, <string2>, ...)|
+
+*Description:* Turns a list into a string combining the pieces together with a separator. You can also use the explode template function, which turns a string separated by a specific character into a list.
+
+### Example: Using the implode template function
+
+The following configuration example presents how you can use the `implode` template to turn a list into a string:
+
+|Configuration: |Result: |
+|`$(implode ' ' 'string1,string2,string3,string4,string5')`| `"string1 string2 string3 string4 string5"`|
+
+You can also use a `$(list-*)` template function to further manipulate the list. The following example returns the first three elements of the list:
+
+|Configuration: |Result: |
+|`$(implode ' ' $(list-slice :3 string1,string2,string3,string4,string5))`|`"string1 string2 string3"`|
 
 ## $(indent-multi-line)
 
