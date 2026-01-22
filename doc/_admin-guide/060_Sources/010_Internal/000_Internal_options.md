@@ -14,7 +14,7 @@ The internal() driver has the following options:
 
 {% include doc/admin-guide/options/log-iw-size.md %}
 
-{% include doc/admin-guide/options/source-normalize-hostnames.md %}
+{% include doc/admin-guide/options/normalize-hostnames.md %}
 
 {% include doc/admin-guide/options/program-override.md %}
 
