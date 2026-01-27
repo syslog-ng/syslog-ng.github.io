@@ -15,6 +15,8 @@ The network() driver has the following options:
 
 {% include doc/admin-guide/options/encoding.md %}
 
+{% include doc/admin-guide/options/format.md %}
+
 {% include doc/admin-guide/options/source-flags.md %}
 
 {% include doc/admin-guide/options/hook.md %}
@@ -37,6 +39,8 @@ Available in 3.19 and later.
 
 {% include doc/admin-guide/options/ip-ttl.md %}
 
+{% include doc/admin-guide/options/internal.md %}
+
 {% include doc/admin-guide/options/keep-alive.md %}
 
 {% include doc/admin-guide/options/keep-hostname.md %}
@@ -55,11 +59,15 @@ Available in 3.19 and later.
 
 {% include doc/admin-guide/options/multi-line-mode-network.md %}
 
+{% include doc/admin-guide/options/normalize-hostnames.md %}
+
 {% include doc/admin-guide/options/pad-size.md %}
 
 {% include doc/admin-guide/options/port-localport.md %}
 
 {% include doc/admin-guide/options/program-override.md %}
+
+{% include doc/admin-guide/options/sdata-prefix.md %}
 
 {% include doc/admin-guide/options/so-broadcast.md %}
 

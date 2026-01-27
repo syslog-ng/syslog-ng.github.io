@@ -24,12 +24,16 @@ The `darwin-oslog()` source has the following options.
 
 *Description:* By default, {{ site.product.short_name }} continues to read the logs from the last remembered position after a restart. If this option is set to `yes`, it always starts reading from the end or beginning of the available log list (depending on the setting of the `go-reverse()` and the `read-old-records()` options.
 
+{% include doc/admin-guide/options/format.md %}
+
 ## go-reverse()
 
 |Type:|     boolean|
 |Default:| `no`|
 
 *Description:* If set to `yes`, the logs are processed in reverse order (latest to oldest).
+
+{% include doc/admin-guide/options/internal.md %}
 
 {% include doc/admin-guide/options/log-fetch-delays.md %}
 
@@ -42,9 +46,13 @@ The `darwin-oslog()` source has the following options.
 
 *Description:* The maximum distance in seconds that a bookmark can point backward. That is, if {{ site.product.short_name }} is stopped for 10 minutes (600 seconds) and `max-bookmark-distance()` is set to `60`, then {{ site.product.short_name }} starts reading the logs from 60 seconds before the startup, missing 9 minutes (540 seconds) worth of logs.
 
+{% include doc/admin-guide/options/normalize-hostnames.md %}
+
 ## read-old-records()
 
 |Type:|     boolean|
 |Default:| `no`|
 
 *Description:* If set to yes, {{ site.product.short_name }} starts reading logs from the oldest available entry when the system starts, or if no bookmarks are present.
+
+{% include doc/admin-guide/options/sdata-prefix.md %}

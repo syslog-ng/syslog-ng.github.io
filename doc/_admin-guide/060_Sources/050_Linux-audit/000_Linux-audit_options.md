@@ -11,4 +11,12 @@ The linux-audit() driver has the following options:
 
 {% include doc/admin-guide/options/filename.md %}
 
+{% include doc/admin-guide/options/format.md %}
+
+{% include doc/admin-guide/options/internal.md %}
+
+{% include doc/admin-guide/options/normalize-hostnames.md %}
+
 {% include doc/admin-guide/options/prefix.md %}
+
+{% include doc/admin-guide/options/sdata-prefix.md %}

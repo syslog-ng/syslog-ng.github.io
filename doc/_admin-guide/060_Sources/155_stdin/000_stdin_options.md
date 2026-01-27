@@ -20,7 +20,11 @@ The stdin() driver has the following options:
 
 {% include doc/admin-guide/options/follow-method.md %}
 
+{% include doc/admin-guide/options/format.md %}
+
 {% include doc/admin-guide/options/hook.md %}
+
+{% include doc/admin-guide/options/internal.md %}
 
 {% include doc/admin-guide/options/keep-timestamp.md %}
 
@@ -42,9 +46,13 @@ The stdin() driver has the following options:
 
 {% include doc/admin-guide/options/multi-line-timeout.md %}
 
+{% include doc/admin-guide/options/normalize-hostnames.md %}
+
 {% include doc/admin-guide/options/pad-size.md %}
 
 {% include doc/admin-guide/options/program-override.md %}
+
+{% include doc/admin-guide/options/sdata-prefix.md %}
 
 {% include doc/admin-guide/options/tags.md %}
 

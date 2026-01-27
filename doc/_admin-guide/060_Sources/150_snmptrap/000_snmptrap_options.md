@@ -16,7 +16,13 @@ In addition to traps, the log of snmptrapd may contain other messages
 (for example, daemon start/stop information, debug logs) as well.
 Currently {{ site.product.short_name }} discards these messages.
 
+{% include doc/admin-guide/options/format.md %}
+
 {% include doc/admin-guide/options/hook.md %}
+
+{% include doc/admin-guide/options/internal.md %}
+
+{% include doc/admin-guide/options/normalize-hostnames.md %}
 
 {% include doc/admin-guide/options/persist-name.md %}
 
@@ -36,3 +42,5 @@ structured message. Consequently, you might not even need the
 **no**, {{ site.product.short_name }} leaves the `MESSAGE` part empty. If
 set-message-macro() is set to **yes**, {{ site.product.short_name }} generates a regular
 log message from the trap.
+
+{% include doc/admin-guide/options/sdata-prefix.md %}

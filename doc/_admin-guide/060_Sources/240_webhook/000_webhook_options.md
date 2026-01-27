@@ -21,12 +21,16 @@ The `webhook()` and `webhook-json()` drivers have the following options:
 auth_token("dGVzdF9zZWdlskfoe0aF90b2tlbg==")
 ```
 
+{% include doc/admin-guide/options/format.md %}
+
 ## include_request_headers()
 
 |Type:|   `yes`, `no`|
 |Default:|       `no`|
 
 *Description:* If enabled, the HTTP request headers from the webhook are available for processing as a JSON object under the `${webhook.headers}` field. This option works for `webhook()` and for `webhook-json()` as well.
+
+{% include doc/admin-guide/options/internal.md %}
 
 ## paths()
 
@@ -141,5 +145,9 @@ For untrusted certificates only the existence of the certificate is checked, but
 |Default:|   `no`   |
 
 *Description:* Use the certificate store of the system for verifying HTTPS certificates. For more information, see the [curl documentation](https://curl.se/docs/sslcerts.html).
+
+{% include doc/admin-guide/options/normalize-hostnames.md %}
+
+{% include doc/admin-guide/options/sdata-prefix.md %}
 
 > *Copyright © 2025 Axoflow*

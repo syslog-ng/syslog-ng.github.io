@@ -19,7 +19,11 @@ above 2.5.1.
 
 {% include doc/admin-guide/options/follow-freq.md %}
 
+{% include doc/admin-guide/options/format.md %}
+
 {% include doc/admin-guide/options/hook.md %}
+
+{% include doc/admin-guide/options/internal.md %}
 
 {% include doc/admin-guide/options/keep-timestamp.md %}
 
@@ -31,11 +35,15 @@ above 2.5.1.
 
 {% include doc/admin-guide/options/log-prefix.md %}
 
+{% include doc/admin-guide/options/normalize-hostnames.md %}
+
 {% include doc/admin-guide/options/optional.md %}
 
 {% include doc/admin-guide/options/pad-size.md %}
 
 {% include doc/admin-guide/options/program-override.md %}
+
+{% include doc/admin-guide/options/sdata-prefix.md %}
 
 {% include doc/admin-guide/options/tags.md %}
 
