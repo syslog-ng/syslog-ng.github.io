@@ -23,6 +23,10 @@ fetch-no-data-delay() seconds before calling the fetch method again. If
 you want to call the fetch method sooner, set the fetch-no-data-delay()
 option to the number of seconds to wait before calling the fetch method.
 
+{% include doc/admin-guide/options/format.md %}
+
+{% include doc/admin-guide/options/internal.md %}
+
 {% include doc/admin-guide/options/source-flags.md %}
 
 {% include doc/admin-guide/options/keep-hostname.md %}
@@ -36,6 +40,10 @@ option to the number of seconds to wait before calling the fetch method.
 {% include doc/admin-guide/options/persist-name.md %}
 
 {% include doc/admin-guide/notes/python-persist.md %}
+
+{% include doc/admin-guide/options/normalize-hostnames.md %}
+
+{% include doc/admin-guide/options/sdata-prefix.md %}
 
 {% include doc/admin-guide/options/tags.md %}
 

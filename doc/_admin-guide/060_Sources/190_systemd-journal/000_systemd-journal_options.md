@@ -22,9 +22,13 @@ The systemd-journal() driver has the following options:
 *Description:* The default level value if the `PRIORITY` entry does not
 exist.
 
+{% include doc/admin-guide/options/format.md %}
+
 {% include doc/admin-guide/options/hook.md %}
 
 {% include doc/admin-guide/options/host-override.md %}
+
+{% include doc/admin-guide/options/internal.md %}
 
 {% include doc/admin-guide/options/keep-hostname.md %}
 
@@ -123,6 +127,8 @@ namespace() option from version 3.29. For further information about
 namespaces on the Systemd side, see Journal Namespaces.
 {: .notice--info}
 
+{% include doc/admin-guide/options/normalize-hostnames.md %}
+
 ## prefix()
 
 |  Type: |     string|
@@ -141,6 +147,8 @@ records from the beginning of the journal, if the journal has not been
 read yet. If set to **no**, {{ site.product.short_name }} will read only the new
 records. If the source has a state in the persist file, this option will
 have no effect.
+
+{% include doc/admin-guide/options/sdata-prefix.md %}
 
 {% include doc/admin-guide/options/time-zone.md %}
 

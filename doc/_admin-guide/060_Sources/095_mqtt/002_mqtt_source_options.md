@@ -21,6 +21,10 @@ of the MQTT broker from which {{ site.product.short_name }} will receive the log
 
 Syntax: \<protocol type\>://\<host\>:\<port\>
 
+{% include doc/admin-guide/options/format.md %}
+
+{% include doc/admin-guide/options/internal.md %}
+
 {% include doc/admin-guide/options/mqtt-client-id.md %}
 
 {% include doc/admin-guide/options/mqtt-cleansession.md %}
@@ -29,9 +33,13 @@ Syntax: \<protocol type\>://\<host\>:\<port\>
 
 {% include doc/admin-guide/options/mqtt-keep-alive.md %}
 
+{% include doc/admin-guide/options/normalize-hostnames.md %}
+
 {% include doc/admin-guide/options/password.md %}
 
 {% include doc/admin-guide/options/persist-name.md %}
+
+{% include doc/admin-guide/options/sdata-prefix.md %}
 
 {% include doc/admin-guide/options/qos.md %}
 

@@ -16,9 +16,17 @@ The osquery() driver has the following options.
 periodic queries. The {{ site.product.short_name }} application reads the messages from
 this file.
 
+{% include doc/admin-guide/options/format.md %}
+
 {% include doc/admin-guide/options/hook.md %}
 
+{% include doc/admin-guide/options/internal.md %}
+
+{% include doc/admin-guide/options/normalize-hostnames.md %}
+
 {% include doc/admin-guide/options/prefix.md %}
+
+{% include doc/admin-guide/options/sdata-prefix.md %}
 
 ### Default value
 
