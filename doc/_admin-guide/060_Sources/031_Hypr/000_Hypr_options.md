@@ -5,6 +5,8 @@ id: adm-src-hypr-opt
 
 The `hypr-audit-trail()` and `hypr-app-audit-trail()` sources have the following options:
 
+{% include doc/admin-guide/options/chain-hostnames.md %}
+
 ## url()
 
 |  Type:   |      url|

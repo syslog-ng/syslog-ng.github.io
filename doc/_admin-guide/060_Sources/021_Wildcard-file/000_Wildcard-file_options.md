@@ -33,6 +33,8 @@ source s_files {
 };
 ```  
 
+{% include doc/admin-guide/options/chain-hostnames.md %}
+
 {% include doc/admin-guide/options/default-facility.md %}
 
 {% include doc/admin-guide/options/default-priority.md %}

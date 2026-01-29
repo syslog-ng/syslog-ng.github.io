@@ -10,6 +10,8 @@ description: >-
 
 The python() and python-fetcher() drivers have the following options.
 
+{% include doc/admin-guide/options/chain-hostnames.md %}
+
 {% include doc/admin-guide/options/python-class.md %}
 
 ## fetch-no-data-delay()

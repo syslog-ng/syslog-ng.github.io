@@ -7,6 +7,8 @@ description: >-
 
 The pacct() driver has the following options:
 
+{% include doc/admin-guide/options/chain-hostnames.md %}
+
 ## file()
 
 |  Type:     |filename with path|

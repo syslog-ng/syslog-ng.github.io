@@ -15,6 +15,8 @@ The kubernetes() source has the following options:
 *Description:* The path to the directory that contains the log files,
 for example, **base-dir(\"/var/log/pods\")**.
 
+{% include doc/admin-guide/options/chain-hostnames.md %}
+
 ## cluster-name()
 
 | Type: |     string|

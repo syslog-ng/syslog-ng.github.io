@@ -21,6 +21,8 @@ of the MQTT broker from which {{ site.product.short_name }} will receive the log
 
 Syntax: \<protocol type\>://\<host\>:\<port\>
 
+{% include doc/admin-guide/options/chain-hostnames.md %}
+
 {% include doc/admin-guide/options/format.md %}
 
 {% include doc/admin-guide/options/internal.md %}

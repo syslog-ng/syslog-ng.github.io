@@ -9,6 +9,8 @@ description: >-
 
 The linux-audit() driver has the following options:
 
+{% include doc/admin-guide/options/chain-hostnames.md %}
+
 {% include doc/admin-guide/options/filename.md %}
 
 {% include doc/admin-guide/options/format.md %}

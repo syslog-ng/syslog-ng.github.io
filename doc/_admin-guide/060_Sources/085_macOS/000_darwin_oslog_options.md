@@ -10,6 +10,8 @@ description: >-
 
 The `darwin-oslog()` source has the following options.
 
+{% include doc/admin-guide/options/chain-hostnames.md %}
+
 ## filter-predicate()
 
 |Type:|     string|

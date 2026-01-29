@@ -13,6 +13,8 @@ specified for these drivers:
 
 {% include doc/admin-guide/options/create-dirs.md %}
 
+{% include doc/admin-guide/options/chain-hostnames.md %}
+
 {% include doc/admin-guide/options/encoding.md %}
 
 {% include doc/admin-guide/options/source-flags.md %}

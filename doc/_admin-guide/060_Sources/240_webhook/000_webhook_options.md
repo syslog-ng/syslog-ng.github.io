@@ -21,6 +21,8 @@ The `webhook()` and `webhook-json()` drivers have the following options:
 auth_token("dGVzdF9zZWdlskfoe0aF90b2tlbg==")
 ```
 
+{% include doc/admin-guide/options/chain-hostnames.md %}
+
 {% include doc/admin-guide/options/format.md %}
 
 ## include_request_headers()

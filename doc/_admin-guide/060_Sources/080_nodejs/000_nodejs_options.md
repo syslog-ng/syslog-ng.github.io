@@ -8,6 +8,8 @@ description: >-
 
 The nodejs() driver has the following options.
 
+{% include doc/admin-guide/options/chain-hostnames.md %}
+
 {% include doc/admin-guide/options/format.md %}
 
 {% include doc/admin-guide/options/hook.md %}

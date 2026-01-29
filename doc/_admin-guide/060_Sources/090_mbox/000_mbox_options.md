@@ -7,6 +7,8 @@ description: >-
 
 The mbox() driver has the following option.
 
+{% include doc/admin-guide/options/chain-hostnames.md %}
+
 {% include doc/admin-guide/options/format.md %}
 
 {% include doc/admin-guide/options/hook.md %}

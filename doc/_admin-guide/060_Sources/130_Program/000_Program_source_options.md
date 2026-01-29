@@ -5,6 +5,8 @@ description: >-
     This section describes the options of the program() source in {{ site.product.short_name }}.
 ---
 
+{% include doc/admin-guide/options/chain-hostnames.md %}
+
 {% include doc/admin-guide/options/source-flags.md %}
 
 {% include doc/admin-guide/options/format.md %}

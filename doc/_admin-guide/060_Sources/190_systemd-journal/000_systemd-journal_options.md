@@ -22,6 +22,8 @@ The systemd-journal() driver has the following options:
 *Description:* The default level value if the `PRIORITY` entry does not
 exist.
 
+{% include doc/admin-guide/options/chain-hostnames.md %}
+
 {% include doc/admin-guide/options/format.md %}
 
 {% include doc/admin-guide/options/hook.md %}

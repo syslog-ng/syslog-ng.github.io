@@ -7,6 +7,8 @@ description: >-
 
 The pipe driver has the following options:
 
+{% include doc/admin-guide/options/chain-hostnames.md %}
+
 {% include doc/admin-guide/options/create-dirs.md %}
 
 {% include doc/admin-guide/options/source-flags.md %}

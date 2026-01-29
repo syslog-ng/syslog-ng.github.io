@@ -10,6 +10,8 @@ description: >-
 The snmptrap() driver has the following options. Only the filename()
 option is required, the others are optional.
 
+{% include doc/admin-guide/options/chain-hostnames.md %}
+
 {% include doc/admin-guide/options/filename.md %}
 
 In addition to traps, the log of snmptrapd may contain other messages

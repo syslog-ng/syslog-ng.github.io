@@ -11,6 +11,8 @@ The network() driver has the following options:
 
 {% include doc/admin-guide/options/ca-file.md %}
 
+{% include doc/admin-guide/options/chain-hostnames.md %}
+
 {% include doc/admin-guide/options/dynamic-window-size.md %}
 
 {% include doc/admin-guide/options/encoding.md %}

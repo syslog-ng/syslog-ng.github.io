@@ -12,6 +12,8 @@ The stdin() driver has the following options:
 
 {% include doc/admin-guide/options/default-priority.md %}
 
+{% include doc/admin-guide/options/chain-hostnames.md %}
+
 {% include doc/admin-guide/options/encoding.md %}
 
 {% include doc/admin-guide/options/source-flags.md %}

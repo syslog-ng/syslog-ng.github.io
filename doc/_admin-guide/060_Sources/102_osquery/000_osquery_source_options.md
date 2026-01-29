@@ -7,6 +7,8 @@ description: >-
 
 The osquery() driver has the following options.
 
+{% include doc/admin-guide/options/chain-hostnames.md %}
+
 ## file()
 
 |Type:|      path|

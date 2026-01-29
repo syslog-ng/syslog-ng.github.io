@@ -15,6 +15,8 @@ The sun-streams() driver has the following options.
 *Description:* Specifies the filename of a door to open, needed on Solaris
 above 2.5.1.
 
+{% include doc/admin-guide/options/chain-hostnames.md %}
+
 {% include doc/admin-guide/options/source-flags.md %}
 
 {% include doc/admin-guide/options/follow-freq.md %}

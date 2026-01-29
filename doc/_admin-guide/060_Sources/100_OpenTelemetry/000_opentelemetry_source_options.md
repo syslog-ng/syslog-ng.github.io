@@ -68,6 +68,8 @@ source {
 
 ```
 
+{% include doc/admin-guide/options/chain-hostnames.md %}
+
 {% include doc/admin-guide/options/channel-args.md %}
 
 ## concurrent-requests()
