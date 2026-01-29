@@ -10,6 +10,17 @@ description: >-
     additional data, and many other things.
 ---
 
+In {{ site.product.short_name }} 4.0 and later versions Python virtualenv is supported. More sophisticated Python
+modules usually have 3rd party dependencies, which either needed to be
+installed from the OS repositories (using the `apt-get` or `yum/dnf` tools) or
+PyPI (using the pip tool). In {{ site.product.short_name }} 4.0 and later versions it is supported to embed a
+Python virtualenv (`/var/lib/syslog-ng/python-venv` or similar, depending on
+the installation layout), meaning that these requirements can be installed
+privately, without deploying them in the system `PYTHONPATH` where it might
+collide with other applications. The base set of requirements that
+{{ site.product.short_name }} relies on can be installed via the `syslog-ng-update-virtualenv`
+script, which has been added to our `rpm/deb` postinst scripts.
+
 {% include doc/admin-guide/python-blocks-generic.md %}
 
 **Declaration**
