@@ -7,7 +7,7 @@ description: >-
 
 The Regular expression parser has the following options.
 
-{% include doc/admin-guide/options/source-flags.md %}
+{% include doc/admin-guide/options/regexp-flags.md %}
 
 ## patterns()
 
