@@ -1,6 +1,5 @@
 ---
-title: Managing incoming and outgoing messages with flow-control
-short_title: Managing incoming and outgoing messages
+title: Managing incoming and outgoing messages
 id: adm-log-flow
 description: >-
     This section describes the internal message-processing model of
@@ -175,30 +174,27 @@ log {
 };
 ```
 
-## Handling outgoing messages
+## Handling outgoing messages without disk buffering
 
-The {{ site.product.short_name }} application handles outgoing messages the following way:
+When the disk-buffer() option is set to `no` for the destination, the {{ site.product.short_name }} application handles outgoing messages in the following way:
 
-### Figure 16: Handling outgoing messages in {{ site.product.short_name }}
+<!-- 
+### Figure 16: Handling outgoing messages in {{ site.product.short_name }} without disk-based buffering
+TODO: generate a new valid diagram
+![]({{ adm_img_folder | append: 'no-disk-buffer-diagram.png'}})
+-->
 
-![]({{ adm_img_folder | append: 'disk-buffer-diagram-normal.png'}})
+- *Output buffer*: If disk buffer is disabled {{ site.product.short_name }}
+  puts the outgoing messages into the output buffer of the destination.
+  (The output buffer behaves similar to the overflow queue of the disk buffer regarding flow control.)
+  The log-fifo-size() parameter specifies the number of messages stored in
+  the output buffer, unless flow-control is enabled. When flow-control is enabled, {{ site.product.short_name }}
+  sets the size of the output buffer automatically.\
+  For details on sizing the log-fifo-size() parameter and how flow control works, see Configuring flow-control.
 
-- *Output queue*: Messages from the output queue are sent to the
-    target {{ site.product.short_name }} server. The {{ site.product.short_name }} application puts the outgoing
-    messages directly into the output queue, unless the output queue is
-    full. The output queue can hold 64 messages, this is a fixed value
-    and cannot be modified.
+  **NOTE:** Although the default output buffer internally uses multiple queues, the log-fifo-size() option can control only the overall size of all the underlying queues.
+  {: .notice--info}
 
-- *Disk buffer*: If the output queue is full and disk-buffering is
-    enabled, {{ site.product.short_name }} puts the outgoing messages into the disk buffer
-    of the destination.
+## Handling outgoing messages using disk buffering
 
-- *Overflow queue*: If the output queue is full and the disk buffer is
-    disabled or full, {{ site.product.short_name }} puts the outgoing messages into the
-    overflow queue of the destination. (The overflow queue is identical
-    to the output buffer used by other destinations.) The
-    log-fifo-size() parameter specifies the number of messages stored in
-    the overflow queue, unless flow-control is enabled. When dynamic
-    flow-control is enabled, {{ site.product.short_name }} sets the size of the overflow
-    queue automatically. For details on sizing the log-fifo-size()
-    parameter, see Configuring flow-control.
+For details on how messages are handled when using the disk buffer, when the disk-buffer() option is set to `yes`, see Using disk-based and memory buffering.
