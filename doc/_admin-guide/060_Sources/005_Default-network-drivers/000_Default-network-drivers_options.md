@@ -10,9 +10,17 @@ The default-network-drivers() source has the following options.
 
 {% include doc/admin-guide/options/ca-dir.md %}
 
+{% include doc/admin-guide/options/format.md %}
+
+{% include doc/admin-guide/options/internal.md %}
+
 {% include doc/admin-guide/options/ca-file.md %}
 
+{% include doc/admin-guide/options/normalize-hostnames.md %}
+
 {% include doc/admin-guide/options/source-flags.md %}
+
+{% include doc/admin-guide/options/sdata-prefix.md %}
 
 {% include doc/admin-guide/options/log-msg-size.md %}
 

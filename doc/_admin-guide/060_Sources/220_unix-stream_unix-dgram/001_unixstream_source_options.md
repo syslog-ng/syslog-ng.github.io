@@ -13,6 +13,8 @@ specified for these drivers:
 
 {% include doc/admin-guide/options/create-dirs.md %}
 
+{% include doc/admin-guide/options/chain-hostnames.md %}
+
 {% include doc/admin-guide/options/encoding.md %}
 
 {% include doc/admin-guide/options/source-flags.md %}
@@ -24,9 +26,13 @@ specified for these drivers:
 
 *Description:* Sets the gid of the socket.
 
+{% include doc/admin-guide/options/format.md %}
+
 {% include doc/admin-guide/options/hook.md %}
 
 {% include doc/admin-guide/options/host-override.md %}
+
+{% include doc/admin-guide/options/internal.md %}
 
 {% include doc/admin-guide/options/keep-alive.md %}
 
@@ -44,6 +50,8 @@ specified for these drivers:
 
 {% include doc/admin-guide/options/max-connections.md %}
 
+{% include doc/admin-guide/options/normalize-hostnames.md %}
+
 Cannot be used with unix-dgram().
 
 {% include doc/admin-guide/options/optional.md %}
@@ -60,6 +68,8 @@ Cannot be used with unix-dgram().
 {% include doc/admin-guide/options/perm.md %}
 
 {% include doc/admin-guide/options/program-override.md %}
+
+{% include doc/admin-guide/options/sdata-prefix.md %}
 
 {% include doc/admin-guide/options/so-keepalive.md %}
 

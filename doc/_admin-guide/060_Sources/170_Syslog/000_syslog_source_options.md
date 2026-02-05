@@ -11,6 +11,8 @@ The syslog() driver has the following options.
 
 {% include doc/admin-guide/options/ca-file.md %}
 
+{% include doc/admin-guide/options/chain-hostnames.md %}
+
 {% include doc/admin-guide/options/dynamic-window-size.md %}
 
 ## ebpf()
@@ -25,11 +27,15 @@ This option is available in {{ site.product.short_name }} 4.2 and later versions
 
 {% include doc/admin-guide/options/encoding.md %}
 
+{% include doc/admin-guide/options/format.md %}
+
 {% include doc/admin-guide/options/source-flags.md %}
 
 {% include doc/admin-guide/options/hook.md %}
 
 {% include doc/admin-guide/options/host-override.md %}
+
+{% include doc/admin-guide/options/internal.md %}
 
 ## interface()
 
@@ -66,11 +72,15 @@ Available in {{ site.product.short_name }} 3.19 and later versions.
 
 {% include doc/admin-guide/options/multi-line-mode-network.md %}
 
+{% include doc/admin-guide/options/normalize-hostnames.md %}
+
 {% include doc/admin-guide/options/pad-size.md %}
 
 {% include doc/admin-guide/options/port-localport.md %}
 
 {% include doc/admin-guide/options/program-override.md %}
+
+{% include doc/admin-guide/options/sdata-prefix.md %}
 
 {% include doc/admin-guide/options/so-broadcast.md %}
 
