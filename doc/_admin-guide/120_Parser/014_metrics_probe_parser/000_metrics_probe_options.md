@@ -91,7 +91,7 @@ metrics-probe(
 ```
 
 ```config
-syslogng_foo{static_label="bar",my_prefix_baz="anotherlabel",my_prefix_foo="bar",my_prefix_nested_axo="flow"} 4
+syslogng_foo{static_label="bar",my_prefix_baz="anotherlabel",my_prefix_foo="bar"} 4
 ```
 
 ## level()

@@ -19,7 +19,7 @@ Application Default Credentials (ADC). This authentication method is only availa
 
 ### service-account-key()
 
-Available in { site.product.short_name }} version 4.15 and later.
+Available in {{ site.product.short_name }} version 4.15 and later.
 
 Use the specified service account key for ADC authentication. File path must be the absolute path. For example:
 

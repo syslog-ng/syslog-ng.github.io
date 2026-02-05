@@ -103,7 +103,7 @@ compared to using only the static window.
 When flow-control is used, every source has its own control window. As a
 worst-case situation, memory of the host must be greater than the total
 size of the messages of every control window, plus the size of the
-dynamic window, that is, the log-iw-size()+dynamic-window-size(). This
+dynamic window, that is, the log-iw-size() + dynamic-window-size(). This
 applies to every source that sends logs to the particular destination.
 Thus if two sources having several connections and heavy traffic send
 logs to the same destination, the control window of both sources must

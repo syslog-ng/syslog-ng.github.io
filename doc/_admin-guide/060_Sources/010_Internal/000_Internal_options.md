@@ -1,6 +1,5 @@
 ---
 title: internal() source options
-log_iw_size: 100
 id: adm-src-int-opt
 description: >-
     This section describes the options of the internal() source in {{ site.product.short_name }}.
