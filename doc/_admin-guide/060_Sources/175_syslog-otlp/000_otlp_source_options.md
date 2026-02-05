@@ -80,7 +80,7 @@ destination {
 |   Type:|       integer|
 |Default:|             2|
 
-*Description:* This option configures the upper limit of in-flight gRPC requests per worker. It is advisd to set this value in the range of 10s or 100s when there are a high number of clients sending simultaneously. In an optimized solution, the number of `workers()` and `concurrent-requests()` is greater than or equal to the number of clients. However, this can cause an increase in memory usage.
+*Description:* This option configures the upper limit of in-flight gRPC requests per worker. It is advisd to set this value in the range of 10s or 100s when there are a high number of clients sending simultaneously. In an optimized solution, the number of workers() and `concurrent-requests()` is greater than or equal to the number of clients. However, this can cause an increase in memory usage.
 
 ## default-facility()
 
@@ -131,13 +131,14 @@ source {
 
 ## keep-hostname()
 
-The `syslog-ng-otlp()` and `opentelemetry()` sources ignore this option and use the hostname from the message as the `${HOST}`.
+The syslog-ng-otlp() and opentelemetry() sources ignore this option and use the hostname from the message as the ${HOST}.
 
 {% include doc/admin-guide/options/keep-timestamp.md %}
 
 {% include doc/admin-guide/options/log-fetch-limit.md %}
 
 {% include doc/admin-guide/options/log-iw-size.md %}
+{% include doc/admin-guide/options/log-iw-size-network.md %}
 
 {% include doc/admin-guide/options/log-prefix.md %}
 
@@ -146,7 +147,7 @@ The `syslog-ng-otlp()` and `opentelemetry()` sources ignore this option and use 
 |   Type:|       `yes`, `no`|
 |Default:|              `no`|
 
-*Description:* If this option is set to `yes` (`normalize-hostnames(yes)`), syslog-ng OSE converts the hostnames to lowercase. This setting only applies to hostnames resolved from DNS. It has no effect if the `keep-hostname()` option is enabled, and the message contains a hostname.
+*Description:* If this option is set to `yes` (`normalize-hostnames(yes)`), syslog-ng OSE converts the hostnames to lowercase. This setting only applies to hostnames resolved from DNS. It has no effect if the keep-hostname() option is enabled, and the message contains a hostname.
 
 {% include doc/admin-guide/options/persist-name.md %}
 
