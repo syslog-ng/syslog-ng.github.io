@@ -38,9 +38,9 @@ respectively.
 ## Message handling and normal disk-based buffering
 
 When you use disk-based buffering, and the reliable() option is set to
-no, {{ site.product.short_name }} handles outgoing messages the following way:
+`no`, {{ site.product.short_name }} handles outgoing messages the following way:
 
-### Figure 17: Handling outgoing messages in {{ site.product.short_name }}
+### Figure 17: Handling outgoing messages in {{ site.product.short_name }} with the normal disk-based buffering
 
 ![]({{ adm_img_folder | append: 'disk-buffer-diagram-normal.png'}})
 
@@ -81,7 +81,7 @@ failures or if {{ site.product.short_name }} crashes.
 ## Message handling and reliable disk-based buffering
 
 When you use disk-based buffering, and the reliable() option is set to
-yes, {{ site.product.short_name }} handles outgoing messages the following way.
+`yes`, {{ site.product.short_name }} handles outgoing messages the following way.
 
 The flow-control-window-bytes() option determines when flow-control is triggered.
 After the size of the disk-buffer file reaches (capacity-bytes() minus

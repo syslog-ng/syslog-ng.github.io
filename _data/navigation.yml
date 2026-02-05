@@ -330,6 +330,11 @@ admin-guide-nav:
       subnav:
       - title: "collectd() destination options"
         url: /admin-guide/070_Destinations/010_collectd/000_collectd_options
+    - title: "ClickHouse"
+      url: /admin-guide/070_Destinations/015_Clickhouse/README
+      subnav:
+      - title: "clickhouse() destination options"
+        url: /admin-guide/070_Destinations/015_Clickhouse/000_clickhouse_dest_options
     - title: "Discord"
       url: /admin-guide/070_Destinations/020_Discord/README
       subnav:
@@ -617,36 +622,36 @@ admin-guide-nav:
     - title: "Managing incoming and outgoing messages"
       url: /admin-guide/080_Log/010_Flow_control/README
       subnav:
-      - title: "Flow-control and multiple destinations"
-        url: /admin-guide/080_Log/010_Flow_control/000_Flow_control_multiple_destinations
       - title: "Configuring flow-control"
-        url: /admin-guide/080_Log/010_Flow_control/001_Configuring_flow_control
+        url: /admin-guide/080_Log/010_Flow_control/000_Configuring_flow_control
+      - title: "Flow-control and multiple destinations"
+        url: /admin-guide/080_Log/010_Flow_control/001_Flow_control_multiple_destinations
     - title: "Using disk-based and memory buffering"
       url: /admin-guide/080_Log/020_Buffering/README
       subnav:
-      - title: "Enabling reliable disk-based buffering"
-        url: /admin-guide/080_Log/020_Buffering/000_Enabling_reliable_diskbuffer
+      - title: "About disk queue files"
+        url: /admin-guide/080_Log/020_Buffering/000_About_diskbuffer_files
       - title: "Enabling normal disk-based buffering"
         url: /admin-guide/080_Log/020_Buffering/001_Enabling_normal_diskbuffer
+      - title: "Enabling reliable disk-based buffering"
+        url: /admin-guide/080_Log/020_Buffering/002_Enabling_reliable_diskbuffer
       - title: "How to get information about disk-buffer files"
-        url: /admin-guide/080_Log/020_Buffering/002_How_to_get_information/README
+        url: /admin-guide/080_Log/020_Buffering/003_How_to_get_information/README
         subnav:
         - title: "Information about disk-buffer files"
-          url: /admin-guide/080_Log/020_Buffering/002_How_to_get_information/000_Information
+          url: /admin-guide/080_Log/020_Buffering/003_How_to_get_information/000_Information
         - title: "Getting the status information of disk-buffer files"
-          url: /admin-guide/080_Log/020_Buffering/002_How_to_get_information/001_Status_information
+          url: /admin-guide/080_Log/020_Buffering/003_How_to_get_information/001_Status_information
         - title: "Getting the list of disk-buffer files"
-          url: /admin-guide/080_Log/020_Buffering/002_How_to_get_information/002_List
+          url: /admin-guide/080_Log/020_Buffering/003_How_to_get_information/002_List
         - title: "Printing the content of disk-buffer files"
-          url: /admin-guide/080_Log/020_Buffering/002_How_to_get_information/003_Content
+          url: /admin-guide/080_Log/020_Buffering/003_How_to_get_information/003_Content
         - title: "Orphan disk-buffer files"
-          url: /admin-guide/080_Log/020_Buffering/002_How_to_get_information/004_Orphan
+          url: /admin-guide/080_Log/020_Buffering/003_How_to_get_information/004_Orphan
         - title: "How to process messages from an orphan disk-buffer file"
-          url: /admin-guide/080_Log/020_Buffering/002_How_to_get_information/005_How_to_process_orphan_diskbuffer
+          url: /admin-guide/080_Log/020_Buffering/003_How_to_get_information/005_How_to_process_orphan_diskbuffer
       - title: "Enabling memory buffering"
-        url: /admin-guide/080_Log/020_Buffering/003_Enabling_memory_buffering
-      - title: "About disk queue files"
-        url: /admin-guide/080_Log/020_Buffering/004_About_diskbuffer_files
+        url: /admin-guide/080_Log/020_Buffering/004_Enabling_memory_buffering
     - title: "Filters"
       url: /admin-guide/080_Log/030_Filters/README
       subnav:
