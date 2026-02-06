@@ -58,3 +58,5 @@ The `darwin-oslog()` source has the following options.
 *Description:* If set to yes, {{ site.product.short_name }} starts reading logs from the oldest available entry when the system starts, or if no bookmarks are present.
 
 {% include doc/admin-guide/options/sdata-prefix.md %}
+
+{% include doc/admin-guide/options/use-syslogng-pid.md %}

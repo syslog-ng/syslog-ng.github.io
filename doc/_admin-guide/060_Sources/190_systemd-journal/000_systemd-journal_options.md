@@ -155,3 +155,5 @@ have no effect.
 {% include doc/admin-guide/options/time-zone.md %}
 
 {% include doc/admin-guide/options/use-fqdn.md %}
+
+{% include doc/admin-guide/options/use-syslogng-pid.md %}

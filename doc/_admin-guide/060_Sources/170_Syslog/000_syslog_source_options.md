@@ -138,3 +138,5 @@ Available in {{ site.product.short_name }} 3.4 and later versions.
 {% include doc/admin-guide/options/use-dns.md %}
 
 {% include doc/admin-guide/options/use-fqdn.md %}
+
+{% include doc/admin-guide/options/use-syslogng-pid.md %}

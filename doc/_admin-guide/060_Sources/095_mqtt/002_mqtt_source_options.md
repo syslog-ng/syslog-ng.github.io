@@ -54,3 +54,7 @@ ssl-version(), use-system-cert-store().
 {% include doc/admin-guide/options/mqtt-topic.md %}
 
 {% include doc/admin-guide/options/username.md %}
+
+{% include doc/admin-guide/options/use-syslogng-pid.md %}
+
+{% include doc/admin-guide/options/use-syslogng-pid.md %}

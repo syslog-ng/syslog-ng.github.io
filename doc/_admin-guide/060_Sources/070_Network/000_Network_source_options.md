@@ -94,3 +94,5 @@ Available in 3.19 and later.
 {% include doc/admin-guide/options/use-dns.md %}
 
 {% include doc/admin-guide/options/use-fqdn.md %}
+
+{% include doc/admin-guide/options/use-syslogng-pid.md %}

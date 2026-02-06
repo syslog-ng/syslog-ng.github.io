@@ -29,3 +29,4 @@ The pacct() driver has the following options:
 
 {% include doc/admin-guide/options/sdata-prefix.md %}
 
+{% include doc/admin-guide/options/use-syslogng-pid.md %}

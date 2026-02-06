@@ -48,3 +48,5 @@ from.
 {% include doc/admin-guide/options/tags.md %}
 
 {% include doc/admin-guide/options/time-zone.md %}
+
+{% include doc/admin-guide/options/use-syslogng-pid.md %}

@@ -46,3 +46,5 @@ set-message-macro() is set to **yes**, {{ site.product.short_name }} generates a
 log message from the trap.
 
 {% include doc/admin-guide/options/sdata-prefix.md %}
+
+{% include doc/admin-guide/options/use-syslogng-pid.md %}

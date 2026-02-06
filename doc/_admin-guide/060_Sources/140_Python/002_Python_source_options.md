@@ -56,3 +56,5 @@ option to the number of seconds to wait before calling the fetch method.
 ![]({{ site.baseurl}}/assets/images/caution.png) **CAUTION:**
 This option is available only when using Python 3.
 {: .notice--warning}
+
+{% include doc/admin-guide/options/use-syslogng-pid.md %}

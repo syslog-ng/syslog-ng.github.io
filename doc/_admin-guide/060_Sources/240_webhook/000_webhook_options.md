@@ -152,4 +152,6 @@ For untrusted certificates only the existence of the certificate is checked, but
 
 {% include doc/admin-guide/options/sdata-prefix.md %}
 
+{% include doc/admin-guide/options/use-syslogng-pid.md %}
+
 > *Copyright © 2025 Axoflow*

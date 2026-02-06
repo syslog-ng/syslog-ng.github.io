@@ -71,3 +71,5 @@ These drivers have the following additional options:
 |Default:        | no |
 
 *Description:* If this option is set to `yes`, only one scraper connection and request will be allowed at once.
+
+{% include doc/admin-guide/options/use-syslogng-pid.md %}

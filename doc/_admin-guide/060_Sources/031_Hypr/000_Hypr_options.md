@@ -76,3 +76,5 @@ The following values are available for log-level():
 {% include doc/admin-guide/options/normalize-hostnames.md %}
 
 {% include doc/admin-guide/options/sdata-prefix.md %}
+
+{% include doc/admin-guide/options/use-syslogng-pid.md %}

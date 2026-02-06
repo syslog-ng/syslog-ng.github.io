@@ -161,3 +161,5 @@ The `syslog-ng-otlp()` and `opentelemetry()` sources ignore this option and use 
 {% include doc/admin-guide/options/use-fqdn.md %}
 
 {% include doc/admin-guide/options/workers.md %}
+
+{% include doc/admin-guide/options/use-syslogng-pid.md %}

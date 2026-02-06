@@ -35,3 +35,5 @@ for example, **base-dir(\"/var/log/pods\")**.
 {% include doc/admin-guide/options/sdata-prefix.md %}
 
 The prefix() option is optional and its default value is ".k8s.".
+
+{% include doc/admin-guide/options/use-syslogng-pid.md %}

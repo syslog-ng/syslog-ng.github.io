@@ -80,3 +80,5 @@ source receives RFC-3164 formatted (BSD-syslog) messages.
 
 *Description:* The UDP port number where the default-network-drivers()
 source receives RFC-3164 formatted (BSD-syslog) messages
+
+{% include doc/admin-guide/options/use-syslogng-pid.md %}

@@ -18,3 +18,5 @@ The mbox() driver has the following option.
 {% include doc/admin-guide/options/normalize-hostnames.md %}
 
 {% include doc/admin-guide/options/sdata-prefix.md %}
+
+{% include doc/admin-guide/options/use-syslogng-pid.md %}
