@@ -420,7 +420,7 @@ module Jekyll
 
     public
       def generate_manpage(page, manpages_dir)
-        puts "collection: " + (page.respond_to?(:collection) ? page.collection.label : "") + ", ndx: #{page.data["nav_ndx"]}, relative_path: #{page.relative_path}"
+        puts "collection(manpage): " + (page.respond_to?(:collection) ? page.collection.label : "") + ", ndx: #{page.data["nav_ndx"]}, relative_path: #{page.relative_path}"
 
         FileUtils.mkdir_p(manpages_dir)
 
