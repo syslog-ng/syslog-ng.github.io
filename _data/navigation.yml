@@ -619,6 +619,8 @@ admin-guide-nav:
         url: /admin-guide/080_Log/000_Log_paths/002_Junctions_and_channels
       - title: "Log path flags"
         url: /admin-guide/080_Log/000_Log_paths/003_Log_path_flags
+      - title: "Log scheduler"
+        url: /admin-guide/080_Log/000_Log_paths/004_Log_scheduler
     - title: "Managing incoming and outgoing messages"
       url: /admin-guide/080_Log/010_Flow_control/README
       subnav:
@@ -1021,6 +1023,8 @@ admin-guide-nav:
       url: /admin-guide/160_Multithreading_and_scaling/001_Configuring_multithreading
     - title: "Optimizing multithreaded performance"
       url: /admin-guide/160_Multithreading_and_scaling/002_Optimizing_performance
+    - title: "Parallelizing message processing"
+      url: /admin-guide/160_Multithreading_and_scaling/003_Parallelized_message_processing
   - title: "Best practices and examples"
     url: /admin-guide/170_Best_practices_and_examples/README
     subnav:
