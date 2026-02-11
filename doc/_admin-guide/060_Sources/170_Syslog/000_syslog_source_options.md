@@ -13,15 +13,7 @@ The syslog() driver has the following options.
 
 {% include doc/admin-guide/options/dynamic-window-size.md %}
 
-## ebpf()
-
-|Type:   | string|
-|Default:|   None|
-
-This option is available in {{ site.product.short_name }} 4.2 and later versions.
-
-*Description:* By default, the kernel selects the receive socket for a specific UDP randomly based on the source IP/port of the sender. You can customize this algorithm using the Extended Berkeley Packet Filter (eBPF) plugin. The `ebpf()` option changes the kernel’s `SO_REUSEPORT` algorithm so that all messages are randomly placed into one of the UDP sockets. The decision which UDP socket buffer a datagram is placed is made for every datagram, and not once for every stream. This means that messages are perfectly load-balanced across your set of UDP sockets. While this resolves the imbalance between the sockets and results in perfect load balancing, you will lose ordering between messages from the same sender, which is the price to pay for increased throughput.
-
+{% include doc/admin-guide/options/ebpf.md %}
 
 {% include doc/admin-guide/options/encoding.md %}
 
