@@ -210,7 +210,7 @@ Circumstance that needs special attention.
 
 ### Open Source
 
-TODO
+Open source: Software whose source code is publicly available, allowing anyone to view, use, modify, and distribute it under the terms of an open-source license.
 
 ### Oracle Instant Client
 
@@ -221,19 +221,15 @@ it requires minimal installation but has full functionality.
 ### output buffer
 
 A part of the memory of the host where {{ site.product.short_name }} stores outgoing
-log messages if the destination cannot
-accept the messages immediately.
+log messages if the destination cannot accept the messages immediately.
 
 ### output queue
 
-Messages from the output queue are sent to the target {{ site.product.short_name }} server.
-The {{ site.product.short_name }} application puts the outgoing messages directly into the output
-queue, unless the output queue is full. The output queue can hold 64 messages,
-this is a fixed value and cannot be modified.
+If there is space left in it, {{ site.product.short_name }} puts the message into this queue first . Messages stored here are processed faster, because {{ site.product.short_name }} can skip writing to, and reading from the disk, as well as serializing or deserializing the message, saving I/O and processor time as a result. The contents of the in-memory output queue are persisted to the disk-buffer file during syslog-ng OSE reload, restart or stop, and they may or may not be persisted in case of power failures or if {{ site.product.short_name }} crashes, depending on the reliable() setting of the disk buffer.
 
 ### overflow queue
 
-See output buffer.
+This queue is used to trigger flow-control if it is set. The contents of the in-memory overflow queue are persisted to the disk-buffer file in case of {{ site.product.short_name }} reload, restart, or stop, and they may or may not be persisted in case of power failures or if {{ site.product.short_name }} crashes, depending on the reliable() setting of the disk buffer.
 
 ## P
 

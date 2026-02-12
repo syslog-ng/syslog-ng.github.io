@@ -342,7 +342,7 @@ for messages received using UNIX domain sockets.
 
 ## stats()
 
-Available in {{ site.product.short_name }} 4.1 and later versions, introduced by Axoflow.
+Available in {{ site.product.short_name }} 4.1 and later versions.
 
 *Description:* The stats() option is an aggregated collection of statistic-related sub-options.
 

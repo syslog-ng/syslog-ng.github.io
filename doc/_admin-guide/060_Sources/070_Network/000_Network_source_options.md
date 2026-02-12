@@ -48,6 +48,7 @@ Available in 3.19 and later.
 {% include doc/admin-guide/options/log-fetch-limit.md %}
 
 {% include doc/admin-guide/options/log-iw-size.md %}
+{% include doc/admin-guide/options/log-iw-size-network.md %}
 
 {% include doc/admin-guide/options/log-msg-size.md %}
 
