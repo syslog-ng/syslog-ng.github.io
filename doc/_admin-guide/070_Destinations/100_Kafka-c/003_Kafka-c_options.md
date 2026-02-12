@@ -237,15 +237,13 @@ fallback-topic() option is also required.
 
 {% include doc/admin-guide/options/ts-format.md %}
 
-## workers()
+{% include doc/admin-guide/options/workers.md %}
 
-|  Type:|      integer|
-  |Default:|   1|
-
-*Description:* The workers are only responsible for formatting the
+**NOTE:** The workers are only responsible for formatting the
 messages that need to be delivered to the Kafka clients. Configure this
 option only if your Kafka clients have many threads and they do not
 receive enough messages.
+{: .notice--info}
 
 **NOTE:** Kafka clients have their own threadpool, entirely independent from
 any {{ site.product.short_name }} settings. The workers() option has no effect on this

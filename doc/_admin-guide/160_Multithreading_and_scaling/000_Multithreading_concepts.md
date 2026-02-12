@@ -17,23 +17,23 @@ releases. The current documentation applies to version 3.38.
 
 - A number of worker threads that process the messages. You can
     influence the behavior of worker threads using the threaded() option
-    and the \--worker-threads command-line option.
+    and the `--worker-threads` command-line option.
 
 - Some other, special threads for internal functionalities. For
     example, certain destinations run in a separate thread,
     independently of the multithreading (threaded()) and
-    \--worker-threads settings of {{ site.product.short_name }}.
+    `--worker-threads` settings of {{ site.product.short_name }}.
 
 The maximum number of worker threads {{ site.product.short_name }} uses is the number of
 CPUs or cores in the host running {{ site.product.short_name }} (up to 64). You can
-limit this value using the **\--worker-threads** command-line option
+limit this value using the `--worker-threads` command-line option
 that sets the maximum total number of threads {{ site.product.short_name }} can use,
-including the main {{ site.product.short_name }} thread. However, the \--worker-threads
+including the main {{ site.product.short_name }} thread. However, the `--worker-threads`
 option does not affect the supervisor of {{ site.product.short_name }}. The supervisor
 is a separate process (see The {{ site.product.short_name }} manual page,
 but certain operating systems might display it as a thread. In
 addition, certain destinations always run in a separate thread,
-independently of the multithreading (threaded()) and \--worker-threads
+independently of the multithreading (threaded()) and `--worker-threads`
 settings of {{ site.product.short_name }}.
 
 When an event requiring a new thread occurs (for example, {{ site.product.short_name }}
@@ -62,7 +62,7 @@ two types of worker threads:
 ## Sources and destinations affected by multithreading
 
 The following list describes which sources and destinations can use
-multiple threads. Changing the \--worker-threads command-line option
+multiple threads. Changing the `--worker-threads` command-line option
 changes the number of threads available to these sources and
 destinations.
 
@@ -89,12 +89,12 @@ destinations.
 
 The following list describes sources and destinations that use a
 separate thread even if you disable multithreading in {{ site.product.short_name }}, in
-addition to the limit set in the \--worker-threads command-line option.
+addition to the limit set in the `--worker-threads` command-line option.
 
 - Every sql destination uses its own thread. These threads are
-    independent from the setting of the \--worker-threads command-line
+    independent from the setting of the `--worker-threads` command-line
     option.
 
 - The java destinations use one thread, even if there are multiple
     Java-based destinations configured. This thread is independent from
-    the setting of the \--worker-threads command-line option.
+    the setting of the `--worker-threads` command-line option.
