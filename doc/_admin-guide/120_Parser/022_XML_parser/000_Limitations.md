@@ -7,10 +7,11 @@ description: >-
 
 The XML parser comes with certain limitations.
 
-## Vector-like structures
+## Using the list-handling functionality with vector-like structures
 
-It is not possible to address each element of a vector-like structure
-individually. For example, take this input:
+The XML parser uses the list-handling functionality to handle lists in the XML. The list-handling functionality has limitations when handling name-value pairs or quoting in SDATA as described below. Note that you can disable the list-handling functionality if needed.
+
+The list-handling functionality of the XML parser separates vector-like structures by a comma as separate entries. Using the following structure as an example:
 
 ```xml
 <vector>
@@ -21,16 +22,81 @@ individually. For example, take this input:
 </vector>
 ```
 
-After parsing, the entries cannot be addressed individually. Instead,
-the text of the entries will be concatenated:
+After parsing, the entries are separated by a comma. If an entry has a space or is separated by a comma, for example, `value 2` or `Doe,John` in the previous example, quoting is applied to the entry:
 
-> vector.entry = "value1value2...valueN"
+```xml
+vector.entry = value1,"value 2","Doe,John",value3...valueN
+```
 
 Note that xmllint has the same behavior:
 
 ```bash
 $ xmllint --xpath "/vector/entry/text()" test.xml
 value1value2valueN%
+```
+
+## Using the list-handling functionality with name-value pairs
+
+As every value in name-value pairs can be quoted, One Identity recommends that you access name-values as lists as follows:
+* Use list-related template functions on the list created by the XML parser.
+* Use type-hinting using the format-json template function as shown in the example below:
+
+```xml
+template("$(format-json --scope dot-nv-pairs LIST=list(${.xml.Event.EventData.Data}))\n")
+```
+
+## Using the list-handling functionality with SDATA
+
+According to RFC5424, SDATA parameter values must be quoted with double-quote ('"') characters. If the value contains double-quotes, they must be escaped with a backslash (\) character.
+
+Due to the list-handling functionality of the XML parser, parsed XML text contents are also quoted using double-quote ('"') characters. As parsed XML text content are part of the message, they are quoted when used as SDATA parameter values.
+
+Using the following structure as an example:
+
+```xml
+<Event>
+<Data>42</Data>
+<Data>Testing testing</Data>
+</Event>
+```
+
+The expected name-value pair is as follows:
+
+```xml
+Event.Data = 42,"Testing testing"
+```
+
+In SDATA, this is quoted as shown below:
+
+```xml
+[Event Data="42,\"Testing testing\""]
+```
+
+## Disabling the list-handling functionality
+
+To disable the list-handling functionality, use the create_lists(`yes`/`no`) option as shown below. The default value is set to `yes`.
+
+```xml
+parser p_xml {
+    xml(create_lists(no));
+};
+```
+
+Note that if you disable the list-handling functionality, the XML parser cannot address each element of a vector-like structure individually. Using the following structure as an example:
+
+```xml
+<vector>
+    <entry>value1</entry>
+    <entry>value2</entry>
+    ...
+    <entry>valueN</entry>
+</vector>
+```
+
+After parsing, the entries are not addressed individually. Instead, the text of the entries are concatenated:
+
+```xml
+vector.entry = "value1value2...valueN"
 ```
 
 ## CDATA
