@@ -14,14 +14,6 @@ The systemd-journal() driver has the following options:
 
 {% include doc/admin-guide/options/default-priority.md %}
 
-## default-level()
-
-|Type:      |string|
-|Default:   |notice|
-
-*Description:* The default level value if the `PRIORITY` entry does not
-exist.
-
 {% include doc/admin-guide/options/hook.md %}
 
 {% include doc/admin-guide/options/host-override.md %}

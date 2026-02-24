@@ -165,6 +165,11 @@ admin-guide-nav:
     - title: "Jellyfin"
       url: /admin-guide/060_Sources/035_Jellyfin/README
       subnav:
+    - title: "kafka"
+      url: /admin-guide/060_Sources/038_Kafka/README
+      subnav:
+      - title: "Options of the kafka() source"
+        url: /admin-guide/060_Sources/038_Kafka/001_Kafka_options
     - title: "kubernetes"
       url: /admin-guide/060_Sources/040_Kubernetes/README
       subnav:
@@ -1168,7 +1173,7 @@ dev-guide-nav:
           subnav:
           - title: "file() Destination Driver"
             url: /dev-guide/chapter_4/section_2/macos-testing-status/affile/file-destination-driver
-          - title: "file() Source Driver (DEPRECATED)"
+          - title: "file() Source Driver"
             url: /dev-guide/chapter_4/section_2/macos-testing-status/affile/file-source-driver
           - title: "pipe() Destination Driver"
             url: /dev-guide/chapter_4/section_2/macos-testing-status/affile/pipe-destination-driver

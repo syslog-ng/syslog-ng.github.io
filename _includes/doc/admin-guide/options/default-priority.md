@@ -1,8 +1,15 @@
+## default-level()
+
+This is just an alias of default-priority().
+
 ## default-priority()
 
 | Type:|  priority string |
 |  Default: | {{ page.priority_default | default: '' }} |
 
-*Description:* This parameter assigns an emergency level to the messages
-received from the {{ page.src | default: 'file' }} source if the message does not specify one. For
-example, default-priority(warning).
+*Description:* This option defines the default level value if the `PRIORITY` entry does not exist in the msg received from the {{ page.src | default: 'file' }} source.
+For example, `default-priority(warning)`.
+
+## default-severity()
+
+This is just an alias of default-priority().

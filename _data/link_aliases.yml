@@ -117,6 +117,12 @@ adm-src-program:
 adm-dest-program:
   aliases: [ "program() destination" ]
 
+adm-src-kafka:
+  aliases: [ "kafka() source" ]
+
+adm-dest-kafkac:
+  aliases: [ "kafka() destination" ]
+
 adm-src-mqtt:
   aliases: [ "mqtt() source" ]
 
