@@ -79,4 +79,6 @@ Available in syslog-ng OSE 4.5 and later versions.
 
 {% include doc/admin-guide/options/headers-gRPC.md %}
 
+{% include doc/admin-guide/options/worker-partition-key.md %}
+
 {% include doc/admin-guide/options/workers.md %}

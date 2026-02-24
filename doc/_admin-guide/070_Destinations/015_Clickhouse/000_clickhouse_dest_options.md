@@ -343,23 +343,6 @@ destination {
 
 *Description:* The username used for authentication.
 
-## worker-partition-autoscaling()
-
-|  Type:|     `yes`, `no`|
-|Default:| `no`|
-
-Available in {{ site.product.short_name }} 4.21 and later versions.
-
-*Description:* When using `worker-partition-key()` to categorize messages into different batches, the messages are hashed into workers by default. This prevents distributing across workers based on load.
-Setting `worker-partition-autoscaling(yes)` uses a 1-minute statistic to distribute high-traffic partitions among multiple workers, allowing each worker to maximize its batch size. When using `worker-partition-autoscaling(yes)`, set the number of `workers()` to higher than the expected number of partitions.
-
-## worker-partition-buckets()
-
-|  Type:|     template|
-|Default:| |
-
-*Description:* The `worker-partition-buckets()` option determines the number of worker threads used for the `worker-partition-key()`. Note that the number set by `worker-partition-buckets()` should be lower than the number of `workers()`.
-
 {% include doc/admin-guide/options/worker-partition-key.md %}
 
 {% include doc/admin-guide/options/workers.md %}
