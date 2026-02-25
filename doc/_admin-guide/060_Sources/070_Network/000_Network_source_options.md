@@ -13,6 +13,8 @@ The network() driver has the following options:
 
 {% include doc/admin-guide/options/dynamic-window-size.md %}
 
+{% include doc/admin-guide/options/ebpf.md %}
+
 {% include doc/admin-guide/options/encoding.md %}
 
 {% include doc/admin-guide/options/source-flags.md %}

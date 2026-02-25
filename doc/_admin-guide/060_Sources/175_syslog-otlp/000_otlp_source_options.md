@@ -85,11 +85,7 @@ destination {
 
 {% include doc/admin-guide/options/dns-cache.md %}
 
-## ebpf()
-
-Available in {{ site.product.short_name }} 4.2 and later versions.
-
-If this option is not used, the kernel chooses the receive socket for a specific UDP randomly based on the source IP/port of the sender. It is possible to customize this algorithm using the Extended Berkeley Packet Filter (eBPF) plugin. The `ebpf()` option changes the `SO_REUSEPORT` algorithm of the kernel, to place messages randomly into one of the UDP sockets. The decision which UDP socket buffer a datagram is placed is made for every datagram, and not once for every stream. This results in the percet load-balancing of messages across the set of UDP sockets. While this resolves the imbalance between the sockets and results in perfect load balancing, the order of messages from the same sender is lost, which is the drawback of increased throughput.
+{% include doc/admin-guide/options/ebpf.md %}
 
 ### Example: Configure a syslog-ng-otlp() source with ebpf()
 
