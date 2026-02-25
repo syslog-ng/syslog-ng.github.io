@@ -10,6 +10,15 @@ description: >-
     syslog message, use the flags(no-parse) option of the source.
 ---
 
+Note that by default, the syslog-parser attempts to parse the message as
+an RFC-3164 formatted (BSD-syslog) message. To parse the message as an
+RFC-5424 formatted message, use the **flags(syslog-protocol)** option in
+the parser.
+
+```config
+syslog-parser(flags(syslog-protocol));
+```
+
 You can also use the **syslog-parser** to explicitly parse a message, or
 a part of a message as a syslog message (for example, after rewriting
 the beginning of a message that does not comply with the syslog
@@ -94,12 +103,3 @@ log {
 non-compliant messages. You can even [[write a custom {{ site.product.short_name }} parser in Python|adm-parser-python]].
 For details, see [[parser: Parse and segment structured messages]].
 {: .notice--info}
-
-Note that by default, the syslog-parser attempts to parse the message as
-an RFC-3164 formatted (BSD-syslog) message. To parse the message as an
-RFC-5424 formatted message, use the **flags(syslog-protocol)** option in
-the parser.
-
-```config
-syslog-parser(flags(syslog-protocol));
-```

@@ -165,6 +165,11 @@ admin-guide-nav:
     - title: "Jellyfin"
       url: /admin-guide/060_Sources/035_Jellyfin/README
       subnav:
+    - title: "kafka"
+      url: /admin-guide/060_Sources/038_Kafka/README
+      subnav:
+      - title: "Options of the kafka() source"
+        url: /admin-guide/060_Sources/038_Kafka/001_Kafka_options
     - title: "kubernetes"
       url: /admin-guide/060_Sources/040_Kubernetes/README
       subnav:
@@ -330,6 +335,11 @@ admin-guide-nav:
       subnav:
       - title: "collectd() destination options"
         url: /admin-guide/070_Destinations/010_collectd/000_collectd_options
+    - title: "ClickHouse"
+      url: /admin-guide/070_Destinations/015_Clickhouse/README
+      subnav:
+      - title: "clickhouse() destination options"
+        url: /admin-guide/070_Destinations/015_Clickhouse/000_clickhouse_dest_options
     - title: "Discord"
       url: /admin-guide/070_Destinations/020_Discord/README
       subnav:
@@ -614,6 +624,8 @@ admin-guide-nav:
         url: /admin-guide/080_Log/000_Log_paths/002_Junctions_and_channels
       - title: "Log path flags"
         url: /admin-guide/080_Log/000_Log_paths/003_Log_path_flags
+      - title: "Log scheduler"
+        url: /admin-guide/080_Log/000_Log_paths/004_Log_scheduler
     - title: "Managing incoming and outgoing messages"
       url: /admin-guide/080_Log/010_Flow_control/README
       subnav:
@@ -1016,54 +1028,56 @@ admin-guide-nav:
       url: /admin-guide/160_Multithreading_and_scaling/001_Configuring_multithreading
     - title: "Optimizing multithreaded performance"
       url: /admin-guide/160_Multithreading_and_scaling/002_Optimizing_performance
-  - title: "Troubleshooting syslog-ng"
-    url: /admin-guide/170_Troubleshooting_syslog-ng/README
-    subnav:
-    - title: "Possible causes of losing log messages"
-      url: /admin-guide/170_Troubleshooting_syslog-ng/000_Possible_causes_of_losing_log_messages
-    - title: "Creating {{ site.product.short_name }} core files"
-      url: /admin-guide/170_Troubleshooting_syslog-ng/001_Creating_core_files
-    - title: "Collecting debugging info"
-      url: /admin-guide/170_Troubleshooting_syslog-ng/002_Collecting_debug_info
-    - title: "Running a failure script"
-      url: /admin-guide/170_Troubleshooting_syslog-ng/003_Running_a_failure_script
-    - title: "Stopping syslog-ng"
-      url: /admin-guide/170_Troubleshooting_syslog-ng/004_Stopping_syslog-ng
-    - title: "Reporting bugs and finding help"
-      url: /admin-guide/170_Troubleshooting_syslog-ng/005_Reporting_bugs
-    - title: "Recover data from orphaned diskbuffer files"
-      url: /admin-guide/170_Troubleshooting_syslog-ng/006_Recovering_orphaned_diskbuffers
-    - title: "Unusual storage directory"
-      url: /admin-guide/170_Troubleshooting_syslog-ng/007_Unusual_storage_directory
-    - title: "Unusual port number"
-      url: /admin-guide/170_Troubleshooting_syslog-ng/008_Unusual_port_number
-    - title: "Error messages"
-      url: /admin-guide/170_Troubleshooting_syslog-ng/009_Error_messages
-    - title: "Using execmem prevented by SELinux"
-      url: /admin-guide/170_Troubleshooting_syslog-ng/010_SELinux
+    - title: "Parallelizing message processing"
+      url: /admin-guide/160_Multithreading_and_scaling/003_Parallelized_message_processing
   - title: "Best practices and examples"
-    url: /admin-guide/180_Best_practices_and_examples/README
+    url: /admin-guide/170_Best_practices_and_examples/README
     subnav:
     - title: "General recommendations"
-      url: /admin-guide/180_Best_practices_and_examples/000_General_recommendations
+      url: /admin-guide/170_Best_practices_and_examples/000_General_recommendations
     - title: "Handling large message load"
-      url: /admin-guide/180_Best_practices_and_examples/001_Handling_large_message_load
+      url: /admin-guide/170_Best_practices_and_examples/001_Handling_large_message_load
     - title: "Using name resolution in syslog-ng"
-      url: /admin-guide/180_Best_practices_and_examples/002_Using_name_resolution/README
+      url: /admin-guide/170_Best_practices_and_examples/002_Using_name_resolution/README
       subnav:
       - title: "Resolving hostnames locally"
-        url: /admin-guide/180_Best_practices_and_examples/002_Using_name_resolution/000_Resolving_hostnames_locally
+        url: /admin-guide/170_Best_practices_and_examples/002_Using_name_resolution/000_Resolving_hostnames_locally
     - title: "Collecting logs from chroot"
-      url: /admin-guide/180_Best_practices_and_examples/003_Collecting_logs_from_chroot
+      url: /admin-guide/170_Best_practices_and_examples/003_Collecting_logs_from_chroot
     - title: "Configuring log rotation"
-      url: /admin-guide/180_Best_practices_and_examples/004_Configuring_log_rotation
+      url: /admin-guide/170_Best_practices_and_examples/004_Configuring_log_rotation
     - title: "Load balancing logs between multiple destinations"
-      url: /admin-guide/180_Best_practices_and_examples/005_Load_balancing_logs/README
+      url: /admin-guide/170_Best_practices_and_examples/005_Load_balancing_logs/README
       subnav:
       - title: "Load balancing with round robin"
-        url: /admin-guide/180_Best_practices_and_examples/005_Load_balancing_logs/000_Round_robin
+        url: /admin-guide/170_Best_practices_and_examples/005_Load_balancing_logs/000_Round_robin
       - title: "Configuration generator"
-        url: /admin-guide/180_Best_practices_and_examples/005_Load_balancing_logs/001_msec_hashing
+        url: /admin-guide/170_Best_practices_and_examples/005_Load_balancing_logs/001_msec_hashing
+  - title: "Troubleshooting syslog-ng"
+    url: /admin-guide/180_Troubleshooting_syslog-ng/README
+    subnav:
+    - title: "Possible causes of losing log messages"
+      url: /admin-guide/180_Troubleshooting_syslog-ng/000_Possible_causes_of_losing_log_messages
+    - title: "Creating {{ site.product.short_name }} core files"
+      url: /admin-guide/180_Troubleshooting_syslog-ng/001_Creating_core_files
+    - title: "Collecting debugging info"
+      url: /admin-guide/180_Troubleshooting_syslog-ng/002_Collecting_debug_info
+    - title: "Running a failure script"
+      url: /admin-guide/180_Troubleshooting_syslog-ng/003_Running_a_failure_script
+    - title: "Stopping syslog-ng"
+      url: /admin-guide/180_Troubleshooting_syslog-ng/004_Stopping_syslog-ng
+    - title: "Reporting bugs and finding help"
+      url: /admin-guide/180_Troubleshooting_syslog-ng/005_Reporting_bugs
+    - title: "Recover data from orphaned diskbuffer files"
+      url: /admin-guide/180_Troubleshooting_syslog-ng/006_Recovering_orphaned_diskbuffers
+    - title: "Unusual storage directory"
+      url: /admin-guide/180_Troubleshooting_syslog-ng/007_Unusual_storage_directory
+    - title: "Unusual port number"
+      url: /admin-guide/180_Troubleshooting_syslog-ng/008_Unusual_port_number
+    - title: "Error messages"
+      url: /admin-guide/180_Troubleshooting_syslog-ng/009_Error_messages
+    - title: "Using execmem prevented by SELinux"
+      url: /admin-guide/180_Troubleshooting_syslog-ng/010_SELinux
   - title: "The {{ site.product.short_name }} manual pages"
     url: /admin-guide/190_The_syslog-ng_manual_pages/README
     subnav:
@@ -1159,7 +1173,7 @@ dev-guide-nav:
           subnav:
           - title: "file() Destination Driver"
             url: /dev-guide/chapter_4/section_2/macos-testing-status/affile/file-destination-driver
-          - title: "file() Source Driver (DEPRECATED)"
+          - title: "file() Source Driver"
             url: /dev-guide/chapter_4/section_2/macos-testing-status/affile/file-source-driver
           - title: "pipe() Destination Driver"
             url: /dev-guide/chapter_4/section_2/macos-testing-status/affile/pipe-destination-driver

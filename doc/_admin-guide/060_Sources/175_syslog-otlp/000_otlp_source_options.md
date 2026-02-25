@@ -1,6 +1,8 @@
 ---
 title: syslog-ng-otlp() source options
 id: adm-src-sng-otlp-opt
+src: syslog-ng-otlp
+priority_default: notice 
 description: >-
     This section describes the options of the syslog-ng-otlp() source in {{ site.product.short_name }}.
 ---
@@ -77,34 +79,13 @@ destination {
 
 *Description:* This option configures the upper limit of in-flight gRPC requests per worker. It is advisd to set this value in the range of 10s or 100s when there are a high number of clients sending simultaneously. In an optimized solution, the number of `workers()` and `concurrent-requests()` is greater than or equal to the number of clients. However, this can cause an increase in memory usage.
 
-## default-facility()
-
-|   Type:|       facility string|
-|Default:|                  kern|
-
-*Description:* This option assigns a facility value to messages received from the file source if the message does not specify one.
-
-## default-level()
-
-|   Type:|       string|
-|Default:|       notice|
-
-*Description:* This option defines the default level value if the `PRIORITY` entry does not exist.
+{% include doc/admin-guide/options/default-facility.md %}
 
 {% include doc/admin-guide/options/default-priority.md %}
 
-## dns-cache()
+{% include doc/admin-guide/options/dns-cache.md %}
 
-|   Type:|       `yes`, `no`|
-|Default:|              `no`|
-
-*Description:* This option enables or disables the DNS cache usage.
-
-## ebpf()
-
-Available in {{ site.product.short_name }} 4.2 and later versions.
-
-If this option is not used, the kernel chooses the receive socket for a specific UDP randomly based on the source IP/port of the sender. It is possible to customize this algorithm using the Extended Berkeley Packet Filter (eBPF) plugin. The `ebpf()` option changes the `SO_REUSEPORT` algorithm of the kernel, to place messages randomly into one of the UDP sockets. The decision which UDP socket buffer a datagram is placed is made for every datagram, and not once for every stream. This results in the percet load-balancing of messages across the set of UDP sockets. While this resolves the imbalance between the sockets and results in perfect load balancing, the order of messages from the same sender is lost, which is the drawback of increased throughput.
+{% include doc/admin-guide/options/ebpf.md %}
 
 ### Example: Configure a syslog-ng-otlp() source with ebpf()
 

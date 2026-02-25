@@ -103,6 +103,8 @@ source s_files {
 
 {% include doc/admin-guide/options/source-flags.md %}
 
+{% include doc/admin-guide/options/follow-always-reads.md %}
+
 {% include doc/admin-guide/options/follow-freq.md %}
 
 {% include doc/admin-guide/options/follow-method.md %}
