@@ -90,11 +90,11 @@ adm-temp-macro-ose#week_day_name-c_week_day_name-r_week_day_name-s_week_day_name
 adm-temp-macro-ose#year-c_year-r_year-s_year:
   aliases: [ "/\\${YEAR}|\\${[CRS]_YEAR}/" ]
 
+adm-log-flow#log-paths-with-flow-control:
+  aliases: [ "Managing incoming and outgoing messages with flow-control" ]
+
 adm-about-glossary#fully-qualified-domain-name-fqdn:
   aliases: [ "/[Ff]ully [Qq]ualified [Dd]omain [Nn]ame/", "FQDN" ]
-
-grpc-keep:
-  aliases: [ "/gRPC keepalive ping[s]?/", "gRPC ping" ]
 
 adm-about-glossary#bsd-syslog-protocol:
   aliases: [ "BSD-syslog protocol", "legacy syslog (BSD-syslog) protocol" ]
@@ -263,3 +263,6 @@ adm-stats:
 
 doxygen-home:
   aliases: [ "/[Dd]oxygen/" ]
+
+grpc-keep:
+  aliases: [ "/gRPC keepalive ping[s]?/", "gRPC ping" ]

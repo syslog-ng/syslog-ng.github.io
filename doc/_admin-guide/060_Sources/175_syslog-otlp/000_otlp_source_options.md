@@ -77,7 +77,7 @@ destination {
 |   Type:|       integer|
 |Default:|             2|
 
-*Description:* This option configures the upper limit of in-flight gRPC requests per worker. It is advisd to set this value in the range of 10s or 100s when there are a high number of clients sending simultaneously. In an optimized solution, the number of `workers()` and `concurrent-requests()` is greater than or equal to the number of clients. However, this can cause an increase in memory usage.
+*Description:* This option configures the upper limit of in-flight gRPC requests per worker. It is advisd to set this value in the range of 10s or 100s when there are a high number of clients sending simultaneously. In an optimized solution, the number of workers() and `concurrent-requests()` is greater than or equal to the number of clients. However, this can cause an increase in memory usage.
 
 {% include doc/admin-guide/options/default-facility.md %}
 
@@ -111,13 +111,14 @@ source {
 
 ## keep-hostname()
 
-The `syslog-ng-otlp()` and `opentelemetry()` sources ignore this option and use the hostname from the message as the `${HOST}`.
+The syslog-ng-otlp() and opentelemetry() sources ignore this option and use the hostname from the message as the ${HOST}.
 
 {% include doc/admin-guide/options/keep-timestamp.md %}
 
 {% include doc/admin-guide/options/log-fetch-limit.md %}
 
 {% include doc/admin-guide/options/log-iw-size.md %}
+{% include doc/admin-guide/options/log-iw-size-network.md %}
 
 {% include doc/admin-guide/options/log-prefix.md %}
 
