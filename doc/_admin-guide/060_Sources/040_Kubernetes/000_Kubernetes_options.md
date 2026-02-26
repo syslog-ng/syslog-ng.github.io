@@ -15,6 +15,8 @@ The kubernetes() source has the following options:
 *Description:* The path to the directory that contains the log files,
 for example, **base-dir(\"/var/log/pods\")**.
 
+{% include doc/admin-guide/options/chain-hostnames.md %}
+
 ## cluster-name()
 
 | Type: |     string|
@@ -22,6 +24,16 @@ for example, **base-dir(\"/var/log/pods\")**.
 
 *Description:*The name of the Kubernetes cluster.
 
+{% include doc/admin-guide/options/format.md %}
+
+{% include doc/admin-guide/options/internal.md %}
+
+{% include doc/admin-guide/options/normalize-hostnames.md %}
+
 {% include doc/admin-guide/options/prefix.md %}
 
+{% include doc/admin-guide/options/sdata-prefix.md %}
+
 The prefix() option is optional and its default value is ".k8s.".
+
+{% include doc/admin-guide/options/use-syslogng-pid.md %}

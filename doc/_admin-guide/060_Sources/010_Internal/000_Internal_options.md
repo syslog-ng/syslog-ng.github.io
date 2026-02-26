@@ -21,3 +21,5 @@ The internal() driver has the following options:
 {% include doc/admin-guide/options/tags.md %}
 
 {% include doc/admin-guide/options/use-fqdn.md %}
+
+{% include doc/admin-guide/options/use-syslogng-pid.md %}

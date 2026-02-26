@@ -5,6 +5,8 @@ id: adm-src-hypr-opt
 
 The `hypr-audit-trail()` and `hypr-app-audit-trail()` sources have the following options:
 
+{% include doc/admin-guide/options/chain-hostnames.md %}
+
 ## url()
 
 |  Type:   |      url|
@@ -18,6 +20,10 @@ The `hypr-audit-trail()` and `hypr-app-audit-trail()` sources have the following
 |  Default:|         |
 
 *Description:* The base64 encoded authentication token from Hypr.
+
+{% include doc/admin-guide/options/format.md %}
+
+{% include doc/admin-guide/options/internal.md %}
 
 ## page-size()
 
@@ -66,3 +72,9 @@ The following values are available for log-level():
 |  Default:|   `no`|
 
 *Description:* This option can be set to ignore the saved value in the persist file, and start querying from the current time (optional).
+
+{% include doc/admin-guide/options/normalize-hostnames.md %}
+
+{% include doc/admin-guide/options/sdata-prefix.md %}
+
+{% include doc/admin-guide/options/use-syslogng-pid.md %}

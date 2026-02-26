@@ -33,6 +33,8 @@ source s_files {
 };
 ```  
 
+{% include doc/admin-guide/options/chain-hostnames.md %}
+
 {% include doc/admin-guide/options/default-facility.md %}
 
 {% include doc/admin-guide/options/default-priority.md %}
@@ -107,7 +109,11 @@ source s_files {
 
 {% include doc/admin-guide/options/follow-method.md %}
 
+{% include doc/admin-guide/options/format.md %}
+
 {% include doc/admin-guide/options/hook.md %}
+
+{% include doc/admin-guide/options/internal.md %}
 
 {% include doc/admin-guide/options/keep-timestamp.md %}
 
@@ -171,6 +177,8 @@ To force {{ site.product.short_name }} to poll the file changes even if `inotify
 
 {% include doc/admin-guide/options/multi-line-timeout.md %}
 
+{% include doc/admin-guide/options/normalize-hostnames.md %}
+
 {% include doc/admin-guide/options/pad-size.md %}
 
 {% include doc/admin-guide/options/program-override.md %}
@@ -206,6 +214,10 @@ source s_file_subdirectories {
 };
 ```
 
+{% include doc/admin-guide/options/sdata-prefix.md %}
+
 {% include doc/admin-guide/options/tags.md %}
 
 {% include doc/admin-guide/options/time-zone.md %}
+
+{% include doc/admin-guide/options/use-syslogng-pid.md %}

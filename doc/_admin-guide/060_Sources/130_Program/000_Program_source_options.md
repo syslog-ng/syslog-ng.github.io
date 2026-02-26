@@ -5,7 +5,13 @@ description: >-
     This section describes the options of the program() source in {{ site.product.short_name }}.
 ---
 
+{% include doc/admin-guide/options/chain-hostnames.md %}
+
 {% include doc/admin-guide/options/source-flags.md %}
+
+{% include doc/admin-guide/options/format.md %}
+
+{% include doc/admin-guide/options/internal.md %}
 
 {% include doc/admin-guide/options/hook.md %}
 
@@ -21,6 +27,8 @@ description: >-
 
 {% include doc/admin-guide/options/log-prefix.md %}
 
+{% include doc/admin-guide/options/normalize-hostnames.md %}
+
 {% include doc/admin-guide/options/optional.md %}
 
 {% include doc/admin-guide/options/pad-size.md %}
@@ -35,6 +43,10 @@ from.
 
 {% include doc/admin-guide/options/program-override.md %}
 
+{% include doc/admin-guide/options/sdata-prefix.md %}
+
 {% include doc/admin-guide/options/tags.md %}
 
 {% include doc/admin-guide/options/time-zone.md %}
+
+{% include doc/admin-guide/options/use-syslogng-pid.md %}

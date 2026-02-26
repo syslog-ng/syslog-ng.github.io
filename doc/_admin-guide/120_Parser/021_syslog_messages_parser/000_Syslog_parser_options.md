@@ -46,6 +46,8 @@ messages.
 parser p_syslog {  syslog-parser(drop-invalid(yes)); };
 ```
 
+{% include doc/admin-guide/options/sdata-prefix.md %}
+
 {% include doc/admin-guide/options/source-flags.md %}
 
 {% include doc/admin-guide/options/template-macro.md %}

@@ -33,9 +33,13 @@ source {
 
 ```
 
+{% include doc/admin-guide/options/format.md %}
+
 ### insecure()
 
 This option can be used to disable authentication: `auth(insecure())`.
+
+{% include doc/admin-guide/options/internal.md %}
 
 ### tls()
 
@@ -64,6 +68,8 @@ source {
 
 ```
 
+{% include doc/admin-guide/options/chain-hostnames.md %}
+
 {% include doc/admin-guide/options/channel-args.md %}
 
 ## concurrent-requests()
@@ -84,6 +90,10 @@ The `syslog-ng-otlp()` and `opentelemetry()` sources ignore this option and use 
 
 *Description:* This option specifies the upper limit of messages received from a source during a single poll loop. The destination queues can fill up before flow-control could stop reading if the defined `log-fetch-limit()` is too high.
 
+{% include doc/admin-guide/options/normalize-hostnames.md %}
+
 {% include doc/admin-guide/options/port.md %}
+
+{% include doc/admin-guide/options/sdata-prefix.md %}
 
 {% include doc/admin-guide/options/workers.md %}
