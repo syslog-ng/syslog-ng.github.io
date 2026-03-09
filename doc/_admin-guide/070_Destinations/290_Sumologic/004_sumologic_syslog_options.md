@@ -1,5 +1,6 @@
 ---
 title: sumologic-syslog() destination options
+driver: 'sumologic-syslog'
 port: '6514'
 srv: 'Sumo Logic server'
 token: 'Cloud Syslog Cloud Token'

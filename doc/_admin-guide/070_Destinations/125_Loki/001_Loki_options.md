@@ -1,5 +1,6 @@
 ---
 title: loki() destination options
+driver: 'loki'
 id: adm-dest-loki-opt
 description: >-
     This section describes the options of the loki() destination in {{ site.product.short_name }}.

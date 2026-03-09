@@ -1,5 +1,6 @@
 ---
 title: pipe() source options
+driver: 'pipe'
 id: adm-src-pipe-opt
 description: >-
     This section describes the options of the pipe() source in {{ site.product.short_name }}.

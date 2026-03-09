@@ -1,5 +1,6 @@
 ---
 title: telegram() destination options
+driver: 'telegram'
 id: adm-dest-telegram-opt
 description: >-
     This section describes the options of the telegram() destination in {{ site.product.short_name }}.

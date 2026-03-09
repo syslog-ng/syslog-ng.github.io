@@ -1,5 +1,6 @@
 ---
 title: system() source options
+driver: 'system'
 id: adm-src-system-opt
 description: >-
     This section describes the options of the system() source in {{ site.product.short_name }}.

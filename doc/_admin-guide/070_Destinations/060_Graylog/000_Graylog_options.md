@@ -1,5 +1,6 @@
 ---
 title: graylog2() destination options
+driver: 'graylog2'
 id: adm-dest-graylog-opt
 description: >-
     This section describes the options of the graylog2() destination in {{ site.product.short_name }}.

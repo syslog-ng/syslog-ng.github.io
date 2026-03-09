@@ -1,5 +1,6 @@
 ---
 title: sumologic-http() destination options
+driver: 'sumologic-http'
 id: adm-dest-sumologic-http-opt
 description: >-
     This section describes the options of the sumologic-http() destination in {{ site.product.short_name }}.

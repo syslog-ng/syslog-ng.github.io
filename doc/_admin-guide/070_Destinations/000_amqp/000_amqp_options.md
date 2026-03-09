@@ -1,5 +1,6 @@
 ---
 title: amqp() destination options
+driver: 'amqp'
 srv: 'AMQP server'
 port: '5672'
 id: adm-dest-amqp-opt
@@ -102,13 +103,14 @@ the amqp server and the client provide a heartbeat parameter, and the
 smaller is chosen for heartbeat interval. For example:
 
 ```config
-destination { amqp(
+destination { 
+  amqp(
     vhost("/")
     exchange("logs")
     body("hello world")
     heartbeat(10)
     username(guest) password(guest)
-    );
+  );
 };
 ```
 

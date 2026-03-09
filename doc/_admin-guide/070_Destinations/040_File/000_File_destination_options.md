@@ -1,5 +1,6 @@
 ---
 title: file() destination options
+driver: 'file'
 d_flags: 'no-multi-line, syslog-protocol, threaded'
 id: adm-dest-file-opt
 description: >-

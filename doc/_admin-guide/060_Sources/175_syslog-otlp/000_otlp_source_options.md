@@ -1,7 +1,7 @@
 ---
 title: syslog-ng-otlp() source options
+driver: 'syslog-ng-otlp'
 id: adm-src-sng-otlp-opt
-src: syslog-ng-otlp
 priority_default: notice 
 description: >-
     This section describes the options of the syslog-ng-otlp() source in {{ site.product.short_name }}.

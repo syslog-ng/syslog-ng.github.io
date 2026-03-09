@@ -1,5 +1,6 @@
 ---
 title: kubernetes() source options
+driver: 'kubernetes'
 id: adm-src-k8s-opt
 description: >-
     This section describes the options of the kubernetes() source in {{ site.product.short_name }}.

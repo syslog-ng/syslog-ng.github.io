@@ -1,5 +1,6 @@
 ---
 title: stomp() destination options
+driver: 'stomp'
 srv: STOMP server
 id: adm-dest-stomp-opt
 description: >-

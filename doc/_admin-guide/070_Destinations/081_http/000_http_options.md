@@ -1,5 +1,6 @@
 ---
 title: HTTP destination options
+driver: 'http'
 batch_timeout: 'none'
 id: adm-dest-http-opt
 description: >-

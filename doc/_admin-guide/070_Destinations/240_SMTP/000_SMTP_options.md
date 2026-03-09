@@ -1,5 +1,6 @@
 ---
 title: smtp() destination options
+driver: 'smtp'
 srv: SMTP server
 port: '25'
 id: adm-dest-smtp-opt

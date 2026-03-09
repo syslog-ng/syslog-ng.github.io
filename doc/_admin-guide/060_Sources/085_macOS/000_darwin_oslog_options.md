@@ -1,5 +1,6 @@
 ---
 title: darwin-oslog() source options
+driver: 'darwin-oslog'
 id: adm-src-darw-osl-opt
 description: >-
     The darwin-oslog() source is based on the native OSLog Framework to read logs from the local store of the unified logging system on Darwin OSes. The {{ site.product.short_name }} system() source automatically uses this new source on Darwin platforms if the `darwinosl` plugin is available. This plugin is available only on macOS 10.15 Catalina and later versions. The 10.15 version is the first to support the OSLog API.

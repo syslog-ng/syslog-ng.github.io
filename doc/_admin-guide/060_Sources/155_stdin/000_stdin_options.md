@@ -1,6 +1,6 @@
 ---
 title: stdin() source options
-src: 'stdin'
+driver: 'stdin'
 id: adm-src-stdin-opt
 description: >-
     This section describes the options of the stdin() source in {{ site.product.short_name }}.

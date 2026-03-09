@@ -1,5 +1,6 @@
 ---
 title: snmptrap() source options
+driver: 'snmptrap'
 fn_source: snmptrapd
 fn_logs: traps
 id: adm-src-snmp-opt

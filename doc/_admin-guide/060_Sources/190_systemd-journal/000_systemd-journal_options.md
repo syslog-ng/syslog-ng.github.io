@@ -1,8 +1,8 @@
 ---
 title: systemd-journal() source options
+driver: 'systemd-journal'
 facility_default: 'local0'
 priority_default: 'notice'
-src: 'systemd-journal()'
 id: adm-src-systemd-journal-opt
 description: >-
     This section describes the options of the systemd-journal() source in {{ site.product.short_name }}.

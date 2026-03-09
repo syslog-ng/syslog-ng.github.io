@@ -1,7 +1,7 @@
 ---
 title: "Options of the kafka() source"
+driver: 'kafka'
 id: adm-src-kafka-opt
-src: kafka
 description: >-
     This section describes the options of the kafka() source in {{ site.product.short_name }}.
 ---

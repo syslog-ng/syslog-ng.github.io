@@ -1,5 +1,6 @@
 ---
 title: syslog-ng-otlp() destination options 
+driver: 'syslog-ng-otlp'
 id: adm-dest-sng-otlp-opt
 description: >-
     This section describes the options of the syslog-ng-otlp() destination in {{ site.product.short_name }}.

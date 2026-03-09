@@ -1,5 +1,6 @@
 ---
 title: sun-streams() source options
+driver: 'sun-stream'
 id: adm-src-sun-opt
 description: >-
     This section describes the options of the sun-streams() source in {{ site.product.short_name }}.

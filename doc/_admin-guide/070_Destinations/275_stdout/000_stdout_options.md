@@ -1,5 +1,6 @@
 ---
 title: stdout() options
+driver: 'stdout'
 id: adm-opt-stdout
 description: >-
     This section describes the options of the sql() destination in {{ site.product.short_name }}.

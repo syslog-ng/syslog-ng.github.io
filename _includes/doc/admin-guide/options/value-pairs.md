@@ -18,7 +18,7 @@ sent the log message.
 
 ```config
 value-pairs(
-    scope(nv_pairs core syslog all_macros selected_macros everything)
+    scope(nv_pairs everything)
     exclude("R_*")
     exclude("S_*")
     key(".SDATA.meta.sequenceId")
@@ -30,7 +30,7 @@ The following example selects the same information as the previous
 example, but converts it into JSON format.
 
 ```bash
-$(format-json --scope nv_pairs,core,syslog,all_macros,selected_macros,everything \
+$(format-json --scope everything \
     --exclude R_* --exclude S_* --key .SDATA.meta.sequenceId \
     --pair MSGHDR="${PROGRAM}[${PID}]: ")
 ```

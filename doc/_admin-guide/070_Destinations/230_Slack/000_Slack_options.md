@@ -1,5 +1,6 @@
 ---
 title: Slack destination options
+driver: 'slack'
 id: adm-dest-slack-opt
 description: >-
     This section describes the options of the slack() destination in {{ site.product.short_name }}.

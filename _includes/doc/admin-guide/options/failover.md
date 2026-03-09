@@ -43,7 +43,7 @@ The following example specifies a failover server for a network()
 destination that uses TLS encryption.
 
 ```config
-destination d_syslog_tls{
+destination d_network_tls{
     network("10.100.20.40"
         transport("tls")
         port(6514)

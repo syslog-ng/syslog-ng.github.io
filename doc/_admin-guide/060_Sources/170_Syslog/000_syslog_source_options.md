@@ -1,5 +1,6 @@
 ---
 title: syslog() source options
+driver: 'syslog'
 id: adm-src-syslog-opt
 description: >-
     This section describes the options of the syslog() source in {{ site.product.short_name }}.

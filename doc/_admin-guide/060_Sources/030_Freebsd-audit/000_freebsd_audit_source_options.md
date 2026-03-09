@@ -1,5 +1,6 @@
 ---
 title: freebsd-audit() source options
+driver: 'freebsd-audit'
 id: adm-src-freebsd-audit-opt
 description: >-
     The freebsd-audit() sources serve the output of the praudit command line tool to the log pipe for further processing.

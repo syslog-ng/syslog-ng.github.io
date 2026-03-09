@@ -1,5 +1,6 @@
 ---
 title: systemd-syslog() source options
+driver: 'systemd-syslog'
 id: adm-src-systemd-syslog
 description: >-
     This section describes the options of the systemd-syslog() source in {{ site.product.short_name }}.

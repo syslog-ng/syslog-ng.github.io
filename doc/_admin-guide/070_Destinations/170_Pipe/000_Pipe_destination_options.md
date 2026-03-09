@@ -1,5 +1,6 @@
 ---
 title: pipe() destination options
+driver: 'pipe'
 id: adm-dest-pipe-opt
 description: >-
     This section describes the options of the pipe() destination in {{ site.product.short_name }}.

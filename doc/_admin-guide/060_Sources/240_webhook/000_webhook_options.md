@@ -1,6 +1,6 @@
 ---
 title: webhook() source options
-src: 'webhook'
+driver: 'webhook'
 id: adm-src-webhook-opt
 description: >-
     This section describes the options of the webhook source in {{ site.product.short_name }}.

@@ -1,5 +1,6 @@
 ---
 title: logmatic() destination options
+driver: 'logmatic'
 token: 'API Key'
 provider: 'Logmatic.io.'
 id: adm-dest-logmatic-opt

@@ -1,5 +1,6 @@
 ---
 title: redis() destination options
+driver: 'redis'
 srv: Redis server
 port: '6379'
 id: adm-dest-redis-opt

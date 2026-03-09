@@ -1,5 +1,6 @@
 ---
 title: syslog-ng() destination options 
+driver: 'syslog-ng'
 id: adm-dest-syslogng-opt
 description: >-
     This section describes the options of the syslog-ng() destination in {{ site.product.short_name }}.
