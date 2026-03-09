@@ -57,7 +57,7 @@ date. You can use the following format elements:
 |%q|      Quarter number, starting with 1|
 |%r|      time format: 09:05:57 PM|
 |%R|      time format: 21:05|
-|%s|      seconds since the Epoch, UCT|
+|%s|      seconds since the Epoch, UTC|
 |%S|      seconds, leading 0's|
 |%t|      TAB|
 |%T|      time format: 21:05:57|
