@@ -92,7 +92,7 @@ admin-guide-nav:
       url: /admin-guide/050_The_configuration_file/000_Location_of_the_config_file
     - title: "The configuration syntax in detail"
       url: /admin-guide/050_The_configuration_file/001_Configuration_syntax
-    - title: "Notes about the configuration syntax"
+    - title: "Notes about the configuration syntax and parsing"
       url: /admin-guide/050_The_configuration_file/002_Syntax_notes
     - title: "Defining configuration objects inline"
       url: /admin-guide/050_The_configuration_file/003_Defining_configuration_objects_inline
