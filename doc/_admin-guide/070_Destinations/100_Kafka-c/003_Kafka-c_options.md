@@ -1,5 +1,6 @@
 ---
 title: "Options of the kafka() destination"
+driver: 'kafka'
 id: adm-dest-kafkac-opt
 description: >-
     This section describes the options of the kafka() destination in {{ site.product.short_name }}.

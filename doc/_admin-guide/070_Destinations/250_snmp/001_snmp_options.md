@@ -1,5 +1,6 @@
 ---
 title: snmp() destination options
+driver: 'snmp'
 srv: 'SNMP server'
 port: '162'
 id: adm-dest-snmp-opt

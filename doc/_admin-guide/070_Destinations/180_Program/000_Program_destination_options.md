@@ -1,5 +1,6 @@
 ---
 title: program() destination options
+driver: 'program'
 id: adm-dest-program-opt
 description: >-
     This section describes the options of the program() destination in {{ site.product.short_name }}.

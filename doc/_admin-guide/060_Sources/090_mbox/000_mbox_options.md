@@ -1,5 +1,6 @@
 ---
 title: mbox() source options
+driver: 'mbox'
 id: adm-src-mbox-opt
 description: >-
     This section describes the options of the mbox() source in {{ site.product.short_name }}.

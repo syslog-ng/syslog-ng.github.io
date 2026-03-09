@@ -1,5 +1,6 @@
 ---
 title: python() destination options
+driver: 'python'
 batch_lines: '25'
 python_class: MyPythonDestination
 class_type: destination

@@ -1,6 +1,6 @@
 ---
 title: wildcard-file() source options
-src: wildcard-file
+driver: 'wildcard-file'
 id: adm-src-wild-opt
 description: >-
     This section describes the options of the wildcard-file() source in {{ site.product.short_name }}.

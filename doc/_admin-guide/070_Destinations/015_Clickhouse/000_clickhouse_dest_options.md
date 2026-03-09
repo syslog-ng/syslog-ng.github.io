@@ -1,5 +1,6 @@
 ---
 title: 'clickhouse() destination options'
+driver: 'clickhouse'
 id: adm-dest-clickhouse-opt
 description: >-
     This section describes the options of the clickhouse() destination in {{ site.product.short_name }}.

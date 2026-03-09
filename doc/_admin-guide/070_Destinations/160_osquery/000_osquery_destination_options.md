@@ -1,5 +1,6 @@
 ---
 title: osquery() destination options
+driver: 'osquery'
 id: adm-dest-osquery-opt
 description: >-
     This section describes the options of the osquery() destination in {{ site.product.short_name }}.

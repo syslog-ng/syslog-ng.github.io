@@ -1,5 +1,6 @@
 ---
 title: opentelemetry() source options
+driver: 'opentelemetry'
 id: adm-src-optel-opt
 description: >-
     This section describes the options of the opentelemetry() source in {{ site.product.short_name }}.

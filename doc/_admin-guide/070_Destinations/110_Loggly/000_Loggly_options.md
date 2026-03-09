@@ -1,5 +1,6 @@
 ---
 title: loggly() destination options
+driver: 'loggly'
 token: 'Customer Token'
 provider: 'Loggly.'
 id: adm-dest-loggly-opt

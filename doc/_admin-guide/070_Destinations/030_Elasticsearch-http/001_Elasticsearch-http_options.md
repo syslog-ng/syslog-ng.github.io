@@ -1,5 +1,6 @@
 ---
 title: elasticsearch-http() destination options
+driver: 'elasticsearch-http'
 batch_lines: '25'
 workers: '4'
 id: adm-dest-es-http-opt

@@ -1,5 +1,6 @@
 ---
 title: riemann() destination options
+driver: 'riemann'
 srv: Riemann server
 port: '5555'
 id: adm-dest-riemann-opt

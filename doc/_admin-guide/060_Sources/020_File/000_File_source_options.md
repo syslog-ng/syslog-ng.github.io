@@ -1,5 +1,6 @@
 ---
 title: file() source options
+driver: 'file'
 id: adm-src-file-opt
 description: >-
     This section describes the options of the file() source in {{ site.product.short_name }}.

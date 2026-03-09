@@ -1,5 +1,6 @@
 ---
 title: hypr-audit-trail() and hypr-app-audit-trail() source options
+driver: 'hypr-audit-trail'
 id: adm-src-hypr-opt
 ---
 

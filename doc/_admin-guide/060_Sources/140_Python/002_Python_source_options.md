@@ -1,5 +1,6 @@
 ---
 title: python() and python-fetcher() source options
+driver: 'python'
 python_class: MyPythonSource
 class_type: source
 time_reopen: '1'

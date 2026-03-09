@@ -1,5 +1,6 @@
 ---
 title: amqp() destination options
+driver: 'amqp'
 srv: 'AMQP server'
 port: '5672'
 id: adm-dest-amqp-opt

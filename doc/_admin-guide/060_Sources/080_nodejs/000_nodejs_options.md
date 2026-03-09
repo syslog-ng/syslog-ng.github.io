@@ -1,5 +1,6 @@
 ---
 title: nodejs() source options
+driver: 'nodejs'
 port_default: '9003'
 id: adm-src-nodejs-opt
 description: >-

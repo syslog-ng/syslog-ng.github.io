@@ -1,5 +1,6 @@
 ---
 title: graphite() destination options
+driver: 'graphite'
 srv: Graphite server
 port: '2003'
 id: adm-dest-graphite-opt

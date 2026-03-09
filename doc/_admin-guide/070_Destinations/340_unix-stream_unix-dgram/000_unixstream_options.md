@@ -1,5 +1,6 @@
 ---
 title: unix-stream() and unix-dgram() destination options
+driver: 'unix-stream'
 id: adm-dest-unix-opt
 description: >-
     This section describes the options of the unix-stream() and unix-dgram() destinations in {{ site.product.short_name }}.

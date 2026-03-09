@@ -1,5 +1,6 @@
 ---
 title: program() source options
+driver: 'program'
 id: adm-src-program-opt
 description: >-
     This section describes the options of the program() source in {{ site.product.short_name }}.

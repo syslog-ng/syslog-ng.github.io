@@ -1,5 +1,6 @@
 ---
 title: syslog() destination options
+driver: 'syslog'
 id: adm-dest-syslog-opt
 description: >-
     This section describes the options of the syslog() destination in {{ site.product.short_name }}.

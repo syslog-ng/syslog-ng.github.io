@@ -1,5 +1,6 @@
 ---
 title: Options of the mqtt() source
+driver: 'mqtt'
 srv: 'MQTT broker'
 id: adm-src-mqtt-opt
 description: >-

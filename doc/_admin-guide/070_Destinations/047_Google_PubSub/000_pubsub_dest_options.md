@@ -1,5 +1,6 @@
 ---
 title: 'pubsub() destination options'
+driver: 'pubsub'
 id: adm-dest-pubsub-opt
 description: >-
   The following options are specific to the google-pubsub() destination in {{ site.product.short_name }}.

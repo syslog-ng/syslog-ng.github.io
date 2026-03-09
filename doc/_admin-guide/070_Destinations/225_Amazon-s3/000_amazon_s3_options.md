@@ -1,5 +1,6 @@
 ---
 title: 'Amazon s3 options'
+driver: 's3'
 id: adm-opt-amazon
 description: >-
   This section describes the options of the s3() destination in {{ site.product.short_name }}.

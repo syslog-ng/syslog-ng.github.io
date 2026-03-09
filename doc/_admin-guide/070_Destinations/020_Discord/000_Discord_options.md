@@ -1,5 +1,6 @@
 ---
 title: Discord destination options
+driver: 'discord'
 batch_timeout: 'none'
 throttle: '5'
 id: adm-dest-discord-opt

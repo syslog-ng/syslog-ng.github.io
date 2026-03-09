@@ -1,5 +1,6 @@
 ---
 title: linux-audit() source options
+driver: 'linux-audit'
 fn_source: 'linux-audit'
 fn_logs: 'Linux audit logs'
 id: adm-src-linux-opt

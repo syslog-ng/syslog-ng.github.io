@@ -1,5 +1,6 @@
 ---
 title: darwin-oslog-stream() source options
+driver: 'darwin-oslog-stream'
 id: adm-src-darw-osl-str-opt
 description: >-
     This source is a wrapper around the OS command line log stream command that provides a live log stream feed. Unlike the `darwin-oslog()` source, the live stream can contain non-persistent log events as well. This might result in a large number of log events per second.

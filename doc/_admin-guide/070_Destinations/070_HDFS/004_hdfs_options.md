@@ -1,5 +1,6 @@
 ---
 title: HDFS destination options
+driver: 'hdfs'
 id: adm-dest-hdfs-opt
 description: >-
     This section describes the options of the hdfs() destination in {{ site.product.short_name }}.

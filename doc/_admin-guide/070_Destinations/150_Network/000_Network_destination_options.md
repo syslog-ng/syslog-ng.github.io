@@ -1,5 +1,6 @@
 ---
 title: network() destination options
+driver: 'network'
 id: adm-dest-netw-opt
 description: >-
     This section describes the options of the network() destination in {{ site.product.short_name }}.

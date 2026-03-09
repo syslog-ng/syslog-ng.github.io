@@ -1,5 +1,6 @@
 ---
 title: sql() destination options
+driver: 'sql'
 srv: 'database server'
 port: '1433 TCP for MSSQL, 3306 TCP for MySQL, 1521 for Oracle, and 5432 TCP for PostgreSQL'
 id: adm-dest-sql-opt
