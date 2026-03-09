@@ -111,7 +111,7 @@ In the following case reliable disk-buffer() is used.
 
 ```config
    destination d_demo {
-        network(
+        {{ page.driver | default: "network" }}(
             "127.0.0.1"
             port(3333)
             disk-buffer(
@@ -128,7 +128,7 @@ In the following case normal disk-buffer() is used.
 
 ```config
    destination d_demo {
-        network(
+        {{ page.driver | default: "network" }}(
             "127.0.0.1"
             port(3333)
                disk-buffer(

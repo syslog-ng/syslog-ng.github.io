@@ -9,8 +9,8 @@ Depending on how you set the failback() option, {{ site.product.short_name }} be
     In the following example {{ site.product.short_name }} handles the logservers in round-robin fashion if the primary logserver becomes inaccessible (therefore failback() option is not set).
 
      ```config
-     destination d_network {
-          network(
+     destination d_{{ page.driver | default: "network" }} {
+          {{ page.driver | default: "network" }}(
                "primary-server.com"
                port(601)
                failover( servers("failover-server1", "failover-server2") )
@@ -33,8 +33,8 @@ Depending on how you set the failback() option, {{ site.product.short_name }} be
     In the following example {{ site.product.short_name }} attempts to return to the primary logserver, as set in the failback() option: it will check if the server is accessible every tcp-probe-interval() seconds, and reconnect to the primary logserver after three successful connection attempts.
 
      ```config
-     destination d_network_2 {
-          network(
+     destination d_{{ page.driver | default: "network" }}_2 {
+          {{ page.driver | default: "network" }}(
                "primary-server.com"
                port(601)
                failover( 

@@ -16,6 +16,6 @@ source s_network {
         ip("192.168.1.1")
         transport("tcp")
         listen-backlog(2048)
-        );
+    );
 };
 ```

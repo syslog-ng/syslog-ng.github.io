@@ -103,13 +103,14 @@ the amqp server and the client provide a heartbeat parameter, and the
 smaller is chosen for heartbeat interval. For example:
 
 ```config
-destination { amqp(
+destination { 
+  amqp(
     vhost("/")
     exchange("logs")
     body("hello world")
     heartbeat(10)
     username(guest) password(guest)
-    );
+  );
 };
 ```
 

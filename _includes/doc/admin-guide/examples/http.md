@@ -1,8 +1,8 @@
 **Declaration**
 
 ```config
-destination d_http {
-    http(
+destination d_{{ page.driver }} {
+    {{ page.driver }}(
         url("http://127.0.0.1:8080")
         tls(
                 ca-dir("dir")

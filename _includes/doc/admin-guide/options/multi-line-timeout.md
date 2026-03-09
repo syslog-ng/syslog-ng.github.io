@@ -13,12 +13,13 @@ There is no default value, so it must be explicitly configured with a value high
 
 ```config
 source s_multi {
- file("/some/folder/events"
-  multi-line-mode("prefix-garbage")
-  multi-line-prefix('^EVENT: ')
-  multi-line-timeout(10)
-  flags("no-parse")
- );
+    file(
+        "/some/folder/events"
+        multi-line-mode("prefix-garbage")
+        multi-line-prefix('^EVENT: ')
+        multi-line-timeout(10)
+        flags("no-parse")
+    );
 }
 ```
 
