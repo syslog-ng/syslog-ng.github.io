@@ -52,6 +52,11 @@ gh-syslog-ng-issue-tracker:
   url: https://github.com/syslog-ng/syslog-ng/issues
   title: [ "syslog-ng OSE issue tracker on GitHub" ]
 
+gh-syslog-ng-installation-from-binaries:
+  id: gh-syslog-ng-installation-from-binaries
+  url: https://github.com/syslog-ng/syslog-ng?tab=readme-ov-file#installation-from-binaries
+  title: [ "syslog-ng OSE installation from binaries" ]
+
 oi-sn-pe:
   id: oi-sn-pe
   url: https://support.oneidentity.com/syslog-ng-premium-edition/
