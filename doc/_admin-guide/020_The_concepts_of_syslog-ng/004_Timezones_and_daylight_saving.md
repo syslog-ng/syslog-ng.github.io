@@ -37,8 +37,8 @@ to the message using the following algorithm.
 
     **NOTE:** When processing a message that does not contain timezone
     information, the {{ site.product.short_name }} application will use the timezone and
-    daylight-saving that was effective when the timestamp was generated.  
-    {: .notice--info}
+    daylight-saving that was effective when the timestamp was generated.\
+    \
     For example, the current time is 2011-03-11 (March 11, 2011) in the
     EU/Budapest timezone. When daylight-saving is active (summertime),
     the offset is +02:00. When daylight-saving is inactive (wintertime)
