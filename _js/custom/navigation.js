@@ -131,6 +131,7 @@ $(function () {
 
   // Function to apply all of our custom modifications on the self loaded pages
   function finalizeContent(anchorId) {
+    console.log('[Navigation] finalizeContent called for URL:', window.location.pathname);
     // Sync the sidebar with the current page url, migth be out of sync when the page is loaded initially from an inner url
     adjustSidebars();
     // There might be nav-links in the loaded new content as well (e.g.Next / Prev buttons
@@ -145,6 +146,9 @@ $(function () {
       addCodeBlocksTitle();
     // Add content tooltips
     addContentTooltips();
+    // Update contribution buttons to point to the correct source files
+    if (typeof updateContributionButtons === 'function')
+      updateContributionButtons();
     // Try to scroll to a giben anchor, if any
     if (anchorId)
       scrollToAnchor(anchorId);
