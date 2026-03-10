@@ -89,6 +89,12 @@ exclude:
 sass:
   sass_dir: _sass/minimal-mistakes
   style: compressed # https://sass-lang.com/documentation/file.SASS_REFERENCE.html#output_style
+  # Silence deprecation warnings for @import and global built-in functions (vendor libraries)
+  # Will migrate to @use/@forward in the future when vendor libraries are updated
+  # See: https://sass-lang.com/documentation/breaking-changes/import/#silencing
+  silence_deprecations:
+    - import
+    - global-builtin
 
 # Note: If you assign footer_scripts the theme’s /assets/js/main.min.js file will be deactivated.
 #       This script includes jQuery and various other plugins that you’ll need to find replacements for and include separately.
