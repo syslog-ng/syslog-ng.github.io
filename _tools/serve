@@ -78,12 +78,13 @@ generate_js_files() {
 }
 
 update_js_files() {
+    local forced=$1
     # if generate_js_files did not run this might not yet exists
     mkdir -p "assets/js/lunr" 2>/dev/null
     cp -f "_js/main.min.js" "assets/js/"
 
     # pack handles this already. prevent double site rebuild!
-    if [ "${JEKYLL_USE_AUTO_PACK}" != "yes" ]; then
+    if [ "${JEKYLL_USE_AUTO_PACK}" != "yes" ] || [ "${forced}" == "yes" ]; then
         cp -f "_js/lunr/"* "assets/js/lunr/"
     fi
 }
@@ -126,9 +127,6 @@ handle_file_changes() {
                     echo "Unknown file: $FILE"
                     ;;
             esac
-
-
-
         fi
     done
 }
@@ -142,6 +140,14 @@ handle_dir_changes() {
         echo "\nDir $PWD has changed, processing."
         echo -e ". Regenerating ${NAV_DATA_FILE}\n"
         ./_tools/navgen ./doc "${NAV_DATA_FILE}"
+    fi
+}
+
+play_sound() {
+    if [ "$(uname)" == "Darwin" ]; then
+        afplay /System/Library/Sounds/Ping.aiff
+    else
+        echo -e "\a"
     fi
 }
 
@@ -161,6 +167,12 @@ while true; do
         r)
             stop_process
             start_process
+            play_sound
+            ;;
+        p)
+            generate_js_files
+            update_js_files
+            play_sound
             ;;
     esac
 
