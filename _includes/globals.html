@@ -4,6 +4,18 @@
 
 <script async="false">
 
+  // Global debug logger - initialize FIRST so all scripts can use it
+  // Set DEBUG_ENABLED to false to disable all console logging
+  var DEBUG_ENABLED = true;
+
+  window.logger = DEBUG_ENABLED ? console : {
+    log: function() {},
+    error: function() {},
+    warn: function() {},
+    info: function() {},
+    debug: function() {}
+  };
+
   const searchEnabled = {% if site.search == true %} true {% else %} false {% endif %};
   const hasMastHead = {% if site.masthead != false %} true {% else %} false {% endif %};
   const searchFromMastHead = {% if site.masthead != false and site.search_from_masthead == true %} true {% else %} false {% endif %};
@@ -19,72 +31,72 @@
   function getRelativePathFromUrl() {
     // First, try to get the path from the data attribute on the article element
     var articleElement = document.querySelector('article.page');
-    console.log('[ContribButtons] Article element found:', !!articleElement);    
+    window.logger.log('[ContribButtons] Article element found:', !!articleElement);    
 
     if (articleElement) {
-      console.log('[ContribButtons] Article element:', articleElement);
-      console.log('[ContribButtons] data-source-path attribute:', articleElement.getAttribute('data-source-path'));
-      console.log('[ContribButtons] dataset.sourcePath:', articleElement.dataset.sourcePath);
+      window.logger.log('[ContribButtons] Article element:', articleElement);
+      window.logger.log('[ContribButtons] data-source-path attribute:', articleElement.getAttribute('data-source-path'));
+      window.logger.log('[ContribButtons] dataset.sourcePath:', articleElement.dataset.sourcePath);
       
       if (articleElement.dataset.sourcePath) {
         var sourcePath = articleElement.dataset.sourcePath;
-        console.log('[ContribButtons] ✓ Found source path from data attribute:', sourcePath);
+        window.logger.log('[ContribButtons] ✓ Found source path from data attribute:', sourcePath);
         return sourcePath;
       }
     }
     
     // Fallback: try to parse from URL (less reliable, mainly for debugging)
-    console.warn('[ContribButtons] ✗ No data-source-path found, attempting to parse from URL');
+    window.logger.warn('[ContribButtons] ✗ No data-source-path found, attempting to parse from URL');
     var pathname = window.location.pathname;
-    console.log('[ContribButtons] Current pathname:', pathname);
+    window.logger.log('[ContribButtons] Current pathname:', pathname);
     var parts = pathname.split('/').filter(Boolean);
-    console.log('[ContribButtons] Path parts:', parts);
+    window.logger.log('[ContribButtons] Path parts:', parts);
     
     // Remove baseurl if present
     if (docRoot && parts.length > 0 && parts[0] === docRoot.replace(/^\//g, '')) {
-      console.log('[ContribButtons] Removing docRoot:', parts[0]);
+      window.logger.log('[ContribButtons] Removing docRoot:', parts[0]);
       parts.shift();
     }
     
     // Remove collections_dir if present
     if (collectionsDir && parts.length > 0 && parts[0] === collectionsDir) {
-      console.log('[ContribButtons] Removing collectionsDir:', parts[0]);
+      window.logger.log('[ContribButtons] Removing collectionsDir:', parts[0]);
       parts.shift();
     }
     
     // Join the remaining parts to get the relative path
     var relativePath = parts.join('/');
-    console.log('[ContribButtons] Final relative path from URL parsing:', relativePath);
-    console.warn('[ContribButtons] Warning: Path parsed from URL may be missing underscores and file extensions');
+    window.logger.log('[ContribButtons] Final relative path from URL parsing:', relativePath);
+    window.logger.warn('[ContribButtons] Warning: Path parsed from URL may be missing underscores and file extensions');
     return relativePath;
   }
 
   function updateContributionButtons() {
-    console.log('[ContribButtons] updateContributionButtons called');
+    window.logger.log('[ContribButtons] updateContributionButtons called');
     
     if (!repoUrl) {
-      console.error('[ContribButtons] No repoUrl configured, aborting');
+      window.logger.error('[ContribButtons] No repoUrl configured, aborting');
       return;
     }
     
     var relativePath = getRelativePathFromUrl();
     if (!relativePath) {
-      console.error('[ContribButtons] Could not determine relative path, aborting');
+      window.logger.error('[ContribButtons] Could not determine relative path, aborting');
       return;
     }
     
     var fullPath = collectionsDir + '/' + relativePath;
-    console.log('[ContribButtons] Full path for repository:', fullPath);
+    window.logger.log('[ContribButtons] Full path for repository:', fullPath);
     
     var viewBtn = document.getElementById('view');
     var editBtn = document.getElementById('edit');
     var reportBtn = document.getElementById('report');
     
-    console.log('[ContribButtons] Buttons found - view:', !!viewBtn, 'edit:', !!editBtn, 'report:', !!reportBtn);
+    window.logger.log('[ContribButtons] Buttons found - view:', !!viewBtn, 'edit:', !!editBtn, 'report:', !!reportBtn);
     
     if (viewBtn) {
       var viewUrl = repoUrl + '/tree/master/' + fullPath;
-      console.log('[ContribButtons] View URL:', viewUrl);
+      window.logger.log('[ContribButtons] View URL:', viewUrl);
       viewBtn.onclick = function() {
         window.open(viewUrl, '_blank');
       };
@@ -92,7 +104,7 @@
     
     if (editBtn) {
       var editUrl = repoUrl + '/edit/master/' + fullPath;
-      console.log('[ContribButtons] Edit URL:', editUrl);
+      window.logger.log('[ContribButtons] Edit URL:', editUrl);
       editBtn.onclick = function() {
         window.open(editUrl, '_blank');
       };
@@ -101,13 +113,13 @@
     if (reportBtn) {
       var pageTitle = (document.querySelector('h1')?.textContent || 'page').trim().replace(/\s+/g, ' ');
       var reportUrl = repoUrl + '/issues/new?template=10-doc-issue-bug.md&title=Issue with `' + pageTitle + '` [' + relativePath + ']';
-      console.log('[ContribButtons] Report URL:', reportUrl);
+      window.logger.log('[ContribButtons] Report URL:', reportUrl);
       reportBtn.onclick = function() {
         window.open(reportUrl, '_blank');
       };
     }
     
-    console.log('[ContribButtons] Button update complete');
+    window.logger.log('[ContribButtons] Button update complete');
   }
 
   function setCookie(name, value, days = 365 * 100) {

@@ -61,9 +61,9 @@ $(function () {
   // ClipboardJS already handled the copy to clipboard part, just leaves the selection it uses permanent
   // Clear the selection on success
   clipboard.on('success', function (e) {
-    console.debug('Action:', e.action);
-    console.debug('Text:', e.text);
-    console.debug('Trigger:', e.trigger);
+    window.logger.debug('[Clipboard] Action:', e.action);
+    window.logger.debug('[Clipboard] Text:', e.text);
+    window.logger.debug('[Clipboard] Trigger:', e.trigger);
 
     const svgElement = e.trigger.querySelector('svg');
     const textNode = Array.from(e.trigger.childNodes).find(node => node.nodeType === Node.TEXT_NODE);
@@ -81,8 +81,8 @@ $(function () {
 
   // But keep the selection on error, so the user just have to press the default OS copy hotkey
   clipboard.on('error', function (e) {
-    console.error('Action:', e.action);
-    console.error('Trigger:', e.trigger);
+    window.logger.error('[Clipboard] Action:', e.action);
+    window.logger.error('[Clipboard] Trigger:', e.trigger);
   });
 
 });

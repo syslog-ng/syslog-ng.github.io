@@ -131,7 +131,7 @@ $(function () {
 
   // Function to apply all of our custom modifications on the self loaded pages
   function finalizeContent(anchorId) {
-    console.log('[Navigation] finalizeContent called for URL:', window.location.pathname);
+    window.logger.log('[Navigation] finalizeContent called for URL:', window.location.pathname);
     // Sync the sidebar with the current page url, migth be out of sync when the page is loaded initially from an inner url
     adjustSidebars();
     // There might be nav-links in the loaded new content as well (e.g.Next / Prev buttons
@@ -187,7 +187,7 @@ $(function () {
         }
         else {
           currContent.innerHTML = '<h3>Sorry, there was a problem loading the content!</h3>(' + error + ')';
-          console.error("Error loading content, " + error)
+          window.logger.error("[Navigation] Error loading content, " + error)
         }
       }
     );
@@ -255,7 +255,7 @@ $(function () {
         event.target.blur();
       }
       if (false == updated) {
-        console.debug("Different collection item or new tab/page requested, loading full page...")
+        window.logger.debug("[Navigation] Different collection item or new tab/page requested, loading full page...")
       }
     }
   }
@@ -664,7 +664,7 @@ $(function () {
             // Quick navigation from another link with tooltip to this failing link would keep alive the previous tooltip
             // force close it, as we don't have tooltip for the current and this is the live hovered one.
             hideTooltip(false);
-            console.error('Error loading the tooltip content!' + error);
+            window.logger.error('[Navigation] Error loading the tooltip content!' + error);
           }
           
           if (isTextTooltip) {
