@@ -4,9 +4,9 @@ layout: none
 
 // VERSION COUNTER - increment on each change to verify latest code is loaded
 var SEARCH_VERSION = 19;
-console.log('========================================');
-console.log('LUNR SEARCH ENGINE LOADED - VERSION: ' + SEARCH_VERSION);
-console.log('========================================');
+window.logger.log('========================================');
+window.logger.log('LUNR SEARCH ENGINE LOADED - VERSION: ' + SEARCH_VERSION);
+window.logger.log('========================================');
 
 /**
  * SEARCH STRATEGY FOR COMPOUND TERMS (e.g., "normalize-hostnames")
@@ -195,9 +195,9 @@ $(document).ready(function() {
       // Get all individual terms
       allTerms = queryLower.split(/\s+/).filter(function(t) { return t.length > 0; });
       
-      console.log('========== SEARCH: ' + query + ' ==========');
+      window.logger.log('========== SEARCH: ' + query + ' ==========');
       if (compoundTerms.length > 0) {
-        console.log('[Compound terms detected: ' + compoundTerms.join(', ') + ']');
+        window.logger.log('[Compound terms detected: ' + compoundTerms.join(', ') + ']');
       }
       
       // Strategy 1: Exact compound term match with title detection (HIGHEST PRIORITY)
@@ -237,10 +237,10 @@ $(document).ready(function() {
             }
           });
           if (strategy1Added > 0) {
-            console.log('Strategy 1: ' + strategy1Added + ' results');
+            window.logger.log('Strategy 1: ' + strategy1Added + ' results');
           }
         } catch(e) {
-          console.error('Strategy 1 error:', e);
+          window.logger.error('Strategy 1 error:', e);
         }
       });
       
@@ -270,10 +270,10 @@ $(document).ready(function() {
           }
         });
         if (addedCount > 0) {
-          console.log('Strategy 2: ' + addedCount + ' results');
+          window.logger.log('Strategy 2: ' + addedCount + ' results');
         }
       } catch(e) {
-        console.error('Strategy 2 error:', e);
+        window.logger.error('Strategy 2 error:', e);
       }
       
       // Strategy 3: Individual parts of compound terms (boost 10)
@@ -314,7 +314,7 @@ $(document).ready(function() {
         });
       });
       if (strategy3Added > 0) {
-        console.log('Strategy 3: ' + strategy3Added + ' results');
+        window.logger.log('Strategy 3: ' + strategy3Added + ' results');
       }
       
       // Strategy 4: Wildcard prefix on each term (boost 5)
@@ -336,7 +336,7 @@ $(document).ready(function() {
         }
       });
       if (strategy4Added > 0) {
-        console.log('Strategy 4: ' + strategy4Added + ' results');
+        window.logger.log('Strategy 4: ' + strategy4Added + ' results');
       }
       
       // Strategy 5: Fuzzy search for typos (boost 0.01) - LOWEST PRIORITY
@@ -359,13 +359,13 @@ $(document).ready(function() {
         }
       });
       if (strategy5Added > 0) {
-        console.log('Strategy 5: ' + strategy5Added + ' results');
+        window.logger.log('Strategy 5: ' + strategy5Added + ' results');
       }
       
       // Sort by score descending
       result.sort(function(a, b) { return b.score - a.score; });
       
-      console.log('Total: ' + result.length + ' results');
+      window.logger.log('Total: ' + result.length + ' results');
     }
 
     resultdiv.empty();
