@@ -202,3 +202,12 @@
   font-style: normal;
   font-weight: bold;
 }
+
+/* Custom styles for search result highlighting */
+mark {
+  background-color: #fff3cd;
+  color: #856404;
+  padding: 0.1em 0.2em;
+  border-radius: 2px;
+  font-weight: 500;
+}
