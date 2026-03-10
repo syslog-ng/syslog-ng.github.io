@@ -50,6 +50,18 @@
   }
 }
 
+/* Keep a thin border on search input even when not focused */
+input.search-input {
+  border: 1px solid #d3d3d3 !important;
+  box-shadow: none !important;
+}
+
+input.search-input:focus {
+  border-color: $primary-color !important;
+  box-shadow: inset 0 1px 3px rgba($text-color, 0.06),
+    0 0 5px rgba($primary-color, 0.7) !important;
+}
+
 .search-content {
   display: none;
   visibility: hidden;
@@ -210,4 +222,17 @@ mark {
   padding: 0.1em 0.2em;
   border-radius: 2px;
   font-weight: 500;
+}
+
+/* Focus indicator for search checkboxes - override theme's outline:0 */
+#search-exact-only:focus,
+#search-fuzzy:focus {
+  outline: 2px solid $warning-color !important;
+  box-shadow: 0 0 0 3px rgba($warning-color, 0.3) !important;
+}
+
+/* Checkbox fill color - use theme's link color (light blue in light mode, yellow in dark mode) */
+#search-exact-only,
+#search-fuzzy {
+  accent-color: $link-color;
 }

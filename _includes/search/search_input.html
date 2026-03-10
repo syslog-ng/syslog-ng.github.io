@@ -8,8 +8,17 @@
       {{ site.data.ui-text[site.locale].search_label_text | default: 'Enter your search term...' }}
     </label>
     <input type="search" id="search" class="search-input {% if site.search_from_masthead and site.masthead != false %}from-masthead{% else %}from-search-content{% endif %}" 
-      placeholder="{{ site.data.ui-text[site.locale].search_placeholder_text | default: 'Enter your search term...' }}" />    
-    <a class="search-help content-tooltip tooltip-align-center full-content-tooltip nav-link fas fa-info-circle" href="{{ '/lunr_search_help.html' | relative_url }}"></a>
+      placeholder="{{ site.data.ui-text[site.locale].search_placeholder_text | default: 'Enter your search term...' }}" 
+      style="border: 1px solid #d3d3d3 !important;" />    
+    <a class="search-help content-tooltip tooltip-align-center full-content-tooltip nav-link fas fa-info-circle" href="{{ '/lunr_search_help.html' | relative_url }}" style="margin:0 1.2em 0 0.5em;align-self:center;"></a>
+    <div style="display:flex;flex-direction:column;align-self:center;gap:0.3em;">
+      <div>
+        <input type="checkbox" id="search-exact-only" style="display:inline-block;margin:0;vertical-align:middle;" /><span style="display:inline;font-size:0.75em;color:#555;margin-left:0.3em;vertical-align:middle;">Exact matches only</span>
+      </div>
+      <div>
+        <input type="checkbox" id="search-fuzzy" checked style="display:inline-block;margin:0;vertical-align:middle;" /><span style="display:inline;font-size:0.75em;color:#555;margin-left:0.3em;vertical-align:middle;">Fuzzy matching</span>
+      </div>
+    </div>
   </form>
 
 {%- when "google" -%}

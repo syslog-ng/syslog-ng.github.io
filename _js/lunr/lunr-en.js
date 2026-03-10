@@ -3,7 +3,7 @@ layout: none
 ---
 
 // VERSION COUNTER - increment on each change to verify latest code is loaded
-var SEARCH_VERSION = 37;
+var SEARCH_VERSION = 42;
 window.logger.log('========================================');
 window.logger.log('LUNR SEARCH ENGINE LOADED - VERSION: ' + SEARCH_VERSION);
 window.logger.log('========================================');
@@ -158,9 +158,10 @@ function removeExtension(url) {
  * @param {Array<string>} compoundTerms - Array of compound terms extracted from query
  * @param {number} maxWords - Maximum words to show in snippet (default: 60)
  * @param {string} title - The page title (used to show context when term only in title)
+ * @param {boolean} fuzzyEnabled - If true, enable fuzzy highlighting
  * @returns {string} HTML snippet with highlighted search terms
  */
-function generateContextualSnippet(text, query, compoundTerms, maxWords, title) {
+function generateContextualSnippet(text, query, compoundTerms, maxWords, title, fuzzyEnabled) {
   maxWords = maxWords || 60;
   
   if (!text) {
@@ -179,7 +180,7 @@ function generateContextualSnippet(text, query, compoundTerms, maxWords, title) 
   
   // If text is short enough, just highlight and return it
   if (words.length <= maxWords) {
-    return highlightTerms(text, query, compoundTerms);
+    return highlightTerms(text, query, compoundTerms, fuzzyEnabled);
   }
   
   // Find the best match position (prioritize compound terms over individual parts)
@@ -374,7 +375,7 @@ function generateContextualSnippet(text, query, compoundTerms, maxWords, title) 
   if (matchPos === -1 && matchInTitle) {
     window.logger.log('[Snippet] Term only in title, showing excerpt start');
     var snippet = words.slice(0, maxWords).join(' ');
-    return '(Term appears in title) ' + highlightTerms(snippet, query, compoundTerms) + '...';
+    return '(Term appears in title) ' + highlightTerms(snippet, query, compoundTerms, fuzzyEnabled) + '...';
   }
   
   // FINAL FALLBACK: Try to find stemmed/fuzzy variations and highlight those
@@ -507,7 +508,7 @@ function generateContextualSnippet(text, query, compoundTerms, maxWords, title) 
   var suffix = endIndex < wordMatches.length ? '...' : '';
   
   // Highlight all matching terms
-  snippet = highlightTerms(snippet, query, compoundTerms);
+  snippet = highlightTerms(snippet, query, compoundTerms, fuzzyEnabled);
   
   return prefix + snippet + suffix;
 }
@@ -517,9 +518,10 @@ function generateContextualSnippet(text, query, compoundTerms, maxWords, title) 
  * @param {string} text - Text to highlight terms in
  * @param {string} query - Original search query
  * @param {Array<string>} compoundTerms - Array of compound terms
+ * @param {boolean} fuzzyEnabled - If true, enable fuzzy highlighting
  * @returns {string} Text with highlighted terms
  */
-function highlightTerms(text, query, compoundTerms) {
+function highlightTerms(text, query, compoundTerms, fuzzyEnabled) {
   window.logger.log('[Highlight] Input text snippet: "' + text.substring(0, 100) + '..."');
   window.logger.log('[Highlight] Query: "' + query + '"');
   window.logger.log('[Highlight] Compound terms: [' + compoundTerms.join(', ') + ']');
@@ -611,7 +613,7 @@ function highlightTerms(text, query, compoundTerms) {
       window.logger.log('[Highlight] Highlighted ' + matchCount + ' occurrence(s) of "' + term + '"');
       
       // Also look for fuzzy variations (stemmed/wildcard matches) to highlight
-      if (term.length >= 4) {
+      if (fuzzyEnabled && term.length >= 4) {
         window.logger.log('[Highlight] Also looking for fuzzy variations of "' + term + '"');
         var prefix = term.substring(0, 4);  // Use first 4 chars to catch stemmed variants
         var fuzzyRegex = new RegExp('\\b(' + prefix.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '\\w*)', 'gi');
@@ -664,7 +666,7 @@ function highlightTerms(text, query, compoundTerms) {
           window.logger.log('[Highlight] Highlighted ' + matchCount + ' standalone occurrence(s) of "' + term + '"');
           
           // Also look for fuzzy variations (stemmed/wildcard matches) to highlight
-          if (term.length >= 4) {
+          if (fuzzyEnabled && term.length >= 4) {
             window.logger.log('[Highlight] Also looking for fuzzy variations of "' + term + '"');
             var prefix = term.substring(0, 4);  // Use first 4 chars to catch stemmed variants
             var fuzzyRegex = new RegExp('\\b(' + prefix.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '\\w*)', 'gi');
@@ -711,7 +713,7 @@ function highlightTerms(text, query, compoundTerms) {
           window.logger.log('[Highlight] Highlighted ' + matchCount + ' standalone occurrence(s) of "' + term + '"');
           
           // Also look for fuzzy variations (stemmed/wildcard matches) to highlight
-          if (term.length >= 4) {
+          if (fuzzyEnabled && term.length >= 4) {
             window.logger.log('[Highlight] Also looking for fuzzy variations of "' + term + '"');
             var prefix = term.substring(0, 4);  // Use first 4 chars to catch stemmed variants
             var fuzzyRegex = new RegExp('\\b(' + prefix.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '\\w*)', 'gi');
@@ -763,7 +765,7 @@ function highlightTerms(text, query, compoundTerms) {
           window.logger.log('[Highlight] Highlighted ' + matchCount + ' occurrence(s)');
           
           // Also look for fuzzy variations (stemmed/wildcard matches) to highlight
-          if (term.length >= 4) {
+          if (fuzzyEnabled && term.length >= 4) {
             window.logger.log('[Highlight] Also looking for fuzzy variations of "' + term + '"');
             var prefix = term.substring(0, 4);  // Use first 4 chars to catch stemmed variants
             var fuzzyRegex = new RegExp('\\b(' + prefix.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '\\w*)', 'gi');
@@ -798,7 +800,7 @@ function highlightTerms(text, query, compoundTerms) {
           window.logger.log('[Highlight] Highlighted ' + matchCount + ' occurrence(s)');
           
           // Also look for fuzzy variations (stemmed/wildcard matches) to highlight
-          if (term.length >= 4) {
+          if (fuzzyEnabled && term.length >= 4) {
             window.logger.log('[Highlight] Also looking for fuzzy variations of "' + term + '"');
             var prefix = term.substring(0, 4);  // Use first 4 chars to catch stemmed variants
             var fuzzyRegex = new RegExp('\\b(' + prefix.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '\\w*)', 'gi');
@@ -842,6 +844,42 @@ $(document).ready(function() {
     setCookie('search', searchInput.value, 365*100);
   }
 
+  // Function to save checkbox states to localStorage
+  function saveCheckboxStates() {
+    var exactOnlyCheckbox = document.getElementById('search-exact-only');
+    var fuzzyCheckbox = document.getElementById('search-fuzzy');
+    
+    if (exactOnlyCheckbox) {
+      localStorage.setItem('search-exact-only', exactOnlyCheckbox.checked);
+    }
+    if (fuzzyCheckbox) {
+      localStorage.setItem('search-fuzzy', fuzzyCheckbox.checked);
+    }
+    window.logger.log('[Persistence] Saved checkbox states: exact-only=' + exactOnlyCheckbox.checked + ', fuzzy=' + fuzzyCheckbox.checked);
+  }
+
+  // Function to restore checkbox states from localStorage
+  function restoreCheckboxStates() {
+    var exactOnlyCheckbox = document.getElementById('search-exact-only');
+    var fuzzyCheckbox = document.getElementById('search-fuzzy');
+    
+    if (exactOnlyCheckbox) {
+      var exactOnlyState = localStorage.getItem('search-exact-only');
+      if (exactOnlyState !== null) {
+        exactOnlyCheckbox.checked = (exactOnlyState === 'true');
+        window.logger.log('[Persistence] Restored exact-only state: ' + exactOnlyCheckbox.checked);
+      }
+    }
+    
+    if (fuzzyCheckbox) {
+      var fuzzyState = localStorage.getItem('search-fuzzy');
+      if (fuzzyState !== null) {
+        fuzzyCheckbox.checked = (fuzzyState === 'true');
+        window.logger.log('[Persistence] Restored fuzzy state: ' + fuzzyCheckbox.checked);
+      }
+    }
+  }
+
   function onKeyUp() {
     saveInputValue();
 
@@ -849,6 +887,24 @@ $(document).ready(function() {
     var searchInput = document.getElementById('search');
     var query = searchInput.value;
     var result = [];
+    
+    // Check search mode options
+    var exactOnlyCheckbox = document.getElementById('search-exact-only');
+    var exactOnly = exactOnlyCheckbox && exactOnlyCheckbox.checked;
+    
+    var fuzzyCheckbox = document.getElementById('search-fuzzy');
+    // If exact-only is checked, fuzzy matching is ALWAYS disabled regardless of checkbox state
+    var fuzzyEnabled = !exactOnly && (!fuzzyCheckbox || fuzzyCheckbox.checked); // Default true if not found
+    
+    if (exactOnly) {
+      window.logger.log('========================================');
+      window.logger.log('SEARCH MODE: EXACT MATCHES ONLY (no partial matches, fuzzy disabled)');
+      window.logger.log('========================================');
+    }
+    
+    if (!fuzzyEnabled && !exactOnly) {
+      window.logger.log('FUZZY MATCHING: DISABLED');
+    }
 
     if (query !== '') {
       var seenRefs = new Set();
@@ -953,7 +1009,9 @@ $(document).ready(function() {
       // Searches for explicit "normalize" and "hostnames" from "normalize-hostnames"
       // MODERATE BOOST: Exact component parts rank below full compound term but above fuzzy matches
       // Only add if the full compound term is NOT in content (already added by Strategy 1)
-      var strategy3Added = 0;
+      // Skip if "exact only" mode is enabled
+      if (!exactOnly) {
+        var strategy3Added = 0;
       var partsSplitRegex = new RegExp('[' + COMPOUND_SEPARATORS_ESCAPED + ']+');
       compoundTerms.forEach(function(term) {
         var parts = term.split(partsSplitRegex);
@@ -986,53 +1044,61 @@ $(document).ready(function() {
           }
         });
       });
-      if (strategy3Added > 0) {
-        window.logger.log('Strategy 3: ' + strategy3Added + ' results');
+        if (strategy3Added > 0) {
+          window.logger.log('Strategy 3: ' + strategy3Added + ' results');
+        }
+      } else {
+        window.logger.log('Strategy 3 skipped (exact matches only mode)');
       }
       
-      // Strategy 4: Wildcard prefix on each term (boost 5)
-      // Matches variations like "normalized", "normalizes" - less specific than exact parts
-      var strategy4Added = 0;
-      allTerms.forEach(function(term) {
-        if (term.length > 2) {
-          try {
-            var wildcardResults = idx.search(term + '*');
-            wildcardResults.forEach(function(res) {
-              if (!seenRefs.has(res.ref)) {
-                res.score *= 5;
-                result.push(res);
-                seenRefs.add(res.ref);
-                strategy4Added++;
-              }
-            });
-          } catch(e) {}
+      // Skip wildcard and fuzzy strategies if fuzzy matching is disabled
+      if (fuzzyEnabled) {
+        // Strategy 4: Wildcard prefix on each term (boost 5)
+        // Matches variations like "normalized", "normalizes" - less specific than exact parts
+        var strategy4Added = 0;
+        allTerms.forEach(function(term) {
+          if (term.length > 2) {
+            try {
+              var wildcardResults = idx.search(term + '*');
+              wildcardResults.forEach(function(res) {
+                if (!seenRefs.has(res.ref)) {
+                  res.score *= 5;
+                  result.push(res);
+                  seenRefs.add(res.ref);
+                  strategy4Added++;
+                }
+              });
+            } catch(e) {}
+          }
+        });
+        if (strategy4Added > 0) {
+          window.logger.log('Strategy 4: ' + strategy4Added + ' results');
         }
-      });
-      if (strategy4Added > 0) {
-        window.logger.log('Strategy 4: ' + strategy4Added + ' results');
-      }
-      
-      // Strategy 5: Fuzzy search for typos (boost 0.01) - LOWEST PRIORITY
-      // Matches variations like "normal" for "normalize" - should rank below explicit matches
-      // Very low boost ensures high-frequency fuzzy matches don't outrank exact component matches
-      var strategy5Added = 0;
-      allTerms.forEach(function(term) {
-        if (term.length > 3) {
-          try {
-            var fuzzyResults = idx.search(term + '~1');
-            fuzzyResults.forEach(function(res) {
-              if (!seenRefs.has(res.ref)) {
-                res.score *= 0.01;
-                result.push(res);
-                seenRefs.add(res.ref);
-                strategy5Added++;
-              }
-            });
-          } catch(e) {}
+        
+        // Strategy 5: Fuzzy search for typos (boost 0.01) - LOWEST PRIORITY
+        // Matches variations like "normal" for "normalize" - should rank below explicit matches
+        // Very low boost ensures high-frequency fuzzy matches don't outrank exact component matches
+        var strategy5Added = 0;
+        allTerms.forEach(function(term) {
+          if (term.length > 3) {
+            try {
+              var fuzzyResults = idx.search(term + '~1');
+              fuzzyResults.forEach(function(res) {
+                if (!seenRefs.has(res.ref)) {
+                  res.score *= 0.01;
+                  result.push(res);
+                  seenRefs.add(res.ref);
+                  strategy5Added++;
+                }
+              });
+            } catch(e) {}
+          }
+        });
+        if (strategy5Added > 0) {
+          window.logger.log('Strategy 5: ' + strategy5Added + ' results');
         }
-      });
-      if (strategy5Added > 0) {
-        window.logger.log('Strategy 5: ' + strategy5Added + ' results');
+      } else {
+        window.logger.log('Strategies 4 & 5 skipped (fuzzy matching disabled)');
       }
       
       // Sort by score descending
@@ -1056,7 +1122,8 @@ $(document).ready(function() {
         query,
         compoundTerms,
         60, // max words to show
-        store[ref].title // pass title for better context
+        store[ref].title, // pass title for better context
+        fuzzyEnabled // pass fuzzy matching flag for highlighting
       );
       
       if (store[ref].teaser) {
@@ -1064,7 +1131,7 @@ $(document).ready(function() {
           '<div class="list__item">' +
           '<article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">' +
           '<h2 class="archive__item-title" itemprop="headline">' +
-          '<a href="' + removeExtension(store[ref].url) + '" onclick="searchResultLinkClickHandler(event)" rel="permalink">' + highlightTerms(store[ref].title, query, compoundTerms) + '</a>' +
+          '<a href="' + removeExtension(store[ref].url) + '" onclick="searchResultLinkClickHandler(event)" rel="permalink">' + highlightTerms(store[ref].title, query, compoundTerms, fuzzyEnabled) + '</a>' +
           '</h2>' +
           '<div class="archive__item-teaser">' +
           '<img src="' + store[ref].teaser + '" alt="">' +
@@ -1078,7 +1145,7 @@ $(document).ready(function() {
           '<div class="list__item">' +
           '<article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">' +
           '<h2 class="archive__item-title" itemprop="headline">' +
-          '<a href="' + removeExtension(store[ref].url) + '" onclick="searchResultLinkClickHandler(event)" rel="permalink">' + highlightTerms(store[ref].title, query, compoundTerms) + '</a>' +
+          '<a href="' + removeExtension(store[ref].url) + '" onclick="searchResultLinkClickHandler(event)" rel="permalink">' + highlightTerms(store[ref].title, query, compoundTerms, fuzzyEnabled) + '</a>' +
           '</h2>' +
           '<p class="archive__item-excerpt" itemprop="description">' + contextSnippet + '</p>' +
           '</article>' +
@@ -1088,6 +1155,52 @@ $(document).ready(function() {
     }
   }
   $('input#search').on('keyup', onKeyUp);
+  
+  // Function to update fuzzy checkbox state based on exact-only mode
+  function updateFuzzyCheckboxState() {
+    var exactOnlyCheckbox = document.getElementById('search-exact-only');
+    var fuzzyCheckbox = document.getElementById('search-fuzzy');
+    
+    if (exactOnlyCheckbox && fuzzyCheckbox) {
+      var fuzzyLabel = fuzzyCheckbox.nextElementSibling; // Get the span label next to checkbox
+      
+      if (exactOnlyCheckbox.checked) {
+        fuzzyCheckbox.disabled = true;
+        fuzzyCheckbox.style.opacity = '0.5';
+        fuzzyCheckbox.style.cursor = 'not-allowed';
+        if (fuzzyLabel) {
+          fuzzyLabel.style.opacity = '0.5';
+          fuzzyLabel.style.cursor = 'not-allowed';
+        }
+      } else {
+        fuzzyCheckbox.disabled = false;
+        fuzzyCheckbox.style.opacity = '1';
+        fuzzyCheckbox.style.cursor = 'pointer';
+        if (fuzzyLabel) {
+          fuzzyLabel.style.opacity = '1';
+          fuzzyLabel.style.cursor = 'default';
+        }
+      }
+    }
+  }
+  
+  // Add listeners for search option checkboxes to re-trigger search
+  $('#search-exact-only').on('change', function() {
+    window.logger.log('[Search] Exact-only mode ' + (this.checked ? 'enabled' : 'disabled'));
+    updateFuzzyCheckboxState(); // Update fuzzy checkbox state
+    saveCheckboxStates(); // Save state to localStorage
+    onKeyUp(); // Re-run search with new setting
+  });
+  
+  $('#search-fuzzy').on('change', function() {
+    window.logger.log('[Search] Fuzzy matching ' + (this.checked ? 'enabled' : 'disabled'));
+    saveCheckboxStates(); // Save state to localStorage
+    onKeyUp(); // Re-run search with new setting
+  });
+
+  // Initialize fuzzy checkbox state on page load
+  restoreCheckboxStates(); // Restore saved checkbox states first
+  updateFuzzyCheckboxState(); // Then update UI based on exact-only state
 
   restoreInputValue();
 });
