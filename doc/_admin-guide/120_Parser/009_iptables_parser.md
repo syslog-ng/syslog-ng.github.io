@@ -9,13 +9,15 @@ description: >-
 
 **Declaration**
 
-    @version: 3.38
-    @include "scl.conf"
-    log {
-        source { system(); };
-        parser { iptables-parser(); };
-        destination { ... };
-    };
+```config
+@version: 3.38
+@include "scl.conf"
+log {
+    source { system(); };
+    parser { iptables-parser(); };
+    destination { ... };
+};
+```
 
 The iptables-parser() is actually a reusable configuration snippet
 configured to parse iptables messages. For details on using or writing
