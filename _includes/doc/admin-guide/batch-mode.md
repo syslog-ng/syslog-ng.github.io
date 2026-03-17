@@ -1,4 +1,4 @@
-## Batch size
+## Batch mode
 
 The batch-bytes(), batch-lines(), and batch-timeout() options of the
 destination determine how many log messages {{ site.product.short_name }} sends in a

@@ -1,12 +1,13 @@
 ---
 title: Batch mode and load balancing with Redis
+driver: 'redis'
 id: adm-dest-redis-batch
 description: >-
     Starting with version 3.34, you can send multiple log messages with the
     help of Redis's pipelining feature.
 ---
 
-{% include doc/admin-guide/batch-size.md %}
+{% include doc/admin-guide/batch-mode.md %}
 
 ### Example: Redis batch mode
 

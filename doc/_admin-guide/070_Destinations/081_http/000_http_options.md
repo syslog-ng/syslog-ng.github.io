@@ -30,21 +30,22 @@ destination d_http_compressed{
   accept-encoding("all"));
 };
 ```
+
 ## azure-auth-header()
 
 See The Azure auth header plugin.
 
 {% include doc/admin-guide/options/batch-bytes.md %}
 
-{% include doc/admin-guide/http-batch.md %}
+{% include doc/admin-guide/http-batch-and-loadbalance-ref.md referred_page='Batch mode in the HTTP destination' %}
 
 {% include doc/admin-guide/options/batch-lines.md %}
 
-{% include doc/admin-guide/http-batch.md %}
+{% include doc/admin-guide/http-batch-and-loadbalance-ref.md referred_page='Batch mode in the HTTP destination' %}
 
 {% include doc/admin-guide/options/batch-timeout.md %}
 
-{% include doc/admin-guide/http-batch.md %}
+{% include doc/admin-guide/http-batch-and-loadbalance-ref.md referred_page='Batch mode in the HTTP destination' %}
 
 ## body()
 
@@ -64,8 +65,6 @@ received from the source by default.
 *Description:* The string {{ site.product.short_name }} puts at the beginning of the
 body of the HTTP request, before the log message. Available in {{ site.product.short_name }} version 3.18 and later.
 
-{% include doc/admin-guide/http-batch.md %}
-
 ## body-suffix()
 
 |  Accepted values:|   string|
@@ -74,8 +73,6 @@ body of the HTTP request, before the log message. Available in {{ site.product.s
 *Description:* The string {{ site.product.short_name }} puts to the end of the body of
 the HTTP request, after the log message. Available in {{ site.product.short_name }}
 version 3.18 and later.
-
-{% include doc/admin-guide/http-batch.md %}
 
 {% include doc/admin-guide/options/ca-dir.md %}
 
@@ -117,8 +114,6 @@ destination d_http_compressed{
 {% include doc/admin-guide/examples/http.md %}
 
 {% include doc/admin-guide/options/delimiter.md %}
-
-{% include doc/admin-guide/http-batch.md %}
 
 {% include doc/admin-guide/options/disk-buffer.md %}
 
@@ -219,9 +214,9 @@ In {{ site.product.short_name }} 4.5 and later versions, templates can be used i
   * user
   * password
 
+### Load balancing between multiple HTTP endpoints
 
-
-{% include doc/admin-guide/load-balancing.md %}
+{% include doc/admin-guide/http-load-balancing.md %}
 
 {% include doc/admin-guide/options/user-agent.md %}
 

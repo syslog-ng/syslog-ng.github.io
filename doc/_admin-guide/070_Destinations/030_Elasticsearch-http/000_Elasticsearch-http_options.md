@@ -7,8 +7,9 @@ id: adm-dest-es-http-opt
 description: >-
   The elasticsearch-http destination of {{ site.product.short_name }} can directly post
   log messages to an Elasticsearch deployment using the Elasticsearch Bulk
-  API over the HTTP and Secure HTTP (HTTPS) protocols. The
-  elasticsearch-http destination has the following options. The required
+  API over the HTTP and Secure HTTP (HTTPS) protocols.
+  
+  The elasticsearch-http destination has the following options. The required
   options are: index(), type(), and url().
 ---
 
@@ -16,15 +17,15 @@ This destination is available in {{ site.product.short_name }} version 3.21 and 
 
 {% include doc/admin-guide/options/batch-bytes.md %}
 
+{% include doc/admin-guide/http-batch-and-loadbalance-ref.md referred_page='Batch mode and load balancing with ElasticSearch' %}
+
 {% include doc/admin-guide/options/batch-lines.md %}
 
-For details on how this option influences batch mode, see
-Batch mode and load balancing with ElasticSearch.
+{% include doc/admin-guide/http-batch-and-loadbalance-ref.md referred_page='Batch mode and load balancing with ElasticSearch' %}
 
 {% include doc/admin-guide/options/batch-timeout.md %}
 
-For details on how this option influences batch mode, see
-Batch mode and load balancing with ElasticSearch.
+{% include doc/admin-guide/http-batch-and-loadbalance-ref.md referred_page='Batch mode and load balancing with ElasticSearch' %}
 
 {% include doc/admin-guide/options/ca-dir.md %}
 
@@ -171,20 +172,22 @@ you use a mapping in Elasticsearch to modify the type of the data.
   |Default:|   N/A|
 
 *Description:* Specifies the hostname or IP address and optionally the
-port number of the Elasticsearch indexer. Use a colon (**:**) after the
+port number of the Elasticsearch indexer. Use a colon `:` after the
 address to specify the port number of the server. For example:
-<http://your-elasticsearch-indexer.server:8088/\_bulk>
+<http://your-elasticsearch-indexer.server:8088/_bulk>
 
 This option is mandatory for this destination.
 
-Make sure that the URL ends with _bulk, this is the Elasticsearch API
+Make sure that the URL ends with `_bulk`, this is the Elasticsearch API
 endpoint that properly parses the messages sent by {{ site.product.short_name }}.
 
 In case the server on the specified URL returns a redirect request,
 {{ site.product.short_name }} automatically follows maximum 3 redirects. Only HTTP and
 HTTPS based redirections are supported.
 
-{% include doc/admin-guide/load-balancing.md %}
+{% include doc/admin-guide/http-load-balancing.md %}
+
+{% include doc/admin-guide/http-load-balancing-example.md %}
 
 ## user()
 

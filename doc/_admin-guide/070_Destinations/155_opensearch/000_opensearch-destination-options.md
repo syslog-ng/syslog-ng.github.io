@@ -1,26 +1,26 @@
 ---
-title: OpenSearch() destination options 
+title: opensearch() destination options 
+driver: 'opensearch'
 id: adm-dest-os-opt
 description: >-
-    This section describes the options of the opensearch() destination in {{ site.product.short_name }}.
+    The opensearch destination of {{ site.product.short_name }} can directly post log messages to an OpenSearch deployment using the OpenSearch Bulk API over the HTTP and Secure HTTP (HTTPS) protocols.
+    
+    The opensearch destination has the following options. The index() and url() options are strictly required.
 ---
-
-
-The opensearch destination of {{ site.product.short_name }} can directly post log messages to an OpenSearch deployment using the OpenSearch Bulk API over the HTTP and Secure HTTP (HTTPS) protocols. The opensearch destination has the following options. The index() and url() options are strictly required.
 
 This destination is available in {{ site.product.short_name }} version 4.4 and later versions.
 
 {% include doc/admin-guide/options/batch-bytes.md %}
 
+{% include doc/admin-guide/http-batch-and-loadbalance-ref.md referred_page='Batch mode and load balancing with OpenSearch' %}
+
 {% include doc/admin-guide/options/batch-lines.md %}
 
-For details on how this option influences batch mode, see
-Batch mode and load balancing with OpenSearch.
+{% include doc/admin-guide/http-batch-and-loadbalance-ref.md referred_page='Batch mode and load balancing with OpenSearch' %}
 
 {% include doc/admin-guide/options/batch-timeout.md %}
 
-For details on how this option influences batch mode, see
-Batch mode and load balancing with OpenSearch.
+{% include doc/admin-guide/http-batch-and-loadbalance-ref.md referred_page='Batch mode and load balancing with OpenSearch' %}
 
 {% include doc/admin-guide/options/ca-dir.md %}
 
@@ -126,22 +126,9 @@ Make sure that the URL ends with _bulk, this is the OpenSearch API endpoint that
 
 In case the server on the specified URL returns a redirect request, {{ site.product.short_name }} automatically follows maximum 3 redirects. Only HTTP and HTTPS based redirections are supported.
 
-Starting with version 3.19, you can specify multiple URLs, for example, url("site1" "site2"). In this case, {{ site.product.short_name }} sends log messages to the specified URLs in a load-balance fashion. This means that {{ site.product.short_name }} sends each message to only one URL. For example, you can use this to send the messages to a set of ingestion nodes or indexers of your SIEM solution if a single node cannot handle the load. Note that the order of the messages as they arrive on the servers can differ from the order {{ site.product.short_name }} has received them, so use load-balancing only if your server can use the timestamp from the messages. If the server uses the timestamp when it receives the messages, the order of the messages will be incorrect.
+{% include doc/admin-guide/http-load-balancing.md %}
 
-![]({{ site.baseurl}}/assets/images/caution.png)
-**CAUTION:** If you set multiple URLs in the url() option, set the persist-name()
-option as well to avoid data loss.
-{: .notice--warning}
-
-Starting with version {{ site.product.short_name }} version 3.22, you can use any of the following
-formats to specify multiple URLs:
-
-```config
-   url("server1", "server2", "server3"); # comma-separated strings
-    url("server1" "server2" "server3"); # space-separated strings
-    url("server1 server2 server3"); # space-separated within a single string
-
-```
+{% include doc/admin-guide/http-load-balancing-example.md %}
 
 ## user()
 

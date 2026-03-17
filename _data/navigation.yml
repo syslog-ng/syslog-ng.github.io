@@ -348,10 +348,10 @@ admin-guide-nav:
     - title: "elasticsearch-http"
       url: /admin-guide/070_Destinations/030_Elasticsearch-http/README
       subnav:
-      - title: "Batch mode and load balancing with ElasticSearch"
-        url: /admin-guide/070_Destinations/030_Elasticsearch-http/000_Batch_mode_and_load_balancing
       - title: "elasticsearch-http() destination options"
-        url: /admin-guide/070_Destinations/030_Elasticsearch-http/001_Elasticsearch-http_options
+        url: /admin-guide/070_Destinations/030_Elasticsearch-http/000_Elasticsearch-http_options
+      - title: "Batch mode and load balancing with ElasticSearch"
+        url: /admin-guide/070_Destinations/030_Elasticsearch-http/001_Batch_mode_and_load_balancing
     - title: "elasticsearch-datastream"
       url: /admin-guide/070_Destinations/035_elasticsearch-datastream/README
       subnav:
@@ -398,12 +398,14 @@ admin-guide-nav:
       subnav:
       - title: "HTTP destination options"
         url: /admin-guide/070_Destinations/081_http/000_http_options
-      - title: "Batch mode and load balancing with HTTP"
+      - title: "Batch mode in the HTTP destination"
         url: /admin-guide/070_Destinations/081_http/001_Batch_mode_and_load_balancing
+      - title: "HTTP Load Balancer in Details"
+        url: /admin-guide/070_Destinations/081_http/002_http_load_balancer_details
       - title: "The Python HTTP header plugin"
-        url: /admin-guide/070_Destinations/081_http/002_Python_http_header_plugin
+        url: /admin-guide/070_Destinations/081_http/003_Python_http_header_plugin
       - title: "The Azure auth header plugin"
-        url: /admin-guide/070_Destinations/081_http/003_Azure_auth_header_plugin
+        url: /admin-guide/070_Destinations/081_http/004_Azure_auth_header_plugin
     - title: "kafka"
       url: /admin-guide/070_Destinations/100_Kafka-c/README
       subnav:
@@ -461,10 +463,10 @@ admin-guide-nav:
     - title: "opensearch"
       url: /admin-guide/070_Destinations/155_opensearch/README
       subnav:
+      - title: "opensearch() destination options "
+        url: /admin-guide/070_Destinations/155_opensearch/000_opensearch-destination-options
       - title: "Batch mode and load balancing with OpenSearch"
-        url: /admin-guide/070_Destinations/155_opensearch/000_batch-mode
-      - title: "OpenSearch() destination options "
-        url: /admin-guide/070_Destinations/155_opensearch/001_opensearch()-destination-options
+        url: /admin-guide/070_Destinations/155_opensearch/001_Batch_mode_and_load_balancing
     - title: "OpenTelemetry"
       url: /admin-guide/070_Destinations/157_OpenTelemetry/README
       subnav:
@@ -498,10 +500,10 @@ admin-guide-nav:
     - title: "redis"
       url: /admin-guide/070_Destinations/210_Redis/README
       subnav:
-      - title: "Batch mode and load balancing with Redis"
-        url: /admin-guide/070_Destinations/210_Redis/000_Batch_mode_in_Redis
       - title: "redis() destination options"
-        url: /admin-guide/070_Destinations/210_Redis/001_Redis_options
+        url: /admin-guide/070_Destinations/210_Redis/000_Redis_options
+      - title: "Batch mode and load balancing with Redis"
+        url: /admin-guide/070_Destinations/210_Redis/001_Batch_mode_in_Redis
     - title: "riemann"
       url: /admin-guide/070_Destinations/220_Riemann/README
       subnav:

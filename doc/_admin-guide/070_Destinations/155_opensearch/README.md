@@ -8,7 +8,7 @@ description: >-
     The opensearch() destination posts log messages to OpenSearch
     using its HTTP endpoint.
 
-    HTTPS connection, password- and certificate-based authentication are supported.
+    HTTPS connection, password and certificate-based authentication are supported.
     The content of the events is sent in JSON format.
 ---
 
