@@ -1,7 +1,7 @@
 ## template()
 
-|  Type:|      string|
-|Default:|   A format conforming to the default logfile format. |
+| Type: | string |
+| Default: | A format conforming to the default logfile format. |
 
 *Description:* Specifies a template defining the logformat to be used in
 the destination. Macros are described in

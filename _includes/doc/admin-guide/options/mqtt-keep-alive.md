@@ -1,7 +1,7 @@
 ## keep-alive()
 
-|  Type:|      positive integer number (in seconds)|
-  |Default:|   60|
+| Type: | positive integer number (in seconds) |
+| Default: | 60 |
 
 *Description:* Specifies the number of seconds that {{ site.product.short_name }} keeps
 the connection between the broker and clients open in case there is no

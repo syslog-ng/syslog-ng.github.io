@@ -1,7 +1,7 @@
 ## headers()
 
-|  Type: |      arrow list|
-|Default:|           empty|
+| Type: | arrow list |
+| Default: | empty |
 
 Available in syslog-ng OSE 4.8 and later versions.
 

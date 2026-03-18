@@ -1,7 +1,7 @@
 ## workers()
 
-|  Type:|      integer|
-|Default:| {{ page.workers | default: '1' }}|
+| Type: | integer |
+| Default: | {{ page.workers | default: '1' }} |
 
 *Description:* Specifies the number of worker threads (at least 1) that
 {{ site.product.short_name }} uses to send messages to the server. Increasing the number

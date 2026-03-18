@@ -1,7 +1,7 @@
 ## format()
 
-|Synopsis:|   format(string)|
-|Default:|  `syslog`  |
+| Synopsis: | format(string) |
+| Default: | `syslog` |
 
 *Description:* This option specifies the default message parsing format used by {{ site.product.short_name }}.
 Plugins can define their own format parsers; if a plugin does not provide one, the default `syslog` format parser is used.

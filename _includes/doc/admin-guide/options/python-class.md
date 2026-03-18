@@ -1,7 +1,7 @@
 ## class()
 
-|Type:   |   string|
-|Default: |  N/A|
+| Type: | string |
+| Default: | N/A |
 
 *Description:* The name of the Python class that implements the {{ page.class_type }}, for example:
 

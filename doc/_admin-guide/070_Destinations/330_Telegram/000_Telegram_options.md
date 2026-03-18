@@ -10,24 +10,24 @@ The telegram() destination has the following options:
 
 ## bot-id()
 
-|Type:   |   number|
-|Default:|   N/A|
+| Type: | number |
+| Default: | N/A |
 
 *Description:* This is a required option. Specifies the token for the
 bot necessary to access the Telegram HTTP API.
 
 ## chat-id()
 
-|  Type: |     number|
-|Default: |  N/A|
+| Type: | number |
+| Default: | N/A |
 
 *Description:* This is a required option. Specifies the ID of the chat
 of the telegram destination.
 
 ## disable_notification()
 
-|  Type:    |  boolean|
-|  Default: |  true \| false|
+| Type: | boolean |
+| Default: | true \| false |
 
 *Description:* Enables the telegram() destination to send silent
 messages. By default, the disable_notification() value is false.
@@ -50,8 +50,8 @@ destination {
 
 ## disable-web-page-preview()
 
-|  Type:    |  boolean|
-|  Default: |  true|
+| Type: | boolean |
+| Default: | true |
 
 *Description:* Disables link previews for links in the message. By
 default, the disable-web-page-preview value is true. From a security
@@ -63,8 +63,8 @@ traffic to any URL.
 
 ## parse-mode()
 
-|  Type:      |string|
-|  Default:  | none|
+| Type: | string |
+| Default: | none |
 
 *Description:* Formats the message in a markdown-style or HTML-style
 formatting. By default, the parse-mode value is markdown, which means
@@ -72,8 +72,8 @@ that the message is formatted in markdown style.
 
 ## template()
 
-|  Type:     | string|
-|  Default:  | ${MESSAGE} \\\")
+| Type: | string |
+| Default: | ${MESSAGE} \\" |
 
 *Description:* Specifies the content of the message. The {{ site.product.short_name }}
 application will automatically encode the content of this option using

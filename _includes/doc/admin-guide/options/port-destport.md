@@ -1,7 +1,7 @@
 ## port() or destport()
 
-|  Type:|      number|
-|Default:|  {{ page.destport | default: '601'}}|
+| Type: | number |
+| Default: | {{ page.destport | default: '601'}} |
 
 *Description:* The port number to connect to. Note that the default port
 numbers used by {{ site.product.short_name }} do not comply with the latest RFC which was

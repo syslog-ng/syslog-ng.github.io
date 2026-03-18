@@ -1,7 +1,7 @@
 ## flush-lines()
 
-|  Type:|      number|
-|Default:|   {{ page.flush_lines | default: 'Use global setting (exception: for http() destination, the default is 1).' }}|
+| Type: | number |
+| Default: | {{ page.flush_lines | default: 'Use global setting (exception: for http() destination, the default is 1).' }} |
 
 *Description:* Specifies how many lines are flushed to a destination at
 a time. The {{ site.product.short_name }} application waits for this number of lines to

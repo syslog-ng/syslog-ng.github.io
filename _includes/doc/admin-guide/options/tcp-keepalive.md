@@ -1,7 +1,7 @@
 ## tcp-keepalive-intvl()
 
-|  Type:|      number \[seconds\]|
-|Default:|   10|
+| Type: | number \[seconds\] |
+| Default: | 10 |
 
 *Description:* Specifies the interval (number of seconds) between
 subsequential keepalive probes, regardless of the traffic exchanged in
@@ -12,8 +12,8 @@ the connection. This option is equivalent to
 
 ## tcp-keepalive-probes()
 
-|  Type:|      number|
-|Default:|   6|
+| Type: | number |
+| Default: | 6 |
 
 *Description:* Specifies the number of unacknowledged probes to send
 before considering the connection dead. This option is equivalent to
@@ -23,8 +23,8 @@ before considering the connection dead. This option is equivalent to
 
 ## tcp-keepalive-time()
 
-|  Type:|      number \[seconds\]|
-  |Default:|   60|
+| Type: | number \[seconds\] |
+| Default: | 60 |
 
 *Description:* Specifies the interval (in seconds) between the last data
 packet sent and the first keepalive probe. This option is equivalent to

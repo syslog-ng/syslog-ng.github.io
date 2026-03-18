@@ -1,7 +1,7 @@
 ## ts-format()
 
-|  Type:|      rfc3164, bsd, rfc3339, iso|
-| Default:   |rfc3164|
+| Type: | rfc3164, bsd, rfc3339, iso |
+| Default: | rfc3164 |
 
 *Description:* Override the global timestamp format (set in the global
 ts-format() parameter) for the specific destination. For details, see

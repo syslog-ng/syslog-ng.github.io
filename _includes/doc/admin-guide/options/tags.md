@@ -1,7 +1,7 @@
 ## tags()
 
-|Type: |     string|
-|Default:||
+| Type: | string |
+| Default: | |
 
 *Description:* Label the messages received from the source with custom
 tags. Tags must be unique, and enclosed between double quotes. When

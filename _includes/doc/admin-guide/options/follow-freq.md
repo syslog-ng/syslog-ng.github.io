@@ -1,7 +1,7 @@
 ## follow-freq()
 
-| Type:| number|
-|Default:  | 1|
+| Type: | number |
+| Default: | 1 |
 
 *Description:* This is useful for files that always indicate readability, even though
 no new content has been appended (e.g., regular file system files).\

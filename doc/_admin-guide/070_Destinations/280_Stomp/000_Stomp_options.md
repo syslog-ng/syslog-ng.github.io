@@ -32,16 +32,16 @@ messages fast enough.
 
 ## body()
 
-|  Type:|      string|
-  |Default:|   empty string|
+| Type: | string |
+| Default: | empty string |
 
 *Description:* The body of the STOMP message. You can also use macros
 and templates.
 
 ## destination()
 
-|  Type:|      string|
-  |Default:|   /topic/syslog|
+| Type: | string |
+| Default: | /topic/syslog |
 
 *Description:* The name of the destination (message queue) on the STOMP
 server. It can include macros and templates.

@@ -12,8 +12,8 @@ The osquery() driver has the following options.
 
 ## file()
 
-|Type:|      path|
-|Default: |  /var/log/osquery/osqueryd.results.log|
+| Type: | path |
+| Default: | /var/log/osquery/osqueryd.results.log |
 
 *Description:* The log file of osquery that stores the results of
 periodic queries. The {{ site.product.short_name }} application reads the messages from

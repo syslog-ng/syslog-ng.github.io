@@ -1,7 +1,7 @@
 ## dir-group()
 
-|  Accepted values:|   groupid|
-|Default:|   {{ page.dir_group | default: 'Use the global settings' }}|
+| Accepted values: | groupid |
+| Default: | {{ page.dir_group | default: 'Use the global settings' }} |
 
 *Description:* The group of the directories created by syslog-ng. To
 preserve the original properties of an existing directory, use the
@@ -9,8 +9,8 @@ option without specifying an attribute: dir-group().
 
 ## dir-owner()
 
-|  Accepted values:|   userid|
-|Default:| {{ page.dir_owner | default: 'Use the global settings' }}|
+| Accepted values: | userid |
+| Default: | {{ page.dir_owner | default: 'Use the global settings' }} |
 
 *Description:* The owner of the directories created by syslog-ng. To
 preserve the original properties of an existing directory, use the
@@ -22,8 +22,8 @@ configured to do so.
 
 ## dir-perm()
 
-|  Accepted values:|   permission value|
-  |Default:| {{ page.dir_perm | default: 'Use the global settings' }}|
+| Accepted values: | permission value |
+| Default: | {{ page.dir_perm | default: 'Use the global settings' }} |
 
 *Description:* The permission mask of directories created by syslog-ng.
 Log directories are only created if a file after macro expansion refers

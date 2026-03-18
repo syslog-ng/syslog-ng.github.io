@@ -1,6 +1,6 @@
 ## prefix()
 
-|Synopsis:| prefix()|
+| Synopsis: | prefix() |
 
 *Description:* Insert a prefix before the name part of the parsed
 name-value pairs to help further processing. For example:

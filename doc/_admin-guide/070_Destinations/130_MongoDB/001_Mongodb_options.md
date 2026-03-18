@@ -40,8 +40,8 @@ many collections switching within a reasonable time range.
 
 ## collection()
 
-|Type:|string|
-|Default:  | messages|
+| Type: | string |
+| Default: | messages |
 
 *Description:* The name of the MongoDB collection where the log messages
 are stored (collections are similar to SQL tables). The collection()
@@ -74,8 +74,8 @@ operation times out, {{ site.product.short_name }} assumes the operation has fai
 
 ## uri()
 
-|Type: |     string|
-|Default: |  mongodb://127.0.0.1:27017/syslog?wtimeoutMS=60000&socketTimeoutMS=60000&connectTimeoutMS=60000|
+| Type: | string |
+| Default: | mongodb://127.0.0.1:27017/syslog?wtimeoutMS=60000&socketTimeoutMS=60000&connectTimeoutMS=60000 |
 
 *Description:* Refer to the [MongoDB URI format documentation]
 (https://docs.mongodb.com/manual/reference/connection-string/) for detailed syntax.

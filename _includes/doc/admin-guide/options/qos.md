@@ -1,7 +1,7 @@
 ## qos()
 
-| Type:            | number                                          |
-| Default:         | 0                                               |
+| Type: | number |
+| Default: | 0 |
 | Possible values: | 0 - at most once (the fastest option)           |
 |                  | 1 - at least once (a much slower option than 0) |
 |                  | 2 - exactly once (the slowest option)           |

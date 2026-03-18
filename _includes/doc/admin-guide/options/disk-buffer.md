@@ -4,8 +4,8 @@
 
 ### capacity-bytes()
 
-|  Type:|      number (bytes)|
-|  Default:|   1 MiB|
+| Type: | number (bytes) |
+| Default: | 1 MiB |
 
 *Description:* This is a required option. The maximum size of the disk-buffer in bytes. The minimum value is 1048576 bytes. If you set a smaller value, the minimum value will be used automatically. It replaces the old log-disk-fifo-size() option.
 
@@ -23,8 +23,8 @@ In {{ site.product.short_name }} version 4.2 and earlier, this option was called
 
 ### dir()
 
-|  Type:|      string|
-|  Default:|   N/A|
+| Type: | string |
+| Default: | N/A |
 
 *Description:* Defines the folder where the disk-buffer files are stored.
 
@@ -35,8 +35,8 @@ In {{ site.product.short_name }} version 4.2 and earlier, this option was called
 
 ### flow-control-window-bytes()
 
-|  Type:|      number (bytes)|
-|  Default:|   163840000|
+| Type: | number (bytes) |
+| Default: | 163840000 |
 
 *Description:* Use this option if the option reliable() is set to yes. This option contains the size of the messages in bytes that is used in the memory part of the disk buffer. It replaces the old log-fifo-size() option. It does not inherit the value of the global log-fifo-size() option, even if it is provided. Note that this option will be ignored if the option reliable() is set to no.
 
@@ -44,8 +44,8 @@ In {{ site.product.short_name }} version 4.2 and earlier, this option was called
 
 ### flow-control-window-size()
 
-|  Type:|      number(messages)|
-|  Default:|   10000|
+| Type: | number(messages) |
+| Default: | 10000 |
 
 *Description:* Use this option if the option reliable() is set to no. This option contains the number of messages stored in overflow queue. It replaces the old log-fifo-size() option. It inherits the value of the global log-fifo-size() option if provided. If it is not provided, the default value is 10000 messages. Note that this option will be ignored if the option reliable() is set to yes.
 
@@ -53,8 +53,8 @@ In {{ site.product.short_name }} version 4.2 and earlier, this option was called
 
 ### front-cache-size()
 
-|  Type:|      number(messages)|
-|  Default:|   1000|
+| Type: | number(messages) |
+| Default: | 1000 |
 
 *Description:* The number of messages stored in the output buffer of the destination. Note that if you change the value of this option and the disk-buffer already exists, the change will take effect when the disk-buffer becomes empty.
 
@@ -87,8 +87,8 @@ Available in {{ site.product.short_name }} 4.0 and later.
 
 ### truncate-size-ratio()
 
-|  Type:|      number((between 0 and 1))|
-|  Default:|   1 (do not truncate)|
+| Type: | number((between 0 and 1)) |
+| Default: | 1 (do not truncate) |
 
 *Description:* Limits the truncation of the disk-buffer file. Truncating the disk-buffer file can slow down the disk IO operations, but it saves disk space. By default, {{ site.product.short_name }} version 4.0 and later doesn’t truncate disk-buffer files by default (truncate-size-ratio(1)). Earlier versions freed the disk-space when at least 10% of the disk-buffer file could be freed (truncate-size-ratio(0.1)).
 

@@ -1,7 +1,7 @@
 ## sdata-prefix()
 
-|Type:|   string|
-|Default:|           `.SDATA.`|
+| Type: | string |
+| Default: | `.SDATA.` |
 
 Available in {{ site.product.short_name }} 4.1 and later versions.
 

@@ -66,17 +66,17 @@ Available in {{ site.product.short_name }} 3.5 and later.
 
 The following configuration example turns strings into a list. If there are several strings, {{ site.product.short_name }} looks for a separator within each individual string. For example, `string 2` is separated as `string, 2` in the following example:
 
-|Configuration: |Result: |
+|Configuration: | Result: |
 |`$(explode ';' string1;string 2;string3;string4)`| `"string1,string,2,string3,string4"`|
 
 Enclose the strings in double-quotes or apostrophes and string 2 is separated as presented in the following example:
 
-|Configuration: |Result: |
+|Configuration: | Result: |
 |`$(explode ' ' 'string1 string 2 string3 string4 string5')`|`"string1,string 2,string3,string4,string5"`|
 
 The following examples replace the separator `';'` character with a `','` character:
 
-|Configuration: |Result: |
+|Configuration: | Result: |
 |`$(implode ',' $(explode ';' 'string1;string2;string3'))` |`$(implode ',' $(explode ';' 'string1;string2;string3'))`|
 |`$(explode ';' 'string1;string2;string3;string4;string5')`|`"string1,string2,string3,string4,string5"`|
 
@@ -604,12 +604,12 @@ admin if the username is joe, and normal user otherwise.
 
 The following configuration example presents how you can use the `implode` template to turn a list into a string:
 
-|Configuration: |Result: |
+|Configuration: | Result: |
 |`$(implode ' ' 'string1,string2,string3,string4,string5')`| `"string1 string2 string3 string4 string5"`|
 
 You can also use a `$(list-*)` template function to further manipulate the list. The following example returns the first three elements of the list:
 
-|Configuration: |Result: |
+|Configuration: | Result: |
 |`$(implode ' ' $(list-slice :3 string1,string2,string3,string4,string5))`|`"string1 string2 string3"`|
 
 ## $(indent-multi-line)

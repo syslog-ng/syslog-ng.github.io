@@ -9,8 +9,8 @@ The postgresql-csvlog-parser() has the following options:
 
 ## on-type-error()
 
-|  Type:|      string|
-|Default:|   |
+| Type: | string |
+| Default: | |
 
 *Description:* Specifies the action to be performed when casting a parsed value to specific data type fails.
 

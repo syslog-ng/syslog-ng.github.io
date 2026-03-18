@@ -30,8 +30,8 @@ The network() driver has the following options:
 
 ## interface()
 
-|  Type:|      string|
-  |Default:|   None|
+| Type: | string |
+| Default: | None |
 
 *Description:* Bind to the specified interface instead of an IP address.
 Available in 3.19 and later.

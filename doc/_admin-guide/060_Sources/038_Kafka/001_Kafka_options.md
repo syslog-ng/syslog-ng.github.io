@@ -42,8 +42,8 @@ See Bookmarking in the kafka() source for more details.
 
 ## log-fetch-limit()
 
-| Type:   | integer |
-| Default:| 10000 |
+| Type: | integer |
+| Default: | 10000 |
 
 *Description:* Specifies the maximum number of messages the main worker will consume and queue from the Kafka broker. This effectively determines the size of the internally used Kafka message queue. If the limit is reached, the kafka() source stops fetching messages from the broker, logs the situation, and waits the amount of time specified by fetch-queue-full-delay() before attempting to fetch new data again.
 
@@ -56,22 +56,22 @@ For example, with `workers(3)` and `fetch-limit(100000)`, the 2 processor worker
 
 ## log-fetch-delay()
 
-| Type:   | integer [1 second / fetch_retry_delay * 1000000 milliseconds] |
-| Default:| 1000 (1 millisecond) |
+| Type: | integer [1 second / fetch_retry_delay * 1000000 milliseconds] |
+| Default: | 1000 (1 millisecond) |
 
 *Description:* Specifies the time the main worker will wait between attempts to fetch new data.
 
 ## log-fetch-retry-delay()
 
-| Type:   | integer [1 second / fetch_retry_delay * 1000000 milliseconds] |
-| Default:| 10000 (10 milliseconds)|
+| Type: | integer [1 second / fetch_retry_delay * 1000000 milliseconds] |
+| Default: | 10000 (10 milliseconds) |
 
 *Description:* Specifies the time the main worker will wait before attempting to fetch new data again when the broker signals no more data is available.
 
 ## log-fetch-queue-full-delay()
 
-| Type:   | integer in milliseconds |
-| Default:| 1000 |
+| Type: | integer in milliseconds |
+| Default: | 1000 |
 
 *Description:* When the main worker reaches the queued message limit defined by fetch-limit(), the kafka() source temporarily stops retrieving messages from the broker. It then waits for the duration specified by `fetch-queue-full-delay()` before attempting to fetch additional messages.
 
@@ -90,8 +90,8 @@ For more details, see Bookmarking in the kafka() source.
 
 ## poll-timeout()
 
-| Type:   | integer in milliseconds |
-| Default:| 10000 |
+| Type: | integer in milliseconds |
+| Default: | 10000 |
 
 *Description:* Specifies the maximum amount of time {{ site.product.short_name }} waits during a Kafka broker poll request for new messages to become available.
 
@@ -112,8 +112,8 @@ See Bookmarking in the kafka() source for more details.
 
 ## state-update-timeout()
 
-| Type:   | integer in milliseconds |
-| Default:| 1000 |
+| Type: | integer in milliseconds |
+| Default: | 1000 |
 
 *Description:* Specifies the maximum amount of time {{ site.product.short_name }} waits during Kafka broker state queries or other requests, such as metadata queries, partition offset queries/seeking, etc.
 
@@ -144,8 +144,8 @@ For details on how the resulting topic names, partitions, and Kafka assign/subsc
 
 ## time-reopen()
 
-| Type:   | integer in seconds |
-| Default:| 60 |
+| Type: | integer in seconds |
+| Default: | 60 |
 
 *Description:* The time {{ site.product.short_name }} waits between attempts to recover from errors that require re-initialization of the full kafka connection and its internally used data structures.
 
@@ -153,9 +153,9 @@ For details on how the resulting topic names, partitions, and Kafka assign/subsc
 
 ## topic()
 
-| Type:     |  key-value pairs |
-| Default:  |  N/A |
-| Mandatory:|  yes |
+| Type: | key-value pairs |
+| Default: | N/A |
+| Mandatory: | yes |
 
 *Description:* A list of pairs consisting of Kafka topic name(s) and partition number(s) from which messages are consumed, for example:
 
@@ -187,8 +187,8 @@ For details about how the resulting topic names, partitions, and Kafka assign/su
 
 ## workers()
 
-| Type:   | integer |
-| Default:| 2 |
+| Type: | integer |
+| Default: | 2 |
 
 *Description:* The number of workers the kafka() source uses to consume and process messages from the kafka broker. By default, uses two of them:
 

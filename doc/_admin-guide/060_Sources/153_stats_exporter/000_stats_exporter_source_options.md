@@ -22,8 +22,8 @@ These drivers have the following additional options:
 
 ## stat-query()
 
-|Accepted values:| regular expression |
-|Default:        |  |
+| Accepted values: | regular expression |
+| Default: | |
 
 *Description:* This option sets the query regex string which can be used to filter the output of a `query` type request.
 
@@ -54,15 +54,15 @@ These drivers have the following additional options:
 
 ## scrape-pattern()
 
-|Accepted values:| regular expression |
-|Default:        | `GET /metrics*` |
+| Accepted values: | regular expression |
+| Default: | `GET /metrics*` |
 
 *Description:* This option sets the pattern used to match the HTTP header of incoming scraping requests. A stat response will be generated and sent only if the header matches the one set in the `scrape-pattern()` option.
 
 ## scrape-freq-limit()
 
-|Accepted values:| number |
-|Default:        | `0` |
+| Accepted values: | number |
+| Default: | `0` |
 
 *Description:* This option limits the frequency of repeated scraper requests to the specified number of seconds. Any repeated request within this period will be ignored. A set value of `0` means no limit.
 

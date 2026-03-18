@@ -9,7 +9,7 @@ The JSON parser has the following options.
 
 ## extract-prefix()
 
-|  Synopsis:  | extract-prefix()|
+| Synopsis: | extract-prefix() |
 
 *Description:* Extract only the specified subtree from the JSON message.
 Use the dot-notation to specify the subtree. The rest of the message
@@ -54,8 +54,8 @@ parser p_jsoneventv0 {
 
 ## key-delimiter()
 
-|Type:|   character|
-|Default:|           .|
+| Type: | character |
+| Default: | . |
 
 *Description:* The key-delimiter() option defines the used character when parsing flattened keys. Only single characters are supported.
 
@@ -70,7 +70,7 @@ Using the json-parser() with the key-delimiter("~") option, results in the speci
 
 ## marker()
 
-|  Synopsis: |  marker()|
+| Synopsis: | marker() |
 
 *Description:* Use a marker in case of mixed log messages, to identify
 JSON encoded messages for the parser.

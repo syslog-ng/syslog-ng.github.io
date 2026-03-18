@@ -36,8 +36,8 @@ description: >-
 
 ## program()
 
-|  Type:|     filename with path|
-|Default:||
+| Type: | filename with path |
+| Default: | |
 
 *Description:* The name of the application to start and read messages
 from.

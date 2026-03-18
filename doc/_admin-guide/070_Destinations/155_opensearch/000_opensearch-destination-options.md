@@ -32,8 +32,8 @@ This destination is available in {{ site.product.short_name }} version 4.4 and l
 
 ## custom-id()
 
-|  Type:|      string|
-|  Default:|   empty string|
+| Type: | string |
+| Default: | empty string |
 
 *Description:* Sets the specified value as the ID of the OpenSearch index (_id).
 
@@ -47,8 +47,8 @@ For details on how this option influences batch mode, see Batch mode and load ba
 
 ## index()
 
-|  Type:|      string or template|
-|  Default:|   none|
+| Type: | string or template |
+| Default: | none |
 
 *Description:* The name of the OpenSearch index where OpenSearch will store the messages received from {{ site.product.short_name }}. This option is mandatory for this destination.
 
@@ -66,8 +66,8 @@ You can use macros and template functions, but you must ensure that the resolved
 
 ## retries()
 
-|  Type:|      number|
-|  Default:|   3|
+| Type: | number |
+| Default: | 3 |
 
 *Description:* If {{ site.product.short_name }} cannot send a message, it will try again until the number of attempts reaches retries().
 
@@ -77,8 +77,8 @@ To handle HTTP error responses, if the HTTP server returns 5xx codes, {{ site.pr
 
 ## ssl-version()
 
-|  Type:|      string|
-|  Default:|   None, uses the libcurl default|
+| Type: | string |
+| Default: | None, uses the libcurl default |
 
 *Description:* Specifies the permitted SSL/TLS version. Possible values: sslv2, sslv3, tlsv1, tlsv1_0, tlsv1_1, tlsv1_2, tlsv1_3.
 
@@ -115,8 +115,8 @@ Make sure that you specify TLS options either using their own dedicated option (
 
 ## url()
 
-|  Type:|      URL or list of URLs, for example, url(“site1” “site2”)|
-|  Default:|   N/A|
+| Type: | URL or list of URLs, for example, url("site1" "site2") |
+| Default: | N/A |
 
 *Description:* Specifies the hostname or IP address and optionally the port number of the OpenSearch indexer. Use a colon (:) after the address to specify the port number of the server. For example: `http://your-opensearch-indexer.server:8088/_bulk`
 
@@ -132,8 +132,8 @@ In case the server on the specified URL returns a redirect request, {{ site.prod
 
 ## user()
 
-|  Type:|      string|
-|  Default:|   |
+| Type: | string |
+| Default: | |
 
 *Description:* The username that {{ site.product.short_name }} uses to authenticate on the server where it sends the messages.
 

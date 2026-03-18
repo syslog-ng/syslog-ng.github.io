@@ -13,8 +13,8 @@ The following options are required: selector(), database().
 
 ## database()
 
-|Accepted value:|      \<path-to-file\>.csv|
-|Default:||
+| Accepted value: | \<path-to-file\>.csv |
+| Default: | |
 
 *Description:* Specifies the path to the CSV file, for example,
 /opt/syslog-ng/my-csv-database.csv. The extension of the file must be

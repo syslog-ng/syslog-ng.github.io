@@ -15,8 +15,8 @@ description: >-
 
 ## exclude-tags()
 
-| Accepted values:    | list of globs                     |
-| Default:   | None                              |
+| Accepted values: | list of globs |
+| Default: | None |
 |            | If not set, no filtering is done. |
 | Mandatory: | no                                |
 

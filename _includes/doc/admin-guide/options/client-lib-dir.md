@@ -1,7 +1,7 @@
 ## client-lib-dir()
 
-|  Type:|      string|
-|Default:|   The {{ site.product.short_name }} module directory: /opt/syslog-ng/lib/syslog-ng/java-modules/|
+| Type: | string |
+| Default: | The {{ site.product.short_name }} module directory: /opt/syslog-ng/lib/syslog-ng/java-modules/ |
 
 *Description:* The list of the paths where the required Java classes are
 located. For example,

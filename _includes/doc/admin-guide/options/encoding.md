@@ -1,7 +1,7 @@
 ## encoding()
 
-| Type:|  string  |
-| Default: ||
+| Type: | string |
+| Default: | |
 
 *Description:* Specifies the character set (encoding, for example,
 UTF-8) of messages using the legacy BSD-syslog protocol. To list the

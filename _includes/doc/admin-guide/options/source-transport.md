@@ -1,7 +1,7 @@
 ## transport()
 
-|Type:   | `auto`, `proxied-tcp`, `proxied-tls`, `proxied-tls-passthrough`, `tcp`, `text-with-nuls`, `tls`, `udp`|
-|Default:|   `tcp`|
+| Type: | `auto`, `proxied-tcp`, `proxied-tls`, `proxied-tls-passthrough`, `tcp`, `text-with-nuls`, `tls`, `udp` |
+| Default: | `tcp` |
 
 **Description:** This option specifies the protocol used to receive messages from the source.
 

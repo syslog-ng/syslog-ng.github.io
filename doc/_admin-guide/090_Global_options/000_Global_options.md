@@ -150,8 +150,8 @@ valid characters.
 **NOTE:** This global option works only if the use-fqdn() global option is set to yes.
 {: .notice--info}
 
-|Accepted values:|   string|
-|Default:         |  empty string|
+| Accepted values: | string |
+| Default: | empty string |
 
 *Description:* Use this option to specify a custom domain name that is
 appended after the short hostname to receive the fully qualified domain

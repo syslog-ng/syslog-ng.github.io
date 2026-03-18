@@ -1,7 +1,7 @@
 ## loaders()
 
-|  Type: |     list of python modules|
-|Default:|   empty list|
+| Type: | list of python modules |
+| Default: | empty list |
 
 *Description:* The {{ site.product.short_name }} application imports Python modules
 specified in this option, before importing the code of the Python class.

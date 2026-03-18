@@ -1,7 +1,7 @@
 ## response-action()
 
-|  Type:|      list|
-  |Default:|   N/A (see below)|
+| Type: | list |
+| Default: | N/A (see below) |
 
 *Description:* Specifies what {{ site.product.short_name }} does with the log message,
 based on the response code received from the HTTP server. If the server

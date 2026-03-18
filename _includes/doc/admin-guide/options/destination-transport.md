@@ -1,7 +1,7 @@
 ## transport()
 
-|Type:|      udp, tcp, or tls|
-|Default:|   tcp|
+| Type: | udp, tcp, or tls |
+| Default: | tcp |
 
 *Description:* Specifies the protocol used to send messages to the
 destination server.

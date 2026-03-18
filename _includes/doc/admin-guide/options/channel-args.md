@@ -1,7 +1,7 @@
 ## channel-args()
 
-|   Type:|      |
-|Default:|      |
+| Type: | |
+| Default: | |
 
 *Description:* The `channel-args()` option is available in gRPC-based drivers. The option accepts name-value pairs and sets channel arguments defined in the GRPC Core library documentation.
 

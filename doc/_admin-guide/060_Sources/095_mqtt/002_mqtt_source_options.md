@@ -13,9 +13,9 @@ Required options: address(), fallback-topic(), and topic().
 
 ## address()
 
-|  Type:|       string|
-  |Default:|    tcp://localhost:1883|
-|Required: |  yes|
+| Type: | string |
+| Default: | tcp://localhost:1883 |
+| Required: | yes |
 
 *Description:* Specifies the hostname or IP address, and the port number
 of the MQTT broker from which {{ site.product.short_name }} will receive the log messages.

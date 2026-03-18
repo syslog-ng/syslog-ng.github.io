@@ -1,7 +1,7 @@
 ## batch-lines()
 
-|  Type:|      number|
-|Default:| {{ page.batch_lines | default:'1' }}|
+| Type: | number |
+| Default: | {{ page.batch_lines | default:'1' }} |
 
 *Description:* Specifies how many lines are flushed to a destination in
 one batch. The {{ site.product.short_name }} application waits for this number of lines

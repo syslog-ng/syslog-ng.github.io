@@ -18,8 +18,8 @@ The systemd-journal() driver has the following options:
 
 ## default-level()
 
-|Type:      |string|
-|Default:   |notice|
+| Type: | string |
+| Default: | notice |
 
 *Description:* The default level value if the `PRIORITY` entry does not
 exist.
@@ -45,8 +45,8 @@ This option is available in {{ site.product.short_name }} 4.1 and later versions
 
 ## matches()
 
-|  Type:  |    string|
-|  Default: |  |
+| Type: | string |
+| Default: | |
 
 This option is available in {{ site.product.short_name }} 4.1 and later versions.
 
@@ -62,15 +62,15 @@ matches(
 
 ## max-field-size()
 
-|  Type:  |    number (characters)|
-|  Default: |  65536|
+| Type: | number (characters) |
+| Default: | 65536 |
 
 *Description:* The maximum length of a field's value.
 
 ## namespace()
 
-|  Type:    |  string|
-|  Default: |  "*" |
+| Type: | string |
+| Default: | "*" |
 
 *Description:* The namespace() option works exactly the same way as the
 respective option of the Journalctl command line tool.
@@ -133,8 +133,8 @@ namespaces on the Systemd side, see Journal Namespaces.
 
 ## prefix()
 
-|  Type: |     string|
-|  Default: |  .journald.|
+| Type: | string |
+| Default: | .journald. |
 
 *Description:* If this option is set, every non-built-in mapped names
 get a prefix (for example: ".SDATA.journald."). By default, {{ site.product.short_name }} adds the .journald. prefix to every value.

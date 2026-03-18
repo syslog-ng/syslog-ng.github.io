@@ -1,7 +1,7 @@
 ## tls()
 
-|  Type:|      tls options|
-  |Default:|   n/a|
+| Type: | tls options |
+| Default: | n/a |
 
 *Description:* This option sets various options related to TLS
 encryption, for example, key/certificate files and trusted CA locations.

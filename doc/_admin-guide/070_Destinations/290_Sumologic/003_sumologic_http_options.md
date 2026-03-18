@@ -18,8 +18,8 @@ options.
 
 ## collector()
 
-|  Type:|      string|
-  |Default:|   empty|
+| Type: | string |
+| Default: | empty |
 
 *Description:* The Cloud Syslog Cloud Token that you received from the
 Sumo Logic service while [configuring your cloud syslog

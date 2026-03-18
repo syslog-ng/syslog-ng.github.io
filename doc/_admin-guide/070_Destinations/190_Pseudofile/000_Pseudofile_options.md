@@ -10,8 +10,8 @@ The pseudofile() destination has the following options:
 
 ## file()
 
-|  Type:|      filename with path|
-|Default:||
+| Type: | filename with path |
+| Default: | |
 
 *Description:* The file to write messages to, including the path.
 

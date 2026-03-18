@@ -89,15 +89,15 @@ labels(
 
 ## template()
 
-|   Type:|       template or template-function|
-|Default:| ${ISODATE} ${HOST} ${MSGHDR} ${MSG}|
+| Type: | template or template-function |
+| Default: | ${ISODATE} ${HOST} ${MSGHDR} ${MSG} |
 
 *Description:* This option specifies a template that defines the logformat to be used in the destination. For more information on macros and template functions, see Macros of {{ site.product.short_name }} and Template functions of {{ site.product.short_name }}.
 
 ## tenant-id()
 
-|   Type:|     string|
-|Default:|           |
+| Type: | string |
+| Default: | |
 
 Available in {{ site.product.short_name }} 4.7 and later versions.
 
@@ -119,8 +119,8 @@ loki(
 
 ## timestamp()
 
-|   Type:|     `current`, `received`, `msg`|
-|Default:|                        `current`|
+| Type: | `current`, `received`, `msg` |
+| Default: | `current` |
 
 *Description:* This option sets the timestamp type to be used for messages sent to a Loki destination.
 
@@ -135,8 +135,8 @@ The timestamp types are the following.
 
 ## url()
 
-|   Type:|         string|
-|Default:| localhost:9095|
+| Type: | string |
+| Default: | localhost:9095 |
 
 *Description:* This option specifies the URL of the Loki endpoint.
 
