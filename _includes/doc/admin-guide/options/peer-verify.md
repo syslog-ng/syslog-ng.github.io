@@ -35,7 +35,7 @@ including the CA certificate. If any certificate of the chain is invalid,
 
 Starting with {{ site.product.short_name }} version 3.10, you can also use a simplified
 configuration method for the peer-verify option, simply setting it to
-**yes** or **no**. The following table summarizes the possible options
+`yes` or `no`. The following table summarizes the possible options
 and their results depending on the certificate of the peer.
 
 The remote peer has:

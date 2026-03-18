@@ -52,7 +52,7 @@ add-contextual-data(
 |Default:    |no|
 
 *Description:* Specifies if selectors are handled as case insensitive.
-If you set the ignore-case() option to **yes**, selectors are handled as
+If you set the ignore-case() option to `yes`, selectors are handled as
 case insensitive.
 
 ## prefix()

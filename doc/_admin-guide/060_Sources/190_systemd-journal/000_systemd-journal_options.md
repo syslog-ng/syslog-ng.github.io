@@ -144,9 +144,9 @@ get a prefix (for example: ".SDATA.journald."). By default, {{ site.product.shor
 |  Accepted values:|  yes \| no|
 |Default:|   yes|
 
-*Description:* If set to **yes**, {{ site.product.short_name }} will start reading the
+*Description:* If set to `yes`, {{ site.product.short_name }} will start reading the
 records from the beginning of the journal, if the journal has not been
-read yet. If set to **no**, {{ site.product.short_name }} will read only the new
+read yet. If set to `no`, {{ site.product.short_name }} will read only the new
 records.
 
 **NOTE:** If the source has a state in the persist file, this option will

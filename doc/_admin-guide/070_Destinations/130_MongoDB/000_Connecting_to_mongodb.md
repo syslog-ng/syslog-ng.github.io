@@ -52,10 +52,10 @@ description: >-
     the servers() list contains at least two addresses, and one of the
     following events happens:
 
-    - The safe-mode() option is set to **no**, and the MongoDB server
+    - The safe-mode() option is set to `no`, and the MongoDB server
         becomes unreachable.
 
-    - The safe-mode() option is set to **yes**, and {{ site.product.short_name }}
+    - The safe-mode() option is set to `yes`, and {{ site.product.short_name }}
         cannot insert a log message into the database because of an
         error.
 

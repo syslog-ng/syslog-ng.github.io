@@ -11,8 +11,8 @@
 
 - If disabled (**keep-hostname(no)**), {{ site.product.short_name }} rewrites the `HOST`
     field of the message, either to the IP address (if the use-dns()
-    parameter is set to **no**), or to the hostname (if the use-dns()
-    parameter is set to **yes** and the IP address can be resolved to a
+    parameter is set to `no`), or to the hostname (if the use-dns()
+    parameter is set to `yes` and the IP address can be resolved to a
     hostname) of the host sending the message to {{ site.product.short_name }}. For
     details on using name resolution in {{ site.product.short_name }}, see
     Using name resolution in syslog-ng.

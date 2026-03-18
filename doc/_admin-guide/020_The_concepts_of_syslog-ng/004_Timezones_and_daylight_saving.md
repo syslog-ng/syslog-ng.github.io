@@ -31,7 +31,7 @@ to the message using the following algorithm.
     defaults to the value of the
     recv-time-zone() global option. It is not
     possible to override only the timezone information of the
-    incoming message, but setting the keep-timestamp() option to **no**
+    incoming message, but setting the keep-timestamp() option to `no`
     allows {{ site.product.short_name }} to replace the full timestamp (timezone
     included) with the time the message was received.
 

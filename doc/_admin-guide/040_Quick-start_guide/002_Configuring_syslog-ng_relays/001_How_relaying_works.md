@@ -21,7 +21,7 @@ Depending on the settings of syslog-ng-relay, the following can happen.
     message.
 
 - If the keep-hostname() option is enabled on syslog-ng-relay, but
-    name resolution is disabled (the use-dns() option is set to **no**),
+    name resolution is disabled (the use-dns() option is set to `no`),
     syslog-ng-relay uses the `HOST` field of the message as-is, which is
     probably 192.168.1.2.
 

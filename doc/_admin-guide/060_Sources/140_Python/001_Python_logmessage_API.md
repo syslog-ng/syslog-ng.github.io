@@ -59,7 +59,7 @@ as an IETF-syslog (RFC-5424) log message. If that fails, it parses the
 log message as a BSD-syslog (RFC3164) log message. Note that {{ site.product.short_name }} takes the parsing-related options of the configuration into account:
 flags(), keep-hostname(), recv-time-zone().
 
-If keep-hostname() is set to **no**, {{ site.product.short_name }} ignores the hostname
+If keep-hostname() is set to `no`, {{ site.product.short_name }} ignores the hostname
 set in the message, and uses the IP address of the {{ site.product.short_name }} host as
 the hostname (to use the hostname instead of the IP address, set the
 use-dns() or use-fqdn() options in the Python source).

@@ -493,7 +493,7 @@ Multithreading and scaling in {{ site.product.short_name }}.
 |  Accepted values:|   yes \| no|
 |Default:|           no|
 
-*Description:* When the use-rcptid global option is set to **yes**,
+*Description:* When the use-rcptid global option is set to `yes`,
 {{ site.product.short_name }} automatically assigns a unique reception ID to every
 received message. You can access this ID and use it in templates via the
 ${RCPTID} macro. The reception ID is a monotonously increasing 48-bit

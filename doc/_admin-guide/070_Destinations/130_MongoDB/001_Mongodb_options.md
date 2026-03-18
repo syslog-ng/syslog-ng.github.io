@@ -16,7 +16,7 @@ The mongodb() destination has the following options:
 |Type:|      yes \| no|
 |Default: |  yes|
 
-*Description:* Toggles bulk insertion, setting to **no** forces the old
+*Description:* Toggles bulk insertion, setting to `no` forces the old
 behavior (each log is inserted one by one into the MongoDB).
 
 NOTE: Bulk sending is only efficient if the used collection is constant
