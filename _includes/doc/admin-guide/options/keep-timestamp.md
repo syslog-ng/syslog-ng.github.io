@@ -1,7 +1,7 @@
 ## keep-timestamp()
 
-|Accepted values:| yes \| no|
-|Default:|   yes|
+| Accepted values: | `yes`, `no` |
+| Default: | `yes` |
 
 *Description:* Specifies whether {{ site.product.short_name }} should accept the timestamp
 received from the sending application or client. If disabled, the time

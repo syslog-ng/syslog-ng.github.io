@@ -36,8 +36,8 @@ exist.
 
 ## match-boot()
 
-|  Type:  |    `yes`, `no`|
-|  Default: |  `no`|
+| Accepted values: | `yes`, `no` |
+| Default: | `no` |
 
 This option is available in {{ site.product.short_name }} 4.1 and later versions.
 
@@ -141,8 +141,8 @@ get a prefix (for example: ".SDATA.journald."). By default, {{ site.product.shor
 
 ## read-old-records()
 
-|  Accepted values:|  yes \| no|
-|Default:|   yes|
+| Accepted values: | `yes`, `no` |
+| Default: | `yes` |
 
 *Description:* If set to `yes`, {{ site.product.short_name }} will start reading the
 records from the beginning of the journal, if the journal has not been
@@ -157,8 +157,8 @@ See read-old-on-error() for the behavior of {{ site.product.short_name }} when t
 
 ## read-old-on-error()
 
-|  Accepted values:|  yes \| no|
-|Default:|   yes|
+| Accepted values: | `yes`, `no` |
+| Default: | `yes` |
 
 *Description:* When the source has a state in the persist file, {{ site.product.short_name }} attempts to read the journal from the last recorded position at startup.\
 If {{ site.product.short_name }} cannot locate this position (for example, because the journal has been rotated or cleared since the last read), this option determines whether {{ site.product.short_name }} starts reading records from the beginning of the journal or only processes new records. If set to `yes`, it reads from the beginning; otherwise, it reads only new records.

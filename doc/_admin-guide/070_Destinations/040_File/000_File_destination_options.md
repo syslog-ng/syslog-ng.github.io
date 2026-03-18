@@ -43,8 +43,8 @@ of your operating system.
 
 ## fsync()
 
-|  Type:|      yes or no|
-  |Default:|   no|
+| Accepted values: | `yes`, `no` |
+| Default: | `no` |
 
 *Description:* Forces an fsync() call on the destination fd after each
 write.
@@ -72,8 +72,8 @@ It has the following suboptions:
 
 ### enable()
 
-|  Type:|      yes/no|
-  |Default:|   no|
+| Accepted values: | `yes`, `no` |
+| Default: | `no` |
 
 *Description:* Enable or disable logrotate feature.
 

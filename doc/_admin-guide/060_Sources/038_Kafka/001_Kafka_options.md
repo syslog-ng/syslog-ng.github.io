@@ -81,8 +81,8 @@ For example, with `workers(3)` and `fetch-limit(100000)`, the 2 processor worker
 
 ## persist-store()
 
-| Accepted values: | local \| remote |
-| Default:         | local |
+| Accepted values: | `local`, `remote` |
+| Default: | local |
 
 *Description:* Specifies where {{ site.product.short_name }} stores the offset of the last consumed Kafka message. `local` means it uses the default {{ site.product.short_name }} persist file, while `remote` means it uses the remote Kafka offset store.
 
@@ -102,8 +102,8 @@ See Bookmarking in the kafka() source for more details.
 
 ## single-worker-queue()
 
-| Type:   | yes \| no |
-| Default:| yes |
+| Accepted values: | `yes`, `no` |
+| Default: | `yes` |
 
 *Description:* When the value of workers() is greater than 2 (meaning multiple processor threads are used to handle queued messages), and `single-worker-queue()` is set to `no`, the main worker of the kafka() source distributes the consumed messages into separate queues, one for each processor worker.
 
@@ -119,8 +119,8 @@ See Bookmarking in the kafka() source for more details.
 
 ## store-metadata()
 
-| Type:   | yes \| no |
-| Default:| no |
+| Accepted values: | `yes`, `no` |
+| Default: | `no` |
 
 *Description:* If set to `yes`, {{ site.product.short_name }} will add the next key-value pairs to the forwarded log messages
 
@@ -131,8 +131,8 @@ See Bookmarking in the kafka() source for more details.
 
 ## strategy-hint()
 
-| Accepted values: | assign, subscribe |
-| Default:         | assign |
+| Accepted values: | `assign`, `subscribe` |
+| Default: | assign |
 
 *Description:* This option provides a hint about which Kafka consumer strategy the kafka() source should use when the topic() list contains topic/partition definitions that could be handled in either way.
 

@@ -14,8 +14,8 @@ The stomp() destination has the following options:
 
 ## ack()
 
-|  Type:|      yes \| no|
-  |Default:|   no|
+| Accepted values: | `yes`, `no` |
+| Default: | `no` |
 
 *Description:* Request the STOMP server to acknowledge the receipt of
 the messages. If you enable this option, then after sending a message,

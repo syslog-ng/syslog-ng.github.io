@@ -1,7 +1,7 @@
 ## use-fqdn()
 
-|Accepted values:| yes \| no|
-|Default:|no|
+| Accepted values: | `yes`, `no` |
+| Default: | `no` |
 
 *Description:* Use this option to add a Fully Qualified Domain Name
 (FQDN) instead of a short hostname. You can specify this option either

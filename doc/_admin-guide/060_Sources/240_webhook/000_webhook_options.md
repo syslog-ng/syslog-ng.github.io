@@ -27,8 +27,8 @@ auth_token("dGVzdF9zZWdlskfoe0aF90b2tlbg==")
 
 ## include_request_headers()
 
-|Type:|   `yes`, `no`|
-|Default:|       `no`|
+| Accepted values: | `yes`, `no` |
+| Default: | `no` |
 
 *Description:* If enabled, the HTTP request headers from the webhook are available for processing as a JSON object under the `${webhook.headers}` field. This option works for `webhook()` and for `webhook-json()` as well.
 
@@ -126,8 +126,8 @@ tls_ca_file("/etc/pki/tls/certs/ca-bundle.crt")
 
 ## tls_peer_verify()
 
-|Accepted values:|   `yes`, `no`|
-|Default:|     `no` |
+| Accepted values: | `yes`, `no` |
+| Default: | `no` |
 
 *Description:* Verification method of the peer. The table below summarizes the available options and their results depending on the certificate of the peer.
 
@@ -143,8 +143,8 @@ For untrusted certificates only the existence of the certificate is checked, but
 
 ## tls_use_system_cert_store()
 
-|Accepted values:|   `yes`, `no`|
-|Default:|   `no`   |
+| Accepted values: | `yes`, `no` |
+| Default: | `no` |
 
 *Description:* Use the certificate store of the system for verifying HTTPS certificates. For more information, see the [curl documentation](https://curl.se/docs/sslcerts.html).
 

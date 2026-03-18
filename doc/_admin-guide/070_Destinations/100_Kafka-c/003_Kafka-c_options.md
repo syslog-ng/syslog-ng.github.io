@@ -135,8 +135,8 @@ In case of multithreading, the first {{ site.product.short_name }} worker is res
 
 ## sync-send()
 
-|  Type: | yes \| no|
-|Default:| no|
+| Accepted values: | `yes`, `no` |
+| Default: | `no` |
 
 *Description:* When `sync-send()` is set to `yes`, {{ site.product.short_name }} sends
 the message reliably: it sends a message to the Kafka server, then waits

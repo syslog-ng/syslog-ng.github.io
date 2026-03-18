@@ -1,7 +1,7 @@
 ## spoof-source()
 
-|  Type:|      yes or no|
-  |Default:|   no|
+| Accepted values: | `yes`, `no` |
+| Default: | `no` |
 
 *Description:* Enables source address spoofing. This means that the host
 running {{ site.product.short_name }} generates UDP packets with the source IP address

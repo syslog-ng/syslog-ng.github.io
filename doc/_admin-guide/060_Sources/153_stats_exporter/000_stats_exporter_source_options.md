@@ -15,8 +15,8 @@ These drivers have the following additional options:
 
 ## stat-type()
 
-|Accepted values:| query \| stats |
-|Default:        | stats |
+| Accepted values: | `query`, `stats` |
+| Default: | stats |
 
 *Description:* This option sets the desired stat type to be produced in response to an HTTP Scraper request. This method operates like the syslog-ng-ctl command line tool.
 
@@ -29,8 +29,8 @@ These drivers have the following additional options:
 
 ## stat-format()
 
-|Accepted values:| csv \| kv \| prometheus |
-|Default:        | prometheus |
+| Accepted values: | `csv`, `kv`, `prometheus` |
+| Default: | prometheus |
 
 *Description:* This option specifies the format of the statistics output in HTTP responses, similar to the options available in syslog-ng-ctl. The available formats are the following:
 
@@ -40,15 +40,15 @@ These drivers have the following additional options:
 
 ## stats-without-orphaned()
 
-|Accepted values:| yes \| no |
-|Default:        | no |
+| Accepted values: | `yes`, `no` |
+| Default: | `no` |
 
 *Description:* If this option is set to `yes`, the output of a `stats` type request will not include abandoned counters, similar to the `without-orphaned-metrics` option available in `syslog-ng-ctl`.
 
 ## stats-with-legacy()
 
-|Accepted values:| yes \| no |
-|Default:        | no |
+| Accepted values: | `yes`, `no` |
+| Default: | `no` |
 
 *Description:* If this option is set to `yes`, the output of a `stats` type request — only when using the `prometheus` format — will not include legacy counters, similar to the `with-legacy-metrics` option available in `syslog-ng-ctl`.
 
@@ -68,8 +68,8 @@ These drivers have the following additional options:
 
 ## single-instance()
 
-|Accepted values:| yes \| no |
-|Default:        | no |
+| Accepted values: | `yes`, `no` |
+| Default: | `no` |
 
 *Description:* If this option is set to `yes`, only one scraper connection and request will be allowed at once.
 

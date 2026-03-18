@@ -1,7 +1,7 @@
 ## optional()
 
-|Accepted values:|  yes or no|
-|Default:||
+| Accepted values: | `yes`, `no` |
+| Default: | |
 
 *Description:* Instruct {{ site.product.short_name }} to ignore the error if a specific
 source cannot be initialized. No other attempts to initialize the source

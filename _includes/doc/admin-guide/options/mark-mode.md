@@ -1,7 +1,7 @@
 ## mark-mode()
 
-| Accepted values: | internal \| dst-idle \| host-idle \| periodical \| none \| global|                                |
-| Default:         | *internal* for pipe, program drivers, *none* for file, unix-dgram, unix-stream drivers, *global* for syslog, tcp, udp destinations, *host-idle* for global option                      |
+| Accepted values: | `internal`, `dst-idle`, `host-idle`, `periodical`, `none`, `global` |
+| Default: | *internal* for pipe, program drivers, *none* for file, unix-dgram, unix-stream drivers, *global* for syslog, tcp, udp destinations, *host-idle* for global option |
 
 *Description:* The mark-mode() option can be set for the following
 destination drivers: file(), program(), unix-dgram(), unix-stream(),

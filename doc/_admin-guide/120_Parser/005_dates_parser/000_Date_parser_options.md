@@ -76,8 +76,8 @@ format string: **format(\"%d/%b/%Y:%H:%M:%S %Z\")**
 
 ## time-stamp()
 
-| Accepted values:|   stamp \| recvd|
-  |Default:|    stamp|
+| Accepted values: | `stamp`, `recvd` |
+| Default: | stamp |
 
 *Description:* Determines if the parsed date values are treated as sent
 or received date. If you use time-stamp(), {{ site.product.short_name }} adds the parsed

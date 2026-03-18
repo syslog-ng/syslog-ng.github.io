@@ -18,8 +18,8 @@ The tls() option can include the following settings:
 
 ## allow-compress()
 
-|  Accepted values:|   yes \| no|
-|  Default:  |         no|
+| Accepted values: | `yes`, `no` |
+| Default: | `no` |
 
 *Description:* Enable on-the-wire compression in TLS communication. Note
 that this option must be enabled both on the server and the client to
@@ -132,8 +132,8 @@ the file after the debugging session is over.
 
 ## ocsp-stapling-verify()
 
-|  Accepted values:|   yes, no|
-|  Default:         |  no |
+| Accepted values: | `yes`, `no` |
+| Default: | `no` |
 
 This option is available in {{ site.product.short_name }} 4.0 and later versions.
 
@@ -238,8 +238,8 @@ source s_tls {
 
 ## sni()
 
-|Accepted values:|   yes \| no|
-|Default: |          no|
+| Accepted values: | `yes`, `no` |
+| Default: | `no` |
 
 *Description:* When set to yes in a destination that uses TLS
 encryption, this option enables Server Name Indication (also called

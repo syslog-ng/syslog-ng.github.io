@@ -7,9 +7,9 @@ description: >-
 
 ## drop-invalid()
 
-|Accepted values:   |   yes \| no|
-|Default:   |  no|
-|Mandatory:  | no|
+| Accepted values: | `yes`, `no` |
+| Default: | `no` |
+| Mandatory: | no |
 
 *Description:* If set, messages with an invalid XML will be dropped entirely.
 
@@ -52,9 +52,9 @@ The prefix() option is optional and its default value is \".xml\".
 
 ## strip-whitespaces()
 
-|Accepted values: |     yes \| no|
-|Default: |    no|
-|Mandatory: |  no|
+| Accepted values: | `yes`, `no` |
+| Default: | `no` |
+| Mandatory: | no |
 
 *Description:* Strip the whitespaces from the XML text nodes before adding
 them to the message.

@@ -161,8 +161,8 @@ Floating-point numbers (for example, **1.5**) can be used as well. Please note, 
 
 ## monitor-method()
 
-|Accepted values:| auto \| inotify \| kqueue \| poll |
-|Default:        | auto |
+| Accepted values: | `auto`, `inotify`, `kqueue`, `poll` |
+| Default: | `auto` |
 
 *Description:* Using the `auto` value, if the platform supports `inotify`, {{ site.product.short_name }} uses it
 automatically to detect the creation, move, or deletion of source files. If the platform
@@ -190,8 +190,8 @@ To force {{ site.product.short_name }} to poll the file changes even if `inotify
 
 ## recursive()
 
-|Accepted values:| yes \| no |
-|Default: |  no|
+| Accepted values: | `yes`, `no` |
+| Default: | `no` |
 
 *Description:* When enabled, {{ site.product.short_name }} monitors every subdirectory
 of the path set in the base-dir()

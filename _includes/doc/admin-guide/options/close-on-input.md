@@ -1,7 +1,7 @@
 ## close-on-input()
 
-|  Type:  |    yes \| no|
-| Default: |  yes|
+| Accepted values: | `yes`, `no` |
+| Default: | `yes` |
 
 *Description:* By default, {{ site.product.short_name }} closes destination sockets if
 it receives any input from the socket (for example, a reply). If this

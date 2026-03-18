@@ -48,8 +48,8 @@ add-contextual-data(
 
 ## ignore-case()
 
-|Accepted values:| yes \| no |
-|Default:    |no|
+| Accepted values: | `yes`, `no` |
+| Default: | `no` |
 
 *Description:* Specifies if selectors are handled as case insensitive.
 If you set the ignore-case() option to `yes`, selectors are handled as

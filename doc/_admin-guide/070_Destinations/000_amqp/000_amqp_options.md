@@ -12,8 +12,8 @@ The amqp() destination has the following options:
 
 ## auth-method()
 
-|  Accepted values:|   plain \| external|
-|Default:|           plain|
+| Accepted values: | `plain`, `external` |
+| Default: | plain |
 
 *Description:* The amqp() driver supports the following types of
 authentication:
@@ -69,8 +69,8 @@ queues.
 
 ## exchange-declare()
 
-|  Type:|      yes \| no|
-  |Default:|   no|
+| Accepted values: | `yes`, `no` |
+| Default: | `no` |
 
 *Description:* By default, {{ site.product.short_name }} does not create non-existing
 exchanges. Use the **exchange-declare(yes)** option to automatically

@@ -1,7 +1,7 @@
 ## so-reuseport()
 
-|  Type:|      yes or no|
-  |Default:|   no|
+| Accepted values: | `yes`, `no` |
+| Default: | `no` |
 
 *Description:* Enables SO_REUSEPORT on systems that support it. When
 enabled, the kernel allows multiple UDP sockets to be bound to the same

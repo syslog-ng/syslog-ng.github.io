@@ -13,8 +13,8 @@ The mongodb() destination has the following options:
 
 ## bulk()
 
-|Type:|      yes \| no|
-|Default: |  yes|
+| Accepted values: | `yes`, `no` |
+| Default: | `yes` |
 
 *Description:* Toggles bulk insertion, setting to `no` forces the old
 behavior (each log is inserted one by one into the MongoDB).
@@ -26,15 +26,15 @@ many collections switching within a reasonable time range.
 
 ## bulk_unordered()
 
-|Type: |     yes \| no|
-|Default: |  no|
+| Accepted values: | `yes`, `no` |
+| Default: | `no` |
 
 *Description:* Toggles unordered bulk operations.
 
 ## bulk_bypass_validation()
 
-|Type:|     yes \| no|
-|Default:  | no|
+| Accepted values: | `yes`, `no` |
+| Default: | `no` |
 
 *Description:* Toggles MongoDB bulk operation validation.
 
@@ -86,7 +86,7 @@ operation times out, {{ site.product.short_name }} assumes the operation has fai
 
 ## write_concern()
 
-|Accepted values: |  unacked \| acked \| majority \| a number greater than 0|
-|Default:        |   acked|
+| Accepted values: | `unacked`, `acked`, `majority`, a number greater than 0 |
+| Default: | acked |
 
 *Description:* Sets write concern mode of MongoDB operations, both bulk and single.

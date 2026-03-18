@@ -13,8 +13,8 @@ In {{ site.product.short_name }} version 4.2 and earlier, this option was called
 
 ### compaction()
 
-|  Type:|      yes/no|
-|  Default:|   no|
+| Accepted values: | `yes`, `no` |
+| Default: | `no` |
 
 *Description:* If set to yes, {{ site.product.short_name }} prunes the unused space in the LogMessage representation, making the disk queue size smaller at the cost of some CPU time. Setting the compaction() argument to yes is recommended when numerous name-value pairs are unset during processing, or when the same names are set multiple times.
 
@@ -64,8 +64,8 @@ In {{ site.product.short_name }} version 4.2 and earlier, this option was called
 
 ### prealloc()
 
-|  Type:|      yes/no|
-|  Default:|   no|
+| Accepted values: | `yes`, `no` |
+| Default: | `no` |
 
 *Description:* By default, {{ site.product.short_name }} doesn’t reserve the disk space for the disk-buffer file, since in a properly configured and sized environment the disk-buffer is practically empty, so a large preallocated disk-buffer file is just a waste of disk space. But a preallocated buffer can prevent other data from using the intended buffer space (and elicit a warning from the OS if disk space is low), preventing message loss if the buffer is actually needed. To avoid this problem, when using {{ site.product.short_name }} 4.0 or later, you can preallocate the space for your disk-buffer files by setting prealloc(yes). 
 
@@ -77,8 +77,8 @@ Available in {{ site.product.short_name }} 4.0 and later.
 
 ### reliable()
 
-|  Type:|      yes/no|
-|  Default:|   no|
+| Accepted values: | `yes`, `no` |
+| Default: | `no` |
 
 *Description:* If set to yes, {{ site.product.short_name }} cannot lose logs in case of reload/restart, unreachable destination or {{ site.product.short_name }} crash. This solution provides a slower, but reliable disk-buffer option. It is created and initialized at startup and gradually grows as new messages arrive. If set to no, the normal disk-buffer will be used. This provides a faster, but less reliable disk-buffer option.
 
