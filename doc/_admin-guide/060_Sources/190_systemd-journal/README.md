@@ -6,43 +6,41 @@ description: >-
     The systemd-journal() source is used on various Linux distributions,
     such as RHEL (from RHEL7) and CentOS. The systemd-journal() source
     driver can read the structured name-value format of the journald system
-    service, making it easier to reach the custom fields in the message. By
-    default, {{ site.product.short_name }} adds the .journald. prefix to the name of every
-    parsed value. For a list and description of name-value pairs that
-    journald provides, see the documentation of journald for your platform
-    (for example, man systemd.journal-fields).
+    service, making it easier to reach the custom fields in the message.
 ---
 
 The systemd-journal() source driver is designed to read only local
 messages through the systemd-journal API. It is not possible to set the
-location of the journal files, or the directories.
+location of the journal files, or the directories.\
+By default, {{ site.product.short_name }} adds the `.journald.` prefix to the name of every
+parsed value. For a list and description of name-value pairs that
+journald provides, see the documentation of journald for your platform
+(for example, `man systemd.journal-fields`).
 
 **NOTE:** The log-msg-size() option is not applicable for this source. Use
-the **max-field-size()** option instead.
+the max-field-size() option instead.
 {: .notice--info}
 
 >**NOTE:** This source will not handle the following cases:
->  
+>
 - Corrupted journal file
 - Incorrect journal configuration
 - Any other journald-related bugs
 {: .notice--info}
 
 **NOTE:** If you are using RHEL-7, the default source in the configuration
-is systemd-journal() instead of unix-dgram(\"/dev/log\") and
-file(\"/proc/kmsg\"). If you are using unix-dgram(\"/dev/log\") or
-unix-stream(\"/dev/log\") in your configuration as a source, {{ site.product.short_name }} will revert to using systemd-journal() instead.
+is systemd-journal() instead of unix-dgram("/dev/log") and
+file("/proc/kmsg"). If you are using unix-dgram("/dev/log") or
+unix-stream("/dev/log") in your configuration as a source, {{ site.product.short_name }} will revert to using systemd-journal() instead.
 {: .notice--info}
 
-![]({{ site.baseurl}}/assets/images/caution.png) **CAUTION:**
-Only one systemd-journal() source can be configured in the configuration file.
+![]({{ site.baseurl}}/assets/images/caution.png) **CAUTION:** Only one systemd-journal() source can be configured in the configuration file.
 If there is more than one systemd-journal() source configured, {{ site.product.short_name }}
 will not start.
 {: .notice--warning}
 
 ![]({{ site.baseurl}}/assets/images/caution.png)
-**CAUTION:**   
-The systemd-journal() source cannot operate under an Ubuntu 24.04 LTS (Noble Numbat) platform. For more information on supported platforms, see Supported platforms.
+**CAUTION:** The systemd-journal() source cannot operate under an Ubuntu 24.04 LTS (Noble Numbat) platform. For more information on supported platforms, see Supported platforms.
 {: .notice--warning}
 
 **Declaration**
