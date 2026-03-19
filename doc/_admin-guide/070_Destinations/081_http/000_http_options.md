@@ -13,12 +13,16 @@ following options.
 
 ## accept-encoding()
 
-|  Type:|      string|
-  |Accepted values:|   `identity`, `gzip`, `deflate`, `all`|
+| Accepted values: | `identity`, `gzip`, `deflate`, `all` |
+| Default:| `all` |
 
-*Description:* This option requests the compression of HTTP responses from the server. The available values are `gzip`, `deflate`, and `all` to enable all compression types. If no compression is required, use the `identity` value.
+*Description:* This option requests the compression of HTTP responses from the server. Only the compression types that are supported by the libcurl and zlib libraries that {{ site.product.short_name }} was built with are reported to the peer.\
+The available values are `gzip`, `deflate`, and `all` to enable all compression types. If no compression is required, use the `identity` value.
 
-**NOTE:** Since {{ site.product.short_name }} uses Zlib for deflate-type compressions, the `deflate` option also adds a header and footer to the compressed data. For more details consult [RFC1950](https://www.rfc-editor.org/info/rfc1950).
+**NOTE:** Requires {{ site.product.short_name }} to be compiled with a version of libcurl that has compression support (ZLib).
+{: .notice--info}
+
+**NOTE:** Since {{ site.product.short_name }} uses ZLib for deflate-type compressions, the `deflate` option also adds a header and footer to the compressed data. For more details consult [RFC1950](https://www.rfc-editor.org/info/rfc1950).
 {: .notice--info}
 
 ### Example: configure an http destination with compression
