@@ -1,5 +1,6 @@
 ---
 title: Options of CSV parsers
+parser: csv
 id: adm-parser-csv-opt
 description: >-
     This section describes the options of the csv-parser() in {{ site.product.short_name }}.
@@ -173,14 +174,7 @@ to change these values to empty stings.
 
 {% include doc/admin-guide/options/prefix.md %}
 
-This parser does not have a default prefix. To configure a custom
-prefix, use the following format:
-
-```config
-parser {
-    csv-parser(prefix("myprefix."));
-};
-```
+{% include doc/admin-guide/default-no-prefix.md %}
 
 ## quote-pairs()
 

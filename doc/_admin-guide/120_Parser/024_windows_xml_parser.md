@@ -1,6 +1,7 @@
 ---
 title: Windows XML Event Log (EVTX) parser
 parser: XML Event Log
+prefix: 'winlog' 
 id: adm-parser-evtx
 description: >-
     The `windows-eventlog-xml-parser()` can parse messages in the Windows XML Event Log (EVTX) format. 
@@ -15,6 +16,7 @@ parser p_win {
     windows-eventlog-xml-parser(prefix(".winlog."));
 };
 ```
+
 The `windows-eventlog-xml-parser()` parser has the same parameters as the the XML parser.
 
 Take care to include the parsers in a log statement to use them:
@@ -26,3 +28,7 @@ log {
     destination(d_local);
 };
 ```
+
+{% include doc/admin-guide/options/prefix.md %}
+
+{% include doc/admin-guide/default-prefix.md %}

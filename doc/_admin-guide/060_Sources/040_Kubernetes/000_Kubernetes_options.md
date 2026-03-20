@@ -1,6 +1,7 @@
 ---
 title: kubernetes() source options
 driver: 'kubernetes'
+prefix: 'k8s'
 id: adm-src-k8s-opt
 description: >-
     This section describes the options of the kubernetes() source in {{ site.product.short_name }}.
@@ -33,8 +34,6 @@ for example, **base-dir(\"/var/log/pods\")**.
 
 {% include doc/admin-guide/options/prefix.md %}
 
+{% include doc/admin-guide/default-prefix.md %}
+
 {% include doc/admin-guide/options/sdata-prefix.md %}
-
-The prefix() option is optional and its default value is ".k8s.".
-
-{% include doc/admin-guide/options/use-syslogng-pid.md %}

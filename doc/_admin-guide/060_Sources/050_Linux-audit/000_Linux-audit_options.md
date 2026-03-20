@@ -1,6 +1,7 @@
 ---
 title: linux-audit() source options
 driver: 'linux-audit'
+prefix: 'auditd'
 fn_source: 'linux-audit'
 fn_logs: 'Linux audit logs'
 id: adm-src-linux-opt
@@ -21,6 +22,8 @@ The linux-audit() driver has the following options:
 {% include doc/admin-guide/options/normalize-hostnames.md %}
 
 {% include doc/admin-guide/options/prefix.md %}
+
+{% include doc/admin-guide/default-prefix.md %}
 
 {% include doc/admin-guide/options/sdata-prefix.md %}
 

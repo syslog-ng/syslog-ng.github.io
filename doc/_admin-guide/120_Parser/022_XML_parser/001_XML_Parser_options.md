@@ -1,5 +1,6 @@
 ---
 title: Options of the XML parsers
+parser: xml
 id: adm-parser-xml-opt
 description: >-
     This section describes the options of the xml-parser() in {{ site.product.short_name }}.
@@ -48,7 +49,7 @@ The following output is generated:
 
 {% include doc/admin-guide/options/prefix.md %}
 
-The prefix() option is optional and its default value is \".xml\".
+{% include doc/admin-guide/default-prefix.md %}
 
 ## strip-whitespaces()
 

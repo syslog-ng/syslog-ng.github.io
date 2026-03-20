@@ -1,6 +1,7 @@
 ---
 title: snmptrap() source options
 driver: 'snmptrap'
+prefix: 'snmp' 
 fn_source: snmptrapd
 fn_logs: traps
 id: adm-src-snmp-opt
@@ -31,7 +32,7 @@ Currently {{ site.product.short_name }} discards these messages.
 
 {% include doc/admin-guide/options/prefix.md %}
 
-Default value: .snmp. option.
+{% include doc/admin-guide/default-prefix.md %}
 
 ## set-message-macro()
 

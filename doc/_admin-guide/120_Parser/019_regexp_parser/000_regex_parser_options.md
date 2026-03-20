@@ -1,5 +1,6 @@
 ---
 title: Options of Regular expression parsers
+parser: regexp
 id: adm-parser-regexp-opt
 description: >-
     This section describes the options of the regexp-parser() in {{ site.product.short_name }}.
@@ -20,16 +21,6 @@ processing at the first successful match.
 
 {% include doc/admin-guide/options/prefix.md %}
 
-This parser does not have a default prefix. To configure a custom
-prefix, use the following format:
-
-```config
-parser p_regexp{
-    regexp-parser(
-        patterns( ... )
-        prefix("myprefix.")
-    );
-};
-```
+{% include doc/admin-guide/default-no-prefix.md %}
 
 {% include doc/admin-guide/options/template-macro.md %}

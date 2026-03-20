@@ -1,6 +1,7 @@
 ---
 title: osquery() source options
 driver: 'osquery'
+prefix: 'osquery' 
 id: adm-src-osquery-opt
 description: >-
     This section describes the options of the osquery() source in {{ site.product.short_name }}.
@@ -29,10 +30,8 @@ this file.
 
 {% include doc/admin-guide/options/prefix.md %}
 
+{% include doc/admin-guide/default-prefix.md %}
+
 {% include doc/admin-guide/options/sdata-prefix.md %}
 
 {% include doc/admin-guide/options/use-syslogng-pid.md %}
-
-### Default value
-
-.osquery. option.

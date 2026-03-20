@@ -1,5 +1,6 @@
 ---
 title: Options of JSON parsers
+parser: json
 id: adm-parser-json-opt
 description: >-
     This section describes the options of the json-parser() in {{ site.product.short_name }}.
@@ -98,13 +99,6 @@ parser {
 
 {% include doc/admin-guide/options/prefix.md %}
 
-This parser does not have a default prefix. To configure a custom
-prefix, use the following format:
-
-```config
-parser {
-    json-parser(prefix("myprefix."));
-};
-```
+{% include doc/admin-guide/default-no-prefix.md %}
 
 {% include doc/admin-guide/options/template-macro.md %}
