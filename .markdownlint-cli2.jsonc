@@ -1,0 +1,36 @@
+{
+  "config": {
+    "MD013": false,   // Disable line length limit
+    "MD033": false,   // Allow inline HTML
+    "MD060": false,   // Allow any table column style (tight, aligned, or mixed)
+  },
+  "globs": [
+    "doc/**/*.md",
+    "_includes/**/*.md",
+    "AGENTS.md",
+    "README.md"
+  ],
+  "ignores": [
+    // Dependencies
+    "**/node_modules",
+    "**/.bundle",
+    "**/.vendor",
+    "**/vendor",
+    
+    // Version control
+    "**/.git",
+    
+    // Build outputs
+    "**/_site",
+    "**/build",
+    
+    // Jekyll infrastructure
+    "**/_data",       // Auto-generated data files and manpages
+    "**/_js",         // JavaScript source files
+    "**/_layouts",    // Template layouts
+    "**/_plugins",    // Ruby plugins
+    "**/_sass",       // Sass/CSS source
+    "**/_tools",      // Build and maintenance scripts
+    "**/assets"       // Compiled assets
+  ]
+}
