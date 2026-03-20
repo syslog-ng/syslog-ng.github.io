@@ -21,15 +21,15 @@ documentation.
 
 {% include doc/admin-guide/options/batch-bytes.md %}
 
-{% include doc/admin-guide/http-batch.md %}
+{% include doc/admin-guide/http-batch-and-loadbalance-ref.md referred_page='Batch mode and load balancing with HTTP' %}
 
 {% include doc/admin-guide/options/batch-lines.md %}
 
-{% include doc/admin-guide/http-batch.md %}
+{% include doc/admin-guide/http-batch-and-loadbalance-ref.md referred_page='Batch mode and load balancing with HTTP' %}
 
 {% include doc/admin-guide/options/batch-timeout.md %}
 
-{% include doc/admin-guide/http-batch.md %}
+{% include doc/admin-guide/http-batch-and-loadbalance-ref.md referred_page='Batch mode and load balancing with HTTP' %}
 
 {% include doc/admin-guide/options/ca-dir.md %}
 

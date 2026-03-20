@@ -13,12 +13,16 @@ following options.
 
 ## accept-encoding()
 
-|  Type:|      string|
-  |Accepted values:|   `identity`, `gzip`, `deflate`, `all`|
+| Accepted values: | `identity`, `gzip`, `deflate`, `all` |
+| Default:| `all` |
 
-*Description:* This option requests the compression of HTTP responses from the server. The available values are `gzip`, `deflate`, and `all` to enable all compression types. If no compression is required, use the `identity` value.
+*Description:* This option requests the compression of HTTP responses from the server. Only the compression types that are supported by the libcurl and zlib libraries that {{ site.product.short_name }} was built with are reported to the peer.\
+The available values are `gzip`, `deflate`, and `all` to enable all compression types. If no compression is required, use the `identity` value.
 
-**NOTE:** Since {{ site.product.short_name }} uses Zlib for deflate-type compressions, the `deflate` option also adds a header and footer to the compressed data. For more details consult [RFC1950](https://www.rfc-editor.org/info/rfc1950).
+**NOTE:** Requires {{ site.product.short_name }} to be compiled with a version of libcurl that has compression support (ZLib).
+{: .notice--info}
+
+**NOTE:** Since {{ site.product.short_name }} uses ZLib for deflate-type compressions, the `deflate` option also adds a header and footer to the compressed data. For more details consult [RFC1950](https://www.rfc-editor.org/info/rfc1950).
 {: .notice--info}
 
 ### Example: configure an http destination with compression
@@ -30,21 +34,22 @@ destination d_http_compressed{
   accept-encoding("all"));
 };
 ```
+
 ## azure-auth-header()
 
 See The Azure auth header plugin.
 
 {% include doc/admin-guide/options/batch-bytes.md %}
 
-{% include doc/admin-guide/http-batch.md %}
+{% include doc/admin-guide/http-batch-and-loadbalance-ref.md referred_page='Batch mode in the HTTP destination' %}
 
 {% include doc/admin-guide/options/batch-lines.md %}
 
-{% include doc/admin-guide/http-batch.md %}
+{% include doc/admin-guide/http-batch-and-loadbalance-ref.md referred_page='Batch mode in the HTTP destination' %}
 
 {% include doc/admin-guide/options/batch-timeout.md %}
 
-{% include doc/admin-guide/http-batch.md %}
+{% include doc/admin-guide/http-batch-and-loadbalance-ref.md referred_page='Batch mode in the HTTP destination' %}
 
 ## body()
 
@@ -64,8 +69,6 @@ received from the source by default.
 *Description:* The string {{ site.product.short_name }} puts at the beginning of the
 body of the HTTP request, before the log message. Available in {{ site.product.short_name }} version 3.18 and later.
 
-{% include doc/admin-guide/http-batch.md %}
-
 ## body-suffix()
 
 |  Accepted values:|   string|
@@ -74,8 +77,6 @@ body of the HTTP request, before the log message. Available in {{ site.product.s
 *Description:* The string {{ site.product.short_name }} puts to the end of the body of
 the HTTP request, after the log message. Available in {{ site.product.short_name }}
 version 3.18 and later.
-
-{% include doc/admin-guide/http-batch.md %}
 
 {% include doc/admin-guide/options/ca-dir.md %}
 
@@ -117,8 +118,6 @@ destination d_http_compressed{
 {% include doc/admin-guide/examples/http.md %}
 
 {% include doc/admin-guide/options/delimiter.md %}
-
-{% include doc/admin-guide/http-batch.md %}
 
 {% include doc/admin-guide/options/disk-buffer.md %}
 
@@ -219,9 +218,9 @@ In {{ site.product.short_name }} 4.5 and later versions, templates can be used i
   * user
   * password
 
+### Load balancing between multiple HTTP endpoints
 
-
-{% include doc/admin-guide/load-balancing.md %}
+{% include doc/admin-guide/http-load-balancing.md %}
 
 {% include doc/admin-guide/options/user-agent.md %}
 
