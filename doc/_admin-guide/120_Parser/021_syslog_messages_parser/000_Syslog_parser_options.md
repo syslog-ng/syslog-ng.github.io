@@ -14,7 +14,7 @@ The syslog-parser() has the following options:
 ## drop-invalid()
 
 | Accepted values: | `yes`, `no` |
-| Default: | `no` |
+| Default:         | `no`        |
 
 *Description:* This option determines how the syslog-parser() affects
 messages when parsing fails.

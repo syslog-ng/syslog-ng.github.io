@@ -15,7 +15,7 @@ The stomp() destination has the following options:
 ## ack()
 
 | Accepted values: | `yes`, `no` |
-| Default: | `no` |
+| Default:         | `no`        |
 
 *Description:* Request the STOMP server to acknowledge the receipt of
 the messages. If you enable this option, then after sending a message,
@@ -32,7 +32,7 @@ messages fast enough.
 
 ## body()
 
-| Type: | string |
+| Type:    | string       |
 | Default: | empty string |
 
 *Description:* The body of the STOMP message. You can also use macros
@@ -40,7 +40,7 @@ and templates.
 
 ## destination()
 
-| Type: | string |
+| Type:    | string        |
 | Default: | /topic/syslog |
 
 *Description:* The name of the destination (message queue) on the STOMP

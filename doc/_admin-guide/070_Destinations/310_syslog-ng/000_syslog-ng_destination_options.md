@@ -46,8 +46,8 @@ the TCP514 port of the server.
 
 ## server()
 
-| Type: | hostname or IP address |
-| Default: | 127.0.0.1 |
+| Type:    | hostname or IP address |
+| Default: | 127.0.0.1              |
 
 *Description:* The hostname or IP address of the {{ site.product.short_name }} server.
 

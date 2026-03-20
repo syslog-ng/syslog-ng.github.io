@@ -1,6 +1,6 @@
 ## log-iw-size()
 
-| Type: | number |
+| Type:    | number                                     |
 | Default: | {{ include.log_iw_size | default: "100" }} |
 
 *Description:* The size of the initial source window, this value is used during

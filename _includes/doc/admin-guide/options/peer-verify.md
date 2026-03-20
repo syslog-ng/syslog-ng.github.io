@@ -1,7 +1,7 @@
 ## peer-verify()
 
 | Accepted values: | `optional-trusted`, `optional-untrusted`, `required-trusted`, `required-untrusted`, `yes`, `no` |
-| Default: | required-trusted |
+| Default:         | `required-trusted`                                                                              |
 
 *Description:* Verification method of the peer, the four possible values
 is a combination of two properties of validation:
@@ -16,11 +16,11 @@ depending on the certificate of the peer.
 
 The remote peer has:
 
-|||no certificate|invalid certificate|valid certificate|
-|Local peer-verify() setting|optional-untrusted|   TLS-encryption |       TLS-encryption  | TLS-encryption|
-||optional-trusted|   TLS-encryption |       rejected connection  | TLS-encryption|
-||required-untrusted |       rejected connection         |TLS-encryption |TLS-encryption   |
-||required-trusted |       rejected connection         |rejected connection |TLS-encryption   |
+| no certificate              | invalid certificate | valid certificate   |                |                |
+| Local peer-verify() setting | optional-untrusted  | TLS-encryption      | TLS-encryption | TLS-encryption |
+| optional-trusted            | TLS-encryption      | rejected connection | TLS-encryption |                |
+| required-untrusted          | rejected connection | TLS-encryption      | TLS-encryption |                |
+| required-trusted            | rejected connection | rejected connection | TLS-encryption |                |
 
 For untrusted certificates only the existence of the certificate is
 checked, but it does not have to be valid --- {{ site.product.short_name }} accepts the
@@ -40,6 +40,6 @@ and their results depending on the certificate of the peer.
 
 The remote peer has:
 
-|||no certificate|invalid certificate|valid certificate|
-|Local peer-verify() setting|no (optional-untrusted)|   TLS-encryption |       TLS-encryption  | TLS-encryption|
-||yes (required-trusted) |       rejected connection         |rejected connection |TLS-encryption   |
+| no certificate              | invalid certificate     | valid certificate   |                |                |
+| Local peer-verify() setting | no (optional-untrusted) | TLS-encryption      | TLS-encryption | TLS-encryption |
+| yes (required-trusted)      | rejected connection     | rejected connection | TLS-encryption |                |

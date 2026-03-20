@@ -1,6 +1,6 @@
 ## throttle()
 
-| Type: | number |
+| Type:    | number                             |
 | Default: | {{ page.throttle | default: '0' }} |
 
 *Description:* Sets the maximum number of messages sent to the

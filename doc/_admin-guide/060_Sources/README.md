@@ -70,15 +70,15 @@ how the native syslogd communicates on that platform. The following
 table summarizes the operation methods of syslogd on some of the tested
 platforms:
 
-|Platform|Method|
-|---|---|
-|Linux|A SOCK_DGRAM unix socket named /dev/log. Newer distributions that use systemd collect log messages into a journal file.|
-|BSD flavors|A SOCK_DGRAM unix socket named /var/run/log.|
-|Solaris (2.5 or below)| An SVR4 style STREAMS device named /dev/log.|
-|Solaris (2.6 or above)| In addition to the STREAMS device used in earlier versions, 2.6 uses a new multithreaded IPC method called door. By default the door used by syslogd is /etc/.syslog_door.|
-|HP-UX 11 or later| HP-UX uses a named pipe called /dev/log that is padded to 2048 bytes, for example, source s_hp-ux {pipe ("/dev/log" pad-size(2048)}.|
-|AIX 5.2 and 5.3|A SOCK_STREAM or SOCK_DGRAM unix socket called /dev/log.|
-|macOS 10.15 and later|A stream of OSLog messages filtered by custom predicate expressions.|
+| Platform               | Method                                                                                                                                                                     |
+|------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Linux                  | A SOCK_DGRAM unix socket named /dev/log. Newer distributions that use systemd collect log messages into a journal file.                                                    |
+| BSD flavors            | A SOCK_DGRAM unix socket named /var/run/log.                                                                                                                               |
+| Solaris (2.5 or below) | An SVR4 style STREAMS device named /dev/log.                                                                                                                               |
+| Solaris (2.6 or above) | In addition to the STREAMS device used in earlier versions, 2.6 uses a new multithreaded IPC method called door. By default the door used by syslogd is /etc/.syslog_door. |
+| HP-UX 11 or later      | HP-UX uses a named pipe called /dev/log that is padded to 2048 bytes, for example, source s_hp-ux {pipe ("/dev/log" pad-size(2048)}.                                       |
+| AIX 5.2 and 5.3        | A SOCK_STREAM or SOCK_DGRAM unix socket called /dev/log.                                                                                                                   |
+| macOS 10.15 and later  | A stream of OSLog messages filtered by custom predicate expressions.                                                                                                       |
 
 Each possible communication mechanism has a corresponding source driver
 in syslog-ng. For example, to open a unix socket with SOCK_DGRAM style
@@ -109,25 +109,25 @@ The following source statement collects the following log messages:
 
 The following table lists the source drivers available in syslog-ng.
 
-|Name|Description|
-|---|---|
-|file()|Opens the specified file and reads messages.|
-|internal()|Messages generated internally in syslog-ng.|
-|network()|Receives messages from remote hosts using the BSD-syslog protocol over IPv4 and IPv6. Supports the TCP, UDP, and TLS network protocols.|
-|nodejs()|Receives JSON messages from nodejs applications.|
-|mbox()|Read email messages from local mbox files, and convert them to multi-line log messages.|
-|osquery()|Run osquery queries, and convert their results into log messages.|
-|pacct()|Reads messages from the process accounting logs on Linux.|
-|pipe()|Opens the specified named pipe and reads messages.|
-|program()|Opens the specified application and reads messages from its standard output.|
-|python() and python-fetcher()|Receive or fetch messages using a custom source written in Python.|
-|snmptrap()|Read and parse the SNMP traps of the Net-SNMP's snmptrapd application.|
-|sun-stream(), sun-streams()|Opens the specified STREAMS device on Solaris systems and reads incoming messages.|
-|syslog()|Listens for incoming messages using the new IETF-standard syslog protocol.|
-|system()|Automatically detects which platform {{ site.product.short_name }} is running on, and collects the native log messages of that platform.|
-|systemd-journal()|Collects messages directly from the journal of platforms that use systemd.|
-|systemd-syslog()|Collects messages from the journal using a socket on platforms that use systemd.|
-|unix-dgram|Opens the specified unix socket in SOCK_DGRAM mode and listens for incoming messages.|
-|unix-stream()|Opens the specified unix socket in SOCK_STREAM mode and listens for incoming messages.|
-|stdin()|Collects messages from the standard input stream.|
-|wildcard-file()|Reads messages from multiple files and directories.|
+| Name                          | Description                                                                                                                              |
+|-------------------------------|------------------------------------------------------------------------------------------------------------------------------------------|
+| file()                        | Opens the specified file and reads messages.                                                                                             |
+| internal()                    | Messages generated internally in syslog-ng.                                                                                              |
+| network()                     | Receives messages from remote hosts using the BSD-syslog protocol over IPv4 and IPv6. Supports the TCP, UDP, and TLS network protocols.  |
+| nodejs()                      | Receives JSON messages from nodejs applications.                                                                                         |
+| mbox()                        | Read email messages from local mbox files, and convert them to multi-line log messages.                                                  |
+| osquery()                     | Run osquery queries, and convert their results into log messages.                                                                        |
+| pacct()                       | Reads messages from the process accounting logs on Linux.                                                                                |
+| pipe()                        | Opens the specified named pipe and reads messages.                                                                                       |
+| program()                     | Opens the specified application and reads messages from its standard output.                                                             |
+| python() and python-fetcher() | Receive or fetch messages using a custom source written in Python.                                                                       |
+| snmptrap()                    | Read and parse the SNMP traps of the Net-SNMP's snmptrapd application.                                                                   |
+| sun-stream(), sun-streams()   | Opens the specified STREAMS device on Solaris systems and reads incoming messages.                                                       |
+| syslog()                      | Listens for incoming messages using the new IETF-standard syslog protocol.                                                               |
+| system()                      | Automatically detects which platform {{ site.product.short_name }} is running on, and collects the native log messages of that platform. |
+| systemd-journal()             | Collects messages directly from the journal of platforms that use systemd.                                                               |
+| systemd-syslog()              | Collects messages from the journal using a socket on platforms that use systemd.                                                         |
+| unix-dgram                    | Opens the specified unix socket in SOCK_DGRAM mode and listens for incoming messages.                                                    |
+| unix-stream()                 | Opens the specified unix socket in SOCK_STREAM mode and listens for incoming messages.                                                   |
+| stdin()                       | Collects messages from the standard input stream.                                                                                        |
+| wildcard-file()               | Reads messages from multiple files and directories.                                                                                      |

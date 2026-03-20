@@ -1,6 +1,6 @@
 ## workers()
 
-| Type: | integer |
+| Type:    | integer                           |
 | Default: | {{ page.workers | default: '1' }} |
 
 *Description:* Specifies the number of worker threads (at least 1) that

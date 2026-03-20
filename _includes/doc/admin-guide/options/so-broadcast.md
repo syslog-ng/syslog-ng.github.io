@@ -1,7 +1,7 @@
 ## so-broadcast()
 
 | Accepted values: | `yes`, `no` |
-| Default: | `no` |
+| Default:         | `no`        |
 
 *Description:* This option controls the SO_BROADCAST socket option
 required to make {{ site.product.short_name }} send messages to a broadcast address. For

@@ -1,7 +1,7 @@
 ## trim-large-messages()
 
-| Accepted values: | `yes`, `no` |
-| Default: | {{ page.trim_default | default: 'Use the global trim-large-messages() option, which defaults to no.' }} |
+| Accepted values: | `yes`, `no`                                                                                               |
+| Default:         | {{ page.trim_default | default: 'Use the global trim-large-messages() option, which defaults to `no`.' }} |
 
 *Description:* Determines what {{ site.product.short_name }} does with incoming log
 messages that are received using the IETF-syslog protocol using the

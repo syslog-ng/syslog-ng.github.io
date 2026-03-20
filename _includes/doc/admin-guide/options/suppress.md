@@ -1,6 +1,6 @@
 ## suppress()
 
-| Type: | seconds |
+| Type:    | seconds      |
 | Default: | 0 (disabled) |
 
 *Description:* If several identical log messages would be sent to the

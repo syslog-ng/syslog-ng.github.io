@@ -14,7 +14,7 @@ The mongodb() destination has the following options:
 ## bulk()
 
 | Accepted values: | `yes`, `no` |
-| Default: | `yes` |
+| Default:         | `yes`       |
 
 *Description:* Toggles bulk insertion, setting to `no` forces the old
 behavior (each log is inserted one by one into the MongoDB).
@@ -27,20 +27,20 @@ many collections switching within a reasonable time range.
 ## bulk_unordered()
 
 | Accepted values: | `yes`, `no` |
-| Default: | `no` |
+| Default:         | `no`        |
 
 *Description:* Toggles unordered bulk operations.
 
 ## bulk_bypass_validation()
 
 | Accepted values: | `yes`, `no` |
-| Default: | `no` |
+| Default:         | `no`        |
 
 *Description:* Toggles MongoDB bulk operation validation.
 
 ## collection()
 
-| Type: | string |
+| Type:    | string   |
 | Default: | messages |
 
 *Description:* The name of the MongoDB collection where the log messages
@@ -74,7 +74,7 @@ operation times out, {{ site.product.short_name }} assumes the operation has fai
 
 ## uri()
 
-| Type: | string |
+| Type:    | string                                                                                         |
 | Default: | mongodb://127.0.0.1:27017/syslog?wtimeoutMS=60000&socketTimeoutMS=60000&connectTimeoutMS=60000 |
 
 *Description:* Refer to the [MongoDB URI format documentation]
@@ -87,6 +87,6 @@ operation times out, {{ site.product.short_name }} assumes the operation has fai
 ## write_concern()
 
 | Accepted values: | `unacked`, `acked`, `majority`, a number greater than 0 |
-| Default: | acked |
+| Default:         | acked                                                   |
 
 *Description:* Sets write concern mode of MongoDB operations, both bulk and single.

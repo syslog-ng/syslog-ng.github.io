@@ -30,14 +30,12 @@ description: >-
 
 {% include doc/admin-guide/options/normalize-hostnames.md %}
 
-{% include doc/admin-guide/options/optional.md %}
-
 {% include doc/admin-guide/options/pad-size.md %}
 
 ## program()
 
-| Type: | filename with path |
-| Default: | |
+| Type:    | filename with path |
+| Default: |                    |
 
 *Description:* The name of the application to start and read messages
 from.

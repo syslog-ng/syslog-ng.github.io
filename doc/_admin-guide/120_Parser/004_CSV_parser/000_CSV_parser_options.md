@@ -18,9 +18,9 @@ these macros do not include the delimiters.
 
 ## delimiters()
 
-| Synopsis: | delimiters(chars("\<delimiter\_characters\>")) *or* delimiters("\<delimiter\_characters\>") |
-| | delimiters(strings("\<delimiter\_string1\>",   "\<delimiter\_string2\>", ...)\" ) |
-| | delimiters(chars("\<delimiter\_characters\>"),strings("\<delimiter\_string1\>")) |
+| Synopsis:                                                                        | delimiters(chars("\<delimiter\_characters\>")) *or* delimiters("\<delimiter\_characters\>") |
+| delimiters(strings("\<delimiter\_string1\>", "\<delimiter\_string2\>", ...)\" )  |                                                                                             |
+| delimiters(chars("\<delimiter\_characters\>"),strings("\<delimiter\_string1\>")) |                                                                                             |
 
 *Description:* The delimiter is the character or string that separates
 the columns in the message. If you specify multiple characters using the
@@ -66,7 +66,7 @@ If you use more than one delimiter, note the following points:
 
 ## dialect()
 
-| Synopsis: | escape-none \| escape-backslash \| escape-double-char |
+| Synopsis: | escape-none \ | escape-backslash \ | escape-double-char |
 
 *Description:* Specifies how to handle escaping in the parsed message.
 The following values are available. Default value: escape-none
@@ -178,7 +178,7 @@ to change these values to empty stings.
 
 ## quote-pairs()
 
-|Synopsis:  | quote-pairs(\'\<quote\_pairs\>\')|
+| Synopsis: | quote-pairs(\'\<quote\_pairs\>\') |
 
 *Description:* List quote-pairs between single quotes. Delimiter
 characters or strings enclosed between quote characters are ignored.

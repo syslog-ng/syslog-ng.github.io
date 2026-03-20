@@ -14,7 +14,7 @@ following options.
 ## accept-encoding()
 
 | Accepted values: | `identity`, `gzip`, `deflate`, `all` |
-| Default:| `all` |
+| Default:         | `all`                                |
 
 *Description:* This option requests the compression of HTTP responses from the server. Only the compression types that are supported by the libcurl and zlib libraries that {{ site.product.short_name }} was built with are reported to the peer.\
 The available values are `gzip`, `deflate`, and `all` to enable all compression types. If no compression is required, use the `identity` value.
@@ -53,8 +53,8 @@ See The Azure auth header plugin.
 
 ## body()
 
-| Type: | string or template |
-| Default: | |
+| Type:    | string or template |
+| Default: |                    |
 
 *Description:* The body of the HTTP request, for example,
 body(\"${ISODATE} ${MESSAGE}\"). You can use strings, macros, and
@@ -64,7 +64,7 @@ received from the source by default.
 ## body-prefix()
 
 | Accepted values: | string |
-| Default: | none |
+| Default:         | none   |
 
 *Description:* The string {{ site.product.short_name }} puts at the beginning of the
 body of the HTTP request, before the log message. Available in {{ site.product.short_name }} version 3.18 and later.
@@ -72,7 +72,7 @@ body of the HTTP request, before the log message. Available in {{ site.product.s
 ## body-suffix()
 
 | Accepted values: | string |
-| Default: | none |
+| Default:         | none   |
 
 *Description:* The string {{ site.product.short_name }} puts to the end of the body of
 the HTTP request, after the log message. Available in {{ site.product.short_name }}
@@ -88,7 +88,7 @@ version 3.18 and later.
 
 ## content-compression()
 
-| Type: | string |
+| Type:            | string                               |
 | Accepted values: | `identity`, `gzip`, `deflate`, `all` |
 
 *Description:* This option requests {{ site.product.short_name }} to compress sent messages. The available values are `gzip`, `deflate`, and `all` to enable all compression types. If no compression is required, use the `identity` value.
@@ -137,8 +137,8 @@ destination d_http_compressed{
 
 ## method()
 
-| Type: | POST \| PUT |
-| Default: | POST |
+| Type:    | POST \ | PUT |
+| Default: | POST   |     |
 
 *Description:* Specifies the HTTP method to use when sending the message
 to the server.
@@ -151,8 +151,8 @@ to the server.
 
 ## proxy()
 
-| Type: | The proxy server address, in proxy("PROXY\_IP:PORT") format. For example, proxy("http://myproxy:3128") |
-| Default: | None |
+| Type:    | The proxy server address, in proxy("PROXY\_IP:PORT") format. For example, proxy("http://myproxy:3128") |
+| Default: | None                                                                                                   |
 
 *Description:* You can use the proxy() option to configure the HTTP driver in all
 HTTP-based destinations to use a specific HTTP proxy that is independent
@@ -199,8 +199,8 @@ destination {
 
 ## url()
 
-| Type: | URL or list of URLs |
-| Default: | http://localhost/ |
+| Type:    | URL or list of URLs |
+| Default: | http://localhost/   |
 
 *Description:* Specifies the hostname or IP address and optionally the port number of the web service that can receive log data via HTTP. Use a colon (**:**) after the address to specify the port number of the server. For example: http://127.0.0.1:8000
 
@@ -226,8 +226,8 @@ In {{ site.product.short_name }} 4.5 and later versions, templates can be used i
 
 ## user()
 
-| Type: | string |
-| Default: | |
+| Type:    | string |
+| Default: |        |
 
 *Description:* The username that {{ site.product.short_name }} uses to authenticate on
 the server where it sends the messages.

@@ -1,7 +1,7 @@
 ## flags()
 
-| Type: | `assume-utf8`, `empty-lines`, `expect-hostname`, `kernel`, `no-hostname`, `no-multi-line`, `no-parse`, `sanitize-utf8`, `store-legacy-msghdr`, `store-raw-message`, `syslog-protocol`, `validate-utf8` |
-| Default: | empty set |
+| Type:    | `assume-utf8`, `empty-lines`, `expect-hostname`, `kernel`, `no-hostname`, `no-multi-line`, `no-parse`, `sanitize-utf8`, `store-legacy-msghdr`, `store-raw-message`, `syslog-protocol`, `validate-utf8` |
+| Default: | empty set                                                                                                                                                                                              |
 
 *Description:* This option specifies the log parsing option of the source. The following flags are available:
 * `assume-utf8`: This flag expects UTF-8 encoded incoming messages, but does not verify the encoding. If the UTF-8 encoding of the incoming message must be validated, use the `validate-utf8` flag.

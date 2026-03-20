@@ -1,7 +1,7 @@
 ## keep-hostname()
 
 | Accepted values: | `yes`, `no` |
-| Default: | `no` |
+| Default:         | `no`        |
 
 *Description:* Enable or disable hostname rewriting.
 

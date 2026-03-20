@@ -10,8 +10,8 @@ The sun-streams() driver has the following options.
 
 ## door()
 
-| Type: | string |
-| Default: | none |
+| Type:    | string |
+| Default: | none   |
 
 *Description:* Specifies the filename of a door to open, needed on Solaris
 above 2.5.1.

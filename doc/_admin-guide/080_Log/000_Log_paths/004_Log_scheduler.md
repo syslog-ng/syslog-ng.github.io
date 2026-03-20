@@ -10,8 +10,8 @@ description: >-
 
 ## parallelize()
 
-| Type: | string |
-| Default: | |
+| Type:    | string |
+| Default: |        |
 
 *Description:* The `parallelize()` log path element distributes messages from a single, linear source across multiple worker threads (partitions), removing the single-threaded bottleneck of sequential processing by fanning out message handling to a configurable number of workers (partitions).
 
@@ -23,16 +23,16 @@ When using the `parallelize()` method, the incoming load can be fully distribute
 
 ### workers()
 
-| Type: | integer |
-| Default: | 1 |
+| Type:    | integer |
+| Default: | 1       |
 
 *Description:* Specifies the number of worker threads (at least 1) that
 {{ site.product.short_name }} uses to process incoming messages. Increasing the number of worker threads can significantly improve message-processing performance by distributing the load across all CPU cores; however, depending on the selected partitioning strategy, message ordering may be lost, even if all messages originate from a single sender.
 
 ### worker-partition-key()
 
-| Type: | template |
-| Default: | |
+| Type:    | template |
+| Default: |          |
 
 *Description:* Specifies a template used for partitioning. Messages that expand the template to the same value are assigned to the same partition.
 

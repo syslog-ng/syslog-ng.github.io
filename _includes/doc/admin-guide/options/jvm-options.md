@@ -1,7 +1,7 @@
 ## jvm-options()
 
-| Type: | list |
-| Default: | N/A |
+| Type:    | list |
+| Default: | N/A  |
 
 *Description:* Specify the Java Virtual Machine (JVM) settings of your
 Java destination from the {{ site.product.short_name }} configuration file.

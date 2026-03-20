@@ -16,21 +16,21 @@ These drivers have the following additional options:
 ## stat-type()
 
 | Accepted values: | `query`, `stats` |
-| Default: | stats |
+| Default:         | stats            |
 
 *Description:* This option sets the desired stat type to be produced in response to an HTTP Scraper request. This method operates like the syslog-ng-ctl command line tool.
 
 ## stat-query()
 
 | Accepted values: | regular expression |
-| Default: | |
+| Default:         |                    |
 
 *Description:* This option sets the query regex string which can be used to filter the output of a `query` type request.
 
 ## stat-format()
 
 | Accepted values: | `csv`, `kv`, `prometheus` |
-| Default: | prometheus |
+| Default:         | prometheus                |
 
 *Description:* This option specifies the format of the statistics output in HTTP responses, similar to the options available in syslog-ng-ctl. The available formats are the following:
 
@@ -41,35 +41,35 @@ These drivers have the following additional options:
 ## stats-without-orphaned()
 
 | Accepted values: | `yes`, `no` |
-| Default: | `no` |
+| Default:         | `no`        |
 
 *Description:* If this option is set to `yes`, the output of a `stats` type request will not include abandoned counters, similar to the `without-orphaned-metrics` option available in `syslog-ng-ctl`.
 
 ## stats-with-legacy()
 
 | Accepted values: | `yes`, `no` |
-| Default: | `no` |
+| Default:         | `no`        |
 
 *Description:* If this option is set to `yes`, the output of a `stats` type request — only when using the `prometheus` format — will not include legacy counters, similar to the `with-legacy-metrics` option available in `syslog-ng-ctl`.
 
 ## scrape-pattern()
 
 | Accepted values: | regular expression |
-| Default: | `GET /metrics*` |
+| Default:         | `GET /metrics*`    |
 
 *Description:* This option sets the pattern used to match the HTTP header of incoming scraping requests. A stat response will be generated and sent only if the header matches the one set in the `scrape-pattern()` option.
 
 ## scrape-freq-limit()
 
 | Accepted values: | number |
-| Default: | `0` |
+| Default:         | `0`    |
 
 *Description:* This option limits the frequency of repeated scraper requests to the specified number of seconds. Any repeated request within this period will be ignored. A set value of `0` means no limit.
 
 ## single-instance()
 
 | Accepted values: | `yes`, `no` |
-| Default: | `no` |
+| Default:         | `no`        |
 
 *Description:* If this option is set to `yes`, only one scraper connection and request will be allowed at once.
 

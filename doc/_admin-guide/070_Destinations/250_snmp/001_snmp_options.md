@@ -14,8 +14,8 @@ The snmp() destination has the following options:
 
 ## auth-algorithm()
 
-| Type: | SHA \| sha |
-| Default: | SHA |
+| Type:    | SHA \ | sha |
+| Default: | SHA   |     |
 
 *Description:* The authentication method to use. Lowercase values (for
 example, sha) can be used as well.
@@ -24,7 +24,7 @@ This option is used with the SNMPv3 protocol.
 
 ## auth-password()
 
-| Type: | string |
+| Type:    | string       |
 | Default: | empty string |
 
 *Description:* The password used for authentication. If the
@@ -35,7 +35,7 @@ This option is used with the SNMPv3 protocol.
 
 ## auth-username()
 
-| Type: | string |
+| Type:    | string       |
 | Default: | empty string |
 
 *Description:* The username used to authenticate on the SNMP server. If
@@ -46,7 +46,7 @@ This option is used with the SNMPv3 protocol.
 
 ## community()
 
-| Type: | string |
+| Type:    | string |
 | Default: | public |
 
 *Description:* The community string used for SNMPv2c authentication.
@@ -55,8 +55,8 @@ This option is used with the SNMPv2c protocol.
 
 ## enc-algorithm()
 
-| Type: | AES \| aes |
-| Default: | AES |
+| Type:    | AES \ | aes |
+| Default: | AES   |     |
 
 *Description:* The encryption method used to encrypt the SNMP traffic.
 Lowercase values (for example, aes) can be used as well.
@@ -65,8 +65,8 @@ This option is used with the SNMPv3 protocol.
 
 ## enc-password()
 
-| Type: | string |
-| Default: | |
+| Type:    | string |
+| Default: |        |
 
 *Description:* The password used for the encryption. Encryption is used
 only if the enc-password() is not empty.
@@ -75,8 +75,8 @@ This option is used with the SNMPv3 protocol.
 
 ## engine-id()
 
-| Type: | number (hexadecimal number) |
-| Default: | |
+| Type:    | number (hexadecimal number) |
+| Default: |                             |
 
 *Description:* The engine ID is a hexadecimal number at least 10 digits
 long, starting with 0x. for example, 0xABABABABAB.
@@ -91,8 +91,8 @@ This option is a required parameter when using the SNMPv3 protocol.
 
 ## snmp-obj()
 
-| Type: | \<oid\_of\_the\_object\>, \<type\_of\_the\_object\>, \<value\_of\_the\_object\> |
-| Default: | n/a |
+| Type:    | \<oid\_of\_the\_object\>, \<type\_of\_the\_object\>, \<value\_of\_the\_object\> |
+| Default: | n/a                                                                             |
 
 *Description:* The snmp-obj() option can be used to create custom SNMP
 trap elements. To create a trap element, specify the OID, type, and
@@ -130,8 +130,8 @@ snmp-obj('.1.3.6.1.4.1.18372.3.1.1.1.1.2', 'Octetstring', '${MESSAGE}')
 
 ## trap-obj()
 
-| Type: | \<oid\_of\_the\_object\>, "Objectid", \<value\_of\_the\_object\> |
-| Default: | n/a |
+| Type:    | \<oid\_of\_the\_object\>, "Objectid", \<value\_of\_the\_object\> |
+| Default: | n/a                                                              |
 
 *Description:* The trap-obj() is a specialized version of the snmp-obj()
 option that is used to identify the SNMP trap object. The type of the
@@ -146,8 +146,8 @@ with the Objectid type.
 
 ## version()
 
-| Type: | v2c\|v3 |
-| Default: | v2c |
+| Type:    | v2c\ | v3 |
+| Default: | v2c  |    |
 
 *Description:* Specifies which version of the SNMP protocol to use.
 
@@ -157,4 +157,3 @@ protocol version, any other option will be ignored. For example, if the
 version(\"v2c\") engine-id(\"0xABABABABAB\") community(\"mycommunity\")
 options are set, {{ site.product.short_name }} will accept every option, but process
 only the community() option, because engine-id() applies only to SNMPv3.
-{: .notice--info}

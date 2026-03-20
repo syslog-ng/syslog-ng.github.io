@@ -1,6 +1,6 @@
 ## perm()
 
-| Type: | number (octal notation) |
+| Type:    | number (octal notation)          |
 | Default: | {{ page.perm | default: '0600'}} |
 
 *Description:* Sets the permission mask. For octal numbers prefix the

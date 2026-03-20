@@ -1,7 +1,7 @@
 ## flags()
 
 | Accepted values: | `assume-utf8`, `empty-lines`, `expect-hostname`, `kernel`, `no-hostname`, `no-multi-line`, `no-parse`, `sanitize-utf8`, `store-legacy-msghdr`, `store-raw-message`, `syslog-protocol`, `threaded`, `validate-utf8`, `no-piggyback-errors`, `piggyback-errors` |
-| Default: | empty set |
+| Default:         | empty set                                                                                                                                                                                                                                                     |
 
 *Description:* Specifies the log parsing options of the source.
 
@@ -25,7 +25,7 @@
     information is missing from the timestamp.
 - *ignore-aux-data*: This flag enables the source to ignore  auxiliary data.
 - *kernel*: The kernel flag makes the source default to the LOG_KERN
-    | LOG_NOTICE priority if not specified otherwise.
+| LOG_NOTICE priority if not specified otherwise. |
 
 - *no-header*: The no-header flag triggers {{ site.product.short_name }} to parse only
     the `PRI` field of incoming messages, and put the rest of the message

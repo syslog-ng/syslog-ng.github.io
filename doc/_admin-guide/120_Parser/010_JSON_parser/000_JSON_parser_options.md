@@ -55,8 +55,8 @@ parser p_jsoneventv0 {
 
 ## key-delimiter()
 
-| Type: | character |
-| Default: | . |
+| Type:    | character |
+| Default: | .         |
 
 *Description:* The key-delimiter() option defines the used character when parsing flattened keys. Only single characters are supported.
 

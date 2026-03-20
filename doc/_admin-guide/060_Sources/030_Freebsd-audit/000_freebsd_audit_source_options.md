@@ -13,6 +13,6 @@ This driver has a single additional option:
 ## params()
 
 | Accepted values: | praudit options |
-| Default: | -p -l -x |
+| Default:         | `-p -l -x`      |
 
 *Description:* The options to pass to the invoked `praudit` command line tool.

@@ -14,8 +14,8 @@ The Google bigquery() destination has the following options:
 
 ## compression()
 
-| Type: | boolean |
-| Default: | no |
+| Type:    | boolean |
+| Default: | no      |
 
 Available in {{ site.product.short_name }} 4.5 and later versions.
 
@@ -25,8 +25,8 @@ Available in {{ site.product.short_name }} 4.5 and later versions.
 
 ## dataset()
 
-| Type: | string |
-| Default: | |
+| Type:    | string |
+| Default: |        |
 
 *Description:* The name of the {{ site.product.short_name }} destination dataset.
 
@@ -34,8 +34,8 @@ Available in {{ site.product.short_name }} 4.5 and later versions.
 
 ## flags()
 
-| Type: | no-multi-line, syslog-protocol |
-| Default: | empty set |
+| Type:    | no-multi-line, syslog-protocol |
+| Default: | empty set                      |
 
 *Description:* Flags modify the behavior of the destination driver.
 
@@ -63,15 +63,15 @@ Available in {{ site.product.short_name }} 4.5 and later versions.
 
 ## project()
 
-| Type: | string |
-| Default: | |
+| Type:    | string |
+| Default: |        |
 
 *Description:* The ID of the Google Cloud project where {{ site.product.short_name }} sends data.
 
 ## protobuf-schema()
 
-| Type: | schema |
-| Default: | |
+| Type:    | schema |
+| Default: |        |
 
 *Description:* Defines the schema syntax of the BigQuery table from a protobuf schema file.
 
@@ -95,8 +95,8 @@ message CustomRecord {
 
 ## schema()
 
-| Type: | schema |
-| Default: | |
+| Type:    | schema |
+| Default: |        |
 
 *Description:* Defines the schema syntax of the BigQuery table. Each line defines a column. The first part of the line defines the name and type of the column, the second part after the arrow sets {{ site.product.short_name }} templates or macros which are evaluated on every log routed to the bigquery() destination. The available column types are the following: `STRING`, `BYTES`, `INTEGER`, `FLOAT`, `BOOLEAN`, `TIMESTAMP`, `DATE`, `TIME`, `DATETIME`, `JSON`, `NUMERIC`, `BIGNUMERIC`, `GEOGRAPHY`, `RECORD`, `INTERVAL`.
 
@@ -115,8 +115,8 @@ schema(
 
 ## table()
 
-| Type: | string |
-| Default: | |
+| Type:    | string |
+| Default: |        |
 
 *Description:* Defines the name of the Google BigQuery table where {{ site.product.short_name }} send data to.
 
@@ -132,7 +132,7 @@ schema(
 
 ## url()
 
-| Type: | string |
+| Type:    | string                         |
 | Default: | bigquerystorage.googleapis.com |
 
 *Description:* This option sets the URL of the Google BigQuery where the logs are sent.

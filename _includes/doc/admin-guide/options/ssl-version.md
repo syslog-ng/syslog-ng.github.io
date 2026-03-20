@@ -1,6 +1,6 @@
 ## ssl-version()
 
-| Type: | string |
+| Type:    | string                         |
 | Default: | None, uses the libcurl default |
 
 *Description:* Specifies the permitted SSL/TLS version. Possible values:

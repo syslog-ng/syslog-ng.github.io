@@ -32,8 +32,8 @@ client-lib-dir(\"/opt/syslog-ng/lib/syslog-ng/java-modules/:/opt/hadoop/libs/\")
 
 ## hdfs-append-enabled()
 
-| Type: | true \| false |
-| Default: | false |
+| Type:    | true \ | false |
+| Default: | false  |       |
 
 *Description:* When hdfs-append-enabled is set to **true**, {{ site.product.short_name }} will append new data to the end of an already existing HDFS file.
 Note that in this case, archiving is automatically disabled, and
@@ -56,8 +56,8 @@ error log.
 
 ## hdfs-archive-dir()
 
-| Type: | string |
-| Default: | N/A |
+| Type:    | string |
+| Default: | N/A    |
 
 *Description:* The path where {{ site.product.short_name }} will move the closed log
 files. If {{ site.product.short_name }} cannot move the file for some reason (for
@@ -72,8 +72,8 @@ hdfs-archive-dir option.
 
 ## hdfs-file()
 
-| Type: | string |
-| Default: | N/A |
+| Type:    | string |
+| Default: | N/A    |
 
 *Description:* The path and name of the log file. For example,
 hdfs-file(\"/usr/hdfs/mylogfile.txt\"). {{ site.product.short_name }} checks if the path
@@ -108,8 +108,8 @@ then the name of the file will be 31-12.txt.
 
 ## hdfs-max-filename-length()
 
-| Type: | number |
-| Default: | 255 |
+| Type:    | number |
+| Default: | 255    |
 
 *Description:* The maximum length of the filename. This filename
 (including the UUID that {{ site.product.short_name }} appends to it) cannot be longer
@@ -119,8 +119,8 @@ truncate the filename. For example, hdfs-max-filename-length("255").
 
 ## hdfs-resources()
 
-| Type: | string |
-| Default: | N/A |
+| Type:    | string |
+| Default: | N/A    |
 
 *Description:* The list of Hadoop resources to load, separated by
 semicolons. For example,
@@ -128,8 +128,8 @@ hdfs-resources("/home/user/hadoop/core-site.xml;/home/user/hadoop/hdfs-site.xml"
 
 ## hdfs-uri()
 
-| Type: | string |
-| Default: | N/A |
+| Type:    | string |
+| Default: | N/A    |
 
 *Description:* The URI of the HDFS NameNode is in hdfs://IPaddress:port
 or hdfs://hostname:port format. When using MapR-FS, the URI of the
@@ -149,8 +149,8 @@ to the options statement of the {{ site.product.short_name }} configuration file
 
 ## kerberos-keytab-file()
 
-| Type: | string |
-| Default: | N/A |
+| Type:    | string |
+| Default: | N/A    |
 
 *Description:* The path to the Kerberos keytab file that you received
 from your Kerberos administrator. For example,
@@ -175,8 +175,8 @@ Available in {{ site.product.short_name }} version 3.10 and later.
 
 ## kerberos-principal()
 
-| Type: | string |
-| Default: | N/A |
+| Type:    | string |
+| Default: | N/A    |
 
 *Description:* The Kerberos principal you want to authenticate with. For
 example, kerberos-principal(\"hdfs-user@MYREALM\"). This option is

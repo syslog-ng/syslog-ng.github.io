@@ -1,7 +1,7 @@
 ## batch-bytes()
 
-| Accepted values: | number \[bytes\] |
-| Default: | {{ page.batch_bytes | default: 'none'}} |
+| Accepted values: | number \[bytes\]                        |
+| Default:         | {{ page.batch_bytes | default: 'none'}} |
 
 *Description:* Sets the maximum size of payload in a batch. If the size
 of the messages reaches this value, {{ site.product.short_name }} sends the batch to the

@@ -11,8 +11,8 @@ The kubernetes() source has the following options:
 
 ## base-dir()
 
-| Type: | path without filename |
-| Default: | /var/log/containers |
+| Type:    | path without filename |
+| Default: | /var/log/containers   |
 
 *Description:* The path to the directory that contains the log files,
 for example, **base-dir(\"/var/log/pods\")**.
@@ -21,8 +21,8 @@ for example, **base-dir(\"/var/log/pods\")**.
 
 ## cluster-name()
 
-| Type: | string |
-| Default: | k8s |
+| Type:    | string |
+| Default: | k8s    |
 
 *Description:*The name of the Kubernetes cluster.
 

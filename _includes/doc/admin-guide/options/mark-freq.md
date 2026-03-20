@@ -1,7 +1,7 @@
 ## mark-freq()
 
 | Accepted values: | number \[seconds\] |
-| Default: | 1200 |
+| Default:         | 1200               |
 
 *Description:* An alias for the obsolete mark() option, retained for
 compatibility with {{ site.product.short_name }} version 1.6.x.

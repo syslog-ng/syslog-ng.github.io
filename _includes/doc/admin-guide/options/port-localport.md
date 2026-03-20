@@ -1,7 +1,6 @@
 ## port() or localport()
 
-| Type: | number |
-| Default: | {{ page.port_default | default: 'In case of TCP transport: 514  
-|| In case of UDP transport: 514'}} |
+| Type:    | number                                                                 |
+| Default: | {{ page.port_default | default: '514 both for TCP and UDP transport }} |
 
 *Description:* The port number to bind to.

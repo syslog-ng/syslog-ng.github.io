@@ -1,7 +1,7 @@
 ## ebpf()
 
-| Type: | string |
-| Default: | None |
+| Type:    | string |
+| Default: | None   |
 
 This option is available in {{ site.product.short_name }} 4.2 and later versions.
 

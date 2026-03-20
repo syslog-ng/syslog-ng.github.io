@@ -1,7 +1,7 @@
 ## timeout()
 
-| Type: | number \[seconds\] |
-| Default: | {{ page.timeout | default: '0' }} |
+| Type:    | number \[seconds\]                   |
+| Default: | {{ page.timeout    | default: '0' }} |
 
 *Description:* The value (in seconds) to wait for an operation to
 complete, and attempt to reconnect the server if exceeded. By default,

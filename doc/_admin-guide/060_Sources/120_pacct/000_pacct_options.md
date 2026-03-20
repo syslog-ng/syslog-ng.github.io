@@ -12,7 +12,7 @@ The pacct() driver has the following options:
 
 ## file()
 
-| Type: | filename with path |
+| Type:    | filename with path     |
 | Default: | /var/log/account/pacct |
 
 *Description:* The file where the process accounting logs are stored ---

@@ -1,7 +1,7 @@
 ## use-system-cert-store()
 
 | Accepted values: | `yes`, `no` |
-| Default: | `no` |
+| Default:         | `no`        |
 
 *Description:* Use the certificate store of the system for verifying
 HTTPS certificates. For details, see the [curl

@@ -116,12 +116,12 @@ The journal contains credential information about the process that sent
 the log message. The {{ site.product.short_name }} application makes this information
 available in the following macros:
 
-|Journald field| syslog-ng predefined macro|
-|---|---|
-|  MESSAGE   | ${MESSAGE}|
-| _HOSTNAME | ${HOST} |
-| _PID    | ${PID}|
-| _COMM or SYSLOG_IDENTIFIER|   ${PROGRAM}|
-||  If both _COMM and SYSLOG_IDENTIFIER exists, {{ site.product.short_name }} uses SYSLOG_IDENTIFIER|
-|SYSLOG_FACILITY  | ${FACILITY_NUM} |
-|PRIORITY          | ${LEVEL_NUM} |
+| Journald field                                                                                   | syslog-ng predefined macro |
+|--------------------------------------------------------------------------------------------------|----------------------------|
+| MESSAGE                                                                                          | ${MESSAGE}                 |
+| _HOSTNAME                                                                                        | ${HOST}                    |
+| _PID                                                                                             | ${PID}                     |
+| _COMM or SYSLOG_IDENTIFIER                                                                       | ${PROGRAM}                 |
+| If both _COMM and SYSLOG_IDENTIFIER exists, {{ site.product.short_name }} uses SYSLOG_IDENTIFIER |                            |
+| SYSLOG_FACILITY                                                                                  | ${FACILITY_NUM}            |
+| PRIORITY                                                                                         | ${LEVEL_NUM}               |

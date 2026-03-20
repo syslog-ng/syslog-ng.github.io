@@ -1,6 +1,6 @@
 ## max-connections()
 
-| Type: | number |
+| Type:    | number                                      |
 | Default: | {{ page.max_conn_default | default: "10" }} |
 
 *Description:* Specifies the maximum number of simultaneous connections.

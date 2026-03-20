@@ -12,8 +12,8 @@ The redis() destination has the following options:
 
 ## auth()
 
-| Type: | string |
-| Default: | N/A |
+| Type:    | string |
+| Default: | N/A    |
 
 *Description:* The password used for authentication on a
 password-protected Redis server. Available in {{ site.product.short_name }} version 3.10
@@ -27,8 +27,8 @@ and later.
 
 ## command()
 
-| Type: | comma-separated list of strings ("<redis-command>", "<first-command-parameter>", "<second-command-parameter>", "<third-command-parameter>") |
-| Default: | empty string |
+| Type:    | comma-separated list of strings ("<redis-command>", "<first-command-parameter>", "<second-command-parameter>", "<third-command-parameter>") |
+| Default: | empty string                                                                                                                                |
 
 *Description:* The Redis command to
 execute, for example, LPUSH, INCR, or HINCRBY. Using the HINCRBY command

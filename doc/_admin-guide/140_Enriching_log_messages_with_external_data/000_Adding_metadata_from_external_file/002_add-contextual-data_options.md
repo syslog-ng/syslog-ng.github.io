@@ -14,7 +14,7 @@ The following options are required: selector(), database().
 ## database()
 
 | Accepted value: | \<path-to-file\>.csv |
-| Default: | |
+| Default:        |                      |
 
 *Description:* Specifies the path to the CSV file, for example,
 /opt/syslog-ng/my-csv-database.csv. The extension of the file must be
@@ -49,7 +49,7 @@ add-contextual-data(
 ## ignore-case()
 
 | Accepted values: | `yes`, `no` |
-| Default: | `no` |
+| Default:         | `no`        |
 
 *Description:* Specifies if selectors are handled as case insensitive.
 If you set the ignore-case() option to `yes`, selectors are handled as

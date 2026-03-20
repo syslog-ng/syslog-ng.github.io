@@ -1,7 +1,7 @@
 ## multi-line-garbage()
 
-| Type: | regular expression |
-| Default: | empty string |
+| Type:    | regular expression |
+| Default: | empty string       |
 
 *Description:* Use the multi-line-garbage() option when processing
 multi-line messages that contain unneeded parts between the messages.

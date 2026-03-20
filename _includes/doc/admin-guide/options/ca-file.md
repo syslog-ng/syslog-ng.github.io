@@ -1,7 +1,7 @@
 ## ca-file()
 
-| Type: | File name |
-| Default: | empty |
+| Type:    | File name |
+| Default: | empty     |
 
 *Description:* Optional. The name of a file that contains a set of
 trusted CA certificates in PEM format. The {{ site.product.short_name }} application

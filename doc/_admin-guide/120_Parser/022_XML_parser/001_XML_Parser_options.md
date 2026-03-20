@@ -9,17 +9,17 @@ description: >-
 ## drop-invalid()
 
 | Accepted values: | `yes`, `no` |
-| Default: | `no` |
-| Mandatory: | no |
+| Default:         | `no`        |
+| Mandatory:       | no          |
 
 *Description:* If set, messages with an invalid XML will be dropped entirely.
 
 ## exclude-tags()
 
-| Accepted values: | list of globs |
-| Default: | None |
-|            | If not set, no filtering is done. |
-| Mandatory: | no                                |
+| Accepted values:                  | list of globs |
+| Default:                          | None          |
+| If not set, no filtering is done. |               |
+| Mandatory:                        | no            |
 
 *Description:* The XML parser matches tags against the listed globs.
 If there is a match, the given subtree of the XML will be omitted.
@@ -54,8 +54,8 @@ The following output is generated:
 ## strip-whitespaces()
 
 | Accepted values: | `yes`, `no` |
-| Default: | `no` |
-| Mandatory: | no |
+| Default:         | `no`        |
+| Mandatory:       | no          |
 
 *Description:* Strip the whitespaces from the XML text nodes before adding
 them to the message.

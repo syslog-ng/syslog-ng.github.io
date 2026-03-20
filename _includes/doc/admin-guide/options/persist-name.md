@@ -1,7 +1,7 @@
 ## persist-name()
 
-| Type: | string |
-| Default: | N/A |
+| Type:    | string |
+| Default: | N/A    |
 
 *Description:* If you receive the following error message during
 {{ site.product.short_name }} startup, set the persist-name() option of the duplicate

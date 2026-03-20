@@ -1,7 +1,7 @@
 ## cipher-suite()
 
-| Accepted values: | Name of a cipher, or a colon-separated list |
-| Default: | Depends on the OpenSSL version that {{ site.product.short_name }} uses |
+| Accepted values: | Name of a cipher, or a colon-separated list                            |
+| Default:         | Depends on the OpenSSL version that {{ site.product.short_name }} uses |
 
 *Description:* Specifies the cipher, hash, and key-exchange algorithms
 used for the encryption, for example, ECDHE-ECDSA-AES256-SHA384. The

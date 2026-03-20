@@ -61,7 +61,7 @@ This destination is available in {{ site.product.short_name }} version 3.21 and 
 
 ## custom-id()
 
-| Type: | string |
+| Type:    | string       |
 | Default: | empty string |
 
 *Description:* Sets the specified value as the ID of the Elasticsearch
@@ -79,7 +79,7 @@ Batch mode and load balancing with ElasticSearch.
 ## index()
 
 | Accepted values: | string or template |
-| Default: | None |
+| Default:         | None               |
 
 *Description:* The name of the Elasticsearch index where Elasticsearch
 will store the messages received from {{ site.product.short_name }}. This option is
@@ -111,7 +111,7 @@ name of Elasticsearch indices, see the documentation of Elasticsearch.
 
 ## proxy()
 
-| Type: | |
+| Type:    |       |
 | Default: | empty |
 
 *Description:*
@@ -143,8 +143,8 @@ attempts reaches retries. If the HTTP server returns 4xx codes,
 
 ## type()
 
-| Type: | string or template |
-| Default: | N/A |
+| Type:    | string or template |
+| Default: | N/A                |
 
 *Description:* The type of the Elasticsearch index.
 
@@ -162,14 +162,14 @@ you use a mapping in Elasticsearch to modify the type of the data.
 ## op-type()
 
 | Accepted Values: | `index`, `create` |
-| Default: | `index` |
+| Default:         | `index`           |
 
 *Description:* This option can be used to modify how data is stored in Elasticsearch destinations. Use `op-type("create")` in case of datastreams.
 
 ## url()
 
-| Type: | URL or list of URLs, for example, url("site1" "site2") |
-| Default: | N/A |
+| Type:    | URL or list of URLs, for example, url("site1" "site2") |
+| Default: | N/A                                                    |
 
 *Description:* Specifies the hostname or IP address and optionally the
 port number of the Elasticsearch indexer. Use a colon `:` after the
@@ -191,8 +191,8 @@ HTTPS based redirections are supported.
 
 ## user()
 
-| Type: | string |
-| Default: | |
+| Type:    | string |
+| Default: |        |
 
 *Description:* The username that {{ site.product.short_name }} uses to authenticate on
 the server where it sends the messages.

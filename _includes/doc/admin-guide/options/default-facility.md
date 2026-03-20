@@ -1,6 +1,6 @@
 ## default-facility()
 
-| Type: | facility string |
+| Type:    | facility string                               |
 | Default: | {{ page.facility_default | default: 'kern' }} |
 
 *Description:* This parameter assigns a facility value to the messages

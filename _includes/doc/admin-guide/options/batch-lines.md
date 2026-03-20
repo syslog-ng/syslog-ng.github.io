@@ -1,6 +1,6 @@
 ## batch-lines()
 
-| Type: | number |
+| Type:    | number                               |
 | Default: | {{ page.batch_lines | default:'1' }} |
 
 *Description:* Specifies how many lines are flushed to a destination in

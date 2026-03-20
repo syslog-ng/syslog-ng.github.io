@@ -1,7 +1,7 @@
 ## kafka-logging()
 
 | Accepted values: | `disabled`, `trace`, `kafka` |
-| Default: | disabled |
+| Default:         | `disabled`                   |
 
 *Description:* This option allows you to control how internal Kafka logs appear in the {{ site.product.short_name }} logs.
 

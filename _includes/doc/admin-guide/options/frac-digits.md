@@ -1,7 +1,7 @@
 ## frac-digits()
 
-| Type: | number |
-| Default: | 0 |
+| Type:    | number |
+| Default: | 0      |
 
 *Description:* The {{ site.product.short_name }} application can store fractions of a second
 in the timestamps according to the ISO8601 format. The frac-digits()

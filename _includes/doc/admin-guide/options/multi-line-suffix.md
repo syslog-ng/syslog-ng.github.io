@@ -1,7 +1,7 @@
 ## multi-line-suffix()
 
-| Type: | regular expression |
-| Default: | empty string |
+| Type:    | regular expression |
+| Default: | empty string       |
 
 *Description:* Use the multi-line-suffix() option when processing
 multi-line messages. Specify a string or regular expression that matches

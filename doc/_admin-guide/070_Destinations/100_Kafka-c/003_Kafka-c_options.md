@@ -54,8 +54,8 @@ documentation.
 
 ## fallback-topic()
 
-| Type: | string |
-| Default: | N/A |
+| Type:    | string |
+| Default: | N/A    |
 
 *Description:* If the resolved topic() template is not a valid Kafka topic , {{ site.product.short_name }} will use `fallback-topic()` to send messages.
 
@@ -66,8 +66,8 @@ documentation.
 
 ## flush-timeout-on-reload()
 
-| Type: | integer in milliseconds |
-| Default: | 1000 |
+| Type:    | integer in milliseconds |
+| Default: | 1000                    |
 
 *Description:* When {{ site.product.short_name }} reloads, the Kafka client will also
 reload. The flush-timeout-on-reload() option specifies the number of
@@ -78,8 +78,8 @@ without disk-buffering, too.
 
 ## flush-timeout-on-shutdown()
 
-| Type: | integer in milliseconds |
-| Default: | 60000 |
+| Type:    | integer in milliseconds |
+| Default: | 60000                   |
 
 *Description:* When {{ site.product.short_name }} shuts down, the Kafka client will also
 shut down. The flush-timeout-on-shutdown() option specifies the number
@@ -91,7 +91,7 @@ To avoid losing messages, we recommend you use the disk-buffer option.
 
 ## key()
 
-| Type: | template |
+| Type:    | template     |
 | Default: | empty string |
 
 *Description:* The key of the partition under which the message is
@@ -105,7 +105,7 @@ key(\"${PROGRAM}\").
 
 ## message()
 
-| Type: | message template |
+| Type:    | message template                     |
 | Default: | ${ISODATE} ${HOST} ${MSGHDR}${MSG}\n |
 
 *Description:* The message as published to Apache Kafka. You can use
@@ -121,8 +121,8 @@ For details on formatting messages in JSON format, see $format-json()
 
 ## poll-timeout()
 
-| Type: | integer in milliseconds |
-| Default: | 10000 |
+| Type:    | integer in milliseconds |
+| Default: | 10000                   |
 
 *Description:* Specifies the frequency your {{ site.product.short_name }} queries the Kafka
 client about the amount of messages sent since the last `poll-timeout()`.
@@ -136,7 +136,7 @@ In case of multithreading, the first {{ site.product.short_name }} worker is res
 ## sync-send()
 
 | Accepted values: | `yes`, `no` |
-| Default: | `no` |
+| Default:         | `no`        |
 
 *Description:* When `sync-send()` is set to `yes`, {{ site.product.short_name }} sends
 the message reliably: it sends a message to the Kafka server, then waits
@@ -166,17 +166,17 @@ delivers messages to the Kafka client more reliably.
 
 ## time-reopen()
 
-| Type: | integer in seconds |
-| Default: | 60 |
+| Type:    | integer in seconds |
+| Default: | 60                 |
 
 *Description:* This is an optional parameter. If message delivery fails, {{ site.product.short_name }}
 retries sending the messages for retries() time (3 times by default) before waiting for `time-reopen()` time to try sending it again.
 
 ## topic()
 
-| Type: | string |
-| Default: | N/A |
-| Mandatory: | yes |
+| Type:      | string |
+| Default:   | N/A    |
+| Mandatory: | yes    |
 
 *Description:* The Kafka topic under which the message is published. You can use
 templates to change the topic dynamically based on the source or the content of

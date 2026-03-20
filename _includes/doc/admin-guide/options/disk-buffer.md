@@ -4,8 +4,8 @@
 
 ### capacity-bytes()
 
-| Type: | number (bytes) |
-| Default: | 1 MiB |
+| Type:    | number (bytes) |
+| Default: | 1 MiB          |
 
 *Description:* This is a required option. The maximum size of the disk-buffer in bytes. The minimum value is 1048576 bytes. If you set a smaller value, the minimum value will be used automatically. It replaces the old log-disk-fifo-size() option.
 
@@ -14,7 +14,7 @@ In {{ site.product.short_name }} version 4.2 and earlier, this option was called
 ### compaction()
 
 | Accepted values: | `yes`, `no` |
-| Default: | `no` |
+| Default:         | `no`        |
 
 *Description:* If set to yes, {{ site.product.short_name }} prunes the unused space in the LogMessage representation, making the disk queue size smaller at the cost of some CPU time. Setting the compaction() argument to yes is recommended when numerous name-value pairs are unset during processing, or when the same names are set multiple times.
 
@@ -23,8 +23,8 @@ In {{ site.product.short_name }} version 4.2 and earlier, this option was called
 
 ### dir()
 
-| Type: | string |
-| Default: | N/A |
+| Type:    | string |
+| Default: | N/A    |
 
 *Description:* Defines the folder where the disk-buffer files are stored.
 
@@ -35,8 +35,8 @@ In {{ site.product.short_name }} version 4.2 and earlier, this option was called
 
 ### flow-control-window-bytes()
 
-| Type: | number (bytes) |
-| Default: | 163840000 |
+| Type:    | number (bytes) |
+| Default: | 163840000      |
 
 *Description:* Use this option if the option reliable() is set to yes. This option contains the size of the messages in bytes that is used in the memory part of the disk buffer. It replaces the old log-fifo-size() option. It does not inherit the value of the global log-fifo-size() option, even if it is provided. Note that this option will be ignored if the option reliable() is set to no.
 
@@ -44,8 +44,8 @@ In {{ site.product.short_name }} version 4.2 and earlier, this option was called
 
 ### flow-control-window-size()
 
-| Type: | number(messages) |
-| Default: | 10000 |
+| Type:    | number(messages) |
+| Default: | 10000            |
 
 *Description:* Use this option if the option reliable() is set to no. This option contains the number of messages stored in overflow queue. It replaces the old log-fifo-size() option. It inherits the value of the global log-fifo-size() option if provided. If it is not provided, the default value is 10000 messages. Note that this option will be ignored if the option reliable() is set to yes.
 
@@ -53,8 +53,8 @@ In {{ site.product.short_name }} version 4.2 and earlier, this option was called
 
 ### front-cache-size()
 
-| Type: | number(messages) |
-| Default: | 1000 |
+| Type:    | number(messages) |
+| Default: | 1000             |
 
 *Description:* The number of messages stored in the output buffer of the destination. Note that if you change the value of this option and the disk-buffer already exists, the change will take effect when the disk-buffer becomes empty.
 
@@ -65,7 +65,7 @@ In {{ site.product.short_name }} version 4.2 and earlier, this option was called
 ### prealloc()
 
 | Accepted values: | `yes`, `no` |
-| Default: | `no` |
+| Default:         | `no`        |
 
 *Description:* By default, {{ site.product.short_name }} doesn’t reserve the disk space for the disk-buffer file, since in a properly configured and sized environment the disk-buffer is practically empty, so a large preallocated disk-buffer file is just a waste of disk space. But a preallocated buffer can prevent other data from using the intended buffer space (and elicit a warning from the OS if disk space is low), preventing message loss if the buffer is actually needed. To avoid this problem, when using {{ site.product.short_name }} 4.0 or later, you can preallocate the space for your disk-buffer files by setting prealloc(yes). 
 
@@ -78,7 +78,7 @@ Available in {{ site.product.short_name }} 4.0 and later.
 ### reliable()
 
 | Accepted values: | `yes`, `no` |
-| Default: | `no` |
+| Default:         | `no`        |
 
 *Description:* If set to yes, {{ site.product.short_name }} cannot lose logs in case of reload/restart, unreachable destination or {{ site.product.short_name }} crash. This solution provides a slower, but reliable disk-buffer option. It is created and initialized at startup and gradually grows as new messages arrive. If set to no, the normal disk-buffer will be used. This provides a faster, but less reliable disk-buffer option.
 
@@ -87,8 +87,8 @@ Available in {{ site.product.short_name }} 4.0 and later.
 
 ### truncate-size-ratio()
 
-| Type: | number((between 0 and 1)) |
-| Default: | 1 (do not truncate) |
+| Type:    | number((between 0 and 1)) |
+| Default: | 1 (do not truncate)       |
 
 *Description:* Limits the truncation of the disk-buffer file. Truncating the disk-buffer file can slow down the disk IO operations, but it saves disk space. By default, {{ site.product.short_name }} version 4.0 and later doesn’t truncate disk-buffer files by default (truncate-size-ratio(1)). Earlier versions freed the disk-space when at least 10% of the disk-buffer file could be freed (truncate-size-ratio(0.1)).
 

@@ -1,8 +1,8 @@
 ## bootstrap-servers()
 
-| Type: | string |
-| Default: | N/A |
-| Mandatory: | yes |
+| Type:      | string |
+| Default:   | N/A    |
+| Mandatory: | yes    |
 
 *Description:* Specifies the hostname or IP address of the Kafka server.
 When specifying an IP address, IPv4 (for example, 192.168.0.1) or IPv6

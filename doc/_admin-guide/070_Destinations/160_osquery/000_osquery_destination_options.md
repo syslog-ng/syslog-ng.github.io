@@ -10,8 +10,8 @@ The osquery() destination has the following options:
 
 ## file()
 
-| Type: | string |
-| Default: | N/A |
+| Type:    | string |
+| Default: | N/A    |
 
 *Description:* Specifies a path to the file where log messages are
 stored, for example, for debug purposes.
@@ -27,8 +27,8 @@ osquery accepts.
 
 ## pipe()
 
-| Type: | string |
-| Default: | N/A |
+| Type:    | string |
+| Default: | N/A    |
 
 *Description:* Specifies a custom path to the named pipe that acts as
 the interface between osquery and syslog-ng. (The default path is set in

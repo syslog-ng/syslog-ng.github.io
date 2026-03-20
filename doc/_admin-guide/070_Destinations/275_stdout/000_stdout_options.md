@@ -14,7 +14,7 @@ The following options are available for an stdout destiantion.
 
 ## flush-timeout()
 
-| Type: | time [milliseconds] |
+| Type:    | time [milliseconds] |
 | Default: | 10 000 milliseconds |
 
 *Description:* Specifies the time {{ site.product.short_name }} waits for lines to accumulate in the output buffer. The {{ site.product.short_name }} application sends flushes to the destinations evenly. The timer starts when the first message arrives to the buffer, so if only few messages arrive, {{ site.product.short_name }} sends messages to the destination at most once every flush-timeout() seconds.

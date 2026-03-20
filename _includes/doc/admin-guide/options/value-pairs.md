@@ -1,7 +1,7 @@
 ## value-pairs()
 
-| Type: | parameter list of the value-pairs() option |
-| Default: | empty string |
+| Type:    | parameter list of the value-pairs() option |
+| Default: | empty string                               |
 
 *Description:* The value-pairs() option allows you to select specific
 information about a message easily using predefined macro groups. The
@@ -50,8 +50,8 @@ are evaluated in the following order:
 
 #### exclude()
 
-| Type: | Space-separated list of macros to remove from the selection created using the scope() option. |
-| Default: | empty string |
+| Type:    | Space-separated list of macros to remove from the selection created using the scope() option. |
+| Default: | empty string                                                                                  |
 
 *Description:* This option removes the specified macros from the selection. Use it to remove unneeded macros selected using the scope() parameter.  
 
@@ -68,8 +68,8 @@ value-pairs(
 
 #### key()
 
-| Type: | Space-separated list of macros to be included in selection |
-| Default: | empty string |
+| Type:    | Space-separated list of macros to be included in selection |
+| Default: | empty string                                               |
 
 *Description:* This option selects the specified macros. The selected macros will be included as MACRONAME=MACROVALUE, that is using key(\"HOST\" will result in HOST = ${HOST}. You can use wildcards (\*, ?) to select multiple macros.
 
@@ -89,8 +89,8 @@ value-pairs(
 
 #### omit-empty-values()
 
-| Type: | flag |
-| Default: | N/A |
+| Type:    | flag |
+| Default: | N/A  |
 
 *Description:* If this option is specified, {{ site.product.short_name }} does not include value-pairs with empty values in the output.
 
@@ -111,8 +111,8 @@ Available in {{ site.product.short_name }} version 3.21 and later.
 
 #### pair()
 
-| Type: | name value pairs in \"\<NAME\>\" \"\<VALUE\>\" format |
-| Default: | empty string |
+| Type:    | name value pairs in "\<NAME\>" "\<VALUE\>" format |
+| Default: | empty string                                      |
 
 *Description:* This option defines a new name-value pair to be included in the message. The value part can include macros, templates, and template functions as well.
 
@@ -128,8 +128,8 @@ value-pairs(
 
 #### rekey()
 
-| Type: | \<pattern-to-select-names\>, \<list of transformations\> |
-| Default: | empty string |
+| Type:    | \<pattern-to-select-names\>, \<list of transformations\> |
+| Default: | empty string                                             |
 
 *Description:* This option allows you to manipulate and modify the name of the value-pairs. You can define transformations, which are are applied to the selected name-value pairs. The first parameter of the rekey() option is a glob pattern that selects the name-value pairs to modify. If you omit the pattern, the transformations are applied to every key of the scope. For details on globs, see Options of regular expressions. If you want to modify the names of several message fields, see also [[map-value-pairs: Rename value-pairs to normalize logs]].
 
@@ -185,10 +185,8 @@ The rekey() option can be used with the format-json template-function as well, u
 
 #### scope()
 
-| Type: | space-separated list of macro groups to include in selection |
-| Default: | empty string |  
-
-*Description:* This option selects predefined groups of macros. The following groups are available:
+| Type:    | space-separated list of macro groups to include in selection |
+| Default: | empty string                                                 |
 
 - *nv-pairs*: Every soft macro (name-value pair) associated with the message, except the ones that start with a dot (.) character. Macros       starting with a dot character are generated within {{ site.product.short_name }} and are not originally part of the message, therefore are not included in this group.
 

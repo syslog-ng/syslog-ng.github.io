@@ -1,6 +1,6 @@
 ## http-proxy()
 
-| Type: | URL |
+| Type:    | URL |
 | Default: | N/A |
 
 *Description:* Specifies HTTP/HTTPS proxy for WebSocket connections.

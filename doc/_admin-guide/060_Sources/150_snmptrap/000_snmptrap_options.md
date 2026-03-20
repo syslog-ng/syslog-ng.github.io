@@ -36,8 +36,8 @@ Currently {{ site.product.short_name }} discards these messages.
 
 ## set-message-macro()
 
-| Accepted value: | yes \| no |
-| Default: | yes |
+| Accepted values: | `yes`, `no` |
+| Default:         | `yes`       |
 
 *Description:* The snmptrap() source automatically parses the traps into
 name-value pairs, so you can handle the content of the trap as a

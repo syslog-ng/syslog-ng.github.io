@@ -12,8 +12,8 @@ The Regular expression parser has the following options.
 
 ## patterns()
 
-| Synopsis: | patterns("pattern1" "pattern2") |
-| Mandatory: | yes |
+| Synopsis:  | patterns("pattern1" "pattern2") |
+| Mandatory: | yes                             |
 
 *Description:* The regular expression patterns that you want to find a
 match. regexp-parser() supports multiple patterns, and stops the

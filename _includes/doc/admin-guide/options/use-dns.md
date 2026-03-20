@@ -1,7 +1,7 @@
 ## use-dns()
 
 | Accepted values: | `yes`, `no`, `persist_only` |
-| Default: | `yes` |
+| Default:         | `yes`                       |
 
 *Description:* Enable or disable DNS usage. The persist_only option
 attempts to resolve hostnames locally from file (for example, from

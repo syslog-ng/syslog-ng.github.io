@@ -22,7 +22,7 @@ specified for these drivers:
 
 ## group()
 
-| Type: | string |\n| Default: | root |
+| Type: | string | \n | Default: | root |
 
 *Description:* Sets the gid of the socket.
 
@@ -59,8 +59,8 @@ Cannot be used with unix-dgram().
 
 ## owner()
 
-| Type: | string |
-| Default: | root |
+| Type:    | string |
+| Default: | root   |
 
 *Description:* Sets the uid of the socket.
 

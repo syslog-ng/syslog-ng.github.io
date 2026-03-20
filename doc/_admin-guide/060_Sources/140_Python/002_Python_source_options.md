@@ -17,8 +17,8 @@ The python() and python-fetcher() drivers have the following options.
 
 ## fetch-no-data-delay()
 
-| Type: | integer (seconds) |
-| Default: | -1 (disabled) |
+| Type:    | integer (seconds) |
+| Default: | -1 (disabled)     |
 
 *Description:* If the fetch method of a python-fetcher() source returns
 with the LogFetcher.FETCH_NO_DATA constant, the source waits

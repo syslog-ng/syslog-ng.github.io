@@ -1,6 +1,6 @@
 ## flush-lines()
 
-| Type: | number |
+| Type:    | number                                                                                                        |
 | Default: | {{ page.flush_lines | default: 'Use global setting (exception: for http() destination, the default is 1).' }} |
 
 *Description:* Specifies how many lines are flushed to a destination at

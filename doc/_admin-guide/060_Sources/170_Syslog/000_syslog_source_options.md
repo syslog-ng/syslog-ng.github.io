@@ -34,8 +34,8 @@ The syslog() driver has the following options.
 
 Available in {{ site.product.short_name }} 3.19 and later versions.
 
-| Type: | string |
-| Default: | None |
+| Type:    | string |
+| Default: | None   |
 
 *Description:* Bind to the specified interface instead of an IP address.
 
@@ -92,8 +92,8 @@ Available in {{ site.product.short_name }} 3.19 and later versions.
 
 Available in {{ site.product.short_name }} 3.4 and later versions.
 
-| Type: | number [seconds] |
-| Default: | `0` |
+| Type:    | number [seconds] |
+| Default: | `0`              |
 
 *Description:* This option specifies the interval between subsequential keepalive probes in seconds, regardless of the traffic exchanged in the connection. This option is equivalent to `/proc/sys/net/ipv4/tcp_keepalive_intvl`. The default value is `0`, which results in using the kernel default.
 
@@ -103,8 +103,8 @@ Available in {{ site.product.short_name }} 3.4 and later versions.
 
 Available in {{ site.product.short_name }} 3.4 and later versions.
 
-| Type: | number [seconds] |
-| Default: | `0` |
+| Type:    | number [seconds] |
+| Default: | `0`              |
 
 *Description:* This option specifies the number of unacknowledged probes to send before considering the connection dead. This option is equivalent to `/proc/sys/net/ipv4/tcp_keepalive_probes`. The default value is `0`, which results in using the kernel default.
 
@@ -114,8 +114,8 @@ Available in {{ site.product.short_name }} 3.4 and later versions.
 
 Available in {{ site.product.short_name }} 3.4 and later versions.
 
-| Type: | number [seconds] |
-| Default: | `0` |
+| Type:    | number [seconds] |
+| Default: | `0`              |
 
 *Description:* This option specifies the interval between the last data packet sent and the first keepalive probe in seconds. This option is equivalent to `/proc/sys/net/ipv4/tcp_keepalive_time`. The default value is `0`, which results in using the kernel default.
 
@@ -133,4 +133,3 @@ Available in {{ site.product.short_name }} 3.4 and later versions.
 
 {% include doc/admin-guide/options/use-fqdn.md %}
 
-{% include doc/admin-guide/options/use-syslogng-pid.md %}

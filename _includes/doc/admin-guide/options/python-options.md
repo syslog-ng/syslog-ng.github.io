@@ -1,7 +1,7 @@
 ## options()
 
-| Type: | string |
-| Default: | N/A |
+| Type:    | string |
+| Default: | N/A    |
 
 *Description:* This option allows you to pass custom values from the
 configuration file to the Python code. Enclose both the option names and

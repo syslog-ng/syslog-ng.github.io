@@ -70,12 +70,12 @@ In most cases, you will want to use the `local` storage option, but you can also
 
 Usage examples:
 
-| resulting strategy | persist-store() | config( "group.id" ... )                                                          | notes |
-|--------------------|-----------------|-----------------------------------------------------------------------------------|-|
-| assign             | local           | not used                                                                          | |
-| assign             | remote          | used for remote Kafka offset restoration, auto-generated if empty                 | even if clients use the same "group.id", they are isolated and will NOT participate in Kafka rebalancing |
+| resulting strategy | persist-store() | config( "group.id" ... )                                                          | notes                                                                                                                                                                                                                                                                          |
+|--------------------|-----------------|-----------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| assign             | local           | not used                                                                          |                                                                                                                                                                                                                                                                                |
+| assign             | remote          | used for remote Kafka offset restoration, auto-generated if empty                 | even if clients use the same "group.id", they are isolated and will NOT participate in Kafka rebalancing                                                                                                                                                                       |
 | subscribe          | local           | not used and will be overridden if not empty                                      | because of the `local` offset storage option, the user-provided "group.id" will be replaced by a self-generated one to prevent clients with the same "group.id" from participating in Kafka rebalancing; otherwise, inconsistent offsets might be provided by the Kafka broker |
-| subscribe          | remote          | used for remote Kafka offset restoration and rebalancing, auto-generated if empty | clients with the same "group.id" will participate in Kafka rebalancing |
+| subscribe          | remote          | used for remote Kafka offset restoration and rebalancing, auto-generated if empty | clients with the same "group.id" will participate in Kafka rebalancing                                                                                                                                                                                                         |
 
 For more details about Kafka consumer types and rebalancing, refer to the librdkafka documentation.
 

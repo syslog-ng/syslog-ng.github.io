@@ -1,7 +1,7 @@
 ## retries()
 
-| Type: | number (of attempts) |
-| Default: | 3 |
+| Type:    | number (of attempts) |
+| Default: | 3                    |
 
 *Description:* If {{ site.product.short_name }} cannot send a message, it will try again
 until the number of attempts reaches retries().
