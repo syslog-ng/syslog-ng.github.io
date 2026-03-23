@@ -10,6 +10,8 @@ description: >-
 
 The systemd-journal() driver has the following options:
 
+{% include doc/admin-guide/options/chain-hostnames.md %}
+
 {% include doc/admin-guide/options/default-facility.md %}
 
 {% include doc/admin-guide/options/default-priority.md %}
@@ -21,8 +23,6 @@ The systemd-journal() driver has the following options:
 
 *Description:* The default level value if the `PRIORITY` entry does not
 exist.
-
-{% include doc/admin-guide/options/chain-hostnames.md %}
 
 {% include doc/admin-guide/options/format.md %}
 
@@ -147,8 +147,21 @@ get a prefix (for example: ".SDATA.journald."). By default, {{ site.product.shor
 *Description:* If set to **yes**, {{ site.product.short_name }} will start reading the
 records from the beginning of the journal, if the journal has not been
 read yet. If set to **no**, {{ site.product.short_name }} will read only the new
-records. If the source has a state in the persist file, this option will
+records.
+
+**NOTE:** If the source has a state in the persist file, this option will
 have no effect.
+{: .notice--info}
+
+See read-old-on-error() for the behavior of {{ site.product.short_name }} when the source has a state in the persist file but {{ site.product.short_name }} cannot locate this position at startup.
+
+## read-old-on-error()
+
+|  Accepted values:|  yes \| no|
+|Default:|   yes|
+
+*Description:* When the source has a state in the persist file, {{ site.product.short_name }} attempts to read the journal from the last recorded position at startup.\
+If {{ site.product.short_name }} cannot locate this position (for example, because the journal has been rotated or cleared since the last read), this option determines whether {{ site.product.short_name }} starts reading records from the beginning of the journal or only processes new records. If set to `yes`, it reads from the beginning; otherwise, it reads only new records.
 
 {% include doc/admin-guide/options/sdata-prefix.md %}
 
