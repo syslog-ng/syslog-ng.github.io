@@ -36,7 +36,7 @@
     The prefix-suffix mode is similar to the prefix-garbage mode, but it
     appends the garbage part to the message instead of discarding it.
 
-{% include doc/admin-guide/options/multi-line-mode-empty-line-separated.md %}
+- {% include doc/admin-guide/options/multi-line-mode-empty-line-separated.md %}
 
 {% include doc/admin-guide/examples/multi-line.md %}
 

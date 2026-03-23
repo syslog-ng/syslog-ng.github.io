@@ -72,17 +72,17 @@ everything should work as expected. Unfortunately there are some other
 combinations, that seem to work, but result in losing parts of the
 messages. The following table shows the combinations:
 
-|Source \\ Destination|   syslog/tcp|   syslog/udp|   syslog/tls|   network/tcp|   network/udp|   network/tls|   network/tcp/flag|   network/udp/flag|   network/tls/flag|
-|---|---|---|---|---|---|---|---|---|---|
-|syslog/tcp |✔| \-| \-| ! |  \- | \- | ! | \-  | \-|
-|syslog/udp |  \- |  ✔|  \-| \-| !|  \-|  \-| !|  \-|
-|syslog/tls |\-| \-|  ✔| \-| \-| ! | \-| \-| !|
-|network/tcp|\-|\-|\-| ✔| \-|\-| ✔?|\-|\-|
-|network/udp|\-|✔?|\-|\-| ✔ | \-|\-| ✔?|\-|
-|network/tls|\-|\-|\-|\-|\-|✔|\-|\-|✔?|
-|network/tcp/flag|!|\-|\-|!|\-|\-|✔|\-|\-|
-|network/udp/flag|\-|!|\-|\-|!|\-|\-|✔|\-|
-|network/tls/flag|\-|\-|!|\-|\-|!|\-|\-| ✔|
+| Source \\ Destination | syslog/tcp | syslog/udp | syslog/tls | network/tcp | network/udp | network/tls | network/tcp/flag | network/udp/flag | network/tls/flag |
+|-----------------------|------------|------------|------------|-------------|-------------|-------------|------------------|------------------|------------------|
+| syslog/tcp            | ✔          | \-         | \-         | !           | \-          | \-          | !                | \-               | \-               |
+| syslog/udp            | \-         | ✔          | \-         | \-          | !           | \-          | \-               | !                | \-               |
+| syslog/tls            | \-         | \-         | ✔          | \-          | \-          | !           | \-               | \-               | !                |
+| network/tcp           | \-         | \-         | \-         | ✔           | \-          | \-          | ✔?               | \-               | \-               |
+| network/udp           | \-         | ✔?         | \-         | \-          | ✔           | \-          | \-               | ✔?               | \-               |
+| network/tls           | \-         | \-         | \-         | \-          | \-          | ✔           | \-               | \-               | ✔?               |
+| network/tcp/flag      | !          | \-         | \-         | !           | \-          | \-          | ✔                | \-               | \-               |
+| network/udp/flag      | \-         | !          | \-         | \-          | !           | \-          | \-               | ✔                | \-               |
+| network/tls/flag      | \-         | \-         | !          | \-          | \-          | !           | \-               | \-               | ✔                |
 
 - \- This method does not work. The logs will not get to the server.
 

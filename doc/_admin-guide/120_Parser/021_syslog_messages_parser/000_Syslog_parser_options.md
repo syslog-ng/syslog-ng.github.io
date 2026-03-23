@@ -13,16 +13,16 @@ The syslog-parser() has the following options:
 
 ## drop-invalid()
 
-|Accepted values:|    yes \| no|
-|Default: |  no|
+| Accepted values: | `yes`, `no` |
+| Default:         | `no`        |
 
 *Description:* This option determines how the syslog-parser() affects
 messages when parsing fails.
 
-If you set drop-invalid() to **yes**, syslog-parser() will drop the
+If you set drop-invalid() to `yes`, syslog-parser() will drop the
 message if the parsing fails.
 
-If you set drop-invalid() to **no**, the parsing error triggers
+If you set drop-invalid() to `no`, the parsing error triggers
 syslog-parser() to rewrite and extend the original log message with the
 following additional information:
 

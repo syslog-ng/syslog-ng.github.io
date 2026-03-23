@@ -1,7 +1,7 @@
 ## follow-always-reads()
 
-|   Type:| `yes`, `no`|
-|Default:| `no`|
+| Accepted values: | `yes`, `no` |
+| Default:         | `no`        |
 
 *Description:* This option was introduced in {{ site.product.short_name }} version 4.11 and is useful only in some special cases
 when the follow-method() `poll` (or `legacy` with follow-freq() > 0) option is used.

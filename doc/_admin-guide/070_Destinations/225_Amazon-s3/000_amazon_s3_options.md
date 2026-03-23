@@ -19,15 +19,15 @@ Some configurations, such as using the `storag-class()` option with MinIO could 
 
 ## access-key()
 
-|Type:|   string|
-|Default:|           N/A|
+| Type:    | string |
+| Default: | N/A    |
 
 *Description:* The `ACCESS_KEY` of the service account of the S3 bucket. (Used together with secret-key().)
 
 ## bucket()
 
-|Type:|   string|
-|Default:|           N/A|
+| Type:    | string |
+| Default: | N/A    |
 
 *Description:* The name of the S3 bucket.
 For example: `my-bucket`.
@@ -36,8 +36,8 @@ For example: `my-bucket`.
 
 ## canned-acl()
 
-|Type:|   string|
-|Default:|           N/A|
+| Type:    | string |
+| Default: | N/A    |
 
 *Description:* The ACL assigned to the object, if specified, for example, `bucket-owner-read`. The following values are accepted:
 
@@ -48,36 +48,36 @@ If an invalid value is configured, the default is used.
 
 ## chunk-size()
 
-|Type:|   string|
-|Default:|           5 MiB|
+| Type:    | string |
+| Default: | 5 MiB  |
 
 *Description:* Only effective if `upload-threads()` is set higher than one. Signifies the part size in a multithreaded upload, but only if the uploaded object is at least 1.5 times the chunk size. If compression is enabled, the chunk-size() specifies the compressed size. Must be set to at least 5 MiB.
 
 ## content-type()
 
-|Type:|   string|
-|Default:|      `application/octet-stream`|
+| Type:    | string                     |
+| Default: | `application/octet-stream` |
 
 *Description:* This option allows the user to change the displayed content type of the log messages.
 
 ## compression()
 
-|Type:|   boolean|
-|Default:|           no|
+| Type:    | boolean |
+| Default: | no      |
 
 *Description:* Setting compression to `yes` enables gzip compression, and implicitly adds a `.gz` suffix to the created object’s key. You can set the level of the compression using the compresslevel() option (`0-9`).
 
 ## compresslevel()
 
-|Type:|   integer|
-|Default:|           9|
+| Type:    | integer |
+| Default: | 9       |
 
 Description: Only has effect if compression() is set to `yes`. The level of the compression can be set using the compresslevel() option (`0-9`).
 
 ## flush-grace-period()
 
-|Type:|   integer [minutes]|
-|Default:|           60|
+| Type:    | integer [minutes] |
+| Default: | 60                |
 
 *Description:* After the grace period expires and no new messages are routed to the destination, {{ site.product.short_name }} flushes the contents of the buffer to the S3 object even if the volume of the messages in the buffer is lower than max-object-size().
 
@@ -85,15 +85,15 @@ Description: Only has effect if compression() is set to `yes`. The level of the 
 
 ## max-object-size()
 
-|Type:|   string|
-|Default:|           5120GiB|
+| Type:    | string  |
+| Default: | 5120GiB |
 
 *Description:* The maximal size of the S3 object. If an object reaches this size, {{ site.product.short_name }} appends an index suffix ("-1", “-2”, …) to the object key and starts a new object after rotation. The index is appended before the `object-key-suffix()` value.
 
 ## max-pending-uploads()
 
-|Type:|   integer|
-|Default:|           32|
+| Type:    | integer |
+| Default: | 32      |
 
 Description: The max-pending-uploads() and upload-threads() options configure the upload of the chunks. Uploading happens in multiple threads to minimize network overhead.
 
@@ -102,8 +102,8 @@ Description: The max-pending-uploads() and upload-threads() options configure th
 
 ## object-key()
 
-|Type:|   template|
-|Default:|           N/A|
+| Type:    | template |
+| Default: | N/A      |
 
 *Description:* The unique object key (or key name), which identifies the object in an Amazon S3 bucket.
 
@@ -111,15 +111,15 @@ Description: The max-pending-uploads() and upload-threads() options configure th
 
 ## object-key-suffix()
 
-|Type:|   string|
-|Default:|          .log|
+| Type:    | string |
+| Default: | .log   |
 
 *Description:* A suffix added to the very end of the object key, barring the `.gz` extension with enabled compression. Might be used to denote file extension, as in the default case.
 
 ## object-key-timestamp()
 
-|Type:|   template|
-|Default:|           N/A|
+| Type:    | template |
+| Default: | N/A      |
 
 *Description:* The object-key-timestamp() option can be used to set a datetime-related template, which is appended to the end of the object, for example: "`${R_MONTH_ABBREV}${R_DAY}`". When a log message arrives with a newer timestamp template resolution, the previous timestamped object gets finished and a new one is started with the new timestamp. If an older message arrives, it does not reopen the old object, but starts a new object with the key having an index appended to the old object.
 
@@ -127,22 +127,22 @@ Description: The max-pending-uploads() and upload-threads() options configure th
 
 ## region()
 
-|Type:|   string|
-|Default:|           N/A|
+| Type:    | string |
+| Default: | N/A    |
 
 *Description:* The regional endpoint where the bucket is stored. For example, us-east-1.
 
 ## secret-key()
 
-|Type:|   string|
-|Default:|           N/A|
+| Type:    | string |
+| Default: | N/A    |
 
 *Description:* The `SECRET_KEY` of the service account used to access the S3 bucket. (Together with access-key().)
 
 ## storage-class()
 
-|Type:|   string|
-|Default:|           STANDARD|
+| Type:    | string   |
+| Default: | STANDARD |
 
 *Description:* The storage class of the object, for example, REDUCED_REDUNDANCY. The following values are valid:
 
@@ -156,22 +156,22 @@ If an invalid value is configured, the default is used.
 
 ## use_checksum()
 
-|Accepted values:|   `when_supported`, `when_required`|
-|Default:|           `when_supported`|
+| Accepted values: | `when_supported`, `when_required` |
+| Default:         | `when_supported`                  |
 
 *Description:* This option allows users to change the default `when_supported` value to `when_required` for `S3` compatible solutions that do not support checksums.
 
 ## upload-threads()
 
-|Type:|   integer|
-|Default:|           8|
+| Type:    | integer |
+| Default: | 8       |
 
 *Description:* The number of {{ site.product.short_name }} worker threads that are used to upload a single object to S3 from this destination, meaning the S3 destination uses a maximum of `max-pending-uploads() * upload-threads()` threads for uploading.
 
 ## url()
 
-|Type:|   string|
-|Default:|           N/A|
+| Type:    | string |
+| Default: | N/A    |
 
 *Description:* The API endpoint URL of the S3 bucket. When used with Amazon AWS, the {{ site.product.short_name }} S3 destination automatically creates the service URL. It is recommended that you omit this option. This option is required only if the {{ site.product.short_name }} S3 driver is used in conjunction with third-party S3 service providers, such as MinIO or Google Cloud.
 

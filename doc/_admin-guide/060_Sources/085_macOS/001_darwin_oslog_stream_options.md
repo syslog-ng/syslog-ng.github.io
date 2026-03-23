@@ -10,8 +10,8 @@ The `darwin-oslog-stream()` source only has the following option.
 
 ## params()
 
-|Type:|     string|
-|Default:| `--type log --type trace --level info --level debug`|
+| Type:    | string                                               |
+| Default: | `--type log --type trace --level info --level debug` |
 
 *Description:* A string that can contain all the possible params the macOS log tool can accept. The source uses the `–style` internally (defaults to ndjson), so use templates or rewrite rules to format the final output. Use the `def-osl-stream-params` string to reference the default values when extending them with custom ones.
 

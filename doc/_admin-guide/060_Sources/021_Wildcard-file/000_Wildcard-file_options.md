@@ -12,8 +12,8 @@ The wildcard-file() driver has the following options:
 
 {% include doc/admin-guide/notes/wildcard-option-warning.md %}
 
-|Type:|      path without filename|
-|Default:||
+| Type:    | path without filename |
+| Default: |                       |
 
 *Description:* The path to the directory that contains the log files to
 monitor, for example, **base-dir(\"/var/log\")**. To monitor also the
@@ -45,8 +45,8 @@ source s_files {
 
 {% include doc/admin-guide/notes/wildcard-option-warning.md %}
 
-|Type:|filename without path|
-|Default:||
+| Type:    | filename without path |
+| Default: |                       |
 
 *Description:* The filename to read messages from, without the path. You
 can use the **\*** and **?** wildcard characters, without regular
@@ -80,8 +80,8 @@ source s_files {
 
 ## exclude-pattern()
 
-|Type:|filename without path|
-|Default:||
+| Type:    | filename without path |
+| Default: |                       |
 
 *Description:* A filename to exclude from the filenames matched by **filename-pattern()**, without the path. You
 can use the **\*** and **?** wildcard characters, as with **filename-pattern()**.
@@ -132,8 +132,8 @@ When using wildcards in filenames, {{ site.product.short_name }} tries to read l
 
 ## max-files()
 
-|  Type: |     integer|
-|Default: |100|
+| Type:    | integer |
+| Default: | 100     |
 
 *Description:* Limits the number of files that the wildcard-file source
 monitors.
@@ -151,8 +151,8 @@ actually monitor. The default value of max-files() is 100.
 
 ## monitor-freq()
 
-|Type:    | number |
-|Default: | value of follow-freq() |
+| Type:    | number                 |
+| Default: | value of follow-freq() |
 
 *Description:* Indicates how frequently changes to the source file creation, move, or deletion should be checked if monitor-method() is set to `poll`.\
 Floating-point numbers (for example, **1.5**) can be used as well. Please note, for backward compatibility reasons, the default value of monitor-freq() is equal to the value of follow-freq().
@@ -161,8 +161,8 @@ Floating-point numbers (for example, **1.5**) can be used as well. Please note, 
 
 ## monitor-method()
 
-|Accepted values:| auto \| inotify \| kqueue \| poll |
-|Default:        | auto |
+| Accepted values: | `auto`, `inotify`, `kqueue`, `poll` |
+| Default:         | `auto`                              |
 
 *Description:* Using the `auto` value, if the platform supports `inotify`, {{ site.product.short_name }} uses it
 automatically to detect the creation, move, or deletion of source files. If the platform
@@ -190,8 +190,8 @@ To force {{ site.product.short_name }} to poll the file changes even if `inotify
 
 ## recursive()
 
-|Accepted values:| yes \| no |
-|Default: |  no|
+| Accepted values: | `yes`, `no` |
+| Default:         | `no`        |
 
 *Description:* When enabled, {{ site.product.short_name }} monitors every subdirectory
 of the path set in the base-dir()

@@ -71,8 +71,8 @@ destination {
 
 ## compression()
 
-|   Type:|       boolean|
-|Default:|          `no`|
+| Type:    | boolean |
+| Default: | `no`    |
 
 Available in syslog-ng OSE 4.5 and later versions.
 
@@ -94,8 +94,8 @@ Available in syslog-ng OSE 4.5 and later versions.
 
 ## url()
 
-|   Type:|       string|
-|Default:|          `localhost:9095`|
+| Type:    | string           |
+| Default: | `localhost:9095` |
 
 *Description:* The URL of the syslog-ng OSE receiver.
 

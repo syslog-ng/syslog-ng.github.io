@@ -1,7 +1,7 @@
 ## ca-dir()
 
-|Type:|   Directory name|
-|Default:|           none|
+| Type:    | Directory name |
+| Default: | none           |
 
 *Description:* The name of a directory that contains a set of trusted CA
 certificates in PEM format. The CA certificate files have to be named

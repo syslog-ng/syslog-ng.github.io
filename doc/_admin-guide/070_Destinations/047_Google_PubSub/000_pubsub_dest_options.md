@@ -11,8 +11,8 @@ description: >-
 
 ## attributes()
 
-|  Type:|     string|
-|Default:| `"--scope rfc5424,all-nv-pairs --exclude MESSAGE"`|
+| Type:    | string                                             |
+| Default: | `"--scope rfc5424,all-nv-pairs --exclude MESSAGE"` |
 
 *Description:* A JSON object representing key-value pairs for the Pub/Sub Event, formatted as {{ site.product.short_name }} value-pairs. By default, the `google-pubsub()` destination sends the RFC-5424 fields as attributes. If different fields are required, override the default template. By default, the message part is sent in the `data()` option
 
@@ -36,21 +36,21 @@ See the example for `auth()` above.
 
 ## data()
 
-|  Type:|     string/template|
-|Default:| `"${MESSAGE}"`|
+| Type:    | string/template |
+| Default: | `"${MESSAGE}"`  |
 
 *Description:* The template used as the data element of the Google Pub/Sub message.
 
 ## project()
 
-|  Type:|     string/template|
-|Default:| |
+| Type:    | string/template |
+| Default: |                 |
 
 *Description:* The ID of the Google Cloud project where {{ site.product.short_name }} sends the data. The Pub/Sub API must be enabled for the project.
 
 ## topic()
 
-|  Type:|     string|
-|Default:| |
+| Type:    | string |
+| Default: |        |
 
 *Description:* The name of the Google Pub/Sub target topic to where {{ site.product.short_name }} sends the data.

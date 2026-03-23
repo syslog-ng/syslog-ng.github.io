@@ -76,8 +76,8 @@ destination {
 
 ## compression()
 
-|  Type:|     boolean|
-|Default:| no|
+| Type:    | boolean |
+| Default: | no      |
 
 Available in {{ site.product.short_name }} 4.5 and later versions.
 
@@ -87,8 +87,8 @@ Available in {{ site.product.short_name }} 4.5 and later versions.
 
 ## dataset()
 
-|  Type:|     string|
-|Default:| |
+| Type:    | string |
+| Default: |        |
 
 *Description:* The name of the {{ site.product.short_name }} destination dataset.
 
@@ -96,8 +96,8 @@ Available in {{ site.product.short_name }} 4.5 and later versions.
 
 ## format()
 
-|  Type:|     `JSONEachRow`, `JSONCompactEachRow`, or `Protobuf`|
-|Default:| see description|
+| Type:    | `JSONEachRow`, `JSONCompactEachRow`, or `Protobuf` |
+| Default: | see description                                    |
 
 Available in {{ site.product.short_name }} 4.20 and later versions.
 
@@ -147,8 +147,8 @@ Note that if the data’s actual format does not match the selected format, Clic
 
 ## json-var()
 
-|  Type:|     string|
-|Default:| |
+| Type:    | string |
+| Default: |        |
 
 Available in {{ site.product.short_name }} 4.20 and later versions.
 
@@ -180,8 +180,8 @@ Using `json-var()` is mutually exclusive with the `proto-var()`, `server-side-sc
 
 ## protobuf-schema()
 
-|  Type:|     schema|
-|Default:| |
+| Type:    | schema |
+| Default: |        |
 
 *Description:* Defines the schema syntax of the BigQuery table from a protobuf schema file.
 
@@ -203,8 +203,8 @@ message CustomRecord {
 
 ## proto-var()
 
-|  Type:|     FilterX variable|
-|Default:| |
+| Type:    | FilterX variable |
+| Default: |                  |
 
 Available in {{ site.product.short_name }} 4.13 and later versions.
 
@@ -212,8 +212,8 @@ Available in {{ site.product.short_name }} 4.13 and later versions.
 
 ## response-action()
 
-|  Type:|     arrow list|
-|Default:| driver dependent|
+| Type:    | arrow list       |
+| Default: | driver dependent |
 
 Available in {{ site.product.short_name }} 4.13 and later versions.
 
@@ -257,8 +257,8 @@ The following actions are available:
 
 ## schema()
 
-|  Type:|     schema|
-|Default:| |
+| Type:    | schema |
+| Default: |        |
 
 *Description:* Defines the schema syntax of the BigQuery table. Each line defines a column. The first part of the line defines the name and type of the column, the second part after the arrow sets {{ site.product.short_name }} templates or macros which are evaluated on every log routed to the bigquery() destination. The available column types are the following: `STRING`, `BYTES`, `INTEGER`, `FLOAT`, `BOOLEAN`, `TIMESTAMP`, `DATE`, `TIME`, `DATETIME`, `JSON`, `NUMERIC`, `BIGNUMERIC`, `GEOGRAPHY`, `RECORD`, `INTERVAL`.
 
@@ -277,8 +277,8 @@ schema(
 
 ## server-side-schema()
 
-|  Type:|     string|
-|Default:| |
+| Type:    | string |
+| Default: |        |
 
 *Description:* By default, sending data to ClickHouse does not propagate the type information of the data fields. The `server-side-schema()` option provides a solution for that using the ClickHouse format schema. Using a server-side schema is needed when you are using complex types, like `DateTime` or `LowCardinality`.
 
@@ -315,8 +315,8 @@ destination {
 
 ## table()
 
-|  Type:|     string|
-|Default:| |
+| Type:    | string |
+| Default: |        |
 
 *Description:* Defines the name of the Google BigQuery table where {{ site.product.short_name }} send data to.
 
@@ -332,15 +332,15 @@ destination {
 
 ## url()
 
-|  Type:|     string|
-|Default:| bigquerystorage.googleapis.com|
+| Type:    | string                         |
+| Default: | bigquerystorage.googleapis.com |
 
 *Description:* This option sets the URL of the Google BigQuery where the logs are sent.
 
 ## user()
 
-|  Type:|     string|
-|Default:| |
+| Type:    | string |
+| Default: |        |
 
 *Description:* The username used for authentication.
 

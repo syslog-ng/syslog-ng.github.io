@@ -1,7 +1,7 @@
 ## template-escape()
 
-|  Type:|      yes or no|
-  |Default:|   no|
+| Accepted values: | `yes`, `no` |
+| Default:         | `no`        |
 
 *Description:* Turns on escaping for the \', \", and backspace
 characters in templated output files. This is useful for generating SQL

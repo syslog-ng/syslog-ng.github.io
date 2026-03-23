@@ -7,7 +7,7 @@ description: >-
 
 ## $(base64-encode)
 
-|*Syntax:*|$(base64-encode argument)|
+| *Syntax:* | $(base64-encode argument) |
 
 *Description:* You can use the base64-encode template function to
 base64-encode strings and macros.
@@ -20,7 +20,7 @@ Available in {{ site.product.short_name }} version 3.18 and later.
 
 ## $(basename)
 
-|*Syntax:*|$(basename argument)|
+| *Syntax:* | $(basename argument) |
 
 *Description:* Returns the filename from an argument (for example, a
 macro) that contains a filename with a path. For example, $(basename
@@ -31,7 +31,7 @@ Available in {{ site.product.short_name }} version 3.10 and later.
 
 ## $(dirname)
 
-|*Syntax:*|$(dirname argument)|
+| *Syntax:* | $(dirname argument) |
 
 *Description:* Returns the path (without the filename) from an argument
 (for example, a macro) that contains a filename with a path. For
@@ -42,14 +42,14 @@ Available in {{ site.product.short_name }} version 3.10 and later.
 
 ## $(echo)
 
-|*Syntax:*|$(echo argument)|
+| *Syntax:* | $(echo argument) |
 
 *Description:* Returns the value of its argument. Using $(echo
 ${HOST}) is equivalent to ${HOST}.
 
 ## $(env)
 
-|*Syntax:*|$(env \<environment-variable\>)|
+| *Syntax:* | $(env \<environment-variable\>) |
 
 *Description:* Returns the value of the specified environment variable.
 Available in {{ site.product.short_name }} 3.5 and later.
@@ -58,7 +58,7 @@ Available in {{ site.product.short_name }} 3.5 and later.
 
  Available in {{ site.product.short_name }} 3.21 and later versions.
 
-|*Syntax:*|$(explode <separator> <string1> <string2> ...)|
+| *Syntax:* | $(explode <separator> <string1> <string2> ...) |
 
 *Description:* Turns a string separated by a specific character into a list. You can also use the implode template function, which turns a list into a string combining the pieces together with a separator.
 
@@ -66,19 +66,19 @@ Available in {{ site.product.short_name }} 3.5 and later.
 
 The following configuration example turns strings into a list. If there are several strings, {{ site.product.short_name }} looks for a separator within each individual string. For example, `string 2` is separated as `string, 2` in the following example:
 
-|Configuration: |Result: |
-|`$(explode ';' string1;string 2;string3;string4)`| `"string1,string,2,string3,string4"`|
+| Configuration:                                    | Result:                              |
+| `$(explode ';' string1;string 2;string3;string4)` | `"string1,string,2,string3,string4"` |
 
 Enclose the strings in double-quotes or apostrophes and string 2 is separated as presented in the following example:
 
-|Configuration: |Result: |
-|`$(explode ' ' 'string1 string 2 string3 string4 string5')`|`"string1,string 2,string3,string4,string5"`|
+| Configuration:                                              | Result:                                      |
+| `$(explode ' ' 'string1 string 2 string3 string4 string5')` | `"string1,string 2,string3,string4,string5"` |
 
 The following examples replace the separator `';'` character with a `','` character:
 
-|Configuration: |Result: |
-|`$(implode ',' $(explode ';' 'string1;string2;string3'))` |`$(implode ',' $(explode ';' 'string1;string2;string3'))`|
-|`$(explode ';' 'string1;string2;string3;string4;string5')`|`"string1,string2,string3,string4,string5"`|
+| Configuration:                                             | Result:                                                   |
+| `$(implode ',' $(explode ';' 'string1;string2;string3'))`  | `$(implode ',' $(explode ';' 'string1;string2;string3'))` |
+| `$(explode ';' 'string1;string2;string3;string4;string5')` | `"string1,string2,string3,string4,string5"`               |
 
 ## $(format-cef-extension)
 
@@ -161,7 +161,7 @@ destination d_cef_extension {
 
 ## $(format-cim)
 
-|*Syntax:*|$(format-cim)|
+| *Syntax:* | $(format-cim) |
 
 *Description:* Formats the message into Splunk Common Information Model
 (CIM) format. Applications that can receive messages in CIM format include Kibana, logstash, and Splunk. Applications that can be configured to log into CIM format include nflog and the Suricata IDS engine.
@@ -183,7 +183,7 @@ command.
 
 ## $(format-date)
 
-|*Syntax:*|$(format-date parameters)|
+| *Syntax:* | $(format-date parameters) |
 
 *Description:* The `$(format-date)` template function takes a timestamp in the `DATETIME` representation and formats it according to an `strftime()` format string. The `DATETIME` representation in syslog-ng is a UNIX timestamp formatted as a decimal number, with an optional fractional part, where the seconds and the fraction of seconds are separated by a dot. You can use the `--time-zone` option to override the original timestamp.
 
@@ -193,7 +193,7 @@ $(format-date [options] format-string [timestamp])
 
 ## $(format-ewmm)
 
-|*Syntax:*|$(format-ewmm)|
+| *Syntax:* | $(format-ewmm) |
 
 *Description:* The format-ewmm template function converts the message
 into the Enterprise-wide message model (EWMM)
@@ -207,7 +207,7 @@ The following is a sample log message in EWMM format.
 
 ## $(format-flat-json)
 
-|*Syntax:*|$(format-flat-json parameters)|
+| *Syntax:* | $(format-flat-json parameters) |
 
 *Description:* The format-flat-json template function is identical to
 the format-json template function, but nested JSON objects are flattened
@@ -246,7 +246,7 @@ For details on formatting log messages into JSON format, see
 
 ## $(format-json)
 
-|*Syntax:*|$(format-json parameters)|
+| *Syntax:* | $(format-json parameters) |
 
 *Description:* The format-json template function receives value-pairs as
 parameters and converts them into JavaScript Object Notation (JSON)
@@ -360,7 +360,7 @@ destination d_welf {
 
 ## $(geoip2)
 
-|*Syntax:*|$(geoip2 --database \<path-to-geoip2-database-file\> [ --field "registered_country.names.ru" ] ${HOST})  |
+| *Syntax:* | $(geoip2 --database \<path-to-geoip2-database-file\> [ --field "registered_country.names.ru" ] ${HOST}) |
 
 *Description:* This template function extracts specific fields from the
 mmdb database using the \--field parameter. If you omit this parameter,
@@ -379,7 +379,7 @@ option is not mandatory.
 
 ## $(getent)
 
-|*Syntax:*|$(getent)|
+| *Syntax:* | $(getent) |
 
 Available in {{ site.product.short_name }} 3.13 and later.
 
@@ -441,7 +441,7 @@ The following databases are supported:
 
 ## $(graphite-output)
 
-|*Syntax:*|$(graphite-output parameters)|
+| *Syntax:* | $(graphite-output parameters) |
 
 *Description:* Available in {{ site.product.short_name }} 3.6 and later (Originally
 appeared in the {{ site.product.short_name }} incubator for {{ site.product.short_name }} 3.5). This
@@ -470,7 +470,7 @@ destination d_graphite {
 
 ## $(grep)
 
-|*Syntax:*|$(grep condition value-to-select)|
+| *Syntax:* | $(grep condition value-to-select) |
 
 *Description:* The grep template function can search a message context
 when correlating messages (for example, when you use a
@@ -497,8 +497,8 @@ to collect the email recipients from postfix messages.
 
 ## $(hash)
 
-|*Syntax:*|$(\<method\> [opts] $arg1 $arg2 $arg3...)|
-|*Options:*|--length N, -l N|
+| *Syntax:*  | $(\<method\> [opts] $arg1 $arg2 $arg3...) |
+| *Options:* | --length N, -l N                          |
 
 Truncate the hash to the first N characters.
 
@@ -558,7 +558,7 @@ rewrite r_rewrite_hostname{set("$(sha1 ${HOST})", value("HOST"));};
 
 ## $(if)
 
-|*Syntax:*|$(if (\<condition\>) \<true template\> \<false template\>)|
+| *Syntax:* | $(if (\<condition\>) \<true template\> \<false template\>) |
 
 *Description:* Returns the value of the \<true template\> parameter if
 the \<condition\> is true. If the \<condition\> is false, the value of
@@ -596,7 +596,7 @@ admin if the username is joe, and normal user otherwise.
 
  Available in {{ site.product.short_name }} 3.21 and later versions.
 
-|*Syntax:*|$(implode <separator> <string1>, <string2>, ...)|
+| *Syntax:* | $(implode <separator> <string1>, <string2>, ...) |
 
 *Description:* Turns a list into a string combining the pieces together with a separator. You can also use the explode template function, which turns a string separated by a specific character into a list.
 
@@ -604,17 +604,17 @@ admin if the username is joe, and normal user otherwise.
 
 The following configuration example presents how you can use the `implode` template to turn a list into a string:
 
-|Configuration: |Result: |
-|`$(implode ' ' 'string1,string2,string3,string4,string5')`| `"string1 string2 string3 string4 string5"`|
+| Configuration:                                             | Result:                                     |
+| `$(implode ' ' 'string1,string2,string3,string4,string5')` | `"string1 string2 string3 string4 string5"` |
 
 You can also use a `$(list-*)` template function to further manipulate the list. The following example returns the first three elements of the list:
 
-|Configuration: |Result: |
-|`$(implode ' ' $(list-slice :3 string1,string2,string3,string4,string5))`|`"string1 string2 string3"`|
+| Configuration:                                                            | Result:                     |
+| `$(implode ' ' $(list-slice :3 string1,string2,string3,string4,string5))` | `"string1 string2 string3"` |
 
 ## $(indent-multi-line)
 
-|*Syntax:*|$(indent-multi-line parameter)|
+| *Syntax:* | $(indent-multi-line parameter) |
 
 *Description:* This template function makes it possible to write
 multi-line log messages into a file. The first line is written like a
@@ -634,7 +634,7 @@ destination d_file {
 
 ## $(ipv4-to-int)
 
-|*Syntax:*|$(ipv4-to-int parameter)|
+| *Syntax:* | $(ipv4-to-int parameter) |
 
 *Description:* Converts the specified IPv4 address to its numeric
 representation. The numerical value of an IPv4 address is calculated by
@@ -648,7 +648,7 @@ module has been loaded.
 
 ## $(iterate)
 
-|*Syntax:*|$(iterate $(parameter))|
+| *Syntax:* | $(iterate $(parameter)) |
 
 *Description:* This template function can be used to generate a series from an initial number and a `next` function.
 
@@ -690,7 +690,7 @@ with zero, so the index of the first element is 0, the second element is
 
 ### $(list-append)
 
-|*Syntax:*|$(list-append ${list} ${name-value-pair1} ${name-value-pair2} ... )|
+| *Syntax:* | $(list-append ${list} ${name-value-pair1} ${name-value-pair2} ... ) |
 
 *Description:* Returns a list and appends the values of the specified
 name-value pairs to the end of the list. You can also append elements to
@@ -698,7 +698,7 @@ an empty list, for example, $(list-append \'\' \'element-to-add\')
 
 ### $(list-concat)
 
-|*Syntax:*|$(list-concat ${name-value-pair1} ${name-value-pair2} ... )|
+| *Syntax:* | $(list-concat ${name-value-pair1} ${name-value-pair2} ... ) |
 
 The commas between the parameters are optional.
 
@@ -717,19 +717,19 @@ $(list-concat ${list1} ${list2})
 
 ### $(list-count)
 
-|*Syntax:*|$(list-count ${list} )|
+| *Syntax:* | $(list-count ${list} ) |
 
 *Description:* Returns the number of elements in the list.
 
 ### $(list-head)
 
-|*Syntax:*|$(list-head ${list} )|
+| *Syntax:* | $(list-head ${list} ) |
 
 *Description:* Returns the first element of the list, unquoted.
 
 ### $(list-nth)
 
-|*Syntax:*|$(list-nth \<index-number\> ${list} )|
+| *Syntax:* | $(list-nth \<index-number\> ${list} ) |
 
 *Description:* Returns the nth element of the list, unquoted. Note that
 the list index starts with zero, so (list-nth 1 ${list} ) returns the
@@ -737,7 +737,7 @@ second element, and so on.
 
 ### $(list-tail)
 
-|*Syntax:*|$(list-tail ${list} )|
+| *Syntax:* | $(list-tail ${list} ) |
 
 *Description:* Returns the list without the first element. For example,
 if the ${mylist} list contains the one, two, three elements, then
@@ -745,7 +745,7 @@ $(list-tail ${mylist} ) returns two, three.
 
 ### $(list-slice)
 
-|*Syntax:*|$(list-slice \<from\>:\<to\> ${list} )|
+| *Syntax:* | $(list-slice \<from\>:\<to\> ${list} ) |
 
 *Description:* Returns the specified subset of the list. Note that the
 list index starts with zero, for example, $(list-slice 1:2 ${list} )
@@ -760,7 +760,7 @@ example, -3: returns the last three element of the list.
 
 ## $(length)
 
-|*Syntax:*|$(length "\<macro\>")|
+| *Syntax:* | $(length "\<macro\>") |
 
 *Description:* Returns the length of the macro in characters, for
 example, the length of the message. For example, the following filter
@@ -774,7 +774,7 @@ f_short {
 
 ## $(lowercase)
 
-|*Syntax:*|$(lowercase "\<macro\>")|
+| *Syntax:* | $(lowercase "\<macro\>") |
 
 *Description:* Returns the lowercase version of the specified string or
 macro. For example, the following example uses the lowercase version of
@@ -790,7 +790,7 @@ Available in {{ site.product.short_name }} 3.5 and later.
 
 ## Numerical operations
 
-|*Syntax:*|$(\<operation\> "\<value1\>" "\<value2\>")|
+| *Syntax:* | $(\<operation\> "\<value1\>" "\<value2\>") |
 
 *Description:* These template functions allow you to manipulate numbers,
 that is, to perform addition (+), substraction (-), multiplication (\*),
@@ -819,14 +819,14 @@ $(max ${.myfields.load})
 
 ## $(or)
 
-|*Syntax:*|$(or \<macro1\> \<macro2\>)|
+| *Syntax:* | $(or \<macro1\> \<macro2\>) |
 
 *Description:* This template function returns the first non-empty
 argument.
 
 ## $(padding)
 
-|*Syntax:*|$(padding \<macro\> \<width\> \<prepended-character-or-string\>)|
+| *Syntax:* | $(padding \<macro\> \<width\> \<prepended-character-or-string\>) |
 
 *Description:* This template function returns the value of its first
 parameter (a string or macro), prepended with a string. This string is
@@ -854,7 +854,7 @@ Output: foofoofoofmymessage
 
 ## $(python)
 
-|*Syntax:*|$(python \<name-of-the-python-method-to-use\> \<arguments-of-the-method\>)|
+| *Syntax:* | $(python \<name-of-the-python-method-to-use\> \<arguments-of-the-method\>) |
 
 *Description:* This template function enables you to write a custom
 template function in Python. You can define a Python block in your
@@ -988,7 +988,7 @@ destination d_local {
 
 ## $(replace-delimiter)
 
-|*Syntax:*|$(replace-delimiter "\<old-delimiters\>" "\<new-delimiter\>" "\<macro\>")|
+| *Syntax:* | $(replace-delimiter "\<old-delimiters\>" "\<new-delimiter\>" "\<macro\>") |
 
 *Description:* Replaces the delimiter character with a new one. For
 example, the following example replaces the tabulators (\\t) in the
@@ -1002,7 +1002,7 @@ Available in {{ site.product.short_name }} 3.5 and later.
 
 ## $(sanitize)
 
-|*Syntax:*|$(sanitize \<options\> "\<macro1\>" "\<macro2\> ...")|
+| *Syntax:* | $(sanitize \<options\> "\<macro1\>" "\<macro2\> ...") |
 
 *Description:* This file replaces the special characters in macro
 values, for example, it can replace the slash (/) characters in a
@@ -1060,7 +1060,7 @@ replaced with underscores.
 
 ## $(strip)
 
-|*Syntax:*|$(strip "\<macro\>")|
+| *Syntax:* | $(strip "\<macro\>") |
 
 *Description:* Deletes whitespaces from the beginning and the end of a
 macro. You can specify multiple macros separated with whitespace in a
@@ -1072,7 +1072,7 @@ $(strip "${MESSAGE}" "${PROGRAM}")
 
 ## $(substr)
 
-|*Syntax:*|$(substr "\<argument\>" "\<offset\>" "\<length\>")|
+| *Syntax:* | $(substr "\<argument\>" "\<offset\>" "\<length\>") |
 
 *Description:* This function extracts a substring of a string.
 
@@ -1164,7 +1164,7 @@ template("$(tags-head foo bar baz)")
 
 ## uppercase
 
-|*Syntax:*|$(uppercase "\<macro\>")|
+| *Syntax:* | $(uppercase "\<macro\>") |
 
 *Description:* Returns the uppercase version of the specified string or
 macro. For example, the following example uses the uppercase version of
@@ -1180,7 +1180,7 @@ Available in {{ site.product.short_name }} 3.5 and later.
 
 ## $(url-decode)
 
-|*Syntax:*|$(url-decode \<string-pr-macro-1\> \<string-pr-macro-2\> ... )|
+| *Syntax:* | $(url-decode \<string-pr-macro-1\> \<string-pr-macro-2\> ... ) |
 
 *Description:* You can use the url-decode template function to decode
 url-encoded strings and macros. For example, $(url-decode %3C%3E)
@@ -1192,7 +1192,7 @@ Available in {{ site.product.short_name }} version 3.18 and later.
 
 ## $(url-encode)
 
-|*Syntax:*|$(url-encode ${MESSAGE} )\n")|
+| *Syntax:* | $(url-encode ${MESSAGE} )\n") |
 
 *Description:* You can use the url-encode template function together
 with the telegram() destination to send syslog messages to
@@ -1205,7 +1205,7 @@ Available in {{ site.product.short_name }} version 3.18 and later. (In version
 
 ## $(uuid)
 
-|*Syntax:*|$(uuid)|
+| *Syntax:* | $(uuid) |
 
 *Description:* Generates a Universally Unique IDentifier (UUID) that
 complies with RFC-4122. That way,

@@ -19,15 +19,15 @@ has the following options:
 
 ## dbi_driver_dir()
 
-|   Type:|    directory|
-|Default:|   |
+| Type:    | directory |
+| Default: |           |
 
 *Description:* This option defines an optional DBI driver location for DBD initialization.
 
 ## columns()
 
-|  Type:|      string list|
-|Default:|   \"date\", \"facility\", \"level\", \"host\", \"program\", \"pid\", \"message\"|
+| Type:    | string list                                                      |
+| Default: | "date", "facility", "level", "host", "program", "pid", "message" |
 
 *Description:* Name of the columns storing the data in fieldname
 \[dbtype\] format. The \[dbtype\] parameter is optional, and specifies
@@ -38,8 +38,8 @@ Note that not every database engine can index text fields.
 
 ## create-statement-append()
 
-|  Type:  |    string|
-|Default: |  empty string|
+| Type:    | string       |
+| Default: | empty string |
 
 *Description:* Specifies additional SQL options that are appended to the
 CREATE statement. That way you can customize what happens when {{ site.product.short_name }} creates a new table in the database. Consult the documentation of
@@ -58,8 +58,8 @@ create-statement-append(ROW_FORMAT=COMPRESSED)
 
 ## database()
 
-|  Type:|      string|
-|  Default:|   logs|
+| Type:    | string |
+| Default: | logs   |
 
 *Description:* Name of the database that stores the logs. Macros cannot
 be used in database name. Also, when using an Oracle database, you
@@ -67,8 +67,8 @@ cannot use the same database() settings in more than one destination.
 
 ## dbd-option()
 
-|  Type:  |    string|
-|Default: |  empty string|
+| Type:    | string       |
+| Default: | empty string |
 
 *Description:* Specify database options that are set whenever {{ site.product.short_name }} connects to the database server. Consult the documentation of your
 database server for details on the available options. Syntax:
@@ -110,8 +110,8 @@ MYSQL\_UNIX\_PORT**.
 
 ## indexes()
 
-|  Type: |     string list|
-|  Default:|   \"date\", \"facility\", \"host\", \"program\"|
+| Type:    | string list                           |
+| Default: | "date", "facility", "host", "program" |
 
 *Description:* The list of columns that are indexed by the database to
 speed up searching. To disable indexing for the destination, include the
@@ -135,8 +135,8 @@ automaticaly with the following method:
 
 ## null()
 
-|  Type: |     string|
-|  Default:||
+| Type:    | string |
+| Default: |        |
 
 *Description:* If the content of a column matches the string specified
 in the null() parameter, the contents of the column will be replaced
@@ -191,8 +191,8 @@ NULL as well.
 
 ## quote_char()
 
-|  Type:   |     separating character|
-|  Default:|   |
+| Type:    | separating character |
+| Default: |                      |
 
 *Description:* This option can be used to define custom quoting for table and index names. For example, `MySQL` requires this for specific identifiers.
 
@@ -203,8 +203,8 @@ NULL as well.
 
 ## session-statements()
 
-|  Type: |     comma-separated list of SQL statements|
-|  Default:|   empty string|
+| Type:    | comma-separated list of SQL statements |
+| Default: | empty string                           |
 
 *Description:* Specifies one or more SQL-like statement which is
 executed after {{ site.product.short_name }} has successfully connected to the database.
@@ -223,8 +223,8 @@ Use customized queries with care, and only for your own responsibility.
 
 ## table()
 
-|  Type:    |  string|
-|  Default:  | messages|
+| Type:    | string   |
+| Default: | messages |
 
 *Description:* Name of the database table to use (can include macros).
 When using macros, note that some databases limit the length of table
@@ -236,8 +236,8 @@ names.
 
 ## type()
 
-|  Type:     | mssql, mysql, oracle, pgsql, or sqlite3|
-|  Default: |  mysql|
+| Type:    | mssql, mysql, oracle, pgsql, or sqlite3 |
+| Default: | mysql                                   |
 
 *Description:* Specifies the type of the database, that is, the DBI
 database driver to use. Use the mssql option to send logs to an MSSQL
@@ -248,8 +248,8 @@ following sections.
 
 ## values()
 
-|  Type:  |    string list|
-|Default: |  "[[${R_YEAR}]]-[[${R_MONTH}]]-[[${R_DAY}]], ${R_HOUR}:${R_MIN}:${R_SEC}", "${FACILITY}", "${LEVEL}", "${HOST}", "${PROGRAM}", "${PID}", "${MSGONLY}"|
+| Type:    | string list                                                                                                                                          |
+| Default: | "[[${R_YEAR}]]-[[${R_MONTH}]]-[[${R_DAY}]], ${R_HOUR}:${R_MIN}:${R_SEC}", "${FACILITY}", "${LEVEL}", "${HOST}", "${PROGRAM}", "${PID}", "${MSGONLY}" |
 
 *Description:* The parts of the message to store in the fields specified
 in the columns() parameter.

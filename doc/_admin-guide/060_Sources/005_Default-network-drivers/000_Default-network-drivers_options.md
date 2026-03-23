@@ -31,16 +31,16 @@ The default-network-drivers() source has the following options.
 
 ## rfc5424-tcp-port()
 
-|  Type:|      number|
-|Default:|   601|
+| Type:    | number |
+| Default: | 601    |
 
 *Description:* The TCP port number where the default-network-drivers()
 source receives RFC-5424 formatted (IETF-syslog) messages.
 
 ## rfc5424-tls-port()
 
-|  Type:|      number|
-|Default:|   6514|
+| Type:    | number |
+| Default: | 6514   |
 
 *Description:* The TCP port number where the default-network-drivers()
 source receives RFC-5424 formatted (IETF-syslog), TLS-encrypted messages.
@@ -66,8 +66,8 @@ source receives RFC-5424 formatted (IETF-syslog), TLS-encrypted messages.
 
 ## tcp-port()
 
-|  Type:|      number|
-  |Default:|   514|
+| Type:    | number |
+| Default: | 514    |
 
 *Description:* The TCP port number where the default-network-drivers()
 source receives RFC-3164 formatted (BSD-syslog) messages.
@@ -76,8 +76,8 @@ source receives RFC-3164 formatted (BSD-syslog) messages.
 
 ## udp-port()
 
-|  Type:|      number|
-  |Default:|   514|
+| Type:    | number |
+| Default: | 514    |
 
 *Description:* The UDP port number where the default-network-drivers()
 source receives RFC-3164 formatted (BSD-syslog) messages

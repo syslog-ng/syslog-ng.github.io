@@ -1,7 +1,7 @@
 ## listen-backlog()
 
-|  Type:|      integer|
-|Default:|   256|
+| Type:    | integer |
+| Default: | 256     |
 
 *Description:* Available only for stream based transports (unix-stream,
 tcp, tls). In TCP, connections are treated incomplete until the

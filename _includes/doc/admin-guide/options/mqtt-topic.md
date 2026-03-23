@@ -1,7 +1,7 @@
 ## topic()
 
-|  Type:|      string or template|
-|Default:|   N/A|
+| Type:    | string or template |
+| Default: | N/A                |
 
 *Description:* Required option. Specifies the MQTT topic.
 

@@ -13,9 +13,9 @@ Required options: address(), fallback-topic(), and topic().
 
 ## address()
 
-|Type:|       string|
-|Default:|    tcp://localhost:1883|
-|Required: |  yes|
+| Type:     | string               |
+| Default:  | tcp://localhost:1883 |
+| Required: | yes                  |
 
 *Description:* Specifies the hostname or IP address, and the port number
 of the MQTT broker to which {{ site.product.short_name }} will send the log messages.
@@ -30,8 +30,8 @@ Supported protocol types: TCP, WS, SSL andWSS.
 
 ## fallback-topic()
 
-|Type:|      string|
-|Default:|   N/A|
+| Type:    | string |
+| Default: | N/A    |
 
 *Description:* Required option when using templates in the topic()
 option.
@@ -61,8 +61,8 @@ that originate from templates.
 
 ## template()
 
-|Type:|      string|
-|Default:|   ${ISODATE} ${HOST} ${MSGHDR}${MSG}|
+| Type:    | string                             |
+| Default: | ${ISODATE} ${HOST} ${MSGHDR}${MSG} |
 
 *Description:* Specifies the message template that {{ site.product.short_name }} sends
 to the MQTT broker.

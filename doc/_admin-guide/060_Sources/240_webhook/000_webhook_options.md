@@ -10,8 +10,8 @@ The `webhook()` and `webhook-json()` drivers have the following options:
 
 ## auth_token()
 
-|Type:|   string|
-|Default:|  none|
+| Type:    | string |
+| Default: | none   |
 
 *Description:* You can request an authentication token from the clients as an additional method of validation. Do not use this under plain HTTP. When `auth_token("<token>")` is set, {{ site.product.short_name }} only accepts requests that contain the Authorization: Basic \<token\>, Authorization: Bearer \<token\>, or a similar header. Other requests will be rejected with `403`.
 
@@ -27,8 +27,8 @@ auth_token("dGVzdF9zZWdlskfoe0aF90b2tlbg==")
 
 ## include_request_headers()
 
-|Type:|   `yes`, `no`|
-|Default:|       `no`|
+| Accepted values: | `yes`, `no` |
+| Default:         | `no`        |
 
 *Description:* If enabled, the HTTP request headers from the webhook are available for processing as a JSON object under the `${webhook.headers}` field. This option works for `webhook()` and for `webhook-json()` as well.
 
@@ -36,8 +36,8 @@ auth_token("dGVzdF9zZWdlskfoe0aF90b2tlbg==")
 
 ## paths()
 
-|Type:|   JSON list|
-|Default:|    `/.*`|
+| Type:    | JSON list |
+| Default: | `/.*`     |
 
 *Description:* The `paths()` option sets the endpoints where the webhook will receive data. You can use static paths, or regular expressions. In regular expressions you can use named capture groups to automatically set the macro values.
 
@@ -47,15 +47,15 @@ You can set multiple endpoints, for example, paths(["/events","/events/(?P\<HOST
 
 ## port()
 
-|Type:|   integer|
-|Default:|    `80`(webhook), `443`(HTTPS webhook)|
+| Type:    | integer                             |
+| Default: | `80`(webhook), `443`(HTTPS webhook) |
 
 *Description:* Specifies the port-number where the webhook is listening on, for example, `8080`. Make sure to enable the port you have configured on the firewall of the {{ site.product.short_name }} host. The default value is `80` for HTTP webhooks, and `443` for HTTPS webhooks.
 
 ## prefix()
 
-|Type:|   string|
-|Default:|      |
+| Type:    | string |
+| Default: |        |
 
 *Description:* This option can be used to insert a prefix before the name part of the parsed name-value pairs to help further processing when using the `webhook-json()` source. For example, to insert the `webhook.` prefix, use the `prefix(webhook.)` option.
 
@@ -63,8 +63,8 @@ Names starting with a dot (for example, .example) are reserved for use by {{ sit
 
 ## proxy_header()
 
-|Type:|   string|
-|Default:|      |
+| Type:    | string |
+| Default: |        |
 
 *Description:* By default, {{ site.product.short_name }} expects data to be sent directly, without a proxy, and sets the `${SOURCEIP}` and `${SOURCEPORT}` macros to the IP and port of the peer.
 
@@ -90,8 +90,8 @@ Note that {{ site.product.short_name }} only trusts the header that is specified
 
 ## tls_ca_dir()
 
-|Type:|   Directory name|
-|Default:|      |
+| Type:    | Directory name |
+| Default: |                |
 
 *Description:* The name of a directory that contains a set of trusted CA certificates in PEM format. The CA certificate files have to be named after the 32-bit hash of the subject’s name. This naming can be created using the `c_rehash` utility in openssl. For an example, see Configuring TLS on the syslog-ng OSE clients. The {{ site.product.short_name }} application uses the CA certificates in this directory to validate the certificate of the peer.
 
@@ -99,8 +99,8 @@ This option can be used together with the optional `tls_ca_file()` option.
 
 ## tls_ca_file()
 
-|Type:|   File name|
-|Default:|      |
+| Type:    | File name |
+| Default: |           |
 
 *Description:* Optional. The name of a file that contains a set of trusted CA certificates in PEM format. The {{ site.product.short_name }} application uses the CA certificates in this file to validate the certificate of the peer.
 
@@ -112,29 +112,29 @@ tls_ca_file("/etc/pki/tls/certs/ca-bundle.crt")
 
 ## tls_cert_file()
 
-|Type:|   File name|
-|Default:|      |
+| Type:    | File name |
+| Default: |           |
 
 *Description:* For HTTPS endpoints, you can use the `tls_cert_file` and `tls_key_file` options. Set `tls_cert_file` to the name of a file that contains an `X.509` certificate (or a certificate chain) in PEM format, suitable as a TLS certificate, matching the private key set in the `tls_key_file()` option. The {{ site.product.short_name }} application shows this certificate to the clients sending data to the webhook endpoints. If the file contains a certificate chain, the file must begin with the certificate of the host, followed by the CA certificate that signed the certificate of the host, and any other signing CAs in order.
 
 ## tls_key_file()
 
-|Type:|   File name|
-|Default:|      |
+| Type:    | File name |
+| Default: |           |
 
 *Description:* The name of a file that contains an unencrypted private key in PEM format, suitable as a TLS key. If properly configured, the {{ site.product.short_name }} application uses this private key with the matching certificate (set in the `tls_cert_file()` option).
 
 ## tls_peer_verify()
 
-|Accepted values:|   `yes`, `no`|
-|Default:|     `no` |
+| Accepted values: | `yes`, `no` |
+| Default:         | `no`        |
 
 *Description:* Verification method of the peer. The table below summarizes the available options and their results depending on the certificate of the peer.
 
-|                             |                | no certificate on the remote peer       | invalid certificate on the remote peer      | valid certificate on the remote peer |
-|-----------------------------|-----------------------------|-----------------------|---------------------------|-------------------|
-| Local peer-verify() setting:        | no (optional-untrusted)     | TLS-encryption        | TLS-encryption            | TLS-encryption    |
-|                             | yes (required-trusted)      | rejected connection   | rejected connection       | TLS-encryption    |
+| no certificate on the remote peer | invalid certificate on the remote peer | valid certificate on the remote peer |                |                |
+|-----------------------------------|----------------------------------------|--------------------------------------|----------------|----------------|
+| Local peer-verify() setting:      | no (optional-untrusted)                | TLS-encryption                       | TLS-encryption | TLS-encryption |
+| yes (required-trusted)            | rejected connection                    | rejected connection                  | TLS-encryption |                |
 
 For untrusted certificates only the existence of the certificate is checked, but it does not have to be valid — {{ site.product.short_name }} accepts the certificate even if it is expired, signed by an unknown CA, or its CN and the name of the machine mismatches.
 
@@ -143,8 +143,8 @@ For untrusted certificates only the existence of the certificate is checked, but
 
 ## tls_use_system_cert_store()
 
-|Accepted values:|   `yes`, `no`|
-|Default:|   `no`   |
+| Accepted values: | `yes`, `no` |
+| Default:         | `no`        |
 
 *Description:* Use the certificate store of the system for verifying HTTPS certificates. For more information, see the [curl documentation](https://curl.se/docs/sslcerts.html).
 
@@ -154,4 +154,3 @@ For untrusted certificates only the existence of the certificate is checked, but
 
 {% include doc/admin-guide/options/use-syslogng-pid.md %}
 
-> *Copyright © 2025 Axoflow*

@@ -1,7 +1,7 @@
 ## suppress()
 
-|Type: |     seconds|
-|Default: |  0 (disabled)|
+| Type:    | seconds      |
+| Default: | 0 (disabled) |
 
 *Description:* If several identical log messages would be sent to the
 destination without any other messages between the identical messages

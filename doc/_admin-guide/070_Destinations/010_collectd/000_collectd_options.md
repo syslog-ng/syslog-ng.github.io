@@ -20,16 +20,16 @@ the underlying unix-stream() driver (for example, socket buffer size).
 
 ## host()
 
-|Type:| string, macro, or template|
-|Default:|   ${HOST}|
+| Type:    | string, macro, or template |
+| Default: | ${HOST}                    |
 
 *Description:* The hostname that is passed to collectd. By default,
 {{ site.product.short_name }} uses the host from the log message as the hostname.
 
 ## interval()
 
-|Type:|      integer|
-|Default:  | 60|
+| Type:    | integer |
+| Default: | 60      |
 
 *Description:* The interval in which the data is collected.
 
@@ -39,8 +39,8 @@ the underlying unix-stream() driver (for example, socket buffer size).
 
 ## plugin()
 
-|Type:|      string|
-|Default:||
+| Type:    | string |
+| Default: |        |
 
 *Description:* The name of the plugin that submits the data to collectd.
 
@@ -52,16 +52,16 @@ plugin("${PROGRAM}"),
 
 ## plugin-instance()
 
-|Type: | string|
-|Default:   ||
+| Type:    | string |
+| Default: |        |
 
 *Description:* The name of the plugin-instance that submits the data to
 collectd.
 
 ## socket()
 
-|Type:|      path|
-|Default:|   /var/run/collectd-unixsock|
+| Type:    | path                       |
+| Default: | /var/run/collectd-unixsock |
 
 *Description:* The path to the socket of collectd. For details, see the
 collectd-unixsock(5) manual page.
@@ -80,8 +80,8 @@ collectd-unixsock(5) manual page.
 
 ## type()
 
-|Type:     | string or template|
-|Default:||
+| Type:    | string or template |
+| Default: |                    |
 
 *Description:* Identifies the type and number of values passed to
 collectd. For details, see the [types.db manual page]
@@ -95,8 +95,8 @@ type("gauge"),
 
 ## type-instance()
 
-|Type:|      string|
-|Default:   ||
+| Type:    | string |
+| Default: |        |
 
 *Description:* For example:
 
@@ -106,8 +106,8 @@ type-instance("seqnum"),
 
 ## values()
 
-|Type:|      string, macro, or template|
-|Default: |  U|
+| Type:    | string, macro, or template |
+| Default: | U                          |
 
 *Description:* Colon-separated list of the values to send to collectd.
 For example:

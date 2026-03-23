@@ -25,15 +25,15 @@ The `darwin-oslog()` source has the following options.
 
 ## filter-predicate()
 
-|Type:|     string|
-|Default:|`(eventType == 'logEvent' || eventType == 'lossEvent' || eventType == 'stateEvent' || eventType == 'userActionEvent') && (logType != 'debug')`|
+| Type:    | string                                                                                                                                         |
+| Default: | `(eventType == 'logEvent' || eventType == 'lossEvent' || eventType == 'stateEvent' || eventType == 'userActionEvent') && (logType != 'debug')` |
 
 *Description:* String for native macOS log message filtering using predicates. For example, the following predicate selects AirDrop logs: `subsystem=="com.apple.sharing" and category=="AirDrop"`
 
 ## go-reverse()
 
-|Type:|     boolean|
-|Default:| no|
+| Accepted values: | `yes`, `no` |
+| Default:         | `no`        |
 
 *Description:* If set to `yes`, the logs are processed in reverse order (latest to oldest).
 
@@ -61,8 +61,8 @@ The `darwin-oslog()` source has the following options.
 
 ## max-bookmark-distance()
 
-|Type:|     integer|
-|Default:| 0 (unlimited) in seconds|
+| Type:    | integer                  |
+| Default: | 0 (unlimited) in seconds |
 
 *Description:* The maximum distance in seconds that a bookmark can point backward. That is, if {{ site.product.short_name }} is stopped for 10 minutes (600 seconds) and `max-bookmark-distance()` is set to `60`, then {{ site.product.short_name }} starts reading the logs from 60 seconds before the startup, missing 9 minutes (540 seconds) worth of logs.
 

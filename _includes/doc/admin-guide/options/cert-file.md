@@ -1,7 +1,7 @@
 ## cert-file()
 
-|  Accepted values:|   Filename|
-|  Default: |          none|
+| Accepted values: | Filename |
+| Default:         | none     |
 
 *Description:* Name of a file, that contains an X.509 certificate (or a
 certificate chain) in PEM format, suitable as a TLS certificate,

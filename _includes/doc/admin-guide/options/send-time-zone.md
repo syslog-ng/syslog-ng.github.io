@@ -1,7 +1,7 @@
 ## send-time-zone()
 
-|  Accepted values:|   name of the timezone, or the timezone offset|
-  |Default:|           local timezone|
+| Accepted values: | name of the timezone, or the timezone offset |
+| Default:         | `local timezone`                             |
 
 *Description:* Specifies the time zone associated with the messages sent
 by {{ site.product.short_name }}, if not specified otherwise in the message or in the

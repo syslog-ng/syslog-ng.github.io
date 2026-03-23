@@ -1,5 +1,5 @@
-To replace your existing tcp(), tcp6(), udp(), udp6() {{ page.dors }}s with a
-network() {{ page.dors }}, complete the following steps.
+To replace your existing tcp(), tcp6(), udp(), udp6() {{ include.dors }}s with a
+network() {{ include.dors }}, complete the following steps.
 
 1. Replace the driver with **network**. For example, replace **udp(** with
     **network(**
@@ -19,18 +19,18 @@ network() {{ page.dors }}, complete the following steps.
     **ip-protocol(6)** option.
 
 4. If you did not specify the port used in the old driver, check
-    [[network() {{ page.dors }} options]]
+    [[network() {{ include.dors }} options]]
     and verify that your clients send the messages to the default port of
     the transport protocol you use. Otherwise, set the appropriate port
-    number in your {{ page.dors }} using the port() option.
+    number in your {{ include.dors }} using the port() option.
 
 5. All other options are identical. Test your configuration with the
     **syslog-ng --syntax-only** command.
 
-    The following configuration shows a simple tcp {{ page.dors }}.
+    The following configuration shows a simple tcp {{ include.dors }}.
 
     ```config
-    source {{ page.prefix }}_old_tcp {
+    source {{ include.prefix }}_old_tcp {
         tcp(
             ip(127.0.0.1) port(1999)
             tls(
@@ -45,7 +45,7 @@ network() {{ page.dors }}, complete the following steps.
     When replaced with the network() driver, it looks like this.
 
     ```config
-    source {{ page.prefix }}_new_network_tcp {
+    source {{ include.prefix }}_new_network_tcp {
         network(
             transport("tls")
             ip(127.0.0.1) port(1999)

@@ -19,7 +19,7 @@ The graphite() destination has the following options:
 ## payload()
 
 | Type:    | parameter list of the payload() option |
-| Default: |     empty string                       |
+| Default: | empty string                           |
 
 *Description:* The payload() option allows you to select which value
 pairs to forward to graphite.

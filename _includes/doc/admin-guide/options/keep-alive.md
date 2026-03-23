@@ -1,7 +1,7 @@
 ## keep-alive()
 
-|  Type:|      yes or no|
-  |Default:|   yes|
+| Accepted values: | `yes`, `no` |
+| Default:         | `yes`       |
 
 *Description:* Specifies whether connections to sources should be closed
 when {{ site.product.short_name }} is forced to reload its configuration (upon the receipt

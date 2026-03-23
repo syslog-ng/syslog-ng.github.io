@@ -216,111 +216,111 @@ listed below.
 
 ## TABLE 1: SOURCE DRIVERS AVAILABLE IN {{ site.product.short_name }}
 
-|Name                                |Description
-|---|---
-|arr sources                   |lidarr(), prowlarr(), radarr(), readarr(), sonarr() and whisparr() collect logs of Lidarr, Prowlarr, Radarr, Readarr, and Sonarr.
-|darwin-oslog(), darwin-oslog-stream()|Collects logs on macOS with the native OSLog framework.
-|default-network-drivers()     |A special source that uses multiple source drivers to receive and parse several different types of syslog messages from the network.
-|file()                        |Opens the specified file and reads messages.
-|wildcard-file()               |Reads messages from multiple files and directories.
-|freebsd-audit()               |Collects FreeBSD audit logs.
-|hypr-audit-trail(), hypr-app-audit-trail()|Can fetch events from the Hypr REST API.
-|internal()                    |Messages generated internally in {{ site.product.short_name }}.
-|jellyfin()                    |Reads Jellyfin logs from its log file output.
-|kafka()                       |Fetches messages from the Apache Kafka message bus.
-|kubernetes()                  |Collects container logs managed by the Kubelet.
-|linux-audit()                 |Reads and automatically parses the Linux audit logs.
-|mbox()                        |Read e-mail messages from local mbox files, and convert them to multi-line log messages.
-|mqtt()                        |Fetches messages from MQTT brokers.
-|network()                     |Receives messages from remote hosts using the BSD-syslog protocol over IPv4 and IPv6. Supports the TCP, UDP, and TLS network protocols.
-|nodejs()                      |Receives JSON messages from nodejs applications.
-|opentelemetry()               |Collects logs, metrics and traces from OpenTelemetry clients.
-|osquery()                     |Run osquery queries, and convert their results into log messages.
-|pacct()                       |Reads messages from the process accounting logs on Linux.
-|pihole-ftl()                  |Collect logs of the Pi-hole FTL (Faster Than Light) application.
-|pipe()                        |Opens the specified named pipe and reads messages.
-|pacct()                       |Collects process accounting logs on Linux systems.
-|program()                     |Opens the specified application and reads messages from its standard output.
-|python()                      |Allows you to write your own source in Python.
-|qbittorrent()                 |Collects logs of the qBittorrent application.
-|snmptrap()                    |Read and parse the SNMP traps of the Net-SNMP\'s snmptrapd application.
-|sun-stream(), sun-streams()   |Opens the specified STREAMS device on Solaris systems and reads incoming messages.
-|stats-exporter(), stats-exporter-dont-log()|Directly serves the output of syslog-ng-ctl stats and syslog-ng-ctl query to an HTTP scraper, such as Prometheus.
-|stdin()                       |Collects messages from the standard input stream.
-|sun-streams()                 |Collects syslogd process messages on Solaris using its STREAMS framework and its IPC mechanism called door.
-|syslog()                      |Listens for incoming messages using the new IETF-standard syslog protocol.
-|syslog-ng-otlp()              |The syslog-ng-otlp() source and destination make it possible to transfer the internal representation of log messages between syslog-ng OSE instances, using the OpenTelemetry protocol.
-|system()                      |Automatically detects which platform {{ site.product.short_name }} is running on, and collects the native log messages of that platform.
-|systemd-journal()             |Collects messages directly from the journal of platforms that use systemd.
-|systemd-syslog()              |Collects messages from the journal using a socket on platforms that use systemd.
-|unix-dgram()                  |Opens the specified unix socket in SOCK_DGRAM mode and listens for incoming messages.
-|unix-stream()                 |Opens the specified unix socket in SOCK_STREAM mode and listens for incoming messages.
-|webhook(), webhook-json()     |Collects logs through a webhook using the webhook() and webhook-json() sources. The webhook-json() source automatically parses the payload using the json-parser().
+| Name                                        | Description                                                                                                                                                                             |
+|---------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| arr sources                                 | lidarr(), prowlarr(), radarr(), readarr(), sonarr() and whisparr() collect logs of Lidarr, Prowlarr, Radarr, Readarr, and Sonarr.                                                       |
+| darwin-oslog(), darwin-oslog-stream()       | Collects logs on macOS with the native OSLog framework.                                                                                                                                 |
+| default-network-drivers()                   | A special source that uses multiple source drivers to receive and parse several different types of syslog messages from the network.                                                    |
+| file()                                      | Opens the specified file and reads messages.                                                                                                                                            |
+| wildcard-file()                             | Reads messages from multiple files and directories.                                                                                                                                     |
+| freebsd-audit()                             | Collects FreeBSD audit logs.                                                                                                                                                            |
+| hypr-audit-trail(), hypr-app-audit-trail()  | Can fetch events from the Hypr REST API.                                                                                                                                                |
+| internal()                                  | Messages generated internally in {{ site.product.short_name }}.                                                                                                                         |
+| jellyfin()                                  | Reads Jellyfin logs from its log file output.                                                                                                                                           |
+| kafka()                                     | Fetches messages from the Apache Kafka message bus.                                                                                                                                     |
+| kubernetes()                                | Collects container logs managed by the Kubelet.                                                                                                                                         |
+| linux-audit()                               | Reads and automatically parses the Linux audit logs.                                                                                                                                    |
+| mbox()                                      | Read e-mail messages from local mbox files, and convert them to multi-line log messages.                                                                                                |
+| mqtt()                                      | Fetches messages from MQTT brokers.                                                                                                                                                     |
+| network()                                   | Receives messages from remote hosts using the BSD-syslog protocol over IPv4 and IPv6. Supports the TCP, UDP, and TLS network protocols.                                                 |
+| nodejs()                                    | Receives JSON messages from nodejs applications.                                                                                                                                        |
+| opentelemetry()                             | Collects logs, metrics and traces from OpenTelemetry clients.                                                                                                                           |
+| osquery()                                   | Run osquery queries, and convert their results into log messages.                                                                                                                       |
+| pacct()                                     | Reads messages from the process accounting logs on Linux.                                                                                                                               |
+| pihole-ftl()                                | Collect logs of the Pi-hole FTL (Faster Than Light) application.                                                                                                                        |
+| pipe()                                      | Opens the specified named pipe and reads messages.                                                                                                                                      |
+| pacct()                                     | Collects process accounting logs on Linux systems.                                                                                                                                      |
+| program()                                   | Opens the specified application and reads messages from its standard output.                                                                                                            |
+| python()                                    | Allows you to write your own source in Python.                                                                                                                                          |
+| qbittorrent()                               | Collects logs of the qBittorrent application.                                                                                                                                           |
+| snmptrap()                                  | Read and parse the SNMP traps of the Net-SNMP\'s snmptrapd application.                                                                                                                 |
+| sun-stream(), sun-streams()                 | Opens the specified STREAMS device on Solaris systems and reads incoming messages.                                                                                                      |
+| stats-exporter(), stats-exporter-dont-log() | Directly serves the output of syslog-ng-ctl stats and syslog-ng-ctl query to an HTTP scraper, such as Prometheus.                                                                       |
+| stdin()                                     | Collects messages from the standard input stream.                                                                                                                                       |
+| sun-streams()                               | Collects syslogd process messages on Solaris using its STREAMS framework and its IPC mechanism called door.                                                                             |
+| syslog()                                    | Listens for incoming messages using the new IETF-standard syslog protocol.                                                                                                              |
+| syslog-ng-otlp()                            | The syslog-ng-otlp() source and destination make it possible to transfer the internal representation of log messages between syslog-ng OSE instances, using the OpenTelemetry protocol. |
+| system()                                    | Automatically detects which platform {{ site.product.short_name }} is running on, and collects the native log messages of that platform.                                                |
+| systemd-journal()                           | Collects messages directly from the journal of platforms that use systemd.                                                                                                              |
+| systemd-syslog()                            | Collects messages from the journal using a socket on platforms that use systemd.                                                                                                        |
+| unix-dgram()                                | Opens the specified unix socket in SOCK_DGRAM mode and listens for incoming messages.                                                                                                   |
+| unix-stream()                               | Opens the specified unix socket in SOCK_STREAM mode and listens for incoming messages.                                                                                                  |
+| webhook(), webhook-json()                   | Collects logs through a webhook using the webhook() and webhook-json() sources. The webhook-json() source automatically parses the payload using the json-parser().                     |
 
 ## TABLE 2: DESTINATION DRIVERS AVAILABLE IN {{ site.product.short_name }}
 
-|Name                   |Description
-|---|---
-|amqp()            |Publishes messages using the AMQP (Advanced Message Queuing Protocol).
-|bigquery()        |Send data to Google Cloud BigQuery through the BigQuery Storage Write API using a gRCP based high performance implementation.
-|collectd()        |Uses the unixsock plugin of the collectd application to send log messages to the collectd system statistics collection daemon.
-|discord()         |Sends messages to Discord using Discord Webhook.
-|elasticsearch-http|Sends messages to an Elasticsearch server.
-|file()            |Writes messages to the specified file.
-|google-pubsub()   |Send data to Google Cloud Pub/Sub using its HTTP REST API.
-|graphite()        |Sends metrics to a Graphite server to store numeric time-series data.
-|graylog2()        |Sends syslog messages to Graylog.
-|hdfs()            |Sends messages into a file on a Hadoop Distributed File System (HDFS) node.
-|http()            |Sends messages over the HTTP protocol. There are two different implementations of this driver: a Java-based http driver, and an http driver without Java.
-|kafka()           |Publishes log messages to the Apache Kafka message bus, where subscribers can access them.
-|loggly()          |Sends log messages to the Loggly Logging-as-a-Service provider.
-|logmatic()        |Sends log messages to the Logmatic.io Logging-as-a-Service provider.
-|loki()            |Sends log data to Grafana Loki. 
-|mongodb()         |Sends messages to a MongoDB database.
-|mqtt()            |Publishes messages to MQTT brokers.
-|network()         |Sends messages to a remote host using the BSD-syslog protocol over IPv4 and IPv6. Supports the TCP, UDP, and TLS network protocols.
-|openobserve-log() |Sends messages to OpenObserve using OpenObserve Log Ingestion - JSON API.
-|opensearch()      |Posts log messages to OpenSearch using its HTTP endpoint.
-|opentelemetry()   |Send logs, metrics and traces from OpenTelemetry clients using the OpenTelemetry Protocol (OTLP/gRPC).
-|osquery()         |Sends log messages to osquery’s syslog table.
-|pipe()            |Writes messages to the specified named pipe.
-|program()         |Forks and launches the specified program, and sends messages to its standard input.
-|pseudofile()      |A very simple driver, aimed at delivering messages to special files such as files in the /proc, /dev or /sys directories.
-|python()          |Allows you to write your own destination in Python.
-|redis()           |Sends messages as name-value pairs to a Redis key-value store.
-|riemann()         |Sends metrics or events to a Riemann monitoring system.
-|s3()              |Sends log messages to the Amazon Simple Storage Service (Amazon S3) object storage service.
-|slack()           |Sends messages to a Slack channel using the Slack Web API.
-|smtp()            |Sends e-mail messages to the specified recipients.
-|snmp()            |Sends SNMP traps using the Simple Network Management Protocol version 2c or version 3.
-|splunk-hec-raw(), splunk-hec-event()|Sends messages to the Splunk HTTP Event Collector(HEC).
-|sql()             |Sends messages into an SQL database. In addition to the standard {{ site.product.short_name }} packages, the sql() destination requires database-specific packages to be installed.
-|stdout()          |Sends messages to the standard output.
-|stomp()           |Sends messages to a STOMP server.
-|sumologic-http(), sumologic-syslog()|Sends log messages to Sumo Logic, a cloud-based log management and security analytics service.
-|syslog()          |Sends messages to the specified remote host using the IETF-syslog protocol. The IETF standard supports message transport using the UDP, TCP, and TLS networking protocols.
-|syslog-ng()       |Forwards log messages to another syslog-ng OSE node in EWMM format.
-|syslog-ng-otlp()  |The syslog-ng-otlp() source and destination make it possible to transfer the internal representation of log messages between syslog-ng OSE instances, using the OpenTelemetry protocol.
-|telegram()        |Sends log messages to Telegram, which is a secure, cloud-based mobile and desktop messaging app.
-|unix-dgram()      |Sends messages to the specified unix socket in SOCK_DGRAM style (BSD).
-|unix-stream()     |Sends messages to the specified unix socket in SOCK_STREAM style (Linux).
-|usertty()         |Sends messages to the terminal of the specified user, if the user is logged in.
+| Name                                 | Description                                                                                                                                                                             |
+|--------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| amqp()                               | Publishes messages using the AMQP (Advanced Message Queuing Protocol).                                                                                                                  |
+| bigquery()                           | Send data to Google Cloud BigQuery through the BigQuery Storage Write API using a gRCP based high performance implementation.                                                           |
+| collectd()                           | Uses the unixsock plugin of the collectd application to send log messages to the collectd system statistics collection daemon.                                                          |
+| discord()                            | Sends messages to Discord using Discord Webhook.                                                                                                                                        |
+| elasticsearch-http                   | Sends messages to an Elasticsearch server.                                                                                                                                              |
+| file()                               | Writes messages to the specified file.                                                                                                                                                  |
+| google-pubsub()                      | Send data to Google Cloud Pub/Sub using its HTTP REST API.                                                                                                                              |
+| graphite()                           | Sends metrics to a Graphite server to store numeric time-series data.                                                                                                                   |
+| graylog2()                           | Sends syslog messages to Graylog.                                                                                                                                                       |
+| hdfs()                               | Sends messages into a file on a Hadoop Distributed File System (HDFS) node.                                                                                                             |
+| http()                               | Sends messages over the HTTP protocol. There are two different implementations of this driver: a Java-based http driver, and an http driver without Java.                               |
+| kafka()                              | Publishes log messages to the Apache Kafka message bus, where subscribers can access them.                                                                                              |
+| loggly()                             | Sends log messages to the Loggly Logging-as-a-Service provider.                                                                                                                         |
+| logmatic()                           | Sends log messages to the Logmatic.io Logging-as-a-Service provider.                                                                                                                    |
+| loki()                               | Sends log data to Grafana Loki.                                                                                                                                                         |
+| mongodb()                            | Sends messages to a MongoDB database.                                                                                                                                                   |
+| mqtt()                               | Publishes messages to MQTT brokers.                                                                                                                                                     |
+| network()                            | Sends messages to a remote host using the BSD-syslog protocol over IPv4 and IPv6. Supports the TCP, UDP, and TLS network protocols.                                                     |
+| openobserve-log()                    | Sends messages to OpenObserve using OpenObserve Log Ingestion - JSON API.                                                                                                               |
+| opensearch()                         | Posts log messages to OpenSearch using its HTTP endpoint.                                                                                                                               |
+| opentelemetry()                      | Send logs, metrics and traces from OpenTelemetry clients using the OpenTelemetry Protocol (OTLP/gRPC).                                                                                  |
+| osquery()                            | Sends log messages to osquery’s syslog table.                                                                                                                                           |
+| pipe()                               | Writes messages to the specified named pipe.                                                                                                                                            |
+| program()                            | Forks and launches the specified program, and sends messages to its standard input.                                                                                                     |
+| pseudofile()                         | A very simple driver, aimed at delivering messages to special files such as files in the /proc, /dev or /sys directories.                                                               |
+| python()                             | Allows you to write your own destination in Python.                                                                                                                                     |
+| redis()                              | Sends messages as name-value pairs to a Redis key-value store.                                                                                                                          |
+| riemann()                            | Sends metrics or events to a Riemann monitoring system.                                                                                                                                 |
+| s3()                                 | Sends log messages to the Amazon Simple Storage Service (Amazon S3) object storage service.                                                                                             |
+| slack()                              | Sends messages to a Slack channel using the Slack Web API.                                                                                                                              |
+| smtp()                               | Sends e-mail messages to the specified recipients.                                                                                                                                      |
+| snmp()                               | Sends SNMP traps using the Simple Network Management Protocol version 2c or version 3.                                                                                                  |
+| splunk-hec-raw(), splunk-hec-event() | Sends messages to the Splunk HTTP Event Collector(HEC).                                                                                                                                 |
+| sql()                                | Sends messages into an SQL database. In addition to the standard {{ site.product.short_name }} packages, the sql() destination requires database-specific packages to be installed.     |
+| stdout()                             | Sends messages to the standard output.                                                                                                                                                  |
+| stomp()                              | Sends messages to a STOMP server.                                                                                                                                                       |
+| sumologic-http(), sumologic-syslog() | Sends log messages to Sumo Logic, a cloud-based log management and security analytics service.                                                                                          |
+| syslog()                             | Sends messages to the specified remote host using the IETF-syslog protocol. The IETF standard supports message transport using the UDP, TCP, and TLS networking protocols.              |
+| syslog-ng()                          | Forwards log messages to another syslog-ng OSE node in EWMM format.                                                                                                                     |
+| syslog-ng-otlp()                     | The syslog-ng-otlp() source and destination make it possible to transfer the internal representation of log messages between syslog-ng OSE instances, using the OpenTelemetry protocol. |
+| telegram()                           | Sends log messages to Telegram, which is a secure, cloud-based mobile and desktop messaging app.                                                                                        |
+| unix-dgram()                         | Sends messages to the specified unix socket in SOCK_DGRAM style (BSD).                                                                                                                  |
+| unix-stream()                        | Sends messages to the specified unix socket in SOCK_STREAM style (Linux).                                                                                                               |
+| usertty()                            | Sends messages to the terminal of the specified user, if the user is logged in.                                                                                                         |
 
 ## TABLE 3: FILTER FUNCTIONS AVAILABLE IN {{ site.product.short_name }}
 
-|Name                         |Description
-|---------------------------- |-------------
-|facility()|             | Filter messages based on the sending facility.
-|filter()|               | Call another filter function.
-|host()|                 | Filter messages based on the sending host.
-|inlist()|               | File-based whitelisting and blacklisting.
-|level() or priority()|  | Filter messages based on their priority.
-|match()|                | Use a regular expression to filter messages based on a specified header or content field.
-|message()|              | Use a regular expression to filter messages based on their content.
-|netmask()|              | Filter messages based on the IP address of the sending host.
-|program()|              | Filter messages based on the sending application.
-|source()|               | Select messages of the specified {{ site.product.short_name }} source statement.
-|tags()|                 | Select messages having the specified tag.
+| Name                  | Description |                                                                                           |
+|-----------------------|-------------|-------------------------------------------------------------------------------------------|
+| facility()            |             | Filter messages based on the sending facility.                                            |
+| filter()              |             | Call another filter function.                                                             |
+| host()                |             | Filter messages based on the sending host.                                                |
+| inlist()              |             | File-based whitelisting and blacklisting.                                                 |
+| level() or priority() |             | Filter messages based on their priority.                                                  |
+| match()               |             | Use a regular expression to filter messages based on a specified header or content field. |
+| message()             |             | Use a regular expression to filter messages based on their content.                       |
+| netmask()             |             | Filter messages based on the IP address of the sending host.                              |
+| program()             |             | Filter messages based on the sending application.                                         |
+| source()              |             | Select messages of the specified {{ site.product.short_name }} source statement.          |
+| tags()                |             | Select messages having the specified tag.                                                 |
 
 ## FILES
 

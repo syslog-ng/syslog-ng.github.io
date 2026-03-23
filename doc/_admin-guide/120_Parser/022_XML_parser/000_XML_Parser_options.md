@@ -1,5 +1,6 @@
 ---
 title: Options of the XML parsers
+parser: xml
 id: adm-parser-xml-opt
 description: >-
     This section describes the options of the xml-parser() in {{ site.product.short_name }}.
@@ -7,21 +8,21 @@ description: >-
 
 ## drop-invalid()
 
-|Accepted values:   |   yes \| no|
-|Default:   |  no|
-|Mandatory:  | no|
+| Accepted values: | `yes`, `no` |
+| Default:         | `no`        |
+| Mandatory:       | no          |
 
 *Description:* If set, messages with an invalid XML will be dropped entirely.
 
 ## exclude-tags()
 
-| Accepted values:    | list of globs                     |
-| Default:   | None                              |
-|            | If not set, no filtering is done. |
-| Mandatory: | no                                |
+| Accepted values:                  | list of globs |
+| Default:                          |               |
+| Mandatory:                        | no            |
 
 *Description:* The XML parser matches tags against the listed globs.
-If there is a match, the given subtree of the XML will be omitted.
+If there is a match, the given subtree of the XML will be omitted.\
+If not set, no filtering is done.
 
 ### Example: Using exclude-tags
 
@@ -48,13 +49,13 @@ The following output is generated:
 
 {% include doc/admin-guide/options/prefix.md %}
 
-The prefix() option is optional and its default value is \".xml\".
+{% include doc/admin-guide/default-prefix.md %}
 
 ## strip-whitespaces()
 
-|Accepted values: |     yes \| no|
-|Default: |    no|
-|Mandatory: |  no|
+| Accepted values: | `yes`, `no` |
+| Default:         | `no`        |
+| Mandatory:       | no          |
 
 *Description:* Strip the whitespaces from the XML text nodes before adding
 them to the message.

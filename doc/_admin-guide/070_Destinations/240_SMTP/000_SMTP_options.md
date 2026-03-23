@@ -19,8 +19,8 @@ applications. The smtp() destination has the following options:
 
 ## body()
 
-|  Type:|      string|
-|  Default:|   n/a|
+| Type:    | string |
+| Default: | n/a    |
 
 *Description:* The BODY field of the email. You can also use macros in
 the string. Use **\\n** to start a new line. For example:
@@ -31,8 +31,8 @@ body("{{ site.product.short_name }} received the following alert from ${HOST}:\n
 
 ## bcc()
 
-|  Type:|      string|
-|  Default:|   n/a|
+| Type:    | string |
+| Default: | n/a    |
 
 *Description:* The BCC recipient of the email (contents of the BCC
 field). You can specify the email address, or the name and the email
@@ -45,8 +45,8 @@ You can also use macros to set the value of this parameter.
 
 ## cc()
 
-|  Type:|      string|
-|Default:|  n/a|
+| Type:    | string |
+| Default: | n/a    |
 
 *Description:* The CC recipient of the email (contents of the CC field).
 You can specify the email address, or the name and the email address.
@@ -61,8 +61,8 @@ You can also use macros to set the value of this parameter.
 
 ## from()
 
-|  Type: |     string|
-|  Default:|   n/a|
+| Type:    | string |
+| Default: | n/a    |
 
 *Description:* The sender of the email (contents of the FROM field). You
 can specify the email address, or the name and the email address. For
@@ -86,8 +86,8 @@ You can also use macros to set the value of this parameter.
 
 ## header()
 
-|  Type:     | string|
-|  Default: |  n/a|
+| Type:    | string |
+| Default: | n/a    |
 
 *Description:* Adds an extra header to the email with the specified name
 and content. The first parameter sets the name of the header, the second
@@ -119,8 +119,8 @@ When using the header option, note the following points:
 
 ## reply-to()
 
-|  Type: |     string|
-|  Default: |  n/a|
+| Type:    | string |
+| Default: | n/a    |
 
 *Description:* Replies of the recipient will be sent to this address
 (contents of the REPLY-TO field). You can specify the email address, or
@@ -136,8 +136,8 @@ You can also use macros to set the value of this parameter.
 
 ## subject()
 
-|  Type:  |    string|
-|Default:|   n/a|
+| Type:    | string |
+| Default: | n/a    |
 
 *Description:* The SUBJECT field of the email. You can also use macros.
 For example:
@@ -155,8 +155,8 @@ be used.
 
 ## to()
 
-|  Type:     | string|
-|  Default: |  localhost|
+| Type:    | string    |
+| Default: | localhost |
 
 *Description:* The recipient of the email (contents of the TO field).
 You can specify the email address, or the name and the email address.

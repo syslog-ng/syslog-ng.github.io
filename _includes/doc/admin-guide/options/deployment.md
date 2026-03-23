@@ -1,7 +1,7 @@
 ## deployment()
 
-|  Type:|      string|
-  |Default:|   empty string|
+| Type:    | string       |
+| Default: | empty string |
 
 *Description:* Required. This option specifies your Sumo Logic deployment.
 

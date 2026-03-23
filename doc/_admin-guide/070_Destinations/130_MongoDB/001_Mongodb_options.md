@@ -13,10 +13,10 @@ The mongodb() destination has the following options:
 
 ## bulk()
 
-|Type:|      yes \| no|
-|Default: |  yes|
+| Accepted values: | `yes`, `no` |
+| Default:         | `yes`       |
 
-*Description:* Toggles bulk insertion, setting to **no** forces the old
+*Description:* Toggles bulk insertion, setting to `no` forces the old
 behavior (each log is inserted one by one into the MongoDB).
 
 NOTE: Bulk sending is only efficient if the used collection is constant
@@ -26,22 +26,22 @@ many collections switching within a reasonable time range.
 
 ## bulk_unordered()
 
-|Type: |     yes \| no|
-|Default: |  no|
+| Accepted values: | `yes`, `no` |
+| Default:         | `no`        |
 
 *Description:* Toggles unordered bulk operations.
 
 ## bulk_bypass_validation()
 
-|Type:|     yes \| no|
-|Default:  | no|
+| Accepted values: | `yes`, `no` |
+| Default:         | `no`        |
 
 *Description:* Toggles MongoDB bulk operation validation.
 
 ## collection()
 
-|Type:|string|
-|Default:  | messages|
+| Type:    | string   |
+| Default: | messages |
 
 *Description:* The name of the MongoDB collection where the log messages
 are stored (collections are similar to SQL tables). The collection()
@@ -74,8 +74,8 @@ operation times out, {{ site.product.short_name }} assumes the operation has fai
 
 ## uri()
 
-|Type: |     string|
-|Default: |  mongodb://127.0.0.1:27017/syslog?wtimeoutMS=60000&socketTimeoutMS=60000&connectTimeoutMS=60000|
+| Type:    | string                                                                                         |
+| Default: | mongodb://127.0.0.1:27017/syslog?wtimeoutMS=60000&socketTimeoutMS=60000&connectTimeoutMS=60000 |
 
 *Description:* Refer to the [MongoDB URI format documentation]
 (https://docs.mongodb.com/manual/reference/connection-string/) for detailed syntax.
@@ -86,7 +86,7 @@ operation times out, {{ site.product.short_name }} assumes the operation has fai
 
 ## write_concern()
 
-|Accepted values: |  unacked \| acked \| majority \| a number greater than 0|
-|Default:        |   acked|
+| Accepted values: | `unacked`, `acked`, `majority`, a number greater than 0 |
+| Default:         | acked                                                   |
 
 *Description:* Sets write concern mode of MongoDB operations, both bulk and single.

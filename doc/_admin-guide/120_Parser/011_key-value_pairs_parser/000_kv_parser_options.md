@@ -1,5 +1,5 @@
 ---
-title: Options of key=value parsers
+title: Options of key-value parsers
 parser: kv
 prefix: kv
 id: adm-parser-kv-opt
@@ -11,7 +11,7 @@ The kv-parser has the following options.
 
 ## extract-stray-words-into()
 
-|  Synopsis:   |extract-stray-words-into(\"\<name-value-pair\>\")|
+| Synopsis: | extract-stray-words-into("\<name-value-pair\>") |
 
 *Description:* Specifies the name-value pair where {{ site.product.short_name }} stores
 any stray words that appear before or between the parsed key-value pairs
@@ -42,7 +42,7 @@ ${my-stray-words} for this message will be
 
 ## pair-separator()
 
-|  Synopsis:  | pair-separator(\"\<separator-string\>\")|
+| Synopsis: | pair-separator("\<separator-string\>") |
 
 *Description:* Specifies the character or string that separates the
 key-value pairs from each other. Default value: **,** .
@@ -54,7 +54,7 @@ For example, to parse key1=value1;key2=value2 pairs, use
 
 ## value-separator()
 
-|Synopsis:   |value-separator(\"\<separator-character\>\")|
+| Synopsis: | value-separator("\<separator-character\>") |
 
 *Description:* Specifies the character that separates the keys from the
 values. Default value: =.

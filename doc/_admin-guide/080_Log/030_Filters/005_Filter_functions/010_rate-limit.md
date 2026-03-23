@@ -50,17 +50,17 @@ The rate-limit() filter has the following options.
 
 ### rate()
 
-|  Type:        |number|
-|  Default:     |N/A|
-|  Mandatory:   |yes|
+| Type:      | number |
+| Default:   | N/A    |
+| Mandatory: | yes    |
 
 *Description:* The number of messages for each unique macro resolution,
 that will be let through (matched) by the filter each second.
 
 ### template()
 
-|Type:    |  template|
-|Default: |  empty string|
+| Type:    | template     |
+| Default: | empty string |
 
 *Description:* The resolved template, that will be used to create unique
 rate-limit token buckets.

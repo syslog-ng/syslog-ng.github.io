@@ -1,7 +1,7 @@
 ## batch-timeout()
 
-|  Type:|      time in milliseconds|
-|Default:| {{ page.batch_timeout | default: '-1 (disabled)' }}|
+| Type:    | time in milliseconds                                |
+| Default: | {{ page.batch_timeout | default: '-1 (disabled)' }} |
 
 *Description:* Specifies the time {{ site.product.short_name }} waits for lines to
 accumulate in the output buffer. The {{ site.product.short_name }} application sends

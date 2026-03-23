@@ -12,8 +12,8 @@ following options.
 
 ## author-name()
 
-|  Type: |     string or template|
-|  Default:|   \'host: ${HOST} \| program: ${PROGRAM}(${PID}) \| severity: ${PRIORITY}\'|
+| Type:    | string or template |                               |                        |
+| Default: | 'host: ${HOST} \   | program: ${PROGRAM}(${PID}) \ | severity: ${PRIORITY}' |
 
 *Description:* The sender of the message as displayed in Slack. For
 details, see the [author\_name option in the Slack
@@ -21,8 +21,8 @@ documentation](https://api.slack.com/docs/message-attachments).
 
 ## author-link()
 
-|  Type:   |   string or URL|
-|  Default: |  None|
+| Type:    | string or URL |
+| Default: | None          |
 
 *Description:* A hyperlink for the sender of the message as displayed in
 Slack. For details, see the [author\_link option in the Slack
@@ -30,8 +30,8 @@ documentation](https://api.slack.com/docs/message-attachments).
 
 ## author-icon()
 
-|  Type:   |   URL|
-|  Default:|   None|
+| Type:    | URL  |
+| Default: | None |
 
 *Description:* A hyperlink for icon of the author to be displayed in
 Slack. For details, see the [author\_icon option in the Slack
@@ -65,16 +65,16 @@ documentation](https://api.slack.com/docs/message-attachments).
 
 ## colors()
 
-|  Type:     | list of colors in hexadecimal format|
-|  Default:  | \'\#512E5F,\#B03A2E,\#E74C3C,\#F39C12,\#F8C471,\#7DCEA0,\#5DADE2,\#85929E\'|
+| Type:    | list of colors in hexadecimal format                              |
+| Default: | '#512E5F,#B03A2E,#E74C3C,#F39C12,#F8C471,#7DCEA0,#5DADE2,#85929E' |
 
 *Description:* The colors to be assigned to the messages of different
 importance levels.
 
 ## color-chooser()
 
-|  Type: |     integer or template|
-|  Default: |  \'${LEVEL\_NUM}\'|
+| Type:    | integer or template |
+| Default: | '${LEVEL\_NUM}'     |
 
 *Description:* An integer that assigns a color to the message from the
 list of colors set in the colors() option.
@@ -83,8 +83,8 @@ list of colors set in the colors() option.
 
 ## fallback()
 
-|  Type:     | string or template|
-|  Default: |  \'${MSG} - host: ${HOST} \| program: ${PROGRAM}(${PID}) \| severity: ${PRIORITY}\'|
+| Type:    | string or template        |                               |                        |
+| Default: | '${MSG} - host: ${HOST} \ | program: ${PROGRAM}(${PID}) \ | severity: ${PRIORITY}' |
 
 *Description:* The plain-text summary of the Slack attachment. For
 details, see the [fallback option in the Slack
@@ -92,8 +92,8 @@ documentation](https://api.slack.com/docs/message-attachments).
 
 ## footer()
 
-| Type:|      URL|
-|  Default: |  string or template|
+| Type:    | URL                |
+| Default: | string or template |
 
 *Description:* The footer of the message. For details, see the [footer
 option in the Slack
@@ -101,8 +101,8 @@ documentation](https://api.slack.com/docs/message-attachments).
 
 ## footer-icon()
 
-|  Type:     | URL|
-|  Default: |  None|
+| Type:    | URL  |
+| Default: | None |
 
 *Description:* A hyperlink for an image. For details, see the
 [footer\_icon option in the Slack
@@ -112,8 +112,8 @@ documentation](https://api.slack.com/docs/message-attachments).
 
 ## hook-url()
 
-|  Type:    |  URL|
-|  Default: |  None|
+| Type:    | URL  |
+| Default: | None |
 
 *Description:* The Webhook URL for the Incoming Webhook of your Slack
 app. This URL must also include the authentication token that {{ site.product.short_name }} uses to authenticate to Slack. For example:
@@ -123,8 +123,8 @@ For details, see the Slack webhook documentation.
 
 ## image-url()
 
-|  Type:|      URL|
-|  Default:|   None|
+| Type:    | URL  |
+| Default: | None |
 
 *Description:* A hyperlink for an image. For details, see the
 image_url option in the Slack API documentation.
@@ -135,8 +135,8 @@ image_url option in the Slack API documentation.
 
 ## pretext()
 
-|  Type:     | string or template|
-|  Default:  | None|
+| Type:    | string or template |
+| Default: | None               |
 
 *Description:* The text that appears above the attachment block. For
 details, see the pretext option in the Slack API documentation.
@@ -145,8 +145,8 @@ details, see the pretext option in the Slack API documentation.
 
 ## ssl-version()
 
-|  Type: |     string|
-|  Default: |  None, uses the libcurl default|
+| Type:    | string                         |
+| Default: | None, uses the libcurl default |
 
 *Description:* Specifies the permitted SSL/TLS version. Possible values:
 sslv2, sslv3, tlsv1, tlsv1_0, tlsv1_1, tlsv1_2, tlsv1_3.
@@ -161,16 +161,16 @@ sslv2, sslv3, tlsv1, tlsv1_0, tlsv1_1, tlsv1_2, tlsv1_3.
 
 ## thumb-url()
 
-|  Type:|      URL|
-|  Default:|   None|
+| Type:    | URL  |
+| Default: | None |
 
 *Description:* A hyperlink for a thumbnail image. For details, see the
 thumb_url option in the Slack API documentation.
 
 ## timeout()
 
-|  Type:      |number \[seconds\]|
-|  Default:   |0|
+| Type:    | number \[seconds\] |
+| Default: | 0                  |
 
 *Description:* The value (in seconds) to wait for an operation to
 complete, and attempt to reconnect the server if exceeded. By default,
@@ -179,16 +179,16 @@ in version 3.11 and later.
 
 ## title()
 
-|  Type:      string or template|
-|  Default:   None|
+| Type:    | string or template |
+| Default: | None               |
 
 *Description:* The message title in Slack. For details, see the title
 option in the Slack API documentation.
 
 ## title-link()
 
-|  Type:|      URL|
-|  Default:|   None|
+| Type:    | URL  |
+| Default: | None |
 
 *Description:* A hyperlink for the message title in Slack. For details,
 see the title_link option in the Slack API documentation.

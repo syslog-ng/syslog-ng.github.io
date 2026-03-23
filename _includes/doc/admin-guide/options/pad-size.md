@@ -1,7 +1,7 @@
 ## pad-size()
 
-|Type: |     number|
-|Default:|  0|
+| Type:    | number |
+| Default: | 0      |
 
 *Description:* Specifies input padding. Some operating systems (such as
 HP-UX) pad all messages to block boundary. This option can be used to

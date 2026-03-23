@@ -1,7 +1,7 @@
 ## local-time-zone()
 
-|  Type:|      name of the timezone, or the timezone offset|
-|Default:|   The local timezone.|
+| Type:    | name of the timezone, or the timezone offset |
+| Default: | The local timezone.                          |
 
 *Description:* Sets the timezone used when expanding filename and
 tablename templates.

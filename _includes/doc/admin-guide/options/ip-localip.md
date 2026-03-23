@@ -1,7 +1,7 @@
 ## ip() or localip()
 
-|  Type:|      string|
-  |Default:|   0.0.0.0|
+| Type:    | string  |
+| Default: | 0.0.0.0 |
 
 *Description:* The IP address to bind to. By default, {{ site.product.short_name }}
 listens on every available interface. Note that this is not the address

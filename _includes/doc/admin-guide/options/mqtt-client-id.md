@@ -1,8 +1,8 @@
 ## client-id()
 
-|Type:|       string|
-|Default:|    syslog-ng-source-{topic option}|
-|Required:|   no|
+| Type:     | string                          |
+| Default:  | syslog-ng-source-{topic option} |
+| Required: | no                              |
 
 *Description:* The client-id() is used to identify the client to the
 MQTT server, which stores session data for each client. The session data

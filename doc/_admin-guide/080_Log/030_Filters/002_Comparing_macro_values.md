@@ -103,13 +103,13 @@ Note that:
 
 The following operators are available:
 
-| Numerical Operator | String Operator | Meaning                          |
-|--------------------|-----------------|----------------------------------|
-| ==                 | eq              | Equals                           |
-| ===                |                 | Equals and same type             |
-| !=                 | ne              | Not equal to                     |
-| !==                |                 | Not equal to and same type       |
-| >                  | gt              | Greater than                     |
-| <                  | lt              | Less than                        |
-| >=                 | ge              | Greater than or equal to         |
-| <=                 | le              | Less than or equal to            |
+| Numerical Operator | String Operator | Meaning                    |
+|--------------------|-----------------|----------------------------|
+| ==                 | eq              | Equals                     |
+| ===                |                 | Equals and same type       |
+| !=                 | ne              | Not equal to               |
+| !==                |                 | Not equal to and same type |
+| >                  | gt              | Greater than               |
+| <                  | lt              | Less than                  |
+| >=                 | ge              | Greater than or equal to   |
+| <=                 | le              | Less than or equal to      |

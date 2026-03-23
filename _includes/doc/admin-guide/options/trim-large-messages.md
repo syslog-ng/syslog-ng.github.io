@@ -1,16 +1,16 @@
 ## trim-large-messages()
 
-|Accepted values:|      yes \| no|
-|Default:| {{ page.trim_default | default: 'Use the global trim-large-messages() option, which defaults to no.' }}|
+| Accepted values: | `yes`, `no`                                                                                               |
+| Default:         | {{ page.trim_default | default: 'Use the global trim-large-messages() option, which defaults to `no`.' }} |
 
 *Description:* Determines what {{ site.product.short_name }} does with incoming log
 messages that are received using the IETF-syslog protocol using the
 syslog() driver, and are longer than the value of log-msg-size(). Other
 drivers ignore the trim-large-messages() option.
 
-- If set to **no**, {{ site.product.short_name }} drops the incoming log message.
+- If set to `no`, {{ site.product.short_name }} drops the incoming log message.
 
-- If set to **yes**, {{ site.product.short_name }} trims the incoming log message to
+- If set to `yes`, {{ site.product.short_name }} trims the incoming log message to
     the size set in log-msg-size(), and adds the trimmed tag to the
     message. The rest of the message is dropped. You can use the tag to
     filter on such messages.

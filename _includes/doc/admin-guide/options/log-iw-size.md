@@ -1,7 +1,7 @@
 ## log-iw-size()
 
-|  Type: | number|
-|  Default:| {{ include.log_iw_size | default: "100" }} |
+| Type:    | number                                     |
+| Default: | {{ include.log_iw_size | default: "100" }} |
 
 *Description:* The size of the initial source window, this value is used during
 flow-control, applies only if flow-control() is enabled.

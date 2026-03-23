@@ -28,7 +28,7 @@ message.
 
 ## credit-card-hash()
 
-|  Synopsis:   |credit-card-hash(value(\"\<message-field-to-process\>\"))|
+| Synopsis: | credit-card-hash(value("\<message-field-to-process\>")) |
 
 *Description:* Process the specified message field (by default,
 ${MESSAGE}), and replace any credit card numbers (Primary Account
@@ -39,7 +39,7 @@ characters.
 
 ## credit-card-mask()
 
-|  Synopsis:   |credit-card-mask(value(\"\<message-field-to-process\>\"))|
+| Synopsis: | credit-card-mask(value("\<message-field-to-process\>")) |
 
 *Description:* Process the specified message field (by default,
 ${MESSAGE}), and replace the 7-12th character of any credit card

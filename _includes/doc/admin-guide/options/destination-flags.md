@@ -1,7 +1,7 @@
 ## flags()
 
-|  Type: | {{ page.d_flags | default: 'no-multi-line, syslog-protocol' }}|
-|Default:|   empty set|
+| Type:    | {{ page.d_flags | default: 'no-multi-line, syslog-protocol' }} |
+| Default: | empty set                                                      |
 
 *Description:* Flags influence the behavior of the destination driver.
 

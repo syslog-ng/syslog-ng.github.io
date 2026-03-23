@@ -19,15 +19,15 @@ the following options:
 
 #### startup()
 
-|Type:|string|
-|Default:|N/A|
+| Type:    | string |
+| Default: | N/A    |
 
 *Description:* Defines the external program that is executed as {{ site.product.short_name }} starts.
 
 #### shutdown()
 
-|Type:|string|
-|Default:|N/A|
+| Type:    | string |
+| Default: | N/A    |
 
 *Description:* Defines the external program that is executed as {{ site.product.short_name }} stops.
 
@@ -39,15 +39,15 @@ initiated or torn down, for example, on startup/shutdown or during a
 
 #### setup()
 
-|Type:|string|
-|Default: |N/A|
+| Type:    | string |
+| Default: | N/A    |
 
 *Description:* Defines an external program that is executed when the {{ site.product.short_name }} configuration is initiated, for example, on startup or during a {{ site.product.short_name }} reload.
 
 #### teardown()
 
-|Type:|string|
-|Default:| N/A|
+| Type:    | string |
+| Default: | N/A    |
 
 *Description:* Defines an external program that is executed when the {{ site.product.short_name }} configuration is stopped or torn down, for example, on shutdown or during a {{ site.product.short_name }} reload.
 

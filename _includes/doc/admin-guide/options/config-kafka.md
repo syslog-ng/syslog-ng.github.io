@@ -1,7 +1,7 @@
 ## config()
 
-|  Type: | key-value pairs |
-|Default:| N/A |
+| Type:    | key-value pairs |
+| Default: | N/A             |
 
 *Description:* You can use this option to set the properties of the kafka {{ include.kafka_type }}.
 

@@ -18,8 +18,8 @@ The tls() option can include the following settings:
 
 ## allow-compress()
 
-|  Accepted values:|   yes \| no|
-|  Default:  |         no|
+| Accepted values: | `yes`, `no` |
+| Default:         | `no`        |
 
 *Description:* Enable on-the-wire compression in TLS communication. Note
 that this option must be enabled both on the server and the client to
@@ -40,8 +40,8 @@ Available in version 3.19 and later.
 
 ## crl-dir()
 
-|  Accepted values:  | Directory name|
-|Default:           |none|
+| Accepted values: | directory name |
+| Default:         | none           |
 
 *Description:* Name of a directory that contains the Certificate
 Revocation Lists for trusted CAs. Similarly to ca-dir() files, use the
@@ -50,8 +50,8 @@ of the files must be .r0.
 
 ## dhparam-file()
 
-|  Accepted values:|   string (filename)|
-|  Default:|           none|
+| Accepted values: | filename |
+| Default:         | none     |
 
 *Description:* Specifies a file containing Diffie-Hellman parameters,
 generated using the openssl dhparam utility. Note that {{ site.product.short_name }}
@@ -61,8 +61,8 @@ described in RFC-3526.
 
 ## ecdh-curve-list()
 
-|Accepted values:   |colon-separated list|
-|Default:|           none|
+| Accepted values: | colon-separated list |
+| Default:         | none                 |
 
 *Description:* A colon-separated list that specifies the curves that are
 permitted in the connection when using Elliptic Curve Cryptography
@@ -81,8 +81,8 @@ ecdh-curve-list("prime256v1:secp384r1")
 
 ## tls-options-sigalgs
 
-|  Accepted values:|   colon-separated list|
-|  Default: |          none|
+| Accepted values: | colon-separated list |
+| Default:         | none                 |
 
 *Description:* A colon-separated list that specifies the supported
 signature algorithms associated with client authentication for TLSv1.2
@@ -105,8 +105,8 @@ with the client certificate.
 
 ## keylog-file()
 
-|  Accepted values:|   Filename|
-|  Default:         |  N/A|
+| Accepted values: | filename |
+| Default:         | N/A      |
 
 *Description:* This option enables saving TLS secrets (decryption keys)
 for a given source or destination, which can be used to decrypt data
@@ -116,11 +116,8 @@ used to save these secrets.
 This option is only available with the following drivers:
 
 - network
-
 - syslog
-
 - tcp
-
 - tcp6
 
 ![]({{ site.baseurl}}/assets/images/caution.png) **CAUTION:**
@@ -132,8 +129,8 @@ the file after the debugging session is over.
 
 ## ocsp-stapling-verify()
 
-|  Accepted values:|   yes, no|
-|  Default:         |  no |
+| Accepted values: | `yes`, `no` |
+| Default:         | `no`        |
 
 This option is available in {{ site.product.short_name }} 4.0 and later versions.
 
@@ -194,8 +191,8 @@ tls(
 
 ## pkcs12-file()
 
-|  Accepted values:  | Filename|
-|  Default:          | none|
+| Accepted values: | filename |
+| Default:         |          |
 
 *Description:* The name of a PKCS \#12 file that contains an unencrypted
 private key, an X.509 certificate, and an optional set of trusted CA
@@ -238,8 +235,8 @@ source s_tls {
 
 ## sni()
 
-|Accepted values:|   yes \| no|
-|Default: |          no|
+| Accepted values: | `yes`, `no` |
+| Default:         | `no`        |
 
 *Description:* When set to yes in a destination that uses TLS
 encryption, this option enables Server Name Indication (also called
@@ -271,8 +268,8 @@ destination demo_tls_destination_with_sni {
 
 ## ssl-options()
 
-| Accepted values:|   comma-separated list of the following options: `no-sslv2`, `no-sslv3`, `no-tlsv1`, `no-tlsv11`, `no-tlsv12`, `no-tlsv13`, `none`, `ignore-hostname-mismatch`, `ignore-validity-period`|
-|Default:  |         `no-sslv2`|
+| Accepted values: | comma-separated list of the following options: `no-sslv2`, `no-sslv3`, `no-tlsv1`, `no-tlsv11`, `no-tlsv12`, `no-tlsv13`, `none`, `ignore-hostname-mismatch`, `ignore-validity-period` |
+| Default:         | `no-sslv2`                                                                                                                                                                             |
 
 This option is available in {{ site.product.short_name }} 3.7 and newer.
 
@@ -317,8 +314,8 @@ destination demo_tls_destination {
 
 ## ssl-version()
 
-|Type:|   string|
-|Default: |          None, uses the libcurl default|
+| Type:    | string                         |
+| Default: | None, uses the libcurl default |
 
 Available in {{ site.product.short_name }} 4.5 and later versions.
 
@@ -326,8 +323,8 @@ Available in {{ site.product.short_name }} 4.5 and later versions.
 
 ## trusted-dn()
 
-|  Accepted values:  | list of accepted distinguished names|
-|  Default:          | none|
+| Accepted values: | list of accepted distinguished names |
+| Default:         | none                                 |
 
 *Description:* To accept connections only from hosts using certain
 certificates signed by the trusted CAs, list the distinguished names of
@@ -338,8 +335,8 @@ state.
 
 ## trusted-keys()
 
-|  Accepted values:|   list of accepted SHA-1 fingerprints|
-|  Default:         |  none|
+| Accepted values: | list of accepted SHA-1 fingerprints |
+| Default:         | none                                |
 
 *Description:* To accept connections only from hosts using certain
 certificates having specific SHA-1 fingerprints, list the fingerprints

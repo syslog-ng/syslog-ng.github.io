@@ -43,8 +43,8 @@ of your operating system.
 
 ## fsync()
 
-|  Type:|      yes or no|
-  |Default:|   no|
+| Accepted values: | `yes`, `no` |
+| Default:         | `no`        |
 
 *Description:* Forces an fsync() call on the destination fd after each
 write.
@@ -56,8 +56,8 @@ write.
 
 ## group()
 
-|  Type:|      string|
-  |Default:|   Use the global settings|
+| Type:    | string                  |
+| Default: | Use the global settings |
 
 *Description:* Set the group of the created file to the one specified.
 To preserve the original properties of an existing file, use the option
@@ -72,22 +72,22 @@ It has the following suboptions:
 
 ### enable()
 
-|  Type:|      yes/no|
-  |Default:|   no|
+| Accepted values: | `yes`, `no` |
+| Default:         | `no`        |
 
 *Description:* Enable or disable logrotate feature.
 
 ### size()
 
-|  Type:|      positive number (bytes)|
-  |Default:|   1MB|
+| Type:    | positive number (bytes) |
+| Default: | 1MB                     |
 
 *Description:* Maximum filesize that should trigger logrotation.
 
 ### rotations()
 
-|  Type:|      positive number|
-  |Default:|   1|
+| Type:    | positive number |
+| Default: | 1               |
 
 *Description:* Maximum number of rotated files. This number does not include the *main* log file, meaning if this option is set to a number N then at most N+1 files are created.
 Rotated files are named based on the given log file name and their rotation id (`<file-name>.<id>`).
@@ -108,8 +108,8 @@ This configuration snippet results in at most 6 files (/var/log/my-logfile.log, 
 
 ## overwrite-if-older()
 
-|  Type:|      number (seconds)|
-  |Default:|   0|
+| Type:    | number (seconds) |
+| Default: | 0                |
 
 *Description:* If set to a value higher than 0, {{ site.product.short_name }} checks
 when the file was last modified before starting to write into the file.
@@ -126,8 +126,8 @@ to **518000** seconds.
 
 ## owner()
 
-|  Type:|      string|
-  |Default:|   Use the global settings|
+| Type:    | string                  |
+| Default: | Use the global settings |
 
 *Description:* Set the owner of the created file to the one specified.
 To preserve the original properties of an existing file, use the option
@@ -148,8 +148,8 @@ above that size will be lost.
 
 ## symlink-as()
 
-|  Type:|      Filename|
-  |Default:|   N/A|
+| Type:    | Filename |
+| Default: | N/A      |
 
 *Description:* The configured file name will be used as a symbolic link
 to the last created file by file destination.

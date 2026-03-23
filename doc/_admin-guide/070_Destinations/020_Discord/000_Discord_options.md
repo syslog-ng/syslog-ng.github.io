@@ -12,8 +12,8 @@ The discord() destination has the following options:
 
 ## avatar-url()
 
-|  Type:|      URL|
-|Default:|   N/A|
+| Type:    | URL |
+| Default: | N/A |
 
 *Description:* A hyperlink for icon of the author to be displayed in
 Discord. For details, see the avatar_url option in the Discord
@@ -71,8 +71,8 @@ documentation.
 
 ## max-msg-length()
 
-|  Type:|      Number|
-|Default:|   2000|
+| Type:    | Number |
+| Default: | 2000   |
 
 *Description:* Removes every character above the set limit. For details,
 see the content option in the Discord documentation.
@@ -87,9 +87,8 @@ see the content option in the Discord documentation.
 
 ## proxy()
 
-| Type:    | The proxy server address, in proxy(\"PROXY_IP:PORT\") format. |
-||For example, proxy(\"http://myproxy:3128\")                    |
-| Default: | None         |
+| Type:    | The proxy server address, in proxy("PROXY_IP:PORT") format. For example, proxy("http://myproxy:3128") |
+| Default: | None                                                                                                  |
 
 *Description:* You can use the proxy() option to configure the HTTP driver in all
 HTTP-based destinations to use a specific HTTP proxy that is independent
@@ -133,16 +132,16 @@ For more information, see Discord: Rate Limits.
 
 ## tts()
 
-|  Type:|      true \| false|
-|Default:|   false|
+| Type:    | true \ | false |
+| Default: | false  |       |
 
 *Description:* Enables TTS (Text-To-Speech) mode. For more information,
 see the tts option in the Discord documentation.
 
 ## url()
 
-|  Type:|      URL|
-|Default:|   N/A|
+| Type:    | URL |
+| Default: | N/A |
 
 *Description:* The webhook URL of the Discord server/channel. For more
 information, see Discord: Intro to Webhooks.
@@ -151,8 +150,8 @@ information, see Discord: Intro to Webhooks.
 
 ## username()
 
-|  Type:|      string|
-|Default:|   N/A|
+| Type:    | string |
+| Default: | N/A    |
 
 *Description:* Overrides the default username of the webhook. For
 details, see the username option in the Discord documentation.

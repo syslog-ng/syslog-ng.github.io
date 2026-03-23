@@ -1,7 +1,7 @@
 ## disable-bookmarks()
 
-| Type:     | boolean |
-| Default:  | no |
+| Accepted values: | `yes`, `no` |
+| Default:         | `no`        |
 
 *Description:* This option prevents {{ site.product.short_name }} from storing a bookmark (such as position or offset) in its persist file for the last processed message.
 

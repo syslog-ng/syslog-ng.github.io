@@ -1,7 +1,7 @@
 ## log-msg-size()
 
-|Type:|      number (bytes)|
-|Default:|   {{ page.log_msg_size_default | default: 'Use the global **log-msg-size()** option, which defaults to 65536 (64 KiB).' }}|
+| Type:    | number (bytes)                                                                                                           |
+| Default: | {{ page.log_msg_size_default | default: 'Use the global **log-msg-size()** option, which defaults to 65536 (64 KiB).' }} |
 
 *Description:* Maximum length of an incoming message in bytes. This
 length includes the entire message (the data structure and individual

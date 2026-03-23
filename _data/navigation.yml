@@ -925,7 +925,7 @@ admin-guide-nav:
     - title: "Key-Value pair parser"
       url: /admin-guide/120_Parser/011_key-value_pairs_parser/README
       subnav:
-      - title: "Options of key=value parsers"
+      - title: "Options of key-value parsers"
         url: /admin-guide/120_Parser/011_key-value_pairs_parser/000_kv_parser_options
     - title: "Linux audit parser"
       url: /admin-guide/120_Parser/012_Linux_audit_parser/README
@@ -946,10 +946,10 @@ admin-guide-nav:
     - title: "panos parser"
       url: /admin-guide/120_Parser/015_panos_parser/README
       subnav:
-      - title: "Message format parsed by panos-parser()"
-        url: /admin-guide/120_Parser/015_panos_parser/000_Message_format
       - title: "PAN-OS parser options"
-        url: /admin-guide/120_Parser/015_panos_parser/001_Panos_parser_options
+        url: /admin-guide/120_Parser/015_panos_parser/000_Panos_parser_options
+      - title: "Message format parsed by panos-parser()"
+        url: /admin-guide/120_Parser/015_panos_parser/001_Message_format
     - title: "OpenTelemetry parser"
       url: /admin-guide/120_Parser/016_opentelemetry_parser
     - title: "PostgreSQL parser"
@@ -974,10 +974,10 @@ admin-guide-nav:
     - title: "XML parser"
       url: /admin-guide/120_Parser/022_XML_parser/README
       subnav:
-      - title: "Limitations of the XML parsers"
-        url: /admin-guide/120_Parser/022_XML_parser/000_Limitations
       - title: "Options of the XML parsers"
-        url: /admin-guide/120_Parser/022_XML_parser/001_XML_Parser_options
+        url: /admin-guide/120_Parser/022_XML_parser/000_XML_Parser_options
+      - title: "Limitations of the XML parsers"
+        url: /admin-guide/120_Parser/022_XML_parser/001_Limitations
     - title: "Websense parser"
       url: /admin-guide/120_Parser/023_websense_parser
     - title: "Windows XML Event Log (EVTX) parser"

@@ -12,8 +12,8 @@ The riemann() destination has the following options:
 
 ## attributes()
 
-|  Type:|      parameter list of the value-pairs() option|
-  |Default:|   |
+| Type:    | parameter list of the value-pairs() option |
+| Default: |                                            |
 
 *Description:* The attributes() option adds extra metadata to the
 Riemann event, that can be displayed on the Riemann dashboard. To
@@ -29,8 +29,8 @@ Structuring macros, metadata, and other value-pairs.
 
 ## description()
 
-|  Type:|      template, macro, or string|
-  |Default:|   |
+| Type:    | template, macro, or string |
+| Default: |                            |
 
 *Description:* The value to add as the description field of the Riemann
 event.
@@ -39,8 +39,8 @@ event.
 
 ## event-time()
 
-|  Type:|      template, macro, or string|
-  |Default:|   ${UNIXTIME}|
+| Type:    | template, macro, or string |
+| Default: | ${UNIXTIME}                |
 
 *Description:* Instead of the arrival time into Riemann, {{ site.product.short_name }}
 can also send its own timestamp value.
@@ -112,8 +112,8 @@ destination d_riemann {
 
 ## host()
 
-|  Type:|      template, macro, or string|
-  |Default:|   ${HOST}|
+| Type:    | template, macro, or string |
+| Default: | ${HOST}                    |
 
 *Description:* The value to add as the host field of the Riemann event.
 
@@ -121,8 +121,8 @@ destination d_riemann {
 
 ## metric()
 
-|  Type:|      template, macro, or string|
-  |Default:|   |
+| Type:    | template, macro, or string |
+| Default: |                            |
 
 *Description:* The numeric value to add as the metric field of the
 Riemann event. If possible, include type-hinting as well, otherwise the
@@ -139,30 +139,30 @@ metric(int("${SEQNUM}"))
 
 ## server()
 
-|  Type:|      hostname or IP address|
-  |Default:|   127.0.0.1|
+| Type:    | hostname or IP address |
+| Default: | 127.0.0.1              |
 
 *Description:* The hostname or IP address of the Riemann server.
 
 ## service()
 
-|  Type:|      template, macro, or string|
-  |Default:|   ${PROGRAM}|
+| Type:    | template, macro, or string |
+| Default: | ${PROGRAM}                 |
 
 *Description:* The value to add as the service field of the Riemann
 event.
 
 ## state()
 
-|  Type:|      template, macro, or string|
-  |Default:|   |
+| Type:    | template, macro, or string |
+| Default: |                            |
 
 *Description:* The value to add as the state field of the Riemann event.
 
 ## tags()
 
-|  Type:|      string list|
-  |Default:|   the tags already assigned to the message|
+| Type:    | string list                              |
+| Default: | the tags already assigned to the message |
 
 *Description:* The list of tags to add as the tags field of the Riemann
 event. If not specified {{ site.product.short_name }} automatically adds the tags
@@ -177,16 +177,16 @@ tags you specify will be added to the event.
 
 ## ttl()
 
-|  Type:|      template, macro, or number|
-  |Default:|   |
+| Type:    | template, macro, or number |
+| Default: |                            |
 
 *Description:* The value (in seconds) to add as the ttl (time-to-live)
 field of the Riemann event.
 
 ## type()
 
-|  Type:|      tcp \| tls \| udp|
-  |Default:|   tcp|
+| Type:    | tcp \ | tls \ | udp |
+| Default: | tcp   |       |     |
 
 *Description:* The type of the network connection to the Riemann server:
 TCP, TLS, or UDP. For TLS connections, set the ca-file() option to

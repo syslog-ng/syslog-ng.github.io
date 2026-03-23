@@ -7,8 +7,8 @@ description: >-
 
 ## increment()
 
-| Type: | integer or template |
-| Default: | 1 |
+| Type:    | integer or template |
+| Default: | 1                   |
 
 Available in {{ site.product.short_name }} 4.2 and later versions.
 
@@ -33,7 +33,7 @@ metrics-probe(
 
 ## key()
 
-| Type: | string |
+| Type:    | string                  |
 | Default: | classified_events_total |
 
 This option defines the name of the counter to create. Note that the value of
@@ -42,7 +42,7 @@ becomes `syslogng_my-custom-key`.
 
 ## labels()
 
-| Type: |  |
+| Type:    |                     |
 | Default: | See the description |
 
 This option defines the labels used to create separate counters, based on the
@@ -96,8 +96,8 @@ syslogng_foo{static_label="bar",my_prefix_baz="anotherlabel",my_prefix_foo="bar"
 
 ## level()
 
-| Type: | integer (0-3) |
-| Default: | 0 |
+| Type:    | integer (0-3) |
+| Default: | 0             |
 
 Available in {{ site.product.short_name }} 4.2 or later versions.
 
@@ -106,4 +106,3 @@ This option sets the stats level of the generated metrics.
 **NOTE:** Drivers configured with internal(yes) register their metrics on level 3.
 Due to this, if an SCL is created, the built-in metrics of the driver can be disabled,
 metrics can be created manually using metrics-probe().
-{: .notice--info}

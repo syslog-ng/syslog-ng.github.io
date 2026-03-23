@@ -1,6 +1,7 @@
 ---
 title: snmptrap() source options
 driver: 'snmptrap'
+prefix: 'snmp' 
 fn_source: snmptrapd
 fn_logs: traps
 id: adm-src-snmp-opt
@@ -31,19 +32,19 @@ Currently {{ site.product.short_name }} discards these messages.
 
 {% include doc/admin-guide/options/prefix.md %}
 
-Default value: .snmp. option.
+{% include doc/admin-guide/default-prefix.md %}
 
 ## set-message-macro()
 
-|Accepted value:| yes \| no |
-|Default:|   yes|
+| Accepted values: | `yes`, `no` |
+| Default:         | `yes`       |
 
 *Description:* The snmptrap() source automatically parses the traps into
 name-value pairs, so you can handle the content of the trap as a
 structured message. Consequently, you might not even need the
 `MESSAGE` part of the log message. If set-message-macro() is set to
-**no**, {{ site.product.short_name }} leaves the `MESSAGE` part empty. If
-set-message-macro() is set to **yes**, {{ site.product.short_name }} generates a regular
+`no`, {{ site.product.short_name }} leaves the `MESSAGE` part empty. If
+set-message-macro() is set to `yes`, {{ site.product.short_name }} generates a regular
 log message from the trap.
 
 {% include doc/admin-guide/options/sdata-prefix.md %}

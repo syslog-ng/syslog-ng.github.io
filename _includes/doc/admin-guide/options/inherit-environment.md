@@ -1,7 +1,7 @@
 ## inherit-environment()
 
-|Accepted valued: | yes \| no|
-|Default:|   yes|
+| Accepted values: | `yes`, `no` |
+| Default:         | `yes`       |
 
 *Description:* By default, when program() starts an external application
 or script, it inherits the entire environment of the parent process

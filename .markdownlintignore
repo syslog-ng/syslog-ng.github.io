@@ -1,0 +1,24 @@
+# Generated output
+_site/
+_site/**
+
+# Dependencies
+.bundle/
+.vendor/
+vendor/
+node_modules/
+
+# Build artifacts
+build/
+
+# Jekyll infrastructure
+_data/
+_js/
+_layouts/
+_plugins/
+_sass/
+_tools/
+assets/
+
+# Git
+.git/

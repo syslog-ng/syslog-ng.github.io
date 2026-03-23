@@ -1,7 +1,7 @@
 ## multi-line-timeout()
 
-|  Type:| number|
-|Default:| N/A|
+| Type:    | number |
+| Default: | N/A    |
 
 *Description:*  Specifies the time (in seconds) {{ site.product.short_name }} waits without reading new data from the source, before the last (potentially partial) message is flushed and sent through the pipeline as a LogMessage.
 

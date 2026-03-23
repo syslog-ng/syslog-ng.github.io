@@ -1,7 +1,7 @@
 ## time-zone()
 
-|Type:     |name of the timezone, or the timezone offset|
-|Default:||
+| Type:    | name of the timezone, or the timezone offset |
+| Default: |                                              |
 
 *Description:* The default timezone for messages read from the source.
 Applies only if no timezone is specified within the message itself.

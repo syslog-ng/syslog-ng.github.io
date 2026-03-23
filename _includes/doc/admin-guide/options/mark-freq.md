@@ -1,14 +1,14 @@
 ## mark-freq()
 
-|  Accepted values:|   number \[seconds\]|
-|Default:|           1200|
+| Type:    | number |
+| Default: | `1200` |
 
 *Description:* An alias for the obsolete mark() option, retained for
 compatibility with {{ site.product.short_name }} version 1.6.x.
 
 The number of seconds between two MARK messages. MARK messages are
 generated when there was no message traffic to inform the receiver that
-the connection is still alive. If set to zero (**0**), no MARK messages
+the connection is still alive. If set to `0`, no MARK messages
 are sent. The mark-freq() can be set for global option and/or every MARK
 capable destination driver if mark-mode() is periodical or dst-idle or
 host-idle. If mark-freq() is not defined in the destination, then the

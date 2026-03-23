@@ -15,16 +15,16 @@ description: >-
 
 ## bad-hostname()
 
-|  Accepted values:|   regular expression|
-  |Default:|           no|
+| Accepted values: | regular expression |
+| Default:         | no                 |
 
 *Description:* A regexp containing hostnames which should not be handled
 as hostnames.
 
 ## chain-hostnames()
 
-|  Accepted values:|   yes \| no|
-  |Default:|           no|
+| Accepted values: | `yes`, `no` |
+| Default:         | `no`        |
 
 *Description:* Enable or disable the chained hostname format. If a
 client sends the log message directly to the {{ site.product.short_name }} server, the
@@ -137,8 +137,8 @@ counting.
 
 ## check-hostname()
 
-|  Accepted values:|   yes \| no|
-|Default:|           no|
+| Accepted values: | `yes`, `no` |
+| Default:         | `no`        |
 
 *Description:* Enable or disable checking whether the hostname contains
 valid characters.
@@ -150,8 +150,8 @@ valid characters.
 **NOTE:** This global option works only if the use-fqdn() global option is set to yes.
 {: .notice--info}
 
-|Accepted values:|   string|
-|Default:         |  empty string|
+| Accepted values: | string       |
+| Default:         | empty string |
 
 *Description:* Use this option to specify a custom domain name that is
 appended after the short hostname to receive the fully qualified domain
@@ -172,8 +172,8 @@ sources, file sources, MARK messages and internal messages of {{ site.product.sh
 
 ## dns-cache()
 
-|  Accepted values:|   yes \| no|
-|Default:|           yes|
+| Accepted values: | `yes`, `no` |
+| Default:         | `yes`       |
 
 *Description:* Enable or disable DNS cache usage.
 
@@ -183,22 +183,22 @@ sources, file sources, MARK messages and internal messages of {{ site.product.sh
 
 ## dns-cache-expire()
 
-|  Accepted values:|   number|
-|Default:|           3600|
+| Accepted values: | number |
+| Default:         | 3600   |
 
 *Description:* Number of seconds while a successful lookup is cached.
 
 ## dns-cache-expire-failed()
 
-|  Accepted values:|   number|
-  |Default:|           60|
+| Accepted values: | number |
+| Default:         | 60     |
 
 *Description:* Number of seconds while a failed lookup is cached.
 
 ## dns-cache-hosts()
 
-|  Accepted values:|   filename|
-|Default:|           unset|
+| Accepted values: | filename |
+| Default:         | unset    |
 
 *Description:* Name of a file in /etc/hosts format that contains static
 IP-\>hostname mappings. Use this option to resolve hostnames locally
@@ -207,15 +207,15 @@ in {{ site.product.short_name }} and is instantaneous.
 
 ## dns-cache-size()
 
-|  Accepted values:|   number of hostnames|
-|Default:|           1007|
+| Accepted values: | number of hostnames |
+| Default:         | 1007                |
 
 *Description:* Number of hostnames in the DNS cache.
 
 ## file-template()
 
-|  Accepted values:|   string|
-|Default:|           |
+| Accepted values: | string |
+| Default:         |        |
 
 *Description:* Specifies a template that file-like destinations use by
 default. For example:
@@ -231,8 +231,8 @@ options { file-template(t_isostamp); };
 
 ## group()
 
-|  Accepted values:|   groupid|
-|Default:|           root|
+| Accepted values: | groupid |
+| Default:         | root    |
 
 *Description:* The default group of output files. By default, syslog-ng
 changes the privileges of accessed files (for example, /dev/null) to
@@ -249,8 +249,8 @@ with the **-1** value.
 
 ## log-level()
 
-|  Accepted values:|   default, verbose, debug, trace|
-|Default:|           default|
+| Accepted values: | `default`, `verbose`, `debug`, `trace` |
+| Default:         | default                                |
 
 This option is available in {{ site.product.short_name }} version 4.0 and later versions.
 
@@ -288,8 +288,8 @@ Higher log-levels automatically include messages from lower log-levels:
 
 ## owner()
 
-|  Accepted values:|   userid|
-|Default:|           root|
+| Accepted values: | userid |
+| Default:         | root   |
 
 *Description:* The default owner of output files. If set, syslog-ng
 changes the owner of accessed files (for example, /dev/null) to this
@@ -307,8 +307,8 @@ configured to do so.
 
 ## proto-template()
 
-|  Accepted values:|   name of a template|
-|Default:|           The default message format of the used protocol|
+| Accepted values: | name of a template                              |
+| Default:         | The default message format of the used protocol |
 
 *Description:* Specifies a template that protocol-like destinations (for
 example, network() and syslog()) use by default. For example:
@@ -320,8 +320,8 @@ options { proto-template(t_isostamp); };
 
 ## recv-time-zone()
 
-|  Accepted values:|   name of the timezone, or the timezone offset|
-  |Default:|           local timezone|
+| Accepted values: | name of the timezone, or the timezone offset |
+| Default:         | local timezone                               |
 
 *Description:* Specifies the time zone associated with the incoming
 messages, if not specified otherwise in the message or in the source
@@ -333,8 +333,8 @@ driver.
 
 ## so-passcred()
 
-|Accepted values:|   `yes`, `no`|
-|Default:        |         `yes`|
+| Accepted values: | `yes`, `no` |
+| Default:         | `yes`       |
 
 *Description:* Enable {{ site.product.short_name }} to collect credential
 information (that is, the `PID`, user ID, and group of the sender process)
@@ -364,8 +364,8 @@ The following sub-options are available within the stats() option:
 
 ### freq()
 
-|  Accepted values:|   number (seconds)|
-|Default:|           600|
+| Accepted values: | number |
+| Default:         | `600`  |
 
 *Description:* The period between two STATS messages in seconds. STATS
 are log messages sent by syslog-ng, containing statistics about dropped
@@ -373,8 +373,8 @@ log messages. Set to **0** to disable the STATS messages.
 
 ### level()
 
-|  Accepted values:|   0, 1, 2, 3|
-|Default:|           0|
+| Accepted values: | `0`, `1`, `2`, `3` |
+| Default:         | `0`                |
 
 *Description:* Specifies the detail of statistics {{ site.product.short_name }} collects about the processed messages.
 
@@ -391,15 +391,15 @@ log messages. Set to **0** to disable the STATS messages.
 
 ### lifetime()
 
-|  Accepted values:|   number (seconds)|
-|Default:|           N/A|
+| Accepted values: | number |
+| Default:         | N/A    |
 
-*Description:* Dynamic counters in metrics are pruned after lifetime expires. Note that orphaned counters are not pruned (you can prune them by running `syslog-ng-ctl stats --remove-orphans`)
+*Description:* Dynamic counters in metrics are pruned after lifetime seconds expires. Note that orphaned counters are not pruned (you can prune them by running `syslog-ng-ctl stats --remove-orphans`)
 
 ### max-dynamics()
 
-|  Accepted values:|   number|
-|Default:|           N/A|
+| Accepted values: | number |
+| Default:         | N/A    |
 
 *Description:* To avoid performance issues or even overloading {{ site.product.short_name }} (for example, if a script starts to send logs from different IP addresses to {{ site.product.short_name }}), you might want to limit the number of registered dynamic counters in the message statistics. For details on message statistics, see Statistics of syslog-ng.
 
@@ -433,8 +433,8 @@ log messages. Set to **0** to disable the STATS messages.
 
 ### syslog-stats()
 
-|  Accepted values:|   yes, no, auto|
-|Default:|           auto|
+| Accepted values: | `yes`, `no`, `auto` |
+| Default:         | `auto`              |
 
 Available in {{ site.product.short_name }} 4.1 and later versions.
 
@@ -466,8 +466,8 @@ Possible values:
 
 ## threaded()
 
-|  Accepted values:|   yes\|no|
-  |Default:|           yes|
+| Accepted values: | `yes`, `no` |
+| Default:         | `yes`       |
 
 *Description:* Enable {{ site.product.short_name }} to run in multithreaded mode and use
 multiple CPUs. Available only in {{ site.product.name }} 3.3 and
@@ -490,10 +490,10 @@ Multithreading and scaling in {{ site.product.short_name }}.
 
 ## use-rcptid()
 
-|  Accepted values:|   yes \| no|
-|Default:|           no|
+| Accepted values: | `yes`, `no` |
+| Default:         | `no`        |
 
-*Description:* When the use-rcptid global option is set to **yes**,
+*Description:* When the use-rcptid global option is set to `yes`,
 {{ site.product.short_name }} automatically assigns a unique reception ID to every
 received message. You can access this ID and use it in templates via the
 ${RCPTID} macro. The reception ID is a monotonously increasing 48-bit
@@ -502,8 +502,8 @@ restarts with 1).
 
 ## use-uniqid()
 
-|  Accepted values:|   yes \| no|
-|Default:|           no|
+| Accepted values: | `yes`, `no` |
+| Default:         | `no`        |
 
 *Description:* This option enables generating a globally unique ID. It
 is generated from the `HOSTID` and the `RCPTID` in the format of

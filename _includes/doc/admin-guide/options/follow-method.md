@@ -1,7 +1,7 @@
 ## follow-method()
 
-|Accepted values:| auto \| legacy \| poll \| inotify \| system |
-|Default: | legacy |
+| Accepted values: | `auto`, `legacy`, `poll`, `inotify`, `system` |
+| Default:         | `legacy`                                        |
 
 *Description:* This option is available in version 4.9 and higher and its value controls how {{ site.product.short_name }} will follow file changes.
 

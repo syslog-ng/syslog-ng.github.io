@@ -1,7 +1,7 @@
 ## multi-line-prefix()
 
-| Type: |      regular expression starting with the ^ character|
-|Default: |  empty string|
+| Type:    | regular expression starting with the ^ character |
+| Default: | empty string                                     |
 
 *Description:* Use the multi-line-prefix() option to process multi-line
 messages, that is, log messages that contain newline characters (for

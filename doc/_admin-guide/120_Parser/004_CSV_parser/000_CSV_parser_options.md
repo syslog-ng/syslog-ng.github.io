@@ -1,5 +1,6 @@
 ---
 title: Options of CSV parsers
+parser: csv
 id: adm-parser-csv-opt
 description: >-
     This section describes the options of the csv-parser() in {{ site.product.short_name }}.
@@ -9,7 +10,7 @@ The csv-parser() has the following options:
 
 ## columns()
 
-|  Synopsis:|   columns(\"PARSER.COLUMN1\", \"PARSER.COLUMN2\", \...)|
+| Synopsis: | columns("PARSER.COLUMN1", "PARSER.COLUMN2", \...) |
 
 *Description:* Specifies the name of the columns to separate messagesto. These
 names will be automatically available as macros. The values of
@@ -17,9 +18,9 @@ these macros do not include the delimiters.
 
 ## delimiters()
 
-|Synopsis:|delimiters(chars(\"\<delimiter\_characters\>\")) *or* delimiters(\"\<delimiter\_characters\>\")|
-||delimiters(strings(\"\<delimiter\_string1\>\",   \"\<delimiter\_string2\>\", \...)\")|
-||delimiters(chars(\"\<delimiter\_characters\>\"),strings(\"\<delimiter\_string1\>\")) |
+| Synopsis:                                                                        | delimiters(chars("\<delimiter\_characters\>")) *or* delimiters("\<delimiter\_characters\>") |
+| delimiters(strings("\<delimiter\_string1\>", "\<delimiter\_string2\>", ...)\" )  |                                                                                             |
+| delimiters(chars("\<delimiter\_characters\>"),strings("\<delimiter\_string1\>")) |                                                                                             |
 
 *Description:* The delimiter is the character or string that separates
 the columns in the message. If you specify multiple characters using the
@@ -65,7 +66,7 @@ If you use more than one delimiter, note the following points:
 
 ## dialect()
 
-|Synopsis:|   escape-none \| escape-backslash \|  escape-double-char|
+| Synopsis: | escape-none \ | escape-backslash \ | escape-double-char |
 
 *Description:* Specifies how to handle escaping in the parsed message.
 The following values are available. Default value: escape-none
@@ -94,7 +95,7 @@ The following values are available. Default value: escape-none
 
 ## flags()
 
-|Synopsis:|   drop-invalid, escape-none, escape-backslash, escape-double-char, greedy, strip-whitespace|
+| Synopsis: | drop-invalid, escape-none, escape-backslash, escape-double-char, greedy, strip-whitespace |
 
 *Description:* Specifies various options for parsing the message. The
 following flags are available:
@@ -163,7 +164,7 @@ following flags are available:
 
 ## null()
 
-|Synopsis: |  string|
+| Synopsis: | string |
 
 *Description:* If the value of a column is the value of the null()
 parameter, {{ site.product.short_name }} changes the value of the column to an empty
@@ -173,18 +174,11 @@ to change these values to empty stings.
 
 {% include doc/admin-guide/options/prefix.md %}
 
-This parser does not have a default prefix. To configure a custom
-prefix, use the following format:
-
-```config
-parser {
-    csv-parser(prefix("myprefix."));
-};
-```
+{% include doc/admin-guide/default-no-prefix.md %}
 
 ## quote-pairs()
 
-|Synopsis:  | quote-pairs(\'\<quote\_pairs\>\')|
+| Synopsis: | quote-pairs(\'\<quote\_pairs\>\') |
 
 *Description:* List quote-pairs between single quotes. Delimiter
 characters or strings enclosed between quote characters are ignored.

@@ -20,8 +20,8 @@ The pipe() destination has the following options:
 
 ## group()
 
-|  Type:|      string|
-  |Default:|   Use the global settings|
+| Type:    | string                  |
+| Default: | Use the global settings |
 
 *Description:* Set the group of the created file to the one specified.
 To preserve the original properties of an existing file, use the option
@@ -37,8 +37,8 @@ without specifying an attribute: group().
 
 ## owner()
 
-|  Type:|      string|
-  |Default:|   Use the global settings|
+| Type:    | string                  |
+| Default: | Use the global settings |
 
 *Description:* Set the owner of the created file to the one specified.
 To preserve the original properties of an existing file, use the option

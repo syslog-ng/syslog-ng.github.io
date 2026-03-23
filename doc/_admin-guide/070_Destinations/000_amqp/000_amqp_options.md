@@ -12,8 +12,8 @@ The amqp() destination has the following options:
 
 ## auth-method()
 
-|  Accepted values:|   plain \| external|
-|Default:|           plain|
+| Accepted values: | `plain`, `external` |
+| Default:         | plain               |
 
 *Description:* The amqp() driver supports the following types of
 authentication:
@@ -34,8 +34,8 @@ authentication:
 
 ## body()
 
-|  Type:|      string|
-|Default:|   empty string|
+| Type:    | string       |
+| Default: | empty string |
 
 *Description:* The body of the AMQP message. You can also use macros and
 templates.
@@ -60,8 +60,8 @@ templates.
 
 ## exchange()
 
-|  Type:|      string|
-  |Default:|   syslog|
+| Type:    | string |
+| Default: | syslog |
 
 *Description:* The name of the AMQP exchange where {{ site.product.short_name }} sends
 the message. Exchanges take a message and route it into zero or more
@@ -69,8 +69,8 @@ queues.
 
 ## exchange-declare()
 
-|  Type:|      yes \| no|
-  |Default:|   no|
+| Accepted values: | `yes`, `no` |
+| Default:         | `no`        |
 
 *Description:* By default, {{ site.product.short_name }} does not create non-existing
 exchanges. Use the **exchange-declare(yes)** option to automatically
@@ -78,15 +78,15 @@ create exchanges.
 
 ## exchange-type()
 
-|  Type:|      direct \| fanout \| topic \| headers|
-  |Default:|   fanout|
+| Type:    | direct \ | fanout \ | topic \ | headers |
+| Default: | fanout   |          |         |         |
 
 *Description:* The type of the AMQP exchange.
 
 ## frame-size()
 
-|  Type:|      integer|
-  |Default:|   |
+| Type:    | integer |
+| Default: |         |
 
 *Description:* Sets maximal frame size (the frame-max option described
 in the [AMQP Reference
@@ -94,8 +94,8 @@ Guide](https://www.rabbitmq.com/amqp-0-9-1-reference.html).
 
 ## heartbeat()
 
-|  Type:|      number \[seconds\]|
-  |Default:|   0 (disabled)|
+| Type:    | number \[seconds\] |
+| Default: | 0 (disabled)       |
 
 *Description:* If enabled, the {{ site.product.short_name }} amqp destination sends
 heartbeat messages to the server periodically. During negotiation, both
@@ -124,8 +124,8 @@ Available in {{ site.product.short_name }} version 3.21 and later.
 
 ## max-channel()
 
-|  Type:|      integer|
-|Default:|   |
+| Type:    | integer |
+| Default: |         |
 
 *Description:* Sets maximal number of channels (the channel-max option
 described in the AMQP Reference Guide).
@@ -154,8 +154,8 @@ described in the AMQP Reference Guide).
 
 ## routing-key()
 
-|  Type:|      string|
-|Default:|   empty string|
+| Type:    | string       |
+| Default: | empty string |
 
 *Description:* Specifies a routing key for the exchange. The routing key
 selects certain messages published to an exchange to be routed to the
@@ -172,7 +172,7 @@ routing key can include macros and templates.
 
 ## vhost()
 
-|  Type:|      string|
-  |Default:|   /|
+| Type:    | string |
+| Default: | /      |
 
 *Description:* The name of the AMQP virtual host to send the messages to.

@@ -1,7 +1,7 @@
 ## time-reap()
 
-|  Accepted values:|   number (seconds)|
-|Default:|           60 or 0, see description for details|
+| Accepted values: | number                                   |
+| Default:         | `60` or `0`, see description for details |
 
 *Description:* The time to wait in seconds before an idle destination
 file or pipe is closed. Note that only destination files having macros

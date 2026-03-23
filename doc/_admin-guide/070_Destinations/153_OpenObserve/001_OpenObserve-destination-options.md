@@ -9,8 +9,8 @@ description: >-
 
 ## organization()
 
-|  Type:|      string|
-|  Default:|   `"default"`|
+| Type:    | string      |
+| Default: | `"default"` |
 
 *Description:* The name of the OpenObserve organization where {{ site.product.short_name }} sends the data.
 
@@ -20,28 +20,27 @@ description: >-
 
 ## record()
 
-|  Type:|      string|
-|  Default:|   `"--scope rfc5424 --exclude DATE --key ISODATE @timestamp=${ISODATE}"`|
+| Type:    | string                                                                 |
+| Default: | `"--scope rfc5424 --exclude DATE --key ISODATE @timestamp=${ISODATE}"` |
 
 *Description:* A JSON object representing key-value pairs sent to OpenObserve, formatted as {{ site.product.short_name }} value-pairs. By default, the `openobserve-log()` destination sends the RFC-5424 fields as attributes. If you want to send different fields, override the default content of the `record()` field.
 
 ## stream()
 
-|  Type:|      string|
-|  Default:|   `"default"`|
+| Type:    | string      |
+| Default: | `"default"` |
 
 *Description:* The OpenObserve stream where {{ site.product.short_name }} sends the data, for example, `your-example-stream`.
 
 ## user()
 
-|  Type:|      string|
-|  Default:|   |
+| Type:    | string |
+| Default: |        |
 
 *Description:* The username of the account, for example, `root@example.com`.
 
 ## url()
 
-|  Type:|      string|
-|  Default:|   |
+| Type:    | string |
+| Default: |        |
 
-*Description:* Defines the base URL of the OpenObserve Ingest API. The actual URL is constructed from the base URL and some other options of the destination: `url():port()/api/organization()/stream()/_json`.

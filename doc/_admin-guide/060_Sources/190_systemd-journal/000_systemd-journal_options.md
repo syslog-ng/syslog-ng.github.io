@@ -18,8 +18,8 @@ The systemd-journal() driver has the following options:
 
 ## default-level()
 
-|Type:      |string|
-|Default:   |notice|
+| Type:    | string |
+| Default: | notice |
 
 *Description:* The default level value if the `PRIORITY` entry does not
 exist.
@@ -36,8 +36,8 @@ exist.
 
 ## match-boot()
 
-|  Type:  |    `yes`, `no`|
-|  Default: |  `no`|
+| Accepted values: | `yes`, `no` |
+| Default:         | `no`        |
 
 This option is available in {{ site.product.short_name }} 4.1 and later versions.
 
@@ -45,8 +45,8 @@ This option is available in {{ site.product.short_name }} 4.1 and later versions
 
 ## matches()
 
-|  Type:  |    string|
-|  Default: |  |
+| Type:    | string |
+| Default: |        |
 
 This option is available in {{ site.product.short_name }} 4.1 and later versions.
 
@@ -62,15 +62,15 @@ matches(
 
 ## max-field-size()
 
-|  Type:  |    number (characters)|
-|  Default: |  65536|
+| Type:    | number (characters) |
+| Default: | 65536               |
 
 *Description:* The maximum length of a field's value.
 
 ## namespace()
 
-|  Type:    |  string|
-|  Default: |  "*" |
+| Type:    | string |
+| Default: | "*"    |
 
 *Description:* The namespace() option works exactly the same way as the
 respective option of the Journalctl command line tool.
@@ -133,20 +133,20 @@ namespaces on the Systemd side, see Journal Namespaces.
 
 ## prefix()
 
-|  Type: |     string|
-|  Default: |  .journald.|
+| Type:    | string     |
+| Default: | .journald. |
 
 *Description:* If this option is set, every non-built-in mapped names
 get a prefix (for example: ".SDATA.journald."). By default, {{ site.product.short_name }} adds the .journald. prefix to every value.
 
 ## read-old-records()
 
-|  Accepted values:|  yes \| no|
-|Default:|   yes|
+| Accepted values: | `yes`, `no` |
+| Default:         | `yes`       |
 
-*Description:* If set to **yes**, {{ site.product.short_name }} will start reading the
+*Description:* If set to `yes`, {{ site.product.short_name }} will start reading the
 records from the beginning of the journal, if the journal has not been
-read yet. If set to **no**, {{ site.product.short_name }} will read only the new
+read yet. If set to `no`, {{ site.product.short_name }} will read only the new
 records.
 
 **NOTE:** If the source has a state in the persist file, this option will
@@ -157,8 +157,8 @@ See read-old-on-error() for the behavior of {{ site.product.short_name }} when t
 
 ## read-old-on-error()
 
-|  Accepted values:|  yes \| no|
-|Default:|   yes|
+| Accepted values: | `yes`, `no` |
+| Default:         | `yes`       |
 
 *Description:* When the source has a state in the persist file, {{ site.product.short_name }} attempts to read the journal from the last recorded position at startup.\
 If {{ site.product.short_name }} cannot locate this position (for example, because the journal has been rotated or cleared since the last read), this option determines whether {{ site.product.short_name }} starts reading records from the beginning of the journal or only processes new records. If set to `yes`, it reads from the beginning; otherwise, it reads only new records.

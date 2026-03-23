@@ -1,7 +1,7 @@
 ## ip-protocol()
 
-|  Type:|      number|
-  |Default:|   4|
+| Type:    | number |
+| Default: | 4      |
 
 *Description:* Determines the internet protocol version of the given
 driver (network() or syslog()). The possible values are **4** and **6**,
