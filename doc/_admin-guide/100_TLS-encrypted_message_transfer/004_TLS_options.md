@@ -40,7 +40,7 @@ Available in version 3.19 and later.
 
 ## crl-dir()
 
-| Accepted values: | Directory name |
+| Accepted values: | directory name |
 | Default:         | none           |
 
 *Description:* Name of a directory that contains the Certificate
@@ -50,8 +50,8 @@ of the files must be .r0.
 
 ## dhparam-file()
 
-| Accepted values: | string (filename) |
-| Default:         | none              |
+| Accepted values: | filename |
+| Default:         | none     |
 
 *Description:* Specifies a file containing Diffie-Hellman parameters,
 generated using the openssl dhparam utility. Note that {{ site.product.short_name }}
@@ -105,7 +105,7 @@ with the client certificate.
 
 ## keylog-file()
 
-| Accepted values: | Filename |
+| Accepted values: | filename |
 | Default:         | N/A      |
 
 *Description:* This option enables saving TLS secrets (decryption keys)
@@ -116,11 +116,8 @@ used to save these secrets.
 This option is only available with the following drivers:
 
 - network
-
 - syslog
-
 - tcp
-
 - tcp6
 
 ![]({{ site.baseurl}}/assets/images/caution.png) **CAUTION:**
@@ -194,8 +191,8 @@ tls(
 
 ## pkcs12-file()
 
-| Accepted values: | Filename |
-| Default:         | none     |
+| Accepted values: | filename |
+| Default:         |          |
 
 *Description:* The name of a PKCS \#12 file that contains an unencrypted
 private key, an X.509 certificate, and an optional set of trusted CA

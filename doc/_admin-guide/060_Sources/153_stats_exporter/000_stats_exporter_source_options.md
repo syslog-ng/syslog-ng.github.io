@@ -13,10 +13,31 @@ Technically, both sources are specialized versions of the network() source. For 
 
 These drivers have the following additional options:
 
+## scrape-pattern()
+
+| Accepted values: | regular expression |
+| Default:         | `GET /metrics*`    |
+
+*Description:* This option sets the pattern used to match the HTTP header of incoming scraping requests. A stat response will be generated and sent only if the header matches the one set in the `scrape-pattern()` option.
+
+## scrape-freq-limit()
+
+| Type:    | number |
+| Default: | `0`    |
+
+*Description:* This option limits the frequency of repeated scraper requests to the specified number of seconds. Any repeated request within this period will be ignored. A set value of `0` means no limit.
+
+## single-instance()
+
+| Accepted values: | `yes`, `no` |
+| Default:         | `no`        |
+
+*Description:* If this option is set to `yes`, only one scraper connection and request will be allowed at once.
+
 ## stat-type()
 
 | Accepted values: | `query`, `stats` |
-| Default:         | stats            |
+| Default:         | `stats`          |
 
 *Description:* This option sets the desired stat type to be produced in response to an HTTP Scraper request. This method operates like the syslog-ng-ctl command line tool.
 
@@ -30,7 +51,7 @@ These drivers have the following additional options:
 ## stat-format()
 
 | Accepted values: | `csv`, `kv`, `prometheus` |
-| Default:         | prometheus                |
+| Default:         | `prometheus`              |
 
 *Description:* This option specifies the format of the statistics output in HTTP responses, similar to the options available in syslog-ng-ctl. The available formats are the following:
 
@@ -51,26 +72,5 @@ These drivers have the following additional options:
 | Default:         | `no`        |
 
 *Description:* If this option is set to `yes`, the output of a `stats` type request — only when using the `prometheus` format — will not include legacy counters, similar to the `with-legacy-metrics` option available in `syslog-ng-ctl`.
-
-## scrape-pattern()
-
-| Accepted values: | regular expression |
-| Default:         | `GET /metrics*`    |
-
-*Description:* This option sets the pattern used to match the HTTP header of incoming scraping requests. A stat response will be generated and sent only if the header matches the one set in the `scrape-pattern()` option.
-
-## scrape-freq-limit()
-
-| Accepted values: | number |
-| Default:         | `0`    |
-
-*Description:* This option limits the frequency of repeated scraper requests to the specified number of seconds. Any repeated request within this period will be ignored. A set value of `0` means no limit.
-
-## single-instance()
-
-| Accepted values: | `yes`, `no` |
-| Default:         | `no`        |
-
-*Description:* If this option is set to `yes`, only one scraper connection and request will be allowed at once.
 
 {% include doc/admin-guide/options/use-syslogng-pid.md %}

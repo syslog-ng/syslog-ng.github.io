@@ -1,5 +1,5 @@
 ---
-title: Options of key=value parsers
+title: Options of key-value parsers
 parser: kv
 prefix: kv
 id: adm-parser-kv-opt

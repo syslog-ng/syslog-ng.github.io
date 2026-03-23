@@ -137,8 +137,8 @@ destination d_http_compressed{
 
 ## method()
 
-| Type:    | POST \ | PUT |
-| Default: | POST   |     |
+| Type:    | `POST`, `PUT` |
+| Default: | `POST`        |
 
 *Description:* Specifies the HTTP method to use when sending the message
 to the server.

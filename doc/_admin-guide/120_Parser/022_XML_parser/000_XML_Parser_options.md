@@ -17,12 +17,12 @@ description: >-
 ## exclude-tags()
 
 | Accepted values:                  | list of globs |
-| Default:                          | None          |
-| If not set, no filtering is done. |               |
+| Default:                          |               |
 | Mandatory:                        | no            |
 
 *Description:* The XML parser matches tags against the listed globs.
-If there is a match, the given subtree of the XML will be omitted.
+If there is a match, the given subtree of the XML will be omitted.\
+If not set, no filtering is done.
 
 ### Example: Using exclude-tags
 

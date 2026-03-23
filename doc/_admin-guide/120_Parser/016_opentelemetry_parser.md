@@ -23,7 +23,7 @@ This parser parses the fields into name-value pairs starting with the `.otel.` p
   * `.otel.log.severity_text`
 * The fields of metrics are mapped into `.otel.metric.<...>`. Example:
   * `.otel.metric.name`
-  * `.otel.metric.unit` 
+  * `.otel.metric.unit`
   * The type of the metric is mapped into `.otel.metric.data.type`. Possible values: 
     * `gauge`
     * `sum`

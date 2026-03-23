@@ -32,7 +32,7 @@ the following format:
 
 By default, the Cisco-specific fields are extracted into the following
 name-value pairs:${.cisco.facility}, ${.cisco.severity},
-${.cisco.mnemonic}. You can change the prefix using the **prefix**
+${.cisco.mnemonic}. You can change the prefix using the prefix()
 option.
 
 **Declaration**

@@ -364,8 +364,8 @@ The following sub-options are available within the stats() option:
 
 ### freq()
 
-| Accepted values: | number (seconds) |
-| Default:         | 600              |
+| Accepted values: | number |
+| Default:         | `600`  |
 
 *Description:* The period between two STATS messages in seconds. STATS
 are log messages sent by syslog-ng, containing statistics about dropped
@@ -374,7 +374,7 @@ log messages. Set to **0** to disable the STATS messages.
 ### level()
 
 | Accepted values: | `0`, `1`, `2`, `3` |
-| Default:         | 0                  |
+| Default:         | `0`                |
 
 *Description:* Specifies the detail of statistics {{ site.product.short_name }} collects about the processed messages.
 
@@ -391,10 +391,10 @@ log messages. Set to **0** to disable the STATS messages.
 
 ### lifetime()
 
-| Accepted values: | number (seconds) |
-| Default:         | N/A              |
+| Accepted values: | number |
+| Default:         | N/A    |
 
-*Description:* Dynamic counters in metrics are pruned after lifetime expires. Note that orphaned counters are not pruned (you can prune them by running `syslog-ng-ctl stats --remove-orphans`)
+*Description:* Dynamic counters in metrics are pruned after lifetime seconds expires. Note that orphaned counters are not pruned (you can prune them by running `syslog-ng-ctl stats --remove-orphans`)
 
 ### max-dynamics()
 
