@@ -55,7 +55,7 @@ adm-temp-macro-ose#sdata-sdatasdidsdname:
   aliases: [ "${SDATA}" ]
 
 adm-temp-macro-ose#sec-c_sec-r_sec-s_sec:
-  aliases: [ "/${SEC}|\\${[CRS]_SEC}/" ]
+  aliases: [ "/\\${SEC}|\\${[CRS]_SEC}/" ]
 
 adm-temp-macro-ose#stamp-r_stamp-s_stamp:
   aliases: [ "/\\${STAMP}|\\${[RS]_STAMP}/" ]
@@ -67,7 +67,7 @@ adm-temp-macro-ose#tzoffset-c_tzoffset-r_tzoffset-s_tzoffset:
   aliases: [ "/\\${TZOFFSET}|\\${[CRS]_TZOFFSET}/" ]
 
 adm-temp-macro-ose#unixtime-c_unixtime-r_unixtime-s_unixtime:
-  aliases: [ "/$\\{UNIXTIME}|\\${[CRS]_UNIXTIME}/" ]
+  aliases: [ "/\\${UNIXTIME}|\\${[CRS]_UNIXTIME}/" ]
 
 adm-temp-macro-ose#usec-c_usec-r_usec-s_usec:
   aliases: [ "/\\${USEC}|\\${[CRS]_USEC}/" ]
@@ -89,6 +89,9 @@ adm-temp-macro-ose#week_day_name-c_week_day_name-r_week_day_name-s_week_day_name
 
 adm-temp-macro-ose#year-c_year-r_year-s_year:
   aliases: [ "/\\${YEAR}|\\${[CRS]_YEAR}/" ]
+
+adm-temp-macro-ose#year_day-c_year_day-r_year_day-s_year_day:
+  aliases: [ "/\\${YEAR_DAY}|\\${[CRS]_YEAR_DAY}/" ]
 
 adm-log-flow#log-paths-with-flow-control:
   aliases: [ "Managing incoming and outgoing messages with flow-control" ]
@@ -260,6 +263,12 @@ adm-correlate:
 
 adm-stats:
   aliases: [ "syslog-ng-ctl stats", "syslog-ng-ctl query" ]
+
+adm-temp-hard-soft-macros#hard-macros:
+  aliases: [ "/[Hh]ard [Mm]acros/" ]
+
+adm-temp-hard-soft-macros#soft-macros:
+  aliases: [ "/[Ss]oft [Mm]acros/" ]
 
 doxygen-home:
   aliases: [ "/[Dd]oxygen/" ]

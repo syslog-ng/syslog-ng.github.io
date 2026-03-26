@@ -37,6 +37,10 @@ facility letter can range from **A** to **Y**, where A corresponds to
 facility number zero (LOG_KERN), B corresponds to facility 1
 (LOG_USER), and so on.
 
+## ${CONTEXT_ID}
+
+The context_id for the pattern database rule that matched the message. see the context-id, context-timeout, and context-scope attributes of pattern database rules.
+
 ## Custom macros
 
 CSV parsers and pattern databases can also define macros
@@ -154,6 +158,10 @@ non-standard week number that can differ from the value returned by the
 ${ISOWEEK} macro.
 
 Available in 3.24 and later.
+
+## ${LEGACY_MSGHDR}
+
+During default operation, {{ site.product.short_name }} stores the original incoming header of the log message. This is useful if the original format of a non-syslog-compliant message must be retained (as {{ site.product.short_name }} automatically corrects some non-compliant messages, the final result may slightly differ from the original).
 
 ## ${LEVEL_NUM}
 
@@ -532,6 +540,10 @@ Available in {{ site.product.short_name }} version 3.4 and later.
 ## ${YEAR}, ${C_YEAR}, ${R_YEAR}, ${S_YEAR}
 
 The year the message was sent.
+
+## ${YEAR_DAY}, ${C_YEAR_DAY}, ${R_YEAR_DAY}, ${S_YEAR_DAY}
+
+The day of the year the message was sent.
 
 ## ${WEEK}, ${C_WEEK}, ${R_WEEK}, ${S_WEEK}
 
