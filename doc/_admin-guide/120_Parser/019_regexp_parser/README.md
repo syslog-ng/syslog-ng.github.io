@@ -34,7 +34,9 @@ parser p_regexp {
 
 In the following example, the incoming log message is the following:
 
->Apr 20 11:09:46 test_field -> test_value
+{% log %}
+Apr 20 11:09:46 test_field -> test_value
+{% endlog %}
 
 The regexp-parser inserts the .regexp. prefix before all extracted
 name-value pairs. The destination is a file, that uses the format-json

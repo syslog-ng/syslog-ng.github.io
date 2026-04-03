@@ -13,11 +13,11 @@ description: >-
 For example, the database file can contain the entries. (For details on
 the accepted CSV-format, see database())
 
-```text
+{% log %}
 f_auth,domain,all
 f_localhost,source,localhost
 f_kern,domain,kernel
-```
+{% endlog %}
 
 Note that {{ site.product.short_name }} does not evaluate other filters after the first
 match. For example, if you use the previous database file, and a message
@@ -27,11 +27,11 @@ only the name-value pair of f_auth to the message.
 To add multiple name-value pairs to a message, include a separate line
 in the database for each name-value pair, for example:
 
-```text
+{% log %}
 f_localhost,host-role,firewall
 f_localhost,contact-person,"John Doe"
 f_localhost,contact-email,johndoe@example.com
-```
+{% endlog %}
 
 You can also add data to messages that do not have a matching selector
 entry in the database using the default-selector() option.

@@ -10,12 +10,14 @@ description: >-
 
 The following is a sample log message of auditd:
 
->type=SYSCALL msg=audit(1441988805.991:239): arch=c000003e syscall=59 success=yes exit=0 a0=7fe49a6d0e98 a1=7fe49a6d0e40 a2=7fe49a6d0e80 a3=2 items=2 ppid=3652 pid=3660 auid=1000 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=5 comm="dumpe2fs" exe="/sbin/dumpe2fs" key=(null)
->type=EXECVE msg=audit(1441988805.991:239): argc=3 a0="dumpe2fs" a1="-h" a2="/dev/sda1"
->type=CWD msg=audit(1441988805.991:239):  cwd="/"
->type=PATH msg=audit(1441988805.991:239): item=0 name="/sbin/dumpe2fs" inode=137078 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL
->type=PATH msg=audit(1441988805.991:239): item=1 name="/lib64/ld-linux-x86-64.so.2" inode=5243184 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL
->type=PROCTITLE msg=audit(1441988805.991:239): proctitle=64756D7065326673002D68002F6465762F73646131
+{% log %}
+type=SYSCALL msg=audit(1441988805.991:239): arch=c000003e syscall=59 success=yes exit=0 a0=7fe49a6d0e98 a1=7fe49a6d0e40 a2=7fe49a6d0e80 a3=2 items=2 ppid=3652 pid=3660 auid=1000 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=5 comm="dumpe2fs" exe="/sbin/dumpe2fs" key=(null)
+type=EXECVE msg=audit(1441988805.991:239): argc=3 a0="dumpe2fs" a1="-h" a2="/dev/sda1"
+type=CWD msg=audit(1441988805.991:239):  cwd="/"
+type=PATH msg=audit(1441988805.991:239): item=0 name="/sbin/dumpe2fs" inode=137078 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL
+type=PATH msg=audit(1441988805.991:239): item=1 name="/lib64/ld-linux-x86-64.so.2" inode=5243184 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL
+type=PROCTITLE msg=audit(1441988805.991:239): proctitle=64756D7065326673002D68002F6465762F73646131
+{% endlog %}
 
 Certain fields of the audit log can be encoded in hexadecimal format,
 for example, the arch field, or the a\<number\> fields in the previous

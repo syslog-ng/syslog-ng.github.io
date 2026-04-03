@@ -98,16 +98,22 @@ For example, from this input XML:
 
 The following output is generated:
 
-> .xml.tag.tag1 = text1text2
+{% log %}
+ .xml.tag.tag1 = text1text2
+{% endlog %}
 
 Whitespaces are kept as they are in the XML input. No collapsing happens
 on significant whitespaces. For example, from this input XML:
 
-><133>Feb 25 14:09:07 webserver syslogd: <b>|Test\n\n   Test2|</b>\n
+{% log %}
+<133>Feb 25 14:09:07 webserver syslogd: <b>|Test\n\n   Test2|</b>\n
+{% endlog %}
 
 The following output is generated:
 
->[2017-09-04T13:20:27.417266] Setting value; msg='0x7f2fd8002df0', name='.xml.b', value='|Test\x0a\x0a   Test2|'
+{% log %}
+[2017-09-04T13:20:27.417266] Setting value; msg='0x7f2fd8002df0', name='.xml.b', value='|Test\x0a\x0a   Test2|'
+{% endlog %}
 
 However, note that users can choose to strip whitespaces using the
 Options of the XML parsers option.
@@ -137,7 +143,9 @@ any of the following options:
 
     For example:
 
-    >59 <133>Feb 25 14:09:07 webserver syslogd: <book>\nText\n</book>
+    {% log %}
+    59 <133>Feb 25 14:09:07 webserver syslogd: <book>\nText\n</book>
+    {% endlog %}
 
     Considering the new lines as one character, 59 is appended to
     the original message.

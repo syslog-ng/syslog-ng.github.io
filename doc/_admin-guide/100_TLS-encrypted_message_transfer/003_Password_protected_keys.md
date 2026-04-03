@@ -45,8 +45,10 @@ their status. For example:
 syslog-ng-ctl credentials status
 ```
 
->Secret store status:  
->/home/user/ssl_test/client-1/client-encrypted.key SUCCESS
+{% log %}
+Secret store status:
+/home/user/ssl_test/client-1/client-encrypted.key SUCCESS
+{% endlog %}
 
 If the status of a key is PENDING, you must provide the passphrase for
 the key, otherwise {{ site.product.short_name }} cannot use it. The sources and
@@ -57,7 +59,9 @@ keys every time {{ site.product.short_name }} is restarted.
 
 The following log message also notifies you of PENDING passphrases:
 
->Waiting for password; keyfile='private.key'
+{% log %}
+Waiting for password; keyfile='private.key'
+{% endlog %}
 
 You can add the passphrase to a password-protected private key file
 using the following command. {{ site.product.short_name }} will display a prompt for you

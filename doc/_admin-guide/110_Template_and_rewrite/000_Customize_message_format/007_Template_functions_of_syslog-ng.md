@@ -201,9 +201,9 @@ format. Available in version 3.16 and later.
 
 The following is a sample log message in EWMM format.
 
-><13>1 2018-05-13T13:27:50.993+00:00 my-host @syslog-ng - - -
->{"MESSAGE":"<34>Oct 11 22:14:15 mymachine su: 'su root' failed for username on
->/dev/pts/8","HOST_FROM":"my-host","HOST":"my-host","FILE_NAME":"/tmp/in","._TAGS":".source.s_file"}
+{% log %}
+<13>1 2018-05-13T13:27:50.993+00:00 my-host @syslog-ng - - - {"MESSAGE":"<34>Oct 11 22:14:15 mymachine su: 'su root' failed for username on /dev/pts/8","HOST_FROM":"my-host","HOST":"my-host","FILE_NAME":"/tmp/in","._TAGS":".source.s_file"}
+{% endlog %}
 
 ## $(format-flat-json)
 

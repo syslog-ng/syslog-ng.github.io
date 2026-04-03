@@ -46,18 +46,20 @@ The displayed metrics have the following structure.
         The following example contains 6 different dynamic values: a
         sender, a host, and four different programs.
 
-        >src.sender;;localhost;d;processed;4
-        >src.sender;;localhost;d;stamp;1509121934
-        >src.program;;P-18069;d;processed;1
-        >src.program;;P-18069;d;stamp;1509121933
-        >src.program;;P-21491;d;processed;1
-        >src.program;;P-21491;d;stamp;1509121934
-        >src.program;;P-9774;d;processed;1
-        >src.program;;P-9774;d;stamp;1509121919
-        >src.program;;P-14737;d;processed;1
-        >src.program;;P-14737;d;stamp;1509121931
-        >src.host;;localhost;d;processed;4
-        >src.host;;localhost;d;stamp;1509121934
+        {% log %}
+        src.sender;;localhost;d;processed;4
+        src.sender;;localhost;d;stamp;1509121934
+        src.program;;P-18069;d;processed;1
+        src.program;;P-18069;d;stamp;1509121933
+        src.program;;P-21491;d;processed;1
+        src.program;;P-21491;d;stamp;1509121934
+        src.program;;P-9774;d;processed;1
+        src.program;;P-9774;d;stamp;1509121919
+        src.program;;P-14737;d;processed;1
+        src.program;;P-14737;d;stamp;1509121931
+        src.host;;localhost;d;processed;4
+        src.host;;localhost;d;stamp;1509121934
+        {% endlog %}
 
         To avoid performance issues or even overloading {{ site.product.short_name }},
         you might want to limit the number of registered dynamic
@@ -93,9 +95,11 @@ The displayed metrics have the following structure.
 
     Statistics output:
 
-    >src.tcp;s_network#0;tcp,127.0.0.5;a;processed;1
-    >src.tcp;s_network#0;tcp,127.0.0.1;a;processed;3
-    >src.tcp;s_network;afsocket_sd.(stream,AF_INET(0.0.0.0:8001));a;connections;2
+    {% log %}
+    src.tcp;s_network#0;tcp,127.0.0.5;a;processed;1
+    src.tcp;s_network#0;tcp,127.0.0.1;a;processed;3
+    src.tcp;s_network;afsocket_sd.(stream,AF_INET(0.0.0.0:8001));a;connections;2
+    {% endlog %}
 
 6. The type of the statistics:
 

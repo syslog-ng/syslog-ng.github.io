@@ -15,11 +15,13 @@ message format:
 
 For example:
 
-><189>29: foo: *Apr 29 13:58:40.411: %SYS-5-CONFIG_I: Configured from console by console
-><190>30: foo: *Apr 29 13:58:46.411: %SYS-6-LOGGINGHOST_STARTSTOP: Logging to host 192.168.1.239 stopped - CLI initiated
-><190>31: foo: *Apr 29 13:58:46.411: %SYS-6-LOGGINGHOST_STARTSTOP: Logging to host 192.168.1.239 started - CLI initiated
-><189>32: 0.0.0.0: *Apr 29 13:59:12.491: %SYS-5-CONFIG_I: Configured from console by console
-><189>32: foo: *Apr 29 13:58:46.411: %SYSMGR-STANDBY-3-SHUTDOWN_START: The System Manager has started the shutdown procedure.
+{% log %}
+<189>29: foo: *Apr 29 13:58:40.411: %SYS-5-CONFIG_I: Configured from console by console
+<190>30: foo: *Apr 29 13:58:46.411: %SYS-6-LOGGINGHOST_STARTSTOP: Logging to host 192.168.1.239 stopped - CLI initiated
+<190>31: foo: *Apr 29 13:58:46.411: %SYS-6-LOGGINGHOST_STARTSTOP: Logging to host 192.168.1.239 started - CLI initiated
+<189>32: 0.0.0.0: *Apr 29 13:59:12.491: %SYS-5-CONFIG_I: Configured from console by console
+<189>32: foo: *Apr 29 13:58:46.411: %SYSMGR-STANDBY-3-SHUTDOWN_START: The System Manager has started the shutdown procedure.
+{% endlog %}
 
 **NOTE:** Not every Cisco log message conforms to this format. If you find a message that the cisco-parser() cannot properly parse, contact Support, so we can improve the parser.
 {: .notice--info}
@@ -27,8 +29,10 @@ For example:
 The {{ site.product.short_name }} application normalizes the parsed log messages into
 the following format:
 
->${MESSAGE}=%FAC-SEV-MNEMONIC: message  
->${HOST}=origin-id
+{% log %}
+${MESSAGE}=%FAC-SEV-MNEMONIC: message
+${HOST}=origin-id
+{% endlog %}
 
 By default, the Cisco-specific fields are extracted into the following
 name-value pairs:${.cisco.facility}, ${.cisco.severity},

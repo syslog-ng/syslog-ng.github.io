@@ -24,7 +24,9 @@ The pdbtool manual page.
 The following pattern database contains a single rule that matches a log
 message of the ssh application. A sample log message looks like:
 
->Accepted password for sampleuser from 10.50.0.247 port 42156 ssh2
+{% log %}
+Accepted password for sampleuser from 10.50.0.247 port 42156 ssh2
+{% endlog %}
 
 The following is a simple pattern database containing a matching rule.
 

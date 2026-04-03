@@ -13,13 +13,16 @@ description: >-
 
 The following is a sample log message:
 
->127.0.0.1 - frank [10/Oct/2000:13:55:36 -0700] "GET /apache_pb.gif HTTP/1.0" 200 2326
+{% log %}
+127.0.0.1 - frank [10/Oct/2000:13:55:36 -0700] "GET /apache_pb.gif HTTP/1.0" 200 2326
+{% endlog %}
 
 Starting with version 3.21, virtualhost and the port of the virtualhost
 (vhost) is also supported, for example:
 
->foo.com:443 1.2.3.4 - - [15/Apr/2019:14:30:16 -0400] "GET /bar.html HTTP/2.0"  
->500 - "https://foo.com/referer.html" "Mozilla/5.0 ..."
+{% log %}
+foo.com:443 1.2.3.4 - - [15/Apr/2019:14:30:16 -0400] "GET /bar.html HTTP/2.0"  500 - "https://foo.com/referer.html" "Mozilla/5.0 ..."
+{% endlog %}
 
 The {{ site.product.short_name }} application extracts every field into name-value
 pairs, and adds the .apache. prefix to the name of the field.

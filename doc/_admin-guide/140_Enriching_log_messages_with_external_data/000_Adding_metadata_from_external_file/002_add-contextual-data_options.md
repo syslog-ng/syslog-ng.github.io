@@ -32,9 +32,9 @@ then you can include a line for unknown hosts in the database, and set
 default-selector() to the ID of the line for unknown hosts. In the CSV
 file:
 
-```text
+{% log %}
 unknown-hostname,host-role,unknown
-```
+{% endlog %}
 
 In the {{ site.product.short_name }} configuration file:
 

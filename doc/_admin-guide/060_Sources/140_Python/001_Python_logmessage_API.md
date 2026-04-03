@@ -64,11 +64,13 @@ set in the message, and uses the IP address of the {{ site.product.short_name }}
 the hostname (to use the hostname instead of the IP address, set the
 use-dns() or use-fqdn() options in the Python source).
 
->msg_ietf = LogMessage.parse('<165>1 2003-10-11T22:14:15.003Z mymachine.example.com  
->evntslog - ID47 [exampleSDID@32473 iut="3" eventSource="Application" eventID="1011"]  
->An application event log entry', self.parse_options)
->msg_bsd = LogMessage.parse('<34>Oct 11 22:14:15 mymachine su: \'su root\' failed for  
->lonvick on /dev/pts/8', self.parse_options)
+```python
+msg_ietf = LogMessage.parse('<165>1 2003-10-11T22:14:15.003Z mymachine.example.com \
+evntslog - ID47 [exampleSDID@32473 iut="3" eventSource="Application" eventID="1011"] \
+An application event log entry', self.parse_options)
+msg_bsd = LogMessage.parse('<34>Oct 11 22:14:15 mymachine su: \'su root\' failed for \
+lonvick on /dev/pts/8', self.parse_options)
+```
 
 ## set_pri() method
 

@@ -92,8 +92,10 @@ Note the following points about timeout values:
 
     Consider the following two messages:
 
-    ><38>1990-01-01T14:45:25 customhostname program6[1234]: program6 testmessage
-    ><38>1990-01-01T14:46:25 customhostname program6[1234]: program6 testmessage
+    {% log %}
+    <38>1990-01-01T14:45:25 customhostname program6[1234]: program6 testmessage
+    <38>1990-01-01T14:46:25 customhostname program6[1234]: program6 testmessage
+    {% endlog %}
 
     If the context-timeout is 10 seconds and {{ site.product.short_name }} receives the
     messages within 1 second, the timeout event will occour immediately,
@@ -114,12 +116,14 @@ in time, but multiple events can be logged at around the same time,
 which get mixed up in the output. The example below is the audit log for
 running ntpdate:
 
->type=SYSCALL msg=audit(1440927434.124:40347): arch=c000003e syscall=59 success=yes exit=0 a0=7f121cef0b88 a1=7f121cef0c00 a2=7f121e690d98 a3=2 items=2 ppid=4312 pid=4347 auid=4294967295 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=4294967295 comm="ntpdate" exe="/usr/sbin/ntpdate" key=(null)
->type=EXECVE msg=audit(1440927434.124:40347): argc=3 a0="/usr/sbin/ntpdate" a1="-s" a2="ntp.ubuntu.com"
->type=CWD msg=audit(1440927434.124:40347):  cwd="/"
->type=PATH msg=audit(1440927434.124:40347): item=0 name="/usr/sbin/ntpdate" inode=2006003 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL
->type=PATH msg=audit(1440927434.124:40347): item=1 name="/lib64/ld-linux-x86-64.so.2" inode=5243184 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL
->type=PROCTITLE msg=audit(1440927434.124:40347): proctitle=2F62696E2F7368002F7573722F7362696E2F6E7470646174652D64656269616E002D73
+{% log %}
+type=SYSCALL msg=audit(1440927434.124:40347): arch=c000003e syscall=59 success=yes exit=0 a0=7f121cef0b88 a1=7f121cef0c00 a2=7f121e690d98 a3=2 items=2 ppid=4312 pid=4347 auid=4294967295 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=4294967295 comm="ntpdate" exe="/usr/sbin/ntpdate" key=(null)
+type=EXECVE msg=audit(1440927434.124:40347): argc=3 a0="/usr/sbin/ntpdate" a1="-s" a2="ntp.ubuntu.com"
+type=CWD msg=audit(1440927434.124:40347):  cwd="/"
+type=PATH msg=audit(1440927434.124:40347): item=0 name="/usr/sbin/ntpdate" inode=2006003 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL
+type=PATH msg=audit(1440927434.124:40347): item=1 name="/lib64/ld-linux-x86-64.so.2" inode=5243184 dev=08:01 mode=0100755 ouid=0 ogid=0 rdev=00:00 nametype=NORMAL
+type=PROCTITLE msg=audit(1440927434.124:40347): proctitle=2F62696E2F7368002F7573722F7362696E2F6E7470646174652D64656269616E002D73
+{% endlog %}
 
 These lines are connected by their second field:
 `msg=audit(1440927434.124:40347)`. You can parse such messages using the
