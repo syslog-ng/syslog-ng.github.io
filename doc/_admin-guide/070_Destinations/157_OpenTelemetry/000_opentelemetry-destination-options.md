@@ -71,8 +71,8 @@ destination {
 
 ## compression()
 
-| Type:    | boolean |
-| Default: | `no`    |
+| Accepted values: | `yes`, `no` |
+| Default:         | `no`        |
 
 Available in syslog-ng OSE 4.5 and later versions.
 

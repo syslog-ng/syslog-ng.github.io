@@ -22,7 +22,8 @@ specified for these drivers:
 
 ## group()
 
-| Type: | string | \n | Default: | root |
+| Type:    | string |
+| Default: | root   |
 
 *Description:* Sets the gid of the socket.
 

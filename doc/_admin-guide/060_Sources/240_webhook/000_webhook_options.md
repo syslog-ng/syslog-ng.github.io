@@ -131,10 +131,11 @@ tls_ca_file("/etc/pki/tls/certs/ca-bundle.crt")
 
 *Description:* Verification method of the peer. The table below summarizes the available options and their results depending on the certificate of the peer.
 
-| no certificate on the remote peer | invalid certificate on the remote peer | valid certificate on the remote peer |                |                |
-|-----------------------------------|----------------------------------------|--------------------------------------|----------------|----------------|
-| Local peer-verify() setting:      | no (optional-untrusted)                | TLS-encryption                       | TLS-encryption | TLS-encryption |
-| yes (required-trusted)            | rejected connection                    | rejected connection                  | TLS-encryption |                |
+|                             |                     | The remote peer has |                   |
+| Local peer-verify() setting |    no certificate   | invalid certificate | valid certificate |
+|-----------------------------|---------------------|---------------------|-------------------|
+| no (optional-untrusted)     | TLS-encryption      | TLS-encryption      | TLS-encryption    |
+| yes (required-trusted)      | rejected connection | rejected connection | TLS-encryption    |
 
 For untrusted certificates only the existence of the certificate is checked, but it does not have to be valid — {{ site.product.short_name }} accepts the certificate even if it is expired, signed by an unknown CA, or its CN and the name of the machine mismatches.
 

@@ -24,13 +24,13 @@ Syntax: \<protocol type\>://\<host\>:\<port\>
 
 {% include doc/admin-guide/options/chain-hostnames.md %}
 
-{% include doc/admin-guide/options/format.md %}
-
-{% include doc/admin-guide/options/internal.md %}
+{% include doc/admin-guide/options/mqtt-cleansession.md %}
 
 {% include doc/admin-guide/options/mqtt-client-id.md %}
 
-{% include doc/admin-guide/options/mqtt-cleansession.md %}
+{% include doc/admin-guide/options/format.md %}
+
+{% include doc/admin-guide/options/internal.md %}
 
 {% include doc/admin-guide/options/http-proxy.md %}
 

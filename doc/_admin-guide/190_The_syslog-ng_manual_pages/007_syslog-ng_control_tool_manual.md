@@ -86,10 +86,10 @@ For example:
 
 ```text
 [syslog-ng]
-|-------------------------------------------------------------------|
-| _[destinations]-[network]-[tcp]->[stats]->{received=12;dropped=2} |
-|-------------------------------------------------------------------|
-| _[sources]-[sql]-[stats]->{received=501;dropped=0}                |
+|              
+|_[destinations]-[network]-[tcp]->[stats]->{received=12;dropped=2}
+|
+|_[sources]-[sql]-[stats]->{received=501;dropped=0}
 ```
 
 You can query the nodes of this tree, and also use filters to select the
