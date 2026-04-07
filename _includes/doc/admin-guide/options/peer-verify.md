@@ -16,11 +16,12 @@ depending on the certificate of the peer.
 
 The remote peer has:
 
-| no certificate              | invalid certificate | valid certificate   |                |                |
-| Local peer-verify() setting | optional-untrusted  | TLS-encryption      | TLS-encryption | TLS-encryption |
-| optional-trusted            | TLS-encryption      | rejected connection | TLS-encryption |                |
-| required-untrusted          | rejected connection | TLS-encryption      | TLS-encryption |                |
-| required-trusted            | rejected connection | rejected connection | TLS-encryption |                |
+| Local peer-verify() setting | no certificate      | invalid certificate | valid certificate |
+| --------------------------- | ------------------- | ------------------- | ----------------- |
+| optional-untrusted          | TLS-encryption      | TLS-encryption.     | TLS-encryption    |
+| optional-trusted            | TLS-encryption      | rejected connection | TLS-encryption    |
+| required-untrusted          | rejected connection | TLS-encryption      | TLS-encryption    |
+| required-trusted            | rejected connection | rejected connection | TLS-encryption    |
 
 For untrusted certificates only the existence of the certificate is
 checked, but it does not have to be valid --- {{ site.product.short_name }} accepts the
@@ -40,6 +41,7 @@ and their results depending on the certificate of the peer.
 
 The remote peer has:
 
-| no certificate              | invalid certificate     | valid certificate   |                |                |
-| Local peer-verify() setting | no (optional-untrusted) | TLS-encryption      | TLS-encryption | TLS-encryption |
-| yes (required-trusted)      | rejected connection     | rejected connection | TLS-encryption |                |
+| Local peer-verify() setting | no certificate      | invalid certificate | valid certificate |
+| --------------------------- | ------------------- | ------------------- | ----------------- |
+| no (optional-untrusted)     | TLS-encryption      | TLS-encryption      | TLS-encryption    |
+| yes (required-trusted)      | rejected connection | rejected connection | TLS-encryption    |
