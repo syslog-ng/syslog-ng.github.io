@@ -71,29 +71,33 @@ To check the status of {{ site.product.short_name }} service
 
 - **active (running)** - {{ site.product.short_name }} service is up and running
 
-    Example: {{ site.product.short_name }} service active  
+    Example: {{ site.product.short_name }} service active
 
-    > syslog-ng.service - System Logger Daemon  
-    > Loaded: loaded (/lib/systemd/system/syslog-ng.service; enabled; vendor preset: enabled)  
-    > Active: active (running) since Tue 2019-06-25 08:58:09 CEST; 5s ago  
-    > Main PID: 6575 (syslog-ng)  
-    > Tasks: 3  
-    > Memory: 13.3M  
-    > CPU: 268ms  
-    > CGroup: /system.slice/syslog-ng.service  
-    > 6575 /opt/syslog-ng/libexec/syslog-ng -F --no-caps --enable-core  
+    {% log %}
+    syslog-ng.service - System Logger Daemon
+    Loaded: loaded (/lib/systemd/system/syslog-ng.service; enabled; vendor preset: enabled)
+    Active: active (running) since Tue 2019-06-25 08:58:09 CEST; 5s ago
+    Main PID: 6575 (syslog-ng)
+    Tasks: 3
+    Memory: 13.3M
+    CPU: 268ms
+    CGroup: /system.slice/syslog-ng.service
+    6575 /opt/syslog-ng/libexec/syslog-ng -F --no-caps --enable-core
+    {% endlog %}
 
 - **inactive (dead)** - syslog-ng service is stopped
 
     Example: {{ site.product.short_name }} status inactive
 
-    > syslog-ng.service - System Logger Daemon  
-    > Loaded: loaded (/lib/systemd/system/syslog-ng.service; enabled; vendor preset: enabled)  
-    > Active: inactive (dead) since Tue 2019-06-25 09:14:16 CEST; 2min 18s ago  
-    > Process: 6575 ExecStart=/opt/syslog-ng/sbin/syslog-ng -F --no-caps --enable-core $SYSLOGNG_OPTIONS(code=exited, status=0/SUCCESS)  
-    > Main PID: 6575 (code=exited, status=0/SUCCESS)  
-    > Status: "Shutting down... Tue Jun 25 09:14:16 2019"  
-    > Jun 25 09:14:31 as-syslog-srv systemd: Stopped System Logger Daemon.
+    {% log %}
+    syslog-ng.service - System Logger Daemon
+    Loaded: loaded (/lib/systemd/system/syslog-ng.service; enabled; vendor preset: enabled)
+    Active: inactive (dead) since Tue 2019-06-25 09:14:16 CEST; 2min 18s ago
+    Process: 6575 ExecStart=/opt/syslog-ng/sbin/syslog-ng -F --no-caps --enable-core $SYSLOGNG_OPTIONS(code=exited, status=0/SUCCESS)
+    Main PID: 6575 (code=exited, status=0/SUCCESS)
+    Status: "Shutting down... Tue Jun 25 09:14:16 2019"
+    Jun 25 09:14:31 as-syslog-srv systemd: Stopped System Logger Daemon.
+    {% endlog %}
 
 ### Checking the process of {{ site.product.short_name }}
 
@@ -105,10 +109,10 @@ ps u `pidof syslog-ng`
 
 Expected output example:
 
-> USER PID %CPU %MEM VSZ RSS TTY STAT START TIME COMMAND
->  
-> syslogng 6709 0.0 0.6 308680 13432 ? Ss 09:17 0:00  
-> /opt/syslog-ng/libexec/syslog-ng -F --no-caps --enable-core
+{% log %}
+USER     PID  %CPU %MEM VSZ    RSS   TTY STAT START TIME COMMAND
+syslogng 6709 0.0  0.6  308680 13432 ?   Ss   09:17 0:00 /opt/syslog-ng/libexec/syslog-ng -F --no-caps --enable-core
+{% endlog %}
 
 ```bash
 ps axu | grep syslog-ng | grep -v grep
@@ -116,8 +120,9 @@ ps axu | grep syslog-ng | grep -v grep
 
 Expected output example:
 
-> syslogng 6709 0.0 0.6 308680 13432 ? Ss 09:17 0:00  
-> /opt/syslog-ng/libexec/syslog-ng -F --no-caps --enable-core
+{% log %}
+syslogng 6709 0.0  0.6  308680 13432 ?   Ss   09:17 0:00 /opt/syslog-ng/libexec/syslog-ng -F --no-caps --enable-core
+{% endlog %}
 
 ### Checking the internal logs of {{ site.product.short_name }}**
 
@@ -154,10 +159,11 @@ If the numbers are changing, {{ site.product.short_name }} is processing the mes
 
 Example: output example
 
-> Every 2.0s: /opt/syslog-ng/sbin/syslog-ng-ctl stats | grep  
-> ^center       Tue Jun 25 10:33:25 2019  
-> center;;queued;a;processed;112  
-> center;;received;a;processed;28  
+{% log %}
+Every 2.0s: /opt/syslog-ng/sbin/syslog-ng-ctl stats | grep ^center       Tue Jun 25 10:33:25 2019
+center;;queued;a;processed;112
+center;;received;a;processed;28
+{% endlog %}
 
 ### Source statistics
 
@@ -173,11 +179,12 @@ If the numbers are changing, {{ site.product.short_name }} is receiving messages
 
 Example: output example
 
-> Every 2.0s: /opt/syslog-ng/sbin/syslog-ng-ctl stats | grep  
-> ^source      Tue Jun 25 10:40:50 2019  
-> source;s_null;;a;processed;0  
-> source;s_net;;a;processed;0  
-> source;s_local;;a;processed;90  
+{% log %}
+Every 2.0s: /opt/syslog-ng/sbin/syslog-ng-ctl stats | grep ^source      Tue Jun 25 10:40:50 2019
+source;s_null;;a;processed;0
+source;s_net;;a;processed;0
+source;s_local;;a;processed;90
+{% endlog %}
 
 ### Destination statistics
 
@@ -193,12 +200,13 @@ If the numbers are changing, {{ site.product.short_name }} is receiving messages
 
 Example: output example
 
-> Every 2.0s: /opt/syslog-ng/sbin/syslog-ng-ctl stats | grep  
-> ^destination      Tue Jun 25 10:41:02 2019  
-> destination;d_logserver2;;a;processed;90  
-> destination;d_messages;;a;processed;180  
-> destination;d_logserver;;a;processed;90  
-> destination;d_null;;a;processed;0  
+{% log %}
+Every 2.0s: /opt/syslog-ng/sbin/syslog-ng-ctl stats | grep  ^destination      Tue Jun 25 10:41:02 2019
+destination;d_logserver2;;a;processed;90
+destination;d_messages;;a;processed;180
+destination;d_logserver;;a;processed;90
+destination;d_null;;a;processed;0
+{% endlog %}
 
 **NOTE:** If you find error messages in the internal logs, messages are not
 processed by {{ site.product.short_name }} or you encounter any issue, you have the

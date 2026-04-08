@@ -1,0 +1,12 @@
+---
+search: false
+toc: false
+---
+
+@import "minimal-mistakes/variables";
+
+blockquote.log {
+  text-indent: 2em hanging each-line;
+  font-family: $monospace;
+  white-space: pre-wrap;
+}

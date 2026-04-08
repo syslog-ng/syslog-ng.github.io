@@ -31,11 +31,11 @@ To optimize log verification and analysis, a sequence number is added to each lo
 
 The follwoing is an example of three short original log messages that are sent to a destination with secure logging enabled:
 
-```text
+{% log %}
 This is a log message
 And here comes another log message
 This is a log message with a longer text that is processed without any problems
-```
+{% endlog %}
 
 To identify the status of the secure logging environment, check the sequence counter by querying the key file with the `slogkey` utility:
 
@@ -48,19 +48,19 @@ The numbering of log messages starts at zero, due to this, the counter is set to
 
 The output of the secure logging template for the three example messages is shown below. The sequence number that was prepended to each message can be observed. The colon indicates the end of the sequence number and the start of the original message. As three message were processed, the sequence counter of the key is also three.
 
-```text
+{% log %}
 AAAAAAAAAAA=:k3/dYpLsgO2tUJKSauo6dycIBzW6OTC3pyA9TP+7AnqFgEojBzgC2rcK4OPfRtr8yg==
 AQAAAAAAAAA=:smw0ATISVgN+BYEu5d7OLBE7aQhHpK9Ro4MndmNgSVrqhcmRCBCj6DUnD6ku0Z29CKJ0N6LAJUgByX4Ev+g=
 AgAAAAAAAAA=:5UVybnKL1EAbgC4CLfd8HpgurjREf4LEN61/yWHSD2hbXjRD4QmQdtbwguT1chzdItKSQASps9QRIvR5Jd4AHzHfqxI4aRgdUBcNbAq26nwUCg5vPWygjmbtQaxZgCJYkry8slxCigmbTVs=
-```
+{% endlog %}
 
 The following is the output of a successful verification run:
 
-```text
+{% log %}
 0000000000000000: This is a log message
 0000000000000001: And here comes another log message
 0000000000000002: This is a log message with a longer text that is processed without any problems
-```
+{% endlog %}
 
 The original log messages have been successfully restored, and the sequence counters are also assigned to the clear text messages. This helps in analyzing problems within a particular log entry. As real log files will contain thousands of entries. The sequence counter helps to identify faulty entries.
 

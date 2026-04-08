@@ -10,8 +10,10 @@ If you are using a recent enough PCRE library, {{ site.product.short_name }} wil
 automatically use the JIT of the regexp engine, which will result in a
 similar error:
 
->setroubleshoot [21631 ] : SELinux is preventing <syslog-ng path> from using the execmem access on a process. (...)
->python [21631 ] : SELinux is preventing <syslog-ng path> from using the execmem access on a process.
+{% log %}
+setroubleshoot [21631 ] : SELinux is preventing <syslog-ng path> from using the execmem access on a process. (...)
+python [21631 ] : SELinux is preventing <syslog-ng path> from using the execmem access on a process.
+{% endlog %}
 
 To resolve this issue, switch off the PCRE JIT compile function by using
 the `disable-jit`

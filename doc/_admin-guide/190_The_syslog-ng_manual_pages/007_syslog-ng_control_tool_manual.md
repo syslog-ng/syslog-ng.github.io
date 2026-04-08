@@ -112,7 +112,7 @@ that {{ site.product.short_name }} collects about the processed messages.
 
 An example output:
 
-```text
+{% log %}
 center.received.stats.processed
 center.queued.stats.processed
 destination.d_elastic.stats.processed
@@ -154,7 +154,7 @@ global.payload_reallocs.stats.processed
 global.msg_clones.stats.processed
 global.sdata_updates.stats.processed
 tag..source.s_tcp.stats.processed
-```
+{% endlog %}
 
 The syslog-ng-ctl query list command has the following options:
 
@@ -172,9 +172,9 @@ the query, and their values.
 For example, the destination query lists the configured destinations,
 and the metrics related to each destination. An example output:
 
-```text
+{% log %}
 destination.d_elastic.stats.processed=0
-```
+{% endlog %}
 
 The syslog-ng-ctl query get command has the following options:
 
@@ -212,11 +212,11 @@ The stats command has the following options:
     This is useful, for example, when a templated file destination
     produces a lot of stats:
 
-  ```text
+  {% log %}
   dst.file;#anon-destination0#0;/tmp/2021-08-16.log;o;processed;253592
   dst.file;#anon-destination0#0;/tmp/2021-08-17.log;o;processed;156
   dst.file;#anon-destination0#0;/tmp/2021-08-18.log;a;processed;961
-  ```
+  {% endlog %}
 
   **NOTE:** The stats(lifetime()) can be used to do the same
   automatically and periodically, but currently stats(lifetime())
@@ -231,7 +231,7 @@ syslog-ng-ctl stats
 
 An example output:
 
-```text
+{% log %}
 src.internal;s_all#0;;a;processed;6445
 src.internal;s_all#0;;a;stamp;1268989330
 destination;df_auth;;a;processed;404
@@ -259,7 +259,7 @@ center;;received;a;processed;0
 destination;df_kern;;a;processed;70
 center;;queued;a;processed;0
 destination;df_facility_dot_err;;a;processed;0
-```
+{% endlog %}
 
 ## HANDLING PASSWORD-PROTECTED PRIVATE KEYS
 
@@ -285,8 +285,10 @@ their status. For example:
 syslog-ng-ctl credentials status
 ```
 
->Secret store status:
->/home/user/ssl_test/client-1/client-encrypted.key SUCCESS
+{% log %}
+Secret store status:
+/home/user/ssl_test/client-1/client-encrypted.key SUCCESS
+{% endlog %}
 
 If the status of a key is PENDING, you must provide the passphrase for
 the key, otherwise {{ site.product.short_name }} cannot use it. The sources and
@@ -297,7 +299,9 @@ keys every time {{ site.product.short_name }} is restarted.
 
 The following log message also notifies you of PENDING passphrases:
 
->Waiting for password; keyfile='private.key'
+{% log %}
+Waiting for password; keyfile='private.key'
+{% endlog %}
 
 `--control=<socket>` or `-c`
     Specify the socket to use to access {{ site.product.short_name }}. Only needed when

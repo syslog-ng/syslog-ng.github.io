@@ -30,11 +30,11 @@ format, where each line contains the following information:
 For example, the following csv-file contains three lines identified with
 the IP address, and adds the host-role field to the log message.
 
-```text
+{% log %}
 192.168.1.1,host-role,webserver
 192.168.2.1,host-role,firewall
 192.168.3.1,host-role,mailserver
-```
+{% endlog %}
 
 ## The database file
 
@@ -46,11 +46,11 @@ with the following exceptions and limitations:
 To add multiple name-value pairs to a message, include a separate line
 in the database for each name-value pair, for example:
 
-```text
+{% log %}
 192.168.1.1,host-role,webserver
 192.168.1.1,contact-person,"John Doe"
 192.168.1.1,contact-email,johndoe@example.com
-```
+{% endlog %}
 
 Technically, add-contextual-data() is a parser in {{ site.product.short_name }} so you
 have to define it as a parser object.
@@ -103,9 +103,9 @@ log {
 };
 ```
 
-```text
+{% log %}
 192.168.1.1,host-role,webserver
 192.168.2.1,host-role,firewall
 192.168.3.1,host-role,mailserver
 unknown,host-role,unknown
-```
+{% endlog %}

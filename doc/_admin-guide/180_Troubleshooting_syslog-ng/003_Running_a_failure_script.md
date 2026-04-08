@@ -52,7 +52,7 @@ To create a sample failure script, complete the following steps.
     that the relevant information is written into the /tmp/test.txt
     file, for example:
 
-    ```text
+    {% log %}
     Thu May 18 12:08:58 UTC 2017
     Name............syslog-ng
     Chroot dir......NULL
@@ -63,14 +63,16 @@ To create a sample failure script, complete the following steps.
     Reason..........signalled
     Argbuf..........9
     Restarting......not-restarting
-    ```
+    {% endlog %}
 
 4. You should also see messages similar to the following in system
     syslog. The exact message depends on the signal (or the reason why
     {{ site.product.short_name }} stopped):
 
-    >May 18 13:56:09 myhost supervise/syslog-ng[10820]: Daemon exited gracefully, not restarting; exitcode='0'
-    >May 18 13:57:01 myhost supervise/syslog-ng[10996]: Daemon exited due to a deadlock/signal/failure, restarting; exitcode='131'
-    >May 18 13:57:37 myhost supervise/syslog-ng[11480]: Daemon was killed, not restarting; exitcode='9'
+    {% log %}
+    May 18 13:56:09 myhost supervise/syslog-ng[10820]: Daemon exited gracefully, not restarting; exitcode='0'
+    May 18 13:57:01 myhost supervise/syslog-ng[10996]: Daemon exited due to a deadlock/signal/failure, restarting; exitcode='131'
+    May 18 13:57:37 myhost supervise/syslog-ng[11480]: Daemon was killed, not restarting; exitcode='9'
+    {% endlog %}
 
     The failure script should run on every non-zero exit event.
