@@ -12,8 +12,8 @@ following options.
 
 ## author-name()
 
-| Type:    | string or template |                               |                        |
-| Default: | 'host: ${HOST} \   | program: ${PROGRAM}(${PID}) \ | severity: ${PRIORITY}' |
+| Type:    | string or template                                                    |
+| Default: | host: ${HOST} \| program: ${PROGRAM}(${PID}) \| severity: ${PRIORITY} |
 
 *Description:* The sender of the message as displayed in Slack. For
 details, see the [author\_name option in the Slack
@@ -66,7 +66,7 @@ documentation](https://api.slack.com/docs/message-attachments).
 ## colors()
 
 | Type:    | list of colors in hexadecimal format                              |
-| Default: | '#512E5F,#B03A2E,#E74C3C,#F39C12,#F8C471,#7DCEA0,#5DADE2,#85929E' |
+| Default: | `#512E5F,#B03A2E,#E74C3C,#F39C12,#F8C471,#7DCEA0,#5DADE2,#85929E` |
 
 *Description:* The colors to be assigned to the messages of different
 importance levels.
@@ -83,8 +83,8 @@ list of colors set in the colors() option.
 
 ## fallback()
 
-| Type:    | string or template        |                               |                        |
-| Default: | '${MSG} - host: ${HOST} \ | program: ${PROGRAM}(${PID}) \ | severity: ${PRIORITY}' |
+| Type:    | string or template        |
+| Default: | ${MSG} - host: ${HOST} \| program: ${PROGRAM}(${PID}) \| severity: ${PRIORITY} |
 
 *Description:* The plain-text summary of the Slack attachment. For
 details, see the [fallback option in the Slack

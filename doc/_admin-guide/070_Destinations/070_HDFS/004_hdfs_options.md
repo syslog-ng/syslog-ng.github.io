@@ -32,8 +32,8 @@ client-lib-dir(\"/opt/syslog-ng/lib/syslog-ng/java-modules/:/opt/hadoop/libs/\")
 
 ## hdfs-append-enabled()
 
-| Type:    | true \ | false |
-| Default: | false  |       |
+| Type:    | `true`, `false` |
+| Default: | `false`         |
 
 *Description:* When hdfs-append-enabled is set to **true**, {{ site.product.short_name }} will append new data to the end of an already existing HDFS file.
 Note that in this case, archiving is automatically disabled, and

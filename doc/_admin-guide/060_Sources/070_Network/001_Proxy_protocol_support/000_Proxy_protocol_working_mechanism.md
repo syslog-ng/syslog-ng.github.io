@@ -29,8 +29,7 @@ macros to every message the comes through the connection later on:
 >  
 > [2020-11-20T17:33:22.189458] PROXY protocol header received; line='PROXYdsfj'  
 > [2020-11-20T17:33:22.189475] Error parsing PROXY protocol header;  
-> [2020-11-20T17:33:22.189517] Syslog connection closed; fd='13',  
-> client='AF_INET(127.0.0.1:51665)', local='AF_INET(0.0.0.0:6666)'
+> [2020-11-20T17:33:22.189517] Syslog connection closed; fd='13', client='AF_INET(127.0.0.1:51665)', local='AF_INET(0.0.0.0:6666)'
 > [2020-11-20T17:33:22.189546] Freeing PROXY protocol source driver; driver='0x7fffcba5bcf0'  
 > [2020-11-20T17:33:22.189600] Closing log transport fd; fd='13'
 {: .notice--info}

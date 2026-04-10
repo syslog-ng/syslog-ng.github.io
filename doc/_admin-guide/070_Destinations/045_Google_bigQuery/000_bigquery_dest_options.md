@@ -14,8 +14,8 @@ The Google bigquery() destination has the following options:
 
 ## compression()
 
-| Type:    | boolean |
-| Default: | no      |
+| Accepted values: | `yes`, `no` |
+| Default:         | `no`        |
 
 Available in {{ site.product.short_name }} 4.5 and later versions.
 

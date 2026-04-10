@@ -132,8 +132,8 @@ For more information, see Discord: Rate Limits.
 
 ## tts()
 
-| Type:    | true \ | false |
-| Default: | false  |       |
+| Type:    | `true`, `false` |
+| Default: | `false` |       |
 
 *Description:* Enables TTS (Text-To-Speech) mode. For more information,
 see the tts option in the Discord documentation.

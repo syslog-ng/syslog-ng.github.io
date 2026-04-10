@@ -14,8 +14,8 @@ The snmp() destination has the following options:
 
 ## auth-algorithm()
 
-| Type:    | SHA \ | sha |
-| Default: | SHA   |     |
+| Type:    | `SHA`, `sha` |
+| Default: | `SHA`        |
 
 *Description:* The authentication method to use. Lowercase values (for
 example, sha) can be used as well.
@@ -55,8 +55,8 @@ This option is used with the SNMPv2c protocol.
 
 ## enc-algorithm()
 
-| Type:    | AES \ | aes |
-| Default: | AES   |     |
+| Type:    | `AES`, `aes` |
+| Default: | `AES`        |
 
 *Description:* The encryption method used to encrypt the SNMP traffic.
 Lowercase values (for example, aes) can be used as well.
@@ -146,8 +146,8 @@ with the Objectid type.
 
 ## version()
 
-| Type:    | v2c\ | v3 |
-| Default: | v2c  |    |
+| Type:    | `v2c`, `v3` |
+| Default: | `v2c`       |
 
 *Description:* Specifies which version of the SNMP protocol to use.
 

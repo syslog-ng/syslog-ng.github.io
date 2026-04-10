@@ -87,6 +87,6 @@ operation times out, {{ site.product.short_name }} assumes the operation has fai
 ## write_concern()
 
 | Accepted values: | `unacked`, `acked`, `majority`, a number greater than 0 |
-| Default:         | acked                                                   |
+| Default:         | `acked`                                                   |
 
 *Description:* Sets write concern mode of MongoDB operations, both bulk and single.

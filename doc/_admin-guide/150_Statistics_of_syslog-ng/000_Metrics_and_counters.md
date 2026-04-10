@@ -271,8 +271,8 @@ of their facility number.
 Aggregated statistics are available for different sources and
 destinations from different levels and upwards:
 
-| msg\_size\_avg                   | msg\_size\_max | batch\_size\_avg | batch\_size\_max | eps\_last\_1h | eps\_last\_24h | eps_since_start |              |
-|----------------------------------|----------------|------------------|------------------|---------------|----------------|-----------------|--------------|
-| network() source and destination | from level 1   | from level 1     | counter N/A      | counter N/A   | from level 1   | from level 1    | from level 1 |
-| file() source and destination    | from level 1   | from level 1     | counter N/A      | counter N/A   | from level 1   | from level 1    | from level 1 |
-| http() destination               | from level 0   | from level 0     | from level 0     | from level 0  | from level 0   | from level 0    | from level 0 |
+|                                  | msg\_size\_avg | msg\_size\_max | batch\_size\_avg | batch\_size\_max | eps\_last\_1h | eps\_last\_24h | eps_since_start |
+|----------------------------------|----------------|----------------|------------------|------------------|---------------|----------------|-----------------|
+| network() source and destination | from level 1   | from level 1   | counter N/A      | counter N/A      | from level 1  | from level 1   | from level 1    |
+| file() source and destination    | from level 1   | from level 1   | counter N/A      | counter N/A      | from level 1  | from level 1   | from level 1    |
+| http() destination               | from level 0   | from level 0   | from level 0     | from level 0     | from level 0  | from level 0   | from level 0    |

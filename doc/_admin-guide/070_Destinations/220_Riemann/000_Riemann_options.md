@@ -185,8 +185,8 @@ field of the Riemann event.
 
 ## type()
 
-| Type:    | tcp \ | tls \ | udp |
-| Default: | tcp   |       |     |
+| Type:    | `tcp`, `tls`, `udp` |
+| Default: | `tcp`               |
 
 *Description:* The type of the network connection to the Riemann server:
 TCP, TLS, or UDP. For TLS connections, set the ca-file() option to

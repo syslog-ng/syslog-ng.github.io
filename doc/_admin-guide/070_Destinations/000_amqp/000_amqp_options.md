@@ -13,7 +13,7 @@ The amqp() destination has the following options:
 ## auth-method()
 
 | Accepted values: | `plain`, `external` |
-| Default:         | plain               |
+| Default:         | `plain`             |
 
 *Description:* The amqp() driver supports the following types of
 authentication:
@@ -78,8 +78,8 @@ create exchanges.
 
 ## exchange-type()
 
-| Type:    | direct \ | fanout \ | topic \ | headers |
-| Default: | fanout   |          |         |         |
+| Type:    | direct \| fanout \| topic \| headers |
+| Default: | fanout                               |
 
 *Description:* The type of the AMQP exchange.
 
@@ -173,6 +173,6 @@ routing key can include macros and templates.
 ## vhost()
 
 | Type:    | string |
-| Default: | /      |
+| Default: | `/`    |
 
 *Description:* The name of the AMQP virtual host to send the messages to.
