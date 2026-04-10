@@ -26,8 +26,8 @@ of the telegram destination.
 
 ## disable_notification()
 
-| Type:    | boolean |       |
-| Default: | true \  | false |
+| Accepted values: | `true`, `false` |
+| Default:         | `false`         |
 
 *Description:* Enables the telegram() destination to send silent
 messages. By default, the disable_notification() value is false.
@@ -50,8 +50,8 @@ destination {
 
 ## disable-web-page-preview()
 
-| Type:    | boolean |
-| Default: | true    |
+| Accepted values: | `true`, `false` |
+| Default:         | `true`          |
 
 *Description:* Disables link previews for links in the message. By
 default, the disable-web-page-preview value is true. From a security

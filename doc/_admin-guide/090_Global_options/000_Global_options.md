@@ -250,7 +250,7 @@ with the **-1** value.
 ## log-level()
 
 | Accepted values: | `default`, `verbose`, `debug`, `trace` |
-| Default:         | default                                |
+| Default:         | `default`                              |
 
 This option is available in {{ site.product.short_name }} version 4.0 and later versions.
 

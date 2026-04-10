@@ -236,8 +236,8 @@ names.
 
 ## type()
 
-| Type:    | mssql, mysql, oracle, pgsql, or sqlite3 |
-| Default: | mysql                                   |
+| Accepeted values: | `mssql`, `mysql`, `oracle`, `pgsql`, `sqlite3` |
+| Default:          | `mysql`                                        |
 
 *Description:* Specifies the type of the database, that is, the DBI
 database driver to use. Use the mssql option to send logs to an MSSQL

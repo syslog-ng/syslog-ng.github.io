@@ -1,7 +1,7 @@
 ## on-error()
 
 | Accepted values: | `drop-message`, `drop-property`, `fallback-to-string`, `silently-drop-message`, `silently-drop-property`, `silently-fallback-to-string` |
-| Default:         | {{ page.on_error | default: 'Use the global setting (which defaults to `drop-message`)' }}                                                |
+| Default:         | {{ page.on_error | default: 'Use the global setting (which defaults to `drop-message`)' }}                                              |
 
 *Description:* Controls what happens when type-casting fails and
 {{ site.product.short_name }} cannot convert some data to the specified type. By
