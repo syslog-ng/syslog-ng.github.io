@@ -23,16 +23,21 @@ These drivers have the following additional options:
 ## scrape-freq-limit()
 
 | Type:    | number |
-| Default: | `0`    |
+| Default: | `15`    |
 
 *Description:* This option limits the frequency of repeated scraper requests to the specified number of seconds. Any repeated request within this period will be ignored. A set value of `0` means no limit.
+
+{% include doc/admin-guide/options/stats-exporter-warning.md %}
 
 ## single-instance()
 
 | Accepted values: | `yes`, `no` |
-| Default:         | `no`        |
+| Default:         | `yes`        |
 
-*Description:* If this option is set to `yes`, only one scraper connection and request will be allowed at once.
+*Description:* If this option is set to `yes`, only a single scraper connection and request are allowed at a time.\
+It has a similar effect to the `max-connections(1)` option of the network() source, but it sends a more specific error message to the scraper when the limit is exceeded, and also prevents an already active connection from issuing multiple scrape-pattern() matching requests. If set to `no`, multiple scraper connections and requests are allowed, up to the limit defined by max-connections().
+
+{% include doc/admin-guide/options/stats-exporter-warning.md %}
 
 ## stat-type()
 
@@ -53,7 +58,8 @@ These drivers have the following additional options:
 | Accepted values: | `csv`, `kv`, `prometheus` |
 | Default:         | `prometheus`              |
 
-*Description:* This option specifies the format of the statistics output in HTTP responses, similar to the options available in syslog-ng-ctl. The available formats are the following:
+*Description:* This option specifies the format of the statistics output in HTTP responses, similar to the options available in syslog-ng-ctl.\
+The available formats are the following:
 
 - `csv` – comma-separated values format
 - `kv` – key-value pairs, one per line
@@ -72,5 +78,3 @@ These drivers have the following additional options:
 | Default:         | `no`        |
 
 *Description:* If this option is set to `yes`, the output of a `stats` type request — only when using the `prometheus` format — will not include legacy counters, similar to the `with-legacy-metrics` option available in `syslog-ng-ctl`.
-
-{% include doc/admin-guide/options/use-syslogng-pid.md %}
