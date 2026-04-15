@@ -1162,7 +1162,7 @@ $(tags-head <name-of-first-tag> <name-of-second-tag> ... )
 template("$(tags-head foo bar baz)")
 ```
 
-## uppercase
+## $(uppercase)
 
 | *Syntax:* | $(uppercase "\<macro\>") |
 
