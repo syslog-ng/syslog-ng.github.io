@@ -825,6 +825,13 @@ function:
 $(+ "${<MACRO1>}" "${<MACRO2>}");
 ```
 
+{{ site.product.short_name }} version 3.22 and later supports floating-point values in numerical operators, with behavior similar to the C programming language:
+
+- If both operands are integers, the result is an integer  
+- If either operand is a floating-point value, the result is a floating-point number  
+
+To round floating-point values, you can use the `ceil`, `floor`, and `round` template functions.
+
 When you are correlating messages and a name-value pair contains
 numerical values in the messages, you can calculate the lowest (min),
 highest (max), total (sum), and mean (average) values. These
