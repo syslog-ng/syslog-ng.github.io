@@ -743,6 +743,23 @@ second element, and so on.
 if the ${mylist} list contains the one, two, three elements, then
 $(list-tail ${mylist} ) returns two, three.
 
+### $(list-search)
+
+| *Syntax:* | $(list-search [OPTIONS] <pattern> ${list} ) |
+
+*Description:* The `list-search` template function scans the elements of ${list} starting from
+the given start_index and returns the index of the first element that matches <pattern>.
+
+**NOTE:** Indexing starts at 0. If <pattern> is not found, the function returns an empty string.
+{: .notice--info}
+
+Available options:
+
+- --mode MODE\
+  Specifies the matching mode. Possible values are: literal (default), prefix, substring, glob, pcre
+- --start-index N\
+  Skips the first N elements of ${list}
+
 ### $(list-slice)
 
 | *Syntax:* | $(list-slice \<from\>:\<to\> ${list} ) |
