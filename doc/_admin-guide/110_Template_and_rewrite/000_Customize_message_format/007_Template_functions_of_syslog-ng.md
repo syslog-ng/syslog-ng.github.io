@@ -735,6 +735,9 @@ $(list-concat ${list1} ${list2})
 the list index starts with zero, so (list-nth 1 ${list} ) returns the
 second element, and so on.
 
+**NOTE:** Indexing starts at 0. If a negative index is used, it counts from the end of the list. If the specified index is not found, the function returns an empty string.
+{: .notice--info}
+
 ### $(list-tail)
 
 | *Syntax:* | $(list-tail ${list} ) |
