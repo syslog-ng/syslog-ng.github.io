@@ -767,8 +767,9 @@ Available options:
 
 | *Syntax:* | $(list-slice \<from\>:\<to\> ${list} ) |
 
-*Description:* Returns the specified subset of the list. Note that the
-list index starts with zero, for example, $(list-slice 1:2 ${list} )
+*Description:* Returns the specified subset of the list. 
+
+The list index starts with zero, for example, $(list-slice 1:2 ${list} )
 returns the second and third element of the list, and so on.
 
 You can omit the from or to index if you want to start the subset from
