@@ -854,31 +854,69 @@ argument.
 
 ## $(padding)
 
-| *Syntax:* | $(padding \<macro\> \<width\> \<prepended-character-or-string\>) |
+| *Syntax:* | $(padding \<macro\> \<width\> [\<padding-character-or-string\>]) |
 
 *Description:* This template function returns the value of its first
-parameter (a string or macro), prepended with a string. This string is
-\<width\> long, and repeats the character or string set in the third
-parameter. If you use a single character, it is added \<width\> times.
-If you use a string, it is repeated until its length reaches \<width\>.
-The default padding character is \' \' (space). For example:
+parameter (a string or macro), padded to the specified width. From version 4.12 of
+{{ site.product.short_name }}, the padding direction depends on the sign of the \<width\> parameter:
 
-### Example: Using the padding template function
+- **Positive width**: Left-padding. The padding is added before (to the left of) the string.
+- **Negative width**: Right-padding. The padding is added after (to the right of) the string.
 
-If the value of the ${MESSAGE} macro is mymessage, then the output of
-the padding() template function is the following:
+The absolute value of \<width\> determines the total length of the output. If the
+input string is longer than the specified width, it is returned unchanged (not truncated).
+
+The optional third parameter specifies the padding character or string. If you use a
+single character, it is repeated to fill the padding. If you use a string, it is
+repeated until the padding reaches the required length. The default padding character
+is ` ` (space).
+
+**NOTE:** The width parameter cannot be zero.
+{: .notice--info}
+
+### padding usage examples
+
+If the value of the ${MESSAGE} macro is mymessage:
+
+**Left-padding with spaces (default):**
 
 ```config
-$(padding ${MESSAGE} 10 X)
+$(padding ${MESSAGE} 15)
 ```
 
-Output: XXXXXXXXXXmymessage
+Output: `      mymessage` (6 spaces + mymessage = 15 characters total)
+
+**Left-padding with a character:**
 
 ```config
-$(padding ${MESSAGE} 10 foo)
+$(padding ${MESSAGE} 15 X)
 ```
 
-Output: foofoofoofmymessage
+Output: `XXXXXXmymessage` (6 X's + mymessage = 15 characters total)
+
+**Left-padding with a string:**
+
+```config
+$(padding ${MESSAGE} 16 foo)
+```
+
+Output: `foofoofmymessage` (repeats "foo" until reaching 16 characters total)
+
+**Right-padding with spaces:**
+
+```config
+$(padding ${MESSAGE} -15)
+```
+
+Output: `mymessage      ` (mymessage + 6 spaces = 15 characters total)
+
+**Right-padding with a character:**
+
+```config
+$(padding ${MESSAGE} -15 X)
+```
+
+Output: `mymessageXXXXXX` (mymessage + 6 X's = 15 characters total)
 
 ## $(python)
 
