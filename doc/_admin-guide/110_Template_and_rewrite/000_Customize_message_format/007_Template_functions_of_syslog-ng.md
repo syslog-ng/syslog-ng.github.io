@@ -58,7 +58,7 @@ Available in {{ site.product.short_name }} 3.5 and later.
 
  Available in {{ site.product.short_name }} 3.21 and later versions.
 
-| *Syntax:* | $(explode <separator> <string1> <string2> ...) |
+| *Syntax:* | $(explode \<separator\> \<string1\> \<string2\> ...) |
 
 *Description:* Turns a string separated by a specific character into a list. You can also use the implode template function, which turns a list into a string combining the pieces together with a separator.
 
@@ -596,7 +596,7 @@ admin if the username is joe, and normal user otherwise.
 
  Available in {{ site.product.short_name }} 3.21 and later versions.
 
-| *Syntax:* | $(implode <separator> <string1>, <string2>, ...) |
+| *Syntax:* | $(implode \<separator\> \<string1\>, \<string2\>, ...) |
 
 *Description:* Turns a list into a string combining the pieces together with a separator. You can also use the explode template function, which turns a string separated by a specific character into a list.
 
@@ -748,12 +748,12 @@ $(list-tail ${mylist} ) returns two, three.
 
 ### $(list-search)
 
-| *Syntax:* | $(list-search [OPTIONS] <pattern> ${list} ) |
+| *Syntax:* | $(list-search [OPTIONS] \<pattern\> ${list} ) |
 
 *Description:* The `list-search` template function scans the elements of ${list} starting from
-the given start_index and returns the index of the first element that matches <pattern>.
+the given start_index and returns the index of the first element that matches \<pattern\>.
 
-**NOTE:** Indexing starts at 0. If <pattern> is not found, the function returns an empty string.
+**NOTE:** Indexing starts at 0. If \<pattern\> is not found, the function returns an empty string.
 {: .notice--info}
 
 Available options:
