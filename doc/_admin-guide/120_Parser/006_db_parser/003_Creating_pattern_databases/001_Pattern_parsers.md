@@ -96,17 +96,17 @@ Windows security auditing logs.
 <pattern>Example-PC\Example: Security Microsoft Windows security auditing.: [Success Audit] A new process has been created.
 
     Subject:
-    Security ID: @LNSTRING:.winaudit.SubjectUserSid@
-    Account Name: @LNSTRING:.winaudit.SubjectUserName@
-    Account Domain: @LNSTRING:.winaudit.SubjectDomainName@
-    Logon ID: @LNSTRING:.winaudit.SubjectLogonId@
+    Security ID: @NLSTNING:.winaudit.SubjectUserSid@
+    Account Name: @NLSTNING:.winaudit.SubjectUserName@
+    Account Domain: @NLSTNING:.winaudit.SubjectDomainName@
+    Logon ID: @NLSTNING:.winaudit.SubjectLogonId@
 
     Process Information:
-    New Process ID: @LNSTRING:.winaudit.NewProcessId@
-    New Process Name: @LNSTRING:.winaudit.NewProcessName@
-    Token Elevation Type: @LNSTRING:.winaudit.TokenElevationType@
-    Creator Process ID: @LNSTRING:.winaudit.ProcessId@
-    Process Command Line: @LNSTRING:.winaudit.CommandLine@
+    New Process ID: @NLSTNING:.winaudit.NewProcessId@
+    New Process Name: @NLSTNING:.winaudit.NewProcessName@
+    Token Elevation Type: @NLSTNING:.winaudit.TokenElevationType@
+    Creator Process ID: @NLSTNING:.winaudit.ProcessId@
+    Process Command Line: @NLSTNING:.winaudit.CommandLine@
 
     Token Elevation Type indicates the type of token that was assigned to the new process in accordance with User Account Control policy.</pattern>
 ```
