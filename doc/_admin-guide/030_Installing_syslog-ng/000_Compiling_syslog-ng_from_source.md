@@ -82,22 +82,21 @@ and other platforms, see {{ site.product.name }} installation packages.
     the **./autogen.sh** command.)
 
     ```bash
-        ./configure
-        make
-        make install
-   
+    ./configure
+    make
+    make install   
     ```
 
 9. Uncompress the {{ site.product.short_name }} archive using the
 
     ```bash
-        tar xvfz syslog-ng-x.xx.tar.gz
+    tar xvfz syslog-ng-x.xx.tar.gz
     ```
 
     or the
 
     ```bash
-        unzip -c syslog-ng-x.xx.tar.gz | tar xvf -
+    unzip -c syslog-ng-x.xx.tar.gz | tar xvf -
     ```
 
     command. A new directory containing the source code of syslog-ng
@@ -106,28 +105,29 @@ and other platforms, see {{ site.product.name }} installation packages.
 10. Enter the new directory and issue the following commands:
 
     ```bash
-            ./configure
-            make
-            make install
+    ./configure
+    make
+    make install   
     ```
 
     These commands will build {{ site.product.short_name }} using its default options.
 
- >**NOTE:** When using the make command, consider the following:
- >
- >- On Solaris, use **gmake** (GNU make) instead of **make**.
- >- To build {{ site.product.short_name }} with less verbose output, use the **make
- >    V=0** command. This results in shorter, less verbose output,
- >    making warnings and other anomalies easier to notice. Note that
- >    silent-rules support is only available in recent automake
- >    versions.
- {: .notice--info}
+     <div class="notice--info" markdown="1" style="font-size: inherit;">
+     **NOTE:** When using the make command, consider the following: 
+    - On Solaris, use **gmake** (GNU make) instead of **make**.
+    - To build {{ site.product.short_name }} with less verbose output, use the **make
+         V=0** command. This results in shorter, less verbose output,
+         making warnings and other anomalies easier to notice. Note that
+         silent-rules support is only available in recent automake
+         versions.
+
+    </div>
 
 11. If needed, use the following options to change how {{ site.product.short_name }} is
     compiled using the following command syntax:
 
     ```bash
-        ./configure --compile-time-option-name
+    ./configure --compile-time-option-name
     ```
 
     **NOTE:** You can also use *\--disable options*, to explicitly disable a

@@ -344,22 +344,22 @@ of the accepted certificates in this parameter.
 For example,
 
 ```config
-trusted-keys(\"SHA1:00:EF:ED:A4:CE:00:D1:14:A4:AB:43:00:EF:00:91:85:FF:89:28:8F\",
-\"SHA1:0C:42:00:3E:B2:60:36:64:00:E2:83:F0:80:46:AD:00:A8:9D:00:15\").
+trusted-keys("SHA1:00:EF:ED:A4:CE:00:D1:14:A4:AB:43:00:EF:00:91:85:FF:89:28:8F",
+             "SHA1:0C:42:00:3E:B2:60:36:64:00:E2:83:F0:80:46:AD:00:A8:9D:00:15")
 ```
 
 To find the fingerprint of a certificate, you can use the following
 command: **openssl x509 -in \<certificate-filename\> -sha1 -noout
 -fingerprint**
 
->**NOTE:** When using the trusted-keys() and trusted-dn() parameters,
->note the following:  
->  
->- First, the trusted-keys() parameter is checked. If the fingerprint  
->    of the peer is listed, the certificate validation is performed.  
->  
->- If the fingerprint of the peer is not listed in the trusted-keys()  
->    parameter, the trusted-dn() parameter is checked. If the DN of the  
->    peer is not listed in the trusted-dn() parameter, the authentication  
->    of the peer fails and the connection is closed.  
-{: .notice--info}
+<div class="notice--info" markdown="1" style="font-size: inherit;">
+**NOTE:** When using the trusted-keys() and trusted-dn() parameters, note the following:  
+  
+- First, the trusted-keys() parameter is checked. If the fingerprint  
+    of the peer is listed, the certificate validation is performed.
+- If the fingerprint of the peer is not listed in the trusted-keys()  
+    parameter, the trusted-dn() parameter is checked. If the DN of the  
+    peer is not listed in the trusted-dn() parameter, the authentication  
+    of the peer fails and the connection is closed.  
+
+</div>

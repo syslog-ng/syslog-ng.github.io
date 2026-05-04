@@ -21,12 +21,12 @@ journald provides, see the documentation of journald for your platform
 the max-field-size() option instead.
 {: .notice--info}
 
->**NOTE:** This source will not handle the following cases:
->
+<div class="notice--info" markdown="1" style="font-size: inherit;">
+**NOTE:** This source will not handle the following cases:
 - Corrupted journal file
 - Incorrect journal configuration
 - Any other journald-related bugs
-{: .notice--info}
+</div>
 
 **NOTE:** If you are using RHEL-7, the default source in the configuration
 is systemd-journal() instead of unix-dgram("/dev/log") and

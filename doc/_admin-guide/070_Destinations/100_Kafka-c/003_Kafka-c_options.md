@@ -182,14 +182,14 @@ retries sending the messages for retries() time (3 times by default) before wait
 templates to change the topic dynamically based on the source or the content of
 the message, for example, `topic("${HOST}")`.
 
->**NOTE:** Valid topic names for the topic() and fallback-topic() options have the
->following limitations:
->
->The topic name must contain characters within the pattern \[-._a-zA-Z0-9\].
->
->The length of the topic name must be between 1 and 249 characters.
->
-{: .notice--info}
+<div class="notice--info" markdown="1" style="font-size: inherit;">
+**NOTE:** Valid topic names for the topic() and fallback-topic() options have the
+following limitations:
+
+- The topic name must contain characters within the pattern \[-._a-zA-Z0-9\].
+- The length of the topic name must be between 1 and 249 characters.
+
+</div>
 
 **NOTE:** If you use templates with the topic() option, configuring the
 fallback-topic() option is also required.

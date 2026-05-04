@@ -133,20 +133,18 @@ The displayed metrics have the following structure.
     - **eps\_since\_start**: The EPS value since the current {{ site.product.short_name }}
         start.
 
-        >**NOTE:** When using the eps\_last\_1h, the eps\_last\_24h, and the
-        >eps\_since\_start statistics, consider the following:
-        >  
-        >- EPS stands for \"event per second\", and in our case, a
+        <div class="notice--info" markdown="1" style="font-size: inherit;">
+        **NOTE:** When using the eps\_last\_1h, the eps\_last\_24h, and the
+        eps\_since\_start statistics, consider the following:
+
+        - EPS stands for \"event per second\", and in our case, a
             message received or sent counts as a single event.
-        >  
-        >- The eps\_last\_1h, the eps\_last\_24h, and the
+        - The eps\_last\_1h, the eps\_last\_24h, and the
             eps\_since\_start values are only approximate values.
-        >  
-        >- The eps\_last\_1h, the eps\_last\_24h, and the
+        - The eps\_last\_1h, the eps\_last\_24h, and the
             eps\_since\_start values are automatically updated every 60
             seconds.
-        >  
-        {: .notice--info}
+        </div>  
 
     - **matched**: The number of messages that are accepted by a given
         filter. Available for filters and similar objects (for example,
@@ -176,12 +174,12 @@ The displayed metrics have the following structure.
     - **msg\_size\_avg**: The current average message size of the given
         source or destination.
 
-        >**NOTE:** When using the msg\_size\_avg and msg\_size\_max
-        > statistics, consider that message sizes are calculated as follows:
-        >  
-        > - on the source side: the length of the incoming raw message
-        > - on the destination side: the length of the outgoing formatted message
-        {: .notice--info}
+        <div class="notice--info" markdown="1" style="font-size: inherit;">
+        **NOTE:** When using the msg\_size\_avg and msg\_size\_max
+        statistics, consider that message sizes are calculated as follows:
+        - on the source side: the length of the incoming raw message
+        - on the destination side: the length of the outgoing formatted message
+        </div>
 
     - **not\_matched**: The number of messages that are filtered out by a
         given filter. Available for filters and similar objects (for
@@ -190,13 +188,13 @@ The displayed metrics have the following structure.
         contains the number of messages that reached the filter from
         other hosts, and so the filter discarded them.
 
+        >filter;demo_filter;;a;not_matched;0
+
         **NOTE:** Since the not\_matched metric applies to filters, and
         filters are expected to discard messages that do not match the
         filter condition, not\_matched messages are not included in the
         dropped metric of other objects.
         {: .notice--info}
-
-        >filter;demo_filter;;a;not_matched;0
 
     - **processed**: The number of messages that successfully reached
         their destination driver.
@@ -231,19 +229,19 @@ The displayed metrics have the following structure.
         this metric directly: to reset it, you have to reset the metrics
         it is calculated from.
 
-    >**NOTE:** Consider that for {{ site.product.short_name }} version 3.36, the following
-    >statistics counters are only supported for the http() destination,
-    >or the http() destination and all network() sources and
-    >destinations, and all file() sources and destinations, respectively:
-    >  
-    >- msg\_size\_max
-    >- msg\_size\_avg
-    >- batch\_size\_max
-    >- batch\_size\_avg
-    >- eps\_last\_1h
-    >- eps\_last\_24h
-    >- eps\_since\_start
-    {: .notice--info}
+    <div class="notice--info" markdown="1" style="font-size: inherit;">
+    **NOTE:** Consider that for {{ site.product.short_name }} version 3.36, the following
+    statistics counters are only supported for the http() destination,
+    or the http() destination and all network() sources and
+    destinations, and all file() sources and destinations, respectively:
+    - msg_size_max
+    - msg_size_avg
+    - batch_size_max
+    - batch_size_avg
+    - eps_last_1h
+    - eps_last_24h
+    - eps_since_start
+    </div>
 
 7. The number of such messages.
 

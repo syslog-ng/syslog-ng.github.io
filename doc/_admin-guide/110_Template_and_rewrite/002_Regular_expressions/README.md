@@ -29,8 +29,8 @@ description: >-
     \\\\d expression matches the \\d string.
 
     **TIP:** If you use single quotes, you do not need to escape the
-    backslash, for example, **match(\"\\\\.\")** is equivalent to
-    match(\'\\.\').
+    backslash, for example, `match(\"\\\\.\")` is equivalent to
+    `match(\'\\.\')`.
     {: .notice--info}
 
 - Enclosing alphanumeric strings between double-quotes
@@ -39,15 +39,14 @@ description: >-
     **match(\"sometext\")** and **match(sometext)** will both match for
     the sometext string.
 
-    >**NOTE:** Only strings containing alphanumerical characters can be used  
-    >without quotes or double quotes. If the string contains whitespace  
-    >or any special characters (()\[\].\*?+\^$\|\\ or ;:\#), you must  
-    >use quotes or double quotes.  
-    >  
-    >When using the ;:\# characters, you must use quotes or double  
-    >quotes, but escaping them is not required.  
-    >  
-    {: .notice--info}
+    <div class="notice--info" markdown="1" style="font-size: inherit;">
+    **NOTE:** Only strings containing alphanumerical characters can be used
+    without quotes or double quotes. If the string contains whitespace
+    or any special characters `(()\[\].\*?+\^$\|\\ or ;:\#)`, you must
+    use quotes or double quotes.<br>
+    When using the `;:\#` characters, you must use quotes or double
+    quotes, but escaping them is not required.
+    </div>
 
 By default, all regular expressions are case sensitive. To disable the
 case sensitivity of the expression, add the **flags(ignore-case)**

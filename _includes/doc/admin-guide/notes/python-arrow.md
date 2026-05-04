@@ -1,13 +1,12 @@
->**NOTE:** From version 3.27, {{ site.product.short_name }} supports the arrow syntax for  
->declaring custom Java and Python options. You can alternatively declare  
->them using a similar syntax:  
->  
->```config  
->options(  
->    "host" => "localhost"  
->    "port" => "1883"  
->    "otheroption" => "value"  
->)                    
->```  
->  
-{: .notice--info}
+<div class="notice--info" markdown="1" style="font-size: inherit;">
+**NOTE:** From version 3.27, {{ site.product.short_name }} supports the arrow syntax for declaring custom Java and Python options. You can alternatively declare them using a similar syntax:  
+  
+```config  
+options(  
+    "host" => "localhost"  
+    "port" => "1883"  
+    "otheroption" => "value"  
+)                    
+```
+
+</div>
