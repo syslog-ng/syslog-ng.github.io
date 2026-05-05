@@ -18,7 +18,9 @@ N/A
 
 ## Children
 
-- *action*
+- *action*: An action definition that describes what {{ site.product.short_name }}
+    should do when a message is recognized by a pattern. For details, see
+    Element: action.
 
 ### Example: Generating messages for pattern database matches
 

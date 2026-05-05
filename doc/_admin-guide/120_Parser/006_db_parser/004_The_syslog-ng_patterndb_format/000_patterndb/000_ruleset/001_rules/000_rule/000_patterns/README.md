@@ -19,31 +19,20 @@ N/A
 
 ## Children
 
-- *pattern*: A pattern describing a log message. This element is also
-    called message pattern. For example:
+The *\<patterns\>* element can contain one or more *\<pattern\>* child elements.
+
+- *pattern*: A pattern describing a log message that should be matched by the rule.
+    The pattern uses {{ site.product.short_name }}'s pattern syntax with macros to
+    capture and extract parts of the log message into named fields. For example:
 
     ```xml
     <pattern>+ ??? root-</pattern>
     ```
 
-    **NOTE:** Support for XML entities is limited, you can use only the
-    following entities: **&amp; &lt; &gt; &quot; &apos;**. User-defined
-    entities are not supported.
-    {: .notice--info}
-
-- *description*: OPTIONAL --- A description of the pattern or the log
-    message matching the pattern.
-
-- *urls*
-
-- *values*
-
-- *examples*
-
 ### Example
 
 ```xml
 <patterns>
-    <pattern>Accepted @QSTRING:SSH.AUTH_METHOD: @ for@QSTRING:SSH_USERNAME: @from\ @QSTRING:SSH_CLIENT_ADDRESS: @port @NUMBER:SSH_PORT_NUMBER:@ ssh2</pattern>
+    <pattern>Accepted @QSTRING:SSH_AUTH_METHOD: @ for@QSTRING:SSH_USERNAME: @from\ @QSTRING:SSH_CLIENT_ADDRESS: @port @NUMBER:SSH_PORT_NUMBER:@ ssh2</pattern>
 </patterns>
 ```

@@ -47,7 +47,9 @@ description: >-
 
 ## Children
 
-- *create-context*
+- *create-context*: OPTIONAL --- Creates a new correlation context from the
+    current message and its associated context. For details, see
+    Element: create-context.
 
 - *message*: A container element storing the message to be sent when
     the action is executed. Currently {{ site.product.short_name }} sends these messages

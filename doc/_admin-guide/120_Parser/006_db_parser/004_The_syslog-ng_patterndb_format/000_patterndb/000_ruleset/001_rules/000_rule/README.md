@@ -89,7 +89,21 @@ The *\<rules\>* element may contain any number of *\<rule\>* elements.
 
 ## Children
 
-- *patterns*
+- *patterns*: A container for one or more patterns that should
+    be matched by this rule.
+
+- *examples*: OPTIONAL --- A container for sample log messages that should be
+    recognized by the patterns. These messages can be used to test the patterns
+    and validate the rule. For details, see Element: examples.
+
+- *urls*: OPTIONAL --- A container for one or more URLs referring to further
+    information about the patterns or the matching log messages. For details,
+    see Element: urls.
+
+- *values*: OPTIONAL --- Name-value pairs that are assigned to messages matching
+    the patterns. These can represent event information according to standards like
+    CEF (Common Event Format) or CEE (Common Event Exchange). For details, see
+    Element: values.
 
 ### Example
 

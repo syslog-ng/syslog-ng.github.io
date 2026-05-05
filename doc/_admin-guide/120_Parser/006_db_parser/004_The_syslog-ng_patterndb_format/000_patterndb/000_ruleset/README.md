@@ -23,13 +23,18 @@ description: >-
 
 ## Children
 
-- *patterns*
+- *patterns*: A container for one or more program patterns used to match the
+    `PROGRAM` header of incoming syslog messages and select the applicable
+    ruleset. For details, see Element: patterns.
 
-- *rules*
+- *rules*: A container for the rules belonging to this ruleset. For details,
+    see Element: rules.
 
-- *actions*
+- *actions*: OPTIONAL --- A container for actions that are performed when a
+    message is recognized by the patterns of the ruleset. For details, see
+    Element: actions.
 
-- *tags*
+- *tags*: OPTIONAL --- Tags assigned to messages matching this ruleset.
 
 - *description*: OPTIONAL --- A description of the ruleset or the
     application.

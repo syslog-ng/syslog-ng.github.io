@@ -19,7 +19,9 @@ description: >-
 
 ## Children
 
-- *ruleset*
+- *ruleset*: A container element that groups log patterns, rules, and optional
+    actions for a specific application or program. For details, see
+    Element: ruleset.
 
 ### Example
 

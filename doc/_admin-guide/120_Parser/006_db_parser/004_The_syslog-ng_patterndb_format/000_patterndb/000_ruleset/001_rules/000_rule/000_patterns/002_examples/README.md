@@ -18,7 +18,8 @@ N/A
 
 ## Children
 
-- *example*
+- *example*: A sample log message and its expected parsed values, used to test
+    whether the pattern matches and extracts fields as intended.
 
 ### Example
 

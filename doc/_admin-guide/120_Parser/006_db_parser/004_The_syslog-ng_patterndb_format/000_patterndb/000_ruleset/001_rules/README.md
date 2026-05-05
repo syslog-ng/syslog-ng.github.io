@@ -16,7 +16,8 @@ N/A
 
 ## Children
 
-- *rule*
+- *rule*: A rule that contains the message patterns and classification data
+    used to recognize matching log messages. For details, see Element: rule.
 
 ### Example
 

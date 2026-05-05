@@ -884,6 +884,9 @@ admin-guide-nav:
                 - title: "patterns"
                   url: /admin-guide/120_Parser/006_db_parser/004_The_syslog-ng_patterndb_format/000_patterndb/000_ruleset/001_rules/000_rule/000_patterns/README
                   subnav:
+                  - title: "pattern"
+                    url: /admin-guide/120_Parser/006_db_parser/004_The_syslog-ng_patterndb_format/000_patterndb/000_ruleset/001_rules/000_rule/000_patterns/000_pattern/README
+                    subnav:
                   - title: "urls"
                     url: /admin-guide/120_Parser/006_db_parser/004_The_syslog-ng_patterndb_format/000_patterndb/000_ruleset/001_rules/000_rule/000_patterns/000_urls/README
                     subnav:
