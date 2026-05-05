@@ -28,7 +28,7 @@ N/A
     <example>
         <test_message>Accepted password for sampleuser from 10.50.0.247 port 42156 ssh2</test_message>
         <test_values>
-            <test_value name="SSH.AUTH_METHOD">password</test_value>
+            <test_value name="SSH_AUTH_METHOD">password</test_value>
             <test_value name="SSH_USERNAME">sampleuser</test_value>
             <test_value name="SSH_CLIENT_ADDRESS">10.50.0.247</test_value>
             <test_value name="SSH_PORT_NUMBER">42156</test_value>

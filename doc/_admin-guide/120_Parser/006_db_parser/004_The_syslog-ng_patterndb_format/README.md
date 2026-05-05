@@ -35,7 +35,7 @@ The following is a simple pattern database containing a matching rule.
             <rules>
                 <rule provider='me' id='182437592347598' class='system'>
                     <patterns>
-                        <pattern>Accepted @QSTRING:SSH.AUTH_METHOD: @ for@QSTRING:SSH_USERNAME: @from\ @QSTRING:SSH_CLIENT_ADDRESS: @port @NUMBER:SSH_PORT_NUMBER:@ ssh2</pattern>
+                        <pattern>Accepted @QSTRING:SSH_AUTH_METHOD: @ for@QSTRING:SSH_USERNAME: @from\ @QSTRING:SSH_CLIENT_ADDRESS: @port @NUMBER:SSH_PORT_NUMBER:@ ssh2</pattern>
                     </patterns>
                 </rule>
             </rules>
@@ -44,7 +44,7 @@ The following is a simple pattern database containing a matching rule.
 ```
 
 Note that the rule uses macros that refer to parts of the message, for
-example, you can use the **${SSH\_USERNAME}** macro refer to the
+example, you can use the `${SSH_USERNAME}` macro to refer to the
 username used in the connection.
 
 The following is the same example, but with a test message and test
@@ -57,13 +57,13 @@ values for the parsers.
             <rules>
                 <rule provider='me' id='182437592347598' class='system'>
                     <patterns>
-                        <pattern>Accepted @QSTRING:SSH.AUTH_METHOD: @ for@QSTRING:SSH_USERNAME: @from\ @QSTRING:SSH_CLIENT_ADDRESS: @port @NUMBER:SSH_PORT_NUMBER:@ ssh2</pattern>
+                        <pattern>Accepted @QSTRING:SSH_AUTH_METHOD: @ for@QSTRING:SSH_USERNAME: @from\ @QSTRING:SSH_CLIENT_ADDRESS: @port @NUMBER:SSH_PORT_NUMBER:@ ssh2</pattern>
                     </patterns>
                     <examples>
                         <example>
                             <test_message>Accepted password for sampleuser from 10.50.0.247 port 42156 ssh2</test_message>
                             <test_values>
-                                <test_value name="SSH.AUTH_METHOD">password</test_value>
+                                <test_value name="SSH_AUTH_METHOD">password</test_value>
                                 <test_value name="SSH_USERNAME">sampleuser</test_value>
                                 <test_value name="SSH_CLIENT_ADDRESS">10.50.0.247</test_value>
                                 <test_value name="SSH_PORT_NUMBER">42156</test_value>
