@@ -3,7 +3,7 @@
     "short_name": "",
     "icons": [
         {
-            "src": "/doc/assets/images/favicons/android-chrome-144x144.png",
+            "src": "/assets/images/favicons/android-chrome-144x144.png",
             "sizes": "144x144",
             "type": "image/png"
         }
