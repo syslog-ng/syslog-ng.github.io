@@ -133,20 +133,18 @@ module Jekyll
         return title
       end
 
-      def process_markdown_part(page, markdown_part, page_links, full_pattern, id, url, add_separator)
+      def process_markdown_part(page, markdown_part, page_links, full_pattern, id, url)
 
         markdown_part = markdown_part.gsub(full_pattern) do |match|
-          left_separator = $1
-          matched_text = $2
-          right_separator = $3
-          # puts "\nmatch: #{match}\nleft_separator: #{left_separator}\nmatched_text: #{matched_text}\nright_separator: #{right_separator}"
+          matched_text = $1
+          # puts "\nmatch: #{match}\nmatched_text: #{matched_text}"
 
           replacement_text = make_tooltip(page, page_links, id, url, matched_text)
-          if replacement_text != nil
-            if add_separator
-              replacement_text = left_separator + replacement_text + right_separator
-            end
-          else
+          if replacement_text == nil
+            # Keep the original part untouched, but escape any unescaped pipes
+            # so kramdown won't interpret them as table separators.
+            # NOTE: For the only path that can actually return nil ([[title|id]]),
+            #       markdown_part == match, so this is equivalent to escaping `match`.
             replacement_text = markdown_part.gsub(/(?<!\\)\|/, "\\\|")
           end
           replacement_text
@@ -208,15 +206,35 @@ module Jekyll
               # NOTE: Using multi line matching here will not help either if the pattern itself is in the middle broken/spaned to multiple lines, so 
               #       using whitespace replacements now inside the patter to handle this, see above!
               # NOTE: Also excludes the reqursively self added <a ...>title</a> tooltips/links
-              full_pattern = /(^|[\s.,;:&'"(])(#{pattern})([\s.,;:&'")]|\z)(?![^<]*?<\/a>)/
-              markdown_part = process_markdown_part(page, markdown_part, page_links, full_pattern, id, url, true)
+              #
+              # Pattern (plain text):
+              #   (?<= ^ | [\s.,;:&'"(}>] )   lookbehind: start-of-string OR one of the allowed left boundary chars.
+              #                                Includes '}' and '>' so that chained tokens like
+              #                                '${HOST}${PROGRAM}' or text right after an already-injected
+              #                                '</a>' tag (from a previous iteration) still match.
+              #   ( #{pattern} )               the title to find (single capture group, becomes $1).
+              #   (?= [\s.,;:&'"\$)<] | \z )  lookahead: end-of-string OR one of the allowed right boundary chars.
+              #                                Includes '$' so '${X}${Y}' chains, and '<' so a token followed
+              #                                by an already-injected '<a ...>' from a previous iteration still matches.
+              #   (?! [^<]*? <\/a> )           negative lookahead: do NOT match if we are currently inside an
+              #                                '<a ...>...</a>' wrapper (prevents recursive re-linking of
+              #                                tooltips injected on earlier passes/iterations).
+              # Lookbehind/lookaround are zero-width: separator chars are NOT consumed and need no re-emission.
+              full_pattern = /(?<=^|[\s.,;:&'"(}>])(#{pattern})(?=[\s.,;:&'"\$)<]|\z)(?![^<]*?<\/a>)/
+              markdown_part = process_markdown_part(page, markdown_part, page_links, full_pattern, id, url)
             else
               # Content inside of Markdown blocks
 
               # Handle our special markdown notation autolink/tooltip links [[title]], but NOT [[title|id]], see bellow why
+              #
+              # Pattern ([[title]]):
+              #   \[\[              consume the opening '[[' (not captured).
+              #   ( #{pattern} )    the title to resolve (single capture group, becomes $1); must equal a known link title.
+              #   \]\]              consume the closing ']]' (not captured).
+              # The whole '[[...]]' is replaced by the rendered <a> tag (or kept untouched on resolution failure).
               if is_modifiable_markdown_part?(markdown_part)
-                full_pattern = /(\[\[)(#{pattern})(\]\])/
-                markdown_part = process_markdown_part(page, markdown_part, page_links, full_pattern, id, url, false)
+                full_pattern = /\[\[(#{pattern})\]\]/
+                markdown_part = process_markdown_part(page, markdown_part, page_links, full_pattern, id, url)
               end
             end
           end
@@ -229,8 +247,18 @@ module Jekyll
             if is_modifiable_markdown_part?(markdown_part)
               # puts "\nmarkdown_index: " + markdown_index.to_s + "\n" + (markdown_index.even? ? "NOT " : "") + "markdown_part: " + markdown_part
               # NOTE: The differences in the patter is intentional, allowing empty part on both sides of | allows the same flow inside process_markdown_part
-              full_pattern = /(\[\[)(.*?(?<!\\)\|.*?)(\]\])/
-              markdown_part = process_markdown_part(page, markdown_part, page_links, full_pattern, nil, nil, false)
+              #
+              # Pattern ([[title|id]]):
+              #   \[\[                       consume the opening '[[' (not captured).
+              #   ( .*?(?<!\\)\|.*? )        single capture group ($1) holding 'title|id' as a whole; non-greedy on
+              #                               both sides so the inner '|' is the separator. The '(?<!\\)' lookbehind
+              #                               allows escaping a literal '|' in the title with '\|'. Both 'title' and
+              #                               'id' may be empty here -- empty/invalid cases are reported by make_tooltip,
+              #                               and the special '[[title|-]]' form (id == '-') is handled there too,
+              #                               which is why this pass is independent from the title-driven one above.
+              #   \]\]                       consume the closing ']]' (not captured).
+              full_pattern = /\[\[(.*?(?<!\\)\|.*?)\]\]/
+              markdown_part = process_markdown_part(page, markdown_part, page_links, full_pattern, nil, nil)
             end
           end
 
