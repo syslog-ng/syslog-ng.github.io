@@ -36,7 +36,11 @@ start_process() {
     rm -Rf _site
     rm -Rf .jekyll-cache
 
-    update_js_files
+    if [ "${JEKYLL_USE_AUTO_PACK}" == "yes" ]; then
+        generate_js_files
+    else
+        update_js_files # Might be needed if generate_js_files does not run
+    fi
 
     # Either use navgen or build once with JEKYLL_BUILD_LINKS manually in a separate run
     # as the output of it must already be presented to be able to serve a valid content
