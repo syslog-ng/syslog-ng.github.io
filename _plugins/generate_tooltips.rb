@@ -134,7 +134,6 @@ module Jekyll
       end
 
       def process_markdown_part(page, markdown_part, page_links, full_pattern, id, url)
-
         markdown_part = markdown_part.gsub(full_pattern) do |match|
           matched_text = $1
           # puts "\nmatch: #{match}\nmatched_text: #{matched_text}"
