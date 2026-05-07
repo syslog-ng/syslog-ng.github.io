@@ -135,10 +135,8 @@
     encoding-verification for messages formatted according to the new
     IETF syslog standard (for details, see
     IETF-syslog messages.
-    If the BOM[^1] character is missing, but the message is otherwise UTF-8
+    If the BOM character is missing, but the message is otherwise UTF-8
     compliant, {{ site.product.short_name }} automatically adds the BOM character to the
     message.
 - *no-piggyback-errors*: On failure, the original message will be left as it was before parsing, the value of `$MSGFORMAT` will be set to `syslog:error`, and a tag (see Tagging messages) will be placed on the message corresponding to the parser's failure.
 - *piggyback-errors*: On failure, the old behaviour is used (clearing the entire message then syslog-ng will generate a new message in place of the old one describing the parser's error).
-
-[^1]: The byte order mark (BOM) is a Unicode character used to signal the byte-order of the message text.
