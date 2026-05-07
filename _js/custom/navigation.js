@@ -110,11 +110,26 @@ $(function () {
       });
   }
 
+  // Returns the live height of any sticky framing that overlays the top of the
+  // content area (currently only the sticky `.masthead`). Measured on demand so
+  // we always get the value matching the current viewport / breakpoint / theme,
+  // instead of relying on a hardcoded magic number.
+  function getStickyTopOffset() {
+    var masthead = document.querySelector('.masthead');
+    if (!masthead) return 0;
+    var styles = window.getComputedStyle(masthead);
+    if (styles.position !== 'sticky' && styles.position !== 'fixed') return 0;
+    return Math.ceil(masthead.getBoundingClientRect().height);
+  }
+
   function scrollToAnchor(anchorId) {
     var anchorElement = document.getElementById(anchorId);
     if (anchorElement) {
       // Use the attached smooth scroll to have a consistent behavior
-      smoothScroll.animateScroll(anchorElement, null, { updateURL: false });
+      smoothScroll.animateScroll(anchorElement, null, {
+        updateURL: false,
+        offset: getStickyTopOffset()
+      });
     }
   }
 
@@ -280,9 +295,11 @@ $(function () {
   // -------------
   // TOC smooth scrolling
   // -------------
-  const smoothScrollTopOffset = 100;
+  // Both SmoothScroll and Gumshoe accept a function for `offset`, evaluated on
+  // every scroll/spy tick, so the offset always reflects the current sticky
+  // masthead height (which varies with viewport / breakpoint / theme).
   var smoothScroll = new SmoothScroll('a[href*="#"]', {
-    offset: smoothScrollTopOffset,
+    offset: getStickyTopOffset,
     speed: 400,
     speedAsDuration: true,
     durationMax: 500
@@ -301,7 +318,7 @@ $(function () {
         nestedClass: "active", // applied to the parent items
 
         // Offset & reflow
-        offset: smoothScrollTopOffset, // how far from the top of the page to activate a content area
+        offset: getStickyTopOffset, // how far from the top of the page to activate a content area
         reflow: true, // if true, listen for reflows
 
         // Event support
