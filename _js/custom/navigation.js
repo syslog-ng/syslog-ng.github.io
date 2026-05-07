@@ -116,21 +116,35 @@ $(function () {
   // instead of relying on a hardcoded magic number.
   function getStickyTopOffset() {
     var masthead = document.querySelector('.masthead');
-    if (!masthead) return 0;
+    if (!masthead)
+      return 0;
     var styles = window.getComputedStyle(masthead);
-    if (styles.position !== 'sticky' && styles.position !== 'fixed') return 0;
+    if (styles.position !== 'sticky' && styles.position !== 'fixed')
+      return 0;
     return Math.ceil(masthead.getBoundingClientRect().height);
   }
 
-  function scrollToAnchor(anchorId) {
+  function scrollToAnchor(anchorId, instant) {
     var anchorElement = document.getElementById(anchorId);
-    if (anchorElement) {
-      // Use the attached smooth scroll to have a consistent behavior
-      smoothScroll.animateScroll(anchorElement, null, {
-        updateURL: false,
-        offset: getStickyTopOffset()
-      });
+    if (!anchorElement)
+      return;
+
+    if (instant) {
+      var top = anchorElement.getBoundingClientRect().top + window.pageYOffset - getStickyTopOffset();
+      window.scrollTo({ top: top, left: 0, behavior: 'auto' });
+      return;
     }
+
+    // Smooth-scroll path. Currently unused as call site:
+    //   - finalizeContent() always passes instant=true (post-SPA-swap jump).
+    //   - In-page anchor clicks (TOC links, header permalink anchors) never reach
+    //     this function: the SmoothScroll library binds its own click listener to
+    //     'a[href*="#"]' and handles them directly with the same `getStickyTopOffset`.
+    // Kept here for future programmatic same-page scrolling needs.
+    smoothScroll.animateScroll(anchorElement, null, {
+      updateURL: false,
+      offset: getStickyTopOffset()
+    });
   }
 
   function scrollContentToTop() {
@@ -171,9 +185,16 @@ $(function () {
     // Update contribution buttons to point to the correct source files
     if (typeof updateContributionButtons === 'function')
       updateContributionButtons();
-    // Try to scroll to a giben anchor, if any
-    if (anchorId)
-      scrollToAnchor(anchorId);
+    // Try to scroll to a given anchor, if any
+    // `finalizeContent` runs after a SPA content swap, so anchor jumps are
+    // always cross-page here -- request an instant jump (no smooth scroll).
+    if (anchorId) {
+      // For a cross-page navigation the new content has already faded in, an extra
+      // smooth scroll on top of that just makes the (unavoidable) max-scroll
+      // clamping at the end of the document visible (so, scroll to anchors will not always be accurate).
+      // Jump instantly instead.
+      scrollToAnchor(anchorId, true);
+    }
     else
       scrollContentToTop();
     // Clear any focus (e.g back navigation keeps the previously clicked link focused)
