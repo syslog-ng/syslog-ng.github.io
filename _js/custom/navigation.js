@@ -118,6 +118,13 @@ $(function () {
     }
   }
 
+  function scrollContentToTop() {
+    // Reset the page scroll on inner-content navigation when no anchor is given.
+    // Use instant scroll: the page already has a fade-out / fade-in transition,
+    // so animating the scroll on top of it would feel sluggish.
+    window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+  }
+
   function anchorIDFromUrl(url) {
     var anchorId = null;
     var hash = url.hash;
@@ -152,6 +159,8 @@ $(function () {
     // Try to scroll to a giben anchor, if any
     if (anchorId)
       scrollToAnchor(anchorId);
+    else
+      scrollContentToTop();
     // Clear any focus (e.g back navigation keeps the previously clicked link focused)
     clearFocus();
     // Forcibly hide the search content that can remain open in certain back and force navigation cases
