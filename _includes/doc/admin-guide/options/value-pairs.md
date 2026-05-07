@@ -6,7 +6,7 @@
 *Description:* The value-pairs() option allows you to select specific
 information about a message easily using predefined macro groups. The
 selected information is represented as name-value pairs and can be used
-formatted to JSON format, or directly used in a mongodb() destination.
+formatted to JSON format, or directly used e.g. in a mongodb() destination.
 
 ### Example: Using the value-pairs() option
 

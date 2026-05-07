@@ -42,7 +42,7 @@ Note the following important points:
     files (that is, more than ten) has a significant overhead and may
     affect performance. On Linux this overhead is not so significant,
     because {{ site.product.short_name }} uses the inotify feature of the kernel. Set
-    the **max-files()** option at least to the number of files you want
+    the max-files() option at least to the number of files you want
     to monitor. If the wildcard-file source matches more files than the
     value of the max-files() option, it is random which files will
     {{ site.product.short_name }} actually monitor. The default value of max-files()
@@ -55,7 +55,7 @@ Note the following important points:
 
 - For every message that {{ site.product.short_name }} reads from the source files,
     the path and name of the file is available in the
-    `${FILE_NAME} macro`.
+    `${FILE_NAME}` macro.
 
 Required parameters: base-dir(), filename-pattern(). For the list of
 available optional parameters, see wildcard-file() source options.

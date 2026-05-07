@@ -121,7 +121,7 @@ type information.
 For more information, see Creating custom `SDATA` fields and
 Setting multiple message fields to specific values.  
 
-### db-parser()
+### db-parser() rules
 
 db-parser() rules can pair types with values using the type attribute.  
 
@@ -168,4 +168,9 @@ version of {{ site.product.short_name }} serialized a message, older versions an
 associated tools are able to read it, however, in this case the type
 information is lost.
 
-{% include doc/admin-guide/options/value-pairs.md %}
+### value-pairs() options
+
+The value-pairs() option allows you to select specific
+information about a message easily using predefined macro groups. The
+selected information is represented as name-value pairs and can be used
+formatted to JSON format, or directly used e.g. in a mongodb() destination.
