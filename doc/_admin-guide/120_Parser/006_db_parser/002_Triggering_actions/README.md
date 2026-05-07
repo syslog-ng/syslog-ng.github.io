@@ -15,12 +15,12 @@ description: >-
 The generated message is injected into the same place where the
 db-parser() statement is referenced in the log path. To post the
 generated message into the internal() source instead, use the
-**inject-mode()** option in the definition of the parser.
+inject-mode() option in the definition of the parser.
 
 ## Example: Sending triggered messages to the internal() source
 
 To send the generated messages to the internal source, use the
-**inject-mode(internal)** option:
+`inject-mode(internal)` option:
 
 ```config
 parser p_db {
@@ -32,7 +32,7 @@ parser p_db {
 ```
 
 To inject the generated messages where the pattern database is
-referenced, use the **inject-mode(pass-through)** option:
+referenced, use the `inject-mode(pass-through)` option:
 
 ```config
 parser p_db {
@@ -65,9 +65,9 @@ generates a message when a message matching the rule is received.
 ```
 
 To inherit the properties and values of the triggering message, set the
-inherit-properties attribute of the \<message\> element to TRUE. That
+inherit-properties attribute of the `<message>` element to TRUE. That
 way the triggering log message is cloned, including name-value pairs and
-tags. If you set any values for the message in the \<action\> element,
+tags. If you set any values for the message in the `<action>` element,
 they will override the values of the original message.
 
 ## Example: Generating messages with inherited values
@@ -92,10 +92,10 @@ overriding-original-program-name
 
 In {{ site.product.short_name }} version 3.8 and newer, you can create a new context as
 an action. For details, see
-[[Element: create-context]]. 
+[[Element: create-context]].\
 The following example creates a new context whenever the rule matches.
 The new context receives **1000** as ID, and **program** as scope, and
-the content set in the \<message\> element of the \<create-context\>
+the content set in the `<message>` element of the `<create-context>`
 element.
 
 ```xml

@@ -9,13 +9,13 @@ description: >-
 The following built-in macros allow you to use the results of the
 classification:
 
-- The .classifier.class macro contains the class assigned to the
+- The `.classifier.class` macro contains the class assigned to the
     message (for example, violation, security, or unknown).
 
-- The .classifier.rule\_id macro contains the identifier of the
+- The `.classifier.rule_id` macro contains the identifier of the
     message pattern that matched the message.
 
-- The .classifier.context\_id macro contains the identifier of the
+- The `.classifier.context_id` macro contains the identifier of the
     context for messages that were correlated. For details on
     correlating messages, see
     Correlating log messages using pattern databases.
@@ -23,7 +23,7 @@ classification:
 ## Example: Using classification results for filtering messages
 
 To filter on a specific message class, create a filter that checks the
-.classifier\_class macro, and use this filter in a log statement.
+`.classifier.class` macro, and use this filter in a log statement.
 
 ```config
 filter fi_class_violation {
@@ -47,8 +47,8 @@ rule of the pattern database. Routing these messages into a separate
 file allows you to periodically review new or unknown messages.
 
 To filter on messages matching a specific classification rule, create a
-filter that checks the .classifier.rule\_id macro. The unique identifier
-of the rule (for example, e1e9c0d8-13bb-11de-8293-000c2922ed0a) is the
+filter that checks the `.classifier.rule_id` macro. The unique identifier
+of the rule (for example, `e1e9c0d8-13bb-11de-8293-000c2922ed0a`) is the
 id attribute of the rule in the XML database.
 
 ```config
@@ -65,9 +65,9 @@ Pattern database rules can assign tags to messages. These tags can be
 used to select tagged messages using the tags() filter function.
 
 NOTE: The {{ site.product.short_name }} application automatically adds the class of the
-message as a tag using the .classifier.\<message-class\> format. For
-example, messages classified as \"system\" receive the
-.classifier.system tag. Use the **tags()** filter function to select
+message as a tag using the `.classifier.<message-class>` format. For
+example, messages classified as "system" receive the
+`.classifier.system` tag. Use the tags() filter function to select
 messages of a specific class.
 {: .notice--info}
 
@@ -83,7 +83,7 @@ parsed value of the message.
 ## Example: Using pattern parsers as macros
 
 For example, you want to parse messages of an application that look like
-\"Transaction: \<type\>.\", where \<type\> is a string that has
+`Transaction: <type>.`, where `<type>` is a string that has
 different values (for example, refused, accepted, incomplete, and so
 on). To parse these messages, you can use the following pattern:
 
@@ -100,7 +100,8 @@ include a name in the parser of the pattern, for example:
 ```
 
 After that, add a custom template to the log path that uses this
-template. For example, to select every accepted transaction, use the
+template.\
+For example, to select every accepted transaction, use the
 following custom filter in the log path:
 
 ```config
@@ -113,4 +114,4 @@ logspace.
 {: .notice--info}
 
 Use a consistent naming scheme for your macros, for example,
-APPLICATIONNAME\_MACRONAME.
+`APPLICATIONNAME_MACRONAME`.

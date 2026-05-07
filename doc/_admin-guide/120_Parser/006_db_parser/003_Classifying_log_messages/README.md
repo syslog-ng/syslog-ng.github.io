@@ -32,7 +32,7 @@ message.
 To make the message classification more flexible and robust, the
 patterns can contain pattern parsers: elements that match on a set of
 characters. For example, the NUMBER parser matches on any integer or
-hexadecimal number (for example, 1, 123, 894054, 0xFFFF, and so on).
+hexadecimal number (for example, `1`, `123`, `894054`, `0xFFFF`, and so on).
 Other pattern parsers match on various strings and IP addresses. For the
 details of available pattern parsers, see
 Using pattern parsers.  
@@ -46,18 +46,14 @@ Pattern matching based on regular expressions is computationally very
 intensive, especially when the number of patterns increases. The
 solution used by {{ site.product.short_name }} can be performed real-time, and is
 independent from the number of patterns, so it scales much better. The
-following patterns describe the same message: Accepted password for
-bazsi from 10.50.0.247 port 42156 ssh2
+following patterns describe the same message:\
+`Accepted password for sampleuser from 10.50.0.247 port 42156 ssh2`
 
-A regular expression matching this message from the logcheck project:
-Accepted
-(gssapi(-with-mic\|-keyex)?\|rsa\|dsa\|password\|publickey\|keyboard-interactive/pam)
-for \[\^\[:space:\]\]+ from \[\^\[:space:\]\]+ port \[0-9\]+(
-(ssh\|ssh2))?
+A PCRE-style regular expression equivalent to the logcheck rule for this message:\
+`^Accepted (gssapi(?:-with-mic|-keyex)?|password|publickey|keyboard-interactive/pam|hostbased) for \S+ from [0-9A-Fa-f:.]+ port \d+ ssh2$`
 
-A {{ site.product.short_name }} database pattern for this message: Accepted
-@QSTRING:auth\_method: @ for@QSTRING:username: @from
-@QSTRING:client\_addr: @port @NUMBER:port:@ ssh2
+A {{ site.product.short_name }} database pattern for this message:\
+`Accepted @STRING:SSH_AUTH_METHOD:-_@ for @STRING:SSH_USERNAME:._-@ from @IPvANY:SSH_CLIENT_ADDRESS@ port @NUMBER:SSH_PORT_NUMBER@ ssh2`
 
 For details on using pattern databases to classify log messages, see
 Using pattern databases.

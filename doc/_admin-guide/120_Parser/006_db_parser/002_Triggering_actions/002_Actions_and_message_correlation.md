@@ -13,7 +13,7 @@ description: >-
 
 - When used together with message correlation, you can also refer to
     fields and values of earlier messages of the context by adding the
-    @\<distance-of-referenced-message-from-the-current\> suffix to the
+    `@<distance-of-referenced-message-from-the-current>` suffix to the
     macro. For details, see
     Referencing earlier messages of the context.
 
@@ -37,14 +37,14 @@ description: >-
 
 - You can use the name-value pairs of other messages of the context.
     If you set the inherit-properties attribute of the generated message
-    to **context**, {{ site.product.short_name }} collects every name-value pair from
+    to `context`, {{ site.product.short_name }} collects every name-value pair from
     each message stored in the context, and includes them in the
     generated message. This means that you can refer to a name-value
     pair without having to know which message of the context included
     it. If a name-value pair appears in multiple messages of the
     context, the value in the latest message will be used. To refer to
     an earlier value, use the
-    **@\<distance-of-referenced-message-from-the-current\>** suffix
+    `@<distance-of-referenced-message-from-the-current>` suffix
     format.
 
     ```xml
@@ -54,7 +54,7 @@ description: >-
 
     Example: Using the inherit-properties option
 
-    For example, if inherit-properties is set to **context**, and you
+    For example, if inherit-properties is set to `context`, and you
     have a rule that collects SSH login and logout messages to the same
     context, you can use the following value to generate a message
     collecting the most important information form both messages,
@@ -117,7 +117,7 @@ description: >-
 - It is possible to generate a message when the context-timeout of the
     original message expires and no new message is added to the context
     during this time. To accomplish this, include the
-    **trigger=\"timeout\"** attribute in the action element:
+    `trigger="timeout"` attribute in the action element:
 
     ```config
     <action trigger="timeout">
@@ -132,19 +132,19 @@ description: >-
   - Configure your clients to send MARK messages periodically. It is
         enough to configure MARK messages for the destination that
         forwards your log messages to your {{ site.product.short_name }} server
-        (mark-mode(periodical)).
+        `mark-mode(periodical)`.
 
   - On your {{ site.product.short_name }} server, create a pattern database rule
         that matches on the incoming MARK messages. In the rule, set the
-        context-scope attribute to **host**, and the context-timeout
-        attribute to a value that is higher than the mark-freq value set
-        on your clients (by default, mark-freq is 1200 seconds, so set
+        context-scope attribute to `host`, and the context-timeout
+        attribute to a value that is higher than the mark-freq() value set
+        on your clients (by default, mark-freq() is 1200 seconds, so set
         context-timeout at least to 1500 seconds, but you might want to
         use a higher value, depending on your environment).
 
   - Add an action to this rule that sends you an email alert if the
         context-timeout expires, and the server does not receive a new
-        MARK message (\<action trigger=\"timeout\"\>).
+        MARK message (`<action trigger="timeout">`).
 
   - On your {{ site.product.short_name }} server, use the pattern database in the
         log path that handles incoming log messages.

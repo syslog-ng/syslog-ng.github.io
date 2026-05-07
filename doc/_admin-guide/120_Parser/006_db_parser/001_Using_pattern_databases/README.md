@@ -24,7 +24,7 @@ of the classification.
 ### Example: Defining pattern databases
 
 The following statement uses the database located at
-/opt/syslog-ng/var/db/patterndb.xml.
+`/opt/syslog-ng/var/db/patterndb.xml`.
 
 ```config
 parser pattern_db {
@@ -49,7 +49,8 @@ By default, {{ site.product.short_name }} tries to apply the patterns to the bod
 incoming messages, that is, to the value of the ${MESSAGE} macro. If you
 want to apply patterns to a specific field, or to an expression created
 from the log message (for example, using template functions or other
-parsers), use the message-template() option. For example:
+parsers), use the message-template() option.\
+For example:
 
 ```config
 parser pattern_db {
@@ -63,7 +64,7 @@ parser pattern_db {
 By default, {{ site.product.short_name }} uses the name of the application (content of the
 ${PROGRAM} macro) to select which rules to apply to the message. If the
 content of the ${PROGRAM} macro is not the proper name of the
-application, you can use the program-template() option to specify it.
+application, you can use the program-template() option to specify it.\
 For example:
 
 ```config
@@ -79,7 +80,8 @@ Note that the program-template() option is available in {{ site.product.short_na
 version 3.21 and later.
 
 **NOTE:** The default location of the pattern database file is
-/opt/syslog-ng/var/run/patterndb.xml. The file option of the db-parser()
+`/opt/syslog-ng/var/patterndb.xml` (the exact path depends on the
+`--prefix` used at build time). The file option of the db-parser()
 statement can be used to specify a different file, thus different
 db-parser statements can use different pattern databases.
 {: .notice--info}
@@ -104,10 +106,10 @@ destination di_messages_class {
 
 Note that if you chain pattern databases, that is, use multiple
 databases in the same log path, the class assigned to the message (the
-value of ${.classifier.class}) will be the one assigned by the last
+value of `${.classifier.class}`) will be the one assigned by the last
 pattern database. As a result, a message might be classified as unknown
-even if a previous parser successfully classified it. For example,
-consider the following configuration:
+even if a previous parser successfully classified it.\
+For example, consider the following configuration:
 
 ```config
 log {
@@ -118,9 +120,9 @@ log {
 };
 ```
 
-Even if db\_parser1 matches the message, db\_parser2 might set
-${.classifier.class} to unknown. To avoid this problem, you can use an
-\'if\' statement to apply the second parser only if the first parser
+Even if `db_parser1` matches the message, `db_parser2` might set
+`${.classifier.class}` to unknown. To avoid this problem, you can use an
+`if` statement to apply the second parser only if the first parser
 could not classify the message:
 
 ```config
@@ -141,7 +143,7 @@ The {{ site.product.short_name }} pattern database format.
 
 If you want to automatically drop unmatched messages (that is, discard
 every message that does not match a pattern in the pattern database),
-use the **drop-unmatched()** option in the definition of the pattern
+use the drop-unmatched() option in the definition of the pattern
 database:
 
 ```config

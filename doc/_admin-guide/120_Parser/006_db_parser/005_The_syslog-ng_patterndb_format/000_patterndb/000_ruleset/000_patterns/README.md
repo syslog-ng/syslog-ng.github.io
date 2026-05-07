@@ -3,12 +3,19 @@ title: 'Element: patterns container'
 short_title: patterns container
 id: adm-parser-db-elem-patterns-ruleset
 description: >-
-    A container element. A \<patterns\> element may contain any number of \<pattern\> elements.
+    An optional container element for \<pattern\> elements under \<ruleset\>.
+    Using \<patterns\> is equivalent to placing \<pattern\> elements directly
+    under \<ruleset\> — the wrapper is transparent and may be omitted.
 ---
 
 ## Location
 
 / patterndb / ruleset / patterns
+
+**NOTE:** The `<patterns>` wrapper is optional. `<pattern>` elements may appear
+directly under `<ruleset>` with identical effect. Both forms are fully
+supported and can be used interchangeably.
+{: .notice--info}
 
 ## Attributes
 

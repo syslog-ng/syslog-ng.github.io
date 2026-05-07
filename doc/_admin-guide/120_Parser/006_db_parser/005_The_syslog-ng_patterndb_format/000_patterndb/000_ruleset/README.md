@@ -23,9 +23,22 @@ description: >-
 
 ## Children
 
-- *patterns*: A container for one or more program patterns used to match the
-    `PROGRAM` header of incoming syslog messages and select the applicable
-    ruleset. For details, see Element: patterns.
+- *pattern*: The name of the application used to match the `PROGRAM` header of
+    incoming syslog messages and select the applicable ruleset. Multiple
+    `<pattern>` elements may be specified if the same application uses different
+    process names (for example, different Postfix daemons all starting with
+    `postfix`). All matching patterns map to the same set of rules in this
+    ruleset. `<pattern>` elements may appear directly under `<ruleset>`, or
+    wrapped inside a `<patterns>` container — both forms are equivalent.
+
+    **NOTE:** If no `<pattern>` is specified, {{ site.product.short_name }} uses the ruleset as a
+    fallback: it applies to messages with an empty `PROGRAM` header or when no
+    other ruleset pattern matches.
+
+- *patterns*: An optional container for one or more `<pattern>` elements.
+    Using `<patterns>` is equivalent to placing `<pattern>` elements directly
+    under `<ruleset>` — the wrapper is transparent. For details, see
+    Element: patterns container.
 
 - *rules*: A container for the rules belonging to this ruleset. For details,
     see Element: rules.

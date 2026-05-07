@@ -25,7 +25,7 @@ N/A
 <rules>
     <rule provider='me' id='182437592347598' class='system'>
         <patterns>
-            <pattern>Accepted @QSTRING:SSH_AUTH_METHOD: @ for@QSTRING:SSH_USERNAME: @from\ @QSTRING:SSH_CLIENT_ADDRESS: @port @NUMBER:SSH_PORT_NUMBER:@ ssh2</pattern>
+            <pattern>Accepted @STRING:SSH_AUTH_METHOD:-_@ for @STRING:SSH_USERNAME:._-@ from @IPvANY:SSH_CLIENT_ADDRESS@ port @NUMBER:SSH_PORT_NUMBER@ ssh2</pattern>
         </patterns>
     </rule>
 </rules>

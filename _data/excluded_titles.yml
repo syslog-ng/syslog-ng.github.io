@@ -1,4 +1,5 @@
 - 'syslog-ng'
+- 'syslog-ng OSE configuration'
 - '[Ee]xample[:]?'
 - '[Nn]ote[:]?'
 - '[Dd]eclaration'
@@ -11,4 +12,6 @@
 - '[Ii]nstallation'
 - '[Oo]ption[s]?'
 - '[Nn]ame'
-- 'syslog-ng OSE configuration'
+- 'values'
+- 'urls'
+- 'prefix'
