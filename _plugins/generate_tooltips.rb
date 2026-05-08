@@ -158,12 +158,18 @@ module Jekyll
 
         # Regular expression pattern to match special Markdown blocks
         # Unlike the others this needs grouping as we use do |match| for enumeration
-        # NOTE: Use multi line matching partially as e.g. code blocks can span to multiple lines
-        markdown_blocks_pattern = /((?m:````.*?````|```.*?```|``.*?``|`.*?`)|\[\[(?:[^\]^\[]|\\\[|\\\])*?\]\]|\[[^\]^\[]*?\]\(.*?\)\{\:.*?\}|\[[^\]^\[]*?\]\(.*?\)|\[[^\]^\[]*?\]:.*?$|\[[^\]^\[]*?\]\s*\[.*?\]|^#+\s.*?$)/
+        # NOTE: Use multi line matching partially as e.g. code blocks and HTML comments can span to multiple lines
+        # NOTE: HTML comments are part of this same alternation (not a separate prior split) so that whichever
+        #       opening delimiter appears first in the source consumes its contents as a unit. This is what
+        #       prevents a fenced code block whose content happens to include '<!-- ... -->' (e.g. XML examples)
+        #       from being sliced apart, and equally prevents an HTML comment whose content happens to include
+        #       '`...`' or '```...```' or '[[...]]' from being interpreted as markdown.
+        markdown_blocks_pattern = /((?m:<!--.*?-->|````.*?````|```.*?```|``.*?``|`.*?`)|\[\[(?:[^\]^\[]|\\\[|\\\])*?\]\]|\[[^\]^\[]*?\]\(.*?\)\{\:.*?\}|\[[^\]^\[]*?\]\(.*?\)|\[[^\]^\[]*?\]:.*?$|\[[^\]^\[]*?\]\s*\[.*?\]|^#+\s.*?$)/
         # TODO: Always sync the bellow with the one-liner version for readability
         # FIXME: Check why the /x version bellow is not working the same way
-        # markdown_blocks_pattern = /(          # Either Code blocks
+        # markdown_blocks_pattern = /(          # Either Code blocks or HTML comments (whichever opens first wins)
         #   (?m:                                #   Even Multiline ones
+        #     <!--.*?--> |                      #     HTML comment (kept inert: contents never reinterpreted)
         #     ````.*?```` |                     #     Code block with 4 backticks
         #     ```.*?``` |                       #     Code block with 3 backticks
         #     ``.*?`` |                         #     Code block with 2 backticks
@@ -272,22 +278,11 @@ module Jekyll
       # More about rendering insights
       # https://humanwhocodes.com/blog/2019/04/jekyll-hooks-output-markdown/
       #
+      # NOTE: HTML comments are no longer split off here at the page level. They are recognized as one of
+      #       the alternations in markdown_blocks_pattern inside process_markdown_parts so that comments and
+      #       code blocks correctly protect each other's contents (whichever opens first in the source wins).
       def process_page(page)
-        # Split the content by HTML comments
-        parts = page.content.split(/(<!--.*?-->)/m)
-        #puts parts
-        parts.each_with_index do |part, index|
-          #puts "---------------\nindex: " + index.to_s + "\npart: " + part
-
-          if index.even? # Content outside of HTML comments
-            parts[index] = process_markdown_parts(page, part)
-          else
-            #puts "index: " + index.to_s + "\npart: " + part
-          end
-        end
-
-        # Join the parts back together
-        page.content = parts.join
+        page.content = process_markdown_parts(page, page.content)
       end
 
       def process_nav_link_items(items, ndx, nav_links_dictionary)
