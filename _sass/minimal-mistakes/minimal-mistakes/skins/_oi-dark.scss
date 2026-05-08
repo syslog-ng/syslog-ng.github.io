@@ -44,7 +44,12 @@ $base0f: #a3685a !default;
 
 /* notices */
 $notice-background-mix: 75% !default;
-//$code-notice-background-mix: 
+
+/* warning-color is not part of the original skin definitions; default
+   from _variables.scss (#d67f05) mixed with the dark background
+   turns brown — define a red based one */
+$warning-color: color.scale(#ee5f5b, $lightness: 30%) !default;
+
 
 .page__content {
   .notice,

@@ -34,7 +34,7 @@ $tooltip-arrow-background-color  : rgba(color.mix($tooltip-background-color, $to
 
 $primary-color              : $oid-black !default;
 $success-color              : #27ae60 !default;
-$warning-color              : $jaffa !default;
+$warning-color              : color.scale($jaffa, $lightness: 50%) !default;
 $danger-color               : $quest-orange !default;
 $info-color                 : $nepal !default;
 
