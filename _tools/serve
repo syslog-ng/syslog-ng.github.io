@@ -24,6 +24,20 @@ stop_dir_watcher() {
     fi
 }
 
+navgen_build() {
+    # tooltips will be built at jekyll serve startup automatically if enabled, do not do it twice
+    JEKYLL_BUILD_TOOLTIPS='no' ./_tools/navgen ./doc ./_data/navigation.yml
+}
+
+print_usage() {
+    echo "Available hotkeys:"
+    echo "  s - Stop the server"
+    echo "  r - Restart the server"
+    echo "  n - Regenerate navigation data"
+    echo "  p - Regenerate JS files using pack"
+    echo
+}
+
 # Function to start to serve in the background
 start_process() {
     echo ""
@@ -46,21 +60,49 @@ start_process() {
     # as the output of it must already be presented to be able to serve a valid content
     #
     if [ "${JEKYLL_BUILD_LINKS}" == "yes" ]; then
-        # tooltips will be built at jekyll serve startup automatically if enabled, do not do it twice
-        JEKYLL_BUILD_TOOLTIPS='no' ./_tools/navgen ./doc ./_data/navigation.yml
+        navgen_build
     fi
 
     echo -e "\nStarting to serve...\n"
-    JEKYLL_BUILD_LINKS='no' bundle exec jekyll serve ${ALL_PARAMS} &
+
+    # Use a FIFO to tap jekyll's output: echo it to the user's terminal,
+    # and trigger print_usage after each rebuild ("done in X.XX seconds.")
+    # or once the server reports it is up ("Server running").
+    SERVE_FIFO="$(mktemp -u "${TMPDIR:-/tmp}/serve-fifo.XXXXXX")"
+    mkfifo "${SERVE_FIFO}"
+
+    JEKYLL_BUILD_LINKS='no' bundle exec jekyll serve ${ALL_PARAMS} >"${SERVE_FIFO}" 2>&1 &
     PROC_PID=$!
+
+    while IFS= read -r line; do
+        echo "${line}"
+        case "${line}" in
+            *"done in"*)
+                play_sound
+                print_usage
+                ;;
+        esac
+    done <"${SERVE_FIFO}" &
+    READER_PID=$!
 }
 
 stop_process() {
     stop_dir_watcher
 
     echo -e "\nStopping to serve...\n"
-    kill -SIGTERM ${PROC_PID}
+    kill -SIGTERM ${PROC_PID} 2>/dev/null
     wait ${PROC_PID}  >/dev/null 2>&1  # Wait for the process to terminate
+
+    if [[ ${READER_PID} != "" ]]; then
+        kill -SIGTERM ${READER_PID} 2>/dev/null
+        wait ${READER_PID} >/dev/null 2>&1
+        READER_PID=
+    fi
+    if [[ ${SERVE_FIFO} != "" && -p ${SERVE_FIFO} ]]; then
+        rm -f "${SERVE_FIFO}"
+        SERVE_FIFO=
+    fi
+
     rm -f "${REF_FILE}"
 }
 
@@ -173,9 +215,15 @@ while true; do
             start_process
             play_sound
             ;;
+        n)
+            navgen_build
+            reset_watcher
+            play_sound
+            ;;
         p)
             generate_js_files
             update_js_files
+            reset_watcher
             play_sound
             ;;
     esac
