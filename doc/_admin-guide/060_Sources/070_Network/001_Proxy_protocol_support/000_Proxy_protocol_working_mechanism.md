@@ -21,7 +21,8 @@ macros to every message the comes through the connection later on:
 
 - PROXY_DSTPORT (the destination port of the proxy)
 
-<div class="notice--info" markdown="1" style="font-size: inherit;">
+{: .notice--info-start}
+
 **NOTE:** Consider the following about macros and headers:  
   
 - When the proxy protocol header is PROXY UNKNOWN, no additional macros are added.
@@ -36,7 +37,7 @@ macros to every message the comes through the connection later on:
  [2020-11-20T17:33:22.189600] Closing log transport fd; fd='13'
  ```
 
-</div>
+{: .notice--info-end}
 
 **NOTE:** Since the driver only implements version 1 of the protocol, it
 only supports TCP4 and TCP6 connections. TLS connections also supported.

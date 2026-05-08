@@ -13,18 +13,20 @@ Complete the following steps on the {{ site.product.short_name }} server:
 
 1. Create an X.509 certificate for the {{ site.product.short_name }} server.
 
-    <div class="notice--info" markdown="1" style="font-size: inherit;">
-    **NOTE:** The subject_alt_name parameter (or the Common Name parameter
-    if the subject_alt_name parameter is empty) of the server\'s
-    certificate must contain the hostname or the IP address (as resolved
-    from the {{ site.product.short_name }} clients and relays) of the server (for example,
-    `syslog-ng.example.com`).<br>
-    Alternatively, the Common Name or the subject_alt__name parameter
-    can contain a generic hostname, for example, `*.example.com`.<br>
-    Note that if the Common Name of the certificate contains a generic
-    hostname, do not specify a specific hostname or an IP address in the
-    subject_alt_name parameter.
-    </div>
+   {: .notice--info-start}
+
+   **NOTE:** The subject_alt_name parameter (or the Common Name parameter
+   if the subject_alt_name parameter is empty) of the server\'s
+   certificate must contain the hostname or the IP address (as resolved
+   from the {{ site.product.short_name }} clients and relays) of the server (for example,
+   `syslog-ng.example.com`).<br>
+   Alternatively, the Common Name or the subject_alt__name parameter
+   can contain a generic hostname, for example, `*.example.com`.<br>
+   Note that if the Common Name of the certificate contains a generic
+   hostname, do not specify a specific hostname or an IP address in the
+   subject_alt_name parameter.
+
+   {: .notice--info-end}
 
      For details on creating certificates, see
      Creating certificates for TLS-encrypted message transfer.

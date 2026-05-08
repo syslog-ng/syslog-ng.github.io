@@ -13,7 +13,8 @@ description: >-
 
 The *\<rules\>* element may contain any number of *\<rule\>* elements.
 
-<div class="notice--info" markdown="1" style="font-size: inherit;">
+{: .notice--info-start}
+
 **NOTE:** If the following characters appear in the message, they must be escaped in the rule as follows:
 - *@*: Use `@@`, for example, `user@@example.com` --- syslog-ng special notation
 - *\<*: Use `&lt;` --- XML entity
@@ -21,7 +22,7 @@ The *\<rules\>* element may contain any number of *\<rule\>* elements.
 - *&*: Use `&amp;` --- XML entity
 - *"*: Use `&quot;` --- XML entity
 - *'*: Use `&apos;` --- XML entity
-</div>
+{: .notice--info-end}
 
 ## Attributes
 

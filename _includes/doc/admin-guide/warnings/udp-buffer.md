@@ -1,4 +1,5 @@
-<div class="notice--warning" markdown="1" style="font-size: inherit;">
+{: .notice--warning-start}
+
 ![]({{ site.baseurl}}/assets/images/caution.png) **CAUTION:**
 When receiving messages using the UDP protocol, increase the
 size of the UDP receive buffer on the receiver host (that is, the {{ site.product.short_name }} server or relay receiving the messages).  
@@ -15,4 +16,5 @@ As a general rule, increase the so-rcvbuf() so that the buffer size in kilobytes
 higher than the rate of incoming messages per second.  
 For example, to receive 2000 messages per second, set the so-rcvbuf()
 at least to **2 097 152** bytes.
-</div>
+
+{: .notice--warning-end}

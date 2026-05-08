@@ -18,13 +18,14 @@ example, parsers, rewrite rules, destinations, and so on. (For details
 on using channels, as well as on using channels outside junctions, see
 Using channels in configuration objects
 
-<div class="notice--info" markdown="1" style="font-size: inherit;">
+{: .notice--info-start}
+
 **NOTE:** Certain parsers can also act as filters:  
   
 - The JSON parser automatically discards messages that are not valid JSON messages.  
 - The csv-parser() discards invalid messages if the **flags(drop-invalid)** option is set.
   
-</div>
+{: .notice--info-end}
 
 You can also use log-path flags in the channels of the junction. Within
 the junction, a message is processed by every channel, in the order the

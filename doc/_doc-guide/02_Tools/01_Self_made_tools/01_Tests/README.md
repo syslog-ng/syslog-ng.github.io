@@ -89,6 +89,135 @@ Markdown link tests:
 {: source }
 <br>
 
+rker notice blocks (multi-block form)
+
+Verifies the `_plugins/expand_notice_blocks.rb` plugin: the paired
+`{: .notice--TYPE-start}` … `{: .notice--TYPE-end}` markers must wrap
+multiple Markdown blocks (paragraphs, ordered/unordered lists, fenced
+code, headings) inside a single notice container; tooltips, macros, and
+Liquid variables must still expand inside; the literal escaped form
+`\{: .notice--TYPE-start\}` must remain visible as plain text; markers
+inside fenced code blocks must be left untouched (documented verbatim);
+and the auto-blank-line convenience must keep list rendering correct
+even when a bullet/numbered list immediately follows a `**LABEL:**`
+prose line with no manual blank line in between.
+
+All five Minimal Mistakes notice types are exercised below
+(`primary`, `info`, `warning`, `danger`, `success`).
+
+### Primary — wraps a paragraph and an unordered list (no blank line before list)
+
+{: .notice--primary-start}
+
+**NOTE:**
+The `${HOST}` macro and the {{ site.product.short_name }} Liquid variable
+must both expand here, and the link to [[Install Homebrew|dev-inst-macos#using-homebrew]]
+must still resolve.
+- first bullet — `time-zone()` should be tooltipped outside backticks: time-zone()
+- second bullet — a fully-qualified URL [grpc keepalive](https://grpc.io/docs/guides/keepalive/) must stay intact
+- third bullet — title autolink: Slack destination options
+
+{: .notice--primary-end}
+
+### Info — wraps an ordered list (auto blank-line insertion test)
+
+{: .notice--info-start}
+
+**INFO:**
+1. first numbered item
+2. second numbered item — uses the ${MESSAGE} macro
+3. third numbered item — references {{ site.product.name }}
+
+{: .notice--info-end}
+
+### Warning — wraps a fenced code block plus prose
+
+{: .notice--warning-start}
+
+**WARNING:**
+
+Leading paragraph that mentions log-msg-size() and ${PROGRAM} as plain text.
+
+```config
+destination d_http {
+    http(
+        url("http://example.com/logs")
+        batch-lines(100)
+    );
+};
+```
+
+Closing paragraph — content inside the fence above must NOT be
+tooltipped, and the fence must render as a code block (not as
+indented text).
+
+{: .notice--warning-end}
+
+### Danger — wraps a heading, a paragraph, and a list
+
+{: .notice--danger-start}
+
+**DANGER:**
+
+#### Nested heading inside a notice
+
+Some prose between the heading and the list.
+
+- bullet a
+- bullet b
+- bullet c
+
+{: .notice--danger-end}
+
+### Success — single-paragraph paired form (functionally equivalent to single-block IAL)
+
+{: .notice--success-start}
+
+**SUCCESS:** A one-paragraph notice using the paired form also works,
+even though the legacy single-block `{: .notice--success}` IAL would
+suffice here.
+
+{: .notice--success-end}
+
+### Paired markers nested inside an ordered list
+
+The plugin emits the wrapping `<div>` at the marker's indent so the
+notice stays inside its enclosing list item and the outer numbering
+is preserved (1, 2, 3 — not 1, 1, 1).
+
+1. First step — plain item.
+2. Second step — followed by a notice that must NOT break the numbering:
+
+   {: .notice--info-start}
+
+   **NOTE:**
+   - inner bullet a
+   - inner bullet b
+
+   {: .notice--info-end}
+
+3. Third step — must still be numbered `3.`, not restart at `1.`.
+
+### Literal markers must remain visible
+
+The escaped form `\{: .notice--info-start\}` and `\{: .notice--info-end\}`
+must render as plain text and MUST NOT be processed by the plugin.
+
+### Markers inside a fenced code block must be inert
+
+The plugin's `SKIP_PATTERN` excludes fenced code; the marker syntax is
+documented verbatim:
+
+````markdown
+{: .notice--warning-start}
+
+**WARNING:** This is documentation showing the syntax — it must NOT
+expand into a real notice, and the surrounding fenced block must
+render as a code block.
+
+{: .notice--warning-end}
+````
+
 ## Plain-text title matching and macros
 
 Free-form prose that contains known link titles (`Soft macros`, `hard macros`, `SDATA`, `${HOST}`) — verifies title-text matching across line breaks, longest-title-first sort, and that backticks make `SDATA` an inline-code unit (still matched if the title is `SDATA`).
@@ -301,16 +430,19 @@ and a {% raw %}\{\{ site.product.name \}\}{% endraw %} variable raw inclusion te
 One more without any escaping using the `render_with_liquid: false` frontmatter option {% raw %}{% include doc/admin-guide/manpages-footnote.md %}{% endraw %}
 and a {% raw %}{{ site.product.name }}{% endraw %} variable raw inclusion test
 
-**WARNING:** \
-Showing literal Liquid tags on a page is tricky because **two** Liquid passes touch the source: \
-1. Our `generate_tooltips.rb` plugin runs its own Liquid `parse`/`render` on the raw markdown — it does **not** honor the `render_with_liquid: false` frontmatter switch. \
-2. Jekyll's final Liquid pass *is* skipped by `render_with_liquid: false`, but only that one. \
-\
-Practical rules: \
-- In **body text**, wrap every literal {% raw %}`{% ... %}`{% endraw %} and {% raw %}`{{ ... }}`{% endraw %} in `&#123;% raw %&#125;…&#123;% endraw %&#125;`; backticks alone do **not** shield Liquid from step (1). The kramdown-level `\{` escape also does not help — Liquid sees the raw `\&#123;%` and still tries to tokenize it. \
-- In **headings**, do **not** use literal `&#123;%` or `&#123;&#123;` at all — `generate_links.rb` runs `Liquid::Template.parse` on every heading's text via Nokogiri, which strips backtick `<code>` wrappers, so even backticked literals will break Build 1. Rephrase the heading instead (e.g. "Liquid raw tag" rather than {% raw %}`{% raw %}`{% endraw %}). \
+{: .notice--warning-start}
+**WARNING:**
+Showing literal Liquid tags on a page is tricky because **two** Liquid passes touch the source:
+
+1. Our `generate_tooltips.rb` plugin runs its own Liquid `parse`/`render` on the raw markdown — it does **not** honor the `render_with_liquid: false` frontmatter switch.
+2. Jekyll's final Liquid pass *is* skipped by `render_with_liquid: false`, but only that one.
+
+Practical rules:
+
+- In **body text**, wrap every literal {% raw %}`{% ... %}`{% endraw %} and {% raw %}`{{ ... }}`{% endraw %} in `&#123;% raw %&#125;…&#123;% endraw %&#125;`; backticks alone do **not** shield Liquid from step (1). The kramdown-level `\{` escape also does not help — Liquid sees the raw `\&#123;%` and still tries to tokenize it.
+- In **headings**, do **not** use literal `&#123;%` or `&#123;&#123;` at all — `generate_links.rb` runs `Liquid::Template.parse` on every heading's text via Nokogiri, which strips backtick `<code>` wrappers, so even backticked literals will break Build 1. Rephrase the heading instead (e.g. "Liquid raw tag" rather than {% raw %}`{% raw %}`{% endraw %}).
 - The `render_with_liquid: false` frontmatter is still useful: it suppresses the *final* Jekyll Liquid pass that would otherwise re-evaluate our plugin output, and is required on pages that show raw Liquid examples.
-{: .notice--warning}
+{: .notice--warning-end}
 
 Further liquid site variable tests. \
 When encoding is set in a source (using the encoding() option) and the

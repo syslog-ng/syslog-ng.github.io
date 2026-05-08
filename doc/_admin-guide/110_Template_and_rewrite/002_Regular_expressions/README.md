@@ -39,14 +39,16 @@ description: >-
     **match(\"sometext\")** and **match(sometext)** will both match for
     the sometext string.
 
-    <div class="notice--info" markdown="1" style="font-size: inherit;">
+    {: .notice--info-start}
+
     **NOTE:** Only strings containing alphanumerical characters can be used
     without quotes or double quotes. If the string contains whitespace
     or any special characters `(()\[\].\*?+\^$\|\\ or ;:\#)`, you must
     use quotes or double quotes.<br>
     When using the `;:\#` characters, you must use quotes or double
     quotes, but escaping them is not required.
-    </div>
+
+    {: .notice--info-end}
 
 By default, all regular expressions are case sensitive. To disable the
 case sensitivity of the expression, add the **flags(ignore-case)**

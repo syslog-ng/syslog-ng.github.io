@@ -55,7 +55,7 @@ the error log. The log statement references only the **s_apache** source,
 and any other object in the log statement can already use the results of
 the **p_apache_parser** parser.
 
-<div class="notice--info" markdown="1" style="font-size: inherit;">
+{: .notice--info-start}
 **NOTE:** You must start the object definition with a **channel** even if
 you will use a junction, for example:
   
@@ -70,7 +70,7 @@ parser demo-parser() {
 };
 ```
 
-</div>
+{: .notice--info-end}
 
 If you want to embed configuration objects into sources or destinations,
 always use channels, otherwise the source or destination will not behave

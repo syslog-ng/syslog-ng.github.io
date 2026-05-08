@@ -112,16 +112,15 @@ and other platforms, see {{ site.product.name }} installation packages.
 
     These commands will build {{ site.product.short_name }} using its default options.
 
-     <div class="notice--info" markdown="1" style="font-size: inherit;">
-     **NOTE:** When using the make command, consider the following: 
+    {: .notice--info-start}
+    **NOTE:** When using the make command, consider the following:
     - On Solaris, use **gmake** (GNU make) instead of **make**.
     - To build {{ site.product.short_name }} with less verbose output, use the **make
          V=0** command. This results in shorter, less verbose output,
          making warnings and other anomalies easier to notice. Note that
          silent-rules support is only available in recent automake
          versions.
-
-    </div>
+    {: .notice--info-end}
 
 11. If needed, use the following options to change how {{ site.product.short_name }} is
     compiled using the following command syntax:

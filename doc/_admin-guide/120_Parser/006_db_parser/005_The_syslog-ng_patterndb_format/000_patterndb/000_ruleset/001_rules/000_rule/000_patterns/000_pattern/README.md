@@ -35,13 +35,15 @@ The pattern uses {{ site.product.short_name }}'s pattern syntax, which supports:
 
 For detailed information about pattern syntax and parsers, see Using pattern parsers, and Pattern parsers of {{ site.product.short_name }}.
 
-<div class="notice--info" markdown="1" style="font-size: inherit;">
+{: .notice--info-start}
+
 **NOTE:** For special character escaping in patterns:
 - XML entities supported: **&amp; &lt; &gt; &quot; &apos;**
 - For the @ character, use `@@` (syslog-ng special notation), for example: `user@@example.com`
 
 User-defined XML entities are not supported.
-</div>
+
+{: .notice--info-end}
 
 ## Example
 

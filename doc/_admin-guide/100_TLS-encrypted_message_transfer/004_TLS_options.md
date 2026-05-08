@@ -352,7 +352,8 @@ To find the fingerprint of a certificate, you can use the following
 command: **openssl x509 -in \<certificate-filename\> -sha1 -noout
 -fingerprint**
 
-<div class="notice--info" markdown="1" style="font-size: inherit;">
+{: .notice--info-start}
+
 **NOTE:** When using the trusted-keys() and trusted-dn() parameters, note the following:  
   
 - First, the trusted-keys() parameter is checked. If the fingerprint  
@@ -362,4 +363,4 @@ command: **openssl x509 -in \<certificate-filename\> -sha1 -noout
     peer is not listed in the trusted-dn() parameter, the authentication  
     of the peer fails and the connection is closed.  
 
-</div>
+{: .notice--info-end}

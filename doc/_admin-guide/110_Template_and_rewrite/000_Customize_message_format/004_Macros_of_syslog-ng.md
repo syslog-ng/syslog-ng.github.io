@@ -328,7 +328,8 @@ macros. The ${SDATA} macro references the entire `STRUCTURED-DATA` part
 of the message, while structured data elements can be referenced using
 the ${.SDATA.SDID.SDNAME} macro.
 
-<div class="notice--info" markdown="1" style="font-size: inherit;">
+{: .notice--info-start}
+
 **NOTE:** When using `STRUCTURED-DATA` macros, consider the following:  
   
 - When referencing an element of the structured data, the macro must
@@ -337,7 +338,7 @@ the ${.SDATA.SDID.SDNAME} macro.
 - The SDID and SDNAME parts of the macro names are case sensitive:
     **${.SDATA.timeQuality.isSynced}** is not the same as **${.SDATA.TIMEQUALITY.ISSYNCED}**.
   
-</div>
+{: .notice--info-end}
 
 ### Example: Using ${SDATA} macros
 

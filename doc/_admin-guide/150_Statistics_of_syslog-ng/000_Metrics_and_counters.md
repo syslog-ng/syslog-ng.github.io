@@ -133,7 +133,8 @@ The displayed metrics have the following structure.
     - **eps\_since\_start**: The EPS value since the current {{ site.product.short_name }}
         start.
 
-        <div class="notice--info" markdown="1" style="font-size: inherit;">
+        {: .notice--info-start}
+
         **NOTE:** When using the eps\_last\_1h, the eps\_last\_24h, and the
         eps\_since\_start statistics, consider the following:
 
@@ -144,7 +145,8 @@ The displayed metrics have the following structure.
         - The eps\_last\_1h, the eps\_last\_24h, and the
             eps\_since\_start values are automatically updated every 60
             seconds.
-        </div>  
+
+        {: .notice--info-end}
 
     - **matched**: The number of messages that are accepted by a given
         filter. Available for filters and similar objects (for example,
@@ -174,12 +176,14 @@ The displayed metrics have the following structure.
     - **msg\_size\_avg**: The current average message size of the given
         source or destination.
 
-        <div class="notice--info" markdown="1" style="font-size: inherit;">
+        {: .notice--info-start}
+
         **NOTE:** When using the msg\_size\_avg and msg\_size\_max
         statistics, consider that message sizes are calculated as follows:
         - on the source side: the length of the incoming raw message
         - on the destination side: the length of the outgoing formatted message
-        </div>
+
+        {: .notice--info-end}
 
     - **not\_matched**: The number of messages that are filtered out by a
         given filter. Available for filters and similar objects (for
@@ -229,7 +233,8 @@ The displayed metrics have the following structure.
         this metric directly: to reset it, you have to reset the metrics
         it is calculated from.
 
-    <div class="notice--info" markdown="1" style="font-size: inherit;">
+    {: .notice--info-start}
+
     **NOTE:** Consider that for {{ site.product.short_name }} version 3.36, the following
     statistics counters are only supported for the http() destination,
     or the http() destination and all network() sources and
@@ -241,7 +246,8 @@ The displayed metrics have the following structure.
     - eps_last_1h
     - eps_last_24h
     - eps_since_start
-    </div>
+
+    {: .notice--info-end}
 
 7. The number of such messages.
 

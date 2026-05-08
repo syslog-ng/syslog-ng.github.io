@@ -1,4 +1,5 @@
-<div class="notice--info" markdown="1" style="font-size: inherit;">
+{: .notice--info-start}
+
 **TIP:** To format multi-line messages to your individual needs, consider the following:
 
 - To make multi-line messages more readable when written to a file,
@@ -17,4 +18,6 @@
     ```
 
 For details on using templates, see Templates and macros.
-</div>
+
+{: .notice--info-end}
+
