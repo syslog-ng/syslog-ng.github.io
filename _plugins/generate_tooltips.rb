@@ -654,6 +654,6 @@ Jekyll::Hooks.register [:pages, :documents], :pre_render do |page, payload|
   end
 
   Jekyll::TooltipGen.generate_tooltips(page, $JekyllTooltipGen_should_build_persistent_tooltips)
-  page.content = page.content.gsub(JekyllTooltipGen_description_start_tag, '<p id="page-description">')
+  page.content = page.content.gsub(JekyllTooltipGen_description_start_tag, '<p id="page-description" markdown="span">')
   page.content = page.content.gsub(JekyllTooltipGen_description_end_tag, '</p>')
 end
