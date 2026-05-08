@@ -38,7 +38,7 @@ date. You can use the following format elements:
 | %C | ctime format: Sat Nov 19 21:05:57 1994                         |
 | %d | numeric day of the month, with leading zeros (eg 01..31)       |
 | %e | like %d, but a leading zero is replaced by a space (eg 1..31)  |
-| %f | microseconds, leading 0's, extra digits are silently discarded |
+| %f | fractional second with a precision up-to the nanosecond (extra digits are silently discarded). Can start with a '.' |
 | %D | MM/DD/YY                                                       |
 | %G | GPS week number (weeks since January 6, 1980)                  |
 | %h | month, abbreviated                                             |
