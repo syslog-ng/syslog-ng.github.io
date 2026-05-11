@@ -36,7 +36,7 @@ description: >-
     ```
 
 - You can use the name-value pairs of other messages of the context.
-    If you set the inherit-properties attribute of the generated message
+    If you set the inherit-mode attribute of the generated message
     to `context`, {{ site.product.short_name }} collects every name-value pair from
     each message stored in the context, and includes them in the
     generated message. This means that you can refer to a name-value
@@ -49,12 +49,12 @@ description: >-
 
     ```xml
     <action>
-        <message inherit-properties='context'>
+        <message inherit-mode='context'>
     ```
 
-    Example: Using the inherit-properties option
+    Example: Using the inherit-mode option
 
-    For example, if inherit-properties is set to `context`, and you
+    For example, if inherit-mode is set to `context`, and you
     have a rule that collects SSH login and logout messages to the same
     context, you can use the following value to generate a message
     collecting the most important information form both messages,
@@ -95,7 +95,7 @@ description: >-
                         </patterns>
                         <actions>
                             <action>
-                                <message inherit-properties='context'>
+                                <message inherit-mode='context'>
                                     <values>
                                         <value name="MESSAGE">An SSH session for ${SSH_USERNAME} from ${SSH_CLIENT_ADDRESS} closed. Session lasted from ${DATE}@2 to ${DATE} pid: ${PID}.</value>
                                         <value name="TRIGGER">yes</value>

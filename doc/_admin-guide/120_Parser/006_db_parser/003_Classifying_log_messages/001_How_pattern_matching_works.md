@@ -17,10 +17,10 @@ Patterns can consist of literals (keywords, or rather, keycharacters)
 and pattern parsers. Pattern parsers attempt to parse a sequence of
 characters according to certain rules.
 
-NOTE: Wildcards and regular expressions cannot be used in patterns. The
-@ character must be escaped, that is, to match for this character, you
-have to write **@@** in your pattern. This is required because pattern
-parsers of {{ site.product.short_name }} are enclosed between @ characters.
+**NOTE:** Wildcards and regular expressions cannot be used in patterns. The
+`@` character must be escaped, that is, to match for this character, you
+have to write `@@` in your pattern. This is required because pattern
+parsers of {{ site.product.short_name }} are enclosed between `@` characters.
 {: .notice--info}
 
 When a new message arrives, {{ site.product.short_name }} attempts to classify it using the
@@ -42,14 +42,14 @@ if at a step there is a pattern that matches the next character with a
 literal, and another pattern that would match it with a parser, the
 pattern with the literal match is selected. Using the previous example,
 if at the third step there is the literal pattern Apport and a pattern
-parser Ap@STRING@, the Apport pattern is matched. If the literal does
+parser `Ap@STRING@`, the Apport pattern is matched. If the literal does
 not match the incoming string (for example, Apple), {{ site.product.short_name }} attempts
 to match the pattern with the parser. However, if there are two or more
 parsers on the same level, only the first one will be applied, even if
 it does not perfectly match the message.
 
-If there are two parsers at the same level (for example, Ap@STRING@ and
-Ap@QSTRING@), it is random which pattern is applied (technically, the
+If there are two parsers at the same level (for example, `Ap@STRING@` and
+`Ap@QSTRING@`), it is random which pattern is applied (technically, the
 one that is loaded first). However, if the selected parser cannot parse
 at least one character of the message, the other parser is used. But
 having two different parsers at the same level is extremely rare, so the

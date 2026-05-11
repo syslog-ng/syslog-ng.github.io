@@ -114,7 +114,7 @@ element.
   <actions>
     <action trigger='match'>
       <create-context context-id='1000' context-timeout='60' context-scope='program'>
-        <message inherit-properties='context'>
+        <message inherit-mode='context'>
           <values>
             <value name='MESSAGE'>context message</value>
           </values>

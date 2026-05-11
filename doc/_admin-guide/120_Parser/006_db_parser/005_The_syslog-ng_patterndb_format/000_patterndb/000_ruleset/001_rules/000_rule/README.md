@@ -16,6 +16,7 @@ The *\<rules\>* element may contain any number of *\<rule\>* elements.
 {: .notice--info-start}
 
 **NOTE:** If the following characters appear in the message, they must be escaped in the rule as follows:
+
 - *@*: Use `@@`, for example, `user@@example.com` --- syslog-ng special notation
 - *\<*: Use `&lt;` --- XML entity
 - *\>*: Use `&gt;` --- XML entity
