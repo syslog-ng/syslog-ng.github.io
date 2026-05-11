@@ -103,6 +103,15 @@ html figure.highlight.language-log {
   background: color.mix(white, $background-color, 8%);
 }
 
+/* Very subtle brand tint on the masthead to set it apart from content.
+   Applied to both static and sticky variants; uses the skin's primary
+   accent color ($primary-color — the same gold used for headings and links
+   on this dark skin). */
+html .masthead,
+html .masthead.sticky {
+  background-color: rgba($primary-color, 0.07);
+}
+
 .author__urls.social-icons i,
 .author__urls.social-icons .svg-inline--fa,
 .page__footer-follow .social-icons i,

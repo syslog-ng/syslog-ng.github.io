@@ -79,3 +79,11 @@ $code-notice-background-mix: 65% !default;
   }
 }
 
+
+/* Very subtle brand-blue tint on the masthead to set it apart from content.
+   Applied to both static and sticky variants; uses the syslog-ng brand blue
+   ($oid-blue — same blue used in headings, links and the TOC header bar). */
+html .masthead,
+html .masthead.sticky {
+  background-color: rgba($oid-blue, 0.03);
+}
