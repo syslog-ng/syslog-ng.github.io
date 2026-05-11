@@ -109,12 +109,38 @@
     }
 
     &.contrib {
-      z-index: 0;
+      // Contrib button row positioned next to the page title.
+      //
+      // Current behaviour:
+      // - Vertically centered on the FIRST line of the page title (does not
+      //   adjust for multi-line titles).
+      // - `position: sticky` is set, but in practice the row still shifts a
+      //   bit when scrolling starts — same behaviour as the TOC aside. A
+      //   true no-jump sticky would need a more careful initial-Y / `top:`
+      //   match (or a JS measurement).
+      //
+      // Implementation notes:
+      // - The aside is given a fixed box height equal to the sticky landing
+      //   offset, so its sticky bounds have a stable size.
+      // - Buttons are flex-aligned to the top-right of that box.
+      // - A negative `margin-bottom` of the same size compensates the added
+      //   height so following content is not pushed down.
+      position: -webkit-sticky;
+      position: sticky;
       top: calc(#{$masthead-sticky} * 2 * #{$nav-height});
-      margin-bottom: -2.5em;
-      width: $right-sidebar-width-wide;
-      margin-right: 0;
-      margin-top: 0.5em;
+      z-index: 0;
+      height: calc(#{$masthead-sticky} * 2 * #{$nav-height});
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: calc(-1 * #{$masthead-sticky} * 2 * #{$nav-height});
+      margin-top: 0;
+
+      div {
+        display: flex;
+        align-items: flex-start;
+        // Keep the button group on the right inside the flex aside.
+        margin-left: auto;
+      }
     }
   }
 
