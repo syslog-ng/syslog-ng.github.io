@@ -32,6 +32,8 @@ $tooltip-color                   : color.mix($gray, $text-color, 50%) !default;
 $tooltip-background-color        : rgba(color.mix($light-gray, $background-color, 7%), 0.925) !default;
 $tooltip-arrow-background-color  : rgba(color.mix($tooltip-background-color, $tooltip-color, 90%), 0.925) !default;
 
+$base01	                  : $oid-blue !default;
+
 $primary-color             : $oid-black !default;
 $success-color             : #27ae60 !default;
 $warning-color             : color.scale($jaffa, $lightness: 50%) !default;
@@ -52,7 +54,24 @@ $code-header-text-color    : $text-color !default;
 $toc-header-color          : $text-color !default;
 
 /* notices */
-$notice-background-mix     : 60% !default;
+$notice-background-mix     : 75% !default;
 $code-notice-background-mix: 65% !default;
 
-$base01	                  : $oid-blue !default;
+.page__content {
+  // Swap the background colors of these two notice types for better contrast
+  .notice--primary {
+    background-color: color.mix($background-color, $info-color, $notice-background-mix);
+
+    code {
+      background-color: color.mix($background-color, $info-color, $code-notice-background-mix);
+    }
+  }
+
+  .notice--info {
+    background-color: color.mix($background-color, $primary-color, $notice-background-mix);
+
+    code {
+      background-color: color.mix($background-color, $primary-color, $code-notice-background-mix);
+    }
+  }
+}

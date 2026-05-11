@@ -43,13 +43,18 @@ $base0e: #aa759f !default;
 $base0f: #a3685a !default;
 
 /* notices */
-$notice-background-mix: 75% !default;
+$notice-background-mix: 60% !default;
+$code-notice-background-mix: 65% !default;
+
+// $info-color is not defined locally in this skin; provide a sensible default
+// (matches _variables.scss) so the .notice--info / .notice--primary swap below
+// can reference it (skins are imported before _variables.scss).
+$info-color: #3b9cba !default;
 
 /* warning-color is not part of the original skin definitions; default
    from _variables.scss (#d67f05) mixed with the dark background
    turns brown — define a red based one */
 $warning-color: color.scale(#ee5f5b, $lightness: 30%) !default;
-
 
 .page__content {
   .notice,
@@ -64,7 +69,26 @@ $warning-color: color.scale(#ee5f5b, $lightness: 30%) !default;
   .notice {
     background-color: $base02;
   }
+
+  // Swap the background colors of these two notice types for better contrast
+  .notice--primary {
+    background-color: color.mix($background-color, $info-color, $notice-background-mix);
+
+    code {
+      background-color: color.mix($background-color, $info-color, $code-notice-background-mix);
+    }
+  }
+
+  .notice--info {
+    background-color: color.mix($background-color, $primary-color, $notice-background-mix);
+
+    code {
+      background-color: color.mix($background-color, $primary-color, $code-notice-background-mix);
+    }
+  }
 }
+
+
 
 .author__urls.social-icons i,
 .author__urls.social-icons .svg-inline--fa,
