@@ -66,7 +66,19 @@ $code-notice-background-mix: 65% !default;
     background-color: color.mix($background-color, $info-color, $notice-background-mix);
 
     code:not(pre code) {
-      background-color: color.mix($background-color, $info-color, $code-notice-background-mix);
+      background-color: color.mix($background-color, $info-color, 50%);
+    }
+
+    // Real <a> links inside the NOTE notice get a stronger color so they
+    // stand out from the pale notice background (the default link color
+    // blends into the notice tint).
+    a:not(.btn) {
+      color: $link-color;
+      font-weight: 600;
+
+      &:hover {
+        color: color.mix(#000, $link-color, 30%);
+      }
     }
   }
 
@@ -74,10 +86,30 @@ $code-notice-background-mix: 65% !default;
     background-color: color.mix($background-color, $primary-color, $notice-background-mix);
 
     code:not(pre code) {
-      background-color: color.mix($background-color, $primary-color, $code-notice-background-mix);
+      background-color: color.mix($background-color, $primary-color, 65%);
     }
   }
-}
+
+  // Make inline <code> in success / warning / danger notices visibly darker
+  // than the notice background. The default mix sits at $code-notice-background-mix
+  // (65% bg + 35% color) which on this light skin renders almost white on a
+  // similarly pale notice tint. Drop the bg ratio so the code pill carries
+  // enough of the notice's accent color to stand out.
+  .notice--success code:not(pre code) {
+    background-color: color.mix($background-color, $success-color, 50%);
+  }
+  .notice--warning code:not(pre code) {
+    background-color: color.mix($background-color, $warning-color, 40%);
+  }
+  .notice--danger code:not(pre code) {
+    background-color: color.mix($background-color, $danger-color, 60%);
+  } 
+  // Plain .notice (no variant): default mix uses $light-gray which is nearly
+  // invisible on the off-white notice background. Use a more saturated gray
+  // so inline code stands out.
+  .notice:not([class*="notice--"]) code:not(pre code) {
+    background-color: color.mix($background-color, $light-gray, 50%);
+  }}
 
 
 /* Very subtle brand-blue tint on the masthead to set it apart from content.

@@ -56,6 +56,12 @@ $info-color: #3b9cba !default;
    turns brown — define a red based one */
 $warning-color: color.scale(#ee5f5b, $lightness: 30%) !default;
 
+/* skins are imported before _variables.scss, so seed the !default values
+   here too — otherwise references below resolve as undefined */
+$success-color: #3fa63f !default;
+$danger-color: #ee5f5b !default;
+$light-gray: color.mix(#fff, #7a8288, 50%) !default;
+
 .page__content {
   .notice,
   .notice--primary,
@@ -78,7 +84,7 @@ $warning-color: color.scale(#ee5f5b, $lightness: 30%) !default;
     background-color: color.mix($background-color, $info-color, $notice-background-mix);
 
     code:not(pre code) {
-      background-color: color.mix($background-color, $info-color, $code-notice-background-mix);
+      background-color: color.mix($background-color, $info-color, 40%);
     }
   }
 
@@ -86,8 +92,24 @@ $warning-color: color.scale(#ee5f5b, $lightness: 30%) !default;
     background-color: color.mix($background-color, $primary-color, $notice-background-mix);
 
     code:not(pre code) {
-      background-color: color.mix($background-color, $primary-color, $code-notice-background-mix);
+      background-color: color.mix($background-color, $primary-color, 40%);
     }
+  }
+
+  // Make inline <code> in success / warning / danger / plain notices visibly
+  // contrast with the notice background on the dark skin (default mix is too
+  // close to the surrounding tint to be readable).
+  .notice--success code:not(pre code) {
+    background-color: color.mix($background-color, $success-color, 30%);
+  }
+  .notice--warning code:not(pre code) {
+    background-color: color.mix($background-color, $warning-color, 40%);
+  }
+  .notice--danger code:not(pre code) {
+    background-color: color.mix($background-color, $danger-color, 30%);
+  }
+  .notice:not([class*="notice--"]) code:not(pre code) {
+    background-color: color.mix($background-color, $light-gray, 40%);
   }
 }
 

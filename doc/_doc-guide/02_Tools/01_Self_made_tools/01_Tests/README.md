@@ -142,9 +142,9 @@ Paired form (`{: .notice--info-start/-end}`) wrapping a numbered list with no ma
 
 {: .notice--info-start}
 
-1. first numbered item
-2. second numbered item — uses the ${MESSAGE} macro
-3. third numbered item — references {{ site.product.name }}
+1. first numbered `item`
+2. second numbered `item` — uses the ${MESSAGE} macro
+3. third numbered `item` — references {{ site.product.name }}
 
 {: .notice--info-end}
 
@@ -153,7 +153,6 @@ Paired form (`{: .notice--info-start/-end}`) wrapping a numbered list with no ma
 Paired form (`{: .notice--warning-start/-end}`) wrapping a fenced code block between two paragraphs.
 
 {: .notice--warning-start}
-
 
 Leading paragraph that mentions log-msg-size() and ${PROGRAM} as plain text.
 
@@ -166,7 +165,7 @@ destination d_http {
 };
 ```
 
-Closing paragraph — content inside the fence above must NOT be
+Closing paragraph — content inside the fence above must `NOT` be
 tooltipped, and the fence must render as a code block (not as
 indented text).
 
@@ -178,15 +177,15 @@ Paired form (`{: .notice--danger-start/-end}`) wrapping a nested heading, prose,
 
 {: .notice--danger-start}
 
-
 #### Nested heading inside a notice
 
 Some prose between the heading and the list.
 
-- bullet a
-- bullet b
-- bullet c
+- bullet `a`
+- bullet `b`
+- bullet `c`
 
+And a test link of a ${HOST}.
 {: .notice--danger-end}
 
 ### Success — single-paragraph paired form (functionally equivalent to single-block IAL)
@@ -197,7 +196,7 @@ Paired form (`{: .notice--success-start/-end}`) used for a one-paragraph notice 
 
 A one-paragraph notice using the paired form also works,
 even though the legacy single-block `{: .notice--success}` IAL would
-suffice here.
+suffice here. Test link of a ${HOST}.
 
 {: .notice--success-end}
 
