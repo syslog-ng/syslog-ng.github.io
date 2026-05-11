@@ -73,7 +73,9 @@ special wrapper using the LLADDR parser. For example, the following
 parser parses maximally 10 octets, and stores the results in the
 link-level-address macro:
 
->@LLADDR:link-level-address:10@
+```log
+@LLADDR:link-level-address:10@
+```
 
 ## @MACADDR@
 

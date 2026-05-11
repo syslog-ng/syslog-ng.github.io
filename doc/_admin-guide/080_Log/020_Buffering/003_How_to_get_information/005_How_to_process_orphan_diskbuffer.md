@@ -147,12 +147,14 @@ To process the messages from an orphan disk-buffer file using a separate
     Example: output displaying newly created empty disk-buffer file and
     connection established to remote destination
 
-    >Follow-mode file source not found, deferring open; filename='/no_such_file_or.dir'  
-    >Reliable disk-buffer state saved; filename='/tmp/qdisk/syslog-ng-00000.rqf', qdisk_length='0'  
-    >No server license found, running in client mode;  
-    >syslog-ng starting up; version='7.0.20', cfg-fingerprint='eaa03b9efb88b87d7c1b0ce7efd042ed8ac0c013',  >cfg-nonce-ndx='0', cfg-signature='c0327a7f7e6418ce0399a75089377dfb662bb072'
-    >FIPS information; FIPS-mode='disabled'  
-    >Syslog connection established; fd='7', server='AF_INET(10.21.10.20:514)', local='AF_INET(0.0.0.0:0)'
+    ```log
+    Follow-mode file source not found, deferring open; filename='/no_such_file_or.dir'
+    Reliable disk-buffer state saved; filename='/tmp/qdisk/syslog-ng-00000.rqf', qdisk_length='0'
+    No server license found, running in client mode;
+    syslog-ng starting up; version='7.0.20', cfg-fingerprint='eaa03b9efb88b87d7c1b0ce7efd042ed8ac0c013', cfg-nonce-ndx='0', cfg-signature='c0327a7f7e6418ce0399a75089377dfb662bb072'
+    FIPS information; FIPS-mode='disabled'
+    Syslog connection established; fd='7', server='AF_INET(10.21.10.20:514)', local='AF_INET(0.0.0.0:0)'
+    ```
 
 7. To stop {{ site.product.short_name }}, press CTRL+C.
 
@@ -194,7 +196,9 @@ To process the messages from an orphan disk-buffer file using a separate
     will display a similar status message for an empty disk-buffer
     file:
 
-    >Reliable disk-buffer state loaded; filename='/tmp/qdisk/syslog-ng-00000.rqf', queue_length='0', size='0'
+    ```log
+    Reliable disk-buffer state loaded; filename='/tmp/qdisk/syslog-ng-00000.rqf', queue_length='0', size='0'
+    ```
 
 11. Press CTRL+C to stop {{ site.product.short_name }}.
 

@@ -91,7 +91,17 @@ $warning-color: color.scale(#ee5f5b, $lightness: 30%) !default;
   }
 }
 
-
+/* Slightly lighter background for ```log fences on dark skin */
+/* Slightly lighter background for ```log fences on dark skin.
+   Selectors prefixed with `html` to beat the common `_syntax.scss`
+   rule on specificity, because in `assets/css/main_oi-dark.scss`
+   this skin file is imported BEFORE the main partials — so without
+   the specificity bump, source order would let `_syntax.scss` win. */
+html pre:has(> code.language-log),
+html div.language-log.highlighter-rouge,
+html figure.highlight.language-log {
+  background: color.mix(white, $background-color, 8%);
+}
 
 .author__urls.social-icons i,
 .author__urls.social-icons .svg-inline--fa,

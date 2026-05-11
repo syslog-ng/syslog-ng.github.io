@@ -50,3 +50,8 @@ A SUCCESS icon confirms that an operation completed correctly or that a recommen
 
 A plain NOTICE is a generic callout box without any severity coloring, and auto-prefix text or any icon. Use it for tips, side remarks, neutral asides, or content that does not fit any of the semantic categories above.
 {: .notice}
+
+```log
+A `log` fenced code block renders verbatim log-output samples (`syslog-ng-ctl` dumps, internal messages, stack traces, etc.) as a soft, slightly-tinted panel with a left accent bar and italic non-monospace text — a modern replacement for the legacy `> log line  ` blockquote pattern, whitespace is preserved.
+```
+

@@ -2,6 +2,8 @@
    Syntax highlighting
    ========================================================================== */
 
+@use "sass:color";
+
 div.highlighter-rouge,
 figure.highlight {
   position: relative;
@@ -418,5 +420,49 @@ figure.highlight {
   th,
   td {
     border-bottom: 0;
+  }
+}
+
+/* ==========================================================================
+   `log` fenced code blocks (```log)
+   --------------------------------------------------------------------------
+   Used for sample log lines / shell output. Renders as a soft, very light
+   gray box with an italic, non-monospace look — deliberately reminiscent
+   of the legacy `> log line  ` blockquote style — but inside a real
+   <pre><code> so whitespace is preserved and MD027 (multiple spaces after
+   blockquote) does not apply.
+
+   Rouge has no `log` lexer, so it emits a bare `<pre><code class="language-log">`
+   without the usual `.highlighter-rouge` / `.highlight` wrappers. The
+   selectors below match both the wrapped form (defensive) and the bare
+   form actually emitted today.
+   ========================================================================== */
+
+pre:has(> code.language-log),
+div.language-log.highlighter-rouge,
+figure.highlight.language-log {
+  margin: 1.5em 0;
+  padding: 0.75em 1em;
+  background: color.mix($white, $lighter-gray, 75%);
+  color: $text-color;
+  border-left: 0.25em solid $primary-color;
+  border-radius: $border-radius;
+  font-style: italic;
+  font-family: inherit;
+  font-size: $type-size-6;
+  line-height: 1.6;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  overflow-x: auto;
+
+  > code.language-log,
+  > pre,
+  pre.highlight {
+    background: transparent;
+    color: inherit;
+    font-family: inherit;
+    font-style: inherit;
+    padding: 0;
+    margin: 0;
   }
 }

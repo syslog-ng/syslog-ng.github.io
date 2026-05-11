@@ -46,18 +46,20 @@ The displayed metrics have the following structure.
         The following example contains 6 different dynamic values: a
         sender, a host, and four different programs.
 
-        >src.sender;;localhost;d;processed;4
-        >src.sender;;localhost;d;stamp;1509121934
-        >src.program;;P-18069;d;processed;1
-        >src.program;;P-18069;d;stamp;1509121933
-        >src.program;;P-21491;d;processed;1
-        >src.program;;P-21491;d;stamp;1509121934
-        >src.program;;P-9774;d;processed;1
-        >src.program;;P-9774;d;stamp;1509121919
-        >src.program;;P-14737;d;processed;1
-        >src.program;;P-14737;d;stamp;1509121931
-        >src.host;;localhost;d;processed;4
-        >src.host;;localhost;d;stamp;1509121934
+        ```log
+        src.sender;;localhost;d;processed;4
+        src.sender;;localhost;d;stamp;1509121934
+        src.program;;P-18069;d;processed;1
+        src.program;;P-18069;d;stamp;1509121933
+        src.program;;P-21491;d;processed;1
+        src.program;;P-21491;d;stamp;1509121934
+        src.program;;P-9774;d;processed;1
+        src.program;;P-9774;d;stamp;1509121919
+        src.program;;P-14737;d;processed;1
+        src.program;;P-14737;d;stamp;1509121931
+        src.host;;localhost;d;processed;4
+        src.host;;localhost;d;stamp;1509121934
+        ```
 
         To avoid performance issues or even overloading {{ site.product.short_name }},
         you might want to limit the number of registered dynamic
@@ -93,9 +95,11 @@ The displayed metrics have the following structure.
 
     Statistics output:
 
-    >src.tcp;s_network#0;tcp,127.0.0.5;a;processed;1
-    >src.tcp;s_network#0;tcp,127.0.0.1;a;processed;3
-    >src.tcp;s_network;afsocket_sd.(stream,AF_INET(0.0.0.0:8001));a;connections;2
+    ```log
+    src.tcp;s_network#0;tcp,127.0.0.5;a;processed;1
+    src.tcp;s_network#0;tcp,127.0.0.1;a;processed;3
+    src.tcp;s_network;afsocket_sd.(stream,AF_INET(0.0.0.0:8001));a;connections;2
+    ```
 
 6. The type of the statistics:
 
@@ -118,7 +122,9 @@ The displayed metrics have the following structure.
         These are messages that the parser could not parsed, and are
         therefore not processed. For example:
 
-        >parser;demo_parser;;a;discarded;20
+        ```log
+        parser;demo_parser;;a;discarded;20
+        ```
 
     - **dropped**: The number of dropped messages --- {{ site.product.short_name }} could
         not send the messages to the destination and the output buffer
@@ -154,14 +160,18 @@ The displayed metrics have the following structure.
         specific hostname, then the matched counter contains the number
         of messages that reached the filter from this hosts.
 
-        >filter;demo_filter;;a;matched;28
+        ```log
+        filter;demo_filter;;a;matched;28
+        ```
 
     - **memory\_usage**: The memory used by the messages in the different
         queue types (in bytes). This includes every queue used by the
         object, including memory buffers (log-fifo) and disk-based
         buffers (both reliable and non-reliable). For example:
 
-        >dst.network;d_net#0;tcp,127.0.0.1:9999;a;memory_usage;0
+        ```log
+        dst.network;d_net#0;tcp,127.0.0.1:9999;a;memory_usage;0
+        ```
 
         The memory usage (size) of queues is not equal to the
         memory usage (size) of the log messages in {{ site.product.short_name }}. A log
@@ -192,7 +202,9 @@ The displayed metrics have the following structure.
         contains the number of messages that reached the filter from
         other hosts, and so the filter discarded them.
 
-        >filter;demo_filter;;a;not_matched;0
+        ```log
+        filter;demo_filter;;a;not_matched;0
+        ```
 
         Since the not\_matched metric applies to filters, and
         filters are expected to discard messages that do not match the

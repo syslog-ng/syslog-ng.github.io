@@ -74,9 +74,11 @@ To use the snmptrap() driver, the scl.conf file must be included in your
 
 A sample snmptrapd configuration:
 
-> authCommunity log,execute,net public  
-> format1 %.4y-%.2m-%.2l %.2h:%.2j:%.2k %B [%b]: %N\n\t%W Trap (%q) Uptime: %#T\n%v\n  
-> outputOption s
+```config
+authCommunity log,execute,net public
+format1 %.4y-%.2m-%.2l %.2h:%.2j:%.2k %B [%b]: %N\n\t%W Trap (%q) Uptime: %#T\n%v\n
+outputOption s
+```
 
 Starting snmptrapd: `snmptrapd -A -Lf /var/log/snmptrapd.log`
 
@@ -85,11 +87,9 @@ NET-SNMP-EXAMPLES-MIB::netSnmpExampleHeartbeatNotification
 netSnmpExampleHeartbeatRate i 60 netSnmpExampleString s \"string\". From
 this trap, {{ site.product.short_name }} receives the following input:
 
-> 2017-05-23 15:29:40 localhost [UDP: [127.0.0.1]:59993->[127.0.0.1]:162]:
-> SNMPv2-SMI::mib-2.1.3.0 = Timeticks: (666) 0:00:06.66  
-> SNMPv2-SMI::snmpModules.1.1.4.1.0 = OID: > NET-SNMP-EXAMPLES-MIB::netSnmpExampleHeartbeatNotification  
-> NET-SNMP-EXAMPLES-MIB::netSnmpExampleHeartbeatRate =  
-> INTEGER: 60 NET-SNMP-EXAMPLES-MIB::netSnmpExampleString = STRING: string
+```log
+2017-05-23 15:29:40 localhost [UDP: [127.0.0.1]:59993->[127.0.0.1]:162]: SNMPv2-SMI::mib-2.1.3.0 = Timeticks: (666) 0:00:06.66 SNMPv2-SMI::snmpModules.1.1.4.1.0 = OID: NET-SNMP-EXAMPLES-MIB::netSnmpExampleHeartbeatNotification NET-SNMP-EXAMPLES-MIB::netSnmpExampleHeartbeatRate = INTEGER: 60 NET-SNMP-EXAMPLES-MIB::netSnmpExampleString = STRING: string
+```
 
 The following {{ site.product.short_name }} configuration sample uses the default
 settings of the driver, reading SNMP traps from the
@@ -97,20 +97,22 @@ settings of the driver, reading SNMP traps from the
 the traps into a file.
 
 ```config
-    @include "scl.conf"
-    log {
-      source {
-        snmptrap(filename("/var/log/snmptrapd.log"));
-      };
-      destination {
-        file("/var/log/example.log");
-      };
-    };
+@include "scl.conf"
+log {
+  source {
+    snmptrap(filename("/var/log/snmptrapd.log"));
+  };
+  destination {
+    file("/var/log/example.log");
+  };
+};
 ```
 
 From the trap, {{ site.product.short_name }} writes the following into the log file:
 
->May 23 15:29:40 myhostname snmptrapd: hostname='localhost', transport_info='UDP: [127.0.0.1]:59993->[127.0.0.1]>:162', SNMPv2-SMI::mib-2.1.3.0='(666) 0:00:06.66', SNMPv2-SMI::snmpModules.1.1.4.1.>0='NET-SNMP-EXAMPLES-MIB::netSnmpExampleHeartbeatNotification', >NET-SNMP-EXAMPLES-MIB::netSnmpExampleHeartbeatRate='60', NET-SNMP-EXAMPLES-MIB::netSnmpExampleString='string'
+```log
+May 23 15:29:40 myhostname snmptrapd: hostname='localhost', transport_info='UDP: [127.0.0.1]:59993->[127.0.0.1]>:162', SNMPv2-SMI::mib-2.1.3.0='(666) 0:00:06.66', SNMPv2-SMI::snmpModules.1.1.4.1.>0='NET-SNMP-EXAMPLES-MIB::netSnmpExampleHeartbeatNotification', >NET-SNMP-EXAMPLES-MIB::netSnmpExampleHeartbeatRate='60', NET-SNMP-EXAMPLES-MIB::netSnmpExampleString='string'
+```
 
 Using the same input trap, the following configuration example formats
 the SNMP traps as JSON messages.

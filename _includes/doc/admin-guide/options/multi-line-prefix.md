@@ -20,29 +20,31 @@ multi-line log messages. The messages start with the date and time of
 the query in the YYYY.MM.DD HH:MM:SS format, as you can see in the
 following example.
 
-> 2010.06.09. 12:07:39 org.apache.catalina.startup.Catalina start  
-> SEVERE: Catalina.start:  
-> LifecycleException:  service.getName(): "Catalina";  Protocol handler start failed: java.net.BindException: Address already in use null:8080  
->   at org.apache.catalina.connector.Connector.start(Connector.java:1138)  
->   at org.apache.catalina.core.StandardService.start(StandardService.java:531)  
->   at org.apache.catalina.core.StandardServer.start(StandardServer.java:710)  
->   at org.apache.catalina.startup.Catalina.start(Catalina.java:583)  
->   at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)  
->   at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)  
->   at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)  
->   at java.lang.reflect.Method.invoke(Method.java:597)  
->   at org.apache.catalina.startup.Bootstrap.start(Bootstrap.java:288)  
->   at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)  
->   at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)  
->   at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)  
->   at java.lang.reflect.Method.invoke(Method.java:597)  
->   at org.apache.commons.daemon.support.DaemonLoader.start(DaemonLoader.java:177)  
-> 2010.06.09. 12:07:39 org.apache.catalina.startup.Catalina start  
-> INFO: Server startup in 1206 ms  
-> 2010.06.09. 12:45:08 org.apache.coyote.http11.Http11Protocol pause  
-> INFO: Pausing Coyote HTTP/1.1 on http-8080  
-> 2010.06.09. 12:45:09 org.apache.catalina.core.StandardService stop  
-> INFO: Stopping service Catalina  
+```log
+2010.06.09. 12:07:39 org.apache.catalina.startup.Catalina start
+SEVERE: Catalina.start:
+LifecycleException:  service.getName(): "Catalina";  Protocol handler start failed: java.net.BindException: Address already in use null:8080
+  at org.apache.catalina.connector.Connector.start(Connector.java:1138)
+  at org.apache.catalina.core.StandardService.start(StandardService.java:531)
+  at org.apache.catalina.core.StandardServer.start(StandardServer.java:710)
+  at org.apache.catalina.startup.Catalina.start(Catalina.java:583)
+  at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+  at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+  at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+  at java.lang.reflect.Method.invoke(Method.java:597)
+  at org.apache.catalina.startup.Bootstrap.start(Bootstrap.java:288)
+  at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+  at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+  at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+  at java.lang.reflect.Method.invoke(Method.java:597)
+  at org.apache.commons.daemon.support.DaemonLoader.start(DaemonLoader.java:177)
+2010.06.09. 12:07:39 org.apache.catalina.startup.Catalina start
+INFO: Server startup in 1206 ms
+2010.06.09. 12:45:08 org.apache.coyote.http11.Http11Protocol pause
+INFO: Pausing Coyote HTTP/1.1 on http-8080
+2010.06.09. 12:45:09 org.apache.catalina.core.StandardService stop
+INFO: Stopping service Catalina
+```
 
 To process these messages, specify a regular expression matching the
 timestamp of the messages in the multi-line-prefix() option. Such an

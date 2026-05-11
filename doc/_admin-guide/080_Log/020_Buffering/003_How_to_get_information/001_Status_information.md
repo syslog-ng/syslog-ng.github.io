@@ -30,7 +30,9 @@ files).
 dqtool info /var/lib/syslog-ng/syslog-ng-00000.qf
 ```
 
->Disk-buffer state loaded; filename='/var/lib/syslog-ng/syslog-ng-00000.qf', number_of_messages='0'
+```log
+Disk-buffer state loaded; filename='/var/lib/syslog-ng/syslog-ng-00000.qf', number_of_messages='0'
+```
 
 #### Non-empty, reliable disk-buffer queue file
 
@@ -38,7 +40,9 @@ dqtool info /var/lib/syslog-ng/syslog-ng-00000.qf
 dqtool info /opt/syslog-ng/var/syslog-ng-00000.rqf
 ```
 
->Reliable disk-buffer state loaded; filename='/opt/syslog-ng/var/syslog-ng-00000.rqf', number_of_messages='10'
+```log
+Reliable disk-buffer state loaded; filename='/opt/syslog-ng/var/syslog-ng-00000.rqf', number_of_messages='10'
+```
 
 ### One-liner command to get the state of disk-buffer files in the default directory
 

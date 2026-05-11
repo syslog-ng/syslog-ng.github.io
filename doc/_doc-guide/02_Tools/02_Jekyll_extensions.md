@@ -269,6 +269,8 @@ The five typed notice variants get their leading icon and bold label injected au
 
 The auto-injected prefix flows inline with the first line of the body text. To change an icon or a label, edit `@mixin notice-prefix` invocations near the bottom of `_sass/minimal-mistakes/minimal-mistakes/_notices.scss`.
 
+**List-first paired-marker notices.** When the first block inside a paired-marker notice is a list (`<ol>` or `<ul>`), the icon and label render on the wrapping container's own line above the list rather than inline with the first list item. This avoids collisions with the `1.` / bullet markers. To get an inline prefix instead, lead the body with a paragraph or heading before the list.
+
 #### Opt-out — `.no-prefix` modifier
 
 Add `.no-prefix` alongside the variant class to suppress the auto-injected icon and label for a single notice. Use this only when the body already provides its own visual cue (a custom heading, a bespoke inline icon, embedded HTML, etc.):
@@ -277,6 +279,11 @@ Add `.no-prefix` alongside the variant class to suppress the auto-injected icon 
 Body text rendered without the icon and label prefix.
 {: .notice--warning .no-prefix}
 ```
+
+Rendered:
+
+Body text rendered without the icon and label prefix.
+{: .notice--warning .no-prefix}
 
 The paired-marker form supports the same modifier — append it to the start marker:
 
@@ -287,6 +294,14 @@ Multi-block body without the auto-injected prefix.
 
 {: .notice--warning-end}
 ```
+
+Rendered:
+
+{: .notice--warning-start .no-prefix}
+
+Multi-block body without the auto-injected prefix.
+
+{: .notice--warning-end}
 
 ### Single-block form (kramdown IAL)
 
@@ -299,6 +314,14 @@ Important information here.
 Critical warning here.
 {: .notice--warning}
 ```
+
+Rendered:
+
+Important information here.
+{: .notice--info}
+
+Critical warning here.
+{: .notice--warning}
 
 ### Multi-block form (paired markers)
 
@@ -320,6 +343,23 @@ Closing paragraph.
 
 {: .notice--warning-end}
 ````
+
+Rendered:
+
+{: .notice--warning-start}
+
+Leading paragraph.
+
+1. ordered list item
+2. another item
+
+```config
+fenced code is fine here
+```
+
+Closing paragraph.
+
+{: .notice--warning-end}
 
 Pairing is **strict** — any of these aborts the build with a clear error that names the file and line numbers:
 

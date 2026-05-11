@@ -289,6 +289,22 @@ options {
 };
 ```
 
+**`log` block example** — replacement for the legacy `> log line  ` blockquote
+style. Renders as a soft, very light gray box with a left accent bar, italic,
+non-monospace text, and preserves leading whitespace. Tooltips/macros inside
+must NOT expand (same inertness contract as any other fenced block):
+
+```log
+Follow-mode file source not found, deferring open; filename='/no_such_file_or.dir'
+Reliable disk-buffer state saved; filename='/tmp/qdisk/syslog-ng-00000.rqf', qdisk_length='0'
+No server license found, running in client mode;
+syslog-ng starting up; version='7.0.20', cfg-fingerprint='eaa03b9efb88b87d7c1b0ce7efd042ed8ac0c013', >cfg-nonce-ndx='0', cfg-signature='c0327a7f7e6418ce0399a75089377dfb662bb072' FIPS information; FIPS-mode='disabled'
+Syslog connection established; fd='7', server='AF_INET(10.21.10.20:514)', local='AF_INET(0.0.0.0:0)'
+  at org.apache.catalina.connector.Connector.start(Connector.java:1138)
+  at org.apache.catalina.core.StandardService.start(StandardService.java:531)
+${HOST} and {{ site.product.short_name }} appear here as literal text, NOT as expanded tokens.
+```
+
 **XML block example with HTML comments:**
 
 ```xml

@@ -20,10 +20,14 @@ The following command will list the disk-buffer files in use:
 
 The example output will look like the following:
 
-> afsocket_dd_qfile(stream,10.21.10.20:601)  ==> /opt/syslog-ng/var/syslog-ng-00000.rqf
-  
+```log
+afsocket_dd_qfile(stream,10.21.10.20:601)  ==> /opt/syslog-ng/var/syslog-ng-00000.rqf
+```
+
 If you receive the following error message instead of the example
 output, install a vim-common package on your system:
 {: .notice--primary}
 
-> xxd: command not found
+```log
+xxd: command not found
+```

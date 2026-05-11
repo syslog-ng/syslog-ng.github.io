@@ -14,11 +14,15 @@ A syslog message consists of the following parts:
 
 The following is a sample syslog message [[(source)|rfc-5424]]:
 
-><34>1 2003-10-11T22:14:15.003Z mymachine.example.com su - ID47 - BOM'su root' failed for lonvick on /dev/pts/8
+```log
+<34>1 2003-10-11T22:14:15.003Z mymachine.example.com su - ID47 - BOM'su root' failed for lonvick on /dev/pts/8
+```
 
 The message corresponds to the following format:
 
->\<priority\>VERSION ISOTIMESTAMP HOSTNAME APPLICATION PID MESSAGEID STRUCTURED-DATA MSG
+```log
+<priority>VERSION ISOTIMESTAMP HOSTNAME APPLICATION PID MESSAGEID STRUCTURED-DATA MSG
+```
 
 - Facility is 4, severity is 2, so `PRI` is 34.
 
@@ -113,7 +117,9 @@ can be referenced in macros (for details, see Macros of {{ site.product.short_na
 
 An example STRUCTURED-DATA block looks like:
 
->\[exampleSDID@0 iut="3" eventSource="Application" eventID="1011"\]\[examplePriority@0 class="high"\]
+```log
+[exampleSDID@0 iut="3" eventSource="Application" eventID="1011"][examplePriority@0 class="high"]
+```
 
 ## The MSG message part
 
