@@ -42,8 +42,14 @@
 }
 
 .masthead.sticky {
-  background-color: $background-color;
+  background-color: rgba($background-color, 0.6);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
   top: 0em;
+
+  .greedy-nav {
+    background: transparent;
+  }
 }
 
 .site-logo img {
@@ -60,10 +66,12 @@
     max-width: max-content;
   }
   @include breakpoint($large) {
-    max-width: max-content;
+    min-width: calc(#{$left-sidebar-width-narrow} - 1em);
+    max-width: calc(#{$left-sidebar-width-narrow} - 1em);
   }
   @include breakpoint($x-large) {
-    max-width: max-content;
+    min-width: calc(#{$left-sidebar-width} - 1em);
+    max-width: calc(#{$left-sidebar-width} - 1em);
   }
 
   -ms-flex-item-align: center;
