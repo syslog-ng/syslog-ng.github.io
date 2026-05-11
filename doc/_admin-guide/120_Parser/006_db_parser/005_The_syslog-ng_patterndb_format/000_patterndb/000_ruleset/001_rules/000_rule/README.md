@@ -44,7 +44,7 @@ If the following characters appear in the message, they must be escaped in the r
     When using macros in IDs, see also the context-scope attribute.
     Starting with {{ site.product.short_name }} version 3.5, if a message is added to a
     context, {{ site.product.short_name }} automatically adds the identifier of the
-    context to the .classifier.context\_id macro of the message. For
+    context to the .classifier.context_id macro of the message. For
     details on correlating messages, see
     Correlating log messages using pattern databases.
 

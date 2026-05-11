@@ -40,9 +40,9 @@ generates a message when a message matching the rule is received.
 ```
 
 To inherit the properties and values of the triggering message, set the
-inherit-mode attribute of the \<message\> element to **last-message**. That
+inherit-mode attribute of the `<message>` element to `last-message`. That
 way the triggering log message is cloned, including name-value pairs and
-tags. If you set any values for the message in the \<action\> element,
+tags. If you set any values for the message in the `<action>` element,
 they will override the values of the original message.
 
 ### Example: Generating messages with inherited values

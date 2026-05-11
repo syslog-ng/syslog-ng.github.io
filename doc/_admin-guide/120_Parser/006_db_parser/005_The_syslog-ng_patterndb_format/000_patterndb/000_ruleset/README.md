@@ -4,7 +4,7 @@ short_title: ruleset
 id: adm-parser-db-elem-ruleset
 description: >-
     A container element to group log patterns for an application or program.
-    A \<patterndb\> element may contain any number of \<ruleset\> elements.
+    A `<patterndb>` element may contain any number of `<ruleset>` elements.
 ---
 
 ## Location
@@ -15,7 +15,7 @@ description: >-
 
 - *name*: The name of the application. Note that the function of this
     attribute is to make the database more readable, {{ site.product.short_name }} uses the
-    \<pattern\> element to identify the applications sending log
+    `<pattern>` element to identify the applications sending log
     messages.
 
 - *id*: A unique ID of the application, for example, the md5 sum of
@@ -31,9 +31,10 @@ description: >-
     ruleset. `<pattern>` elements may appear directly under `<ruleset>`, or
     wrapped inside a `<patterns>` container — both forms are equivalent.
 
-    **NOTE:** If no `<pattern>` is specified, {{ site.product.short_name }} uses the ruleset as a
+    If no `<pattern>` is specified, {{ site.product.short_name }} uses the ruleset as a
     fallback: it applies to messages with an empty `PROGRAM` header or when no
     other ruleset pattern matches.
+    {: .notice--primary}
 
 - *patterns*: An optional container for one or more `<pattern>` elements.
     Using `<patterns>` is equivalent to placing `<pattern>` elements directly
@@ -57,7 +58,7 @@ description: >-
 
 - *rule\_urls*: OPTIONAL --- To list multiple URLs referring to
     further information about the ruleset or the application, enclose
-    the \<url\> elements into an \<urls\> element.
+    the `<url>` elements into an `<urls>` element.
 
 ### Example
 

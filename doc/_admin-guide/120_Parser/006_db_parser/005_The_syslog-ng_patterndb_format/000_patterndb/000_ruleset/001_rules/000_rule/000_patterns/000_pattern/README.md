@@ -12,7 +12,7 @@ description: >-
 
 / patterndb / ruleset / rules / rule / patterns / pattern
 
-The *\<patterns\>* element may contain one or more *\<pattern\>* elements.
+The `<patterns>` element may contain one or more `<pattern>` elements.
 
 ## Attributes
 
@@ -24,7 +24,7 @@ N/A (plain text content)
 
 ## Content
 
-The text content of the *\<pattern\>* element contains the actual pattern used to match log messages.
+The text content of the `<pattern>` element contains the actual pattern used to match log messages.
 
 The pattern uses {{ site.product.short_name }}'s pattern syntax, which supports:
 
@@ -38,8 +38,9 @@ For detailed information about pattern syntax and parsers, see Using pattern par
 {: .notice--primary-start}
 
 For special character escaping in patterns:
-- XML entities supported: **&amp; &lt; &gt; &quot; &apos;**
-- For the @ character, use `@@` (syslog-ng special notation), for example: `user@@example.com`
+
+- XML entities supported: `&` `<` `>` `"` `'`
+- For the `@` character, use `@@` (syslog-ng special notation), for example: `user@@example.com`
 
 User-defined XML entities are not supported.
 
@@ -59,7 +60,7 @@ A more complex pattern with macros to capture SSH authentication data:
 <pattern>Accepted @STRING:SSH_AUTH_METHOD:-_@ for @STRING:SSH_USERNAME:._-@ from @IPvANY:SSH_CLIENT_ADDRESS@ port @NUMBER:SSH_PORT_NUMBER@ ssh2</pattern>
 ```
 
-A pattern with @ character escaping:
+A pattern with `@` character escaping:
 
 ```xml
 <pattern>user@@example.com logged in from @QSTRING:CLIENT_IP: @</pattern>

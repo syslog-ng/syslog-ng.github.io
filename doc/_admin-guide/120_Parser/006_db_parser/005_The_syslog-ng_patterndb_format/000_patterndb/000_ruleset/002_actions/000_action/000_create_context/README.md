@@ -23,7 +23,7 @@ description: >-
     When using macros in IDs, see also the context-scope attribute.
     Starting with {{ site.product.short_name }} version 3.5, if a message is added to a
     context, {{ site.product.short_name }} automatically adds the identifier of the
-    context to the .classifier.context\_id macro of the message. For
+    context to the .classifier.context_id macro of the message. For
     details on correlating messages, see
     Correlating log messages using pattern databases.
 
@@ -103,7 +103,7 @@ description: >-
 
 The following example creates a new context whenever the rule matches.
 The new context receives **1000** as ID, and **program** as scope, and
-the content set in the \<message\> element of the \<create-context\>
+the content set in the `<message>` element of the `<create-context>`
 element.
 
 ```xml

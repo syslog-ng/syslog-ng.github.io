@@ -22,11 +22,11 @@ N/A
 - *value*: OPTIONAL --- Contains the value of the name-value pair that
     is assigned to the message.
 
-    The \<value\> element of name-value pairs can include template
+    The `<value>` element of name-value pairs can include template
     functions. For details, see Using template functions, for
     examples, see if.
 
-    When used together with message correlation, the \<value\> element
+    When used together with message correlation, the `<value>` element
     of name-value pairs can include references to the values of earlier
     messages from the same context. For details, see
     Correlating log messages using pattern databases.

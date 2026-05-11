@@ -3,9 +3,9 @@ title: 'Element: patterns container'
 short_title: patterns container
 id: adm-parser-db-elem-patterns-ruleset
 description: >-
-    An optional container element for \<pattern\> elements under \<ruleset\>.
-    Using \<patterns\> is equivalent to placing \<pattern\> elements directly
-    under \<ruleset\> — the wrapper is transparent and may be omitted.
+    An optional container element for `<pattern>` elements under `<ruleset>`.
+    Using `<patterns>` is equivalent to placing `<pattern>` elements directly
+    under `<ruleset>` — the wrapper is transparent and may be omitted.
 ---
 
 ## Location
@@ -39,9 +39,9 @@ N/A
 
     You can also use parsers in the program pattern if needed, and use
     the parsed results later. For example:
-    \<pattern\>postfix\\@ESTRING:.postfix.component:\[@\</pattern\>
+    `<pattern>postfix@ESTRING:.postfix.component:[@</pattern>`
 
-    NOTE: If the \<pattern\> element of a ruleset is not specified,
+    NOTE: If the `<pattern>` element of a ruleset is not specified,
     {{ site.product.short_name }} will use this ruleset as a fallback ruleset: it will
     apply the ruleset to messages that have an empty `PROGRAM` header, or
     if none of the program patterns matched the `PROGRAM` header of the

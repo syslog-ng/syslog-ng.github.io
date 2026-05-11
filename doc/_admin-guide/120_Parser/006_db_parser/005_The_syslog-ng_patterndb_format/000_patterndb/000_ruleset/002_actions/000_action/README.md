@@ -17,16 +17,16 @@ description: >-
     only if the message matches the filter. The filter can include
     macros and name-value pairs extracted from the message. When using
     actions together with message-correlation, you can also use the
-    **$(context-length)** macro, which returns the number of messages
+    $(context-length) macro, which returns the number of messages
     in the current context. For example, this can be used to determine
     if the expected number of messages has arrived to the context:
-    condition=\'\"$(context-length)\" \>= \"5\"\'
+    `condition='"$(context-length)" >= "5"'`
 
 - *rate*: Specifies maximum how many messages should be generated in
     the specified time period in the following format:
-    \<number-of-messages\>/\<period-in-seconds\>. For example: 1/60
+    `<number-of-messages>/<period-in-seconds>`. For example: 1/60
     allows 1 message per minute. Rates apply within the scope of the
-    context, that is, if context-scope=\"host\" and rate=\"1/60\", then
+    context, that is, if `context-scope="host"` and `rate="1/60"`, then
     maximum one message is generated per minute for every host that
     sends a log message matching the rule. Excess messages are dropped.
     Note that when applying the rate to the generated messages,
@@ -41,7 +41,7 @@ description: >-
         the rule is received.
 
   - *timeout*: Execute the action when the correlation timer
-        ([[context-timeout|adm-parser-db-elem-rule#attributes]] of the
+        context-timeout of the
         pattern database rule expires. This is available only if actions
         are used together with correlating messages.
 
@@ -83,12 +83,12 @@ description: >-
     This option is available in {{ site.product.short_name }} 3.8 and later.
 
   - *inherit-properties*: This attribute is deprecated. Use the
-    **inherit-mode** attribute instead.
+    inherit-mode attribute instead.
 
-    If set to **TRUE**, the original message that triggered the
+    If set to `TRUE`, the original message that triggered the
     action is cloned, including its name-value pairs and tags.
 
-    If set to **context**, {{ site.product.short_name }} collects every name-value
+    If set to `context`, {{ site.product.short_name }} collects every name-value
     pair from each message stored in the context, and includes them
     in the generated message. If a name-value pair appears in
     multiple messages of the context, the value in the latest
@@ -119,7 +119,7 @@ description: >-
     When the action is used together with message correlation, the
     {{ site.product.short_name }} application automatically adds fields to the
     message based on the context-scope parameter. For example, using
-    context-scope=\"process\" automatically fills the `HOST`, `PROGRAM`,
+    `context-scope="process"` automatically fills the `HOST`, `PROGRAM`,
     and `PID` fields of the generated message.
 
   - *name*: Name of the message field set by the value element.
@@ -142,9 +142,9 @@ generates a message when a message matching the rule is received.
 ```
 
 To inherit the properties and values of the triggering message, set the
-inherit-mode attribute of the \<message\> element to **last-message**. That
+inherit-mode attribute of the `<message>` element to `last-message`. That
 way the triggering log message is cloned, including name-value pairs and
-tags. If you set any values for the message in the \<action\> element,
+tags. If you set any values for the message in the `<action>` element,
 they will override the values of the original message.
 
 ### Example: Generating messages with inherited values

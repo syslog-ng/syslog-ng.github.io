@@ -29,10 +29,10 @@ N/A
     <test_message program="proftpd">ubuntu (::ffff:192.168.2.179[::ffff:192.168.2.179]) - FTP session closed.</test_message>
     ```
 
-- *test\_values*: OPTIONAL --- A container element to test the results
+- *test_values*: OPTIONAL --- A container element to test the results
     of the parsers used in the pattern.
 
-  - *test\_value*: OPTIONAL --- The expected value of the parser
+  - *test_value*: OPTIONAL --- The expected value of the parser
         when matching the pattern to the test message. For example:
 
     ```xml
