@@ -36,13 +36,13 @@ file("/proc/kmsg"). If you are using unix-dgram("/dev/log") or
 unix-stream("/dev/log") in your configuration as a source, {{ site.product.short_name }} will revert to using systemd-journal() instead.
 {: .notice--info}
 
-![]({{ site.baseurl}}/assets/images/caution.png) **CAUTION:** Only one systemd-journal() source can be configured in the configuration file.
+![]({{ site.baseurl}}/assets/images/caution.png) **WARNING:** Only one systemd-journal() source can be configured in the configuration file.
 If there is more than one systemd-journal() source configured, {{ site.product.short_name }}
 will not start.
 {: .notice--warning}
 
 ![]({{ site.baseurl}}/assets/images/caution.png)
-**CAUTION:** The systemd-journal() source cannot operate under an Ubuntu 24.04 LTS (Noble Numbat) platform. For more information on supported platforms, see Supported platforms.
+**WARNING:** The systemd-journal() source cannot operate under an Ubuntu 24.04 LTS (Noble Numbat) platform. For more information on supported platforms, see Supported platforms.
 {: .notice--warning}
 
 **Declaration**

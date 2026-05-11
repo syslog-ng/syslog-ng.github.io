@@ -59,7 +59,7 @@ source on the {{ site.product.short_name }} client to its final destination on t
     message to the destinations set in the log statement, for example,
     to the remote {{ site.product.short_name }} server.
 
-    ![]({{ site.baseurl}}/assets/images/caution.png) **CAUTION:** Message
+    ![]({{ site.baseurl}}/assets/images/caution.png) **WARNING:** Message
     filtering, parsing, and rewriting is performed in the order that the
     operations appear in the log statement.
     {: .notice--warning}
@@ -87,7 +87,7 @@ source on the {{ site.product.short_name }} client to its final destination on t
     If the message complies with all filter rules, {{ site.product.short_name }} sends the
     message to the destinations set in the log statement.
 
-    ![]({{ site.baseurl}}/assets/images/caution.png) **CAUTION:** Message filtering,
+    ![]({{ site.baseurl}}/assets/images/caution.png) **WARNING:** Message filtering,
     parsing, and rewriting is performed in the order that the operations appear
     in the log statement.
     {: .notice--warning}

@@ -194,7 +194,7 @@ For details about how the resulting topic names, partitions, and Kafka assign/su
 
 {% include doc/admin-guide/options/kafka-source-workers.md %}
 
-![]({{ site.baseurl}}/assets/images/caution.png) **CAUTION:**
+![]({{ site.baseurl}}/assets/images/caution.png) **WARNING:**
 Only kafka() sources with `workers()` set to less than 3 can guarantee ordered message forwarding.
 {: .notice--warning}
 

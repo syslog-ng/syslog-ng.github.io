@@ -18,7 +18,7 @@ other components, for example, json-parser() and the $(format-json)
 template function. For more information, see Components supported by data types.
 
 ![]({{ site.baseurl}}/assets/images/caution.png)
-**CAUTION:** Hazard of data loss!  
+**WARNING:** Hazard of data loss!  
 If {{ site.product.short_name }} cannot convert the data into the specified type, an error occurs,
 and {{ site.product.short_name }} drops the message by default. To change how {{ site.product.short_name }} handles
 data-conversion errors, see on-error().

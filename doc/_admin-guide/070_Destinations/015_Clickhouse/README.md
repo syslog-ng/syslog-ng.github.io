@@ -10,7 +10,7 @@ description: >-
 
 - A self-hosted ClickHouse installation.
 
-**WARNING:**
+![]({{ site.baseurl}}/assets/images/caution.png) **WARNING:**
 Warning ClickHouse Cloud doesn’t support the gRPC interface currently.
 {: .notice--warning}
 

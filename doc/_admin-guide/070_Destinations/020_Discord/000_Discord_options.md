@@ -119,7 +119,7 @@ destination {
 
 {% include doc/admin-guide/options/template-logformat.md %}
 
-![]({{ site.baseurl}}/assets/images/caution.png) **CAUTION:**
+![]({{ site.baseurl}}/assets/images/caution.png) **WARNING:**
 Hazard of data loss! Make sure to include a fallback value, as if the template
 gets resolved to an empty string, Discord rejects the message.
 {: .notice--danger}

@@ -9,7 +9,7 @@ description: >-
 
 The file() destination has the following options:
 
-![]({{ site.baseurl}}/assets/images/caution.png) **CAUTION:** When
+![]({{ site.baseurl}}/assets/images/caution.png) **WARNING:** When
 creating several thousands separate log files, {{ site.product.name }}
 ({{ site.product.short_name }}) might not be able to open the required number of files.
 This might happen for example, when using the ${HOST} macro in the
@@ -135,7 +135,7 @@ without specifying an attribute: owner().
 
 {% include doc/admin-guide/options/pad-size.md %}
 
-![]({{ site.baseurl}}/assets/images/caution.png) **CAUTION:**
+![]({{ site.baseurl}}/assets/images/caution.png) **WARNING:**
 Hazard of data loss! If the size of the incoming message is larger
 than the previously set pad-size() value, {{ site.product.short_name }} will truncate
 the message to the specified size. Therefore, all message content

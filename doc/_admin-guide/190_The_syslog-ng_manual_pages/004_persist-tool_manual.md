@@ -32,7 +32,7 @@ The persist-tool application is a utility that can be used to dump the content o
 
 {: .notice--info-end}
 
-**CAUTION:** Persist-tool is a special tool for syslog-ng experts. Do use the tool unless you know exactly what you are doing. Misconfiguring it will result in irrecoverable damage to the persist file, without any warning.
+**WARNING:** Persist-tool is a special tool for syslog-ng experts. Do use the tool unless you know exactly what you are doing. Misconfiguring it will result in irrecoverable damage to the persist file, without any warning.
 {: .notice--danger}
 
 ## THE DUMP COMMAND

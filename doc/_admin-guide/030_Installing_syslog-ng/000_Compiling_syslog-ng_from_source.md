@@ -136,7 +136,7 @@ and other platforms, see {{ site.product.name }} installation packages.
     Compiling options of {{ site.product.short_name }}.
     {: .notice--info}
 
-![]({{ site.baseurl}}/assets/images/caution.png) **CAUTION:**
+![]({{ site.baseurl}}/assets/images/caution.png) **WARNING:**
 The default linking mode of {{ site.product.short_name }} is dynamic. This means that syslog-ng
 might not be able to start up if the /usr directory is on NFS. On platforms
 where {{ site.product.short_name }} is used as a system logger, the \--enable-mixed-linking is preferred.

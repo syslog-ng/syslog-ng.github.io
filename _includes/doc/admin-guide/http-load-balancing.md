@@ -23,7 +23,7 @@ themselves rather than arrival time.
 For example, with three URLs, use `workers(3)` or greater.
 {: .notice--info}
 
-**CAUTION:** Always set persist-name() when using multiple URLs to prevent data loss
+![]({{ site.baseurl}}/assets/images/caution.png) **WARNING:** Always set persist-name() when using multiple URLs to prevent data loss
 if the URL list changes.
 {: .notice--warning}
 

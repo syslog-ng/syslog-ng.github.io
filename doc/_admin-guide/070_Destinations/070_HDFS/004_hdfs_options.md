@@ -48,7 +48,7 @@ not extend the filename with a UUID suffix because there is no need to
 open a new file (a new unique ID would mean opening a new file and
 writing data into that).
 
-![]({{ site.baseurl}}/assets/images/caution.png) **CAUTION:**
+![]({{ site.baseurl}}/assets/images/caution.png) **WARNING:**
 Before enabling the hdfs-append-enabled option, ensure that your HDFS
 server supports the append operation and that it is enabled. Otherwise {{ site.product.short_name }} will not be able to append data into an existing file, resulting in an
 error log.

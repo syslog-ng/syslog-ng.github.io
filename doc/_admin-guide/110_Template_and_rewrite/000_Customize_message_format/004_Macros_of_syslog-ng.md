@@ -5,7 +5,7 @@ description: >-
     The following macros are available in {{ site.product.short_name }}.
 ---
 
-> ![]({{ site.baseurl}}/assets/images/caution.png) **CAUTION:**
+> ![]({{ site.baseurl}}/assets/images/caution.png) **WARNING:**
 > These macros are available when {{ site.product.short_name }} successfully
 > parses the incoming message as a syslog message, or you use
 > some other parsing method and map the parsed values to these

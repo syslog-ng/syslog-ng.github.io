@@ -18,7 +18,7 @@ can be created from SSH login/logout messages: An SSH session for
 ${SSH\_USERNAME}@1 from ${SSH\_CLIENT\_ADDRESS}@2 closed. Session
 lasted from ${DATE}@2 to ${DATE}.
 
-![]({{ site.baseurl}}/assets/images/caution.png) **CAUTION:**
+![]({{ site.baseurl}}/assets/images/caution.png) **WARNING:**
 When referencing an earlier message of the context, always enclose the
 field name between braces, for example, ${PID}@3. The reference will not work
 if you omit the braces.

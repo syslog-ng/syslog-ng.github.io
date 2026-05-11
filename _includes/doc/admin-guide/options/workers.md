@@ -8,7 +8,7 @@
 of worker threads can drastically improve the performance of the
 destination.
 
-![]({{ site.baseurl}}/assets/images/caution.png) **CAUTION:**
+![]({{ site.baseurl}}/assets/images/caution.png) **WARNING:**
 Hazard of data loss! When you use more than one worker threads together with disk-based buffering, {{ site.product.short_name }} creates a separate disk buffer for each worker thread. This means that decreasing the number of workers can result in losing data currently stored in the disk buffer files. Do not decrease the number of workers when the disk buffer files are in use.
 {: .notice--danger}
 

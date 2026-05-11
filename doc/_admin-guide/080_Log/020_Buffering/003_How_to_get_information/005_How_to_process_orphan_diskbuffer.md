@@ -28,7 +28,7 @@ separate {{ site.product.short_name }} instance parallel to the {{ site.product.
 already running, and use the following resolution process to process the
 messages in the orphan disk-buffer file.
 
->![]({{ site.baseurl}}/assets/images/caution.png) **CAUTION:**
+>![]({{ site.baseurl}}/assets/images/caution.png) **WARNING:**
 >Before starting a separate {{ site.product.short_name }} instance to process the messages
 >from the orphan disk-buffer file, consider the following:
 >  
@@ -78,7 +78,7 @@ To process the messages from an orphan disk-buffer file using a separate
     mkdir /tmp/qdisk
     ```
 
-    ![]({{ site.baseurl}}/assets/images/caution.png) **CAUTION:**
+    ![]({{ site.baseurl}}/assets/images/caution.png) **WARNING:**
     Make sure that there is sufficient disk space in the directory. The minimum
     recommended disk space in the directory is equal to the size of the orphan
     disk-buffer file.
@@ -123,7 +123,7 @@ To process the messages from an orphan disk-buffer file using a separate
     configuration file. You can copy the destination statement from your
     running {{ site.product.short_name }} configuration.
 
-    ![]({{ site.baseurl}}/assets/images/caution.png) **CAUTION:**
+    ![]({{ site.baseurl}}/assets/images/caution.png) **WARNING:**
     Add the dir() option and set the disk-buffer file\'s destination directory
     to the temporary directory (that is, /tmp/qdisk) in your destination statement.
     {: .notice--warning}

@@ -16,7 +16,7 @@ following points:
     error message when {{ site.product.short_name }} starts, you can try increasing
     the stack size using the mentioned `SYSLOG_NG_CONFIG_MAX_STACK_DEPTH` environment variable.
 
-    ![]({{ site.baseurl}}/assets/images/caution.png) **CAUTION:** Be cautious when setting a higher value for `SYSLOG_NG_CONFIG_MAX_STACK_DEPTH`, as it increases memory consumption during parsing and potentially at runtime as well (because the increased max stack depth allows larger configuration files, which likely require more memory).
+    ![]({{ site.baseurl}}/assets/images/caution.png) **WARNING:** Be cautious when setting a higher value for `SYSLOG_NG_CONFIG_MAX_STACK_DEPTH`, as it increases memory consumption during parsing and potentially at runtime as well (because the increased max stack depth allows larger configuration files, which likely require more memory).
     {: .notice--danger}
 
 - When writing the names of options and parameters (or other reserved

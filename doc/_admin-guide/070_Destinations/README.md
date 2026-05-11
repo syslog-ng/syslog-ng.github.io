@@ -41,7 +41,7 @@ destination d_tcp {
 };
 ```
 
-- ![]({{ site.baseurl}}/assets/images/caution.png) **CAUTION:**
+- ![]({{ site.baseurl}}/assets/images/caution.png) **WARNING:**
 - Do not define the same drivers with the same parameters more than once,
     because it will cause problems. For example, do not open the same file in
     multiple destinations.

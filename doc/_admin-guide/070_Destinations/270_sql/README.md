@@ -18,7 +18,7 @@ The sql() driver has the following required parameters:
 type(), [[database()|adm-dest-sql-opt#database]], table(), [[columns()|adm-dest-sql-opt#columns]]
 and values().
 
->![]({{ site.baseurl}}/assets/images/caution.png) **CAUTION:**
+>![]({{ site.baseurl}}/assets/images/caution.png) **WARNING:**
 >  
 >- The {{ site.product.short_name }} application requires read and write access to the SQL table,
 >   otherwise it cannot verify that the destination table exists.
@@ -38,7 +38,7 @@ packages are automatically installed by the binary {{ site.product.short_name }}
 The table and value parameters can include macros to create tables and
 columns dynamically (for details, see Macros of {{ site.product.short_name }}.
 
-![]({{ site.baseurl}}/assets/images/caution.png) **CAUTION:**
+![]({{ site.baseurl}}/assets/images/caution.png) **WARNING:**
 When using macros in table names, note that some databases limit the maximum
 allowed length of table names. Consult the documentation of the database for details.
 {: .notice--warning}

@@ -1,4 +1,4 @@
-![]({{ site.baseurl}}/assets/images/caution.png) **CAUTION:**
+![]({{ site.baseurl}}/assets/images/caution.png) **WARNING:**
 The tcp-keepalive-time(), tcp-keepalive-probes(), and tcp-keepalive-intvl()
 options only work on platforms which support the TCP_KEEPCNT, TCP_KEEPIDLE,
 and TCP_KEEPINTVL setsockopts. Currently, this is Linux. A connection that
@@ -8,7 +8,7 @@ tcp-keepalive-time() + tcp-keepalive-intvl() \* tcp-keepalive-probes() seconds.
 
 Available in {{ site.product.short_name }} version 3.4 and later.
 
-![]({{ site.baseurl}}/assets/images/caution.png) **CAUTION:**
+![]({{ site.baseurl}}/assets/images/caution.png) **WARNING:**
 Prior to {{ site.product.short_name }} 3.29, {{ site.product.short_name }} uses the kernel default
 values for the following socket options: TCP_KEEPCNT, TCP_KEEPIDLE,
 and TCP_KEEPINTVL (Only applies to systems, where those options are supported.)

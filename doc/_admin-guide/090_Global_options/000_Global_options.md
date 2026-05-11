@@ -407,7 +407,7 @@ log messages. Set to **0** to disable the STATS messages.
 
     If this option is not used, dynamic counters are not limited. This can be useful in cases where you are extremely interested in dynamic counters, and use these statistics extensively.
 
-    ![]({{ site.baseurl}}/assets/images/caution.png) **CAUTION:** In some cases, there might be even millions of dynamic counters.
+    ![]({{ site.baseurl}}/assets/images/caution.png) **WARNING:** In some cases, there might be even millions of dynamic counters.
     {: .notice--warning}
 
 - **Limited dynamic counter clusters:**

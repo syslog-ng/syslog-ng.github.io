@@ -20,7 +20,7 @@ Depending on how you set the failback() option, {{ site.product.short_name }} be
 
 - **failback mode**: If failback() is set, {{ site.product.short_name }} attempts to return to the primary server.
 
-  **WARNING:** The failback() option works properly only for TCP-based connections; do not use it with the connectionless UDP protocol.
+  ![]({{ site.baseurl}}/assets/images/caution.png) **WARNING:** The failback() option works properly only for TCP-based connections; do not use it with the connectionless UDP protocol.
   {: .notice--warning}
 
     After {{ site.product.short_name }} connects a secondary server during a failover, it sends a probe every tcp-probe-interval() seconds towards the primary server. If the primary logserver responds with a TCP ACK packet, the probe is successful. When the number of successful probes reaches the value set in the successful-probes-required() option, {{ site.product.short_name }} tries to connect the primary server using the last probe.

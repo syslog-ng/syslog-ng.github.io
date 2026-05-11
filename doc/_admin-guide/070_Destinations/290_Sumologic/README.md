@@ -54,7 +54,7 @@ destinations with {{ site.product.short_name }} has the following prerequisites:
 - A verified connection and client configuration with the Sumo Logic
     service.
 
-    ![]({{ site.baseurl}}/assets/images/caution.png) **CAUTION:**
+    ![]({{ site.baseurl}}/assets/images/caution.png) **WARNING:**
     To avoid potential data loss, One Identity strongly recommends that you verify your connection and client configuration with the Sumo Logic service before you start using the sumologic-http() or sumologic-syslog() destination
     with {{ site.product.short_name }} in a production environment.
     {: .notice--warning}

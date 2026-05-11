@@ -23,7 +23,7 @@ command-line utility (which is a shell script, located in the
 modules/system-source/ directory) to display the configuration that the
 system() source will use.
 
-![]({{ site.baseurl}}/assets/images/caution.png) **CAUTION:**
+![]({{ site.baseurl}}/assets/images/caution.png) **WARNING:**
 If {{ site.product.short_name }} does not recognize the platform it is installed on, it does not
 add any sources.
 {: .notice--warning}

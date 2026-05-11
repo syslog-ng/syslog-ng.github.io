@@ -214,7 +214,7 @@ For example:
 session-statements("SET COLLATION_CONNECTION='utf8_general_ci'")
 ```
 
-![]({{ site.baseurl}}/assets/images/caution.png) **CAUTION:**
+![]({{ site.baseurl}}/assets/images/caution.png) **WARNING:**
 The {{ site.product.short_name }} application does not validate or limit the contents
 of customized queries. Consequently, queries performed with a user with
 write-access can potentially modify or even harm the database.

@@ -5,7 +5,7 @@ description: >-
     By default, {{ site.product.short_name }} handles log messages from each connection sequentially to preserve message order and ensure efficient per-message CPU usage, which scales well with many parallel connections but can become a bottleneck when only a few connections generate a high volume of messages. The parallelize() log path element distributes messages from a single connection across multiple worker threads (partitions), eliminating the single-threaded bottleneck of sequential processing by fanning out message handling to a configurable number of workers (partitions).
 ---
 
-![]({{ site.baseurl}}/assets/images/caution.png) **CAUTION:**
+![]({{ site.baseurl}}/assets/images/caution.png) **WARNING:**
 When using the parallelize() method, the incoming load can be fully distributed across all CPU cores; however, depending on the chosen partitioning strategy, message ordering may be lost, even if all messages originate from a single sender.
 {: .notice--warning}
 

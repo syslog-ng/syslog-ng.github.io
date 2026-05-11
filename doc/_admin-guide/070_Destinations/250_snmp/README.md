@@ -25,7 +25,7 @@ parameters, see snmp() destination options.
 destination d_snmp {snmp(host() trap-obj() snmp-obj() ...);};
 ```
 
-![]({{ site.baseurl}}/assets/images/caution.png) **CAUTION:**
+![]({{ site.baseurl}}/assets/images/caution.png) **WARNING:**
 If {{ site.product.short_name }} cannot resolve the destination hostname during startup,
 it will try to resolve the hostname again when the next message to be
 sent as an SNMP trap is received. However, if this name resolution fails,

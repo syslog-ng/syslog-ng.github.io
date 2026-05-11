@@ -28,7 +28,7 @@ In {{ site.product.short_name }} version 4.2 and earlier, this option was called
 
 *Description:* Defines the folder where the disk-buffer files are stored.
 
-![]({{ site.baseurl}}/assets/images/caution.png) **CAUTION:** When creating a new dir() option for a disk buffer, or modifying an existing one, make sure you delete the persist file.
+![]({{ site.baseurl}}/assets/images/caution.png) **WARNING:** When creating a new dir() option for a disk buffer, or modifying an existing one, make sure you delete the persist file.
 {: .notice--warning}
 
 {{ site.product.short_name }} creates disk-buffer files based on the path recorded in the persist file. Therefore, if the persist file is not deleted after modifying the dir() option, then following a restart, {{ site.product.short_name }} will look for or create disk-buffer files in their old location. To ensure that {{ site.product.short_name }} uses the new dir() setting, the persist file must not contain any information about the destinations which the disk-buffer file in question belongs to.
@@ -82,7 +82,7 @@ Available in {{ site.product.short_name }} 4.0 and later.
 
 *Description:* If set to yes, {{ site.product.short_name }} cannot lose logs in case of reload/restart, unreachable destination or {{ site.product.short_name }} crash. This solution provides a slower, but reliable disk-buffer option. It is created and initialized at startup and gradually grows as new messages arrive. If set to no, the normal disk-buffer will be used. This provides a faster, but less reliable disk-buffer option.
 
-![]({{ site.baseurl}}/assets/images/caution.png) **CAUTION:** Hazard of data loss! If you change the value of reliable() option when there are messages in the disk-buffer, the messages stored in the disk-buffer will be lost.
+![]({{ site.baseurl}}/assets/images/caution.png) **WARNING:** Hazard of data loss! If you change the value of reliable() option when there are messages in the disk-buffer, the messages stored in the disk-buffer will be lost.
 {: .notice--warning}
 
 ### truncate-size-ratio()
@@ -102,7 +102,7 @@ If you want to avoid performance fluctuations:
 * use truncate-size-ratio(1) (never truncate), or
 * use prealloc(yes) to reserve the entire size of the disk-buffer on disk.
 
-![]({{ site.baseurl}}/assets/images/caution.png) **CAUTION:** It is not recommended to change truncate-size-ratio(). Only change its value if you understand the performance implications of doing so.
+![]({{ site.baseurl}}/assets/images/caution.png) **WARNING:** It is not recommended to change truncate-size-ratio(). Only change its value if you understand the performance implications of doing so.
 {: .notice--warning}
 
 ### Example: Examples for using disk-buffer()

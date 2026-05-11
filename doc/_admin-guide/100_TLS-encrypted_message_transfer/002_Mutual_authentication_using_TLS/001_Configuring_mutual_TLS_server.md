@@ -85,6 +85,6 @@ Complete the following steps on the {{ site.product.short_name }} server:
     };
     ```
 
-    ![]({{ site.baseurl}}/assets/images/caution.png) **CAUTION:**
+    ![]({{ site.baseurl}}/assets/images/caution.png) **WARNING:**
     Do not forget to update the certificate and key files when they expire.
     {: .notice--warning}

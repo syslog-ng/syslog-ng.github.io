@@ -120,7 +120,7 @@ This option is only available with the following drivers:
 - tcp
 - tcp6
 
-![]({{ site.baseurl}}/assets/images/caution.png) **CAUTION:**
+![]({{ site.baseurl}}/assets/images/caution.png) **WARNING:**
 Using keylog-file() makes TLS connections less secure by writing secret key
 materials into the given file. This option should only be enabled for debugging
 purposes and should be disabled after that. It is also recommended to delete
@@ -158,7 +158,7 @@ destination {
 
 This option is available in {{ site.product.short_name }} 4.0 and later versions.
 
-![]({{ site.baseurl}}/assets/images/caution.png) **CAUTION:**
+![]({{ site.baseurl}}/assets/images/caution.png) **WARNING:**
 openssl-conf-cmds() always has the highest priority. It overrides any other option found in the tls() section.
 {: .notice--warning}
 

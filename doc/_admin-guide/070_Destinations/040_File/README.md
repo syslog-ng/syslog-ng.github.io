@@ -53,7 +53,7 @@ syslog-ng-ctl reload command, or use another method to send a SIGHUP to
 {{ site.product.short_name }}.
 {: .notice--info}
 
-![]({{ site.baseurl}}/assets/images/caution.png) **CAUTION:**
+![]({{ site.baseurl}}/assets/images/caution.png) **WARNING:**
 Since the state of each created file must be tracked by {{ site.product.short_name }}, it consumes
 some memory for each file. If no new messages are written to a file within 60
 seconds (controlled by the time-reap() global option), it is closed, and its

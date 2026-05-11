@@ -56,7 +56,7 @@ you ask help about your {{ site.product.short_name }} related problem.
     Start {{ site.product.short_name }} in debug mode, using the -Fedv \--enable-core
     options.
 
-**CAUTION:**
+![]({{ site.baseurl}}/assets/images/caution.png) **WARNING:**
 Using this option under high message load may increase disk I/O
 during the debug, and the resulting debug bundle can be huge. To exit debug
 mode, press Enter.

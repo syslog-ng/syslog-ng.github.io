@@ -27,26 +27,24 @@ description: >-
     the list of replicas (from the replSet option of the server), and
     appends this list to the servers() option.
 
-    > ![]({{ site.baseurl}}/assets/images/caution.png) **CAUTION:**
-    >  
-    > - This means that {{ site.product.short_name }} can send log  messages to
-    >        addresses that are not listed in its configuration.
-    >  
-    > - Make sure to include the address of your master server in  
-    >        your {{ site.product.short_name }} configuration file, otherwise you risk  
-    >        losing log messages if all the addresses listed in the
-    >        {{ site.product.short_name }} configuration are offline.
-    >  
-    > - Addresses retrieved from the MongoDB servers are not
-    >        stored, and can be lost when {{ site.product.short_name }} is restarted.
-    >        The retrieved addresses are not lost if the server() option
-    >        of the destination was not changed in the configuration
-    >        file since the last restart.
-    >  
-    > - The failover mechanism used in the mongodb() driver is
-    >        different from the client-side failover used in other
-    >        drivers.
-    {. :notice--warning}
+    {: .notice--warning-start}
+    ![]({{ site.baseurl}}/assets/images/caution.png) **WARNING:**
+
+    - This means that {{ site.product.short_name }} can send log  messages to
+           addresses that are not listed in its configuration.
+    - Make sure to include the address of your master server in  
+            your {{ site.product.short_name }} configuration file, otherwise you risk  
+            losing log messages if all the addresses listed in the
+            {{ site.product.short_name }} configuration are offline.
+    - Addresses retrieved from the MongoDB servers are not
+            stored, and can be lost when {{ site.product.short_name }} is restarted.
+            The retrieved addresses are not lost if the server() option
+            of the destination was not changed in the configuration
+            file since the last restart.
+    - The failover mechanism used in the mongodb() driver is
+            different from the client-side failover used in other
+            drivers.
+    {: .notice--warning-end}
 
 4. The {{ site.product.short_name }} application attempts to connect another server if
     the servers() list contains at least two addresses, and one of the

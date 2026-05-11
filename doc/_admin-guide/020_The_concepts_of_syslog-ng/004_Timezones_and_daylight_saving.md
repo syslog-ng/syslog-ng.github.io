@@ -61,7 +61,7 @@ to the message using the following algorithm.
     destination zone.
     {: .notice--info}
 
-    ![]({{ site.baseurl}}/assets/images/caution.png) **CAUTION:** If syslog-ng
+    ![]({{ site.baseurl}}/assets/images/caution.png) **WARNING:** If syslog-ng
     OSE sends the message is to the destination using the legacy-syslog protocol
     (RFC-3164) which does not support timezone information in its timestamps,
     the timezone information cannot be encapsulated into the sent timestamp,

@@ -13,7 +13,7 @@ HTTPS connection, as well as password- and certificate-based
 authentication is supported. The content of the events is sent in JSON
 format.
 
-![]({{ site.baseurl}}/assets/images/caution.png) **CAUTION:** When a shard fails to respond to a read request, the coordinating node sends the request to another shard copy in the same replication group. Repeated failures can result in no available shard copies.
+![]({{ site.baseurl}}/assets/images/caution.png) **WARNING:** When a shard fails to respond to a read request, the coordinating node sends the request to another shard copy in the same replication group. Repeated failures can result in no available shard copies.
 {: .notice--warning}
 
 To ensure fast responses, the following APIs will respond with partial results if one or more shards fail:

@@ -158,7 +158,7 @@ log {
 };
 ```
 
-![]({{ site.baseurl}}/assets/images/caution.png) **CAUTION:**
+![]({{ site.baseurl}}/assets/images/caution.png) **WARNING:**
 Although it is possible to configure multiple HTTP workers for {{ site.product.short_name }},
 the {{ site.product.short_name }} application can only embed a single Python interpreter at
 the same time. As a result, if you configure more than one HTTP workers on

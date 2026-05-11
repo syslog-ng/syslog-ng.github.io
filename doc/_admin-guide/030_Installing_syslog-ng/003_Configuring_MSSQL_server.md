@@ -59,7 +59,7 @@ enable remote logins and accept log messages from {{ site.product.short_name }}.
         **OK**.
 
         ![]({{ site.baseurl}}/assets/images/caution.png)
-        **CAUTION:** Incorrect language settings may result in the database
+        **WARNING:** Incorrect language settings may result in the database
         converting the messages to a different character-encoding format.
         That way the log messages may become unreadable, causing information loss.
         {: .notice--warning}

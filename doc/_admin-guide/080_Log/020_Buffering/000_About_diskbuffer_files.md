@@ -45,7 +45,7 @@ would be possible (see the truncate-size-ratio() option). If a large
 disk-buffer file is not desirable, you should set the capacity-bytes()
 option to a smaller value.
 
-![]({{ site.baseurl}}/assets/images/caution.png) **CAUTION:**
+![]({{ site.baseurl}}/assets/images/caution.png) **WARNING:**
 One Identity recommends that you do not build upon the current truncating logic
 of the disk-buffer files, because {{ site.product.short_name }} might pre-allocate the disk-buffer
 files and never truncate them in the future.

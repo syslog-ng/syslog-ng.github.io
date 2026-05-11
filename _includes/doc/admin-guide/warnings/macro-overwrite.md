@@ -1,5 +1,5 @@
 
-![]({{ site.baseurl}}/assets/images/caution.png) **CAUTION:**
+![]({{ site.baseurl}}/assets/images/caution.png) **WARNING:**
 If the names of keys in the {{ page.message | default: 'message' }} is the same as the names of
 {{ site.product.short_name }} soft macros, the value from the parsed message
 will overwrite the value of the macro. For example, the

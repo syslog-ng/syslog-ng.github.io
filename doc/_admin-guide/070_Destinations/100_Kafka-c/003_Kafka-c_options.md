@@ -153,7 +153,7 @@ problem, {{ site.product.short_name }} cannot resend the messages.
 This method is fast, but the transfer is not reliable. Several thousands
 of messages can be lost before {{ site.product.short_name }} recognizes the error.
 
-![]({{ site.baseurl}}/assets/images/caution.png) **CAUTION:**
+![]({{ site.baseurl}}/assets/images/caution.png) **WARNING:**
 Hazard of data loss! If `sync-send()` is set to "no", the messages passed
 to the Kafka client can be lost. To avoid data loss, One Identity
 recommends that you set `sync-send()` to "yes", as this setting

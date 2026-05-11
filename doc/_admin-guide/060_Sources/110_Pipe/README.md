@@ -34,15 +34,15 @@ therefore it is not recommended to be used on special files like
 **NOTE:** If the `fifo` file is deleted, and the user creates a new one, {{ site.product.short_name }} will still attempt to access the old file until {{ site.product.short_name }} is restarted. Make sure to restart {{ site.product.short_name }} after creating a new `fifo` file.
 {: .notice--info}
 
->![]({{ site.baseurl}}/assets/images/caution.png) **CAUTION:**
->  
->- It is not recommended to use pipe() on anything else than real pipes.
->  
->- By default, {{ site.product.short_name }} uses the **flags(no-hostname)** option for pipes,  
->   meaning that {{ site.product.short_name }} assumes that the log messages received from the  
->   pipe do not contain the hostname field. If your messages do contain the 
->   hostname field, use **flags(expect-hostname)**.
-{: .notice--warning}
+{: .notice--warning-start}
+![]({{ site.baseurl}}/assets/images/caution.png) **WARNING:**
+
+- It is not recommended to use pipe() on anything else than real pipes.  
+- By default, {{ site.product.short_name }} uses the **flags(no-hostname)** option for pipes,  
+   meaning that {{ site.product.short_name }} assumes that the log messages received from the  
+   pipe do not contain the hostname field. If your messages do contain the 
+   hostname field, use **flags(expect-hostname)**.
+{: .notice--warning-end}
 
 ### Example: Using the pipe() driver
 
