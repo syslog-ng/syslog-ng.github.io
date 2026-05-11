@@ -30,3 +30,13 @@ In case you have any question, comment, or feedback, you can:
 * use our github to track all of the [[documentation issues|gh-syslog-ng-doc-issue-tracker]]
 
 {% include doc/admin-guide/copyright.md %}
+
+## Legend
+
+![]({{ site.baseurl}}/assets/images/warning.png) **DANGER:**
+A DANGER icon highlights a potential risk of bodily injury or property damage, for which industry-standard safety precautions are advised. This icon is often associated with electrical hazards related to hardware.
+{: .notice--danger}
+
+![]({{ site.baseurl}}/assets/images/caution.png) **WARNING:**
+A WARNING icon indicates potential damage to hardware or loss of data if instructions are not followed.
+{: .notice--warning}
