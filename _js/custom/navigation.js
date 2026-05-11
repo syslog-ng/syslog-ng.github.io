@@ -524,6 +524,26 @@ $(function () {
     var contentTooltipTop = pos.y + toolTipArrowHalfSize;
     contentTooltip.style.left = contentTooltipLeft + 'px';
     contentTooltip.style.top = contentTooltipTop + 'px';
+
+    // Vertical fit-to-viewport: if the rendered tooltip would overflow
+    // the bottom of the viewport, cap its height and let it scroll
+    // internally instead of overhanging off-screen.
+    // contentTooltipTop is in viewport coordinates when hasMastHead is
+    // true (no scrollTop added above), otherwise it is document-relative.
+    var viewportHeight = window.innerHeight;
+    var visibleTop = hasMastHead ? contentTooltipTop : (contentTooltipTop - document.documentElement.scrollTop);
+    var bottomMargin = 10;
+    var availableBelow = viewportHeight - visibleTop - bottomMargin;
+    var renderedHeight = tooltipRect.height;
+    if (availableBelow > 0 && renderedHeight > availableBelow) {
+      contentTooltip.style.maxHeight = Math.max(80, availableBelow) + 'px';
+      contentTooltip.style.overflowY = 'auto';
+    }
+    else {
+      // Reset so the next, smaller, tooltip is not stuck at a previous max-height.
+      contentTooltip.style.maxHeight = '';
+      contentTooltip.style.overflowY = '';
+    }
   }
 
   function getRealZIndex(element) {

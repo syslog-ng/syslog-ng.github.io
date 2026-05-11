@@ -768,6 +768,14 @@
   
   height: auto;
 
+  /* Cap to viewport so the tooltip never overflows the screen vertically.
+     The exact remaining-height clamp is applied per-show in
+     navigation.js (setTooltipPos); this CSS sets a global upper bound
+     and enables internal scrolling. */
+  max-height: calc(100vh - 20px);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+
   // FIXME: Get rid of the dependency on size of the container
   width: 500%;
   min-width: 200px;
