@@ -146,7 +146,7 @@ log {
 };
 ```
 
-![]({{ site.baseurl}}/assets/images/caution.png) **WARNING:**
+![]({{ site.baseurl}}/assets/images/warning.png) **DANGER:**
 Hazard of data loss! For destinations other than file, soft flow-control
 is not available. Thus, it is possible to lose log messages on those
 destinations. To avoid data loss on those destinations, use hard flow-control.

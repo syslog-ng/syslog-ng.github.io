@@ -69,7 +69,7 @@ When you use disk-based buffering, and the reliable() option is set to
     failures or if {{ site.product.short_name }} crashes. Setting the size of the
     overflow queue can be done with the flow-control-window-size() option.
 
-![]({{ site.baseurl}}/assets/images/caution.png) **WARNING:**
+![]({{ site.baseurl}}/assets/images/warning.png) **DANGER:**
 Hazard of data loss! In case of normal disk-buffers, the messages stored
 in the output queue and the overflow queue can be lost in case of power
 failures or if {{ site.product.short_name }} crashes.

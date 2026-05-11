@@ -135,7 +135,7 @@ without specifying an attribute: owner().
 
 {% include doc/admin-guide/options/pad-size.md %}
 
-![]({{ site.baseurl}}/assets/images/caution.png) **WARNING:**
+![]({{ site.baseurl}}/assets/images/warning.png) **DANGER:**
 Hazard of data loss! If the size of the incoming message is larger
 than the previously set pad-size() value, {{ site.product.short_name }} will truncate
 the message to the specified size. Therefore, all message content

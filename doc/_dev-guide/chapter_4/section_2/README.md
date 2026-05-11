@@ -372,7 +372,7 @@ mkdir build; cd build
 ../configure --with-ivykis=internal --with-systemd-journal=no --disable-java --disable-java-modules
 ```
 
-**Warning:** By a good chance, you might want to install the self built instance first to a custom location to prevent overwriting a possibly already existing installed version. In that case pass `--prefix /full_path_of_your/installdir/` to the `configure` script in the above steps.
+![]({{ site.baseurl}}/assets/images/warning.png) **DANGER:** By a good chance, you might want to install the self built instance first to a custom location to prevent overwriting a possibly already existing installed version. In that case pass `--prefix /full_path_of_your/installdir/` to the `configure` script in the above steps.
 {: .notice--danger}
 
 If you have all the above mentioned dependencies installed, for the full feature set you can simply use for example (excluded the not yet supported modules on macOS)
@@ -467,7 +467,7 @@ If you have all the above mentioned dependencies installed, for the full (curren
 cmake --install-prefix /full_path_of_your/installdir -B build . -Wno-dev -DIVYKIS_SOURCE=internal
 ```
 
-**Warning:** You may want to install the self-built instance to a custom location first to avoid overwriting an existing installed version. In that case, pass the `--install-prefix /full_path_of_your/installdir/` parameter to the `cmake` command, as shown in the steps above.
+![]({{ site.baseurl}}/assets/images/warning.png) **DANGER:** You may want to install the self-built instance to a custom location first to avoid overwriting an existing installed version. In that case, pass the `--install-prefix /full_path_of_your/installdir/` parameter to the `cmake` command, as shown in the steps above.
 {: .notice--danger}
 
 At the end of the configure step you should see the module list will be used during the compilation and installation steps, it should look similar to this

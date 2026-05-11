@@ -6,7 +6,7 @@ description:  >-
     please see the content for more, or add your usefull ones if you wish.
 ---
 
-Important: Most of the tools are not really prepared runnig outside of their original location and environment, most of them are assuming that will be started from the `${PROJECT_ROOT}` folder, all the examples bellow are assuming the same, so please take care when using them.
+![]({{ site.baseurl}}/assets/images/warning.png) **DANGER:** Most of the tools are not really prepared runnig outside of their original location and environment, most of them are assuming that will be started from the `${PROJECT_ROOT}` folder, all the examples bellow are assuming the same, so please take care when using them.
 {: .notice--danger}
 
 ## serve
@@ -67,7 +67,7 @@ This will update the `navigation.yml` file based on the content of the `${PROJEC
 
 The serve tool can handle these as well automatically, see there.
 
-Important: This tools is part of the GitHub deployment workflow too, so any modification you add to its output, either to the `${PROJECT_ROOT}/_data/navigation.yml` file or `${PROJECT_ROOT}/_data/links` folder, will be lost during the site build.
+![]({{ site.baseurl}}/assets/images/warning.png) **DANGER:** This tools is part of the GitHub deployment workflow too, so any modification you add to its output, either to the `${PROJECT_ROOT}/_data/navigation.yml` file or `${PROJECT_ROOT}/_data/links` folder, will be lost during the site build.
 {: .notice--danger}
 
 ## pack
@@ -84,7 +84,7 @@ After updated the given dependency .js file you can simply run
 It will update the `${PROJECT_ROOT}/assets/js/main.min.js` file that will be built and deployed normally in the next dev cycle. \
 pack can accept a single parameter that can be anything (e,g, `debug`), if it recieves at least one parameter it will produce a beautified, human-readable `main.min.js` file.
 
-Important: This tools is also part of the GitHub deployment workflow, so any modification you add to `${PROJECT_ROOT}/assets/js/main.min.js` will be lost during the site build. \
+![]({{ site.baseurl}}/assets/images/warning.png) **DANGER:** This tools is also part of the GitHub deployment workflow, so any modification you add to `${PROJECT_ROOT}/assets/js/main.min.js` will be lost during the site build. \
 All the files in the `js` folder, except the ones in the `js/custom` folder, are presented here to get the re-packing work. \
 Packing all the requirements that really needed is not supported yet, please see the note bellow.
 So, only these default files will be packed at the moment, this is the inherited defult of Minimal Mistakes, if you have to modify these, please try to minimize the further dependencies otherwise the packing might not work anymore.

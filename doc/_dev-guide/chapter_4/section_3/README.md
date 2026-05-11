@@ -201,7 +201,7 @@ mkdir build; cd build
 ../configure --enable-extra-warnings --with-ivykis=system --with-systemd-journal=no --disable-java --disable-java-modules
 ```
 
-**Warning:** You may want to install the self-built instance to a custom location first to avoid overwriting an existing installed version. In that case, pass the `--prefix /full_path_of_your/installdir/` parameter to the `configue` command, as shown in the steps above.
+![]({{ site.baseurl}}/assets/images/warning.png) **DANGER:** You may want to install the self-built instance to a custom location first to avoid overwriting an existing installed version. In that case, pass the `--prefix /full_path_of_your/installdir/` parameter to the `configue` command, as shown in the steps above.
 {: .notice--danger}
 
 If you have all the above mentioned dependencies installed, for the full feature set you can simply use for example (excluded the not yet supported modules on FreeBSD)
