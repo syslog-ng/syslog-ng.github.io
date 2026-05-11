@@ -71,14 +71,15 @@ As a {{ site.product.short_name }} user described on a Gentoo mailing list:
     All identifiers, attributes, and any other strings used in the
         {{ site.product.short_name }} configuration file are case sensitive.
 
-    > **TIP:** Use identifiers that refer to the type of the object they
-    > identify. For example, prefix source objects with **s_**,
-    > destinations with **d_**, and so on.
-    >  
-    > **NOTE:** Repeating a definition of an object (that is, defining the
-    > same object with the same id more than once) is not allowed,
-    > unless you use the @define allow-config-dups 1 definition in
-    > the configuration file.  
+    **TIP:** Use identifiers that refer to the type of the object they
+    identify. For example, prefix source objects with **s_**,
+    destinations with **d_**, and so on.
+    {: .notice}
+  
+    **NOTE:** Repeating a definition of an object (that is, defining the
+    same object with the same id more than once) is not allowed,
+    unless you use the @define allow-config-dups 1 definition in
+    the configuration file.  
     {: .notice--primary}
 
   - *Parameters*: The parameters of the object, enclosed in braces

@@ -26,7 +26,7 @@ The above mentioned dependencies can be satisfied by compiling every-each libs a
 
 1. Install Homebrew on your system.
 
-   **Hint:** Don't forget to set up the homebrew environment, follow the instructions in your terminal! [[Here|homebrew-inst-detailed]] you can find an even more detailed instruction about the topic.
+   **TIP:** Don't forget to set up the homebrew environment, follow the instructions in your terminal! [[Here|homebrew-inst-detailed]] you can find an even more detailed instruction about the topic.
    {: .notice}
 
    **NOTE:** This will install **Command Line Tools for Xcode** as well if not already presented on the system that would also be required anyway for a seamless {{ site.product.short_name }} build.
@@ -67,8 +67,8 @@ The above mentioned dependencies can be satisfied by compiling every-each libs a
    * criterion
    * ~~gcc@14~~ - See [below](#packages-note)!
 
-**Hint:** If you have [[{{ site.product.short_name }} installed via brew|dev-inst-macos#installation]], as a reference, you can check the dependencies of the brew built version using `brew deps syslog-ng`
-{: .notice--info}
+**TIP:** If you have [[{{ site.product.short_name }} installed via brew|dev-inst-macos#installation]], as a reference, you can check the dependencies of the brew built version using `brew deps syslog-ng`
+{: .notice}
 
 This is how it might look like if you start from the ground:
 
@@ -125,8 +125,8 @@ brew install \
 
 2. Install MacPorts on your system.
 
-   **Hint:** Don't forget to set up the MacPorts environment, [[here|macports-inst-detailed]] you can find an even more detailed instruction about the topic.
-   {: .notice--info}
+   **TIP:** Don't forget to set up the MacPorts environment, [[here|macports-inst-detailed]] you can find an even more detailed instruction about the topic.
+   {: .notice}
 
 3. Perform `port selfupdate` if you have not done it yet.
 4. The following packages should be installed for {{ site.product.short_name }}
@@ -163,8 +163,8 @@ brew install \
    * criterion
    * ~~gcc@14~~ - See [below](#packages-note)!
 
-**Hint:** If you have [[{{ site.product.short_name }} installed via MacPorts|dev-inst-macos#installation-via-macports]], as a reference, you can check the dependencies of the MacPorts built version using `port deps syslog-ng`
-{: .notice--info}
+**TIP:** If you have [[{{ site.product.short_name }} installed via MacPorts|dev-inst-macos#installation-via-macports]], as a reference, you can check the dependencies of the MacPorts built version using `port deps syslog-ng`
+{: .notice}
 
 This is how it might look like if you start from the ground:
 
@@ -333,8 +333,8 @@ git clone https://github.com/syslog-ng/syslog-ng .
 Latest version of {{ site.product.short_name }} [has dropped support of gcc](https://github.com/syslog-ng/syslog-ng/pull/4897), so now the platform default llvm/clang must be used to complie the source.\
 `gcc` still might compile {{ site.product.short_name }} and most of its modules, but there is no guarantie and support of it anymore
 
-**Hint:** You can always turn off any problematic module via its feature switch
-{: .notice--info}
+**TIP:** You can always turn off any problematic module via its feature switch
+{: .notice}
 
 To make sure clang is used you can use (optional):
 

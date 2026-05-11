@@ -1,2 +1,3 @@
-**NOTE:** Make sure to access libdbi from the libdbi master and libdbi drivers repositories, dedicated for {{ site.product.short_name }}. Using versions from other sources can cause a malfunction.
-{: .notice--primary}
+![]({{ site.baseurl}}/assets/images/caution.png) **WARNING:**
+Make sure to access libdbi from the libdbi master and libdbi drivers repositories, dedicated for {{ site.product.short_name }}. Using versions from other sources can cause a malfunction.
+{: .notice--warning}

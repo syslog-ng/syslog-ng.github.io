@@ -10,8 +10,8 @@ id: dev-platform-build-freebsd
 
 At present we are not supporting FreeBSD {{ site.product.short_name }} on our [[official repository|gh-syslog-ng]] on GitHub. However, you can compile {{ site.product.short_name }} yourself following this guide.
 
-**Note:** The guide is tested on X86_64/amd64 FreeBSD 14 and 13, we do our bests to keep it update, but your actual system may require additional steps or slightly different settings.
-{: .notice}
+**NOTE:** The guide is tested on X86_64/amd64 FreeBSD 14 and 13, we do our bests to keep it update, but your actual system may require additional steps or slightly different settings.
+{: .notice--primary}
 
 ## Compiling from source
 
@@ -107,12 +107,14 @@ sudo pkg install \
 ```
 
 <div id="packages-note"></div>
-> **Note:**
->
-> * gcc - see at [compiler selection](#select-the-compiler)
-> * grpc - 
-> * actual state of supported features, and the required dependencies can also be found [[here|dev-macos-mod-sup-status]].
-{: .notice}
+
+{: .notice--primary-start}
+**NOTE:**
+
+* gcc - see at [compiler selection](#select-the-compiler)
+* grpc - 
+* actual state of supported features, and the required dependencies can also be found [[here|dev-macos-mod-sup-status]].
+{: .notice--primary-end}
 
 ### Preparations
 
@@ -158,8 +160,8 @@ git clone https://github.com/syslog-ng/syslog-ng .
 Latest version of {{ site.product.short_name }} [has dropped support of gcc](https://github.com/syslog-ng/syslog-ng/pull/4897), so now the platform default llvm/clang must be used to complie the source.\
 `gcc` still might compile {{ site.product.short_name }} and most of its modules, but there is no guarantee and support of it anymore.
 
-**Hint:** You can always turn off any problematic module via its feature switch.
-{: .notice--info}
+**TIP:** You can always turn off any problematic module via its feature switch.
+{: .notice}
 
 To make sure clang is used you can use (optional):
 

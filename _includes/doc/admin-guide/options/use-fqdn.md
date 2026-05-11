@@ -10,7 +10,7 @@ global option if available.
 
 **TIP:** Set use-fqdn() to yes if you want to use the custom-domain() global
 option.
-{: .notice--primary}
+{: .notice}
 
 **NOTE:** This option has no effect if the keep-hostname() option is enabled
 (keep-hostname(yes)) and the message contains a hostname.

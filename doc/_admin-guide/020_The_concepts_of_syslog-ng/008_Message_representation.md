@@ -13,7 +13,7 @@ description: >-
 any modifications or changes, use the **flags(no-parse)** option in the
 source definition, and a template containing only the **${MESSAGE}**
 macro in the destination definition.
-{: .notice--primary}
+{: .notice}
 
 To parse non-syslog messages, for example, JSON, CSV, or other messages,
 you can use the built-in parsers of {{ site.product.short_name }}. For details, see
@@ -81,7 +81,7 @@ in the pattern database are also soft macros.
 
 **TIP:** For the list of hard and soft macros, see
 Hard versus soft macros.  
-{: .notice--primary}
+{: .notice}
 
 ## Message size and encoding
 

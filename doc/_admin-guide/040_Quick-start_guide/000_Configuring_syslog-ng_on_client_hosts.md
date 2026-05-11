@@ -42,7 +42,7 @@ To configure {{ site.product.short_name }} on a client host, complete the follow
     example, the Roundcube webmail client, or the ProFTPD FTP server),
     but can be configured to send them to syslog instead. If possible,
     it is recommended to reconfigure the application that way.
-    {: .notice--primary}
+    {: .notice}
 
     **NOTE:** The default configuration file of {{ site.product.short_name }} collects
     platform-specific log messages and the internal log messages of
