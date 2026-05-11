@@ -20,7 +20,7 @@ requests using the Python programming language.
 {{ site.product.short_name }} appliance was compiled with Python support. If you
 installed {{ site.product.short_name }} from a package, make sure that the subpackage
 containing Python support is also installed.
-{: .notice--info}
+{: .notice--primary}
 
 ## Configuration
 
@@ -48,7 +48,7 @@ destination d_http {
     **NOTE:** If you put the class implementation into its own module, it
     should be put into a standard location, or made available with the
     PYTHONPATH environment variable.
-    {: .notice--info}
+    {: .notice--primary}
 
 - *options(\"key\" \"value\")*: Optional option. Multiple options can be
     specified at the same time. The {{ site.product.short_name }} application will build
@@ -83,7 +83,7 @@ HTTP module, the connected slot automatically executes the Python code.
 request without the header items by default. If you want the HTTP module
 to try sending the request without the header items, disable the
 mark-errors-as-critical function.
-{: .notice--info}
+{: .notice--primary}
 
 ### Methods used in the configuration
 

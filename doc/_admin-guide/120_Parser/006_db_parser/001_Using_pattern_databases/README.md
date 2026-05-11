@@ -84,7 +84,7 @@ version 3.21 and later.
 `--prefix` used at build time). The file option of the db-parser()
 statement can be used to specify a different file, thus different
 db-parser statements can use different pattern databases.
-{: .notice--info}
+{: .notice--primary}
 
 ### Example: Using classification results
 

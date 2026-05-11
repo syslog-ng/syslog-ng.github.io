@@ -70,7 +70,7 @@ source on the {{ site.product.short_name }} client to its final destination on t
     log statements. To prevent such situations, use the **final** flag
     in the destination statements. For details, see
     Log path flags.
-    {: .notice--info}
+    {: .notice--primary}
 
 5. The {{ site.product.short_name }} client processes the next log statement that includes
     the /var/log/apache source, repeating [[steps 3-4|adm-conc-log#steps]].
@@ -99,4 +99,4 @@ source on the {{ site.product.short_name }} client to its final destination on t
     sources if the destinations cannot process the sent messages. This
     feature is called flow-control and is detailed in
     Managing incoming and outgoing messages with flow-control.
-    {: .notice--info}
+    {: .notice--primary}

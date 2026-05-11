@@ -22,7 +22,7 @@ For example:
 ><189>32: foo: *Apr 29 13:58:46.411: %SYSMGR-STANDBY-3-SHUTDOWN_START: The System Manager has started the shutdown procedure.
 
 **NOTE:** Not every Cisco log message conforms to this format. If you find a message that the cisco-parser() cannot properly parse, contact Support, so we can improve the parser.
-{: .notice--info}
+{: .notice--primary}
 
 The {{ site.product.short_name }} application normalizes the parsed log messages into
 the following format:

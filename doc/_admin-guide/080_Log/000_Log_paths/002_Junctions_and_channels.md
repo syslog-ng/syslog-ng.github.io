@@ -18,14 +18,14 @@ example, parsers, rewrite rules, destinations, and so on. (For details
 on using channels, as well as on using channels outside junctions, see
 Using channels in configuration objects
 
-{: .notice--info-start}
+{: .notice--primary-start}
 
 **NOTE:** Certain parsers can also act as filters:  
   
 - The JSON parser automatically discards messages that are not valid JSON messages.  
 - The csv-parser() discards invalid messages if the **flags(drop-invalid)** option is set.
   
-{: .notice--info-end}
+{: .notice--primary-end}
 
 You can also use log-path flags in the channels of the junction. Within
 the junction, a message is processed by every channel, in the order the
@@ -125,7 +125,7 @@ log {
 **NOTE:** {{ site.product.short_name }} has several parsers that you can use to parse
 non-compliant messages. You can even [[write a custom {{ site.product.short_name }} parser in Python|adm-parser-python]].
 For details, see [[parser: Parse and segment structured messages]].
-{: .notice--info}
+{: .notice--primary}
 
 **NOTE:** Junctions differ from embedded log statements, because embedded
 log statements are like branches: they split the flow of messages into
@@ -133,7 +133,7 @@ separate paths, and the different paths do not meet again. Messages
 processed on different embedded log statements cannot be combined
 together for further processing. However, junctions split the messages
 to channels, then combine the channels together.
-{: .notice--info}
+{: .notice--primary}
 
 An alternative, more straightforward way to implement conditional
 evaluation is to configure conditional expressions using if {}, elif {},

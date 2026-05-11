@@ -47,7 +47,7 @@ to the message using the following algorithm.
     be +01:00, but the timestamp will be converted, because 2011-01-01
     meant winter time when daylight saving is not active but the current
     timezone is +02:00.
-    {: .notice--info}
+    {: .notice--primary}
 
 3. Specify the timezone in the destination driver using the time-zone()
     parameter. Each destination driver might have an associated timezone
@@ -59,7 +59,7 @@ to the message using the following algorithm.
     **NOTE:** A message can be sent to multiple destination zones. The syslog-ng
     application converts the timezone information properly for every individual
     destination zone.
-    {: .notice--info}
+    {: .notice--primary}
 
     ![]({{ site.baseurl}}/assets/images/caution.png) **WARNING:** If syslog-ng
     OSE sends the message is to the destination using the legacy-syslog protocol
@@ -79,7 +79,7 @@ to the message using the following algorithm.
     **NOTE:** You can modify the timezone of the message using timezone-specific
     rewrite rules.  
     For details, see Rewrite the timezone of a message.
-    {: .notice--info}
+    {: .notice--primary}
 
 ## A note on timezones and timestamps
 

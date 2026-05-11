@@ -46,7 +46,7 @@ other sources. The clients send all important log messages to the remote
     ```
 
     **NOTE:** The capabilities are not case sensitive, the following command is also good:
-    {: .notice--info}
+    {: .notice--primary}
 
     ``` shell
     /opt/syslog-ng/sbin/syslog-ng -Fv --caps CAP_SYS_ADMIN,CAP_CHOWN,CAP_DAC_OVERRIDE,CAP_NET_BIND_SERVICE,CAP_FOWNER=pi
@@ -66,7 +66,7 @@ other sources. The clients send all important log messages to the remote
     Furthermore, `--check-startup` can also be used in a Kubernetes environment, to run it as a dedicated configuration check container.
 
   **NOTE:** This option is highly likely to fail if another {{ site.product.short_name }} instance is running in the background, since it initializes several processes, such as network listeners. In such a case, the network address would already be in use.
-  {: .notice--info}
+  {: .notice--primary}
 
 `--control <file>` or `-c <file>`
     Set the location of the {{ site.product.short_name }} control socket. Default value: */var/run/syslog-ng.ctl*
@@ -85,7 +85,7 @@ other sources. The clients send all important log messages to the remote
     Default value: 4096.
 
   **NOTE:** This does not override the global ulimit setting of the host.
-  {: .notice--info}
+  {: .notice--primary}
 
 `--foreground` or `-F`
     Do not daemonize, run in the foreground. When running in the foreground, {{ site.product.short_name }} starts from the current directory (*$\{CWD\}*) so it can create core files (normally, {{ site.product.short_name }} starts from */opt/syslog-ng/var*).
@@ -100,7 +100,7 @@ other sources. The clients send all important log messages to the remote
     Display the list and description of the available modules.
 
   **NOTE:** Not all of these modules are loaded automatically, only the ones specified in the `--default-modules` option. Available only in {{ site.product.short_name }} 4.0 and later.
-  {: .notice--info}
+  {: .notice--primary}
 
 `--no-caps`
     Run {{ site.product.short_name }} as root, without capability-support. This is the default behavior. On Linux, it is possible to run {{ site.product.short_name }} as non-root with capability-support if {{ site.product.short_name }} was compiled with the `--enable-linux-caps` option enabled. (Run `syslog-ng --version` to display the list of enabled build parameters.)
@@ -128,7 +128,7 @@ other sources. The clients send all important log messages to the remote
     Switch to the specified user after initializing the configuration file (and optionally chrooting).
 
   **NOTE:** It is not possible to reload the {{ site.product.short_name }} configuration if the specified user has no privilege to create the */dev/log* file.
-  {: .notice--info}
+  {: .notice--primary}
 
 `--verbose` or `-v`
     Enable verbose logging used to troubleshoot {{ site.product.short_name }}.
@@ -137,14 +137,14 @@ other sources. The clients send all important log messages to the remote
     Display version number and compilation information, and also the list and short description of the available modules. For detailed description of the available modules, see the `--module-registry` option.
 
   **NOTE:** Not all of these modules are loaded automatically, only the ones specified in the `--default-modules` option.
-  {: .notice--info}
+  {: .notice--primary}
 
 `--worker-threads`
     Sets the number of worker threads {{ site.product.short_name }} can use, including the main {{ site.product.short_name }} thread.
     See the *{{ site.product.short_name }} Administrator Guide*[1] for details.
 
   **NOTE:** Certain operations in {{ site.product.short_name }} can use threads that are not limited by this option. This setting has effect only when {{ site.product.short_name }} is running in multithreaded mode. Available only in {{ site.product.short_name }} 4.0 and later.
-  {: .notice--info}
+  {: .notice--primary}
 
 ## FILES
 

@@ -21,8 +21,8 @@ This will,
     - live refresh the site pages which are opened in a browser page
     - handle '_config.yml' changes as well that is not supported by jekyll at the moment
 
-Note: Unlike `--liverolad`, the latter will restart `jekyll serve` therefore will not refresh the opened web pages automatically, so you have to refresh the opend pages manually
-{: .notice}
+**NOTE:** Unlike `--liverolad`, the latter will restart `jekyll serve` therefore will not refresh the opened web pages automatically, so you have to refresh the opend pages manually
+{: .notice--primary}
 
 serve handles 3 further functionalities that can be controlled via environment variables, like
 
@@ -32,13 +32,13 @@ JEKYLL_USE_AUTO_PACK=yes JEKYLL_BUILD_TOOLTIPS=yes JEKYLL_BUILD_LINKS=yes ./_too
 
 > `JEKYLL_BUILD_LINKS`, defaults to `'no'`, if set to `'yes'` it updates the pages, and anchor links in the `${PROJECT_ROOT}/_data/links/` folder that will be used for autolink and tooltip generation
 
-Note: This can be triggered from navgen helper tool independently as well
-{: .notice}
+**NOTE:** This can be triggered from navgen helper tool independently as well
+{: .notice--primary}
 
 > `JEKYLL_BUILD_TOOLTIPS`, defaults to `'no'`, if set to `'yes'` it will generate the autolinks and tooltips into the final _site based on the content of `${PROJECT_ROOT}/_data/links/` folder
 
-Note: This could be a very long process, so if you are not working with the autolinks or tootltips, you can leave this option turned off (it will always run in the final CI site build process)
-{: .notice}
+**NOTE:** This could be a very long process, so if you are not working with the autolinks or tootltips, you can leave this option turned off (it will always run in the final CI site build process)
+{: .notice--primary}
 
 > `JEKYLL_USE_AUTO_PACK`, defaults to `'no'`, if set to `'yes'` it automatically invokes the pack helper tool to re-pack the `${PROJECT_ROOT}/assets/js/main.min.js` file if any changes detected in the `${PROJECT_ROOT}/_js/main.min.js` file. \
 > Yes, for various reasons currently only that file is watched in the `${PROJECT_ROOT}/_js/` folder, so once you've finished your modification in it, or in the other packed .js files, you can trigger the re-pack flow via e.g.
@@ -47,8 +47,8 @@ Note: This could be a very long process, so if you are not working with the auto
 touch ${PROJECT_ROOT}/_js/main.min.js
 ```
 
-Note: The distribution of the required files from `${PROJECT_ROOT}/_js/` to `${PROJECT_ROOT}/assets/js/` will always happen, this flag controls only the re-packing of the `main.min.js` (as on some systems it could lead to a broken packed file, or cannot run at all e.g. because the lack of node.js installation)
-{: .notice}
+**NOTE:** The distribution of the required files from `${PROJECT_ROOT}/_js/` to `${PROJECT_ROOT}/assets/js/` will always happen, this flag controls only the re-packing of the `main.min.js` (as on some systems it could lead to a broken packed file, or cannot run at all e.g. because the lack of node.js installation)
+{: .notice--primary}
 
 ## navgen
 
@@ -90,8 +90,8 @@ Packing all the requirements that really needed is not supported yet, please see
 So, only these default files will be packed at the moment, this is the inherited defult of Minimal Mistakes, if you have to modify these, please try to minimize the further dependencies otherwise the packing might not work anymore.
 {: .notice--danger}
 
-Note: There were multiple issues we could not deal with yet during re-packing and those are postponed for later investigation. You can find some info about this in the script file, please feel free to contribute if you have a solution.
-{: .notice}
+**NOTE:** There were multiple issues we could not deal with yet during re-packing and those are postponed for later investigation. You can find some info about this in the script file, please feel free to contribute if you have a solution.
+{: .notice--primary}
 
 ## linkcheck
 

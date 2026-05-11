@@ -17,7 +17,7 @@ The syslog-ng-cfg-helper utility has the following options:
     ```
 
     **NOTE:** Currently, sources and destinations are supported.
-    {: .notice--info}
+    {: .notice--primary}
 
 - The following command lists the available drivers of a context:
 
@@ -109,4 +109,4 @@ The syslog-ng-cfg-helper utility has the following options:
 
     **NOTE:** The script caches the list of the options, so if you want to
     rebuild the database, you have to use the -r option.
-    {: .notice--info}
+    {: .notice--primary}

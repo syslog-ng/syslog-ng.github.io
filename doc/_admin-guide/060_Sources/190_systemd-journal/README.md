@@ -19,22 +19,22 @@ journald provides, see the documentation of journald for your platform
 
 **NOTE:** The log-msg-size() option is not applicable for this source. Use
 the max-field-size() option instead.
-{: .notice--info}
+{: .notice--primary}
 
-{: .notice--info-start}
+{: .notice--primary-start}
 
 **NOTE:** This source will not handle the following cases:
 - Corrupted journal file
 - Incorrect journal configuration
 - Any other journald-related bugs
 
-{: .notice--info-end}
+{: .notice--primary-end}
 
 **NOTE:** If you are using RHEL-7, the default source in the configuration
 is systemd-journal() instead of unix-dgram("/dev/log") and
 file("/proc/kmsg"). If you are using unix-dgram("/dev/log") or
 unix-stream("/dev/log") in your configuration as a source, {{ site.product.short_name }} will revert to using systemd-journal() instead.
-{: .notice--info}
+{: .notice--primary}
 
 ![]({{ site.baseurl}}/assets/images/caution.png) **WARNING:** Only one systemd-journal() source can be configured in the configuration file.
 If there is more than one systemd-journal() source configured, {{ site.product.short_name }}

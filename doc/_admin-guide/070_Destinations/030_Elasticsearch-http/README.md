@@ -43,7 +43,7 @@ destination d_elasticsearch {
 ```
 
 **NOTE:** In {{ site.product.short_name }} 4.11 and later versions the `type()` option is deprecated for elasticsearch destinations and including it in the configuration does not affect any functionality.
-{: .notice--info}
+{: .notice--primary}
 
 In versions prior to 4.11, you can use an empty string to omit the type from the index: type(" "). For
 example, you need to do that when using Elasticsearch 7 or newer, and

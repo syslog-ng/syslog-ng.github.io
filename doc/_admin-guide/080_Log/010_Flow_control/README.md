@@ -58,7 +58,7 @@ The {{ site.product.short_name }} application uses flow-control in the following
 {{ site.product.short_name }} 3.22. If you are using an older version of {{ site.product.short_name }},
 consult the documentation of the version you are using for details about
 flow-control.
-{: .notice--info}
+{: .notice--primary}
 
 The flow-control of {{ site.product.short_name }} introduces a control window to the source
 that tracks how many messages can {{ site.product.short_name }} accept from the source.
@@ -79,7 +79,7 @@ only affects log paths that are not flow-controlled.
 network() and syslog()), the size of the control window is divided by
 the value of the max-connections() parameter and this smaller control
 window is applied to each connection of the source.
-{: .notice--info}
+{: .notice--primary}
 
 ## Dynamic flow-control
 
@@ -193,7 +193,7 @@ TODO: generate a new valid diagram
   For details on sizing the log-fifo-size() parameter and how flow control works, see Configuring flow-control.
 
   **NOTE:** Although the default output buffer internally uses multiple queues, the log-fifo-size() option can control only the overall size of all the underlying queues.
-  {: .notice--info}
+  {: .notice--primary}
 
 ## Handling outgoing messages using disk buffering
 

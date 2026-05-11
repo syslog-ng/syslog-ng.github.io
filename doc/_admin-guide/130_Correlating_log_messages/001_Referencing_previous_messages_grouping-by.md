@@ -25,7 +25,7 @@ if you omit the braces.
 {: .notice--warning}
 
 **NOTE**: To use a literal @ character in a template, use **@@**.
-{: .notice--info}
+{: .notice--primary}
 
 ### Example: Referencing values from an earlier message
 

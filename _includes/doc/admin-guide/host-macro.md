@@ -21,7 +21,7 @@ The name of the source host where the message originates from.
     dns-cache() options will have no effect if the keep-hostname()
     option is enabled (keep-hostname(yes)) and the message contains a
     hostname.
-    {: .notice--info}
+    {: .notice--primary}
 
 For details on using name resolution in {{ site.product.short_name }}, see
 Using name resolution in syslog-ng.

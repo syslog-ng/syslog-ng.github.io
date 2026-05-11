@@ -33,7 +33,7 @@ and values().
 **NOTE:** In addition to the standard {{ site.product.short_name }} packages, the sql()
 destination requires database-specific packages to be installed. These
 packages are automatically installed by the binary {{ site.product.short_name }} installer.
-{: .notice--info}
+{: .notice--primary}
 
 The table and value parameters can include macros to create tables and
 columns dynamically (for details, see Macros of {{ site.product.short_name }}.

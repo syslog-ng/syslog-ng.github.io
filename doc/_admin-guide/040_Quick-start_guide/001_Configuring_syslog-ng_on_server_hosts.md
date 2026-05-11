@@ -50,7 +50,7 @@ To configure {{ site.product.short_name }} on a server host, complete the follow
 
     **NOTE:** Starting with {{ site.product.short_name }} version 3.2, the syslog() source
     driver can handle both BSD-syslog (RFC-3164) and IETF-syslog (RFC-5424, RFC-5425, RFC-5426) messages.
-    {: .notice--info}
+    {: .notice--primary}
 
 4. Create local destinations that will store the log messages, for
     example, file- or program destinations. The default configuration of
@@ -93,7 +93,7 @@ To configure {{ site.product.short_name }} on a server host, complete the follow
     hostname on the {{ site.product.short_name }} server, use the **keep-hostname(yes)**
     option both on the {{ site.product.short_name }} relay and the {{ site.product.short_name }} server. This
     option can be set individually for every source if needed.
-    {: .notice--info}
+    {: .notice--primary}
 
     If you are relaying log messages and want to resolve IP addresses to
     hostnames, configure the first relay to do the name resolution.

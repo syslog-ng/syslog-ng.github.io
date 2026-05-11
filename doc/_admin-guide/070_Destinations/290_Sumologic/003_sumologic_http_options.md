@@ -34,7 +34,7 @@ For details on the option in the destination\'s declaration, see
 
 **NOTE:** The headers() option is a required option for the sumologic-http()
 destination.
-{: .notice--info}
+{: .notice--primary}
 
 {% include doc/admin-guide/options/time-reopen.md %}
 

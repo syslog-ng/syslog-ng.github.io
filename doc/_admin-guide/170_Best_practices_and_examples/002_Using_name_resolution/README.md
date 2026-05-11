@@ -30,4 +30,4 @@ If you must use name resolution from {{ site.product.short_name }}, consider the
 
 **NOTE:** Domain name resolution is important mainly in relay and server
 mode.
-{: .notice--info}
+{: .notice--primary}

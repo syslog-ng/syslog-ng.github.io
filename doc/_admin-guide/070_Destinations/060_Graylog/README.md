@@ -50,7 +50,7 @@ native data format of Graylog.
 **NOTE:** If there is a dot in a field name other than the first character,
 {{ site.product.short_name }} creates nested JSON while formatting the message. Nested JSON
 is not automatically parsed in GELF messages.
-{: .notice--info}
+{: .notice--primary}
 
 ## Sending nested JSON to Graylog
 

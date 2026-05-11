@@ -9,7 +9,7 @@ description: >-
 Technically, both sources are specialized versions of the network() source. For more options and details, see the network() source options.
 
 **NOTE:** A destination is not required for this source to work; the stats-exporter() sources will respond to the scraper regardless of whether a destination is present in the log path.
-{: .notice--info}
+{: .notice--primary}
 
 These drivers have the following additional options:
 

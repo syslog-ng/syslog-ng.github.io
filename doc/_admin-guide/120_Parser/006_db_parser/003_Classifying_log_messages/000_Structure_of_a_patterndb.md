@@ -49,7 +49,7 @@ The pattern database is organized as follows:
 
     **NOTE:** If the `PROGRAM` part of a message is empty, rules with an
     empty Program Pattern are used to classify the message.
-    {: .notice--info}
+    {: .notice--primary}
 
     If the same Program Pattern is used in multiple rulesets, the rules
     of these rulesets are merged, and every rule is used to classify the

@@ -12,4 +12,4 @@ Destinations that use specific protocols (for example, network(), or
 syslog()) ignore this option. For protocol-like destinations, use a
 template locally in the destination, or use the
 proto-template() option.
-{: .notice--info}
+{: .notice--primary}

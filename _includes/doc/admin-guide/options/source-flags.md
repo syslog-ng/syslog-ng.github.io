@@ -37,7 +37,7 @@
     syslog header is not present (or does not adhere to the conventions
     / RFCs), so the entire message (except from the `PRI` field) is put
     into ${MSG}.
-    {: .notice--info}
+    {: .notice--primary}
 
     Example: using the no-header flag with the syslog-parser() parser
 
@@ -129,7 +129,7 @@
 
     **NOTE:** The file destination uses multiple threads only if the
     destination filename contains macros.
-    {: .notice--info}
+    {: .notice--primary}
 
 - *validate-utf8*: The validate-utf8 flag enables
     encoding-verification for messages formatted according to the new

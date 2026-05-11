@@ -1,6 +1,6 @@
-{: .notice--info-start}
+{: .notice--primary-start}
 
-**TIP:** To format multi-line messages to your individual needs, consider the following:
+**NOTE:** To format multi-line messages to your individual needs, consider the following:
 
 - To make multi-line messages more readable when written to a file,
     use a template in the destination and instead of the ${MESSAGE}
@@ -19,5 +19,4 @@
 
 For details on using templates, see Templates and macros.
 
-{: .notice--info-end}
-
+{: .notice--primary-end}

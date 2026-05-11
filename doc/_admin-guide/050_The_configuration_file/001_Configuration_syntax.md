@@ -79,7 +79,7 @@ As a {{ site.product.short_name }} user described on a Gentoo mailing list:
     > same object with the same id more than once) is not allowed,
     > unless you use the @define allow-config-dups 1 definition in
     > the configuration file.  
-    {: .notice--info}
+    {: .notice--primary}
 
   - *Parameters*: The parameters of the object, enclosed in braces
         {parameters}.
@@ -179,4 +179,4 @@ As a {{ site.product.short_name }} user described on a Gentoo mailing list:
 >  
 > To activate the configuration, reload the configuration of syslog-ng
 > using the `/etc/init.d/syslog-ng reload` command.
-{: .notice--info}
+{: .notice--primary}

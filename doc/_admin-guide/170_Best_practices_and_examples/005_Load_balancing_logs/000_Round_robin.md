@@ -10,7 +10,7 @@ description: >-
 
 **TIP:** If ${R_MSEC} is not precise enough, you can replace it with ${R_USEC}
 (which uses microseconds instead of milliseconds).
-{: .notice--info}
+{: .notice--primary}
 
 For more information about the ${R_MSEC} macro and further macros,
 see Macros of {{ site.product.short_name }}.

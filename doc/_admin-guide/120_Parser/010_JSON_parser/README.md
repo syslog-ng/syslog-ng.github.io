@@ -31,7 +31,7 @@ other {{ site.product.short_name }} components (for example, a destination) if t
 component supports types. Elements without a type are handled as
 strings. JSON lists (arrays) are converted to lists, and can be
 manipulated using the List manipulation template functions.
-{: .notice--info}
+{: .notice--primary}
 
 Prior to version 4.0, {{ site.product.short_name }} handled all data as string.
 

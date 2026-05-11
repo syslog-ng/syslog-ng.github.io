@@ -11,8 +11,8 @@ id: dev-platform-build-macos
 
 At present we are not supporting macOS {{ site.product.short_name }} on our [[official repository|gh-syslog-ng]] on GitHub. However, you can compile {{ site.product.short_name }} yourself following this guide.
 
-**Note:** The guide is tested on ARM macOS Sonoma 14.6.1, Ventura 13.4, and Intel macOS Monterey 12.6.6 machines, we do our bests to keep it update, but your actual system may require additional steps or slightly different settings.
-{: .notice}
+**NOTE:** The guide is tested on ARM macOS Sonoma 14.6.1, Ventura 13.4, and Intel macOS Monterey 12.6.6 machines, we do our bests to keep it update, but your actual system may require additional steps or slightly different settings.
+{: .notice--primary}
 
 ## Compiling from source
 
@@ -27,10 +27,10 @@ The above mentioned dependencies can be satisfied by compiling every-each libs a
 1. Install Homebrew on your system.
 
    **Hint:** Don't forget to set up the homebrew environment, follow the instructions in your terminal! [[Here|homebrew-inst-detailed]] you can find an even more detailed instruction about the topic.
-   {: .notice--info}
-
-   **Note:** This will install **Command Line Tools for Xcode** as well if not already presented on the system that would also be required anyway for a seamless {{ site.product.short_name }} build.
    {: .notice}
+
+   **NOTE:** This will install **Command Line Tools for Xcode** as well if not already presented on the system that would also be required anyway for a seamless {{ site.product.short_name }} build.
+   {: .notice--primary}
 
 2. Perform `brew update` if you have not done it yet.
 3. The following packages should be installed for {{ site.product.short_name }}
@@ -225,18 +225,19 @@ sudo port install \
 ---
 <div id="packages-note"></div>
 
-> **Note:**
->
-> * `bison` is required because the version provided by Apple Developer Tools is incomplete (e.g., missing the `-W` option). The reason bison needs to be installed via a package manager is that the `-W` option is supported only in versions after 2.3.
-> * `net-snmp` might also be needed because the options provided by Apple Developer Tools are somewhat incorrect. The reason Net-SNMP might be required from a package manager is that the default `pkg-config` may return incorrect library and include paths.
-> * `openssl` - since macOS provides LibreSSL by default, you may need to expand the search path of `pkg-config` to find the newly installed OpenSSL. (This seems to have been an issue only with OpenSSL version 1.1.x.)
-> * `libdbi` and `libdbi-drivers` are [[maintained and updated|dev-macos-mod-sup-afsql#dependencies]] in {{ site.product.short_name }} repositories, use the latest master version from there. For the repository links, see the note below.
+{: .notice--primary-start}
+**NOTE:**
 
-> * `libesmtp` - Homebrew does not have libesmtp package support yet, but you can build it yourself from source or use the MacPorts version
-> * `riemann-client` - MacPorts does not have riemann-client package support yet, but you can build it yourself from source or use the HomeBrew version
-> * `gcc` - see at [compiler selection](#select-the-compiler)
-> * actual state of supported features and the required dependencies can also be found [[here|dev-macos-mod-sup-status]].
-{: .notice}
+* `bison` is required because the version provided by Apple Developer Tools is incomplete (e.g., missing the `-W` option). The reason bison needs to be installed via a package manager is that the `-W` option is supported only in versions after 2.3.
+* `net-snmp` might also be needed because the options provided by Apple Developer Tools are somewhat incorrect. The reason Net-SNMP might be required from a package manager is that the default `pkg-config` may return incorrect library and include paths.
+* `openssl` - since macOS provides LibreSSL by default, you may need to expand the search path of `pkg-config` to find the newly installed OpenSSL. (This seems to have been an issue only with OpenSSL version 1.1.x.)
+* `libdbi` and `libdbi-drivers` are [[maintained and updated|dev-macos-mod-sup-afsql#dependencies]] in {{ site.product.short_name }} repositories, use the latest master version from there. For the repository links, see the note below.
+
+* `libesmtp` - Homebrew does not have libesmtp package support yet, but you can build it yourself from source or use the MacPorts version
+* `riemann-client` - MacPorts does not have riemann-client package support yet, but you can build it yourself from source or use the HomeBrew version
+* `gcc` - see at [compiler selection](#select-the-compiler)
+* actual state of supported features and the required dependencies can also be found [[here|dev-macos-mod-sup-status]].
+{: .notice--primary-end}
 
 {% include doc/admin-guide/notes/libdb-driver.md %}
 
@@ -315,8 +316,8 @@ sudo port install \
    export LDFLAGS="-L${MACPORTS_PREFIX}/lib ${LDFLAGS}"
    ```
 
-**Note:** Providing further library paths might be necessary. (e.g. for openssl 1.1.x, etc.)
-{: .notice}
+**NOTE:** Providing further library paths might be necessary. (e.g. for openssl 1.1.x, etc.)
+{: .notice--primary}
 
 ### Getting the source
 
@@ -351,12 +352,13 @@ export CXX=g++    # More precisly, the full path of your installed g++ compiler
 
 ### Configuration
 
-> **Note:**
->
-> * for various reasons not all modules can always be configured, built and used on all macOS versions and architectures
-> * for using all the available modules you might have to install further dependencies as mentioned above
-> * for more details, please see the [[actual state of supported features|dev-macos-mod-sup-status]], and the required [dependencies](#dependencies).
-{: .notice}
+{: .notice--primary-start}
+**NOTE:**
+
+* for various reasons not all modules can always be configured, built and used on all macOS versions and architectures
+* for using all the available modules you might have to install further dependencies as mentioned above
+* for more details, please see the [[actual state of supported features|dev-macos-mod-sup-status]], and the required [dependencies](#dependencies).
+{: .notice--primary-end}
 
 #### Using autotool
 
@@ -610,8 +612,8 @@ make check -j4
 cmake --build build/. --target check -j4
 ```
 
-**Note:** For more read [[testing|dev-testing]] guide.
-{: .notice}
+**NOTE:** For more read [[testing|dev-testing]] guide.
+{: .notice--primary}
 
 ### Run
 
@@ -619,5 +621,5 @@ cmake --build build/. --target check -j4
 `/full_path_of_your/installdir`/syslog-ng -F
 ```
 
-**Note:** For more information read the [[run first|dev-run-first]] guide
-{: .notice}
+**NOTE:** For more information read the [[run first|dev-run-first]] guide
+{: .notice--primary}

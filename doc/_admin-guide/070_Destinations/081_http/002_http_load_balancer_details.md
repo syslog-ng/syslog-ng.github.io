@@ -51,7 +51,7 @@ You can use {{ site.product.short_name }} templates in URLs to route messages dy
 - Template values are automatically URL-encoded (spaces become `%20`, etc.)
 
 **NOTE:** Dynamic URLs have slightly more processing overhead than static URLs since each message needs URL formatting.
-{: .notice--info}
+{: .notice--primary}
 
 ## Important Limitations to Know
 

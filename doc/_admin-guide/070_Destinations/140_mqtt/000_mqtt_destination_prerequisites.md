@@ -17,10 +17,10 @@ following prerequisites:
     library, see [Eclipse
     Paho](https://www.eclipse.org/paho/index.php?page=clients/c/index.php)
     on the Eclipse Foundation website.
-    {: .notice--info}
+    {: .notice--primary}
 
 - Having a broker entity in a functional MQTT system.
 
     **NOTE**: In your configuration, you will specify the broker entity of
     your MQTT system in the address() option of your mqtt() destination.
-    {: .notice--info}
+    {: .notice--primary}

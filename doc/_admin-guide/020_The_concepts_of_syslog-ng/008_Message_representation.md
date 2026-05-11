@@ -13,7 +13,7 @@ description: >-
 any modifications or changes, use the **flags(no-parse)** option in the
 source definition, and a template containing only the **${MESSAGE}**
 macro in the destination definition.
-{: .notice--info}
+{: .notice--primary}
 
 To parse non-syslog messages, for example, JSON, CSV, or other messages,
 you can use the built-in parsers of {{ site.product.short_name }}. For details, see
@@ -74,14 +74,14 @@ modified within {{ site.product.short_name }}, for example, using rewrite rules.
 **NOTE:** It is also possible to set the value of built-in soft macros
 using parsers, for example, to set the ${HOST} macro from the
 message using a column of a CSV-parser.
-{: .notice--info}
+{: .notice--primary}
 
 The data extracted from the log messages using named pattern parsers
 in the pattern database are also soft macros.
 
 **TIP:** For the list of hard and soft macros, see
 Hard versus soft macros.  
-{: .notice--info}
+{: .notice--primary}
 
 ## Message size and encoding
 

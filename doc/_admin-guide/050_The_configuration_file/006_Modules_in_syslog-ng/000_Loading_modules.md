@@ -27,7 +27,7 @@ Note the following points about the @module statement:
 - In the configuration file, the @module statement of a module must
     be earlier than the module is used.
 
-{: .notice--info-start}
+{: .notice--primary-start}
 **NOTE:** To disable loading every module automatically, set the
 autoload-compiled-modules global variable to **0** in your configuration
 file:
@@ -37,7 +37,7 @@ file:
 ```
   
 Note that in this case you have to explicitly load the modules you want to use.
-{: .notice--info-end}
+{: .notice--primary-end}
 
 ## Use the @requires statement to ensure that the specified module is loaded
 
@@ -49,7 +49,7 @@ the configuration file:
 @requires <module-name>
 ```
 
-{: .notice--info-start}
+{: .notice--primary-start}
 **NOTE:** If you include the @requires statement in the:
   
 - {{ site.product.short_name }} configuration file, {{ site.product.short_name }} attempts to load the
@@ -68,4 +68,4 @@ a dependency module mandatory by defining an error message after the
 @requires http "The http() driver is required for elasticsearch-http(). Install syslog-ng-mod-http to continue."
 ```
 
-{: .notice--info-end}
+{: .notice--primary-end}

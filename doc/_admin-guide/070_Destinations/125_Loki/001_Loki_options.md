@@ -125,7 +125,7 @@ loki(
 *Description:* This option sets the timestamp type to be used for messages sent to a Loki destination.
 
 **NOTE:** Loki destinations only accept subsequent messages with increasing timestamps. Messages with timestamps deviating from this are rejected.
-{: .notice--info}
+{: .notice--primary}
 
 The timestamp types are the following.
 

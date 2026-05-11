@@ -15,7 +15,7 @@ description: >-
 **NOTE:** The rest of this chapter and its sections build on your
 familiarity with the MQTT protocol, the concept of client and broker
 entities, and how these entities function within an MQTT system.
-{: .notice--info}
+{: .notice--primary}
 
 **Declaration**
 

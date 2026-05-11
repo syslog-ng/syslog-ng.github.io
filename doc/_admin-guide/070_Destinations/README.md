@@ -11,7 +11,7 @@ description: >-
 **TIP:** If no drivers are defined for a destination, all messages sent to
 the destination are discarded. This is equivalent to omitting the
 destination from the log statement.
-{: .notice--info}
+{: .notice--primary}
 
 To define a destination, add a destination statement to the syslog-ng
 configuration file using the following syntax:

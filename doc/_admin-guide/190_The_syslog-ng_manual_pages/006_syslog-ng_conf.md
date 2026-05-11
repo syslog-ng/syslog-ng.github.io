@@ -77,13 +77,13 @@ type-of-the-object identifier-of-the-object {<parameters>};
   **TIP:** Use identifiers that refer to the type of the object they
   identify. For example, prefix source objects with `s_`,
   destinations with `d_`, and so on
-  {: .notice--info}
+  {: .notice--primary}
 
   **NOTE:** Repeating a definition of an object (that is, defining the same
   object with the same id more than once) is not allowed, unless
   you use the `@define allow-config-dups 1` definition in the
   configuration file
-  {: .notice--info}
+  {: .notice--primary}
 
 - Parameters: The parameters of the object, enclosed in braces `{parameters}`
 

@@ -35,7 +35,7 @@ of your operating system.
 
     **NOTE:** The file destination uses multiple threads only if the
     destination filename contains macros.
-    {: .notice--info}
+    {: .notice--primary}
 
 {% include doc/admin-guide/options/flush-lines.md %}
 
@@ -50,7 +50,7 @@ of your operating system.
 write.
 
 **NOTE:** Enabling this option may seriously degrade performance.
-{: .notice--info}
+{: .notice--primary}
 
 {% include doc/admin-guide/options/hook.md %}
 
@@ -165,7 +165,7 @@ file("/var/log/cron.${YEAR}${MONTH}" symlink-as("/var/log/cron"));
 In this case the /var/log/cron should point to the current month.
 
 **NOTE:** The symlink uses the same permissions as the file destination.
-{: .notice--info}
+{: .notice--primary}
 
 {% include doc/admin-guide/options/template-logformat.md %}
 

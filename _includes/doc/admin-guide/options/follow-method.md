@@ -12,9 +12,9 @@
 - The `system` value uses system poll methods (via ivykis), such as `port-timer`, `port`, `dev_poll`, `epoll-timerfd`, `epoll`, `kqueue`, `ppoll`, `poll`, and `uring`. This is the most efficient and least resource-consuming option available for regular files on BSD-based systems like FreeBSD and macOS, where, by default, it automatically selects `kqueue`.
 
 **NOTE:** Using `inotify` also requires setting monitor-method() to `inotify`.
-{: .notice--info}
+{: .notice--primary}
 
 **NOTE:** The `uring` system poll method is an experimental feature and requires a version of {{ site.product.short_name }} built with the internal ivykis version (configure options `-DIVYKIS_SOURCE=internal` for CMake and `--with-ivykis=internal` for Autotools), as the default upstream version currently has no such support.
-{: .notice--info}
+{: .notice--primary}
 
 {% include doc/admin-guide/warnings/file-source-follow-warning.md %}

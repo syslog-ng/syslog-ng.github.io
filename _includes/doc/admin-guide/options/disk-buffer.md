@@ -19,7 +19,7 @@ In {{ site.product.short_name }} version 4.2 and earlier, this option was called
 *Description:* If set to yes, {{ site.product.short_name }} prunes the unused space in the LogMessage representation, making the disk queue size smaller at the cost of some CPU time. Setting the compaction() argument to yes is recommended when numerous name-value pairs are unset during processing, or when the same names are set multiple times.
 
 **NOTE:** Simply unsetting these name-value pairs by using the unset() rewrite operation is not enough, as due to performance reasons that help when {{ site.product.short_name }} is CPU bound, the internal representation of a LogMessage will not release the memory associated with these name-value pairs. In some cases, however, the size of this overhead becomes significant (the raw message size can grow up to four times its original size), which unnecessarily increases the disk queue file size. For these cases, the compaction will drop unset values, making the LogMessage representation smaller at the cost of some CPU time required to perform compaction.
-{: .notice--info}
+{: .notice--primary}
 
 ### dir()
 

@@ -24,8 +24,8 @@ To be able to successfully test this driver, we need to install riemann and riem
 `$ brew install riemann` \
 `$ brew install riemann-client`
 
-**Note:** MacPorts does not have this library in its package list currently
-{: .notice--info}
+**NOTE:** MacPorts does not have this library in its package list currently
+{: .notice--primary}
 
 To run riemann in the foreground, use: \
 \

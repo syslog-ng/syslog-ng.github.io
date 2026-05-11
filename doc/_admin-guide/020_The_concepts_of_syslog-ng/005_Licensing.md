@@ -11,7 +11,7 @@ description: >-
 
 **NOTE:** Practically, the code stored under the lib directory of the source
 code package is under LGPL, the rest is GPL.
-{: .notice--info}
+{: .notice--primary}
 
 For details about the LGPL and GPL licenses, see
 GNU Lesser General Public License and

@@ -8,4 +8,4 @@
 **NOTE:** This setting applies only to hostnames resolved from DNS. It has
 no effect if the keep-hostname() option is enabled, and the message
 contains a hostname.
-{: .notice--info}
+{: .notice--primary}

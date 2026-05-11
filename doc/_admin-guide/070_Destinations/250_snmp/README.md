@@ -34,7 +34,7 @@ the trap will be dropped.
 
 **NOTE:** The snmp() destination driver does not generate MARK signals
 itself, but can receive and forward MARK signals.
-{: .notice--info}
+{: .notice--primary}
 
 ### Example: Using the snmp() destination driver
 

@@ -54,4 +54,4 @@ log {
 ```
 
 **NOTE:** A destination is not required for this to work. The stats-exporter() sources will respond to the scraper regardless of whether a destination is present in the log path or not.
-{: .notice--info}
+{: .notice--primary}

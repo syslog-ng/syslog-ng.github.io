@@ -9,7 +9,7 @@ description: >-
 
 **NOTE:** The format of the TLS connections used by {{ site.product.short_name }} is similar to
 using {{ site.product.short_name }} and stunnel, but the source IP information is not lost.
-{: .notice--info}
+{: .notice--primary}
 
 To encrypt connections, use the **transport(\"tls\")** and **tls()**
 options in the source and destination statements.
@@ -137,7 +137,7 @@ This option is available in {{ site.product.short_name }} 4.0 and later versions
 *Description:* In case the OCSP stapling verification is enabled, {{ site.product.short_name }} requests the server to return its OCSP status. This status response is verified by {{ site.product.short_name }} using the trust store configured by the ca-file(), ca-dir(), or the pkcs12-file() options.
 
 **NOTE:** RFC-6961 multi-stapling and TLS 1.3-provided multiple responses are currently not validated, only the peer certificate is verified.
-{: .notice--info}
+{: .notice--primary}
 
 ### Example: OCSP stapling verification
 
@@ -352,7 +352,7 @@ To find the fingerprint of a certificate, you can use the following
 command: **openssl x509 -in \<certificate-filename\> -sha1 -noout
 -fingerprint**
 
-{: .notice--info-start}
+{: .notice--primary-start}
 
 **NOTE:** When using the trusted-keys() and trusted-dn() parameters, note the following:  
   
@@ -363,4 +363,4 @@ command: **openssl x509 -in \<certificate-filename\> -sha1 -noout
     peer is not listed in the trusted-dn() parameter, the authentication  
     of the peer fails and the connection is closed.  
 
-{: .notice--info-end}
+{: .notice--primary-end}

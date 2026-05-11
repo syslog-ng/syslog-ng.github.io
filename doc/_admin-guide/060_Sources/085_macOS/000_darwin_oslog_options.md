@@ -7,7 +7,7 @@ description: >-
 ---
 
 **NOTE:** The persistent OSLog store keeps about 7 days of logs on the disk.
-{: .notice--info}
+{: .notice--primary}
 
 The `darwin-oslog()` source has the following options.
 

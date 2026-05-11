@@ -10,4 +10,4 @@
 - kafka: Logs internal Kafka messages using log levels mapped to those of {{ site.product.short_name }}.  
 
 **NOTE:** The internal Kafka logging level itself can be configured using the config() Kafka options. For details, refer to the librdkafka documentation.  
-{: .notice--info}
+{: .notice--primary}

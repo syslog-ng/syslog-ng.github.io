@@ -179,7 +179,7 @@ You can find the exact source of the CIM template in the
 compiled with JSON support. To see if your {{ site.product.short_name }} binary was
 compiled with JSON support, execute the **syslog-ng \--version**
 command.
-{: .notice--info}
+{: .notice--primary}
 
 ## $(format-date)
 
@@ -272,7 +272,7 @@ data formats of certain destinations supported.
 In {{ site.product.short_name }} 4.0 and later versions, each name-value pair is a
 (name, type, value) triplet, and several components of {{ site.product.short_name }} 4.0 support
 this format. For details, see Specifying data types in value-pairs.
-{: .notice--info}
+{: .notice--primary}
 
 For details, see Structuring macros, metadata, and other value-pairs.
 Note that the syntax of format-json is different from the syntax of
@@ -306,7 +306,7 @@ destination d_json {
 \".SDATA.meta.sequenceID\") an empty key name is added at the top level
 of the JSON structure. You can work around this by adding \--shift 1 as
 a parameter to the template function.
-{: .notice--info}
+{: .notice--primary}
 
 For example, in case of
 \".SDATA.meta.sequenceID\", an empty key name is added at the top level
@@ -369,7 +369,7 @@ it returns the 2-letter country code of any IPv4/IPv6 address or host.
 **NOTE:** This template function is available only if {{ site.product.short_name }} has been
 compiled with geoip2 support. To enable it, use the **\--enable-geoip**
 compiling option.
-{: .notice--info}
+{: .notice--primary}
 
 To retrieve additional GeoIP information, see
 Looking up GeoIP2 data from IP addresses.
@@ -524,7 +524,7 @@ as a non-truncated hash.
 **NOTE:** These template functions are available only if {{ site.product.short_name }} has
 been compiled with the \--enable-ssl compile option and the tfhash
 module has been loaded.
-{: .notice--info}
+{: .notice--primary}
 
 ### Example: Using the $(hash) template function
 
@@ -644,7 +644,7 @@ which is 3232235777 in decimal representation.
 
 **NOTE:** This template function is available only if the convertfuncs
 module has been loaded.
-{: .notice--info}
+{: .notice--primary}
 
 ## $(iterate)
 
@@ -736,7 +736,7 @@ the list index starts with zero, so (list-nth 1 ${list} ) returns the
 second element, and so on.
 
 **NOTE:** Indexing starts at 0. If a negative index is used, it counts from the end of the list. If the specified index is not found, the function returns an empty string.
-{: .notice--info}
+{: .notice--primary}
 
 ### $(list-tail)
 
@@ -754,7 +754,7 @@ $(list-tail ${mylist} ) returns two, three.
 the given start_index and returns the index of the first element that matches \<pattern\>.
 
 **NOTE:** Indexing starts at 0. If \<pattern\> is not found, the function returns an empty string.
-{: .notice--info}
+{: .notice--primary}
 
 Available options:
 
@@ -872,7 +872,7 @@ repeated until the padding reaches the required length. The default padding char
 is ` ` (space).
 
 **NOTE:** The width parameter cannot be zero.
-{: .notice--info}
+{: .notice--primary}
 
 ### padding usage examples
 
@@ -1306,4 +1306,4 @@ log { source(s_network);
 
 **NOTE:** This template function is available only if the tfuuid module has
 been loaded.
-{: .notice--info}
+{: .notice--primary}

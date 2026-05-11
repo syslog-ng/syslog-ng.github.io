@@ -27,8 +27,8 @@ or define
 
 a markdown link, where the link url and title is handled automatically using the given ID.
 
-Please note that the url and the default title text must not be provided here (though can be overriden if needed), the lookup of them will be automatic based on the given ID, the generate_links collected links in the `${PROJECT_ROOT}/_data/links` folder are also available via the `site.data.links` liquid variable, markdown_link uses this variable as well to search for the given ID and the corresponding title and url.
-{: .notice}
+**NOTE:** the url and the default title text must not be provided here (though can be overriden if needed), the lookup of them will be automatic based on the given ID, the generate_links collected links in the `${PROJECT_ROOT}/_data/links` folder are also available via the `site.data.links` liquid variable, markdown_link uses this variable as well to search for the given ID and the corresponding title and url.
+{: .notice--primary}
 
 You can use the following parameters to adjust the composition of the above `md_link_` options:
 
@@ -62,8 +62,8 @@ You can use the following parameters to adjust the composition of the above `md_
     [title](url){: class="nav-link" }
     ```
 
-    Please note that the `class="nav-link"` style is always added to the link, except if `outOfFrame` is set to `yes`
-    {: .notice}
+    **NOTE:** the `class="nav-link"` style is always added to the link, except if `outOfFrame` is set to `yes`
+    {: .notice--primary}
 
 - `title`, a custom title that can override the one that belongs to the given link ID, e.g.:
 
@@ -115,8 +115,8 @@ You can use the following parameters to adjust the composition of the above `md_
     [title](url){: }
     ```
 
-    Please note the absence of the `class="nav-link"` style, that will not be added if outOfFrame is `true`
-    {: .notice}
+    **NOTE:** the absence of the `class="nav-link"` style, that will not be added if outOfFrame is `true`
+    {: .notice--primary}
 
 ## liquify
 

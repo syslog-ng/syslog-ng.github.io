@@ -221,7 +221,7 @@ The stats command has the following options:
   **NOTE:** The stats(lifetime()) can be used to do the same
   automatically and periodically, but currently stats(lifetime())
   removes only dynamic counters that have a timestamp field set.
-  {: .notice--info}
+  {: .notice--primary}
 
 ### EXAMPLE: STATS
 

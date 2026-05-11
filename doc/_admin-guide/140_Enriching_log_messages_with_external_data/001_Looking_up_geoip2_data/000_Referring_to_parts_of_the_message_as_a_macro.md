@@ -19,7 +19,7 @@ To look up all keys:
 
     **NOTE:** The name of the package depends on the Linux distribution. The
     package mentioned in this example is on Ubuntu.
-    {: .notice--info}
+    {: .notice--primary}
 
 2. Create a dump using the following command: **mmdblookup \--file
     GeoLite2-City.mmdb \--ip \<your-IP-address\>**

@@ -24,6 +24,6 @@ The example output will look like the following:
   
 **NOTE:** If you receive the following error message instead of the example
 output, install a vim-common package on your system:
-{: .notice--info}
+{: .notice--primary}
 
 > xxd: command not found

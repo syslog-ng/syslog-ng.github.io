@@ -35,7 +35,7 @@ The pattern uses {{ site.product.short_name }}'s pattern syntax, which supports:
 
 For detailed information about pattern syntax and parsers, see Using pattern parsers, and Pattern parsers of {{ site.product.short_name }}.
 
-{: .notice--info-start}
+{: .notice--primary-start}
 
 **NOTE:** For special character escaping in patterns:
 - XML entities supported: **&amp; &lt; &gt; &quot; &apos;**
@@ -43,7 +43,7 @@ For detailed information about pattern syntax and parsers, see Using pattern par
 
 User-defined XML entities are not supported.
 
-{: .notice--info-end}
+{: .notice--primary-end}
 
 ## Example
 

@@ -85,7 +85,7 @@ The `HEADER` part contains the following elements:
 well, like ISO, or the PIX extended format. The timestamp used in the
 IETF-syslog protocol is derived from RFC-3339, which is based on ISO8601.
 For details, see the ts-format() option in Global options.
-{: .notice--info}
+{: .notice--primary}
 
 The {{ site.product.short_name }} application will truncate the following fields:
 

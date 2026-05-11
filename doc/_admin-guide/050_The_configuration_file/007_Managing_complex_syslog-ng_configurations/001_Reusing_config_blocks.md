@@ -109,7 +109,7 @@ when {{ site.product.short_name }} is started, the block can be generated dynami
 using an external script if needed. This is useful when you are running
 {{ site.product.short_name }} on different hosts and you want to keep the main
 configuration identical.
-{: .notice--info}
+{: .notice--primary}
 
 If you want to reuse more than a single configuration object, for
 example, a logpath and the definitions of its sources and destinations,

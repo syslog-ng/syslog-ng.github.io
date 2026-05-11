@@ -31,7 +31,7 @@ description: >-
     message *after* the pattern matching is completed. This means that
     macros and name-value pairs created by the matching pattern database
     rule can be used as context-id macros.
-    {: .notice--info}
+    {: .notice--primary}
 
 - *context-timeout*: OPTIONAL --- The number of seconds the context is
     stored. Note that for high-traffic log servers, storing open
@@ -64,7 +64,7 @@ description: >-
 
     **NOTE:** Using the context-scope attribute is significantly faster than
     using macros in the context-id attribute.
-    {: .notice--info}
+    {: .notice--primary}
 
     For details on correlating messages, see
     Correlating log messages using pattern databases.

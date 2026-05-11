@@ -15,7 +15,7 @@ description: >-
 **NOTE:** The `<patterns>` wrapper is optional. `<pattern>` elements may appear
 directly under `<ruleset>` with identical effect. Both forms are fully
 supported and can be used interchangeably.
-{: .notice--info}
+{: .notice--primary}
 
 ## Attributes
 

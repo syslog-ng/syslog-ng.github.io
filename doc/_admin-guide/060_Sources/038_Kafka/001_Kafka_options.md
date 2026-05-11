@@ -49,10 +49,10 @@ See Bookmarking in the kafka() source for more details.
 
 **NOTE:** If more than 2 workers are configured and separated-worker-queues() is set to `yes`, then all processor workers share this total queue size.  
 For example, with `workers(3)` and `fetch-limit(100000)`, the 2 processor workers (remember, the first of the configured 3 is always the main worker) will each receive their own queue, and neither queue will grow beyond 50,000 messages.
-{: .notice--info}
+{: .notice--primary}
 
 **NOTE:** This options worth align with the kafka config options `queued.min.messages` and `queued.max.messages.kbytes`, For details, refer to the librdkafka documentation.
-{: .notice--info}
+{: .notice--primary}
 
 ## log-fetch-delay()
 
@@ -108,7 +108,7 @@ See Bookmarking in the kafka() source for more details.
 *Description:* When the value of workers() is greater than 2 (meaning multiple processor threads are used to handle queued messages), and `single-worker-queue()` is set to `no`, the main worker of the kafka() source distributes the consumed messages into separate queues, one for each processor worker.
 
 **NOTE:** This approach can improve performance, especially in high-throughput scenarios, but may also lead to significantly increased memory usage.
-{: .notice--info}
+{: .notice--primary}
 
 ## state-update-timeout()
 
@@ -200,4 +200,4 @@ Only kafka() sources with `workers()` set to less than 3 can guarantee ordered m
 
 **NOTE:** Kafka clients have their own threadpool, entirely independent from
 any {{ site.product.short_name }} settings. The `workers()` option has no effect on this threadpool.
-{: .notice--info}
+{: .notice--primary}

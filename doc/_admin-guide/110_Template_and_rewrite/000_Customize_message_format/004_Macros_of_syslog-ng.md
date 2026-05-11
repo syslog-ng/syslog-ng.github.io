@@ -148,7 +148,7 @@ frac-digits() global or per-destination option.
 **NOTE:** As {{ site.product.short_name }} is precise up to the microsecond, when the
 frac-digits() option is set to a value higher than 6, {{ site.product.short_name }} will
 truncate the fraction seconds in the timestamps after 6 digits.
-{: .notice--info}
+{: .notice--primary}
 
 ## ${ISOWEEK}, ${C_ISOWEEK}, ${R_ISOWEEK}, ${S_ISOWEEK}
 
@@ -328,7 +328,7 @@ macros. The ${SDATA} macro references the entire `STRUCTURED-DATA` part
 of the message, while structured data elements can be referenced using
 the ${.SDATA.SDID.SDNAME} macro.
 
-{: .notice--info-start}
+{: .notice--primary-start}
 
 **NOTE:** When using `STRUCTURED-DATA` macros, consider the following:  
   
@@ -338,7 +338,7 @@ the ${.SDATA.SDID.SDNAME} macro.
 - The SDID and SDNAME parts of the macro names are case sensitive:
     **${.SDATA.timeQuality.isSynced}** is not the same as **${.SDATA.TIMEQUALITY.ISSYNCED}**.
   
-{: .notice--info-end}
+{: .notice--primary-end}
 
 ### Example: Using ${SDATA} macros
 
@@ -373,7 +373,7 @@ one of the following:
     use the following command on the device (available in IOS 10.0 and
     later): **service sequence-numbers**. For details, see the manual of
     your Cisco device.
-    {: .notice--info}
+    {: .notice--primary}
 
 - For locally generated messages (that is, for messages that are
     received from a local source, and not from the network), syslog-ng
@@ -393,7 +393,7 @@ one of the following:
         be added to BSD-syslog messages using the **${SEQNUM}** macro.
 
 **NOTE:** If you need a sequence number for every log message that {{ site.product.short_name }} receives, use the ${RCPTID} macro.
-{: .notice--info}
+{: .notice--primary}
 
 ## ${SOURCE}
 
@@ -422,7 +422,7 @@ started (that is, the uptime of the {{ site.product.short_name }} process). The 
 this macro is an integer containing the time in 1/100th of the second.
 
 **NOTE:** The ${SYSUPTIME} macro is calculated based on the system clock. This means that if the system clock runs normally without adjustments, ${SYSUPTIME} will accurately reflect the elapsed time since the process started. However, if the system clock is changed during runtime for any reason, ${SYSUPTIME} will also shift accordingly. After such a clock change, the value may no longer represent the actual process uptime.
-{: .notice--info}
+{: .notice--primary}
 
 Available in {{ site.product.short_name }} version 3.4 and later.
 
@@ -443,7 +443,7 @@ transferred to the server. A way of transferring the tags is to
 explicitly add them to the log messages using a template and the
 ${TAGS} macro, or to add them to the structured metadata part of
 messages when using the IETF-syslog message format.
-{: .notice--info}
+{: .notice--primary}
 
 When sent as structured metadata, it is possible to reference to the
 list of tags on the central server, and for example, to add them to a

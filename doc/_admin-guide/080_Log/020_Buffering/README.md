@@ -15,7 +15,7 @@ description: >-
 **NOTE:** Disk-based buffering can be used in conjunction with flow-control.
 For details on flow-control, see
 Managing incoming and outgoing messages with flow-control.
-{: .notice--info}
+{: .notice--primary}
 
 Every such destination uses a separate disk buffer (similarly to the
 output buffers controlled by log-fifo-size()). The hard disk space is
@@ -76,7 +76,7 @@ failures or if {{ site.product.short_name }} crashes.
 {: .notice--danger}
 
 **NOTE:** Using disk buffer can significantly decrease performance.
-{: .notice--info}
+{: .notice--primary}
 
 ## Message handling and reliable disk-based buffering
 

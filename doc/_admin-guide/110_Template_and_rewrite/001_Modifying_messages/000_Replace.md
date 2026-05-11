@@ -46,7 +46,7 @@ included in the log statement to have any effect.
 option. To replace every occurrence of the string, add **flags(global)**
 option. Note that the store-matches flag is automatically enabled in
 rewrite rules.
-{: .notice--info}
+{: .notice--primary}
 
 ### Example: Using substitution rules
 

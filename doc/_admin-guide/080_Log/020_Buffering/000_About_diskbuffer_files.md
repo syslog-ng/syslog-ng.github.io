@@ -55,10 +55,10 @@ files and never truncate them in the future.
 number of stored messages. If you want to get information about the
 disk-buffer, use dqtool (for more information, see
 [Getting the status information of disk-buffer files]).
-{: .notice--info}
+{: .notice--primary}
 
 **NOTE:** If a queue file becomes corrupt, {{ site.product.short_name }} starts a new one.
 This might lead to the queue files consuming more space in total than
 their maximal configured size and the number of configured queue files
 multiplied together.
-{: .notice--info}
+{: .notice--primary}

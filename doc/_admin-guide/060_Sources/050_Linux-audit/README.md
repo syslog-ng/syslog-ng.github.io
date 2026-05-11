@@ -14,7 +14,7 @@ description: >-
 technologies might disable access to the Linux Audit log file by
 default. Consult their manuals to enable Linux Audit log access for
 {{ site.product.short_name }}.
-{: .notice--info}
+{: .notice--primary}
 
 **Declaration**
 

@@ -89,7 +89,7 @@ The following components support data types from {{ site.product.short_name }} 4
 onwards:
 
 **NOTE:** Component types not listed below process data as string.
-{: .notice--info}
+{: .notice--primary}
 
 - Numeric operators in filter expression comparisons are now
     type-aware. The exact comparison depends on the types associated

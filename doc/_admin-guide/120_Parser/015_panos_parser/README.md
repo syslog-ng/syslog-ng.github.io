@@ -24,7 +24,7 @@ Structuring macros, metadata, and other value-pairs.
 
     **NOTE:** Most Linux distributions feature {{ site.product.short_name }} versions
     earlier than version 3.29. For up-to-date binaries, visit the {{ site.product.name }} installation packages page.
-    {: .notice--info}
+    {: .notice--primary}
 
 - PAN-OS log messages from Palo Alto Networks devices.
 

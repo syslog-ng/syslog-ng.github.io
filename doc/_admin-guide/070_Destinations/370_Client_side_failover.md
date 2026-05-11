@@ -34,7 +34,7 @@ same communication method: it is not possible to use different
 destination drivers or options for the different servers.
 
 **NOTE:** Client-side failover is not supported in the sql() driver.
-{: .notice--info}
+{: .notice--primary}
 
 For details on configuring failover servers, see
 network() destination options and

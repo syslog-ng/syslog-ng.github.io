@@ -50,4 +50,4 @@ source s_tail {
 treats messages received from files as sent by the kern facility. Use
 the default-facility() and default-priority() options in the
 source definition to assign a different facility if needed.
-{: .notice--info}
+{: .notice--primary}

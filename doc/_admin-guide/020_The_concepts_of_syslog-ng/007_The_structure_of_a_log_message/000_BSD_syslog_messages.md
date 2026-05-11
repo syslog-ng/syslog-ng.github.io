@@ -30,7 +30,7 @@ supports longer messages as well. For details, see the log-msg-size()
 option in Global options.
 However, it is not recommended to enable messages larger than the packet
 size when using UDP destinations.
-{: .notice--info}
+{: .notice--primary}
 
 ## The PRI message part
 
@@ -92,7 +92,7 @@ the local time in the *Mmm dd hh:mm:ss* format, where:
 **NOTE:** The {{ site.product.short_name }} application
 supports other timestamp formats as well, like ISO, or the PIX extended
 format. For details, see the ts-format() option in Global options.
-{: .notice--info}
+{: .notice--primary}
 
 ## The MSG message part
 

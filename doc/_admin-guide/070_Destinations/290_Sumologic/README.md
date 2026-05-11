@@ -22,7 +22,7 @@ destinations with {{ site.product.short_name }} has the following prerequisites:
 
     **NOTE:** A free trial version of the Sumo Logic account has limited
     functionalities and is only available for 90 days.
-    {: .notice--info}
+    {: .notice--primary}
 
 - A Cloud Syslog Source
     configured with your Sumo Logic account.
@@ -31,7 +31,7 @@ destinations with {{ site.product.short_name }} has the following prerequisites:
     Configure a Cloud Syslog Source section on the official Sumo Logic website.
 
     **NOTE:** Transport-level security (TLS) 1.2 over TCP is required.
-    {: .notice--info}
+    {: .notice--primary}
 
 - A Cloud Syslog Source Token (from the Cloud Syslog Source side).
 
@@ -43,7 +43,7 @@ destinations with {{ site.product.short_name }} has the following prerequisites:
 
     **NOTE:** After you download the **DigiCert** certificate, make sure you follow the certificate setup steps under the syslog-ng
     section in Cloud Syslog Source chapter.
-    {: .notice--info}
+    {: .notice--primary}
 
 - Your Sumo Logic syslog client, configured to send data to the Sumo
     Logic cloud syslog service, by using {{ site.product.short_name }}.
@@ -129,4 +129,4 @@ snippet configured to send log messages using the network() and http()
 destination by using a template. For details on using or writing such
 configuration snippets, see Reusing configuration blocks.
 You can find the source of the Sumo Logic configuration snippet on GitHub.
-{: .notice--info}
+{: .notice--primary}

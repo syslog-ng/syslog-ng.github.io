@@ -14,7 +14,7 @@ description: >-
 
 **NOTE:** Creating separate log paths for the destinations that use the same
 flow-controlled source does not avoid the problem.
-{: .notice--info}
+{: .notice--primary}
 
 If you use flow-control and reliable disk-based buffering together with
 multiple destinations, the flow-control starts slowing down the source

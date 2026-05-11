@@ -32,7 +32,7 @@ unix-dgram(filename [options]);
 distributions switched to SOCK_DGRAM around 1999 to fix a possible DoS
 problem. On Linux you can choose to use whichever driver you like as
 syslog clients automatically detect the socket type being used.
-{: .notice--info}
+{: .notice--primary}
 
 ## Example: Using the unix-stream() and unix-dgram() drivers
 

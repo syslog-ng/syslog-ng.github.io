@@ -16,4 +16,4 @@ This option can be used together with the optional ca-file() option.
 **NOTE:** During a TLS handshake, {{ site.product.short_name }} automatically sets the
 `certificate_authorities` field of the certificate request based on the `ca-file()`
 and `ca-dir()` options.
-{: .notice--info}
+{: .notice--primary}

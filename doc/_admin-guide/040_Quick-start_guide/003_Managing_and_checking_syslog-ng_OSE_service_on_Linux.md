@@ -135,7 +135,7 @@ The {{ site.product.short_name }} application collects statistics about the numb
 is generally consistent, there is no explicit ordering behind the
 command. Consequently, One Identity does not recommend creating
 parsers that depend on a fix output order.
-{: .notice--info}
+{: .notice--primary}
 
 If needed, you can sort the output with an external application, for
 example, `| sort`.
@@ -203,7 +203,7 @@ Example: output example
 **NOTE:** If you find error messages in the internal logs, messages are not
 processed by {{ site.product.short_name }} or you encounter any issue, you have the
 following options:
-{: .notice--info}
+{: .notice--primary}
 
 - Search for the error or issue in our knowledge base.
 - Check the following troubleshooting articles.

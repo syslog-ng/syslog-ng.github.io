@@ -10,4 +10,4 @@ For details about flow-control and the effects of this parameter, see Managing i
 
 **NOTE:** If dynamic flow-control is disabled (which is the default behavior), the value of the log-iw-size() option cannot be lower than 100. If dynamic flow-control is enabled, you can decrease the value of the log-iw-size() option (to the minimum of 1).\
 Make sure that log-iw-size() is larger than the value of log-fetch-limit().
-{: .notice--info}
+{: .notice--primary}

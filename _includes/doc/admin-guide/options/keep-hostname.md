@@ -19,7 +19,7 @@
 
 **NOTE:** If the log message does not contain a hostname in its `HOST` field,
 {{ site.product.short_name }} automatically adds a hostname to the message.
-{: .notice--info}
+{: .notice--primary}
 
 - For messages received from the network, this hostname is the address
     of the host that sent the message (this means the address of the
@@ -34,4 +34,4 @@ setting of the source overrides the global option if available.
 **NOTE:** When relaying messages, enable this option on the {{ site.product.short_name }}
 server and also on every relay, otherwise {{ site.product.short_name }} will treat
 incoming messages as if they were sent by the last relay.
-{: .notice--info}
+{: .notice--primary}

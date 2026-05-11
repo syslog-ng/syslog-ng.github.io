@@ -17,7 +17,7 @@ is unlikely, so practically you will have to segment the message (for
 example, using a [[csv-parser()|adm-parser-csv]].
 You can also use date-parser() to parse dates received in
 a JSON or key-value-formatted log message.
-{: .notice--info}
+{: .notice--primary}
 
 **Declaration**
 

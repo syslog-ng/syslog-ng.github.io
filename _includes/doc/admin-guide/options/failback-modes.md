@@ -26,7 +26,7 @@ Depending on how you set the failback() option, {{ site.product.short_name }} be
     After {{ site.product.short_name }} connects a secondary server during a failover, it sends a probe every tcp-probe-interval() seconds towards the primary server. If the primary logserver responds with a TCP ACK packet, the probe is successful. When the number of successful probes reaches the value set in the successful-probes-required() option, {{ site.product.short_name }} tries to connect the primary server using the last probe.
 
     **NOTE:** {{ site.product.short_name }} always waits for the result of the last probe before sending the next message. So if one connection attempt takes longer than the configured interval, that is, it waits for connection time out, you may experience longer intervals between actual probes.
-    {: .notice--info}
+    {: .notice--primary}
 
     Example: failback mode
 

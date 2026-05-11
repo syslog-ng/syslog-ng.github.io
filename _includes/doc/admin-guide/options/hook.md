@@ -10,7 +10,7 @@ the external program, and have the necessary permissions to do so. For
 example, if your host is running AppArmor or SELinux, you might have to
 modify your AppArmor or SELinux configuration to enable {{ site.product.short_name }} to
 execute external applications.
-{: .notice--info}
+{: .notice--primary}
 
 ### Using the hook-commands() when {{ site.product.short_name }} starts or stops
 

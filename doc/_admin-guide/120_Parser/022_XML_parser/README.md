@@ -160,4 +160,4 @@ disable any message parsing on the source side by including the
 flags(\"no-parse\") option in your source statement. This will put the
 entire log message in the ${MESSAGE} macro, which is the field that the
 XML parser parses by default.
-{: .notice--info}
+{: .notice--primary}

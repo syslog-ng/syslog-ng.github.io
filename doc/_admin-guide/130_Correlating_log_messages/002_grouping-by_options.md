@@ -100,12 +100,12 @@ This is a mandatory option.
 
 **NOTE:** Messages that do not have a key will all belong to the same
 context.
-{: .notice--info}
+{: .notice--primary}
 
 **NOTE:** If the value of the key is static (for example, key(\"PROGRAM\")
 instead of key(\"${PROGRAM}\")), all messages will belong to the same
 context.
-{: .notice--info}
+{: .notice--primary}
 
 ## scope()
 

@@ -21,7 +21,7 @@ characters according to certain rules.
 `@` character must be escaped, that is, to match for this character, you
 have to write `@@` in your pattern. This is required because pattern
 parsers of {{ site.product.short_name }} are enclosed between `@` characters.
-{: .notice--info}
+{: .notice--primary}
 
 When a new message arrives, {{ site.product.short_name }} attempts to classify it using the
 pattern database. The available patterns are organized alphabetically

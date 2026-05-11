@@ -30,7 +30,7 @@ To configure {{ site.product.short_name }} as a relay, complete the following st
 
     **NOTE:** It is recommended to use these options on your {{ site.product.short_name }}
     server as well.
-    {: .notice--info}
+    {: .notice--primary}
 
 8. Set filters and options (for example, TLS encryption) as necessary.
 
@@ -40,7 +40,7 @@ To configure {{ site.product.short_name }} as a relay, complete the following st
     hostname on the {{ site.product.short_name }} server, use the **keep-hostname(yes)**
     option both on the {{ site.product.short_name }} relay and the {{ site.product.short_name }} server. This
     option can be set individually for every source if needed.
-    {: .notice--info}
+    {: .notice--primary}
 
     If you are relaying log messages and want to resolve IP addresses to
     hostnames, configure the first relay to do the name resolution.

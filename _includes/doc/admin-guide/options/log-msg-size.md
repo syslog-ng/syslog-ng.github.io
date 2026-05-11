@@ -12,7 +12,7 @@ size of the value of an `SDATA` field is 64 KiB.
 
 **NOTE:** In most cases, log-msg-size() does not need to be set higher than
 10 MiB.
-{: .notice--info}
+{: .notice--primary}
 
 For details on how encoding affects the size of the message, see
 Message size and encoding.

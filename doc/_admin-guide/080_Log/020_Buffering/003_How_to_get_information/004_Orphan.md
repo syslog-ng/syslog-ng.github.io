@@ -17,7 +17,7 @@ so-called orphan disk-buffer file.
 **NOTE:** The {{ site.product.short_name }} application does not store messages in orphan
 disk-buffer files or forward the messages stored in the disk-buffer
 file.
-{: .notice--info}
+{: .notice--primary}
 
 ## Discovering the new disk-buffer files (orphan disk-buffer files)
 

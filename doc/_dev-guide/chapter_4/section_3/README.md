@@ -141,8 +141,8 @@ export CXXFLAGS="${CFLAGS} ${CXXFLAGS}"
 export LDFLAGS="-L${BSDPORTS_PREFIX}/lib ${LDFLAGS}"
 ```
 
-**Note:** Providing further library paths might be necessary.
-{: .notice}
+**NOTE:** Providing further library paths might be necessary.
+{: .notice--primary}
 
 ### Getting the source
 
@@ -177,12 +177,13 @@ export CXX=g++    # More precisly, the full path of ypur installed g++ compiler
 
 ### Configuration
 
-> **Note:**
->
-> * for various reasons not all modules can always be configured, built and used on all FreeBSD versions and architectures
-> * for using all the available modules you might have to install further dependencies as mentioned above
-> * for more details, please see the [[actual state of supported features|dev-macos-mod-sup-status]], and the required [dependencies](#dependencies).
-{: .notice}
+{: .notice--primary-start}
+**NOTE:**
+
+* for various reasons not all modules can always be configured, built and used on all FreeBSD versions and architectures
+* for using all the available modules you might have to install further dependencies as mentioned above
+* for more details, please see the [[actual state of supported features|dev-macos-mod-sup-status]], and the required [dependencies](#dependencies).
+{: .notice--primary-end}
 
 #### Using autotool
 
@@ -433,8 +434,8 @@ make check -j4
 cmake --build build/. --target check -j4
 ```
 
-**Note:** For more read [[testing|dev-testing]] guide.
-{: .notice}
+**NOTE:** For more read [[testing|dev-testing]] guide.
+{: .notice--primary}
 
 ### Run
 
@@ -442,5 +443,5 @@ cmake --build build/. --target check -j4
 `/full_path_of_your/installdir`/syslog-ng -F
 ```
 
-**Note:** For more information read the [[run first|dev-run-first]] guide
-{: .notice}
+**NOTE:** For more information read the [[run first|dev-run-first]] guide
+{: .notice--primary}

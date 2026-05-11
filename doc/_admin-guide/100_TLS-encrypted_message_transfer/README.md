@@ -15,7 +15,7 @@ for example, to forward log messages between two {{ site.product.short_name }} n
 send log data to {{ site.product.short_name }} Store Box or another log server. Other
 destinations that support TLS-encryption are not discussed in this
 chapter (for example, [[http())|adm-dest-http]]).
-{: .notice--info}
+{: .notice--primary}
 
 TLS uses certificates to authenticate and encrypt the communication, as
 illustrated on the following figure:

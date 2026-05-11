@@ -53,7 +53,7 @@ Host:@IPv4@.
 **NOTE:** Note that using parsers is a CPU-intensive operation. Use the
 ESTRING and QSTRING parsers whenever possible, as these can be processed
 much faster than the other parsers.
-{: .notice--info}
+{: .notice--primary}
 
 ## Example: Using the STRING and ESTRING parsers
 

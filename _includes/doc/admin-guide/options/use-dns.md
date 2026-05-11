@@ -14,4 +14,4 @@ setting of the source overrides the global option if available.
 
 **NOTE:** This option has no effect if the keep-hostname() option is enabled
 (keep-hostname(yes)) and the message contains a hostname.
-{: .notice--info}
+{: .notice--primary}

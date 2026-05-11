@@ -100,7 +100,7 @@ unmodified.
 
 **NOTE:** Configuring the proxy() option overwrites the default http\_proxy
 and https_proxy environment variables.
-{: .notice--info}
+{: .notice--primary}
 
 ### Example: the proxy() option in configuration
 

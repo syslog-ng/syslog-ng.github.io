@@ -142,7 +142,7 @@ see snmp-obj().
 
 **NOTE:** Using the trap-obj() object is equivalent to using the snmp-obj()
 with the Objectid type.
-{: .notice--info}
+{: .notice--primary}
 
 ## version()
 

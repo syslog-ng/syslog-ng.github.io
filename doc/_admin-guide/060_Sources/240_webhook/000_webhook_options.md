@@ -86,7 +86,7 @@ curl  -H "X-Forwarded-FOR: 1.2.3.4" -X POST --data "{}" http://127.0.0.1:8080/
 
 **NOTE:** 
 Note that {{ site.product.short_name }} only trusts the header that is specified in the `proxy_header()` option. If the request includes multiple headers with the specified name, the last one is used.
-{: .notice--info}
+{: .notice--primary}
 
 ## tls_ca_dir()
 

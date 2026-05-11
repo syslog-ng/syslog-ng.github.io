@@ -66,7 +66,7 @@ To use a literal $ character in a template, you have to escape it. In
 version 3.5 and later, use **$$**.
 
 **NOTE:** To use a literal @ character in a template, use **@@**.
-{: .notice--info}
+{: .notice--primary}
 
 Default values for macros can also be specified by appending the :-
 characters and the default value of the macro. If a message does not
@@ -135,4 +135,4 @@ destination d_file {
 destination files or database tables. However, they cannot be used in
 sources as wildcards, for example, to read messages from files or
 directories that include a date in their name.
-{: .notice--info}
+{: .notice--primary}

@@ -71,7 +71,7 @@ The displayed metrics have the following structure.
         objects when {{ site.product.short_name }} is reloaded. However, if the
         configuration of {{ site.product.short_name }} was changed since the last
         reload, the statistics of orphaned objects are deleted.
-        {: .notice--info}
+        {: .notice--primary}
 
 5. The connections statistics counter displays the number of
     connections tracked by {{ site.product.short_name }} for the selected source driver.
@@ -104,7 +104,7 @@ The displayed metrics have the following structure.
 
         **NOTE:** In version 3.36, {{ site.product.short_name }} only supports the
         batch\_size\_avg for the http() destination.
-        {: .notice--info}
+        {: .notice--primary}
 
     - **batch\_size\_max**: When batching is enabled, the value of
         batch\_size\_max shows the current largest batch size of the
@@ -112,7 +112,7 @@ The displayed metrics have the following structure.
 
         **NOTE:** In version 3.36, {{ site.product.short_name }} only supports the
         batch\_size\_max for the http() destination.
-        {: .notice--info}
+        {: .notice--primary}
 
     - **discarded**: The number of messages discarded by the given parser.
         These are messages that the parser could not parsed, and are
@@ -133,7 +133,7 @@ The displayed metrics have the following structure.
     - **eps\_since\_start**: The EPS value since the current {{ site.product.short_name }}
         start.
 
-        {: .notice--info-start}
+        {: .notice--primary-start}
 
         **NOTE:** When using the eps\_last\_1h, the eps\_last\_24h, and the
         eps\_since\_start statistics, consider the following:
@@ -146,7 +146,7 @@ The displayed metrics have the following structure.
             eps\_since\_start values are automatically updated every 60
             seconds.
 
-        {: .notice--info-end}
+        {: .notice--primary-end}
 
     - **matched**: The number of messages that are accepted by a given
         filter. Available for filters and similar objects (for example,
@@ -168,7 +168,7 @@ The displayed metrics have the following structure.
         message can be in multiple queues, thus its size is added to
         multiple queue sizes. To check the size of all log messages, use
         global.msg\_allocated\_bytes.value metric.
-        {: .notice--info}
+        {: .notice--primary}
 
     - **msg\_size\_max**: The current largest message size of the given
         source or destination.
@@ -176,14 +176,14 @@ The displayed metrics have the following structure.
     - **msg\_size\_avg**: The current average message size of the given
         source or destination.
 
-        {: .notice--info-start}
+        {: .notice--primary-start}
 
         **NOTE:** When using the msg\_size\_avg and msg\_size\_max
         statistics, consider that message sizes are calculated as follows:
         - on the source side: the length of the incoming raw message
         - on the destination side: the length of the outgoing formatted message
 
-        {: .notice--info-end}
+        {: .notice--primary-end}
 
     - **not\_matched**: The number of messages that are filtered out by a
         given filter. Available for filters and similar objects (for
@@ -198,7 +198,7 @@ The displayed metrics have the following structure.
         filters are expected to discard messages that do not match the
         filter condition, not\_matched messages are not included in the
         dropped metric of other objects.
-        {: .notice--info}
+        {: .notice--primary}
 
     - **processed**: The number of messages that successfully reached
         their destination driver.
@@ -208,7 +208,7 @@ The displayed metrics have the following structure.
         destination driver successfully delivered the messages as well.
         For example, a message can be written to disk or sent to a
         remote server after reaching the destination driver.
-        {: .notice--info}
+        {: .notice--primary}
 
     - **queued**: The number of messages passed to the message queue of
         the destination driver, waiting to be sent to the destination.
@@ -233,7 +233,7 @@ The displayed metrics have the following structure.
         this metric directly: to reset it, you have to reset the metrics
         it is calculated from.
 
-    {: .notice--info-start}
+    {: .notice--primary-start}
 
     **NOTE:** Consider that for {{ site.product.short_name }} version 3.36, the following
     statistics counters are only supported for the http() destination,
@@ -247,7 +247,7 @@ The displayed metrics have the following structure.
     - eps_last_24h
     - eps_since_start
 
-    {: .notice--info-end}
+    {: .notice--primary-end}
 
 7. The number of such messages.
 

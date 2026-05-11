@@ -23,7 +23,7 @@ example, key1=value1, key2=value2, key1=value3, key3=value4,
 key1=value5), then {{ site.product.short_name }} stores only the last (rightmost) value
 for the key. Using the previous example, {{ site.product.short_name }} will store the
 following pairs: key1=value5, key2=value2, key3=value4.
-{: .notice--info}
+{: .notice--primary}
 
 {% include doc/admin-guide/warnings/macro-overwrite.md %}
 

@@ -101,7 +101,7 @@ retrieve the hostname from the /etc/tnsnames.ora file.
 **NOTE:** If you specify **host=\"localhost\"**, syslog-ng will use a socket
 to connect to the local database server. Use **host=\"127.0.0.1\"** to
 force TCP communication between {{ site.product.short_name }} and the local database server.
-{: .notice--info}
+{: .notice--primary}
 
 To specify the socket to use, set and export the **MYSQL\_UNIX\_PORT**
 environment variable, for example,
@@ -197,7 +197,7 @@ NULL as well.
 *Description:* This option can be used to define custom quoting for table and index names. For example, `MySQL` requires this for specific identifiers.
 
 **NOTE:** {{ site.product.short_name }} generally uses the backtick character for configuration parameter names. When using the backtick character in the `quote_char` option, use the following formatting: **quote_char("\`\`")**
-{: .notice--info}
+{: .notice--primary}
 
 {% include doc/admin-guide/options/retries.md %}
 

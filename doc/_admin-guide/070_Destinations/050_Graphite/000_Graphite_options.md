@@ -30,4 +30,4 @@ format-json template function.
 For details on using the payload() option, see graphite-output.
 
 **NOTE:** If left empty, there is no data to be forwarded to Graphite.
-{: .notice--info}
+{: .notice--primary}

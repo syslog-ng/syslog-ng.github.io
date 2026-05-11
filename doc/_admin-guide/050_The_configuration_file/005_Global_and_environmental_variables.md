@@ -35,7 +35,7 @@ following methods:
 
 **TIP:** The environmental variables of the host are automatically imported
 and can be used as global variables.
-{: .notice--info}
+{: .notice--primary}
 
 In {{ site.product.short_name }} 3.24 and later, the location of the syslog-ng
 configuration file is available as the `syslog-ng-sysconfdir`

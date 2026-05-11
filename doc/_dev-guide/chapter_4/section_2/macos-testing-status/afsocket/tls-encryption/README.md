@@ -24,7 +24,7 @@ On a mac system, the default configuration file is stored at `/usr/local/etc`. S
 
 Below are the steps I took to set up the source instance of syslog-ng. The following commands will generate both the CA certificate as well as the private key. Of course, your private key should always stay private and the public key (ca-key) is what we will hand out to clients.
 
-{: .notice--info}
+{: .notice--primary}
 **Note:**
 These instruction are pertaining to openssl, not LibreSSL which is the provided by macOS. You can check using the `openssl version` command.
 

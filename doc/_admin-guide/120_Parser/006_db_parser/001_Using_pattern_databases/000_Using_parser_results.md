@@ -69,7 +69,7 @@ message as a tag using the `.classifier.<message-class>` format. For
 example, messages classified as "system" receive the
 `.classifier.system` tag. Use the tags() filter function to select
 messages of a specific class.
-{: .notice--info}
+{: .notice--primary}
 
 ```config
 filter f_tag_filter {tags(".classifier.system");};
@@ -111,7 +111,7 @@ match("accepted" value("TRANSACTIONTYPE"));
 **NOTE:** The above macros can be used in database columns and filename
 templates as well, if you create custom templates for the destination or
 logspace.
-{: .notice--info}
+{: .notice--primary}
 
 Use a consistent naming scheme for your macros, for example,
 `APPLICATIONNAME_MACRONAME`.

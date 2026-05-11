@@ -88,7 +88,7 @@ statistics:
   send messages until the period set in `--interval` expires or the
   amount of messages set in `--number` is reached, whichever happens
   first.
-  {: .notice--info}
+  {: .notice--primary}
 
 `--ipv6` or `-6`
     Specify the destination using its IPv6 address. Note that the
@@ -106,7 +106,7 @@ statistics:
   send messages until the period set in `--interval` expires or the
   amount of messages set in `--number` is reached, whichever happens
   first.
-  {: .notice--info}
+  {: .notice--primary}
 
 `--no-framing` or `-F`
     Do not use the framing of the IETF-syslog protocol style, even if
@@ -126,7 +126,7 @@ statistics:
   **NOTE:** If you want to change the message rate while loggen is running, send
   SIGUSR1 to double the message rate, or SIGUSR2 to halve it.
   For example:
-  {: .notice--info}
+  {: .notice--primary}
 
   ```shell
   kill -USR1 <loggen-pid>kill -USR2 <loggen-pid>
@@ -141,7 +141,7 @@ statistics:
   **NOTE:** When reading messages from the standard input,
   loggen can only use a single thread. The -R -parameters must be
   placed at end of command, like:
-  {: .notice--info}
+  {: .notice--primary}
 
   ```shell
   loggen 127.0.0.1 1061 `--read-file` -

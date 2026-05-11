@@ -20,10 +20,10 @@ following options.
 The available values are `gzip`, `deflate`, and `all` to enable all compression types. If no compression is required, use the `identity` value.
 
 **NOTE:** Requires {{ site.product.short_name }} to be compiled with a version of libcurl that has compression support (ZLib).
-{: .notice--info}
+{: .notice--primary}
 
 **NOTE:** Since {{ site.product.short_name }} uses ZLib for deflate-type compressions, the `deflate` option also adds a header and footer to the compressed data. For more details consult [RFC1950](https://www.rfc-editor.org/info/rfc1950).
-{: .notice--info}
+{: .notice--primary}
 
 ### Example: configure an http destination with compression
 
@@ -164,7 +164,7 @@ unmodified.
 
 **NOTE:** Configuring the proxy() option overwrites the default http_proxy
 and https_proxy environment variables.
-{: .notice--info}
+{: .notice--primary}
 
 ### Example: the proxy() option in configuration
 

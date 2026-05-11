@@ -7,4 +7,4 @@
 
 **NOTE:** The current implementation of the mqtt() source / destination does not
 support using the following characters for topic names: $ \+ \#
-{: .notice--info}
+{: .notice--primary}

@@ -28,6 +28,6 @@ log {
 characters everywhere, so it is recommended that you also use
 flags(no-multi-line) that causes **NUL** characters to be replaced by
 space.
-{: .notice--info}
+{: .notice--primary}
 
 {% include doc/admin-guide/warnings/udp-buffer.md %}

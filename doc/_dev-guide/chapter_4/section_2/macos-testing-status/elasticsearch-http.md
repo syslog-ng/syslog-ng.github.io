@@ -85,11 +85,11 @@ log {
 
 Now, we have sent data on the default address with the index - "test-syslog-ng". To see this, we need to use Kibana.&#x20;
 
-**Note**
+**NOTE**
 You can also simply run:
 `curl -X GET '`[`http://localhost:9200/test-syslog/_search`](http://localhost:9200/test-syslog/\_search)`'`
 to check whether the messages have been sent.
-{: .notice--info}
+{: .notice--primary}
 
 To run Kibana in the background, use:
 

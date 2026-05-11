@@ -148,7 +148,7 @@ valid characters.
 ## custom-domain()
 
 **NOTE:** This global option works only if the use-fqdn() global option is set to yes.
-{: .notice--info}
+{: .notice--primary}
 
 | Accepted values: | string       |
 | Default:         | empty string |
@@ -179,7 +179,7 @@ sources, file sources, MARK messages and internal messages of {{ site.product.sh
 
 **NOTE:** This option has no effect if the keep-hostname() option is enabled
 (keep-hostname(yes)) and the message contains a hostname.
-{: .notice--info}
+{: .notice--primary}
 
 ## dns-cache-expire()
 
@@ -387,7 +387,7 @@ log messages. Set to **0** to disable the STATS messages.
 - Level 3 contains detailed statistics based on various message parameters like facility, severity, or tags.
 
 **NOTE:** Level 2 and 3 increase the memory requirements and CPU load. For details on message statistics, see Statistics of syslog-ng.
-{: .notice--info}
+{: .notice--primary}
 
 ### lifetime()
 
@@ -429,7 +429,7 @@ log messages. Set to **0** to disable the STATS messages.
     To disable dynamic counters completely, set the value of this option to 0. This is the recommended value if  statistics are not used, or if dynamic counters are irrelevant (for example, the number of logs arriving from programs).
 
 **NOTE:** If a lower value is set to max-dynamics() (or, any limiting value, if this option has not been configured before) and {{ site.product.short_name }} is restarted, the changes are only applied after freq() time has passed. That is, the previously allocated dynamic clusters are only removed after this time.
-{: .notice--info}
+{: .notice--primary}
 
 ### syslog-stats()
 

@@ -38,7 +38,7 @@ following additional information:
 **NOTE:** With the drop-invalid(no) option syslog-parser() will work in the
 same way as the sources which receive syslog-protocol/BSD-format
 messages.
-{: .notice--info}
+{: .notice--primary}
 
 ### Example: enabling the drop-invalid() option
 

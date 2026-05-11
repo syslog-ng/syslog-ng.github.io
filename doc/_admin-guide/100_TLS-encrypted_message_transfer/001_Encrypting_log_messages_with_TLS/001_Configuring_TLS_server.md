@@ -13,7 +13,7 @@ Complete the following steps on the {{ site.product.short_name }} server:
 
 1. Create an X.509 certificate for the {{ site.product.short_name }} server.
 
-   {: .notice--info-start}
+   {: .notice--primary-start}
 
    **NOTE:** The subject_alt_name parameter (or the Common Name parameter
    if the subject_alt_name parameter is empty) of the server\'s
@@ -26,7 +26,7 @@ Complete the following steps on the {{ site.product.short_name }} server:
    hostname, do not specify a specific hostname or an IP address in the
    subject_alt_name parameter.
 
-   {: .notice--info-end}
+   {: .notice--primary-end}
 
      For details on creating certificates, see
      Creating certificates for TLS-encrypted message transfer.

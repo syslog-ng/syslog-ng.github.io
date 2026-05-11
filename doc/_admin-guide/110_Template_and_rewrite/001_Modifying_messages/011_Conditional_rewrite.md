@@ -17,7 +17,7 @@ description: >-
 **TIP:** Using conditions in rewrite rules can simplify your {{ site.product.short_name }}
 configuration file, as you do not need to create separate log paths to
 modify certain messages.
-{: .notice--info}
+{: .notice--primary}
 
 ## Using conditional rewrite
 

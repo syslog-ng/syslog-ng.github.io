@@ -17,4 +17,4 @@ config(
 ```
 
 **NOTE:** The following kafka {{ include.kafka_type }} config options are protected and cannot be overriden in the `config()` list: {{ include.protected_options }}
-{: .notice--info}
+{: .notice--primary}

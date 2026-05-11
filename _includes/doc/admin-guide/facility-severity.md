@@ -4,7 +4,7 @@ The possible Facility values (between 0 and 23) and Severity values
 **NOTE:** Facility codes may slightly vary between different platforms. The
 {{ site.product.short_name }} application accepts
 Facility codes as numerical values as well.
-{: .notice--info}
+{: .notice--primary}
 
 The following table lists possible Facility values.
 

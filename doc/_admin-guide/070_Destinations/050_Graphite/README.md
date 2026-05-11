@@ -47,4 +47,4 @@ destination d_graphite { graphite(payload("--key monitor.*")); };
 destination and the graphite-output template function. If you want to
 fine-tune the TCP parameters, use the **network()** destination instead,
 as described in $(graphite-output).
-{: .notice--info}
+{: .notice--primary}

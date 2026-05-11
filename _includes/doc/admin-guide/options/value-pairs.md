@@ -38,7 +38,7 @@ $(format-json --scope everything \
 **NOTE:** Every macro is included in the selection only once, but redundant
 information may appear if multiple macros include the same information
 (for example, including several date-related macros in the selection).
-{: .notice--info}
+{: .notice--primary}
 
 The value-pairs() option has the following parameters. The parameters
 are evaluated in the following order:

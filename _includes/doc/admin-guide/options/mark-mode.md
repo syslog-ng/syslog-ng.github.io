@@ -50,6 +50,6 @@ network(), pipe(), syslog() and in global option.
 
 **NOTE:** In case of dst-idle, host-idle and periodical, the MARK message
 will not be written in the destination, if it is not open yet.
-{: .notice--info}
+{: .notice--primary}
 
 Available in {{ site.product.short_name }} 3.4 and later.

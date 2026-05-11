@@ -17,11 +17,11 @@ url("server1 server2 server3"); # space-separated within a single string
 the order {{ site.product.short_name }} received them due to parallel processing across
 multiple targets. Use load-balancing only if your server uses timestamps from the messages
 themselves rather than arrival time.
-{: .notice--info}
+{: .notice--primary}
 
 **NOTE:** Set workers() to at least the number of URLs to ensure all targets are utilized.
 For example, with three URLs, use `workers(3)` or greater.
-{: .notice--info}
+{: .notice--primary}
 
 ![]({{ site.baseurl}}/assets/images/caution.png) **WARNING:** Always set persist-name() when using multiple URLs to prevent data loss
 if the URL list changes.

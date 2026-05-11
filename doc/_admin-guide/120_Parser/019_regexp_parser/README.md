@@ -14,7 +14,7 @@ description: >-
 \"named capture groups\" are used in the regular expression, for example
 (?\<test\_field\>\\w+). For more information, see \"named capture
 groups\" in PCRE documentation.
-{: .notice--info}
+{: .notice--primary}
 
 For more information about regular expressions in {{ site.product.short_name }}, see
 Regular expressions.

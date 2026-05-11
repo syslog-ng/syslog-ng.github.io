@@ -44,6 +44,6 @@ destination {
 
 **NOTE:** 
 If you have a protobuf-formatted message, you can specify it in the proto-var() option, instead of using the schema() option.
-{: .notice--info}
+{: .notice--primary}
 
 > *Copyright © 2025 Axoflow*

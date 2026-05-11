@@ -61,6 +61,6 @@ rewrite <name_of_the_rule> {
 
 **NOTE:** The severity and facility fields can only be set by the
 set-severity() rewrite functions.
-{: .notice--info}
+{: .notice--primary}
 
 For more information, see Setting severity with the set-severity() rewrite function.

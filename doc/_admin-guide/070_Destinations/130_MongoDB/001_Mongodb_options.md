@@ -22,7 +22,7 @@ behavior (each log is inserted one by one into the MongoDB).
 NOTE: Bulk sending is only efficient if the used collection is constant
 (e.g. not using templates) or the used template does not lead to too
 many collections switching within a reasonable time range.
-{: .notice--info}
+{: .notice--primary}
 
 ## bulk_unordered()
 

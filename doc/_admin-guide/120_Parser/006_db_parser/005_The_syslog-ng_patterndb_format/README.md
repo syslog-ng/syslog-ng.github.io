@@ -15,7 +15,7 @@ pattern database containing a single rule.
 message patterns and convert existing databases to the latest format. To automatically create
 an initial pattern database from an existing log file, use the `pdbtool patternize` command.\
 For more details, see The pdbtool manual page.
-{: .notice--info}
+{: .notice--primary}
 
 ## Example: A pattern database containing a single rule
 
@@ -50,7 +50,7 @@ username used in the connection.
 `<ruleset>` (as shown above), or wrapped in a `<patterns>` container — both
 forms are equivalent. Multiple `<pattern>` elements may be listed to cover
 applications that use different process names but send identical log messages.
-{: .notice--info}
+{: .notice--primary}
 
 The following is the same example, but with a test message and test
 values for the parsers.

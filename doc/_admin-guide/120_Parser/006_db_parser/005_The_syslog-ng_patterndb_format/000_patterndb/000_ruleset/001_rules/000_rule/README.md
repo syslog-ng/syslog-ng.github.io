@@ -13,7 +13,7 @@ description: >-
 
 The *\<rules\>* element may contain any number of *\<rule\>* elements.
 
-{: .notice--info-start}
+{: .notice--primary-start}
 
 **NOTE:** If the following characters appear in the message, they must be escaped in the rule as follows:
 
@@ -23,7 +23,7 @@ The *\<rules\>* element may contain any number of *\<rule\>* elements.
 - *&*: Use `&amp;` --- XML entity
 - *"*: Use `&quot;` --- XML entity
 - *'*: Use `&apos;` --- XML entity
-{: .notice--info-end}
+{: .notice--primary-end}
 
 ## Attributes
 
@@ -52,7 +52,7 @@ The *\<rules\>* element may contain any number of *\<rule\>* elements.
     message *after* the pattern matching is completed. This means that
     macros and name-value pairs created by the matching pattern database
     rule can be used as context-id macros.
-    {: .notice--info}
+    {: .notice--primary}
 
 - *context-timeout*: OPTIONAL --- The number of seconds the context is
     stored. Note that for high-traffic log servers, storing open
@@ -85,7 +85,7 @@ The *\<rules\>* element may contain any number of *\<rule\>* elements.
 
   **NOTE**: Using the context-scope attribute is significantly faster than
   using macros in the context-id attribute.
-  {: .notice--info}
+  {: .notice--primary}
   For details on correlating messages, see Correlating log messages using pattern databases.
 
 ## Children

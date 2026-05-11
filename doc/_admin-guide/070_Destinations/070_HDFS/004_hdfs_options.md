@@ -68,7 +68,7 @@ hdfs-archive-dir(\"/usr/hdfs/archive/\").
 **NOTE:** When hdfs-append-enabled is set to **true**, archiving is
 automatically disabled, and {{ site.product.short_name }} will ignore the
 hdfs-archive-dir option.
-{: .notice--info}
+{: .notice--primary}
 
 ## hdfs-file()
 

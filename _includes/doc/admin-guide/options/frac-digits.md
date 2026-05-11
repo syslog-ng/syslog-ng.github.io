@@ -12,9 +12,9 @@ message was received.
 
 **NOTE:** The {{ site.product.short_name }} application can add the fractions to non-ISO8601
 timestamps as well.
-{: .notice--info}
+{: .notice--primary}
 
 **NOTE:** As {{ site.product.short_name }} is precise up to the microsecond, when the
 frac-digits() option is set to a value higher than 6, {{ site.product.short_name }} will
 truncate the fraction seconds in the timestamps after 6 digits.
-{: .notice--info}
+{: .notice--primary}

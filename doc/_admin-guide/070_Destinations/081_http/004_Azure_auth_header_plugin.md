@@ -32,4 +32,4 @@ azure-auth-header(
 
 **NOTE:** All these options are mandatory. They are used as input for the
 method that calculates the authorization header.
-{: .notice--info}
+{: .notice--primary}

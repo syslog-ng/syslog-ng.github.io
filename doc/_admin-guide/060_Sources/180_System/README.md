@@ -14,7 +14,7 @@ description: >-
 the system() source, but this was problematic in certain situations, for
 example, when the host used a strict AppArmor profile. Therefore, the
 system() source is now generated internally in {{ site.product.short_name }}.
-{: .notice--info}
+{: .notice--primary}
 
 The system() driver is also used in the default configuration file of
 {{ site.product.short_name }}. For details on the default configuration file, see

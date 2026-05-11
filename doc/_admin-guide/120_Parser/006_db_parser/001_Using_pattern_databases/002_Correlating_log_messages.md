@@ -42,7 +42,7 @@ context, {{ site.product.short_name }} automatically adds the identifier of the 
 to the `.classifier.context_id` macro of the message.
 
 **NOTE:** Message contexts are persistent and are not lost when {{ site.product.short_name }} is reloaded (SIGHUP), but are lost when {{ site.product.short_name }} is restarted.
-{: .notice--info}
+{: .notice--primary}
 
 Another parameter of a rule is the context-timeout attribute, which
 determines how long a context is stored, that is, how long {{ site.product.short_name }}
