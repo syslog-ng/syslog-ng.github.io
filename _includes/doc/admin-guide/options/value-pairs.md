@@ -29,7 +29,7 @@ value-pairs(
 The following example selects the same information as the previous
 example, but converts it into JSON format.
 
-```bash
+```config
 $(format-json --scope everything \
     --exclude R_* --exclude S_* --key .SDATA.meta.sequenceId \
     --pair MSGHDR="${PROGRAM}[${PID}]: ")

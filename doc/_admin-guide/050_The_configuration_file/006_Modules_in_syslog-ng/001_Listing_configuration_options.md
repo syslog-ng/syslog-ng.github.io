@@ -12,7 +12,7 @@ The syslog-ng-cfg-helper utility has the following options:
 
 - The following command lists the contexts that the utility supports.
 
-    ```bash
+    ```shell
     syslog-ng-cfg-helper
     ```
 
@@ -21,21 +21,21 @@ The syslog-ng-cfg-helper utility has the following options:
 
 - The following command lists the available drivers of a context:
 
-    ```bash
+    ```shell
     syslog-ng-cfg-helper -c <source|destination>
     ```
 
 - The following command lists the available options of a specific
     driver and specifies the context and the driver:
 
-    ```bash
+    ```shell
     syslog-ng-cfg-helper -c <source|destination> -d <driver>
     ```
 
     For example, to list the options of the kafka() destination
     driver:
 
-    ```bash
+    ```shell
     syslog-ng-cfg-helper -c destination -d kafka
     ```
 

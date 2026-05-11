@@ -58,7 +58,7 @@ valid {{ site.product.short_name }} configuration snippet.
     subdirectories, and creates a source driver for every directory that
     contains an access.log file.
 
-    ```bash
+    ```shell
         #!/bin/bash
         for i in `find /var/log/apache2/ -type d`; do
             echo "file(\"$i/access.log\" flags(no-parse) program-override(\"apache2\"));";

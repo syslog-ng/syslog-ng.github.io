@@ -11,7 +11,7 @@ description: >-
 The basic command syntax for getting the status information of the
 disk-buffer files used in {{ site.product.short_name }} looks like the following:
 
-```bash
+```shell
 dqtoolinfo DISK-BUFFER_FILE
 ```
 
@@ -26,7 +26,7 @@ files).
 
 #### Empty, normal disk-buffer file
 
-```bash
+```shell
 dqtool info /var/lib/syslog-ng/syslog-ng-00000.qf
 ```
 
@@ -34,7 +34,7 @@ dqtool info /var/lib/syslog-ng/syslog-ng-00000.qf
 
 #### Non-empty, reliable disk-buffer queue file
 
-```bash
+```shell
 dqtool info /opt/syslog-ng/var/syslog-ng-00000.rqf
 ```
 
@@ -45,6 +45,6 @@ dqtool info /opt/syslog-ng/var/syslog-ng-00000.rqf
 You can use the following one-liner command to get the state of
 disk-buffer files in the default directory:
 
-```bash
+```shell
 for qfile in /opt/syslog-ng/var/*.?(r)qf ; do dqtool info $qfile 2>&1 ; done
 ```

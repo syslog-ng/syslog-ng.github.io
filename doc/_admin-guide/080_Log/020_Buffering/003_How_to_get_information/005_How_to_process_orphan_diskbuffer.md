@@ -67,7 +67,7 @@ To process the messages from an orphan disk-buffer file using a separate
 3. Create a directory for the temporary instance. In the examples
     during this process, the /tmp/qdisk directory is used.
 
-    ```bash
+    ```shell
     mkdir /tmp/qdisk
     ```
 
@@ -133,7 +133,7 @@ To process the messages from an orphan disk-buffer file using a separate
 
 6. Start the temporary {{ site.product.short_name }} instance in the foreground.
 
-    ```bash
+    ```shell
     syslog-ng -Fe -f /tmp/qdisk/qdisk.conf -R /tmp/qdisk/qdisk.persist -c /tmp/qdisk/qdisk.ctl
     ```
 
@@ -159,14 +159,14 @@ To process the messages from an orphan disk-buffer file using a separate
 8. Overwrite the empty disk-buffer file with the orphan disk-buffer
     file.
 
-    ```bash
+    ```shell
     mv /opt/syslog-ng/var/syslog-ng-00005.rqf /tmp/qdisk/syslog-ng-00000.rqf
     ```
 
 9. Start {{ site.product.short_name }} using the command used in Start the temporary
     {{ site.product.short_name }} instance in the foreground step.
 
-    ```bash
+    ```shell
     syslog-ng -Fe -f /tmp/qdisk/qdisk.conf -R /tmp/qdisk/qdisk.persist -c /tmp/qdisk/qdisk.ctl
     ```
 
@@ -176,13 +176,13 @@ To process the messages from an orphan disk-buffer file using a separate
     - Checking the number of stored logs in the disk-buffer (that is,
         the last number from the output).
 
-    ```bash
+    ```shell
     /opt/syslog-ng/sbin/syslog-ng-ctl stats -c /tmp/qdisk/qdisk.ctl | grep 'dst.*queued'
     ```
 
     - Checking the status of the disk-buffer file.
 
-    ```bash
+    ```shell
     dqtool info /tmp/qdisk/syslog-ng-00000.rqf
     ```
 
@@ -213,6 +213,6 @@ To process the messages from an orphan disk-buffer file using a separate
 
     The following command removes the /mp/qdisk temporary directory:
 
-```bash
+```shell
 rm -rf /tmp/qdisk
 ```

@@ -212,7 +212,7 @@ file from the private key, X.509 certificate, and CA certificate files.
 Then, the second half of the example uses the same PKCS \#12 file in the
 {{ site.product.short_name }} configuration.
 
-```bash
+```shell
 openssl pkcs12 -export -inkey server.key -in server.crt -certfile ca.crt -out server.p12
 ```
 

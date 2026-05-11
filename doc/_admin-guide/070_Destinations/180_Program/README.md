@@ -67,7 +67,7 @@ destination d_prog { program("/bin/script" template("<${PRI}>${DATE} ${HOST} ${M
 The following shell script writes the incoming messages into the
 /tmp/testlog file.
 
-```bash
+```shell
 #!/bin/bash
 
 while read line ; do

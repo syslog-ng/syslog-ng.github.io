@@ -10,7 +10,7 @@ description: >-
 
 To start {{ site.product.short_name }}, execute the following command as root.
 
-```bash
+```shell
 systemctl start syslog-ng
 ```
 
@@ -29,7 +29,7 @@ To stop {{ site.product.short_name }}
 
 1. Execute the following command as root.
 
-    ```bash
+    ```shell
     systemctl stop syslog-ng
     ```
 
@@ -39,7 +39,7 @@ To stop {{ site.product.short_name }}
 
 To restart {{ site.product.short_name }}, execute the following command as root.
 
-```bash
+```shell
 systemctl restart syslog-ng
 ```
 
@@ -48,7 +48,7 @@ systemctl restart syslog-ng
 To reload the configuration file without restarting {{ site.product.short_name }},
 execute the following command as root.
 
-```bash
+```shell
 systemctl reload syslog-ng
 ```
 
@@ -63,7 +63,7 @@ To check the status of {{ site.product.short_name }} service
 
 1. Execute the following command as root.
 
-    ```bash
+    ```shell
     systemctl --no-pager status syslog-ng
     ```
 
@@ -99,7 +99,7 @@ To check the status of {{ site.product.short_name }} service
 
 To check the process of {{ site.product.short_name }}, execute one of the following commands.
 
-```bash
+```shell
 ps u `pidof syslog-ng`
 ```
 
@@ -110,7 +110,7 @@ Expected output example:
 > syslogng 6709 0.0 0.6 308680 13432 ? Ss 09:17 0:00  
 > /opt/syslog-ng/libexec/syslog-ng -F --no-caps --enable-core
 
-```bash
+```shell
 ps axu | grep syslog-ng | grep -v grep
 ```
 
@@ -144,7 +144,7 @@ example, `| sort`.
 
 To check the central statistics, execute the following command to see the number of received and queued (sent) messages by {{ site.product.short_name }}.
 
-```bash
+```shell
 watch "/opt/syslog-ng/sbin/syslog-ng-ctl stats | grep ^center"
 ```
 
@@ -163,7 +163,7 @@ Example: output example
 
 To check the source statistics, execute the following command to see the number of received messages on the configured sources.
 
-```bash
+```shell
 watch "/opt/syslog-ng/sbin/syslog-ng-ctl stats | grep ^source"
 ```
 
@@ -183,7 +183,7 @@ Example: output example
 
 To check the source statistics, execute the following command to see the number of received messages on the configured sources.
 
-```bash
+```shell
 watch "/opt/syslog-ng/sbin/syslog-ng-ctl stats | grep ^destination"
 ```
 

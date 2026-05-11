@@ -65,6 +65,6 @@ on). The statistics have the following fields:
 
 To reset the statistics to zero, use the following command:
 
-```bash
+```shell
 syslog-ng-ctl stats --reset
 ```

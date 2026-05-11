@@ -14,7 +14,7 @@ To enable core files, complete the following procedure:
     set to a high value in the init script of syslog-ng. Add the
     following line to the init script of syslog-ng:
 
-    ```bash
+    ```shell
     ulimit -c unlimited
     ```
 

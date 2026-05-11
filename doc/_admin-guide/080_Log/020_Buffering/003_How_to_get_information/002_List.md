@@ -14,7 +14,7 @@ about disk-buffer files in its persist file.
 
 The following command will list the disk-buffer files in use:
 
-```bash
+```shell
 /opt/syslog-ng/bin/persist-tool dump /var/lib/syslog-ng/syslog-ng.persist | awk -F '["=]' '/(qfile\(|\.queue)/ { gsub(/[ \t]+/, "", $5); gsub(/^[0-9A-Fa-f]{8}/, "", $5); "echo "$5"|xxd -r -p"|& getline QUEUE; printf("%s ==> %s\n",$1,QUEUE)}'
 ```
 

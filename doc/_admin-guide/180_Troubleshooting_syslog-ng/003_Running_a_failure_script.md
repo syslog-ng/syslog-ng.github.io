@@ -20,7 +20,7 @@ To create a sample failure script, complete the following steps.
 1. Create a file named /opt/syslog-ng/sbin/syslog-ng-failure with the
     following content:
 
-    ```bash
+    ```shell
     #!/usr/bin/env bash
     cat >>/tmp/test.txt <<EOF
     $(date)
@@ -41,7 +41,7 @@ To create a sample failure script, complete the following steps.
 
 3. Run the following command in the /opt/syslog-ng/sbin directory:
 
-    ```bash
+    ```shell
     ./syslog-ng --process-mode=safe-background; sleep 0.5; ps aux |
     grep './syslog-ng' | grep -v grep | awk '{print $2}' | xargs
     kill -KILL; sleep 0.5; cat /tmp/test.txt

@@ -37,13 +37,13 @@ disk-buffer files\' saving directory.
 
 Disk-buffer file list from persist file:
 
-```bash
+```shell
 afsocket_dd_qfile(stream,10.21.10.112:514) = { "queue_file": "/opt/syslog-ng/var/syslog-ng-00001.rqf" }
 ```
 
 Disk-buffer files\' saving directory content:
 
-```bash
+```shell
 # ls -l /var/lib/syslog-ng/*qf
 -rw------- 1 root root 2986780 Jul 31 12:30 /var/lib/syslog-ng/syslog-ng-00000.qf
 -rw------- 1 root root 2000080 Jul 31 12:31 /opt/syslog-ng/var/syslog-ng-00000.rqf

@@ -41,7 +41,7 @@ status of the private keys that {{ site.product.short_name }} uses in the networ
 syslog() drivers. The command returns the list of private keys used, and
 their status. For example:
 
-```bash
+```shell
 syslog-ng-ctl credentials status
 ```
 
@@ -63,21 +63,21 @@ You can add the passphrase to a password-protected private key file
 using the following command. {{ site.product.short_name }} will display a prompt for you
 to enter the passphrase. We recommend that you use this method.
 
-```bash
+```shell
 syslog-ng-ctl credentials add --id=<path-to-the-key>
 ```
 
 Alternatively, you can include the passphrase in the \--secret
 parameter:
 
-```bash
+```shell
 syslog-ng-ctl credentials add --id=<path-to-the-key> --secret=<passphrase-of-the-key>
 ```
 
 Or you can pipe the passphrase to the syslog-ng-ctl command, for
 example:
 
-```bash
+```shell
 echo "<passphrase-of-the-key>" | syslog-ng-ctl credentials add --id=<path-to-the-key>
 ```
 

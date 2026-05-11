@@ -30,7 +30,7 @@ vector.entry = value1,"value 2","Doe,John",value3...valueN
 
 Note that xmllint has the same behavior:
 
-```bash
+```shell
 $ xmllint --xpath "/vector/entry/text()" test.xml
 value1value2valueN%
 ```

@@ -28,13 +28,13 @@ description: >-
 
 - Use the socat application:
 
-    ```bash
+    ```shell
     echo STATS \| socat -vv UNIX-CONNECT:/opt/syslog-ng/var/run/syslog-ng.ctl -
     ```
 
 - If you have an OpenBSD-style netcat application installed, use the
 
-    ```bash
+    ```shell
     echo STATS \| nc -U /opt/syslog-ng/var/run/syslog-ng.ctl
     ```
 

@@ -34,19 +34,19 @@ distribution-specific packages may use different paths.
 
 - *Linux*
 
-    ```bash
+    ```shell
     strace -o /tmp/trace.txt -s256 -ff -ttT /opt/syslog-ng/sbin/syslog-ng -f /opt/syslog-ng/etc/syslog-ng.conf -Fdv
     ```
 
 - *HP-UX*
 
-    ```bash
+    ```shell
     tusc -f -o /tmp/syslog-ng-trace.txt -T /opt/syslog-ng/sbin/syslog-ng
     ```
 
 - *IBM AIX and Solaris*
 
-    ```bash
+    ```shell
     truss -f -o /tmp/syslog-ng-trace.txt -r all -w all -u libc:: /opt/syslog-ng/sbin/syslog-ng -d -d -d
     ```
 

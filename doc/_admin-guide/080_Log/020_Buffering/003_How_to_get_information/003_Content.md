@@ -11,7 +11,7 @@ description: >-
 The command syntax for printing the content of the disk-buffer files
 used in {{ site.product.short_name }} looks like the following:
 
-```bash
+```shell
 dqtool cat DISK-BUFFER_FILE
 ```
 

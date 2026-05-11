@@ -81,7 +81,7 @@ and other platforms, see {{ site.product.name }} installation packages.
     repository from GitHub instead of using a release tarball, execute
     the **./autogen.sh** command.)
 
-    ```bash
+    ```shell
     ./configure
     make
     make install   
@@ -89,13 +89,13 @@ and other platforms, see {{ site.product.name }} installation packages.
 
 9. Uncompress the {{ site.product.short_name }} archive using the
 
-    ```bash
+    ```shell
     tar xvfz syslog-ng-x.xx.tar.gz
     ```
 
     or the
 
-    ```bash
+    ```shell
     unzip -c syslog-ng-x.xx.tar.gz | tar xvf -
     ```
 
@@ -104,7 +104,7 @@ and other platforms, see {{ site.product.name }} installation packages.
 
 10. Enter the new directory and issue the following commands:
 
-    ```bash
+    ```shell
     ./configure
     make
     make install   
@@ -125,7 +125,7 @@ and other platforms, see {{ site.product.name }} installation packages.
 11. If needed, use the following options to change how {{ site.product.short_name }} is
     compiled using the following command syntax:
 
-    ```bash
+    ```shell
     ./configure --compile-time-option-name
     ```
 

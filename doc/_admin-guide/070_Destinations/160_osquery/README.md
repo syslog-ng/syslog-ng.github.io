@@ -15,14 +15,14 @@ description: >-
 
 Run osqueryi:
 
-```bash
+```shell
 osqueryi --enable_syslog 
          --disable-events=false
 ```
 
 To store the database on disk:
 
-```bash
+```shell
 osqueryi --enable_syslog
          --disable-events=false
          --database_path=/tmp/osquery.db
@@ -30,7 +30,7 @@ osqueryi --enable_syslog
 
 To set up a custom named pipe:
 
-```bash
+```shell
 osqueryi --enable_syslog
          --disable-events=false
          --database_path=/tmp/osquery.db
