@@ -11,7 +11,7 @@ id: dev-platform-build-macos
 
 At present we are not supporting macOS {{ site.product.short_name }} on our [[official repository|gh-syslog-ng]] on GitHub. However, you can compile {{ site.product.short_name }} yourself following this guide.
 
-**NOTE:** The guide is tested on ARM macOS Sonoma 14.6.1, Ventura 13.4, and Intel macOS Monterey 12.6.6 machines, we do our bests to keep it update, but your actual system may require additional steps or slightly different settings.
+The guide is tested on ARM macOS Sonoma 14.6.1, Ventura 13.4, and Intel macOS Monterey 12.6.6 machines, we do our bests to keep it update, but your actual system may require additional steps or slightly different settings.
 {: .notice--primary}
 
 ## Compiling from source
@@ -29,7 +29,7 @@ The above mentioned dependencies can be satisfied by compiling every-each libs a
    **TIP:** Don't forget to set up the homebrew environment, follow the instructions in your terminal! [[Here|homebrew-inst-detailed]] you can find an even more detailed instruction about the topic.
    {: .notice}
 
-   **NOTE:** This will install **Command Line Tools for Xcode** as well if not already presented on the system that would also be required anyway for a seamless {{ site.product.short_name }} build.
+   This will install **Command Line Tools for Xcode** as well if not already presented on the system that would also be required anyway for a seamless {{ site.product.short_name }} build.
    {: .notice--primary}
 
 2. Perform `brew update` if you have not done it yet.
@@ -226,7 +226,6 @@ sudo port install \
 <div id="packages-note"></div>
 
 {: .notice--primary-start}
-**NOTE:**
 
 * `bison` is required because the version provided by Apple Developer Tools is incomplete (e.g., missing the `-W` option). The reason bison needs to be installed via a package manager is that the `-W` option is supported only in versions after 2.3.
 * `net-snmp` might also be needed because the options provided by Apple Developer Tools are somewhat incorrect. The reason Net-SNMP might be required from a package manager is that the default `pkg-config` may return incorrect library and include paths.
@@ -316,7 +315,7 @@ sudo port install \
    export LDFLAGS="-L${MACPORTS_PREFIX}/lib ${LDFLAGS}"
    ```
 
-**NOTE:** Providing further library paths might be necessary. (e.g. for openssl 1.1.x, etc.)
+Providing further library paths might be necessary. (e.g. for openssl 1.1.x, etc.)
 {: .notice--primary}
 
 ### Getting the source
@@ -353,7 +352,6 @@ export CXX=g++    # More precisly, the full path of your installed g++ compiler
 ### Configuration
 
 {: .notice--primary-start}
-**NOTE:**
 
 * for various reasons not all modules can always be configured, built and used on all macOS versions and architectures
 * for using all the available modules you might have to install further dependencies as mentioned above
@@ -374,7 +372,7 @@ mkdir build; cd build
 ../configure --with-ivykis=internal --with-systemd-journal=no --disable-java --disable-java-modules
 ```
 
-![]({{ site.baseurl}}/assets/images/warning.png) **DANGER:** By a good chance, you might want to install the self built instance first to a custom location to prevent overwriting a possibly already existing installed version. In that case pass `--prefix /full_path_of_your/installdir/` to the `configure` script in the above steps.
+By a good chance, you might want to install the self built instance first to a custom location to prevent overwriting a possibly already existing installed version. In that case pass `--prefix /full_path_of_your/installdir/` to the `configure` script in the above steps.
 {: .notice--danger}
 
 If you have all the above mentioned dependencies installed, for the full feature set you can simply use for example (excluded the not yet supported modules on macOS)
@@ -469,7 +467,7 @@ If you have all the above mentioned dependencies installed, for the full (curren
 cmake --install-prefix /full_path_of_your/installdir -B build . -Wno-dev -DIVYKIS_SOURCE=internal
 ```
 
-![]({{ site.baseurl}}/assets/images/warning.png) **DANGER:** You may want to install the self-built instance to a custom location first to avoid overwriting an existing installed version. In that case, pass the `--install-prefix /full_path_of_your/installdir/` parameter to the `cmake` command, as shown in the steps above.
+You may want to install the self-built instance to a custom location first to avoid overwriting an existing installed version. In that case, pass the `--install-prefix /full_path_of_your/installdir/` parameter to the `cmake` command, as shown in the steps above.
 {: .notice--danger}
 
 At the end of the configure step you should see the module list will be used during the compilation and installation steps, it should look similar to this
@@ -612,7 +610,7 @@ make check -j4
 cmake --build build/. --target check -j4
 ```
 
-**NOTE:** For more read [[testing|dev-testing]] guide.
+For more read [[testing|dev-testing]] guide.
 {: .notice--primary}
 
 ### Run
@@ -621,5 +619,5 @@ cmake --build build/. --target check -j4
 `/full_path_of_your/installdir`/syslog-ng -F
 ```
 
-**NOTE:** For more information read the [[run first|dev-run-first]] guide
+For more information read the [[run first|dev-run-first]] guide
 {: .notice--primary}

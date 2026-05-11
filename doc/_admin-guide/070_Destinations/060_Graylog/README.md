@@ -47,7 +47,7 @@ native data format of Graylog.
   forwards any name-value pairs where the name starts with a dot or
   underscore.
 
-**NOTE:** If there is a dot in a field name other than the first character,
+If there is a dot in a field name other than the first character,
 {{ site.product.short_name }} creates nested JSON while formatting the message. Nested JSON
 is not automatically parsed in GELF messages.
 {: .notice--primary}

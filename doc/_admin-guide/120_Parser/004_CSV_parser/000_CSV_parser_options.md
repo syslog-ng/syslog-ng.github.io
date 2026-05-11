@@ -112,7 +112,7 @@ following flags are available:
     **TIP:** Messages dropped as invalid can be processed by a fallback log
     path. For details on the fallback option, see
     Log path flags.
-    {: .notice--primary}
+    {: .notice}
 
 - *escape-backslash*: The parsed message uses the backslash (\\)
     character to escape quote characters.

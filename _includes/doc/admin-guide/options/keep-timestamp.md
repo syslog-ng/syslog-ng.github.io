@@ -9,6 +9,6 @@ of reception will be used instead. This option can be specified
 globally, and per-source as well. The local setting of the source
 overrides the global option if available.
 
-![]({{ site.baseurl}}/assets/images/caution.png) **WARNING:** To use the S_ macros,
+To use the S_ macros,
 the keep-timestamp() option must be enabled (this is the default behavior of {{ site.product.short_name }}).
 {: .notice--warning}

@@ -9,7 +9,7 @@ description: >-
     parameters are passed to the file source.
 ---
 
-**NOTE:** Most recent Linux distributions enable Security-Enhanced Linux
+Most recent Linux distributions enable Security-Enhanced Linux
 (SELinux) or AppArmor as a security measure. If enabled, these
 technologies might disable access to the Linux Audit log file by
 default. Consult their manuals to enable Linux Audit log access for

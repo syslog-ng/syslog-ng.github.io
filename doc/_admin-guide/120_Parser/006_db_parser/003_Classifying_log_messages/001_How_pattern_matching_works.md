@@ -17,7 +17,7 @@ Patterns can consist of literals (keywords, or rather, keycharacters)
 and pattern parsers. Pattern parsers attempt to parse a sequence of
 characters according to certain rules.
 
-**NOTE:** Wildcards and regular expressions cannot be used in patterns. The
+Wildcards and regular expressions cannot be used in patterns. The
 `@` character must be escaped, that is, to match for this character, you
 have to write `@@` in your pattern. This is required because pattern
 parsers of {{ site.product.short_name }} are enclosed between `@` characters.

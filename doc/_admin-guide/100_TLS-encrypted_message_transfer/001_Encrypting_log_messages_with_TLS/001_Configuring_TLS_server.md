@@ -15,7 +15,7 @@ Complete the following steps on the {{ site.product.short_name }} server:
 
    {: .notice--primary-start}
 
-   **NOTE:** The subject_alt_name parameter (or the Common Name parameter
+   The subject_alt_name parameter (or the Common Name parameter
    if the subject_alt_name parameter is empty) of the server\'s
    certificate must contain the hostname or the IP address (as resolved
    from the {{ site.product.short_name }} clients and relays) of the server (for example,
@@ -132,6 +132,5 @@ Complete the following steps on the {{ site.product.short_name }} server:
     };
     ```
 
-    ![]({{ site.baseurl}}/assets/images/caution.png) **WARNING:**
     Do not forget to update the certificate and key files when they expire.
     {: .notice--warning}

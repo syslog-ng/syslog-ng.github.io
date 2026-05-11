@@ -52,7 +52,7 @@ When the context is closed, and the messages match the filter set in the
 having() option (or the having() option is not set), {{ site.product.short_name }}
 generates and sends the message set in the aggregate() option.
 
-**NOTE:** Message contexts are persistent and are not lost when {{ site.product.short_name }} is reloaded (SIGHUP), but are lost when {{ site.product.short_name }} is restarted.
+Message contexts are persistent and are not lost when {{ site.product.short_name }} is reloaded (SIGHUP), but are lost when {{ site.product.short_name }} is restarted.
 {: .notice--primary}
 
 **Declaration**

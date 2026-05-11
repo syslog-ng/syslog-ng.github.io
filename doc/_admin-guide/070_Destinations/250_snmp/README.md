@@ -25,14 +25,13 @@ parameters, see snmp() destination options.
 destination d_snmp {snmp(host() trap-obj() snmp-obj() ...);};
 ```
 
-![]({{ site.baseurl}}/assets/images/caution.png) **WARNING:**
 If {{ site.product.short_name }} cannot resolve the destination hostname during startup,
 it will try to resolve the hostname again when the next message to be
 sent as an SNMP trap is received. However, if this name resolution fails,
 the trap will be dropped.
 {: .notice--warning}
 
-**NOTE:** The snmp() destination driver does not generate MARK signals
+The snmp() destination driver does not generate MARK signals
 itself, but can receive and forward MARK signals.
 {: .notice--primary}
 

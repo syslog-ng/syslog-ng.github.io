@@ -9,7 +9,7 @@ description: >-
 
 ## Restrictions and limitations
 
-- ![]({{ site.baseurl}}/assets/images/warning.png) **DANGER:**
+-
     *Hazard of data loss!* If you use password-protected keys,
     you must provide the passphrase of the password-protected keys every
     time {{ site.product.short_name }} is restarted ({{ site.product.short_name }} keeps the passphrases

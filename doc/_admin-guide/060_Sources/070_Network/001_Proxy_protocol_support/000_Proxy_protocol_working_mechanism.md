@@ -23,7 +23,7 @@ macros to every message the comes through the connection later on:
 
 {: .notice--primary-start}
 
-**NOTE:** Consider the following about macros and headers:  
+Consider the following about macros and headers:  
   
 - When the proxy protocol header is PROXY UNKNOWN, no additional macros are added.
   
@@ -39,6 +39,6 @@ macros to every message the comes through the connection later on:
 
 {: .notice--primary-end}
 
-**NOTE:** Since the driver only implements version 1 of the protocol, it
+Since the driver only implements version 1 of the protocol, it
 only supports TCP4 and TCP6 connections. TLS connections also supported.
 {: .notice--primary}

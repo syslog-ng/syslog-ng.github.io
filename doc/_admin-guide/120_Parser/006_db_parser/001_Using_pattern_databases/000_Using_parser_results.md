@@ -108,7 +108,7 @@ following custom filter in the log path:
 match("accepted" value("TRANSACTIONTYPE"));
 ```
 
-**NOTE:** The above macros can be used in database columns and filename
+The above macros can be used in database columns and filename
 templates as well, if you create custom templates for the destination or
 logspace.
 {: .notice--primary}

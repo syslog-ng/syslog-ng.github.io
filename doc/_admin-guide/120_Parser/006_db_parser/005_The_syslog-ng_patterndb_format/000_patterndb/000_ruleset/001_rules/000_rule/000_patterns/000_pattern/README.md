@@ -37,7 +37,7 @@ For detailed information about pattern syntax and parsers, see Using pattern par
 
 {: .notice--primary-start}
 
-**NOTE:** For special character escaping in patterns:
+For special character escaping in patterns:
 - XML entities supported: **&amp; &lt; &gt; &quot; &apos;**
 - For the @ character, use `@@` (syslog-ng special notation), for example: `user@@example.com`
 

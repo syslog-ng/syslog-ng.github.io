@@ -1,6 +1,5 @@
 {: .notice--primary-start}
-
-**NOTE:** To format multi-line messages to your individual needs, consider the following:
+To format multi-line messages to your individual needs, consider the following:
 
 - To make multi-line messages more readable when written to a file,
     use a template in the destination and instead of the ${MESSAGE}

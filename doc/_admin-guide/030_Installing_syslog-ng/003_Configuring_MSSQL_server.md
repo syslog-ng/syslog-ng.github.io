@@ -58,8 +58,7 @@ enable remote logins and accept log messages from {{ site.product.short_name }}.
         messages that you want to store in the database, then click
         **OK**.
 
-        ![]({{ site.baseurl}}/assets/images/caution.png)
-        **WARNING:** Incorrect language settings may result in the database
+        Incorrect language settings may result in the database
         converting the messages to a different character-encoding format.
         That way the log messages may become unreadable, causing information loss.
         {: .notice--warning}

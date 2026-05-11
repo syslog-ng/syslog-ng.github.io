@@ -28,5 +28,5 @@ log otel_forward_mode_alts {
 };
 ```
 
-**NOTE:** The syslog-ng OSE application does not parse the fields of the incoming messages into name-value pairs. It is only capable of forwarding messages using the `opentelemetry()` destination. For information on parsing OpenTelemetry messages, see the OpenTelemetry parser section.
+The syslog-ng OSE application does not parse the fields of the incoming messages into name-value pairs. It is only capable of forwarding messages using the `opentelemetry()` destination. For information on parsing OpenTelemetry messages, see the OpenTelemetry parser section.
 {: .notice--primary}

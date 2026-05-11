@@ -56,7 +56,7 @@ and any other object in the log statement can already use the results of
 the **p_apache_parser** parser.
 
 {: .notice--primary-start}
-**NOTE:** You must start the object definition with a **channel** even if
+You must start the object definition with a **channel** even if
 you will use a junction, for example:
   
 ```config

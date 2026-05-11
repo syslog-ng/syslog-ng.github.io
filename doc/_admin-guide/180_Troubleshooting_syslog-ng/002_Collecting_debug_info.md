@@ -52,4 +52,4 @@ distribution-specific packages may use different paths.
 
 **TIP:** To execute these commands on an already running {{ site.product.short_name }}
 process, use the **-p \<pid\_of\_syslog-ng\>** parameter.
-{: .notice--primary}
+{: .notice}

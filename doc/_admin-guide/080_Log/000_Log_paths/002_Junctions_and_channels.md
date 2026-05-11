@@ -20,7 +20,7 @@ Using channels in configuration objects
 
 {: .notice--primary-start}
 
-**NOTE:** Certain parsers can also act as filters:  
+Certain parsers can also act as filters:  
   
 - The JSON parser automatically discards messages that are not valid JSON messages.  
 - The csv-parser() discards invalid messages if the **flags(drop-invalid)** option is set.
@@ -122,12 +122,12 @@ log {
 };
 ```
 
-**NOTE:** {{ site.product.short_name }} has several parsers that you can use to parse
+{{ site.product.short_name }} has several parsers that you can use to parse
 non-compliant messages. You can even [[write a custom {{ site.product.short_name }} parser in Python|adm-parser-python]].
 For details, see [[parser: Parse and segment structured messages]].
 {: .notice--primary}
 
-**NOTE:** Junctions differ from embedded log statements, because embedded
+Junctions differ from embedded log statements, because embedded
 log statements are like branches: they split the flow of messages into
 separate paths, and the different paths do not meet again. Messages
 processed on different embedded log statements cannot be combined

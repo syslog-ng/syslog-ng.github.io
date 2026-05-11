@@ -27,7 +27,7 @@ or define
 
 a markdown link, where the link url and title is handled automatically using the given ID.
 
-**NOTE:** the url and the default title text must not be provided here (though can be overriden if needed), the lookup of them will be automatic based on the given ID, the generate_links collected links in the `${PROJECT_ROOT}/_data/links` folder are also available via the `site.data.links` liquid variable, markdown_link uses this variable as well to search for the given ID and the corresponding title and url.
+the url and the default title text must not be provided here (though can be overriden if needed), the lookup of them will be automatic based on the given ID, the generate_links collected links in the `${PROJECT_ROOT}/_data/links` folder are also available via the `site.data.links` liquid variable, markdown_link uses this variable as well to search for the given ID and the corresponding title and url.
 {: .notice--primary}
 
 You can use the following parameters to adjust the composition of the above `md_link_` options:
@@ -62,7 +62,7 @@ You can use the following parameters to adjust the composition of the above `md_
     [title](url){: class="nav-link" }
     ```
 
-    **NOTE:** the `class="nav-link"` style is always added to the link, except if `outOfFrame` is set to `yes`
+    the `class="nav-link"` style is always added to the link, except if `outOfFrame` is set to `yes`
     {: .notice--primary}
 
 - `title`, a custom title that can override the one that belongs to the given link ID, e.g.:
@@ -115,7 +115,7 @@ You can use the following parameters to adjust the composition of the above `md_
     [title](url){: }
     ```
 
-    **NOTE:** the absence of the `class="nav-link"` style, that will not be added if outOfFrame is `true`
+    the absence of the `class="nav-link"` style, that will not be added if outOfFrame is `true`
     {: .notice--primary}
 
 ## liquify
@@ -245,3 +245,88 @@ The basic flow is as follows:
 
 - at runtime
   - .js code parts adds the tooltip code to the named anchors with specific autolink, tooltip class(es)
+
+## Notice blocks
+
+Notice blocks are the gray/colored callout boxes used throughout the documentation. They combine three pieces of machinery:
+
+- the **Minimal Mistakes** `.notice` / `.notice--TYPE` classes,
+- the `_plugins/expand_notice_blocks.rb` plugin that expands paired markers into a wrapping `<div>`,
+- the `@mixin notice-prefix` rule in `_sass/minimal-mistakes/minimal-mistakes/_notices.scss` that injects the leading icon and the bold label automatically.
+
+### Notice types and CSS-driven icon and label auto-injection
+
+The five typed notice variants get their leading icon and bold label injected automatically by `@mixin notice-prefix`. **Authors must never write the `![](.../icon.png) **LABEL:**` prefix in the source** — doing so would render the icon and label twice. The plain `.notice` class has no auto-prefix; any leading label there is written manually.
+
+| Class               | Auto-injected icon           | Auto-injected label |
+|---------------------|------------------------------|---------------------|
+| `.notice--primary`  | `/assets/images/note.png`    | **NOTE:**    |
+| `.notice--info`     | `/assets/images/info.png`    | **INFO:**    |
+| `.notice--warning`  | `/assets/images/caution.png` | **WARNING:** |
+| `.notice--danger`   | `/assets/images/warning.png` | **DANGER:**  |
+| `.notice--success`  | `/assets/images/success.png` | **SUCCESS:** |
+| `.notice` (plain)   | — none —                     | — none —     |
+
+The auto-injected prefix flows inline with the first line of the body text. To change an icon or a label, edit `@mixin notice-prefix` invocations near the bottom of `_sass/minimal-mistakes/minimal-mistakes/_notices.scss`.
+
+#### Opt-out — `.no-prefix` modifier
+
+Add `.no-prefix` alongside the variant class to suppress the auto-injected icon and label for a single notice. Use this only when the body already provides its own visual cue (a custom heading, a bespoke inline icon, embedded HTML, etc.):
+
+```markdown
+Body text rendered without the icon and label prefix.
+{: .notice--warning .no-prefix}
+```
+
+The paired-marker form supports the same modifier — append it to the start marker:
+
+```markdown
+{: .notice--warning-start .no-prefix}
+
+Multi-block body without the auto-injected prefix.
+
+{: .notice--warning-end}
+```
+
+### Single-block form (kramdown IAL)
+
+Attaches to the **single** preceding Markdown block. Use this for one-paragraph notices.
+
+```markdown
+Important information here.
+{: .notice--info}
+
+Critical warning here.
+{: .notice--warning}
+```
+
+### Multi-block form (paired markers)
+
+Use the paired markers expanded by `_plugins/expand_notice_blocks.rb` when the notice must wrap lists, fenced code blocks, headings, or multiple paragraphs. Each marker must be on its own line:
+
+````markdown
+{: .notice--warning-start}
+
+Leading paragraph.
+
+1. ordered list item
+2. another item
+
+```config
+fenced code is fine here
+```
+
+Closing paragraph.
+
+{: .notice--warning-end}
+````
+
+Pairing is **strict** — any of these aborts the build with a clear error that names the file and line numbers:
+
+- every `*-start` must have a matching `*-end` of the **same** type, in source order
+- nesting is forbidden (a second `*-start` while another block is still open is an error)
+- a stray `*-end` without a matching `*-start` is an error
+
+Markers inside fenced code blocks and HTML comments are left untouched, so this syntax can be documented verbatim.
+
+For the live rendering test of all five typed variants and the plain `.notice`, see [[Notice blocks and inline custom markdown|doc-testing-page#notice-blocks-and-inline-custom-markdown]].

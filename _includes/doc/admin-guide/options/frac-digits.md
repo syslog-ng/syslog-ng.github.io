@@ -10,11 +10,11 @@ fractions are padded by zeros if the original timestamp of the message
 specifies only seconds. Fractions can always be stored for the time the
 message was received.
 
-**NOTE:** The {{ site.product.short_name }} application can add the fractions to non-ISO8601
+The {{ site.product.short_name }} application can add the fractions to non-ISO8601
 timestamps as well.
 {: .notice--primary}
 
-**NOTE:** As {{ site.product.short_name }} is precise up to the microsecond, when the
+As {{ site.product.short_name }} is precise up to the microsecond, when the
 frac-digits() option is set to a value higher than 6, {{ site.product.short_name }} will
 truncate the fraction seconds in the timestamps after 6 digits.
 {: .notice--primary}

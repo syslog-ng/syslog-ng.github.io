@@ -41,7 +41,6 @@ The summary of the main points is as follows:
 - If the output buffer becomes full, and neither disk-buffering nor
     flow-control is used, messages may be lost.
 
-![]({{ site.baseurl}}/assets/images/caution.png) **WARNING:**
 If you modify the max-connections() or the log-fetch-limit() parameter,
 do not forget to adjust the log-iw-size() and dynamic-window-size() parameters accordingly.
 {: .notice--warning}

@@ -17,7 +17,7 @@ The name of the source host where the message originates from.
     name of the original sender host can be used, even if there are log
     relays between the sender and the server.
 
-    **NOTE:** The use-dns(), use-fqdn(), normalize-hostnames(), and
+    The use-dns(), use-fqdn(), normalize-hostnames(), and
     dns-cache() options will have no effect if the keep-hostname()
     option is enabled (keep-hostname(yes)) and the message contains a
     hostname.

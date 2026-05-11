@@ -16,7 +16,7 @@ a new disk-buffer file instead of using the already existing one. In
 these situations, the already existing disk-buffer file becomes a
 so-called orphan disk-buffer file.
 
-**NOTE:** The {{ site.product.short_name }} application does not store messages in orphan
+The {{ site.product.short_name }} application does not store messages in orphan
 disk-buffer files or forward the messages stored in the disk-buffer
 file.
 {: .notice--primary}
@@ -28,26 +28,19 @@ separate {{ site.product.short_name }} instance parallel to the {{ site.product.
 already running, and use the following resolution process to process the
 messages in the orphan disk-buffer file.
 
->![]({{ site.baseurl}}/assets/images/caution.png) **WARNING:**
->Before starting a separate {{ site.product.short_name }} instance to process the messages
->from the orphan disk-buffer file, consider the following:
->  
->- During the resolution process, a separate {{ site.product.short_name }}
->    instance will be started with its temporary files beside
->    the {{ site.product.short_name }} instance already running.
->  
->- An incorrect startup command and incorrect configurations  
->    may cause issues for the {{ site.product.short_name }} instance already
->    running.
->  
->- The disk-buffer file stores processed log messages in the  
->    format in which they would have been sent out to the
->    destination.
->  
->- The disk-buffer file doesn\'t store information about the  
->    destination.
->  
-{: .notice--warning}
+{: .notice--warning-start}
+Before starting a separate {{ site.product.short_name }} instance to process the messages
+from the orphan disk-buffer file, consider the following:
+  
+- During the resolution process, a separate {{ site.product.short_name }}
+    instance will be started with its temporary files beside
+    the {{ site.product.short_name }} instance already running.  
+- An incorrect startup command and incorrect configurations  
+    may cause issues for the {{ site.product.short_name }} instance already running.  
+- The disk-buffer file stores processed log messages in the  
+    format in which they would have been sent out to the destination.  
+- The disk-buffer file doesn\'t store information about the destination.  
+{: .notice--warning-end}
 
 To process the messages from an orphan disk-buffer file using a separate
 {{ site.product.short_name }} instance,
@@ -78,7 +71,6 @@ To process the messages from an orphan disk-buffer file using a separate
     mkdir /tmp/qdisk
     ```
 
-    ![]({{ site.baseurl}}/assets/images/caution.png) **WARNING:**
     Make sure that there is sufficient disk space in the directory. The minimum
     recommended disk space in the directory is equal to the size of the orphan
     disk-buffer file.
@@ -123,7 +115,6 @@ To process the messages from an orphan disk-buffer file using a separate
     configuration file. You can copy the destination statement from your
     running {{ site.product.short_name }} configuration.
 
-    ![]({{ site.baseurl}}/assets/images/caution.png) **WARNING:**
     Add the dir() option and set the disk-buffer file\'s destination directory
     to the temporary directory (that is, /tmp/qdisk) in your destination statement.
     {: .notice--warning}

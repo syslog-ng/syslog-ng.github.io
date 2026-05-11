@@ -96,7 +96,7 @@ The following modes of operation are available:
 
 *Syntax:* `namespace(string)`
 
-**NOTE:** Starting with {{ site.product.short_name }} version 4.4, multiple systemd-journal()
+Starting with {{ site.product.short_name }} version 4.4, multiple systemd-journal()
 sources can be configured. When configuring multiple sources, each systemd
 namespace must be unique.
 {: .notice--primary}
@@ -123,7 +123,7 @@ source s_journal
 };
 ```
 
-**NOTE:** Namespace support was introduced to the Journalctl command line
+Namespace support was introduced to the Journalctl command line
 tool in Systemd version 2.45. The {{ site.product.short_name }} application supports the
 namespace() option from version 3.29. For further information about
 namespaces on the Systemd side, see Journal Namespaces.
@@ -149,7 +149,7 @@ records from the beginning of the journal, if the journal has not been
 read yet. If set to `no`, {{ site.product.short_name }} will read only the new
 records.
 
-**NOTE:** If the source has a state in the persist file, this option will
+If the source has a state in the persist file, this option will
 have no effect.
 {: .notice--primary}
 

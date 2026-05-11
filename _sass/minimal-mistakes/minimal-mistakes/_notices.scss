@@ -85,38 +85,134 @@
   }
 }
 
-/* Default notice */
+/* Default notice — plain, no icon and no label */
 
 .notice {
   @include notice($light-gray);
+}
+
+/* ==========================================================================
+   Auto-injected icon + label for the five typed notice variants.
+
+   The notice type alone determines the icon and the bold label. They
+   are rendered via a ::before pseudo-element so authors do not have to
+   write `![](.../icon.png) **LABEL:**` at the top of every notice block.
+   The prefix is absolutely positioned in the top-left padding area so
+   the same rule works whether the class is on a wrapping `<div>`
+   (paired-marker form), on a `<p>` (single-block IAL on a paragraph),
+   or on a `<ul>` / `<ol>` (single-block IAL on a list).
+   ========================================================================== */
+
+@mixin _notice-prefix-style($icon, $label) {
+  /* The pseudo-element stays inline (no `display: inline-block`) so its
+     text sits on the same baseline as the body text that follows it.
+     The 16×16 icon is painted as a background image inside the
+     `padding-left` strip — `background-position: left center` centers
+     it against the line box, which lines up against the cap-height
+     middle of the bold uppercase label. */
+  content: "#{$label}: ";
+  padding-left: 22px;
+  background: url("/assets/images/#{$icon}") no-repeat left center;
+  background-size: 16px 16px;
+  font-weight: bold;
+  margin-right: 0.25em;
+}
+
+@mixin notice-prefix($icon, $label) {
+  /* The icon is painted as a CSS background image on an inline-block
+     padding box. That keeps the 16×16 PNG aligned to the label text,
+     unlike `content: url(...)` which sits on the text baseline and
+     makes the icon ride too high. */
+
+  /* Default: attach the prefix to the notice element itself. This
+     works for the single-block IAL form, where `{: .notice--TYPE}`
+     lands on a <p> — `::before` is then inline content of that
+     paragraph and flows with its first line of text. It also covers
+     `{: .notice--TYPE}` on a <ul>/<ol>: the prefix sits inside the
+     list block, on its own line above the items (kramdown attaches
+     the IAL to the list itself, not its first <li>). */
+  &::before {
+    @include _notice-prefix-style($icon, $label);
+  }
+
+  /* Paired-marker form: `_plugins/expand_notice_blocks.rb` wraps the
+     body in `<div class="notice--TYPE" markdown="1">…</div>`. The
+     wrapper is a block container, so `::before` on it would render
+     as anonymous inline content on its own line *above* the first
+     child block. When the first child is a paragraph (or heading),
+     suppress the wrapper's prefix and re-attach it to that child so
+     the icon+label flows inline with the first line of body text.
+     When the first child is a list (<ol>/<ul>), leave the prefix on
+     the wrapper — drilling into the first <li> would put it after
+     the list marker (“1.”), which looks broken. List-first notices
+     therefore render with the prefix on its own line above the list.
+
+     `@at-root` breaks out of the `&` nesting; without it, `#{&}`
+     would compile to `.notice--TYPE div.notice--TYPE …` (a
+     descendant that does not exist) instead of `div.notice--TYPE`. */
+  @at-root {
+    /* Suppress the wrapper's own ::before only when its first child
+       is something we *can* prefix inline (anything that is not a
+       list). `:not(:has(...))` keeps the wrapper-level prefix in the
+       list-first case as a clean fallback. */
+    div#{&}:not(:has(> ol:first-child, > ul:first-child))::before {
+      content: none;
+    }
+    div#{&}:not(:has(> ol:first-child, > ul:first-child)) > :first-child::before {
+      @include _notice-prefix-style($icon, $label);
+    }
+  }
+
+  /* Opt-out — add `.no-prefix` alongside the variant class to
+     suppress the auto-injected icon and label entirely, e.g.
+
+         Body text without the icon/label prefix.
+         {: .notice--warning .no-prefix}
+
+     Useful when the body already contains its own visual cue
+     (custom heading, bespoke inline icon, embedded HTML, …). */
+  &.no-prefix::before {
+    content: none;
+  }
+  @at-root {
+    div#{&}.no-prefix::before,
+    div#{&}.no-prefix > :first-child::before {
+      content: none;
+    }
+  }
 }
 
 /* Primary notice */
 
 .notice--primary {
   @include notice($primary-color);
+  @include notice-prefix("note.png", "NOTE");
 }
 
 /* Info notice */
 
 .notice--info {
   @include notice($info-color);
+  @include notice-prefix("info.png", "INFO");
 }
 
 /* Warning notice */
 
 .notice--warning {
   @include notice($warning-color);
+  @include notice-prefix("caution.png", "WARNING");
 }
 
 /* Success notice */
 
 .notice--success {
   @include notice($success-color);
+  @include notice-prefix("success.png", "SUCCESS");
 }
 
 /* Danger notice */
 
 .notice--danger {
   @include notice($danger-color);
+  @include notice-prefix("warning.png", "DANGER");
 }

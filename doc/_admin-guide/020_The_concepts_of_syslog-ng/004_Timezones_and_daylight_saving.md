@@ -35,7 +35,7 @@ to the message using the following algorithm.
     allows {{ site.product.short_name }} to replace the full timestamp (timezone
     included) with the time the message was received.
 
-    **NOTE:** When processing a message that does not contain timezone
+    When processing a message that does not contain timezone
     information, the {{ site.product.short_name }} application will use the timezone and
     daylight-saving that was effective when the timestamp was generated.\
     \
@@ -56,12 +56,12 @@ to the message using the following algorithm.
     Each destination defaults to the value of the
     send-time-zone() global option.
 
-    **NOTE:** A message can be sent to multiple destination zones. The syslog-ng
+    A message can be sent to multiple destination zones. The syslog-ng
     application converts the timezone information properly for every individual
     destination zone.
     {: .notice--primary}
 
-    ![]({{ site.baseurl}}/assets/images/caution.png) **WARNING:** If syslog-ng
+    If syslog-ng
     OSE sends the message is to the destination using the legacy-syslog protocol
     (RFC-3164) which does not support timezone information in its timestamps,
     the timezone information cannot be encapsulated into the sent timestamp,
@@ -76,7 +76,7 @@ to the message using the following algorithm.
     message does not contain the year of the message, {{ site.product.short_name }} uses
     the local year.)
 
-    **NOTE:** You can modify the timezone of the message using timezone-specific
+    You can modify the timezone of the message using timezone-specific
     rewrite rules.  
     For details, see Rewrite the timezone of a message.
     {: .notice--primary}

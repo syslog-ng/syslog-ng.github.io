@@ -43,9 +43,16 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 
 ## Notice blocks and inline custom markdown
 
-Verifies that `{: .notice--info|warning|danger }` block attributes are honored, that `\{: ... \}` literally escaped attribute markers stay visible, that bold/macro/Liquid expansion still works inside notices, and that the custom `[[parser: ...]]` autolink form (title containing `:`) resolves.
+Verifies that `{: .notice--primary|info|warning|danger|success }` block attributes are honored, that `\{: ... \}` literally escaped attribute markers stay visible, that bold/macro/Liquid expansion still works inside notices, and that the custom `[[parser: ...]]` autolink form (title containing `:`) resolves.
 
-![]({{ site.baseurl}}/assets/images/info.png) **INFO:** This is a \{: .notice--info\} test \
+For the conventions and the CSS-driven icon and label auto-injection rules, see [[Notice blocks|doc-jekyll-extensions#notice-blocks]].
+
+The block below must render with **one** caution icon and **one** bold `WARNING:` prefix supplied by CSS — the source contains neither.
+
+The auto-injected prefix flows inline with the first line of the body text.
+{: .notice--warning}
+
+This is a \{: .notice--info\} test \
 any modifications or changes, use the **flags(no-parse)** option in the
 source definition, and a template containing only the ${MESSAGE} macro in the destination definition.
 {: .notice--info}
@@ -89,7 +96,7 @@ Markdown link tests:
 {: source }
 <br>
 
-rker notice blocks (multi-block form)
+## Paired-marker notice blocks (multi-block form)
 
 Verifies the `_plugins/expand_notice_blocks.rb` plugin: the paired
 `{: .notice--TYPE-start}` … `{: .notice--TYPE-end}` markers must wrap
@@ -99,8 +106,15 @@ Liquid variables must still expand inside; the literal escaped form
 `\{: .notice--TYPE-start\}` must remain visible as plain text; markers
 inside fenced code blocks must be left untouched (documented verbatim);
 and the auto-blank-line convenience must keep list rendering correct
-even when a bullet/numbered list immediately follows a `**LABEL:**`
-prose line with no manual blank line in between.
+even when a bullet/numbered list immediately follows the start marker
+with no manual blank line in between.
+
+The CSS-injected icon and label render inline with the first line of the
+first inner block when that block is a paragraph or heading. When the
+first inner block is a list (`<ol>` or `<ul>`), the icon and label
+render on the wrapping container's own line above the list — leading
+with a paragraph or heading is the way to keep the prefix inline with
+body text.
 
 All five Minimal Mistakes notice types are exercised below
 (`primary`, `info`, `warning`, `danger`, `success`).
@@ -113,7 +127,6 @@ Paired form (`{: .notice--primary-start/-end}`) wrapping mixed inline content.
 
 {: .notice--primary-start}
 
-![]({{ site.baseurl}}/assets/images/note.png) **NOTE:**
 The `${HOST}` macro and the {{ site.product.short_name }} Liquid variable
 must both expand here, and the link to [[Install Homebrew|dev-inst-macos#using-homebrew]]
 must still resolve.
@@ -123,13 +136,12 @@ must still resolve.
 
 {: .notice--primary-end}
 
-### Info — wraps an ordered list (auto blank-line insertion test)
+### Info — wraps an ordered list (auto blank-line insertion test, list-first prefix placement)
 
-Paired form (`{: .notice--info-start/-end}`) wrapping a numbered list with no manual blank line after the label.
+Paired form (`{: .notice--info-start/-end}`) wrapping a numbered list with no manual blank line after the start marker. Because the first inner block is a list, the CSS-injected icon and `INFO:` label must render on the wrapper's own line above the list — not inline with item `1.`.
 
 {: .notice--info-start}
 
-![]({{ site.baseurl}}/assets/images/info.png) **INFO:**
 1. first numbered item
 2. second numbered item — uses the ${MESSAGE} macro
 3. third numbered item — references {{ site.product.name }}
@@ -142,7 +154,6 @@ Paired form (`{: .notice--warning-start/-end}`) wrapping a fenced code block bet
 
 {: .notice--warning-start}
 
-![]({{ site.baseurl}}/assets/images/caution.png) **WARNING:**
 
 Leading paragraph that mentions log-msg-size() and ${PROGRAM} as plain text.
 
@@ -167,7 +178,6 @@ Paired form (`{: .notice--danger-start/-end}`) wrapping a nested heading, prose,
 
 {: .notice--danger-start}
 
-![]({{ site.baseurl}}/assets/images/warning.png) **DANGER:**
 
 #### Nested heading inside a notice
 
@@ -185,7 +195,7 @@ Paired form (`{: .notice--success-start/-end}`) used for a one-paragraph notice 
 
 {: .notice--success-start}
 
-![]({{ site.baseurl}}/assets/images/success.png) **SUCCESS:** A one-paragraph notice using the paired form also works,
+A one-paragraph notice using the paired form also works,
 even though the legacy single-block `{: .notice--success}` IAL would
 suffice here.
 
@@ -212,7 +222,6 @@ is preserved (1, 2, 3 — not 1, 1, 1).
 
    {: .notice--info-start}
 
-   ![]({{ site.baseurl}}/assets/images/info.png) **NOTE:**
    - inner bullet a
    - inner bullet b
 
@@ -233,9 +242,10 @@ documented verbatim:
 ````markdown
 {: .notice--warning-start}
 
-**WARNING:** This is documentation showing the syntax — it must NOT
-expand into a real notice, and the surrounding fenced block must
-render as a code block.
+This is documentation showing the marker syntax — it must NOT expand
+into a real notice, and the surrounding fenced block must render as a
+code block. The CSS-injected icon and `WARNING:` label must not appear
+either, because the markers are inert inside the fence.
 
 {: .notice--warning-end}
 ````
@@ -252,11 +262,11 @@ RFC-5424 formatted log messages become soft macros as well. In
 contrast with hard macros, soft macros are writable and can be
 modified within {{ site.product.short_name }}, for example, using rewrite rules.
 
-![]({{ site.baseurl}}/assets/images/caution.png) **WARNING:** \{: .notice--warning\} Test \
+\{: .notice--warning\} Test \
 for the list of hard and soft macros, see [[Hard versus soft macros]].  
 {: .notice--warning}
 
-![]({{ site.baseurl}}/assets/images/warning.png) **DANGER:** \{: .notice--danger\} Test \
+\{: .notice--danger\} Test \
 at the location it reaches the log-msg-size() value, and discards the rest of the message.
 {: .notice--danger}
 
@@ -453,7 +463,6 @@ One more without any escaping using the `render_with_liquid: false` frontmatter 
 and a {% raw %}{{ site.product.name }}{% endraw %} variable raw inclusion test
 
 {: .notice--warning-start}
-![]({{ site.baseurl}}/assets/images/caution.png) **WARNING:**
 Showing literal Liquid tags on a page is tricky because **two** Liquid passes touch the source:
 
 1. Our `generate_tooltips.rb` plugin runs its own Liquid `parse`/`render` on the raw markdown — it does **not** honor the `render_with_liquid: false` frontmatter switch.

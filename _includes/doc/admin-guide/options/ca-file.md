@@ -14,12 +14,12 @@ Example format in configuration:
 ca-file("/etc/pki/tls/certs/ca-bundle.crt")
 ```
 
-**NOTE:** The `ca-file()` option can be used together with the `ca-dir()`
+The `ca-file()` option can be used together with the `ca-dir()`
 option, and it is relevant when peer-verify() is set to other than no or
 `optional-untrusted`.
 {: .notice--primary}
 
-**NOTE:** During a TLS handshake, {{ site.product.short_name }} automatically sets the
+During a TLS handshake, {{ site.product.short_name }} automatically sets the
 `certificate_authorities` field of the certificate request based on the `ca-file()`
 and `ca-dir()` options.
 {: .notice--primary}

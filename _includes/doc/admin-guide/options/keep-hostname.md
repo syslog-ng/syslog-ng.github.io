@@ -17,7 +17,7 @@
     details on using name resolution in {{ site.product.short_name }}, see
     Using name resolution in syslog-ng.
 
-**NOTE:** If the log message does not contain a hostname in its `HOST` field,
+If the log message does not contain a hostname in its `HOST` field,
 {{ site.product.short_name }} automatically adds a hostname to the message.
 {: .notice--primary}
 
@@ -31,7 +31,7 @@
 This option can be specified globally, and per-source as well. The local
 setting of the source overrides the global option if available.
 
-**NOTE:** When relaying messages, enable this option on the {{ site.product.short_name }}
+When relaying messages, enable this option on the {{ site.product.short_name }}
 server and also on every relay, otherwise {{ site.product.short_name }} will treat
 incoming messages as if they were sent by the last relay.
 {: .notice--primary}

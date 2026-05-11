@@ -5,19 +5,17 @@ description: >-
     The following macros are available in {{ site.product.short_name }}.
 ---
 
-> ![]({{ site.baseurl}}/assets/images/caution.png) **WARNING:**
-> These macros are available when {{ site.product.short_name }} successfully
-> parses the incoming message as a syslog message, or you use
-> some other parsing method and map the parsed values to these
-> macros.  
->  
-> If you are using the flags(no-parse) option, then syslog message parsing is
-> completely disabled, and the entire incoming message is treated as
-> the `MESSAGE` part of a syslog message.  
-> In this case, {{ site.product.short_name }} generates a new syslog header
-> (timestamp, host, and so on) automatically. Note that even
-> though flags(no-parse) disables message parsing, some flags can
-> still be used, for example, the no-multi-line flag.
+These macros are available when {{ site.product.short_name }} successfully
+parses the incoming message as a syslog message, or you use
+some other parsing method and map the parsed values to these
+macros.<br>
+If you are using the flags(no-parse) option, then syslog message parsing is
+completely disabled, and the entire incoming message is treated as
+the `MESSAGE` part of a syslog message.  
+In this case, {{ site.product.short_name }} generates a new syslog header
+(timestamp, host, and so on) automatically. Note that even
+though flags(no-parse) disables message parsing, some flags can
+still be used, for example, the no-multi-line flag.
 {: .notice--warning}
 
 ## ${AMPM}
@@ -145,7 +143,7 @@ ${ISODATE} for timestamping. Note that {{ site.product.short_name }} can produce
 of a second (for example, milliseconds) in the timestamp by using the
 frac-digits() global or per-destination option.
 
-**NOTE:** As {{ site.product.short_name }} is precise up to the microsecond, when the
+As {{ site.product.short_name }} is precise up to the microsecond, when the
 frac-digits() option is set to a value higher than 6, {{ site.product.short_name }} will
 truncate the fraction seconds in the timestamps after 6 digits.
 {: .notice--primary}
@@ -330,7 +328,7 @@ the ${.SDATA.SDID.SDNAME} macro.
 
 {: .notice--primary-start}
 
-**NOTE:** When using `STRUCTURED-DATA` macros, consider the following:  
+When using `STRUCTURED-DATA` macros, consider the following:  
   
 - When referencing an element of the structured data, the macro must
     begin with the dot (.) character. For example,
@@ -369,7 +367,7 @@ one of the following:
     received from the Cisco device in the `.SDATA.meta.sequenceId`
     part of the message.
 
-    **NOTE:** To enable sequence numbering of log messages on Cisco devices,
+    To enable sequence numbering of log messages on Cisco devices,
     use the following command on the device (available in IOS 10.0 and
     later): **service sequence-numbers**. For details, see the manual of
     your Cisco device.
@@ -392,7 +390,7 @@ one of the following:
         IETF-syslog protocol (**${.SDATA.meta.sequenceId}**), and can
         be added to BSD-syslog messages using the **${SEQNUM}** macro.
 
-**NOTE:** If you need a sequence number for every log message that {{ site.product.short_name }} receives, use the ${RCPTID} macro.
+If you need a sequence number for every log message that {{ site.product.short_name }} receives, use the ${RCPTID} macro.
 {: .notice--primary}
 
 ## ${SOURCE}
@@ -421,7 +419,7 @@ The time elapsed since the {{ site.product.short_name }} instance was
 started (that is, the uptime of the {{ site.product.short_name }} process). The value of
 this macro is an integer containing the time in 1/100th of the second.
 
-**NOTE:** The ${SYSUPTIME} macro is calculated based on the system clock. This means that if the system clock runs normally without adjustments, ${SYSUPTIME} will accurately reflect the elapsed time since the process started. However, if the system clock is changed during runtime for any reason, ${SYSUPTIME} will also shift accordingly. After such a clock change, the value may no longer represent the actual process uptime.
+The ${SYSUPTIME} macro is calculated based on the system clock. This means that if the system clock runs normally without adjustments, ${SYSUPTIME} will accurately reflect the elapsed time since the process started. However, if the system clock is changed during runtime for any reason, ${SYSUPTIME} will also shift accordingly. After such a clock change, the value may no longer represent the actual process uptime.
 {: .notice--primary}
 
 Available in {{ site.product.short_name }} version 3.4 and later.
@@ -436,7 +434,7 @@ hexadecimal number.
 A comma-separated list of the tags assigned to the
 message.
 
-**NOTE:** Note that the tags are not part of the log message and are not
+Note that the tags are not part of the log message and are not
 automatically transferred from a client to the server. For example, if a
 client uses a pattern database to tag the messages, the tags are not
 transferred to the server. A way of transferring the tags is to

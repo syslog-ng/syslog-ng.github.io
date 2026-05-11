@@ -54,7 +54,7 @@ compare the arguments based on their type.
     string. The right side of the argument is also a string, so the
     comparison is string.
 
-**NOTE:** The old string operators can still be used for the sake of
+The old string operators can still be used for the sake of
 backwards compatibility, but it is advised and easier to use the numeric
 operators for strings as well.
 {: .notice--primary}

@@ -45,7 +45,7 @@ other sources. The clients send all important log messages to the remote
     /opt/syslog-ng/sbin/syslog-ng -Fv --caps cap_sys_admin,cap_chown,cap_dac_override,cap_net_bind_service,cap_fowner=pi
     ```
 
-    **NOTE:** The capabilities are not case sensitive, the following command is also good:
+    The capabilities are not case sensitive, the following command is also good:
     {: .notice--primary}
 
     ``` shell
@@ -65,7 +65,7 @@ other sources. The clients send all important log messages to the remote
     This option can be used to perform a complete configuration initialization with {{ site.product.short_name }}, then exit with the exit code indicating the result. This option can also be used to check if the configuration is semantically valid and that {{ site.product.short_name }} can actually start. (The `--syntax-only` option catches only syntactical errors.)
     Furthermore, `--check-startup` can also be used in a Kubernetes environment, to run it as a dedicated configuration check container.
 
-  **NOTE:** This option is highly likely to fail if another {{ site.product.short_name }} instance is running in the background, since it initializes several processes, such as network listeners. In such a case, the network address would already be in use.
+  This option is highly likely to fail if another {{ site.product.short_name }} instance is running in the background, since it initializes several processes, such as network listeners. In such a case, the network address would already be in use.
   {: .notice--primary}
 
 `--control <file>` or `-c <file>`
@@ -84,7 +84,7 @@ other sources. The clients send all important log messages to the remote
     Set the minimal number of required file descriptors (fd-s). This sets how many files {{ site.product.short_name }} can keep open simultaneously.
     Default value: 4096.
 
-  **NOTE:** This does not override the global ulimit setting of the host.
+  This does not override the global ulimit setting of the host.
   {: .notice--primary}
 
 `--foreground` or `-F`
@@ -99,7 +99,7 @@ other sources. The clients send all important log messages to the remote
 `--module-registry`
     Display the list and description of the available modules.
 
-  **NOTE:** Not all of these modules are loaded automatically, only the ones specified in the `--default-modules` option. Available only in {{ site.product.short_name }} 4.0 and later.
+  Not all of these modules are loaded automatically, only the ones specified in the `--default-modules` option. Available only in {{ site.product.short_name }} 4.0 and later.
   {: .notice--primary}
 
 `--no-caps`
@@ -127,7 +127,7 @@ other sources. The clients send all important log messages to the remote
 `--user <user>` or `-u <user>`
     Switch to the specified user after initializing the configuration file (and optionally chrooting).
 
-  **NOTE:** It is not possible to reload the {{ site.product.short_name }} configuration if the specified user has no privilege to create the */dev/log* file.
+  It is not possible to reload the {{ site.product.short_name }} configuration if the specified user has no privilege to create the */dev/log* file.
   {: .notice--primary}
 
 `--verbose` or `-v`
@@ -136,14 +136,14 @@ other sources. The clients send all important log messages to the remote
 `--version` or `-V`
     Display version number and compilation information, and also the list and short description of the available modules. For detailed description of the available modules, see the `--module-registry` option.
 
-  **NOTE:** Not all of these modules are loaded automatically, only the ones specified in the `--default-modules` option.
+  Not all of these modules are loaded automatically, only the ones specified in the `--default-modules` option.
   {: .notice--primary}
 
 `--worker-threads`
     Sets the number of worker threads {{ site.product.short_name }} can use, including the main {{ site.product.short_name }} thread.
     See the *{{ site.product.short_name }} Administrator Guide*[1] for details.
 
-  **NOTE:** Certain operations in {{ site.product.short_name }} can use threads that are not limited by this option. This setting has effect only when {{ site.product.short_name }} is running in multithreaded mode. Available only in {{ site.product.short_name }} 4.0 and later.
+  Certain operations in {{ site.product.short_name }} can use threads that are not limited by this option. This setting has effect only when {{ site.product.short_name }} is running in multithreaded mode. Available only in {{ site.product.short_name }} 4.0 and later.
   {: .notice--primary}
 
 ## FILES

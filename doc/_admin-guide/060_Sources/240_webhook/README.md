@@ -50,7 +50,7 @@ This way, the available values become `${webhook.query.param1}`, `${webhook.quer
 
 To receive data using HTTPS, configure a certificate and a private key for the webhook using the `tls_cert_file` and `tls_key_file` options.
 
-**NOTE:** Setting `tls_key_file` automatically changes the default port from `80` to `443`.
+Setting `tls_key_file` automatically changes the default port from `80` to `443`.
 {: .notice--primary}
 
 To verify the certificate of the clients sending data to the webhook, set `tls_peer_verify(yes)`, and use one of the following options:

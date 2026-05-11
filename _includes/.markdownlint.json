@@ -2,6 +2,7 @@
     "MD013": false,   // Disable line length limit
     "MD022": false,   // Allow headings without surrounding blank lines
     "MD032": false,   // Allow lists without surrounding blank lines
+    "MD033": false,   // Allow inline HTML (e.g. <br>) — matches the root .markdownlint-cli2.jsonc
     "MD041": false,   // Allow files to not start with top-level heading (fragments)
     "MD047": false,   // Allow missing trailing newline
     "MD060": false    // Allow any table column style

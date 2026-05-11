@@ -23,5 +23,5 @@ To be able to successfully test this driver, we need to install libesmtp, for th
 
 `$ sudo port install libesmtp`
 
-**NOTE:** HomeBrew does not have this library in its package list currently
+HomeBrew does not have this library in its package list currently
 {: .notice--primary}

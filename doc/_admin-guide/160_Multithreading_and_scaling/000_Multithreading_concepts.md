@@ -7,7 +7,7 @@ description: >-
     has been somewhat simplified and may not completely match reality.
 ---
 
-**NOTE:** The way {{ site.product.short_name }} uses multithreading may change in future
+The way {{ site.product.short_name }} uses multithreading may change in future
 releases. The current documentation applies to version 3.38.
 {: .notice--primary}
 

@@ -26,7 +26,6 @@ addresses, see netmask().
 
 The netmask6() filter is available in {{ site.product.short_name }} 3.7 and later.
 
-![]({{ site.baseurl}}/assets/images/caution.png) **WARNING:**
 If the IP address is not syntactically correct, the filter will never match.
 The {{ site.product.short_name }} application currently does not send a warning for such
 configuration errors.

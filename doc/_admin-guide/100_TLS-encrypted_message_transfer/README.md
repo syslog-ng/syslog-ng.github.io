@@ -9,7 +9,7 @@ description: >-
 
 ## Secure logging using TLS
 
-**NOTE:** This chapter describes how to use TLS encryption when using the
+This chapter describes how to use TLS encryption when using the
 standard syslog protocols, that is, the network() and syslog() drivers,
 for example, to forward log messages between two {{ site.product.short_name }} nodes, or to
 send log data to {{ site.product.short_name }} Store Box or another log server. Other

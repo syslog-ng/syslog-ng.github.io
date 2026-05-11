@@ -5,7 +5,7 @@ programs when the relevant driver is initialized or torn down. The
 hook-commands() can be used with all source and destination drivers with
 the exception of the usertty() and internal() drivers.
 
-**NOTE:** The {{ site.product.short_name }} application must be able to start and restart
+The {{ site.product.short_name }} application must be able to start and restart
 the external program, and have the necessary permissions to do so. For
 example, if your host is running AppArmor or SELinux, you might have to
 modify your AppArmor or SELinux configuration to enable {{ site.product.short_name }} to

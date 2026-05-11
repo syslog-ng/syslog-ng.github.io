@@ -10,7 +10,6 @@ description: >-
 
 - A self-hosted ClickHouse installation.
 
-![]({{ site.baseurl}}/assets/images/caution.png) **WARNING:**
 Warning ClickHouse Cloud doesn’t support the gRPC interface currently.
 {: .notice--warning}
 
@@ -42,7 +41,6 @@ destination {
 
 ```
 
-**NOTE:** 
 If you have a protobuf-formatted message, you can specify it in the proto-var() option, instead of using the schema() option.
 {: .notice--primary}
 

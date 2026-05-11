@@ -48,7 +48,6 @@ not extend the filename with a UUID suffix because there is no need to
 open a new file (a new unique ID would mean opening a new file and
 writing data into that).
 
-![]({{ site.baseurl}}/assets/images/caution.png) **WARNING:**
 Before enabling the hdfs-append-enabled option, ensure that your HDFS
 server supports the append operation and that it is enabled. Otherwise {{ site.product.short_name }} will not be able to append data into an existing file, resulting in an
 error log.
@@ -65,7 +64,7 @@ example, {{ site.product.short_name }} cannot connect to the HDFS NameNode), the
 remains at its original location. For example,
 hdfs-archive-dir(\"/usr/hdfs/archive/\").
 
-**NOTE:** When hdfs-append-enabled is set to **true**, archiving is
+When hdfs-append-enabled is set to **true**, archiving is
 automatically disabled, and {{ site.product.short_name }} will ignore the
 hdfs-archive-dir option.
 {: .notice--primary}
@@ -84,7 +83,7 @@ hdfs-file() supports the usage of macros. This means that {{ site.product.short_
 can create files on HDFS dynamically, using macros in the file (or
 directory) name.
 
-**NOTE:** When a filename resolved from the macros contains a character that
+When a filename resolved from the macros contains a character that
 HDFS does not support, {{ site.product.short_name }} will not be able to create the
 file. Make sure that you use macros that do not contain unsupported
 characters.

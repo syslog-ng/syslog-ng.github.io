@@ -25,7 +25,7 @@ syslog() destination options.
 syslog(host transport [options]);
 ```
 
-**NOTE:** Note that the syslog destination driver has required parameters,
+Note that the syslog destination driver has required parameters,
 while the source driver defaults to the local bind address, and every
 parameter is optional.
 {: .notice--primary}
@@ -34,7 +34,7 @@ The udp transport method automatically sends multicast packets if a
 multicast destination address is specified. The tcp and tls methods do
 not support multicasting.
 
-**NOTE:** The default ports for the different transport protocols are as
+The default ports for the different transport protocols are as
 follows: UDP --- 514, TCP --- 601, TLS --- 6514.
 {: .notice--primary}
 
@@ -69,7 +69,7 @@ destination d_syslog_tls {
 };
 ```
 
-**NOTE:** If a message uses the IETF-syslog format (RFC-5424), only the text
+If a message uses the IETF-syslog format (RFC-5424), only the text
 of the message can be customized (that is, the `MESSAGE` part of the
 log), the structure of the header is fixed.
 {: .notice--primary}

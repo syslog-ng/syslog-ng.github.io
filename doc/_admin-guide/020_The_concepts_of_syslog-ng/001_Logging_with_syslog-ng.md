@@ -59,12 +59,11 @@ source on the {{ site.product.short_name }} client to its final destination on t
     message to the destinations set in the log statement, for example,
     to the remote {{ site.product.short_name }} server.
 
-    ![]({{ site.baseurl}}/assets/images/caution.png) **WARNING:** Message
-    filtering, parsing, and rewriting is performed in the order that the
+    Message filtering, parsing, and rewriting is performed in the order that the
     operations appear in the log statement.
     {: .notice--warning}
 
-    **NOTE:** The {{ site.product.short_name }} client sends a message to *all* matching
+    The {{ site.product.short_name }} client sends a message to *all* matching
     destinations by default. As a result, a message may be sent to a
     destination more than once, if the destination is used in multiple
     log statements. To prevent such situations, use the **final** flag
@@ -87,7 +86,7 @@ source on the {{ site.product.short_name }} client to its final destination on t
     If the message complies with all filter rules, {{ site.product.short_name }} sends the
     message to the destinations set in the log statement.
 
-    ![]({{ site.baseurl}}/assets/images/caution.png) **WARNING:** Message filtering,
+    Message filtering,
     parsing, and rewriting is performed in the order that the operations appear
     in the log statement.
     {: .notice--warning}
@@ -95,7 +94,7 @@ source on the {{ site.product.short_name }} client to its final destination on t
 9. The {{ site.product.short_name }} server processes the next log statement, repeating
     [[steps 7-9|adm-conc-log#steps]].
 
-    **NOTE:** The {{ site.product.short_name }} application can stop reading messages from its
+    The {{ site.product.short_name }} application can stop reading messages from its
     sources if the destinations cannot process the sent messages. This
     feature is called flow-control and is detailed in
     Managing incoming and outgoing messages with flow-control.

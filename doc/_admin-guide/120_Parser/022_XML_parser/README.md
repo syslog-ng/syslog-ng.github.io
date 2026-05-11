@@ -155,7 +155,7 @@ There will be a debug log about the incoming log entry, which shows the
 complete message to be parsed. The entry should contain the entire XML
 document.
 
-**NOTE:** If your log messages are entirely in .xml format, make sure to
+If your log messages are entirely in .xml format, make sure to
 disable any message parsing on the source side by including the
 flags(\"no-parse\") option in your source statement. This will put the
 entire log message in the ${MESSAGE} macro, which is the field that the

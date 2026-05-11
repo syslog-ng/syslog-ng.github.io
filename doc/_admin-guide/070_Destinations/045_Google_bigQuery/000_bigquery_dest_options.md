@@ -42,7 +42,7 @@ Available in {{ site.product.short_name }} 4.5 and later versions.
 * `no-multi-line`: This flag disables line breaking in messages. The message is sent in a single line.
 * `syslog-protocol`: This flag instructs the driver to format the message in IETF syslog protocol standard (RFC-5424), but without the frame header. When this flag is used, applied macros only have an effect on the message text and not the header. The header is formatted according to the new standard.
 
-**NOTE:** The `syslog-protocol` flag is not essential for the syslog driver. The driver adds header to the messages automatically.
+The `syslog-protocol` flag is not essential for the syslog driver. The driver adds header to the messages automatically.
 {: .notice--primary}
 
 {% include doc/admin-guide/options/frac-digits.md %}

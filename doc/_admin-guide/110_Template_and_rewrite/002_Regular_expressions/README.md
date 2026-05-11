@@ -31,7 +31,7 @@ description: >-
     **TIP:** If you use single quotes, you do not need to escape the
     backslash, for example, `match(\"\\\\.\")` is equivalent to
     `match(\'\\.\')`.
-    {: .notice--primary}
+    {: .notice}
 
 - Enclosing alphanumeric strings between double-quotes
     (**\"string\"**) is not necessary, you can just omit the
@@ -41,7 +41,7 @@ description: >-
 
     {: .notice--primary-start}
 
-    **NOTE:** Only strings containing alphanumerical characters can be used
+    Only strings containing alphanumerical characters can be used
     without quotes or double quotes. If the string contains whitespace
     or any special characters `(()\[\].\*?+\^$\|\\ or ;:\#)`, you must
     use quotes or double quotes.<br>
@@ -60,7 +60,7 @@ filter demo_regexp_insensitive {
 };
 ```
 
-**NOTE:** Adding the flags(ignore-case) option to glob patterns does not
+Adding the flags(ignore-case) option to glob patterns does not
 disable case sensitivity.
 {: .notice--primary}
 

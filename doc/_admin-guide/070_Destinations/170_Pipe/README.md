@@ -16,7 +16,6 @@ description: >-
 pipe(filename);
 ```
 
-![]({{ site.baseurl}}/assets/images/caution.png) **WARNING:**
 Caution: Starting with {{ site.product.short_name }} 3.0.2, pipes are created automatically.
 In earlier versions, you had to create the pipe using the mkfifo(1) command.
 {: .notice--warning}

@@ -131,7 +131,7 @@ Check the internal logs of {{ site.product.short_name }} for any issue.
 
 The {{ site.product.short_name }} application collects statistics about the number of processed messages on the different sources and destinations.
 
-**NOTE:** When using syslog-ng-ctl stats, consider that while the output
+When using syslog-ng-ctl stats, consider that while the output
 is generally consistent, there is no explicit ordering behind the
 command. Consequently, One Identity does not recommend creating
 parsers that depend on a fix output order.
@@ -200,7 +200,7 @@ Example: output example
 > destination;d_logserver;;a;processed;90  
 > destination;d_null;;a;processed;0  
 
-**NOTE:** If you find error messages in the internal logs, messages are not
+If you find error messages in the internal logs, messages are not
 processed by {{ site.product.short_name }} or you encounter any issue, you have the
 following options:
 {: .notice--primary}

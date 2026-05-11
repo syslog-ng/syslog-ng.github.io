@@ -47,7 +47,7 @@ The pattern database is organized as follows:
 - Patterns can consist of literals (keywords, or rather,
     keycharacters) and pattern parsers.
 
-    **NOTE:** If the `PROGRAM` part of a message is empty, rules with an
+    If the `PROGRAM` part of a message is empty, rules with an
     empty Program Pattern are used to classify the message.
     {: .notice--primary}
 

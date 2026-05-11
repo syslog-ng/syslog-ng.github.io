@@ -15,7 +15,6 @@ description: >-
 
 *Description:* The `parallelize()` log path element distributes messages from a single, linear source across multiple worker threads (partitions), removing the single-threaded bottleneck of sequential processing by fanning out message handling to a configurable number of workers (partitions).
 
-![]({{ site.baseurl}}/assets/images/caution.png) **WARNING:**
 When using the `parallelize()` method, the incoming load can be fully distributed across all CPU cores; however, depending on the chosen partitioning strategy, message ordering may be lost, even if all messages originate from a single sender.
 {: .notice--warning}
 

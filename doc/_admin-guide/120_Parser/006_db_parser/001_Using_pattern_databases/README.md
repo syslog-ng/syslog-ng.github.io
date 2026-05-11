@@ -79,7 +79,7 @@ parser pattern_db {
 Note that the program-template() option is available in {{ site.product.short_name }}
 version 3.21 and later.
 
-**NOTE:** The default location of the pattern database file is
+The default location of the pattern database file is
 `/opt/syslog-ng/var/patterndb.xml` (the exact path depends on the
 `--prefix` used at build time). The file option of the db-parser()
 statement can be used to specify a different file, thus different

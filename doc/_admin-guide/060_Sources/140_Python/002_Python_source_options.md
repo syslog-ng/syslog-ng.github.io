@@ -54,7 +54,6 @@ option to the number of seconds to wait before calling the fetch method.
 
 {% include doc/admin-guide/options/time-zone.md %}
 
-![]({{ site.baseurl}}/assets/images/caution.png) **WARNING:**
 This option is available only when using Python 3.
 {: .notice--warning}
 

@@ -20,6 +20,6 @@ following prerequisites:
 
 - Having a broker entity in a functional MQTT system.
 
-    **NOTE:** In your configuration, you will specify the broker entity of
+    In your configuration, you will specify the broker entity of
     your MQTT system in the address() option of your mqtt() source.
     {: .notice--warning}

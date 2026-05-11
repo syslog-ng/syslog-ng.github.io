@@ -18,7 +18,7 @@ value as a macro. For example, if the message contains
 KEY1=value1,KEY2=value2, you can refer to the values as **${KEY1}** and
 **${KEY2}**.
 
-**NOTE:** If a log message contains the same key multiple times (for
+If a log message contains the same key multiple times (for
 example, key1=value1, key2=value2, key1=value3, key3=value4,
 key1=value5), then {{ site.product.short_name }} stores only the last (rightmost) value
 for the key. Using the previous example, {{ site.product.short_name }} will store the

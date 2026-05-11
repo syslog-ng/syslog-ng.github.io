@@ -54,7 +54,7 @@ The {{ site.product.short_name }} application uses flow-control in the following
 
 - Soft flow-control: the log path includes a file destination.
 
-**NOTE:** The way flow-control works has changed significantly in version
+The way flow-control works has changed significantly in version
 {{ site.product.short_name }} 3.22. If you are using an older version of {{ site.product.short_name }},
 consult the documentation of the version you are using for details about
 flow-control.
@@ -75,7 +75,7 @@ output buffer so that it matches the size of the control window of the
 sources. Note that starting with {{ site.product.short_name }} 3.22, log-fifo-size()
 only affects log paths that are not flow-controlled.
 
-**NOTE:** If the source can handle multiple connections (for example,
+If the source can handle multiple connections (for example,
 network() and syslog()), the size of the control window is divided by
 the value of the max-connections() parameter and this smaller control
 window is applied to each connection of the source.
@@ -146,7 +146,6 @@ log {
 };
 ```
 
-![]({{ site.baseurl}}/assets/images/warning.png) **DANGER:**
 Hazard of data loss! For destinations other than file, soft flow-control
 is not available. Thus, it is possible to lose log messages on those
 destinations. To avoid data loss on those destinations, use hard flow-control.
@@ -192,7 +191,7 @@ TODO: generate a new valid diagram
   sets the size of the output buffer automatically.\
   For details on sizing the log-fifo-size() parameter and how flow control works, see Configuring flow-control.
 
-  **NOTE:** Although the default output buffer internally uses multiple queues, the log-fifo-size() option can control only the overall size of all the underlying queues.
+  Although the default output buffer internally uses multiple queues, the log-fifo-size() option can control only the overall size of all the underlying queues.
   {: .notice--primary}
 
 ## Handling outgoing messages using disk buffering

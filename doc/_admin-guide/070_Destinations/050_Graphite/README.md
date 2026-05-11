@@ -43,7 +43,7 @@ forwarded to graphite.
 destination d_graphite { graphite(payload("--key monitor.*")); };
 ```
 
-**NOTE:** The graphite() destination is only a wrapper around the network()
+The graphite() destination is only a wrapper around the network()
 destination and the graphite-output template function. If you want to
 fine-tune the TCP parameters, use the **network()** destination instead,
 as described in $(graphite-output).

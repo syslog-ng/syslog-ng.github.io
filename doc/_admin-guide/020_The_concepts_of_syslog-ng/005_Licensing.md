@@ -9,7 +9,7 @@ description: >-
     General Public License Version 2 license.
 ---
 
-**NOTE:** Practically, the code stored under the lib directory of the source
+Practically, the code stored under the lib directory of the source
 code package is under LGPL, the rest is GPL.
 {: .notice--primary}
 

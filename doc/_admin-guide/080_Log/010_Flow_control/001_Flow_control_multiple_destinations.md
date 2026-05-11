@@ -12,7 +12,7 @@ description: >-
     neither the remote server nor the local file will receive any messages.
 ---
 
-**NOTE:** Creating separate log paths for the destinations that use the same
+Creating separate log paths for the destinations that use the same
 flow-controlled source does not avoid the problem.
 {: .notice--primary}
 

@@ -32,7 +32,7 @@ For details on the option in the destination\'s declaration, see
 
 {% include doc/admin-guide/options/headers.md %}
 
-**NOTE:** The headers() option is a required option for the sumologic-http()
+The headers() option is a required option for the sumologic-http()
 destination.
 {: .notice--primary}
 

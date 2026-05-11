@@ -98,7 +98,7 @@ dbd-option("null.sleep.query" 5)
 Note that Oracle destinations do not use this parameter, but
 retrieve the hostname from the /etc/tnsnames.ora file.
 
-**NOTE:** If you specify **host=\"localhost\"**, syslog-ng will use a socket
+If you specify **host=\"localhost\"**, syslog-ng will use a socket
 to connect to the local database server. Use **host=\"127.0.0.1\"** to
 force TCP communication between {{ site.product.short_name }} and the local database server.
 {: .notice--primary}
@@ -196,7 +196,7 @@ NULL as well.
 
 *Description:* This option can be used to define custom quoting for table and index names. For example, `MySQL` requires this for specific identifiers.
 
-**NOTE:** {{ site.product.short_name }} generally uses the backtick character for configuration parameter names. When using the backtick character in the `quote_char` option, use the following formatting: **quote_char("\`\`")**
+{{ site.product.short_name }} generally uses the backtick character for configuration parameter names. When using the backtick character in the `quote_char` option, use the following formatting: **quote_char("\`\`")**
 {: .notice--primary}
 
 {% include doc/admin-guide/options/retries.md %}
@@ -214,7 +214,6 @@ For example:
 session-statements("SET COLLATION_CONNECTION='utf8_general_ci'")
 ```
 
-![]({{ site.baseurl}}/assets/images/caution.png) **WARNING:**
 The {{ site.product.short_name }} application does not validate or limit the contents
 of customized queries. Consequently, queries performed with a user with
 write-access can potentially modify or even harm the database.

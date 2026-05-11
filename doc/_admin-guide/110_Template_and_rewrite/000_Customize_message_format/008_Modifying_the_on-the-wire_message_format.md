@@ -9,7 +9,7 @@ description: >-
     send LPUSH commands to a Redis server.
 ---
 
-**NOTE:** The purpose of this example is to demonstrate the flexibility of
+The purpose of this example is to demonstrate the flexibility of
 {{ site.product.short_name }}. A dedicated Redis destination is available in {{ site.product.short_name }} version 3.5. For details, see
 [[redis: Storing name-value pairs in Redis]].
 {: .notice--primary}

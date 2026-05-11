@@ -8,7 +8,6 @@ description: >-
 
 The following options are specific to the s3 destination.
 
-![]({{ site.baseurl}}/assets/images/warning.png) **DANGER:**
 Hazard of data loss!
 The {{ site.product.short_name }} Amazon S3 destination has been designed to work with the AWS implementation.
 While it is possible to use the {{ site.product.short_name }} S3 destination with other implementations,

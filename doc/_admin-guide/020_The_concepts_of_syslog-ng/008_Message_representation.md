@@ -71,7 +71,7 @@ RFC-5424 formatted log messages become soft macros as well. In
 contrast with hard macros, soft macros are writable and can be
 modified within {{ site.product.short_name }}, for example, using rewrite rules.
 
-**NOTE:** It is also possible to set the value of built-in soft macros
+It is also possible to set the value of built-in soft macros
 using parsers, for example, to set the ${HOST} macro from the
 message using a column of a CSV-parser.
 {: .notice--primary}

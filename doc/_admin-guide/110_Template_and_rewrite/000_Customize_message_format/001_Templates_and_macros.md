@@ -65,7 +65,7 @@ To use a literal $ character in a template, you have to escape it. In
 {{ site.product.short_name }} versions 3.4 and earlier, use a backslash (**\\$**). In
 version 3.5 and later, use **$$**.
 
-**NOTE:** To use a literal @ character in a template, use **@@**.
+To use a literal @ character in a template, use **@@**.
 {: .notice--primary}
 
 Default values for macros can also be specified by appending the :-
@@ -131,7 +131,7 @@ destination d_file {
 };
 ```
 
-**NOTE:** Macros can be used to format messages, and also in the name of
+Macros can be used to format messages, and also in the name of
 destination files or database tables. However, they cannot be used in
 sources as wildcards, for example, to read messages from files or
 directories that include a date in their name.

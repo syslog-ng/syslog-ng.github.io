@@ -17,7 +17,7 @@ To look up all keys:
     After installing this package, you will be able to use the
     **mmdblookup** command.
 
-    **NOTE:** The name of the package depends on the Linux distribution. The
+    The name of the package depends on the Linux distribution. The
     package mentioned in this example is on Ubuntu.
     {: .notice--primary}
 

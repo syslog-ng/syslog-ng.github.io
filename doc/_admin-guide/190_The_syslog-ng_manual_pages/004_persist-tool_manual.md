@@ -25,14 +25,14 @@ The persist-tool application is a utility that can be used to dump the content o
 
 {: .notice--primary-start}
 
-**NOTE:** Current limitations are:
+Current limitations are:
 
 - The persist-state functions can be used only with `SLP4` or newer persist files, older persist files are not supported
 - Wildcard characters are not supported in file and directory names
 
 {: .notice--primary-end}
 
-![]({{ site.baseurl}}/assets/images/warning.png) **DANGER:** Persist-tool is a special tool for syslog-ng experts. Do use the tool unless you know exactly what you are doing. Misconfiguring it will result in irrecoverable damage to the persist file, without any warning.
+Persist-tool is a special tool for syslog-ng experts. Do use the tool unless you know exactly what you are doing. Misconfiguring it will result in irrecoverable damage to the persist file, without any warning.
 {: .notice--danger}
 
 ## THE DUMP COMMAND

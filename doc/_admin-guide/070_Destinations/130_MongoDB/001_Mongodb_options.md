@@ -62,7 +62,6 @@ mongodb(
 );
 ```
 
-![]({{ site.baseurl}}/assets/images/warning.png) **DANGER:**
 Hazard of data loss! The {{ site.product.short_name }} application does not verify that
 the specified collection name does not contain invalid characters. If
 you specify a collection with an invalid name, the log messages sent to

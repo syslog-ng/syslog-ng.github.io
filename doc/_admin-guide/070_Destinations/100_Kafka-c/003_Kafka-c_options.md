@@ -9,7 +9,7 @@ description: >-
 The kafka() destination of {{ site.product.short_name }} can
 directly publish log messages to the Apache Kafka message bus, where subscribers can access them. The destination has the following options.
 
-**NOTE:** `kafka()` and `kafka-c()` is now interchangable as the latter is just an alias of the first one.
+`kafka()` and `kafka-c()` is now interchangable as the latter is just an alias of the first one.
 {: .notice--primary}
 
 ## Required options
@@ -18,24 +18,24 @@ To use the kafka() destination, the following two options are required: bootstra
 
 {% include doc/admin-guide/options/batch-lines.md %}
 
-**NOTE:** The {{ site.product.short_name }} configuration accepts this option with
+The {{ site.product.short_name }} configuration accepts this option with
 sync-send() set to both "yes" or "no", but the option will only take
 effect if you set sync-send() to "yes".
 {: .notice--primary}
 
-**NOTE:** If you set sync-send() to "yes", the number you specify for
+If you set sync-send() to "yes", the number you specify for
 batch-lines() affects how many messages {{ site.product.short_name }} packs into once
 transaction.
 {: .notice--primary}
 
 {% include doc/admin-guide/options/batch-timeout.md %}
 
-**NOTE:** The {{ site.product.short_name }} configuration accepts this option with
+The {{ site.product.short_name }} configuration accepts this option with
 sync-send() set to both "yes" or "no", but the option will only take
 effect if you set sync-send() to "yes".
 {: .notice--primary}
 
-**NOTE:** When setting batch-timeout(), consider the value of the
+When setting batch-timeout(), consider the value of the
 transaction.timeout.ms Kafka property. If in case of timeout (that is,
 if {{ site.product.short_name }} does not receive batch-lines() amount of messages) the
 value of batch-timeout() exceeds the value of transaction.timeout.ms,
@@ -59,7 +59,7 @@ documentation.
 
 *Description:* If the resolved topic() template is not a valid Kafka topic , {{ site.product.short_name }} will use `fallback-topic()` to send messages.
 
-**NOTE:** If instead of strings, you use actual templates (that is, a macro like ${MESSAGE}, or a template function like $(format-json)) in the topic() option, configuring the `fallback-topic()` option is required.
+If instead of strings, you use actual templates (that is, a macro like ${MESSAGE}, or a template function like $(format-json)) in the topic() option, configuring the `fallback-topic()` option is required.
 {: .notice--primary}
 
 {% include doc/admin-guide/options/frac-digits.md %}
@@ -153,7 +153,6 @@ problem, {{ site.product.short_name }} cannot resend the messages.
 This method is fast, but the transfer is not reliable. Several thousands
 of messages can be lost before {{ site.product.short_name }} recognizes the error.
 
-![]({{ site.baseurl}}/assets/images/warning.png) **DANGER:**
 Hazard of data loss! If `sync-send()` is set to "no", the messages passed
 to the Kafka client can be lost. To avoid data loss, One Identity
 recommends that you set `sync-send()` to "yes", as this setting
@@ -184,7 +183,7 @@ the message, for example, `topic("${HOST}")`.
 
 {: .notice--primary-start}
 
-**NOTE:** Valid topic names for the topic() and fallback-topic() options have the
+Valid topic names for the topic() and fallback-topic() options have the
 following limitations:
 
 - The topic name must contain characters within the pattern \[-._a-zA-Z0-9\].
@@ -192,7 +191,7 @@ following limitations:
 
 {: .notice--primary-end}
 
-**NOTE:** If you use templates with the topic() option, configuring the
+If you use templates with the topic() option, configuring the
 fallback-topic() option is also required.
 {: .notice--primary}
 
@@ -200,13 +199,13 @@ fallback-topic() option is also required.
 
 {% include doc/admin-guide/options/workers.md %}
 
-**NOTE:** The workers are only responsible for formatting the
+The workers are only responsible for formatting the
 messages that need to be delivered to the Kafka clients. Configure this
 option only if your Kafka clients have many threads and they do not
 receive enough messages.
 {: .notice--primary}
 
-**NOTE:** Kafka clients have their own threadpool, entirely independent from
+Kafka clients have their own threadpool, entirely independent from
 any {{ site.product.short_name }} settings. The `workers()` option has no effect on this
 threadpool.
 {: .notice--primary}

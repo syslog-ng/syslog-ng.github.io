@@ -175,7 +175,7 @@ destination d_cim {
 You can find the exact source of the CIM template in the
 {{ site.product.short_name }} GitHub repository.
 
-**NOTE:** To use the format-cim() template function, {{ site.product.short_name }} must be
+To use the format-cim() template function, {{ site.product.short_name }} must be
 compiled with JSON support. To see if your {{ site.product.short_name }} binary was
 compiled with JSON support, execute the **syslog-ng \--version**
 command.
@@ -266,7 +266,7 @@ value-pairs, you can:
 
 - rename value-pairs, and so on.
 
-**NOTE:** Prior to version 4.0, {{ site.product.short_name }} handled all data as strings,
+Prior to version 4.0, {{ site.product.short_name }} handled all data as strings,
 and allowed the strings to be converted into other types of data that only
 data formats of certain destinations supported.
 In {{ site.product.short_name }} 4.0 and later versions, each name-value pair is a
@@ -302,7 +302,7 @@ destination d_json {
 };
 ```
 
-**NOTE:** In case of {{ site.product.short_name }} macros starting with a dot (for example,
+In case of {{ site.product.short_name }} macros starting with a dot (for example,
 \".SDATA.meta.sequenceID\") an empty key name is added at the top level
 of the JSON structure. You can work around this by adding \--shift 1 as
 a parameter to the template function.
@@ -366,7 +366,7 @@ destination d_welf {
 mmdb database using the \--field parameter. If you omit this parameter,
 it returns the 2-letter country code of any IPv4/IPv6 address or host.
 
-**NOTE:** This template function is available only if {{ site.product.short_name }} has been
+This template function is available only if {{ site.product.short_name }} has been
 compiled with geoip2 support. To enable it, use the **\--enable-geoip**
 compiling option.
 {: .notice--primary}
@@ -521,7 +521,7 @@ using the \--length option. This way, IDs will be shorter than a regular
 hash, but there is a very small possibility of them not being as unique
 as a non-truncated hash.
 
-**NOTE:** These template functions are available only if {{ site.product.short_name }} has
+These template functions are available only if {{ site.product.short_name }} has
 been compiled with the \--enable-ssl compile option and the tfhash
 module has been loaded.
 {: .notice--primary}
@@ -642,7 +642,7 @@ treating the IP address as a 4-byte hexadecimal value. For example, the
 192.168.1.1 address equals to: 192=C0, 168=A8, 1=01, 1=01, or C0A80101,
 which is 3232235777 in decimal representation.
 
-**NOTE:** This template function is available only if the convertfuncs
+This template function is available only if the convertfuncs
 module has been loaded.
 {: .notice--primary}
 
@@ -735,7 +735,7 @@ $(list-concat ${list1} ${list2})
 the list index starts with zero, so (list-nth 1 ${list} ) returns the
 second element, and so on.
 
-**NOTE:** Indexing starts at 0. If a negative index is used, it counts from the end of the list. If the specified index is not found, the function returns an empty string.
+Indexing starts at 0. If a negative index is used, it counts from the end of the list. If the specified index is not found, the function returns an empty string.
 {: .notice--primary}
 
 ### $(list-tail)
@@ -753,7 +753,7 @@ $(list-tail ${mylist} ) returns two, three.
 *Description:* The `list-search` template function scans the elements of ${list} starting from
 the given start_index and returns the index of the first element that matches \<pattern\>.
 
-**NOTE:** Indexing starts at 0. If \<pattern\> is not found, the function returns an empty string.
+Indexing starts at 0. If \<pattern\> is not found, the function returns an empty string.
 {: .notice--primary}
 
 Available options:
@@ -871,7 +871,7 @@ single character, it is repeated to fill the padding. If you use a string, it is
 repeated until the padding reaches the required length. The default padding character
 is ` ` (space).
 
-**NOTE:** The width parameter cannot be zero.
+The width parameter cannot be zero.
 {: .notice--primary}
 
 ### padding usage examples
@@ -1304,6 +1304,6 @@ log { source(s_network);
 };
 ```
 
-**NOTE:** This template function is available only if the tfuuid module has
+This template function is available only if the tfuuid module has
 been loaded.
 {: .notice--primary}

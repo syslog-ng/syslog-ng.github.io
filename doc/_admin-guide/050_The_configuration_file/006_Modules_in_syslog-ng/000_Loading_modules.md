@@ -28,7 +28,7 @@ Note the following points about the @module statement:
     be earlier than the module is used.
 
 {: .notice--primary-start}
-**NOTE:** To disable loading every module automatically, set the
+To disable loading every module automatically, set the
 autoload-compiled-modules global variable to **0** in your configuration
 file:
   
@@ -50,7 +50,7 @@ the configuration file:
 ```
 
 {: .notice--primary-start}
-**NOTE:** If you include the @requires statement in the:
+If you include the @requires statement in the:
   
 - {{ site.product.short_name }} configuration file, {{ site.product.short_name }} attempts to load the
     required module. If it fails to load the module, {{ site.product.short_name }} stops

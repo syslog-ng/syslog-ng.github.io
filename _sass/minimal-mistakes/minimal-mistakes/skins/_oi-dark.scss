@@ -70,11 +70,14 @@ $warning-color: color.scale(#ee5f5b, $lightness: 30%) !default;
     background-color: $base02;
   }
 
-  // Swap the background colors of these two notice types for better contrast
+  // Swap the background colors of these two notice types for better contrast.
+  // The `code` override is scoped with `:not(pre code)` so it only retints the
+  // *inline* <code> background — the fenced code block (<pre><code>) keeps its
+  // own syntax-highlighted background.
   .notice--primary {
     background-color: color.mix($background-color, $info-color, $notice-background-mix);
 
-    code {
+    code:not(pre code) {
       background-color: color.mix($background-color, $info-color, $code-notice-background-mix);
     }
   }
@@ -82,7 +85,7 @@ $warning-color: color.scale(#ee5f5b, $lightness: 30%) !default;
   .notice--info {
     background-color: color.mix($background-color, $primary-color, $notice-background-mix);
 
-    code {
+    code:not(pre code) {
       background-color: color.mix($background-color, $primary-color, $code-notice-background-mix);
     }
   }

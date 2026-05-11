@@ -28,13 +28,13 @@ To configure {{ site.product.short_name }} as a relay, complete the following st
     options. (For details on how these options work, see
     chain-hostnames()
 
-    **NOTE:** It is recommended to use these options on your {{ site.product.short_name }}
+    It is recommended to use these options on your {{ site.product.short_name }}
     server as well.
     {: .notice--primary}
 
 8. Set filters and options (for example, TLS encryption) as necessary.
 
-    **NOTE:** By default, the {{ site.product.short_name }} server will treat the relayed
+    By default, the {{ site.product.short_name }} server will treat the relayed
     messages as if they were created by the relay host, not the host
     that originally sent them to the relay. In order to use the original
     hostname on the {{ site.product.short_name }} server, use the **keep-hostname(yes)**

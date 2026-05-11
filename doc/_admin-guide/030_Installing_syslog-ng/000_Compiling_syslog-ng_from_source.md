@@ -113,7 +113,7 @@ and other platforms, see {{ site.product.name }} installation packages.
     These commands will build {{ site.product.short_name }} using its default options.
 
     {: .notice--primary-start}
-    **NOTE:** When using the make command, consider the following:
+    When using the make command, consider the following:
     - On Solaris, use **gmake** (GNU make) instead of **make**.
     - To build {{ site.product.short_name }} with less verbose output, use the **make
          V=0** command. This results in shorter, less verbose output,
@@ -129,14 +129,13 @@ and other platforms, see {{ site.product.name }} installation packages.
     ./configure --compile-time-option-name
     ```
 
-    **NOTE:** You can also use *\--disable options*, to explicitly disable a
+    You can also use *\--disable options*, to explicitly disable a
     feature and override autodetection. For example, to disable the
     TCP-wrapper support, use the *\--disable-tcp-wrapper* option. For
     the list of available compiling options, see
     Compiling options of {{ site.product.short_name }}.
     {: .notice--primary}
 
-![]({{ site.baseurl}}/assets/images/caution.png) **WARNING:**
 The default linking mode of {{ site.product.short_name }} is dynamic. This means that syslog-ng
 might not be able to start up if the /usr directory is on NFS. On platforms
 where {{ site.product.short_name }} is used as a system logger, the \--enable-mixed-linking is preferred.

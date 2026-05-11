@@ -50,7 +50,7 @@ message that begins with the Host: string followed by an IP address (for
 example, Host: 192.168.1.1), the following pattern can be used:
 Host:@IPv4@.
 
-**NOTE:** Note that using parsers is a CPU-intensive operation. Use the
+Note that using parsers is a CPU-intensive operation. Use the
 ESTRING and QSTRING parsers whenever possible, as these can be processed
 much faster than the other parsers.
 {: .notice--primary}

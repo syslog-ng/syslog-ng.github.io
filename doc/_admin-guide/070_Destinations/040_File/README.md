@@ -43,7 +43,7 @@ destination d_file {
 };
 ```
 
-**NOTE:** When using this destination, update the configuration of your log
+When using this destination, update the configuration of your log
 rotation program to rotate these files. Otherwise, the log files can
 become very large. See Configuring log rotation for available options.
 {: .notice--primary}
@@ -53,7 +53,6 @@ syslog-ng-ctl reload command, or use another method to send a SIGHUP to
 {{ site.product.short_name }}.
 {: .notice--primary}
 
-![]({{ site.baseurl}}/assets/images/caution.png) **WARNING:**
 Since the state of each created file must be tracked by {{ site.product.short_name }}, it consumes
 some memory for each file. If no new messages are written to a file within 60
 seconds (controlled by the time-reap() global option), it is closed, and its

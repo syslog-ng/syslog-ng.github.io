@@ -6,6 +6,6 @@ description: >-
     used in {{ site.product.short_name }}.
 ---
 
-**NOTE:** While reading this section, consider that the default installation
+While reading this section, consider that the default installation
 path used in the commands and {{ site.product.short_name }} files is /opt/syslog-ng.
 {: .notice--primary}

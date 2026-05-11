@@ -17,8 +17,7 @@ triplets (name, type, value). Typing support is available for several
 other components, for example, json-parser() and the $(format-json)
 template function. For more information, see Components supported by data types.
 
-![]({{ site.baseurl}}/assets/images/warning.png)
-**DANGER:** Hazard of data loss!  
+Hazard of data loss!  
 If {{ site.product.short_name }} cannot convert the data into the specified type, an error occurs,
 and {{ site.product.short_name }} drops the message by default. To change how {{ site.product.short_name }} handles
 data-conversion errors, see on-error().
@@ -88,7 +87,7 @@ The {{ site.product.short_name }} application currently supports the following d
 The following components support data types from {{ site.product.short_name }} 4.0 and
 onwards:
 
-**NOTE:** Component types not listed below process data as string.
+Component types not listed below process data as string.
 {: .notice--primary}
 
 - Numeric operators in filter expression comparisons are now

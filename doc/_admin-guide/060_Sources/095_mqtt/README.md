@@ -10,7 +10,7 @@ description: >-
 The mqtt() source builds on the MQTT protocol, and uses its
 MQTT client and MQTT broker entities.
 
-**NOTE:** The rest of this chapter and its sections build on your
+The rest of this chapter and its sections build on your
 familiarity with the MQTT protocol, the concept of client and broker
 entities, and how these entities function within an MQTT system.
 {: .notice--warning}

@@ -10,7 +10,7 @@ description: >-
     of the created name-value pairs.
 ---
 
-**NOTE:** The regexp-parser() can create additional name-value pairs only if
+The regexp-parser() can create additional name-value pairs only if
 \"named capture groups\" are used in the regular expression, for example
 (?\<test\_field\>\\w+). For more information, see \"named capture
 groups\" in PCRE documentation.

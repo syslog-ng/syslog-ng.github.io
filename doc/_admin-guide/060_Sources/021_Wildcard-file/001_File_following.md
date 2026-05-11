@@ -205,7 +205,7 @@ The following table shows which method is selected in different cases.
 
 (*) - `inotify` is ignored and `system` is used instead if any of the `IV_SELECT_POLL_METHOD` or the `IV_EXCLUDE_POLL_METHOD` environment variables are set, see the notation explanation below for more details.
 
-**NOTE:** As you can see, the best-performing option on\
+As you can see, the best-performing option on\
   \- Linux is the `inotify from ivykis directory monitor` method, which requires inotify kernel support, monitor-method() set to `inotify` or `auto` and follow-method() set to `inotify` or `auto`\
   \- BSD based systems like FreeBSD and macOS is `kqueue`, which requires follow-method() set to `system` or `auto`
 {: .notice--primary}
@@ -218,7 +218,7 @@ The method appears in `IV_SELECT_POLL_METHOD` will be forced at startup if avail
 Methods enumerated in `IV_EXCLUDE_POLL_METHOD` will be excluded from the ivykis initialization flow, and the next available (and not excluded) one will be used. The strings that can be used in `IV_EXCLUDE_POLL_METHOD` are `port-timer port dev_poll epoll-timerfd epoll kqueue ppoll poll uring` in the same order as in the table.\
 e.g., on Linux you should use `IV_EXCLUDE_POLL_METHOD="epoll-timerfd epoll"` to force the usage of the `ppoll` method, as `port-timer port dev_poll` are not available, and `epoll-timerfd epoll` are not working currently. However, note that all the options marked as `works, but always signals readability` (like `ppoll`, `poll`, etc.) are far from optimal, unlike on BSD-based systems like macOS, where the default `kqueue` is a perfect option to use.
 
-**NOTE:** `IV_SELECT_POLL_METHOD` is available only if {{ site.product.short_name }} built with the internal ivykis version (configure options `-DIVYKIS_SOURCE=internal` for CMake and `--with-ivykis=internal` for Autotools), as the default upstream version currently has no such support.
+`IV_SELECT_POLL_METHOD` is available only if {{ site.product.short_name }} built with the internal ivykis version (configure options `-DIVYKIS_SOURCE=internal` for CMake and `--with-ivykis=internal` for Autotools), as the default upstream version currently has no such support.
 {: .notice--primary}
 
 `works` - Means it has been tested and works seamlessly (based on our tests).

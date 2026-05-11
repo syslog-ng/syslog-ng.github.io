@@ -15,7 +15,7 @@ pattern database containing a single rule.
 message patterns and convert existing databases to the latest format. To automatically create
 an initial pattern database from an existing log file, use the `pdbtool patternize` command.\
 For more details, see The pdbtool manual page.
-{: .notice--primary}
+{: .notice}
 
 ## Example: A pattern database containing a single rule
 
@@ -45,7 +45,7 @@ Note that the rule uses macros that refer to parts of the message, for
 example, you can use the `${SSH_USERNAME}` macro to refer to the
 username used in the connection.
 
-**NOTE:** The `<pattern>` element under `<ruleset>` matches against the
+The `<pattern>` element under `<ruleset>` matches against the
 `PROGRAM` header of incoming messages. It can appear directly under
 `<ruleset>` (as shown above), or wrapped in a `<patterns>` container — both
 forms are equivalent. Multiple `<pattern>` elements may be listed to cover

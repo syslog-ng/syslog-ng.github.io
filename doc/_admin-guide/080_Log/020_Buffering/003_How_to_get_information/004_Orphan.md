@@ -14,7 +14,7 @@ a new disk-buffer file instead of using the already existing one. In
 these situations, the already existing disk-buffer file becomes a
 so-called orphan disk-buffer file.
 
-**NOTE:** The {{ site.product.short_name }} application does not store messages in orphan
+The {{ site.product.short_name }} application does not store messages in orphan
 disk-buffer files or forward the messages stored in the disk-buffer
 file.
 {: .notice--primary}

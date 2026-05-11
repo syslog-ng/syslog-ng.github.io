@@ -84,7 +84,7 @@ statistics:
 `--interval <seconds>` or `-I <seconds>`
     The number of seconds loggen will run. Default value: 10
 
-  **NOTE:** When `--interval` and `--number` are used together, loggen will
+  When `--interval` and `--number` are used together, loggen will
   send messages until the period set in `--interval` expires or the
   amount of messages set in `--number` is reached, whichever happens
   first.
@@ -102,7 +102,7 @@ statistics:
 `--number <number-of-messages>` or `-n <number-of-messages>`
     Number of messages to generate.
 
-  **NOTE:**  When `--interval` and `--number` are used together, loggen will
+  When `--interval` and `--number` are used together, loggen will
   send messages until the period set in `--interval` expires or the
   amount of messages set in `--number` is reached, whichever happens
   first.
@@ -123,7 +123,7 @@ statistics:
     The number of messages generated per second for every active
     connection. Default value: 1000
 
-  **NOTE:** If you want to change the message rate while loggen is running, send
+  If you want to change the message rate while loggen is running, send
   SIGUSR1 to double the message rate, or SIGUSR2 to halve it.
   For example:
   {: .notice--primary}
@@ -138,7 +138,7 @@ statistics:
     Specify - as the input file to read messages from the standard input
     (stdio).
 
-  **NOTE:** When reading messages from the standard input,
+  When reading messages from the standard input,
   loggen can only use a single thread. The -R -parameters must be
   placed at end of command, like:
   {: .notice--primary}

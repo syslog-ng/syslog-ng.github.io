@@ -16,7 +16,7 @@ description: >-
 
 - For details on extending {{ site.product.short_name }} in Java, see the Getting started with implementing Java destinations
 
-**NOTE:** If you delete all Java destinations from your configuration and
+If you delete all Java destinations from your configuration and
 reload {{ site.product.short_name }}, the JVM is not used anymore, but it is still running.
 If you want to stop JVM, stop {{ site.product.short_name }} and then start {{ site.product.short_name }} again.
 {: .notice--primary}

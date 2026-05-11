@@ -33,7 +33,7 @@
     Its functionality is similar to that of the no-parse flag, except
     the no-header flag does not skip the `PRI` field.
 
-    **NOTE:** Essentially, the no-header flag signals {{ site.product.short_name }} that the
+    Essentially, the no-header flag signals {{ site.product.short_name }} that the
     syslog header is not present (or does not adhere to the conventions
     / RFCs), so the entire message (except from the `PRI` field) is put
     into ${MSG}.
@@ -127,7 +127,7 @@
     ```
   
 
-    **NOTE:** The file destination uses multiple threads only if the
+    The file destination uses multiple threads only if the
     destination filename contains macros.
     {: .notice--primary}
 

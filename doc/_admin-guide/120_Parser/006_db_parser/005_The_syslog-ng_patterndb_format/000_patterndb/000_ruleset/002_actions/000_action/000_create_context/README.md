@@ -27,7 +27,7 @@ description: >-
     details on correlating messages, see
     Correlating log messages using pattern databases.
 
-    **NOTE:** The {{ site.product.short_name }} application determines the context of the
+    The {{ site.product.short_name }} application determines the context of the
     message *after* the pattern matching is completed. This means that
     macros and name-value pairs created by the matching pattern database
     rule can be used as context-id macros.
@@ -62,7 +62,7 @@ description: >-
 
   - *global*: Every message belongs to the same context.
 
-    **NOTE:** Using the context-scope attribute is significantly faster than
+    Using the context-scope attribute is significantly faster than
     using macros in the context-id attribute.
     {: .notice--primary}
 

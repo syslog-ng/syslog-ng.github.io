@@ -33,7 +33,7 @@ The primary server and the failover servers must be accessible with the
 same communication method: it is not possible to use different
 destination drivers or options for the different servers.
 
-**NOTE:** Client-side failover is not supported in the sql() driver.
+Client-side failover is not supported in the sql() driver.
 {: .notice--primary}
 
 For details on configuring failover servers, see

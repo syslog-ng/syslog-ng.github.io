@@ -84,7 +84,6 @@ Header in the request:
 curl  -H "X-Forwarded-FOR: 1.2.3.4" -X POST --data "{}" http://127.0.0.1:8080/
 ```
 
-**NOTE:** 
 Note that {{ site.product.short_name }} only trusts the header that is specified in the `proxy_header()` option. If the request includes multiple headers with the specified name, the last one is used.
 {: .notice--primary}
 
@@ -139,7 +138,7 @@ tls_ca_file("/etc/pki/tls/certs/ca-bundle.crt")
 
 For untrusted certificates only the existence of the certificate is checked, but it does not have to be valid — {{ site.product.short_name }} accepts the certificate even if it is expired, signed by an unknown CA, or its CN and the name of the machine mismatches.
 
- ![]({{ site.baseurl}}/assets/images/caution.png) **WARNING:** When validating a certificate, the entire certificate chain must be valid, including the CA certificate. If any certificate of the chain is invalid, {{ site.product.short_name }} will reject the connection.
+ When validating a certificate, the entire certificate chain must be valid, including the CA certificate. If any certificate of the chain is invalid, {{ site.product.short_name }} will reject the connection.
 {: .notice--warning}
 
 ## tls_use_system_cert_store()

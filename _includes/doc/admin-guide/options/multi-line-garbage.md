@@ -20,6 +20,6 @@ matching multi-line-garbage() is received.
 To use the multi-line-garbage() option, set the multi-line-mode() option
 to **prefix-garbage**.
 
-![]({{ site.baseurl}}/assets/images/caution.png) **WARNING:** If the multi-line-garbage()
+If the multi-line-garbage()
 option is set, {{ site.product.short_name }} discards lines between the line matching the multi-line-garbage() and the next line matching multi-line-prefix().
 {: .notice--warning}

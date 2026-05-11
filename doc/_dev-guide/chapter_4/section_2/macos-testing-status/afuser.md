@@ -17,7 +17,7 @@ id: dev-macos-mod-sup-afuser
 
 The usertty() driver has a single required argument, specifying a username who should receive a copy of matching messages. Use the asterisk \* to specify every user currently logged in to the system.
 
-**NOTE:** The usertty() does not have any further options nor does it support templates.
+The usertty() does not have any further options nor does it support templates.
 {: .notice--primary}
 
 #### Configuration file used <a href="#configuration-file-used" id="configuration-file-used"></a>

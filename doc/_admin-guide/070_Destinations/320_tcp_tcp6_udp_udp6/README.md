@@ -5,7 +5,7 @@ short_title: tcp / udp (OBSOLETE)
 id: adm-dest-tcp
 ---
 
-**NOTE:** The tcp(), tcp6(), udp(), and udp6() drivers are obsolete. Use the
+The tcp(), tcp6(), udp(), and udp6() drivers are obsolete. Use the
 **network()** source and the **network()** destination instead. For
 details, see network: Collecting messages using the RFC-3164 protocol
 (network() driver) and

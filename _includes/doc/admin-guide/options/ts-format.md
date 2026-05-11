@@ -7,7 +7,7 @@
 ts-format() parameter) for the specific destination. For details, see
 ts-format().
 
-**NOTE:** This option applies only to file and file-like destinations.
+This option applies only to file and file-like destinations.
 Destinations that use specific protocols (for example, network(), or
 syslog()) ignore this option. For protocol-like destinations, use a
 template locally in the destination, or use the

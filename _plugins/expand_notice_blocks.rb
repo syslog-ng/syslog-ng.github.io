@@ -54,7 +54,12 @@ module Jekyll
     # the IAL is captured so the emitted `<div>` / `</div>` can be re-indented
     # to the same column — that keeps the wrapper inside any enclosing list
     # item or blockquote so list numbering and indentation stay intact.
-    START_PATTERN = /^([ \t]*)\{:\s*\.notice--([A-Za-z0-9_]+)-start\s*\}[ \t]*$/
+    #
+    # Optional extra `.class` tokens may follow the typed marker, e.g.
+    # `{: .notice--warning-start .no-prefix .compact}` — they are captured
+    # and appended to the emitted `<div>`'s class list. Only the typed
+    # `*-start` carries extras; the matching `*-end` need not repeat them.
+    START_PATTERN = /^([ \t]*)\{:\s*\.notice--([A-Za-z0-9_]+)-start((?:\s+\.[A-Za-z0-9_-]+)*)\s*\}[ \t]*$/
     END_PATTERN   = /^([ \t]*)\{:\s*\.notice--([A-Za-z0-9_]+)-end\s*\}[ \t]*$/
 
     # Skip patterns: regions of content where markers must be ignored.
@@ -97,6 +102,7 @@ module Jekyll
           if (m = line.match(START_PATTERN))
             indent = m[1]
             type = m[2]
+            extras = m[3].to_s.strip   # e.g. ".no-prefix .compact" or ""
             unless ALLOWED_TYPES.include?(type)
               raise Error,
                     "#{page_path}:#{current_line}: unknown notice type `#{type}` in " \
@@ -108,11 +114,16 @@ module Jekyll
                     "previous `{: .notice--#{open_state[:type]}-start}` opened at line #{open_state[:line]} is still open"
             end
             open_state = { type: type, line: current_line, indent: indent }
+            # Build the class list: the typed variant plus any extra
+            # `.foo .bar` tokens captured from the marker (the leading dots
+            # are stripped so the result is a clean space-separated list).
+            extra_classes = extras.scan(/\.([A-Za-z0-9_-]+)/).flatten
+            class_attr = (["notice--#{type}"] + extra_classes).join(" ")
             # Emit kramdown-friendly wrapper with surrounding blank lines so the
             # block is recognized as a standalone HTML block. Preserve the
             # opener's leading whitespace so the <div> stays inside any
             # enclosing list item or block-quote, keeping list numbering intact.
-            rewritten_lines << "\n#{indent}<div class=\"notice--#{type}\" markdown=\"1\">\n"
+            rewritten_lines << "\n#{indent}<div class=\"#{class_attr}\" markdown=\"1\">\n"
           elsif (m = line.match(END_PATTERN))
             type = m[2]
             unless ALLOWED_TYPES.include?(type)

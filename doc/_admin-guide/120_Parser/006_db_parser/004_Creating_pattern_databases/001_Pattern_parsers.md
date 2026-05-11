@@ -132,7 +132,7 @@ of whitespaces and double-quotes.
 
 Available in {{ site.product.short_name }} 3.31 and later.
 
-**NOTE:** The @OPTIONALSET@ parser works almost exactly like the
+The @OPTIONALSET@ parser works almost exactly like the
 [[@SET@]] parser, but the @OPTIONALSET@ parser
 continues parsing even if none of the specified characters are found.
 {: .notice--primary}

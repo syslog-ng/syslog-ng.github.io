@@ -123,7 +123,7 @@ source s_files {
 
 When using wildcards in filenames, {{ site.product.short_name }} tries to read log-fetch-limit() messages from each file. For optimal performance, ensure that log-iw-size() is greater than log-fetch-limit() * max-files().
 
-**NOTE:** To avoid performance problems, if log-iw-size() / max-files() is smaller than 100, {{ site.product.short_name }} automatically sets log-iw-size() to max-files() * 100
+To avoid performance problems, if log-iw-size() / max-files() is smaller than 100, {{ site.product.short_name }} automatically sets log-iw-size() to max-files() * 100
 {: .notice--primary}
 
 {% include doc/admin-guide/options/log-msg-size.md %}

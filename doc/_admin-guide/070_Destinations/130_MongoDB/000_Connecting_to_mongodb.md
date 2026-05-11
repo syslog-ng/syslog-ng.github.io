@@ -28,7 +28,6 @@ description: >-
     appends this list to the servers() option.
 
     {: .notice--warning-start}
-    ![]({{ site.baseurl}}/assets/images/caution.png) **WARNING:**
 
     - This means that {{ site.product.short_name }} can send log  messages to
            addresses that are not listed in its configuration.

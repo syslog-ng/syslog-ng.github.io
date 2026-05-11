@@ -39,7 +39,7 @@ option.
 If the resolved topic() template is not a valid topic, {{ site.product.short_name }}
 will use the fallback-topic() option to send messages.
 
-**NOTE:** If instead of strings, you use actual templates (that is, a macro
+If instead of strings, you use actual templates (that is, a macro
 like ${MESSAGE}, or a template function like $(format-json)) in the
 topic() option, configuring the fallback-topic() option is required.
 {: .notice--primary}
@@ -47,7 +47,7 @@ topic() option, configuring the fallback-topic() option is required.
 **TIP:** Occasionally, the reason why {{ site.product.short_name }} cannot post messages to
 the configured topic() is that the topic contains invalid characters
 that originate from templates.
-{: .notice--primary}
+{: .notice}
 
 {% include doc/admin-guide/options/http-proxy.md %}
 

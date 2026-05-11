@@ -48,7 +48,7 @@ network(), pipe(), syslog() and in global option.
     that setting the global mark-mode() to global causes a syntax error
     in {{ site.product.short_name }}.
 
-**NOTE:** In case of dst-idle, host-idle and periodical, the MARK message
+In case of dst-idle, host-idle and periodical, the MARK message
 will not be written in the destination, if it is not open yet.
 {: .notice--primary}
 

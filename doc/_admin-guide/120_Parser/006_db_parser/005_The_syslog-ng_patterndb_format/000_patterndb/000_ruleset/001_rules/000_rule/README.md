@@ -15,7 +15,7 @@ The *\<rules\>* element may contain any number of *\<rule\>* elements.
 
 {: .notice--primary-start}
 
-**NOTE:** If the following characters appear in the message, they must be escaped in the rule as follows:
+If the following characters appear in the message, they must be escaped in the rule as follows:
 
 - *@*: Use `@@`, for example, `user@@example.com` --- syslog-ng special notation
 - *\<*: Use `&lt;` --- XML entity
@@ -48,7 +48,7 @@ The *\<rules\>* element may contain any number of *\<rule\>* elements.
     details on correlating messages, see
     Correlating log messages using pattern databases.
 
-    **NOTE:** The {{ site.product.short_name }} application determines the context of the
+    The {{ site.product.short_name }} application determines the context of the
     message *after* the pattern matching is completed. This means that
     macros and name-value pairs created by the matching pattern database
     rule can be used as context-id macros.
@@ -83,7 +83,7 @@ The *\<rules\>* element may contain any number of *\<rule\>* elements.
 
   - *global*: Every message belongs to the same context.
 
-  **NOTE**: Using the context-scope attribute is significantly faster than
+  Using the context-scope attribute is significantly faster than
   using macros in the context-id attribute.
   {: .notice--primary}
   For details on correlating messages, see Correlating log messages using pattern databases.

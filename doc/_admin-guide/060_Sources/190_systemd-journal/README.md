@@ -17,32 +17,31 @@ parsed value. For a list and description of name-value pairs that
 journald provides, see the documentation of journald for your platform
 (for example, `man systemd.journal-fields`).
 
-**NOTE:** The log-msg-size() option is not applicable for this source. Use
+The log-msg-size() option is not applicable for this source. Use
 the max-field-size() option instead.
 {: .notice--primary}
 
 {: .notice--primary-start}
 
-**NOTE:** This source will not handle the following cases:
+This source will not handle the following cases:
 - Corrupted journal file
 - Incorrect journal configuration
 - Any other journald-related bugs
 
 {: .notice--primary-end}
 
-**NOTE:** If you are using RHEL-7, the default source in the configuration
+If you are using RHEL-7, the default source in the configuration
 is systemd-journal() instead of unix-dgram("/dev/log") and
 file("/proc/kmsg"). If you are using unix-dgram("/dev/log") or
 unix-stream("/dev/log") in your configuration as a source, {{ site.product.short_name }} will revert to using systemd-journal() instead.
 {: .notice--primary}
 
-![]({{ site.baseurl}}/assets/images/caution.png) **WARNING:** Only one systemd-journal() source can be configured in the configuration file.
+Only one systemd-journal() source can be configured in the configuration file.
 If there is more than one systemd-journal() source configured, {{ site.product.short_name }}
 will not start.
 {: .notice--warning}
 
-![]({{ site.baseurl}}/assets/images/caution.png)
-**WARNING:** The systemd-journal() source cannot operate under an Ubuntu 24.04 LTS (Noble Numbat) platform. For more information on supported platforms, see Supported platforms.
+The systemd-journal() source cannot operate under an Ubuntu 24.04 LTS (Noble Numbat) platform. For more information on supported platforms, see Supported platforms.
 {: .notice--warning}
 
 **Declaration**

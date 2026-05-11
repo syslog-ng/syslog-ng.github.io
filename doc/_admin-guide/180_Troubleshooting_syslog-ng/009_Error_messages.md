@@ -27,7 +27,7 @@ For more information, see Managing incoming and outgoing messages with flow-cont
 
 {: .notice--primary-start}
 
-**NOTE:** Windows Notepad is not able to save the file in normal UTF-8, even if you select it.  
+Windows Notepad is not able to save the file in normal UTF-8, even if you select it.  
 
 1. In Notepad++, from the menu, select **Encoding**.
 2. Change the value from **UTF-8-BOM** to **UTF-8**.

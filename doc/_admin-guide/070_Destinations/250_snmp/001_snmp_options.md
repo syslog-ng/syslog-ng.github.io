@@ -140,7 +140,7 @@ trap object is always Objectid. The \<oid\_of\_the\_object\> and the
 parameters of the snmp-obj() option. For details on these parameters,
 see snmp-obj().
 
-**NOTE:** Using the trap-obj() object is equivalent to using the snmp-obj()
+Using the trap-obj() object is equivalent to using the snmp-obj()
 with the Objectid type.
 {: .notice--primary}
 

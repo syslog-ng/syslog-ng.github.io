@@ -67,7 +67,7 @@ The displayed metrics have the following structure.
     - **o** - This object was once active, but stopped receiving messages.
         (For example, a dynamic object may disappear and become orphan.)
 
-        **NOTE:** The {{ site.product.short_name }} application stores the statistics of the
+        The {{ site.product.short_name }} application stores the statistics of the
         objects when {{ site.product.short_name }} is reloaded. However, if the
         configuration of {{ site.product.short_name }} was changed since the last
         reload, the statistics of orphaned objects are deleted.
@@ -102,7 +102,7 @@ The displayed metrics have the following structure.
     - **batch\_size\_avg**: When batching is enabled, then this shows the
         current average batch size of the given source or destination.
 
-        **NOTE:** In version 3.36, {{ site.product.short_name }} only supports the
+        In version 3.36, {{ site.product.short_name }} only supports the
         batch\_size\_avg for the http() destination.
         {: .notice--primary}
 
@@ -110,7 +110,7 @@ The displayed metrics have the following structure.
         batch\_size\_max shows the current largest batch size of the
         given source or destination.
 
-        **NOTE:** In version 3.36, {{ site.product.short_name }} only supports the
+        In version 3.36, {{ site.product.short_name }} only supports the
         batch\_size\_max for the http() destination.
         {: .notice--primary}
 
@@ -135,7 +135,7 @@ The displayed metrics have the following structure.
 
         {: .notice--primary-start}
 
-        **NOTE:** When using the eps\_last\_1h, the eps\_last\_24h, and the
+        When using the eps\_last\_1h, the eps\_last\_24h, and the
         eps\_since\_start statistics, consider the following:
 
         - EPS stands for \"event per second\", and in our case, a
@@ -163,7 +163,7 @@ The displayed metrics have the following structure.
 
         >dst.network;d_net#0;tcp,127.0.0.1:9999;a;memory_usage;0
 
-        **NOTE:** The memory usage (size) of queues is not equal to the
+        The memory usage (size) of queues is not equal to the
         memory usage (size) of the log messages in {{ site.product.short_name }}. A log
         message can be in multiple queues, thus its size is added to
         multiple queue sizes. To check the size of all log messages, use
@@ -178,7 +178,7 @@ The displayed metrics have the following structure.
 
         {: .notice--primary-start}
 
-        **NOTE:** When using the msg\_size\_avg and msg\_size\_max
+        When using the msg\_size\_avg and msg\_size\_max
         statistics, consider that message sizes are calculated as follows:
         - on the source side: the length of the incoming raw message
         - on the destination side: the length of the outgoing formatted message
@@ -194,7 +194,7 @@ The displayed metrics have the following structure.
 
         >filter;demo_filter;;a;not_matched;0
 
-        **NOTE:** Since the not\_matched metric applies to filters, and
+        Since the not\_matched metric applies to filters, and
         filters are expected to discard messages that do not match the
         filter condition, not\_matched messages are not included in the
         dropped metric of other objects.
@@ -203,7 +203,7 @@ The displayed metrics have the following structure.
     - **processed**: The number of messages that successfully reached
         their destination driver.
 
-        **NOTE:** Consider that a message that has successfully reached its
+        Consider that a message that has successfully reached its
         destination driver does not necessarily mean that the
         destination driver successfully delivered the messages as well.
         For example, a message can be written to disk or sent to a
@@ -235,7 +235,7 @@ The displayed metrics have the following structure.
 
     {: .notice--primary-start}
 
-    **NOTE:** Consider that for {{ site.product.short_name }} version 3.36, the following
+    Consider that for {{ site.product.short_name }} version 3.36, the following
     statistics counters are only supported for the http() destination,
     or the http() destination and all network() sources and
     destinations, and all file() sources and destinations, respectively:

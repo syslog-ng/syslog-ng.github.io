@@ -10,7 +10,7 @@ id: dev-platform-build-freebsd
 
 At present we are not supporting FreeBSD {{ site.product.short_name }} on our [[official repository|gh-syslog-ng]] on GitHub. However, you can compile {{ site.product.short_name }} yourself following this guide.
 
-**NOTE:** The guide is tested on X86_64/amd64 FreeBSD 14 and 13, we do our bests to keep it update, but your actual system may require additional steps or slightly different settings.
+The guide is tested on X86_64/amd64 FreeBSD 14 and 13, we do our bests to keep it update, but your actual system may require additional steps or slightly different settings.
 {: .notice--primary}
 
 ## Compiling from source
@@ -109,7 +109,6 @@ sudo pkg install \
 <div id="packages-note"></div>
 
 {: .notice--primary-start}
-**NOTE:**
 
 * gcc - see at [compiler selection](#select-the-compiler)
 * grpc - 
@@ -143,7 +142,7 @@ export CXXFLAGS="${CFLAGS} ${CXXFLAGS}"
 export LDFLAGS="-L${BSDPORTS_PREFIX}/lib ${LDFLAGS}"
 ```
 
-**NOTE:** Providing further library paths might be necessary.
+Providing further library paths might be necessary.
 {: .notice--primary}
 
 ### Getting the source
@@ -180,7 +179,6 @@ export CXX=g++    # More precisly, the full path of ypur installed g++ compiler
 ### Configuration
 
 {: .notice--primary-start}
-**NOTE:**
 
 * for various reasons not all modules can always be configured, built and used on all FreeBSD versions and architectures
 * for using all the available modules you might have to install further dependencies as mentioned above
@@ -204,7 +202,7 @@ mkdir build; cd build
 ../configure --enable-extra-warnings --with-ivykis=system --with-systemd-journal=no --disable-java --disable-java-modules
 ```
 
-![]({{ site.baseurl}}/assets/images/warning.png) **DANGER:** You may want to install the self-built instance to a custom location first to avoid overwriting an existing installed version. In that case, pass the `--prefix /full_path_of_your/installdir/` parameter to the `configue` command, as shown in the steps above.
+You may want to install the self-built instance to a custom location first to avoid overwriting an existing installed version. In that case, pass the `--prefix /full_path_of_your/installdir/` parameter to the `configue` command, as shown in the steps above.
 {: .notice--danger}
 
 If you have all the above mentioned dependencies installed, for the full feature set you can simply use for example (excluded the not yet supported modules on FreeBSD)
@@ -436,7 +434,7 @@ make check -j4
 cmake --build build/. --target check -j4
 ```
 
-**NOTE:** For more read [[testing|dev-testing]] guide.
+For more read [[testing|dev-testing]] guide.
 {: .notice--primary}
 
 ### Run
@@ -445,5 +443,5 @@ cmake --build build/. --target check -j4
 `/full_path_of_your/installdir`/syslog-ng -F
 ```
 
-**NOTE:** For more information read the [[run first|dev-run-first]] guide
+For more information read the [[run first|dev-run-first]] guide
 {: .notice--primary}

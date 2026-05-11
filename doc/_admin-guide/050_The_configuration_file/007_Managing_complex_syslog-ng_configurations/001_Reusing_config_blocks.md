@@ -104,7 +104,7 @@ block root mylogs() {
 };
 ```
 
-**TIP:** Since the block is inserted into the {{ site.product.short_name }} configuration
+Since the block is inserted into the {{ site.product.short_name }} configuration
 when {{ site.product.short_name }} is started, the block can be generated dynamically
 using an external script if needed. This is useful when you are running
 {{ site.product.short_name }} on different hosts and you want to keep the main

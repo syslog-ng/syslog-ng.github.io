@@ -59,7 +59,7 @@ rewrite <name_of_the_rule> {
 };
 ```
 
-**NOTE:** The severity and facility fields can only be set by the
+The severity and facility fields can only be set by the
 set-severity() rewrite functions.
 {: .notice--primary}
 

@@ -21,7 +21,7 @@ For example:
 ><189>32: 0.0.0.0: *Apr 29 13:59:12.491: %SYS-5-CONFIG_I: Configured from console by console
 ><189>32: foo: *Apr 29 13:58:46.411: %SYSMGR-STANDBY-3-SHUTDOWN_START: The System Manager has started the shutdown procedure.
 
-**NOTE:** Not every Cisco log message conforms to this format. If you find a message that the cisco-parser() cannot properly parse, contact Support, so we can improve the parser.
+Not every Cisco log message conforms to this format. If you find a message that the cisco-parser() cannot properly parse, contact Support, so we can improve the parser.
 {: .notice--primary}
 
 The {{ site.product.short_name }} application normalizes the parsed log messages into

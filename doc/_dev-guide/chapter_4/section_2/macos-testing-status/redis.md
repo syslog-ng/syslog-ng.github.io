@@ -34,7 +34,7 @@ Once we do this, we can use the Redis CLI to monitor for messages that we will s
 `$ redis-cli`\
 `127.0.0.1:6379> MONITOR`
 
-**NOTE:** Localhost on port 6379 is the default setting for redis.&#x20;
+Localhost on port 6379 is the default setting for redis.&#x20;
 {: .notice--primary}
 
 ### Configuration File Used

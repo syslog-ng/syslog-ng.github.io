@@ -74,8 +74,7 @@ the following:
     };
     ```
 
-    ![]({{ site.baseurl}}/assets/images/caution.png)
-     **WARNING:** The {{ site.product.short_name }} application will not start if it cannot find a
+    The {{ site.product.short_name }} application will not start if it cannot find a
      file that is to be included in its configuration. Always double-check the
      filenames, paths, and access rights when including configuration files,
      and use the **--syntax-only** command-line option to check your configuration.

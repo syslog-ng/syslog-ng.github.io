@@ -1,6 +1,5 @@
 {: .notice--warning-start}
 
-![]({{ site.baseurl}}/assets/images/caution.png) **WARNING:**
 When receiving messages using the UDP protocol, increase the
 size of the UDP receive buffer on the receiver host (that is, the {{ site.product.short_name }} server or relay receiving the messages).  
   

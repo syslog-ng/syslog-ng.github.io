@@ -33,7 +33,7 @@ filter f_router {
 };
 ```
 
-**NOTE:** The {{ site.product.short_name }} application automatically adds the class of the
+The {{ site.product.short_name }} application automatically adds the class of the
 message as a tag using the .classifier.\<message-class\> format. For
 example, messages classified as \"system\" receive the
 .classifier.system tag. Use the **tags()** filter function to select

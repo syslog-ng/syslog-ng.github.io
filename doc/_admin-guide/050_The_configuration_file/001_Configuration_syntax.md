@@ -76,7 +76,7 @@ As a {{ site.product.short_name }} user described on a Gentoo mailing list:
     destinations with **d_**, and so on.
     {: .notice}
   
-    **NOTE:** Repeating a definition of an object (that is, defining the
+    Repeating a definition of an object (that is, defining the
     same object with the same id more than once) is not allowed,
     unless you use the @define allow-config-dups 1 definition in
     the configuration file.  
@@ -175,9 +175,8 @@ As a {{ site.product.short_name }} user described on a Gentoo mailing list:
     };
     ```
 
-> **TIP:** Before activating a new configuration, check that your
-> configuration file is syntactically correct using the `syslog-ng --syntax-only` command.
->  
-> To activate the configuration, reload the configuration of syslog-ng
-> using the `/etc/init.d/syslog-ng reload` command.
-{: .notice--primary}
+**TIP:** Before activating a new configuration, check that your
+configuration file is syntactically correct using the `syslog-ng --syntax-only` command.\
+To activate the configuration, reload the configuration of syslog-ng
+using the `/etc/init.d/syslog-ng reload` command.
+{: .notice}

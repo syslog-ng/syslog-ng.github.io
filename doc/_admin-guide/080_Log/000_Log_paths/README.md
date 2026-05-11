@@ -23,7 +23,6 @@ log {
 };
 ```
 
-![]({{ site.baseurl}}/assets/images/caution.png) **WARNING:**
 Log statements are processed in the order they appear in the configuration file,
 thus the order of log paths may influence what happens to a message, especially
 when using filters and log flags.

@@ -7,7 +7,7 @@ description: >-
     drivers.
 ---
 
-**NOTE:** The format of the TLS connections used by {{ site.product.short_name }} is similar to
+The format of the TLS connections used by {{ site.product.short_name }} is similar to
 using {{ site.product.short_name }} and stunnel, but the source IP information is not lost.
 {: .notice--primary}
 
@@ -120,7 +120,6 @@ This option is only available with the following drivers:
 - tcp
 - tcp6
 
-![]({{ site.baseurl}}/assets/images/caution.png) **WARNING:**
 Using keylog-file() makes TLS connections less secure by writing secret key
 materials into the given file. This option should only be enabled for debugging
 purposes and should be disabled after that. It is also recommended to delete
@@ -136,7 +135,7 @@ This option is available in {{ site.product.short_name }} 4.0 and later versions
 
 *Description:* In case the OCSP stapling verification is enabled, {{ site.product.short_name }} requests the server to return its OCSP status. This status response is verified by {{ site.product.short_name }} using the trust store configured by the ca-file(), ca-dir(), or the pkcs12-file() options.
 
-**NOTE:** RFC-6961 multi-stapling and TLS 1.3-provided multiple responses are currently not validated, only the peer certificate is verified.
+RFC-6961 multi-stapling and TLS 1.3-provided multiple responses are currently not validated, only the peer certificate is verified.
 {: .notice--primary}
 
 ### Example: OCSP stapling verification
@@ -158,7 +157,6 @@ destination {
 
 This option is available in {{ site.product.short_name }} 4.0 and later versions.
 
-![]({{ site.baseurl}}/assets/images/caution.png) **WARNING:**
 openssl-conf-cmds() always has the highest priority. It overrides any other option found in the tls() section.
 {: .notice--warning}
 
@@ -354,7 +352,7 @@ command: **openssl x509 -in \<certificate-filename\> -sha1 -noout
 
 {: .notice--primary-start}
 
-**NOTE:** When using the trusted-keys() and trusted-dn() parameters, note the following:  
+When using the trusted-keys() and trusted-dn() parameters, note the following:  
   
 - First, the trusted-keys() parameter is checked. If the fingerprint  
     of the peer is listed, the certificate validation is performed.
