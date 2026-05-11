@@ -45,7 +45,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 
 Verifies that `{: .notice--info|warning|danger }` block attributes are honored, that `\{: ... \}` literally escaped attribute markers stay visible, that bold/macro/Liquid expansion still works inside notices, and that the custom `[[parser: ...]]` autolink form (title containing `:`) resolves.
 
-**INFO:** \{: .notice--info\} Test \
+![]({{ site.baseurl}}/assets/images/info.png) **INFO:** This is a \{: .notice--info\} test \
 any modifications or changes, use the **flags(no-parse)** option in the
 source definition, and a template containing only the ${MESSAGE} macro in the destination definition.
 {: .notice--info}
@@ -105,11 +105,15 @@ prose line with no manual blank line in between.
 All five Minimal Mistakes notice types are exercised below
 (`primary`, `info`, `warning`, `danger`, `success`).
 
+
+
 ### Primary — wraps a paragraph and an unordered list (no blank line before list)
+
+Paired form (`{: .notice--primary-start/-end}`) wrapping mixed inline content.
 
 {: .notice--primary-start}
 
-**NOTE:**
+![]({{ site.baseurl}}/assets/images/note.png) **NOTE:**
 The `${HOST}` macro and the {{ site.product.short_name }} Liquid variable
 must both expand here, and the link to [[Install Homebrew|dev-inst-macos#using-homebrew]]
 must still resolve.
@@ -121,9 +125,11 @@ must still resolve.
 
 ### Info — wraps an ordered list (auto blank-line insertion test)
 
+Paired form (`{: .notice--info-start/-end}`) wrapping a numbered list with no manual blank line after the label.
+
 {: .notice--info-start}
 
-**INFO:**
+![]({{ site.baseurl}}/assets/images/info.png) **INFO:**
 1. first numbered item
 2. second numbered item — uses the ${MESSAGE} macro
 3. third numbered item — references {{ site.product.name }}
@@ -132,9 +138,11 @@ must still resolve.
 
 ### Warning — wraps a fenced code block plus prose
 
+Paired form (`{: .notice--warning-start/-end}`) wrapping a fenced code block between two paragraphs.
+
 {: .notice--warning-start}
 
-**WARNING:**
+![]({{ site.baseurl}}/assets/images/caution.png) **WARNING:**
 
 Leading paragraph that mentions log-msg-size() and ${PROGRAM} as plain text.
 
@@ -155,9 +163,11 @@ indented text).
 
 ### Danger — wraps a heading, a paragraph, and a list
 
+Paired form (`{: .notice--danger-start/-end}`) wrapping a nested heading, prose, and a bullet list.
+
 {: .notice--danger-start}
 
-**DANGER:**
+![]({{ site.baseurl}}/assets/images/warning.png) **DANGER:**
 
 #### Nested heading inside a notice
 
@@ -171,13 +181,25 @@ Some prose between the heading and the list.
 
 ### Success — single-paragraph paired form (functionally equivalent to single-block IAL)
 
+Paired form (`{: .notice--success-start/-end}`) used for a one-paragraph notice — the single-block IAL would suffice.
+
 {: .notice--success-start}
 
-**SUCCESS:** A one-paragraph notice using the paired form also works,
+![]({{ site.baseurl}}/assets/images/success.png) **SUCCESS:** A one-paragraph notice using the paired form also works,
 even though the legacy single-block `{: .notice--success}` IAL would
 suffice here.
 
 {: .notice--success-end}
+
+### Plain notice — no severity (single-block IAL only)
+
+Generic gray callout for neutral asides. Only the single-block IAL form is supported — the paired-marker plugin accepts only the five typed variants.
+
+**NOTICE:**
+A one-paragraph plain notice — inline tooltips like `time-zone()` and macros
+like ${HOST} still expand. Background mixes from `$light-gray`, so it stays a
+faint neutral gray, distinct from `.notice--primary` / `.notice--info`.
+{: .notice}
 
 ### Paired markers nested inside an ordered list
 
@@ -190,7 +212,7 @@ is preserved (1, 2, 3 — not 1, 1, 1).
 
    {: .notice--info-start}
 
-   **NOTE:**
+   ![]({{ site.baseurl}}/assets/images/info.png) **NOTE:**
    - inner bullet a
    - inner bullet b
 
@@ -230,11 +252,11 @@ RFC-5424 formatted log messages become soft macros as well. In
 contrast with hard macros, soft macros are writable and can be
 modified within {{ site.product.short_name }}, for example, using rewrite rules.
 
-**WARNING:** \{: .notice--warning\} Test \
+![]({{ site.baseurl}}/assets/images/caution.png) **WARNING:** \{: .notice--warning\} Test \
 for the list of hard and soft macros, see [[Hard versus soft macros]].  
 {: .notice--warning}
 
-**DANGER:** \{: .notice--danger\} Test \
+![]({{ site.baseurl}}/assets/images/warning.png) **DANGER:** \{: .notice--danger\} Test \
 at the location it reaches the log-msg-size() value, and discards the rest of the message.
 {: .notice--danger}
 
@@ -300,8 +322,8 @@ Test of forced link with anchored ID part [[Install Homebrew|dev-inst-macos#usin
 
 1. Same test like above in an enumeration [[Install Homebrew|dev-inst-macos#using-homebrew]].
 
-**Hint:** Same again in a notice block [[Install Homebrew|dev-inst-macos#using-homebrew]]. If you have {{ site.product.short_name }} [[installed via brew|dev-inst-macos#installation]], as a reference, you can check the dependencies of the brew built version using `brew deps syslog-ng`
-{: .notice--info}
+**TIP:** Same again in a notice block [[Install Homebrew|dev-inst-macos#using-homebrew]]. If you have {{ site.product.short_name }} [[installed via brew|dev-inst-macos#installation]], as a reference, you can check the dependencies of the brew built version using `brew deps syslog-ng`
+{: .notice}
 
 ## External links, long and short matching, search and tokens at backtick boundaries
 
@@ -431,7 +453,7 @@ One more without any escaping using the `render_with_liquid: false` frontmatter 
 and a {% raw %}{{ site.product.name }}{% endraw %} variable raw inclusion test
 
 {: .notice--warning-start}
-**WARNING:**
+![]({{ site.baseurl}}/assets/images/caution.png) **WARNING:**
 Showing literal Liquid tags on a page is tricky because **two** Liquid passes touch the source:
 
 1. Our `generate_tooltips.rb` plugin runs its own Liquid `parse`/`render` on the raw markdown — it does **not** honor the `render_with_liquid: false` frontmatter switch.

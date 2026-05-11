@@ -40,3 +40,19 @@ A DANGER icon highlights a potential risk of bodily injury or property damage, f
 ![]({{ site.baseurl}}/assets/images/caution.png) **WARNING:**
 A WARNING icon indicates potential damage to hardware or loss of data if instructions are not followed.
 {: .notice--warning}
+
+![]({{ site.baseurl}}/assets/images/info.png) **INFO:**
+An INFO icon highlights supplementary information that helps you understand the surrounding content but is not strictly required to follow the instructions.
+{: .notice--info}
+
+![]({{ site.baseurl}}/assets/images/note.png) **NOTE:**
+A NOTE icon marks a primary note or tip that complements the surrounding content with useful context, recommendations, or best practices.
+{: .notice--primary}
+
+![]({{ site.baseurl}}/assets/images/success.png) **SUCCESS:**
+A SUCCESS icon confirms that an operation completed correctly or that a recommended configuration has been applied.
+{: .notice--success}
+
+**NOTICE:**
+A plain NOTICE is a generic callout box without any severity coloring. Use it for side remarks, neutral asides, or content that does not fit any of the semantic categories above.
+{: .notice}

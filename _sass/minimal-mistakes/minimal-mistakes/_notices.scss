@@ -72,6 +72,17 @@
       margin-bottom: 0; /* override*/
     }
   }
+
+  /* When the notice class is applied directly to a list element via
+     kramdown's IAL (e.g. `{: .notice}` immediately after a `<ul>` / `<ol>`),
+     the notice's own `padding: 1em` swallows the browser's default
+     left padding of the list, so bullets/numbers would sit on the
+     edge of the gray box. Restore enough left padding to keep the
+     markers inside, and aligned with the text of items wrapped in a
+     `<div class="notice">…</div>` wrapper. */
+  @at-root ul#{&}, ol#{&} {
+    padding-left: 2.5em;
+  }
 }
 
 /* Default notice */
