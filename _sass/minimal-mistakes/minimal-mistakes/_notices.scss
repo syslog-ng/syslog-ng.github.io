@@ -109,10 +109,17 @@
      The 16×16 icon is painted as a background image inside the
      `padding-left` strip — `background-position: left center` centers
      it against the line box, which lines up against the cap-height
-     middle of the bold uppercase label. */
+     middle of the bold uppercase label.
+
+     The icon URL is read from a per-icon CSS custom property emitted
+     in `_includes/head.html` via Liquid `relative_url`, so the path is
+     correct on installs that use a non-empty Jekyll `baseurl` (such as
+     project-page forks). The fallback URL keeps the local/no-baseurl
+     case working even if the head include is missing. */
+  $icon-key: str-slice($icon, 1, str-index($icon, ".png") - 1);
   content: "#{$label}: ";
   padding-left: 22px;
-  background: url("/assets/images/#{$icon}") no-repeat left center;
+  background: var(--notice-img-#{$icon-key}, url("/assets/images/#{$icon}")) no-repeat left center;
   background-size: 16px 16px;
   font-weight: bold;
   margin-right: 0.25em;

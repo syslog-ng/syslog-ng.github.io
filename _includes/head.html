@@ -13,6 +13,24 @@
 {% include globals.html %}
 {% include skins.html %}
 
+{% comment %}
+  Emit per-icon CSS custom properties for the notice prefixes. SCSS
+  cannot run Liquid filters, so the icon URLs in `_notices.scss` would
+  otherwise be hard-coded `/assets/images/...` absolute paths — broken
+  on installs that use a non-empty Jekyll `baseurl` (project-page
+  forks). The SCSS reads these variables with a static fallback for
+  the empty-baseurl case.
+{% endcomment %}
+<style>
+  :root {
+    --notice-img-note: url("{{ '/assets/images/note.png' | relative_url }}");
+    --notice-img-info: url("{{ '/assets/images/info.png' | relative_url }}");
+    --notice-img-caution: url("{{ '/assets/images/caution.png' | relative_url }}");
+    --notice-img-warning: url("{{ '/assets/images/warning.png' | relative_url }}");
+    --notice-img-success: url("{{ '/assets/images/success.png' | relative_url }}");
+  }
+</style>
+
 <link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
 <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css"></noscript>
 
