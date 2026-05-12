@@ -3,7 +3,7 @@ layout: none
 ---
 
 // VERSION COUNTER - increment on each change to verify latest code is loaded
-var SEARCH_VERSION = 42;
+var SEARCH_VERSION = 43;
 window.logger.log('========================================');
 window.logger.log('LUNR SEARCH ENGINE LOADED - VERSION: ' + SEARCH_VERSION);
 window.logger.log('========================================');
@@ -144,11 +144,19 @@ var idx = lunr(function () {
 });
 
 function removeExtension(url) {
-  var lastDotIndex = url.lastIndexOf('.');
+  // Split off the hash before stripping the extension so heading-anchor
+  // deep links survive: '/foo.html#ampm' must become '/foo#ampm', NOT '/foo'.
+  // Using lastIndexOf('.') on the whole url would find the '.' in '.html'
+  // and cut everything after it, including the '#anchor'.
+  var hashIndex = url.indexOf('#');
+  var path = hashIndex === -1 ? url : url.substring(0, hashIndex);
+  var hash = hashIndex === -1 ? '' : url.substring(hashIndex);
+
+  var lastDotIndex = path.lastIndexOf('.');
   if (lastDotIndex !== -1) {
-    return url.substring(0, lastDotIndex);
+    path = path.substring(0, lastDotIndex);
   }
-  return url; // If no extension found, return the original URL
+  return path + hash;
 }
 
 /**

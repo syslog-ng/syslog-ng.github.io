@@ -44,7 +44,31 @@ var store = [
         "tags": {{ doc.tags | jsonify }},
         "url": {{ doc.url | relative_url | jsonify }},
         "teaser": {{ teaser | relative_url | jsonify }}
-      }{%- unless forloop.last and l -%},{%- endunless -%}
+      }
+      {%- comment -%}
+        Per-heading sub-entries. A query that exactly matches a section
+        heading should outrank a generic body-text hit on the parent
+        page, so we emit one extra store entry per heading whose title
+        IS the heading text and whose URL deep-links to the anchor.
+        kramdown emits stable `id` attributes for headings by default.
+        Each heading entry is prefixed with `,` so the JSON array stays
+        well-formed regardless of how many headings the doc has; the
+        outer `unless forloop.last and l` after the loop still controls
+        the trailing comma between successive docs.
+      {%- endcomment -%}
+      {%- assign headings = doc.content | extract_headings -%}
+      {%- for h in headings -%}
+      ,{
+        "title": {{ h.text | jsonify }},
+        "excerpt": {{ doc.title | liquify | markdownify | strip_html | strip_newlines | jsonify }},
+        "categories": {{ doc.categories | jsonify }},
+        "tags": {{ doc.tags | jsonify }},
+        "url": {{ doc.url | append: '#' | append: h.id | relative_url | jsonify }},
+        "teaser": {{ teaser | relative_url | jsonify }},
+        "is_heading": true
+      }
+      {%- endfor -%}
+      {%- unless forloop.last and l -%},{%- endunless -%}
     {%- endfor -%}
   {%- endfor -%}
   {%- if site.lunr.search_within_pages -%},
