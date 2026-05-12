@@ -524,30 +524,78 @@ $(function () {
     //       To get this work all the animation styles must be removed in the css (_navigations.scss) for #tooltipRenderer
     // TODO: Now we have the correct tooltip content via teh tooltipRenderer trick.
     //       Prevent tooltip overflow on window edges in all directions.
-    var tooltipRect = tooltipRenderer.getBoundingClientRect();
-    var tooltipWidth = tooltipRect.width;
-    var pos = new DOMPoint();
 
+    // Reset any width overrides from a previous, taller tooltip so the
+    // CSS defaults (responsive max-width per .tooltip / .text-content
+    // / .full-content variants) apply first.
+    contentTooltip.style.width = '';
+    contentTooltip.style.maxWidth = '';
+    tooltipRenderer.style.width = '';
+    tooltipRenderer.style.maxWidth = '';
+
+    var viewportHeight = window.innerHeight;
+    var viewportWidth = window.innerWidth;
+    var bottomMargin = 10;
+
+    // Compute the eventual top position (independent of tooltip width)
+    // so we can decide whether the tooltip would run off the bottom
+    // and -- if so -- whether widening it would shorten it enough.
     const mouseX = event.clientX;
-    var xShift = (alignment == 'tooltip-align-left' ? tooltipWidth : (alignment == 'tooltip-align-center' ? tooltipWidth / 2 : 0));
-    pos.x = mouseX; // Use now mouse X instead - Math.max(0, pos.x + document.documentElement.scrollLeft + targetRect.left);
-    pos.x -= xShift;
-    
-    // If the target actually wraps over multiple lines (e.g. inline link
-    // broken across two rows), align to the upper line part when the
-    // mouse is on the right half of the bounding box, otherwise align
-    // below the bottom row. Detect real wrapping via getClientRects()
-    // -- bounding-rect height vs. computed line-height is unreliable
-    // for icons/links whose box is taller than their text line.
     var multilineUpperPart = false == isTextTooltip
       && tooltipTarget.getClientRects().length > 1
       && mouseX > targetRect.x + targetRect.width / 2;
-    pos.y = pos.y + (hasMastHead ? 0 : document.documentElement.scrollTop) + targetRect.top + targetRect.height / (multilineUpperPart ? 2 : 1);
+    var posY = (hasMastHead ? 0 : document.documentElement.scrollTop)
+             + targetRect.top
+             + targetRect.height / (multilineUpperPart ? 2 : 1);
+    var contentTooltipTop = posY + toolTipArrowHalfSize;
+    var visibleTop = hasMastHead ? contentTooltipTop : (contentTooltipTop - document.documentElement.scrollTop);
+    var availableBelow = viewportHeight - visibleTop - bottomMargin;
+
+    // Adaptive width: if the rendered tooltip would be taller than the
+    // space available below the anchor and there is room horizontally,
+    // grow it wider until it fits or hits a sensible cap. Each step
+    // re-measures on the offscreen tooltipRenderer.
+    var measure = function () { return tooltipRenderer.getBoundingClientRect(); };
+    var tooltipRect = measure();
+    var widthCap = Math.max(200, viewportWidth - 80);
+    var stepFactor = 1.5;
+    var maxSteps = 4;
+    while (availableBelow > 0
+           && tooltipRect.height > availableBelow
+           && tooltipRect.width < widthCap
+           && maxSteps-- > 0) {
+      var nextWidth = Math.min(widthCap, Math.ceil(tooltipRect.width * stepFactor));
+      if (nextWidth <= tooltipRect.width) break;
+      tooltipRenderer.style.maxWidth = nextWidth + 'px';
+      tooltipRenderer.style.width = nextWidth + 'px';
+      var newRect = measure();
+      if (newRect.height >= tooltipRect.height) {
+        // Extra width did not help (content already on a single line /
+        // hard line breaks); revert and stop.
+        tooltipRect = newRect;
+        break;
+      }
+      tooltipRect = newRect;
+    }
+    if (tooltipRenderer.style.width) {
+      contentTooltip.style.maxWidth = tooltipRenderer.style.maxWidth;
+      contentTooltip.style.width = tooltipRenderer.style.width;
+    }
+
+    var tooltipWidth = tooltipRect.width;
+    var pos = new DOMPoint();
+
+    var xShift = (alignment == 'tooltip-align-left' ? tooltipWidth : (alignment == 'tooltip-align-center' ? tooltipWidth / 2 : 0));
+    pos.x = mouseX; // Use now mouse X instead - Math.max(0, pos.x + document.documentElement.scrollLeft + targetRect.left);
+    pos.x -= xShift;
+
+    pos.y = posY;
 
     var tooltipArrowHorizontalPadding = (4 * toolTipArrowHalfSize) * (alignment == 'tooltip-align-left' ? 1 : (alignment == 'tooltip-align-right' ? -1 : 0));
 
     var contentTooltipLeft = pos.x + tooltipArrowHorizontalPadding;
-    var contentTooltipTop = pos.y + toolTipArrowHalfSize;
+    // contentTooltipTop was already computed above (it only depends on
+    // the target geometry, not on the tooltip width).
 
     // Arrow horizontal anchor: center of the target element. For
     // multi-line (wrapped) targets only the line fragment under the
@@ -579,11 +627,12 @@ $(function () {
       contentTooltipLeft = arrowAnchorX - tooltipWidth + sideMargin;
     }
 
-    // Keep the tooltip on-screen horizontally.
-    var viewportWidth = window.innerWidth;
-    if (contentTooltipLeft < 5) contentTooltipLeft = 5;
-    if (contentTooltipLeft + tooltipWidth > viewportWidth - 5)
-      contentTooltipLeft = viewportWidth - 5 - tooltipWidth;
+    // Keep the tooltip on-screen horizontally with a visible side gap
+    // (same magnitude as the bottom margin used above).
+    var sideGap = 40;
+    if (contentTooltipLeft < sideGap) contentTooltipLeft = sideGap;
+    if (contentTooltipLeft + tooltipWidth > viewportWidth - sideGap)
+      contentTooltipLeft = viewportWidth - sideGap - tooltipWidth;
 
     contentTooltip.style.left = contentTooltipLeft + 'px';
     contentTooltip.style.top = contentTooltipTop + 'px';
@@ -594,15 +643,11 @@ $(function () {
     setTooltipArrowPosition('--tooltip-arrow-left', arrowLeftInTooltip);
     setTooltipArrowPosition('--tooltip-arrow-top', -1 * toolTipArrowHalfSize);
 
-    // Vertical fit-to-viewport: if the rendered tooltip would overflow
-    // the bottom of the viewport, cap its height and let it scroll
-    // internally instead of overhanging off-screen.
-    // contentTooltipTop is in viewport coordinates when hasMastHead is
-    // true (no scrollTop added above), otherwise it is document-relative.
-    var viewportHeight = window.innerHeight;
-    var visibleTop = hasMastHead ? contentTooltipTop : (contentTooltipTop - document.documentElement.scrollTop);
-    var bottomMargin = 10;
-    var availableBelow = viewportHeight - visibleTop - bottomMargin;
+    // Vertical fit-to-viewport: if the (possibly widened) tooltip is
+    // still taller than the space below the anchor, cap its inner
+    // scroll container and let it scroll internally. viewportHeight,
+    // visibleTop and availableBelow were all computed above before
+    // the adaptive-width step; reuse them here.
     var renderedHeight = tooltipRect.height;
     var scrollEl = contentTooltip.querySelector('.tooltip-scroll');
     if (scrollEl) {
