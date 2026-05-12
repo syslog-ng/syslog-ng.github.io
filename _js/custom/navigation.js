@@ -278,10 +278,19 @@ $(function () {
       if (anchorElement) {
         var url = new URL(anchorElement.href);
 
+        // The search-help (i) link points to a root-level page (e.g.
+        // `/lunr_search_help.html`) which is not part of any documentation
+        // collection, so `sameCollection()` returns false and we would fall
+        // through to a full page reload. Force the SPA path for it (and any
+        // future link that opts in via the `.spa-load` marker class).
+        var forceSpa = anchorElement.classList.contains('search-help') ||
+                       anchorElement.classList.contains('spa-load');
+
         // Try to load into the inner content frame only if the collection has not changed
         // Otherwise let the original click flow take effect, as the nav bar must be reloaded too
         // for a different collection
-        if (url.origin === window.location.origin && anchorElement.target !== '_blank' && sameCollection(url, window.location)) {
+        if (url.origin === window.location.origin && anchorElement.target !== '_blank' &&
+            (forceSpa || sameCollection(url, window.location))) {
           // Prevent default navigation behavior, we will use our content load method
           event.preventDefault();
 
@@ -295,6 +304,12 @@ $(function () {
           // but only if the url has changed
           if (updated)
             updateContentFromUrl(url);
+          else
+            // Same-page SPA click (e.g. the search-help (i) icon clicked
+            // while already on /lunr_search_help.html). No content swap, so
+            // `finalizeContent` -- which would normally close the search
+            // overlay -- does not run. Close it here instead.
+            hideSearch();
         }
         // Clear focus from the clicked element, as we have other visualization for the selected items
         event.target.blur();
