@@ -596,6 +596,29 @@ Jekyll::Hooks.register :site, :pre_render do |site|
 
       next if false == $JekyllTooltipGen_markdown_extensions.include?(File.extname(page.relative_path)) && File.extname(page.relative_path) != ".html"
 
+      # render_with_liquid: false check
+      #
+      # Pages that contain raw-Liquid examples ({% raw %}…{% endraw %}) or that
+      # rely on our custom self-rendering (description injection, [[title|id]]
+      # wikilink resolution) MUST set `render_with_liquid: false` in their
+      # frontmatter. Without it, Jekyll's final Liquid pass re-runs over our
+      # already-rendered content and:
+      #   - drops the <---description_start---> marker (visible as
+      #     "<—description_start—>" in the body, not wrapped into the styled
+      #     <p id="page-description"> block)
+      #   - re-expands {% raw %} blocks so the literal example disappears
+      #   - leaves [[title|id]] wikilinks unresolved; kramdown then turns the
+      #     surrounding paragraph into a one-row table because of the `|`
+      #
+      # The heuristic below is intentionally conservative: it only warns on
+      # the strongest signal ({% raw %} blocks). Wikilinks are common on
+      # pages that work fine, so flagging them would produce mostly noise.
+      if File.extname(page.relative_path) != ".html" &&
+         page.data["render_with_liquid"] != false &&
+         page.content.include?("{% raw %}")
+        puts "[render_with_liquid check] WARNING: #{page.relative_path} contains a {% raw %} block but has no `render_with_liquid: false` in its frontmatter. Jekyll's final Liquid pass will re-expand the raw block and the literal example will be lost."
+      end
+
       page_url = page.url.gsub(/\.[^.]+$/, '')
       if (link_data = $JekyllTooltipGen_nav_links[page_url]) != nil
         page.data['nav_ndx'] = link_data['nav_ndx'] # page_pagination.html will use this as sort value for navigation ordering

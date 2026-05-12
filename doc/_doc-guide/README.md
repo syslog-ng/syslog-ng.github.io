@@ -2,6 +2,8 @@
 title: Documentation Guide
 description: Here you can find information about how we organize, maintain and create the documentation of syslog-ng.
 id: doc-guide
+# Mandatory on pages with raw Liquid examples or self-rendered content. Details: doc/_doc-guide/02_Tools/02_Jekyll_extensions.md
+render_with_liquid: false
 ---
 
 ## How to contribute to the documentation

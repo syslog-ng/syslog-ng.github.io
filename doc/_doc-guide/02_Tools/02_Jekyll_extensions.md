@@ -3,9 +3,7 @@ title: Jekyll extensions, plug-ins
 id: doc-jekyll-extensions
 description:  >-
     Jekyll is felxible and extendable, accepts various [[plugins|jekyll-plugins]], liquid or markdown extensions, and we are using a bit of all of them.
-# Take care, using liquid examples in a liquid rendered page might require a special notation even if {% raw %} and {% endraw %} block should protect alone these blocks (https://jekyllrb.com/docs/liquid/tags/), but it does not exactly !!!
-# See the _doc-guide/02_Tools/01_Self_made_tools/01_Tests/README.md page how can escape it correctly in some cases (otherwise our custom page rendering might break!!!)
-# We found that using the `render_with_liquid: false` frontmatter option helps best, though it is not clearly documented, and its name suggests it will supress liquid rendering entirely, but (luckily ?) with our custom rendering (_plugins/generate_tooltips.rb) it supresses only the final liquid render pass (absence of `render_with_liquid: false` can fully eliminate our self-rendered content otherwise)
+# Mandatory on pages with raw Liquid examples or self-rendered content. Details: doc/_doc-guide/02_Tools/02_Jekyll_extensions.md
 render_with_liquid: false
 ---
 

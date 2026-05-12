@@ -16,8 +16,7 @@ subtitle: >-
     Markdown formatting should work as well, for example, **bold** and `inline code` tests.
 # this can be tested as well, but do not send to the final version
 search: false
-# See warning bellow, or frontmatter of doc/_doc-guide/02_Tools/02_Jekyll_extensions.md 
-# why this is mandatory now for pages using raw liquid examles
+# Mandatory on pages with raw Liquid examples or self-rendered content. Details: doc/_doc-guide/02_Tools/02_Jekyll_extensions.md
 render_with_liquid: false
 ---
 
