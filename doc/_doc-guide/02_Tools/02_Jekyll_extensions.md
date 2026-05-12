@@ -256,14 +256,14 @@ Notice blocks are the gray/colored callout boxes used throughout the documentati
 
 The five typed notice variants get their leading icon and bold label injected automatically by `@mixin notice-prefix`. **Authors must never write the `![](.../icon.png) **LABEL:**` prefix in the source** — doing so would render the icon and label twice. The plain `.notice` class has no auto-prefix; any leading label there is written manually.
 
-| Class               | Auto-injected icon           | Auto-injected label |
-|---------------------|------------------------------|---------------------|
-| `.notice--primary`  | `/assets/images/note.png`    | **NOTE:**    |
-| `.notice--info`     | `/assets/images/info.png`    | **INFO:**    |
-| `.notice--warning`  | `/assets/images/caution.png` | **WARNING:** |
-| `.notice--danger`   | `/assets/images/warning.png` | **DANGER:**  |
-| `.notice--success`  | `/assets/images/success.png` | **SUCCESS:** |
-| `.notice` (plain)   | — none —                     | — none —     |
+| Class               | Auto-injected icon                                                | Auto-injected label |
+|---------------------|-------------------------------------------------------------------|---------------------|
+| `.notice--primary`  | ![](/assets/images/note.png)    `/assets/images/note.png`         | **NOTE:**           |
+| `.notice--info`     | ![](/assets/images/info.png)    `/assets/images/info.png`         | **INFO:**           |
+| `.notice--warning`  | ![](/assets/images/caution.png) `/assets/images/caution.png`      | **WARNING:**        |
+| `.notice--danger`   | ![](/assets/images/warning.png) `/assets/images/warning.png`      | **DANGER:**         |
+| `.notice--success`  | ![](/assets/images/success.png) `/assets/images/success.png`      | **SUCCESS:**        |
+| `.notice` (plain)   | — none —                                                          | — none —            |
 
 The auto-injected prefix flows inline with the first line of the body text. To change an icon or a label, edit `@mixin notice-prefix` invocations near the bottom of `_sass/minimal-mistakes/minimal-mistakes/_notices.scss`.
 
