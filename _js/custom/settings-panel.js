@@ -56,8 +56,13 @@
       var ARROW_HALF = 10; // matches $tooltip-arrow-half-size in _variables.scss
       var top = btnRect.bottom + ARROW_HALF;
 
-      // Right-anchor the panel to the settings button.
-      var left = btnRect.right - panelWidth;
+      // Right-anchor the panel so its right margin from the viewport
+      // edge matches the panel's top distance from the viewport top
+      // (= `top`). This gives a balanced inset from the top-right
+      // corner and decouples the panel from the page content (TOC, …).
+      var viewportWidth = window.innerWidth;
+      var rightInset = ARROW_HALF;
+      var left = viewportWidth - panelWidth - rightInset;
       var minLeft = 8;
       if (left < minLeft) left = minLeft;
 
