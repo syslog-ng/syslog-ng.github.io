@@ -33,8 +33,8 @@ print_usage() {
     echo "Available hotkeys:"
     echo "  s - Stop the server"
     echo "  r - Restart the server"
-    echo "  n - Regenerate navigation data"
     echo "  p - Regenerate JS files using pack"
+    echo "  n - Regenerate navigation data"
     echo
 }
 
