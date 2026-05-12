@@ -61,7 +61,8 @@
             {{ site.data.ui-text[site.locale].search_label_text | default: 'Toggle dark mode' }}
           </label>
           <button id="skin-button" class="masthead_button_with_side_image" type="button">
-            <i class="masthead_button_icon fa fa-toggle-off" style="font-size: 150%;"></i>
+            <i class="masthead_button_icon content-tooltip tooltip-align-center text-content-tooltip fa fa-toggle-off" style="font-size: 150%;"
+              data-tooltip-text="Toggle dark mode"></i>
           </button>
           <i class="masthead_button_small_img fa fa-moon"></i>
         {% endif %}
@@ -70,7 +71,8 @@
           {{ site.data.ui-text[site.locale].search_label_text | default: 'Settings' }}
         </label>
         <button id="settings-button" class="masthead_button_last" type="button">
-          <i class="masthead_button_icon fas fa-user-cog" style="font-size: 110%;"></i>
+          <i class="masthead_button_icon content-tooltip tooltip-align-center text-content-tooltip fas fa-user-cog" style="font-size: 110%;"
+            data-tooltip-text="Open settings"></i>
         </button>
 
         {% include settings_panel.html %}
