@@ -3,7 +3,7 @@ layout: none
 ---
 
 // VERSION COUNTER - increment on each change to verify latest code is loaded
-var SEARCH_VERSION = 43;
+var SEARCH_VERSION = 45;
 window.logger.log('========================================');
 window.logger.log('LUNR SEARCH ENGINE LOADED - VERSION: ' + SEARCH_VERSION);
 window.logger.log('========================================');
@@ -1108,7 +1108,69 @@ $(document).ready(function() {
       } else {
         window.logger.log('Strategies 4 & 5 skipped (fuzzy matching disabled)');
       }
-      
+
+      // Heading-entry promotion.
+      //
+      // The Lunr store contains two kinds of entries per page (see
+      // `_js/lunr/lunr-store.js` + `_plugins/extract_headings.rb`):
+      //   - one regular page entry (title = page title, excerpt = body)
+      //   - one extra entry per heading (title = heading text, excerpt =
+      //     parent page title, is_heading = true, url deep-links to anchor)
+      //
+      // When the query exactly matches a heading title (e.g. "${AMPM}"),
+      // that anchor-deep-link result must outrank a generic body-text hit on
+      // any other page that just mentions the term in passing. Lunr's title
+      // boost alone is not always enough because the per-strategy multipliers
+      // above operate on the raw Lunr score and can reshuffle the order.
+      //
+      // We compute a normalized query (same lowercase + whitespace squashing
+      // we apply elsewhere) and bump heading-entry scores when their title
+      // equals the query exactly. A smaller bump is also applied for
+      // any heading entry whose title contains the query, so a partial
+      // heading match still beats a body-only match on a sibling page.
+      var queryNormalized = query.toLowerCase().replace(/\s+/g, ' ').trim();
+      var headingExactBoost = 0;
+      var headingPartialBoost = 0;
+      // Track parent page URLs (without #anchor) whose heading exactly matched
+      // the query, so we can also promote the regular page entry for that
+      // page above unrelated body-text matches on sibling pages.
+      var parentPagesWithExactHeading = {};
+      result.forEach(function (res) {
+        var entry = store[res.ref];
+        if (entry && entry.is_heading === true && typeof entry.title === 'string') {
+          var titleNormalized = entry.title.toLowerCase().replace(/\s+/g, ' ').trim();
+          if (titleNormalized === queryNormalized) {
+            res.score *= 1000;
+            headingExactBoost++;
+            if (typeof entry.url === 'string') {
+              var hashIdx = entry.url.indexOf('#');
+              var parentUrl = hashIdx === -1 ? entry.url : entry.url.substring(0, hashIdx);
+              parentPagesWithExactHeading[parentUrl] = true;
+            }
+          } else if (queryNormalized.length > 0 && titleNormalized.indexOf(queryNormalized) !== -1) {
+            res.score *= 50;
+            headingPartialBoost++;
+          }
+        }
+      });
+      // Promote the regular page entry whose page owns an exact-matching
+      // heading, so it ranks above pages that only mention the term in body.
+      var parentPageBoost = 0;
+      result.forEach(function (res) {
+        var entry = store[res.ref];
+        if (entry && entry.is_heading !== true && typeof entry.url === 'string') {
+          if (parentPagesWithExactHeading[entry.url] === true) {
+            res.score *= 500;
+            parentPageBoost++;
+          }
+        }
+      });
+      if (headingExactBoost > 0 || headingPartialBoost > 0 || parentPageBoost > 0) {
+        window.logger.log('Heading promotion: exact=' + headingExactBoost +
+          ' partial=' + headingPartialBoost +
+          ' parentPage=' + parentPageBoost);
+      }
+
       // Sort by score descending
       result.sort(function(a, b) { return b.score - a.score; });
       
