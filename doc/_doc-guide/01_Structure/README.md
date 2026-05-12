@@ -69,11 +69,13 @@ README.md
     It is built based the content of the `doc` folder and contains files used for autolink/tooltip generation.
 
 - _includes \
-  This folder contains reusable and/or common html and liquid codes the final `_site` pages are using.
+  This folder contains reusable and/or common html and liquid codes the final `_site` pages are using. \
+  **No inline `<script>` or `<style>` blocks here** — behavior goes to `_js/custom/<feature>.js` (auto-bundled by `_tools/pack`) and styling to `_sass/minimal-mistakes/minimal-mistakes/_<area>.scss` (using SCSS skin variables so light/dark skins both work). Inline `<script>` is not seen by `_tools/pack` (forces full Jekyll rebuilds); inline `<style>` bypasses the SASS skin variables and breaks dark/light parity.
 
 - _js
   - custom \
-    To stay organized, please keep our custom js scripts in this folder.
+    To stay organized, please keep our custom js scripts in this folder. \
+    Every `*.js` here (plus `_js/plugins/` and `_js/vendor/`) is bundled into `assets/js/main.min.js` by `_tools/pack`, so a repack alone ships JS changes — no Jekyll build needed when running `_tools/serve`.
   - plugins
   - vendor
     3rd party js scripts used mainly by minimal-mistakes, but also keeps dependencies of our modifications as well.

@@ -2,6 +2,8 @@
    NAVIGATION
    ========================================================================== */
 
+@use "sass:color";
+
 /*
   Breadcrumb navigation links
   ========================================================================== */
@@ -856,6 +858,115 @@
   -o-transform: scale(1);
   -ms-transform: scale(1);
   transform: scale(1);  
+}
+
+/* Settings panel — reuses the .tooltip surface, so background / border /
+   shadow / arrow colours come from the active skin automatically. The rules
+   below tint the inner controls (checkboxes, select, divider) with the same
+   $selection-color the search input uses, so light/dark skins look coherent. */
+#settings-panel.tooltip {
+  // Pin to the viewport so we don't depend on the masthead's positioning
+  // context, and so it doesn't scroll away with the page content.
+  position: fixed;
+  z-index: 1000;
+  // Override the inline-tooltip cap that doesn't make sense for a popover.
+  width: auto;
+  min-width: 300px;
+  max-width: 380px;
+  padding: 0.75em 1em 0.9em;
+  font-size: 0.85em;
+  line-height: 1.4;
+  text-align: left;
+
+  .settings-panel__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0.4em;
+    padding-bottom: 0.4em;
+    border-bottom: 1px solid rgba($selection-color, 0.35);
+  }
+  .settings-panel__title {
+    font-weight: 600;
+    font-size: 1.05em;
+  }
+  .settings-panel__close {
+    background: none;
+    border: 0;
+    cursor: pointer;
+    color: inherit;
+    font-size: 1em;
+    padding: 0.1em 0.3em;
+    &:hover { opacity: 0.7; }
+  }
+
+  .settings-panel__group { margin-top: 0.6em; }
+  .settings-panel__group-title {
+    margin: 0 0 0.35em 0;
+    font-size: 0.8em;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    opacity: 0.75;
+    color: $tooltip-color;
+  }
+
+  .settings-panel__row {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    margin: 0.3em 0;
+    cursor: pointer;
+  }
+  .settings-panel__row--column {
+    flex-direction: column;
+    align-items: flex-start;
+    cursor: default;
+  }
+  .settings-panel__label { user-select: none; }
+
+  .settings-panel__radio-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15em;
+    width: 100%;
+    margin-top: 0.25em;
+    padding: 0.25em;
+    border-radius: 3px;
+    background-color: rgba($selection-color, 0.15);
+    border: 1px solid rgba($selection-color, 0.45);
+    color: $tooltip-color;
+  }
+  .settings-panel__radio {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    padding: 0.25em 0.4em;
+    margin: 0;
+    border-radius: 3px;
+    cursor: pointer;
+    user-select: none;
+
+    &:hover {
+      background-color: rgba($link-color, 0.18);
+    }
+    // The whole row highlights when its radio is selected, matching the
+    // search panel's tint scheme.
+    &:has(input[type="radio"]:checked) {
+      background-color: rgba($link-color, 0.28);
+      color: $text-color;
+    }
+    input[type="radio"] {
+      accent-color: $link-color;
+      margin: 0;
+      flex-shrink: 0;
+    }
+  }
+  // Match the search panel's checkbox tint (light blue in light skin,
+  // yellow-ish in dark skin); see _search.scss.
+  input[type="checkbox"] {
+    accent-color: $link-color;
+  }
 }
 
 /* These are mandatory to get the tooltipRenderer trick work

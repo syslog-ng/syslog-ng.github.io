@@ -857,11 +857,31 @@ $(function () {
 
   if (searchEnabled) {
     // Close search panel with Esc key — capture phase so stopPropagation in inner
-    // elements cannot block it
+    // elements cannot block it. Behavior is controlled by the
+    // `settings-esc-behavior` cookie owned by the settings panel:
+    //   - 'close'             : just close the search panel (default, current behavior)
+    //   - 'close-and-clear'   : close AND wipe the query
+    //   - 'clear-then-close'  : first ESC wipes a non-empty query, next ESC closes
     document.addEventListener('keyup', function (event) {
       if (event.keyCode === 27) {
-        if ($(".initial-content").hasClass("is--hidden"))
+        if ($(".initial-content").hasClass("is--hidden")) {
+          var mode = (typeof getCookie === 'function')
+            ? getCookie('settings-esc-behavior', 'close', true)
+            : 'close';
+          var input = $(".search-content__form").find("input[type='search']");
+          var hasText = input.length > 0 && input.val() && input.val().length > 0;
+
+          if (mode === 'clear-then-close' && hasText) {
+            input.val('');
+            input.trigger('input');
+            return;
+          }
+          if (mode === 'close-and-clear') {
+            input.val('');
+            input.trigger('input');
+          }
           toggleSearch(event);
+        }
       }
     }, true);
 
@@ -876,6 +896,26 @@ $(function () {
     }, true);
 
     function toggleSearch(event) {
+      // Capture the current text selection BEFORE the DOM mutations below --
+      // toggling visibility / focus on the search input will collapse any
+      // active selection in the page content, so we have to read it first.
+      // `window.getSelection().toString()` returns plain text only (no HTML),
+      // which is exactly what the search box expects.
+      //
+      // Gated by the `settings-prefill-selection` cookie owned by the
+      // settings panel (default: enabled).
+      var willOpen = !$(".search-content").hasClass("is--visible");
+      var prefillEnabled = (typeof getCookie === 'function')
+        ? getCookie('settings-prefill-selection', 'true', true) === 'true'
+        : true;
+      var selectedText = '';
+      if (willOpen && prefillEnabled) {
+        var sel = window.getSelection ? window.getSelection() : null;
+        if (sel && sel.toString) {
+          selectedText = sel.toString().replace(/\s+/g, ' ').trim();
+        }
+      }
+
       $(".search-content").toggleClass("is--visible");
       $(".search-content__form").toggleClass("is--visible");      
       $(".initial-content").toggleClass("is--hidden");
@@ -884,6 +924,14 @@ $(function () {
         // set focus on input
         setTimeout(function () {
           var input = $(".search-content__form").find("input[type='search']");
+          // Prefill from selection (overriding the cookie-restored value), if
+          // any. Triggering `input` causes the live search handler to run
+          // and surface results immediately. If nothing is selected, leave
+          // the previously remembered query intact.
+          if (selectedText.length > 0) {
+            input.val(selectedText);
+            input.trigger("input");
+          }
           input.trigger("focus");
           input.trigger("select");
         }, 100);

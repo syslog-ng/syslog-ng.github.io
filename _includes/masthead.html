@@ -73,6 +73,8 @@
           <i class="masthead_button_icon fas fa-user-cog" style="font-size: 110%;"></i>
         </button>
 
+        {% include settings_panel.html %}
+
         <button class="greedy-nav__toggle hidden" type="button">
           <span class="visually-hidden">{{ site.data.ui-text[site.locale].menu_label | default: "Toggle menu" }}</span>
           <div class="navicon"></div>

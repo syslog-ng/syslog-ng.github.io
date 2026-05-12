@@ -51,6 +51,7 @@ generate_package_file() {
                     ${JS_WORK_DIR}/plugins/clipboard.js \
                     ${JS_WORK_DIR}/custom/copy-to-clipboard-btn.js \
                     ${JS_WORK_DIR}/custom/navigation.js \
+                    ${JS_WORK_DIR}/custom/settings-panel.js \
                     ${JS_WORK_DIR}/custom/custom-init.js"
     MATCHING_FILES="${MATCHING_FILES} ${JS_WORK_DIR}/_main.js" 
     echo -e "\nMATCHING_FILES to pack ${MATCHING_FILES[@]}"

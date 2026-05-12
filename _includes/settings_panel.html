@@ -1,0 +1,64 @@
+{% comment %}
+  Settings panel popover toggled by the masthead `#settings-button`.
+
+  Persistence:
+    - Dark mode  -> reuses the existing `skin-state` cookie owned by skins.html.
+    - Prefill    -> cookie `settings-prefill-selection` ('true' / 'false', default 'true').
+    - ESC mode   -> cookie `settings-esc-behavior` ('close' | 'clear-then-close'
+                    | 'close-and-clear', default 'close').
+
+  Consumers:
+    - navigation.js reads the prefill + ESC cookies on demand at event time.
+    - The dark-mode checkbox here just forwards the click to `#skin-button`
+      so we do not duplicate skin-state logic.
+{% endcomment %}
+
+<div id="settings-panel" class="tooltip full-content-tooltip tooltip-align-left">
+  <div class="settings-panel__header">
+    <span class="settings-panel__title">Settings</span>
+    <button id="settings-panel-close" class="settings-panel__close" type="button" aria-label="Close settings">
+      <i class="fas fa-times"></i>
+    </button>
+  </div>
+
+  <section class="settings-panel__group">
+    <h3 class="settings-panel__group-title">Appearance</h3>
+    <label class="settings-panel__row" title="Toggle between light and dark color skins. The choice is remembered across visits.">
+      <input type="checkbox" id="settings-dark-mode" />
+      <span class="settings-panel__label">Dark mode</span>
+    </label>
+  </section>
+
+  <section class="settings-panel__group">
+    <h3 class="settings-panel__group-title">Search</h3>
+
+    <label class="settings-panel__row"
+           title="When opening the search panel, copy the page's currently selected text into the search box and run the query automatically.">
+      <input type="checkbox" id="settings-prefill-selection" />
+      <span class="settings-panel__label">Search the selected text automatically</span>
+    </label>
+
+    <div class="settings-panel__row settings-panel__row--column"
+         title="Choose what pressing ESC does while the search panel is open.">
+      <span class="settings-panel__label">ESC key behavior</span>
+      <div class="settings-panel__radio-group" id="settings-esc-behavior" role="radiogroup" aria-label="ESC key behavior">
+        <label class="settings-panel__radio">
+          <input type="radio" name="settings-esc-behavior" value="close" />
+          <span>Close search (keep text)</span>
+        </label>
+        <label class="settings-panel__radio">
+          <input type="radio" name="settings-esc-behavior" value="clear-then-close" />
+          <span>First clear text, then close on next press</span>
+        </label>
+        <label class="settings-panel__radio">
+          <input type="radio" name="settings-esc-behavior" value="close-and-clear" />
+          <span>Close and clear text</span>
+        </label>
+      </div>
+    </div>
+  </section>
+</div>
+
+{%- comment -%}
+  Behavior lives in _js/custom/settings-panel.js (bundled into main.min.js by _tools/pack).
+{%- endcomment -%}
