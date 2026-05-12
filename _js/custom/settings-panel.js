@@ -89,6 +89,13 @@
     }
     function closePanel() {
       panel.classList.remove('visible');
+      // If the search panel is open underneath, return focus to its
+      // input so typing resumes immediately.
+      var searchVisible = document.querySelector('.search-content.is--visible');
+      if (searchVisible) {
+        var searchInput = document.getElementById('search');
+        if (searchInput) searchInput.focus();
+      }
     }
     function isOpen() { return panel.classList.contains('visible'); }
     function togglePanel() { isOpen() ? closePanel() : openPanel(); }
