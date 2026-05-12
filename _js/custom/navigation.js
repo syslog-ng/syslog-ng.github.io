@@ -403,6 +403,13 @@ $(function () {
 
       hideTocIfNotNeeded(tempContainer, true);
 
+      // Strip the contribution sidebar (View / Edit / Report buttons from
+      // `_includes/page__contribution.html`) -- it makes no sense inside a
+      // tooltip preview and just clutters the surface.
+      var contribAside = tempContainer.querySelector('.contrib');
+      if (contribAside)
+        contribAside.remove();
+
       // Remove/Override some default title style formatting to look better in the tooltip
       var pageTitle = tempContainer.querySelector('#page-title');
       if (pageTitle == null) {
