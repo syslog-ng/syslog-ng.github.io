@@ -723,7 +723,12 @@ $(function () {
   }
 
   function shouldHideTooltip(activeTarget) {
-    return ((tooltipTarget == null || activeTarget != tooltipTarget) && (contentTooltip == null || (activeTarget != contentTooltip && activeTarget != null && activeTarget.closest('.tooltip') == null)));
+    // The cursor is still "inside" the hover hint tooltip only when it is
+    // over the hint container itself (#tooltip == contentTooltip) or one
+    // of its descendants. Other .tooltip elements (e.g. the settings
+    // panel popover) are unrelated popovers and must NOT keep the hover
+    // hint visible.
+    return ((tooltipTarget == null || activeTarget != tooltipTarget) && (contentTooltip == null || (activeTarget != contentTooltip && activeTarget != null && false == contentTooltip.contains(activeTarget))));
   }
 
   function hideTooltip(withDelay) {

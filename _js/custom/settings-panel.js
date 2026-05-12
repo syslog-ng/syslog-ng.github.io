@@ -90,6 +90,10 @@
 
     btn.addEventListener('click', function (event) {
       event.stopPropagation();
+      // Hide any hover hint tooltip (e.g. the button's own tooltip) so
+      // it does not stay on screen on top of the opened panel.
+      var hoverTooltip = document.getElementById('tooltip');
+      if (hoverTooltip) hoverTooltip.classList.remove('visible');
       togglePanel();
     });
     closeBtn.addEventListener('click', closePanel);
