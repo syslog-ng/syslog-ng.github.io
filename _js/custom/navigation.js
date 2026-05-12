@@ -533,9 +533,15 @@ $(function () {
     pos.x = mouseX; // Use now mouse X instead - Math.max(0, pos.x + document.documentElement.scrollLeft + targetRect.left);
     pos.x -= xShift;
     
-    // If the occupied space of the tooltip target is bigger than its line height, it means it spanws to multiple lines
-    // align to the upper line part in that case if the mouse is on the right side of the middle of its targetRect, otherwise align to the bottom row part
-    var multilineUpperPart = false == isTextTooltip && (targetRect.height > lineHeight && mouseX > targetRect.x + targetRect.width / 2);
+    // If the target actually wraps over multiple lines (e.g. inline link
+    // broken across two rows), align to the upper line part when the
+    // mouse is on the right half of the bounding box, otherwise align
+    // below the bottom row. Detect real wrapping via getClientRects()
+    // -- bounding-rect height vs. computed line-height is unreliable
+    // for icons/links whose box is taller than their text line.
+    var multilineUpperPart = false == isTextTooltip
+      && tooltipTarget.getClientRects().length > 1
+      && mouseX > targetRect.x + targetRect.width / 2;
     pos.y = pos.y + (hasMastHead ? 0 : document.documentElement.scrollTop) + targetRect.top + targetRect.height / (multilineUpperPart ? 2 : 1);
 
     var tooltipArrowHorizontalPadding = (4 * toolTipArrowHalfSize) * (alignment == 'tooltip-align-left' ? 1 : (alignment == 'tooltip-align-right' ? -1 : 0));
