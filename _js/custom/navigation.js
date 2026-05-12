@@ -921,13 +921,18 @@ $(function () {
     //   - 'close'             : just close the search panel (default, current behavior)
     //   - 'close-and-clear'   : close AND wipe the query
     //   - 'clear-then-close'  : first ESC wipes a non-empty query, next ESC closes
+    //
+    // NOTE: the search input is `<input type="text">` (not `type="search"`)
+    // precisely to avoid the browser's built-in ESC-clear, which would
+    // wipe the field on `keydown` before this handler could decide what
+    // to do.
     document.addEventListener('keyup', function (event) {
       if (event.keyCode === 27) {
         if ($(".initial-content").hasClass("is--hidden")) {
           var mode = (typeof getCookie === 'function')
             ? getCookie('settings-esc-behavior', 'close', true)
             : 'close';
-          var input = $(".search-content__form").find("input[type='search']");
+          var input = $('#search');
           var hasText = input.length > 0 && input.val() && input.val().length > 0;
 
           if (mode === 'clear-then-close' && hasText) {
@@ -982,7 +987,7 @@ $(function () {
       if ($(".initial-content").hasClass("is--hidden")) {
         // set focus on input
         setTimeout(function () {
-          var input = $(".search-content__form").find("input[type='search']");
+          var input = $('#search');
           // Prefill from selection (overriding the cookie-restored value), if
           // any. Triggering `input` causes the live search handler to run
           // and surface results immediately. If nothing is selected, leave
