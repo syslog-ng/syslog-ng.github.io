@@ -14,6 +14,9 @@
 (function () {
   var PREFILL_KEY = 'settings-prefill-selection';
   var ESC_KEY = 'settings-esc-behavior';
+  var HOTKEY_KEY = 'settings-hotkey-search';
+  var TOOLTIP_DELAY_KEY = 'settings-tooltip-delay';
+  var TOOLTIP_DELAY_DEFAULT = 100;
 
   function readBool(name, fallback) {
     var v = getCookie(name, String(fallback), true);
@@ -28,13 +31,24 @@
     var closeBtn = document.getElementById('settings-panel-close');
     var darkChk = document.getElementById('settings-dark-mode');
     var prefillChk = document.getElementById('settings-prefill-selection');
+    var hotkeyDisplay = document.getElementById('settings-hotkey-display');
+    var hotkeyRecord = document.getElementById('settings-hotkey-record');
+    var hotkeyClear = document.getElementById('settings-hotkey-clear');
+    var delaySlider = document.getElementById('settings-tooltip-delay');
+    var delayValue = document.getElementById('settings-tooltip-delay-value');
     var escRadios = document.querySelectorAll('input[name="settings-esc-behavior"]');
     var skinBtn = document.getElementById('skin-button');
 
     // Initialize control values from cookies.
     prefillChk.checked = readBool(PREFILL_KEY, true);
+    var currentHotkey = getCookie(HOTKEY_KEY, 'Ctrl+Shift+F', true);
+    hotkeyDisplay.textContent = currentHotkey || '(disabled)';
     var currentEsc = getCookie(ESC_KEY, 'close', true);
     escRadios.forEach(function (r) { r.checked = (r.value === currentEsc); });
+    var currentDelay = parseInt(getCookie(TOOLTIP_DELAY_KEY, String(TOOLTIP_DELAY_DEFAULT), true), 10);
+    if (isNaN(currentDelay)) currentDelay = TOOLTIP_DELAY_DEFAULT;
+    delaySlider.value = String(currentDelay);
+    delayValue.textContent = currentDelay + ' ms';
 
     function syncDarkCheckbox() {
       // Defer reading the skin cookie -- skins.html owns it.
@@ -146,6 +160,63 @@
     // Persist search settings.
     prefillChk.addEventListener('change', function () {
       setCookie(PREFILL_KEY, prefillChk.checked ? 'true' : 'false');
+    });
+
+    // Hotkey customization: click "Change", then press the desired key
+    // combination (modifiers + one main key). ESC cancels. "Clear"
+    // disables the shortcut entirely.
+    var recording = false;
+    function setHotkey(combo) {
+      setCookie(HOTKEY_KEY, combo);
+      hotkeyDisplay.textContent = combo || '(disabled)';
+    }
+    function describeEvent(event) {
+      var key = event.key;
+      if (!key) return '';
+      // Skip when only a modifier key is pressed by itself.
+      if (key === 'Control' || key === 'Shift' || key === 'Alt' || key === 'Meta') return '';
+      var parts = [];
+      if (event.ctrlKey)  parts.push('Ctrl');
+      if (event.shiftKey) parts.push('Shift');
+      if (event.altKey)   parts.push('Alt');
+      if (event.metaKey)  parts.push('Meta');
+      // Normalize to a single readable token (single letters uppercased).
+      if (key.length === 1) key = key.toUpperCase();
+      parts.push(key);
+      return parts.join('+');
+    }
+    function stopRecording() {
+      recording = false;
+      hotkeyRecord.textContent = 'Change';
+      hotkeyRecord.classList.remove('settings-panel__hotkey-btn--recording');
+    }
+    hotkeyRecord.addEventListener('click', function () {
+      recording = true;
+      hotkeyRecord.textContent = 'Press keys…';
+      hotkeyRecord.classList.add('settings-panel__hotkey-btn--recording');
+    });
+    hotkeyClear.addEventListener('click', function () {
+      if (recording) stopRecording();
+      setHotkey('');
+    });
+    document.addEventListener('keydown', function (event) {
+      if (!recording) return;
+      event.preventDefault();
+      event.stopPropagation();
+      if (event.key === 'Escape') {
+        stopRecording();
+        return;
+      }
+      var combo = describeEvent(event);
+      if (!combo) return; // pure modifier; wait for the main key
+      setHotkey(combo);
+      stopRecording();
+    }, true);
+    delaySlider.addEventListener('input', function () {
+      delayValue.textContent = delaySlider.value + ' ms';
+    });
+    delaySlider.addEventListener('change', function () {
+      setCookie(TOOLTIP_DELAY_KEY, delaySlider.value);
     });
     escRadios.forEach(function (r) {
       r.addEventListener('change', function () {

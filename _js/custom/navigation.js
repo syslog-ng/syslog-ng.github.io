@@ -721,11 +721,17 @@ $(function () {
     
     clearTimeout(hideTimeoutFuncID);
     clearTimeout(showTimeoutFuncID);
+    // Read the user-configurable tooltip show delay (settings panel).
+    var tooltipDelay = 100;
+    if (typeof getCookie === 'function') {
+      var d = parseInt(getCookie('settings-tooltip-delay', '100', true), 10);
+      if (!isNaN(d) && d >= 0) tooltipDelay = d;
+    }
     showTimeoutFuncID = setTimeout(function () {
       if (shouldShowTooltip) {
         contentTooltip.classList.add('visible');
       }
-    }, 100);
+    }, tooltipDelay);
   }
 
   function shouldHideTooltip(activeTarget) {
@@ -949,14 +955,34 @@ $(function () {
       }
     }, true);
 
-    // Toggle search panel with Ctrl+Shift+F — capture phase + preventDefault so the
-    // browser/OS cannot intercept the combination before the page handles it
+    // Toggle search panel with the user-configurable shortcut (default
+    // Ctrl+Shift+F). The combo is stored in the `settings-hotkey-search`
+    // cookie as e.g. 'Ctrl+Shift+F'; an empty value disables it.
+    // Capture phase + preventDefault so the browser/OS cannot intercept
+    // the combination before the page handles it.
+    function eventMatchesCombo(event, combo) {
+      if (!combo) return false;
+      var parts = combo.split('+');
+      var key = parts.pop();
+      var needCtrl = parts.indexOf('Ctrl')  !== -1;
+      var needShift = parts.indexOf('Shift') !== -1;
+      var needAlt = parts.indexOf('Alt')   !== -1;
+      var needMeta = parts.indexOf('Meta')  !== -1;
+      if (!!event.ctrlKey  !== needCtrl)  return false;
+      if (!!event.shiftKey !== needShift) return false;
+      if (!!event.altKey   !== needAlt)   return false;
+      if (!!event.metaKey  !== needMeta)  return false;
+      var evKey = event.key || '';
+      if (evKey.length === 1) evKey = evKey.toUpperCase();
+      return evKey === key;
+    }
     document.addEventListener('keydown', function (event) {
-      if (event.ctrlKey && event.shiftKey &&
-          (event.key.toUpperCase() === 'F' || event.code === 'KeyF')) {
-        event.preventDefault();
-        toggleSearch(event);
-      }
+      var combo = (typeof getCookie === 'function')
+        ? getCookie('settings-hotkey-search', 'Ctrl+Shift+F', true)
+        : 'Ctrl+Shift+F';
+      if (!eventMatchesCombo(event, combo)) return;
+      event.preventDefault();
+      toggleSearch(event);
     }, true);
 
     function toggleSearch(event) {

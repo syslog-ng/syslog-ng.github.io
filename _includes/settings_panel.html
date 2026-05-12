@@ -2,13 +2,16 @@
   Settings panel popover toggled by the masthead `#settings-button`.
 
   Persistence:
-    - Dark mode  -> reuses the existing `skin-state` cookie owned by skins.html.
-    - Prefill    -> cookie `settings-prefill-selection` ('true' / 'false', default 'true').
-    - ESC mode   -> cookie `settings-esc-behavior` ('close' | 'clear-then-close'
-                    | 'close-and-clear', default 'close').
+    - Dark mode    -> reuses the existing `skin-state` cookie owned by skins.html.
+    - Prefill      -> cookie `settings-prefill-selection` ('true' / 'false', default 'true').
+    - ESC mode     -> cookie `settings-esc-behavior` ('close' | 'clear-then-close'
+                      | 'close-and-clear', default 'close').
+    - Hotkey       -> cookie `settings-hotkey-search` (combo string, e.g.
+                      'Ctrl+Shift+F'; empty string disables the shortcut).
+    - Tooltip lag  -> cookie `settings-tooltip-delay` (ms, default '100').
 
   Consumers:
-    - navigation.js reads the prefill + ESC cookies on demand at event time.
+    - navigation.js reads these cookies on demand at event time.
     - The dark-mode checkbox here just forwards the click to `#skin-button`
       so we do not duplicate skin-state logic.
 {% endcomment %}
@@ -27,6 +30,15 @@
       <input type="checkbox" id="settings-dark-mode" />
       <span class="settings-panel__label">Dark mode</span>
     </label>
+
+    <div class="settings-panel__row settings-panel__row--column"
+         title="How long the cursor must hover over an item before its tooltip appears.">
+      <span class="settings-panel__label">Tooltip show delay</span>
+      <div class="settings-panel__slider">
+        <input type="range" id="settings-tooltip-delay" min="0" max="1000" step="50" />
+        <span class="settings-panel__slider-value" id="settings-tooltip-delay-value">100 ms</span>
+      </div>
+    </div>
   </section>
 
   <section class="settings-panel__group">
@@ -37,6 +49,16 @@
       <input type="checkbox" id="settings-prefill-selection" />
       <span class="settings-panel__label">Search the selected text automatically</span>
     </label>
+
+    <div class="settings-panel__row settings-panel__row--column"
+         title="Keyboard shortcut that opens the search panel. Click Change and press the new combination, or Clear to disable.">
+      <span class="settings-panel__label">Search shortcut</span>
+      <div class="settings-panel__hotkey">
+        <kbd id="settings-hotkey-display" class="settings-panel__hotkey-display">Ctrl+Shift+F</kbd>
+        <button id="settings-hotkey-record" type="button" class="settings-panel__hotkey-btn">Change</button>
+        <button id="settings-hotkey-clear"  type="button" class="settings-panel__hotkey-btn">Clear</button>
+      </div>
+    </div>
 
     <div class="settings-panel__row settings-panel__row--column"
          title="Choose what pressing ESC does while the search panel is open.">

@@ -979,6 +979,59 @@
   input[type="checkbox"] {
     accent-color: $link-color;
   }
+
+  .settings-panel__slider {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    width: 100%;
+    margin-top: 0.25em;
+    input[type="range"] {
+      flex: 1;
+      accent-color: $link-color;
+      margin: 0;
+    }
+  }
+  .settings-panel__slider-value {
+    font-size: 0.8em;
+    opacity: 0.75;
+    min-width: 4em;
+    text-align: right;
+  }
+
+  .settings-panel__hotkey {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    width: 100%;
+    margin-top: 0.25em;
+    flex-wrap: wrap;
+  }
+  .settings-panel__hotkey-display {
+    font-family: monospace;
+    font-size: 0.85em;
+    padding: 0.15em 0.5em;
+    border-radius: 3px;
+    background-color: rgba($selection-color, 0.15);
+    border: 1px solid rgba($selection-color, 0.45);
+    color: $tooltip-color;
+    min-width: 7em;
+    text-align: center;
+  }
+  .settings-panel__hotkey-btn {
+    font-size: 0.8em;
+    padding: 0.2em 0.6em;
+    border-radius: 3px;
+    border: 1px solid rgba($selection-color, 0.45);
+    background-color: transparent;
+    color: $tooltip-color;
+    cursor: pointer;
+    &:hover { background-color: rgba($link-color, 0.18); }
+  }
+  .settings-panel__hotkey-btn--recording {
+    background-color: rgba($link-color, 0.28);
+    color: $text-color;
+  }
 }
 
 /* These are mandatory to get the tooltipRenderer trick work
