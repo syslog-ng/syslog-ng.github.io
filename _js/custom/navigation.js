@@ -539,13 +539,54 @@ $(function () {
     pos.y = pos.y + (hasMastHead ? 0 : document.documentElement.scrollTop) + targetRect.top + targetRect.height / (multilineUpperPart ? 2 : 1);
 
     var tooltipArrowHorizontalPadding = (4 * toolTipArrowHalfSize) * (alignment == 'tooltip-align-left' ? 1 : (alignment == 'tooltip-align-right' ? -1 : 0));
-    setTooltipArrowPosition('--tooltip-arrow-left', xShift - tooltipArrowHorizontalPadding - toolTipArrowHalfSize);
-    setTooltipArrowPosition('--tooltip-arrow-top', -1 * toolTipArrowHalfSize);
 
     var contentTooltipLeft = pos.x + tooltipArrowHorizontalPadding;
     var contentTooltipTop = pos.y + toolTipArrowHalfSize;
+
+    // Arrow horizontal anchor: center of the target element. For
+    // multi-line (wrapped) targets only the line fragment under the
+    // cursor matters. getClientRects() returns one DOMRect per line
+    // fragment.
+    var arrowAnchorX = targetRect.left + targetRect.width / 2;
+    var lineRects = tooltipTarget.getClientRects();
+    if (lineRects && lineRects.length > 1) {
+      var mouseY = event.clientY;
+      for (var i = 0; i < lineRects.length; i++) {
+        var lr = lineRects[i];
+        if (mouseY >= lr.top && mouseY <= lr.bottom) {
+          arrowAnchorX = lr.left + lr.width / 2;
+          break;
+        }
+      }
+    }
+
+    // Make sure the tooltip box actually overlaps the anchor X. If the
+    // alignment-derived placement would put the anchor outside the
+    // tooltip's horizontal range (so the arrow could not point at it),
+    // slide the whole tooltip left or right just enough to bring the
+    // anchor inside, leaving room for the arrow on either side.
+    var sideMargin = 3 * toolTipArrowHalfSize;
+    if (arrowAnchorX < contentTooltipLeft + sideMargin) {
+      contentTooltipLeft = arrowAnchorX - sideMargin;
+    }
+    else if (arrowAnchorX > contentTooltipLeft + tooltipWidth - sideMargin) {
+      contentTooltipLeft = arrowAnchorX - tooltipWidth + sideMargin;
+    }
+
+    // Keep the tooltip on-screen horizontally.
+    var viewportWidth = window.innerWidth;
+    if (contentTooltipLeft < 5) contentTooltipLeft = 5;
+    if (contentTooltipLeft + tooltipWidth > viewportWidth - 5)
+      contentTooltipLeft = viewportWidth - 5 - tooltipWidth;
+
     contentTooltip.style.left = contentTooltipLeft + 'px';
     contentTooltip.style.top = contentTooltipTop + 'px';
+
+    // Place the arrow at the anchor X, relative to the (possibly shifted)
+    // tooltip left edge.
+    var arrowLeftInTooltip = arrowAnchorX - contentTooltipLeft - toolTipArrowHalfSize;
+    setTooltipArrowPosition('--tooltip-arrow-left', arrowLeftInTooltip);
+    setTooltipArrowPosition('--tooltip-arrow-top', -1 * toolTipArrowHalfSize);
 
     // Vertical fit-to-viewport: if the rendered tooltip would overflow
     // the bottom of the viewport, cap its height and let it scroll
@@ -557,14 +598,17 @@ $(function () {
     var bottomMargin = 10;
     var availableBelow = viewportHeight - visibleTop - bottomMargin;
     var renderedHeight = tooltipRect.height;
-    if (availableBelow > 0 && renderedHeight > availableBelow) {
-      contentTooltip.style.maxHeight = Math.max(80, availableBelow) + 'px';
-      contentTooltip.style.overflowY = 'auto';
-    }
-    else {
-      // Reset so the next, smaller, tooltip is not stuck at a previous max-height.
-      contentTooltip.style.maxHeight = '';
-      contentTooltip.style.overflowY = '';
+    var scrollEl = contentTooltip.querySelector('.tooltip-scroll');
+    if (scrollEl) {
+      if (availableBelow > 0 && renderedHeight > availableBelow) {
+        scrollEl.style.maxHeight = Math.max(80, availableBelow) + 'px';
+        scrollEl.style.overflowY = 'auto';
+      }
+      else {
+        // Reset so the next, smaller, tooltip is not stuck at a previous max-height.
+        scrollEl.style.maxHeight = '';
+        scrollEl.style.overflowY = '';
+      }
     }
   }
 
@@ -656,8 +700,12 @@ $(function () {
 
   function showTooltip(event, tooltipText, alignment, isFullPageContent, isTextTooltip) {
 
-    contentTooltip.innerHTML = tooltipText.innerHTML;
-    tooltipRenderer.innerHTML = contentTooltip.innerHTML;
+    // Wrap the content in an inner scroll container so vertical capping
+    // (when the tooltip would overflow the viewport) does not clip the
+    // .tooltip:before arrow, which lives at a negative top offset.
+    var wrapped = '<div class="tooltip-scroll">' + tooltipText.innerHTML + '</div>';
+    contentTooltip.innerHTML = wrapped;
+    tooltipRenderer.innerHTML = wrapped;
 
     setTooltipStyle(alignment, isFullPageContent, isTextTooltip);
     setTooltipZIndex();

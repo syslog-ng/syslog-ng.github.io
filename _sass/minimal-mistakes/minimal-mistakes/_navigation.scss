@@ -770,13 +770,12 @@
   
   height: auto;
 
-  /* Cap to viewport so the tooltip never overflows the screen vertically.
-     The exact remaining-height clamp is applied per-show in
-     navigation.js (setTooltipPos); this CSS sets a global upper bound
-     and enables internal scrolling. */
-  max-height: calc(100vh - 20px);
-  overflow-y: auto;
-  overscroll-behavior: contain;
+  /* Viewport-overflow handling is done per-show in navigation.js
+     (setTooltipPos): it sets `max-height` + `overflow-y: auto` ONLY when
+     the rendered tooltip would actually run off the screen. We must NOT
+     enable overflow here unconditionally -- it would clip the `:before`
+     arrow (which sits ABOVE the tooltip via negative `top`), hiding the
+     arrow on every tooltip. */
 
   // FIXME: Get rid of the dependency on size of the container
   width: 500%;
