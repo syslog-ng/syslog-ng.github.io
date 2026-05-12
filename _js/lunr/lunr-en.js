@@ -10,9 +10,15 @@ window.logger.log('========================================');
 
 /**
  * SEARCH STRATEGY FOR COMPOUND TERMS (e.g., "normalize-hostnames")
- * 
+ *
+ * The Lunr store contains two kinds of entries per page (see
+ * `_js/lunr/lunr-store.js` + `_plugins/extract_headings.rb`):
+ *   - one regular page entry (title = page title, excerpt = body)
+ *   - one extra entry per heading (title = heading text, excerpt = parent
+ *     page title, is_heading = true, url deep-links to the anchor)
+ *
  * Priority Ranking (highest to lowest):
- * 
+ *
  * 1. Pages with FULL compound term "normalize-hostnames" (Strategy 1)
  *    - Boost: x1,000 - x100,000 depending on location
  *      * In title: x100,000 (canonical page for the option)
@@ -20,13 +26,13 @@ window.logger.log('========================================');
  *      * Anywhere in body: x1,000 (mentioned)
  *    - Content verification: Must contain actual "normalize-hostnames" string
  *    - Example: "unix-stream() source options" with multiple mentions of "normalize-hostnames"
- * 
+ *
  * 2. Pages with ALL query terms together (Strategy 2)
  *    - Boost: x100
  *    - Content verification: For compound queries, must contain at least one compound term
  *    - Catches multi-word queries that aren't compound terms
  *    - Example: "log disk buffer" (not a compound term, but all words present)
- * 
+ *
  * 3. Pages with EXACT component parts (Strategy 3)
  *    - Boost: x10
  *    - Searches for "normalize" AND "hostnames" separately
@@ -34,29 +40,58 @@ window.logger.log('========================================');
  *      * Must contain the EXACT part (not stemmed - "normalize" not "normal")
  *      * Must NOT contain the full compound term (already handled by #1)
  *    - Example: "map-value-pairs" page with "normalize" but no "normalize-hostnames"
- * 
+ *
  * 4. Pages with wildcard variations (Strategy 4)
  *    - Boost: x5
  *    - Searches for "normalize*" "hostnames*"
  *    - Catches variations like "normalized", "normalizes", "normalization"
  *    - Only new results (not already found)
- * 
+ *
  * 5. Pages with fuzzy/typo matches (Strategy 5)
  *    - Boost: x0.01 (very low)
  *    - Searches for similar words: "normalize~1"
  *    - Catches typos and very similar words
  *    - Example: Page with "normal" when searching "normalize" (should rank VERY low)
- * 
+ *
+ * HEADING PROMOTION PASS (post-strategy, before final sort)
+ *    Applied AFTER Strategies 1-5 have populated `result`. Operates on the
+ *    raw store entries, not re-running Lunr, so it composes multiplicatively
+ *    with whatever score the strategies above already produced.
+ *
+ *    a) Heading entry whose title matches the query EXACTLY (e.g. query
+ *       "${AMPM}" vs. heading title "${AMPM}"):
+ *       - res.score *= 1000
+ *       - Also remember the parent page URL (entry.url with the `#anchor`
+ *         stripped) for step (c).
+ *
+ *    b) Heading entry whose title CONTAINS the query as a substring:
+ *       - res.score *= 50
+ *
+ *    c) Regular page entry whose URL equals the parent of an exact-heading
+ *       match from step (a):
+ *       - res.score *= 500
+ *       - Ensures the parent page outranks unrelated pages that only mention
+ *         the term in body text. Example: searching "${AMPM}" — the
+ *         "Macros of syslog-ng OSE" page (which owns the ${AMPM} heading)
+ *         must rank above "Date-related macros" (body-text-only mention).
+ *
+ *    Comparison is normalised (lowercase + collapsed whitespace + trim) so
+ *    casing/spacing differences don't matter.
+ *
  * Anti-Patterns Prevented:
  *    - "Resolving hostnames locally" (partial match in title) ranking above pages with full "normalize-hostnames" in body
  *    - "Enabling normal disk-based" (10 fuzzy matches) ranking above "map-value-pairs" (1 exact "normalize")
  *    - Pages without the compound term appearing in top results due to high Lunr base scores
- * 
+ *    - A body-text mention of a token on an unrelated page ranking above the page
+ *      that actually has the token as a section heading (heading promotion pass)
+ *
  * Key Principles:
  *    - Full term >> Parts >> Fuzzy: Massive boost gaps ensure this hierarchy
  *    - Content verification: Don't trust Lunr alone - verify strings actually exist
  *    - Stemmer protection: Check exact strings, not just stemmed matches
  *    - Title boost mitigation: Partial matches in titles shouldn't beat full matches in body
+ *    - Heading anchors are first-class results: an exact heading match (and its
+ *      owning page) outrank generic body-text mentions on sibling pages
  */
 
 // Compound term separators (used for compound pattern detection)
