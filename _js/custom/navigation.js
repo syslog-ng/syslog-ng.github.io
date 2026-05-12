@@ -900,9 +900,12 @@ $(function () {
   });
 
   window.searchResultLinkClickHandler = function (event) {
-    // Clicking a link that url is shown in the active page will not trigger anything
-    // just show the actual pag, hide the search panel
-    hideSearch();
+    // Do NOT call hideSearch() up front: it would remove `.is--hidden` from
+    // `.initial-content` immediately, revealing the still-old page for the
+    // full duration of the fetch + 100 ms swap timeout in updateContentFromUrl.
+    // finalizeContent() calls hideSearch() at the very end of the SPA swap
+    // (after the new article is in the DOM and the anchor jump has happened),
+    // so the search overlay stays put until the new content is ready.
     handleNavLinkClick(event);
   };
 });
