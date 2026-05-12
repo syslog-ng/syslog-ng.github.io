@@ -915,12 +915,25 @@
     align-items: center;
     gap: 0.5em;
     margin: 0.3em 0;
+    padding-left: 0.9em; // indent controls under the group title
     cursor: pointer;
   }
   .settings-panel__row--column {
     flex-direction: column;
     align-items: flex-start;
     cursor: default;
+
+    // The label of a column-row acts as a sub-heading for its grouped
+    // controls (e.g. the ESC key behavior radio group). Render it at
+    // the same scale as the group title so it does not visually
+    // outweigh the section header above it.
+    > .settings-panel__label {
+      font-size: 0.8em;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      opacity: 0.75;
+    }
   }
   .settings-panel__label { user-select: none; }
 
