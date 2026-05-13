@@ -30,6 +30,14 @@ navgen_build() {
 }
 
 print_usage() {
+    # Print a precise build-finished timestamp so it is obvious from the
+    # terminal scrollback exactly when the latest rebuild completed.
+    # `date` with `%N` is GNU-only (not on macOS BSD `date`); try `python3`
+    # for millisecond precision and fall back to second precision.
+    local _ts
+    _ts=$(python3 -c 'from datetime import datetime; print(datetime.now().isoformat(sep=" ", timespec="milliseconds"))' 2>/dev/null) \
+        || _ts=$(date '+%Y-%m-%d %H:%M:%S')
+    echo "Build finished at: ${_ts}"
     echo "Available hotkeys:"
     echo "  s - Stop the server"
     echo "  r - Restart the server"
