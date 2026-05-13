@@ -1020,6 +1020,22 @@ $(function () {
   // -------------
 
   if (searchEnabled) {
+    // Remember the page scroll offset at the moment the search panel
+    // opens so we can restore it when it closes. The search panel
+    // replaces the in-flow `.initial-content` block but does not pin to
+    // the viewport, so a long page scrolled near the bottom would show
+    // the search panel scrolled too -- the user wouldn't see the search
+    // input or the first results. Saving & restoring fixes both
+    // directions (open at 0, close back to where the user was).
+    var savedPageScrollY = null;
+    // Also remember the scroll offset INSIDE the search panel and the
+    // query that produced it. When the user reopens the panel and the
+    // query is still the same (i.e. the result list is identical), we
+    // restore that scroll position so they land back on the result they
+    // were inspecting. If the query changes in between, we fall back to
+    // scrolling to the top of the panel.
+    var savedSearchScrollY = null;
+    var savedSearchQuery = null;
     // Close search panel with Esc key — capture phase so stopPropagation in inner
     // elements cannot block it. Behavior is controlled by the
     // `settings-esc-behavior` cookie owned by the settings panel:
@@ -1105,10 +1121,28 @@ $(function () {
         }
       }
 
+      // Save (on open) / restore (on close) the page scroll position so
+      // the search panel always shows from its top, and the user lands
+      // back exactly where they were when they close it.
+      if (willOpen) {
+        savedPageScrollY = window.pageYOffset || document.documentElement.scrollTop || 0;
+      }
+      else {
+        // About to close: capture the current panel scroll & query so we
+        // can restore them on the next open (if the query stays the same).
+        savedSearchScrollY = window.pageYOffset || document.documentElement.scrollTop || 0;
+        savedSearchQuery = ($('#search').val() || '');
+      }
+
       $(".search-content").toggleClass("is--visible");
       $(".search-content__form").toggleClass("is--visible");      
       $(".initial-content").toggleClass("is--hidden");
       $(".masthead").toggleClass("search-open", $(".search-content").hasClass("is--visible"));
+
+      if (!willOpen && savedPageScrollY !== null) {
+        window.scrollTo(0, savedPageScrollY);
+        savedPageScrollY = null;
+      }
 
       if ($(".initial-content").hasClass("is--hidden")) {
         // set focus on input
@@ -1122,6 +1156,19 @@ $(function () {
             input.val(selectedText);
             input.trigger("input");
           }
+          // Decide where to scroll inside the now-visible panel: if the
+          // current query matches the one we saved on the previous close,
+          // restore the previous panel scroll position so the user lands
+          // on the same result. Otherwise show the panel from its top.
+          var currentQuery = (input.val() || '');
+          if (savedSearchQuery !== null
+              && savedSearchScrollY !== null
+              && currentQuery === savedSearchQuery) {
+            window.scrollTo(0, savedSearchScrollY);
+          }
+          else {
+            window.scrollTo(0, 0);
+          }
           input.trigger("focus");
           input.trigger("select");
         }, 100);
@@ -1134,10 +1181,22 @@ $(function () {
     }
 
     function hideSearch() {
+      var wasVisible = $(".search-content").hasClass("is--visible");
+      if (wasVisible) {
+        // Same panel-scroll & query capture as toggleSearch's close branch.
+        savedSearchScrollY = window.pageYOffset || document.documentElement.scrollTop || 0;
+        savedSearchQuery = ($('#search').val() || '');
+      }
       $(".search-content").removeClass("is--visible");
       $(".search-content__form").removeClass("is--visible");
       $(".initial-content").removeClass("is--hidden");
       $(".masthead").removeClass("search-open");
+      // Restore the page scroll position the user had before opening
+      // the search panel (only when we actually closed something).
+      if (wasVisible && savedPageScrollY !== null) {
+        window.scrollTo(0, savedPageScrollY);
+        savedPageScrollY = null;
+      }
     }
 
     $("#search-button").on('click', toggleSearch);
