@@ -56,6 +56,12 @@
         {% endif %}
 
         {% if site.skin_switchable == true %}
+          {%- comment -%}
+            Hidden in the masthead — dark/light mode is now exposed via the
+            settings panel only. The button stays in the DOM (with `hidden`)
+            so the skin-toggle JS in skins.html keeps working unchanged.
+          {%- endcomment -%}
+          <span hidden>
           <i class="masthead_button_small_img fa fa-sun"></i>
           <label class="sr-only" for="skin-button">
             {{ site.data.ui-text[site.locale].search_label_text | default: 'Toggle dark mode' }}
@@ -65,6 +71,7 @@
               data-tooltip-text="Toggle dark mode"></i>
           </button>
           <i class="masthead_button_small_img fa fa-moon"></i>
+          </span>
         {% endif %}
 
         <label class="sr-only" for="settings-button">

@@ -816,13 +816,19 @@
   &.text-content-tooltip {
     font-size: $type-size-9;
 
-    min-width: 150px;
-    max-width: 150px;
+    /* Fit the actual short label instead of forcing a 150 px floor.
+       The parent `.tooltip` declares `width: 500%` which would still
+       blow this up, so we override it with `width: max-content` and
+       cap the upper bound per breakpoint so very long labels still
+       wrap nicely. Keep `min-width: 0` to defeat the parent rule. */
+    width: max-content;
+    min-width: 0;
+    max-width: 200px;
     @include breakpoint($large) {
-      max-width: 200px;
+      max-width: 255px;
     }
     @include breakpoint($x-large) {
-      max-width: 255px;
+      max-width: 320px;
     }
   }
   
