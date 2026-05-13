@@ -311,25 +311,26 @@ $(function () {
         // for a different collection
         if (url.origin === window.location.origin && anchorElement.target !== '_blank' &&
             (forceSpa || sameCollection(url, window.location))) {
-          // Prevent default navigation behavior, we will use our content load method
-          event.preventDefault();
-
-          var urlStr = url.pathname + url.hash;
-          updated = (urlStr != window.location.pathname + window.location.hash);
-
-          // Update the browser URL
-          history.pushState(null, null, url);
-
-          // Load content based on the updated relative URL
-          // but only if the url has changed
-          if (updated)
-            updateContentFromUrl(url);
-          else
-            // Same-page SPA click (e.g. the search-help (i) icon clicked
-            // while already on /lunr_search_help.html). No content swap, so
-            // `finalizeContent` -- which would normally close the search
-            // overlay -- does not run. Close it here instead.
+          // Same-page click (only the hash differs, or no hash at all):
+          // do NOT enter the SPA content-swap path. Calling preventDefault()
+          // here would also disable the SmoothScroll delegated listener that
+          // animates same-page hash jumps -- the very thing we want to keep.
+          // Just close any open search overlay (covers the search-help (i)
+          // icon clicked while already on /lunr_search_help.html) and let
+          // the click propagate so SmoothScroll handles the anchor jump
+          // exactly as it does for links inside the tooltip preview.
+          if (url.pathname === window.location.pathname) {
             hideSearch();
+          }
+          else {
+            // Cross-page navigation within the same collection: keep the SPA
+            // content-swap behaviour so the nav bar stays in place.
+            event.preventDefault();
+
+            history.pushState(null, null, url);
+            updateContentFromUrl(url);
+            updated = true;
+          }
         }
         // Clear focus from the clicked element, as we have other visualization for the selected items
         event.target.blur();
@@ -440,7 +441,6 @@ $(function () {
         if (firstHeading) {
           // Everything bellow must exist, so intentionally there's no error handling, let it rise
           pageTitle = document.querySelector('#page-title').cloneNode(true);
-          pageTitle.id = firstHeading.id;
 
           const anchorElement = pageTitle.querySelector("a");
           anchorElement.textContent = firstHeading.textContent;
@@ -450,6 +450,12 @@ $(function () {
         }
       }
       pageTitle.style.marginTop = '1em';
+
+      // Tooltip content is preview-only; keep IDs out to avoid duplicate
+      // document-wide IDs that break getElementById(hash)-based scrolling.
+      tempContainer.querySelectorAll('[id]').forEach(function (el) {
+        el.removeAttribute('id');
+      });
 
       newContent = tempContainer.innerHTML
       // remove unnecessary, reqursive inner content tooltips
