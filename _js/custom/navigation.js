@@ -526,8 +526,7 @@ $(function () {
     //       Prevent tooltip overflow on window edges in all directions.
 
     // Reset any width overrides from a previous, taller tooltip so the
-    // CSS defaults (responsive max-width per .tooltip / .text-content
-    // / .full-content variants) apply first.
+    // CSS defaults (responsive max-width per .tooltip / .text-content / .full-content variants) apply first.
     contentTooltip.style.width = '';
     contentTooltip.style.maxWidth = '';
     tooltipRenderer.style.width = '';
@@ -551,27 +550,36 @@ $(function () {
     var visibleTop = hasMastHead ? contentTooltipTop : (contentTooltipTop - document.documentElement.scrollTop);
     var availableBelow = viewportHeight - visibleTop - bottomMargin;
 
-    // Adaptive width: if the rendered tooltip would be taller than the
-    // space available below the anchor and there is room horizontally,
-    // grow it wider until it fits or hits a sensible cap. Each step
-    // re-measures on the offscreen tooltipRenderer.
+    // Adaptive width: if the rendered tooltip is taller than it is wide
+    // (a narrow column is hard to read), grow it wider until it becomes
+    // roughly square or hits a sensible cap. Re-measure on the offscreen
+    // tooltipRenderer at each step.
+    // Caps applied (whichever is smaller):
+    //   - 2/3 of the viewport width (full-width tooltips look ugly)
+    //   - viewportWidth - 2*sideGap (keep a margin on both sides)
+    //   - the width at which the box would become wider than tall
+    //     (height should stay >= width)
+    // Note: This runs regardless of whether the tooltip would overflow
+    // vertically -- on tall screens a long tooltip can fit but still look
+    // like an ugly narrow strip; widen it anyway for readability.
+    var sideGap = 40;
     var measure = function () { return tooltipRenderer.getBoundingClientRect(); };
     var tooltipRect = measure();
-    var widthCap = Math.max(200, viewportWidth - 80);
+    var widthCap = Math.max(200, Math.min(Math.floor(viewportWidth * 2 / 3), viewportWidth - 2 * sideGap));
     var stepFactor = 1.5;
-    var maxSteps = 4;
-    while (availableBelow > 0
-           && tooltipRect.height > availableBelow
-           && tooltipRect.width < widthCap
+    var maxSteps = 6;
+    while (tooltipRect.width < widthCap
+           && tooltipRect.width < tooltipRect.height
            && maxSteps-- > 0) {
       var nextWidth = Math.min(widthCap, Math.ceil(tooltipRect.width * stepFactor));
+      // Do not let the tooltip become wider than tall.
+      if (nextWidth > tooltipRect.height) nextWidth = Math.floor(tooltipRect.height);
       if (nextWidth <= tooltipRect.width) break;
       tooltipRenderer.style.maxWidth = nextWidth + 'px';
       tooltipRenderer.style.width = nextWidth + 'px';
       var newRect = measure();
       if (newRect.height >= tooltipRect.height) {
-        // Extra width did not help (content already on a single line /
-        // hard line breaks); revert and stop.
+        // Extra width did not help (content already on a single line / hard line breaks); revert and stop.
         tooltipRect = newRect;
         break;
       }
@@ -628,8 +636,7 @@ $(function () {
     }
 
     // Keep the tooltip on-screen horizontally with a visible side gap
-    // (same magnitude as the bottom margin used above).
-    var sideGap = 40;
+    // (sideGap is the same value used by the width cap above).
     if (contentTooltipLeft < sideGap) contentTooltipLeft = sideGap;
     if (contentTooltipLeft + tooltipWidth > viewportWidth - sideGap)
       contentTooltipLeft = viewportWidth - sideGap - tooltipWidth;
