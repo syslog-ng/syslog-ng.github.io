@@ -1161,7 +1161,16 @@ $(function () {
           // restore the previous panel scroll position so the user lands
           // on the same result. Otherwise show the panel from its top.
           var currentQuery = (input.val() || '');
-          if (savedSearchQuery !== null
+          // Gate the in-panel scroll restore on the user setting
+          // (`settings-restore-search-scroll`, default 'true'). The page
+          // content scroll save/restore is unconditional and handled
+          // above -- only the search-list reposition is optional.
+          var restoreSearchScroll =
+              (typeof getCookie === 'function')
+              ? (getCookie('settings-restore-search-scroll', 'true', true) !== 'false')
+              : true;
+          if (restoreSearchScroll
+              && savedSearchQuery !== null
               && savedSearchScrollY !== null
               && currentQuery === savedSearchQuery) {
             window.scrollTo(0, savedSearchScrollY);

@@ -17,6 +17,9 @@
 //                                                            'Ctrl+Shift+F'; empty disables the shortcut).
 //     - ESC mode     -> cookie `settings-esc-behavior`       ('close' | 'clear-then-close'
 //                                                            | 'close-and-clear', default 'close').
+//     - List scroll  -> cookie `settings-restore-search-scroll` ('true' / 'false', default 'true').
+//                       Gates only the in-panel result-list scroll restore on reopen;
+//                       the page content scroll position is always saved & restored.
 //
 // Consumers:
 //   - navigation.js reads the prefill + ESC cookies on demand at event time.
@@ -25,6 +28,7 @@
 
 (function () {
   var PREFILL_KEY = 'settings-prefill-selection';
+  var RESTORE_SEARCH_SCROLL_KEY = 'settings-restore-search-scroll';
   var ESC_KEY = 'settings-esc-behavior';
   var HOTKEY_KEY = 'settings-hotkey-search';
   var TOOLTIPS_ENABLED_KEY = 'settings-tooltips-enabled';
@@ -48,6 +52,7 @@
     var closeBtn = document.getElementById('settings-panel-close');
     var darkChk = document.getElementById('settings-dark-mode');
     var prefillChk = document.getElementById('settings-prefill-selection');
+    var restoreSearchScrollChk = document.getElementById('settings-restore-search-scroll');
     var hotkeyDisplay = document.getElementById('settings-hotkey-display');
     var hotkeyRecord = document.getElementById('settings-hotkey-record');
     var hotkeyClear = document.getElementById('settings-hotkey-clear');
@@ -63,6 +68,8 @@
 
     // Initialize control values from cookies.
     prefillChk.checked = readBool(PREFILL_KEY, true);
+    if (restoreSearchScrollChk)
+      restoreSearchScrollChk.checked = readBool(RESTORE_SEARCH_SCROLL_KEY, true);
     var currentHotkey = getCookie(HOTKEY_KEY, 'Ctrl+Shift+F', true);
     hotkeyDisplay.textContent = currentHotkey || '(disabled)';
     var currentEsc = getCookie(ESC_KEY, 'close', true);
@@ -208,6 +215,12 @@
     prefillChk.addEventListener('change', function () {
       setCookie(PREFILL_KEY, prefillChk.checked ? 'true' : 'false');
     });
+    if (restoreSearchScrollChk) {
+      restoreSearchScrollChk.addEventListener('change', function () {
+        setCookie(RESTORE_SEARCH_SCROLL_KEY,
+                  restoreSearchScrollChk.checked ? 'true' : 'false');
+      });
+    }
 
     // Hotkey customization: click "Change", then press the desired key
     // combination (modifiers + one main key). ESC cancels. "Clear"
