@@ -832,10 +832,15 @@
     }
   }
   
+  /* Horizontal padding lives on the inner `.tooltip-scroll` wrapper
+     (see rule below) so that, when the tooltip becomes scrollable, the
+     native scrollbar sits flush with the tooltip's outer right edge
+     instead of being indented by the padding. Vertical padding stays
+     here because there's no scrollbar dimension to align on. */
   padding-top: 0;
   padding-bottom: 0;
-  padding-left: 15px;
-  padding-right: 15px;
+  padding-left: 0;
+  padding-right: 0;
   
   border-radius: 5px;
   box-shadow: 0 0 3px $tooltip-box-shadow-color;
@@ -868,6 +873,15 @@
   border-bottom: var(--tooltip-arrow-border-bottom, $tooltip-arrow-half-size) solid $tooltip-arrow-background-color;
   border-left: var(--tooltip-arrow-border-left, $tooltip-arrow-half-size) solid transparent;
   border-right: var(--tooltip-arrow-border-right, $tooltip-arrow-half-size) solid transparent;
+}
+
+/* Inner wrapper around tooltip content (created in JS, see
+   navigation.js -> showTooltip). It carries the horizontal padding so
+   the scrollbar (when JS sets `overflow-y: auto`) renders at the
+   tooltip's outer right edge while text content stays inset. */
+.tooltip-scroll {
+  padding-left: 15px;
+  padding-right: 15px;
 }
 
 .tooltip.visible {
