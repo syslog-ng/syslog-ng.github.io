@@ -162,9 +162,10 @@ handle_file_changes() {
                     echo -e ". Updating js files...\n"
                     if [ "${JEKYLL_USE_AUTO_PACK}" == "yes" ]; then
                         # TODO: ./_tools/pack can generate broken man.min.js on some machines :S
-                        generate_js_files                        
+                        generate_js_files
+                    else
+                        update_js_files
                     fi
-                    update_js_files
 
                     reset_watcher
                     ;;
@@ -222,7 +223,10 @@ while true; do
             ;;
         p)
             generate_js_files
-            update_js_files
+            # NOTE: do NOT call update_js_files here — pack already wrote
+            # assets/js/main.min.js (and _site + _js mirrors when _site exists);
+            # update_js_files would clobber the fresh bundle with the stale
+            # _js/main.min.js when _site did not exist at pack time.
             reset_watcher
             play_sound
             ;;
