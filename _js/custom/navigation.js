@@ -118,10 +118,16 @@ $(function () {
     var masthead = document.querySelector('.masthead');
     if (!masthead)
       return 0;
-    var styles = window.getComputedStyle(masthead);
-    if (styles.position !== 'sticky' && styles.position !== 'fixed')
+    // Detect overlay behavior from geometry instead of class/position
+    // heuristics: if the masthead currently touches the viewport top and
+    // extends into the viewport, it obscures anchor targets by its height.
+    // This covers theme variants where sticky behavior is provided without
+    // `position: sticky/fixed` on `.masthead` itself.
+    var rect = masthead.getBoundingClientRect();
+    var overlaysTop = (rect.top <= 0 && rect.bottom > 0);
+    if (!overlaysTop)
       return 0;
-    return Math.ceil(masthead.getBoundingClientRect().height);
+    return Math.ceil(rect.height);
   }
 
   function scrollToAnchor(anchorId, instant) {
@@ -145,6 +151,20 @@ $(function () {
       updateURL: false,
       offset: getStickyTopOffset()
     });
+  }
+
+  function scrollToAnchorSettled(anchorId) {
+    // Cross-page hash navigation can be affected by delayed layout updates
+    // (or native hash alignment) after the first jump. Re-apply the same
+    // masthead-aware anchor positioning on the next frame and once more
+    // shortly after to stabilize the final viewport position.
+    scrollToAnchor(anchorId, true);
+    requestAnimationFrame(function () {
+      scrollToAnchor(anchorId, true);
+    });
+    setTimeout(function () {
+      scrollToAnchor(anchorId, true);
+    }, 70);
   }
 
   function scrollContentToTop() {
@@ -193,7 +213,7 @@ $(function () {
       // smooth scroll on top of that just makes the (unavoidable) max-scroll
       // clamping at the end of the document visible (so, scroll to anchors will not always be accurate).
       // Jump instantly instead.
-      scrollToAnchor(anchorId, true);
+      scrollToAnchorSettled(anchorId);
     }
     else
       scrollContentToTop();
@@ -1274,13 +1294,15 @@ $(function () {
 
   // Make sure everything is initialized correctly on an initial load as well
   // (e.g. when an inner embedded page link is opened directly in a new tab, not via the internal navigational links)
-  finalizeContent();
+  finalizeContent(anchorIDFromUrl(window.location));
 
   hideSearch();
 
   // Listen for popstate events and update content accordingly
   window.addEventListener('popstate', function () {
-    updateContentFromUrl(window.location.pathname);
+    // Keep the hash part as well, otherwise anchored back/forward
+    // navigation loses the target and falls back to top alignment.
+    updateContentFromUrl(window.location);
   });
 
   window.searchResultLinkClickHandler = function (event) {
