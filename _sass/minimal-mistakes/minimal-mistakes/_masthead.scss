@@ -60,24 +60,44 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: inline-flex !important;
-  flex: min-content;
-  max-width: min-content;
-  @include breakpoint($small) {
-    max-width: max-content;
-  }
+  // Size to content but cap the width so the search input keeps a
+  // usable footprint when the masthead gets crowded. Once the title
+  // hits its cap and there is still pressure, it wraps to a second
+  // line instead of pushing the search input off-screen.
+  flex: 0 1 auto;
+  min-width: 0;
+  max-width: 18em;
+  white-space: normal;
+  word-break: break-word;
+  line-height: 1.15;
   @include breakpoint($large) {
-    min-width: calc(#{$left-sidebar-width-narrow} - 1em);
-    max-width: calc(#{$left-sidebar-width-narrow} - 1em);
+    min-width: 0;
+    max-width: 22em;
   }
   @include breakpoint($x-large) {
-    min-width: calc(#{$left-sidebar-width} - 1em);
-    max-width: calc(#{$left-sidebar-width} - 1em);
+    min-width: 0;
+    max-width: 28em;
   }
 
   -ms-flex-item-align: center;
   align-self: center;
   font-weight: bold;
   // z-index: 20;
+}
+
+.masthead.search-open {
+  .site-title {
+    max-width: 7.8em;
+    margin-right: 0.35rem;
+
+    @include breakpoint($large) {
+      max-width: 11em;
+    }
+
+    @include breakpoint($x-large) {
+      max-width: 14em;
+    }
+  }
 }
 
 .site-subtitle {

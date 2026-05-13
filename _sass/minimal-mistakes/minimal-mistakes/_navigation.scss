@@ -326,6 +326,7 @@
     -webkit-box-flex: 1;
     -ms-flex: 1;
     flex: 1;
+    min-width: 0;
     overflow: hidden;
   }
 
@@ -443,6 +444,20 @@
       -ms-flex-wrap: wrap;
       flex-wrap: wrap;
       overflow: visible;
+    }
+  }
+}
+
+// On very narrow screens, keep the search form's left edge stable while
+// open so narrowing happens from the right side.
+.masthead.search-open {
+  .greedy-nav {
+    @include breakpoint(max-width $small - 1px) {
+      .masthead__menu-center-container {
+        -webkit-box-pack: start;
+        -ms-flex-pack: start;
+        justify-content: flex-start;
+      }
     }
   }
 }

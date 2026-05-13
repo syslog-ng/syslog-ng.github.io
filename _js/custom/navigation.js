@@ -1074,6 +1074,7 @@ $(function () {
       $(".search-content").toggleClass("is--visible");
       $(".search-content__form").toggleClass("is--visible");      
       $(".initial-content").toggleClass("is--hidden");
+      $(".masthead").toggleClass("search-open", $(".search-content").hasClass("is--visible"));
 
       if ($(".initial-content").hasClass("is--hidden")) {
         // set focus on input
@@ -1102,6 +1103,7 @@ $(function () {
       $(".search-content").removeClass("is--visible");
       $(".search-content__form").removeClass("is--visible");
       $(".initial-content").removeClass("is--hidden");
+      $(".masthead").removeClass("search-open");
     }
 
     $("#search-button").on('click', toggleSearch);

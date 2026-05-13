@@ -40,9 +40,11 @@
     // Resist shrinking: when the masthead gets narrower the option
     // labels (which carry text-overflow:ellipsis) should truncate first,
     // and only after that should the input itself give up width.
+    // The basis must be wide enough to display the full placeholder
+    // ("Enter your search term...") without truncation.
     flex-shrink: 0;
-    flex-basis: 6em;
-    min-width: 4em;
+    flex-basis: 14em;
+    min-width: 12em;
     @include breakpoint($large) {
       font-size: $type-size-6;
     }
@@ -134,16 +136,20 @@ input.search-input:focus {
       align-items: center;
       overflow: hidden;
 
-      width: 70%;
-      min-width: 100px;
-      max-width: 300px;
+      // Reserve enough horizontal space for the input + the two option
+      // checkboxes. Keeping a real minimum here is what forces the
+      // .site-title to wrap on narrow viewports instead of letting the
+      // form collapse to a few pixels.
+      width: auto;
+      min-width: 14em;
+      max-width: 26em;
       @include breakpoint($large) {
-        width: 60%;
-        max-width: 400px;
+        min-width: 18em;
+        max-width: 32em;
       }
       @include breakpoint($x-large) {
-        width: 50%;
-        max-width: 600px;
+        min-width: 22em;
+        max-width: 40em;
       }
     }
 
