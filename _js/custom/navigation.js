@@ -642,24 +642,58 @@ $(function () {
       contentTooltipLeft = viewportWidth - sideGap - tooltipWidth;
 
     contentTooltip.style.left = contentTooltipLeft + 'px';
-    contentTooltip.style.top = contentTooltipTop + 'px';
+
+    // Flip decision: when there's not enough room below the anchor to
+    // show a meaningful slice of the tooltip, but more room is available
+    // above, place the tooltip above the anchor and let CSS rotate the
+    // arrow (.tooltip-flipped:before) so it points down at the anchor.
+    var renderedHeight = tooltipRect.height;
+    var anchorTopVisible = targetRect.top;
+    var anchorTopAbsolute = (hasMastHead ? 0 : document.documentElement.scrollTop)
+                          + targetRect.top;
+    var availableAbove = anchorTopVisible - bottomMargin - toolTipArrowHalfSize;
+    // "Below is too tight" if we'd show less than half the tooltip and
+    // less than ~180 px in absolute terms; never flip just because
+    // there's a slight overflow when most of the content already fits.
+    var minVisibleBelow = Math.min(180, Math.max(80, renderedHeight * 0.5));
+    var wouldScrollBelow = renderedHeight > availableBelow;
+    var wouldScrollAbove = renderedHeight > availableAbove;
+    // Flip when:
+    //   1. below is squeezed and above offers more room, OR
+    //   2. the tooltip would have to scroll below but fits fully above
+    //      (no scrollbar is nicer than scrollbar when both sides are
+    //      otherwise viable).
+    var flip = (availableBelow < minVisibleBelow && availableAbove > availableBelow)
+            || (wouldScrollBelow && !wouldScrollAbove);
+
+    if (flip) {
+      contentTooltip.classList.add('tooltip-flipped');
+      var heightForAbove = Math.min(renderedHeight, availableAbove);
+      if (heightForAbove < 80) heightForAbove = 80;
+      var topPos = anchorTopAbsolute - toolTipArrowHalfSize - heightForAbove;
+      contentTooltip.style.top = topPos + 'px';
+    }
+    else {
+      contentTooltip.classList.remove('tooltip-flipped');
+      contentTooltip.style.top = contentTooltipTop + 'px';
+    }
 
     // Place the arrow at the anchor X, relative to the (possibly shifted)
-    // tooltip left edge.
+    // tooltip left edge. The vertical anchor (top vs. bottom of the
+    // tooltip) is driven by the .tooltip / .tooltip-flipped CSS rules.
     var arrowLeftInTooltip = arrowAnchorX - contentTooltipLeft - toolTipArrowHalfSize;
     setTooltipArrowPosition('--tooltip-arrow-left', arrowLeftInTooltip);
-    setTooltipArrowPosition('--tooltip-arrow-top', -1 * toolTipArrowHalfSize);
+    if (!flip) {
+      setTooltipArrowPosition('--tooltip-arrow-top', -1 * toolTipArrowHalfSize);
+    }
 
-    // Vertical fit-to-viewport: if the (possibly widened) tooltip is
-    // still taller than the space below the anchor, cap its inner
-    // scroll container and let it scroll internally. viewportHeight,
-    // visibleTop and availableBelow were all computed above before
-    // the adaptive-width step; reuse them here.
-    var renderedHeight = tooltipRect.height;
+    // Vertical fit-to-viewport: cap the inner scroll container to the
+    // currently-used side (above when flipped, below otherwise).
     var scrollEl = contentTooltip.querySelector('.tooltip-scroll');
     if (scrollEl) {
-      if (availableBelow > 0 && renderedHeight > availableBelow) {
-        scrollEl.style.maxHeight = Math.max(80, availableBelow) + 'px';
+      var availableSpace = flip ? availableAbove : availableBelow;
+      if (availableSpace > 0 && renderedHeight > availableSpace) {
+        scrollEl.style.maxHeight = Math.max(80, availableSpace) + 'px';
         scrollEl.style.overflowY = 'auto';
       }
       else {

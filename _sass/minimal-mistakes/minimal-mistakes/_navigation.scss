@@ -875,6 +875,17 @@
   border-right: var(--tooltip-arrow-border-right, $tooltip-arrow-half-size) solid transparent;
 }
 
+/* Flipped placement: tooltip is rendered above the anchor (when there
+   isn't enough room below). The arrow lives at the bottom edge and
+   points down toward the anchor. JS adds/removes the .tooltip-flipped
+   class on the shared #tooltip element from setTooltipPos. */
+.tooltip.tooltip-flipped:before {
+  top: auto;
+  bottom: calc(-1 * #{$tooltip-arrow-half-size});
+  border-bottom: 0;
+  border-top: $tooltip-arrow-half-size solid $tooltip-arrow-background-color;
+}
+
 /* Inner wrapper around tooltip content (created in JS, see
    navigation.js -> showTooltip). It carries the horizontal padding so
    the scrollbar (when JS sets `overflow-y: auto`) renders at the
