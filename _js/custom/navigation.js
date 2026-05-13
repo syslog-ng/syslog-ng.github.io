@@ -873,6 +873,38 @@ $(function () {
       doHideTooltip();
   }
 
+  function buildFallbackTooltipHtml(element, url) {
+    // Minimal preview surface used when the rich, fetched-content
+    // tooltip cannot be produced -- e.g. the link points at an
+    // external site that doesn't allow CORS. Shows the link label,
+    // destination hostname, and full URL so the user still gets a
+    // useful destination hint instead of a silent no-op hover.
+    var label = (element.textContent || '').trim();
+    var hostname = '';
+    try { hostname = new URL(url, window.location.href).hostname; } catch (e) {}
+
+    function esc(s) {
+      return String(s)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;');
+    }
+
+    var html = '<div class="tooltip-fallback">';
+    if (label && label !== url)
+      html += '<div class="tooltip-fallback-title">' + esc(label) + '</div>';
+    if (hostname)
+      html += '<div class="tooltip-fallback-host">' + esc(hostname) + '</div>';
+    html += '<div class="tooltip-fallback-url">'
+         +    '<a href="' + esc(url) + '" target="_blank" rel="noopener noreferrer">'
+         +      esc(url)
+         +    '</a>'
+         +  '</div>';
+    html += '</div>';
+    return html;
+  }
+
   function addContentTooltips() {
     var tooltipElements = document.querySelectorAll('.content-tooltip');
     contentTooltip = document.getElementById('tooltip');
@@ -885,9 +917,19 @@ $(function () {
       tooltipText.textContent = "";
       element.appendChild(tooltipText);
 
+      // Sticky override: when the rich preview cannot be produced (fetch
+      // failure -- typically a CORS-blocked external page -- or empty
+      // post-`alterContentForTooltip` result), we cache a small text
+      // fallback (label + hostname + URL) and from then on render this
+      // anchor with the *plain* tooltip styling (no extra class). The
+      // CSS rule `.tooltip:has(.tooltip-fallback)` adds width caps so
+      // the compact look is preserved without the font-size override
+      // that `text-content-tooltip` would otherwise force on it.
+      var useFallbackStyling = false;
+
       element.addEventListener('mouseover', function (event) {
-        var isFullPageContent = element.classList.contains('full-content-tooltip');
-        var isTextTooltip = element.classList.contains('text-content-tooltip');
+        var isFullPageContent = !useFallbackStyling && element.classList.contains('full-content-tooltip');
+        var isTextTooltip     = !useFallbackStyling && element.classList.contains('text-content-tooltip');
         var alignment = (element.classList.contains('tooltip-align-left') ? 'tooltip-align-left' : (element.classList.contains('tooltip-align-center') ? 'tooltip-align-center' : 'tooltip-align-right'));
 
         tooltipTarget = element;
@@ -896,6 +938,21 @@ $(function () {
         // Load only once per page load
         if (tooltipText.innerHTML === '') {
           var url = element.href;
+
+          function showFallback() {
+            // Minimal preview hint for links whose content we cannot
+            // load (typical case: external host without CORS, e.g.
+            // mademistakes.com). Better than silently showing nothing
+            // -- the user at least sees the destination domain & URL.
+            // Render with the plain tooltip styling (no text-content
+            // / full-content class) so the fallback inherits the very
+            // same CSS as a normal rich-content tooltip; the compact
+            // width is enforced via `.tooltip:has(.tooltip-fallback)`
+            // in _navigation.scss.
+            tooltipText.innerHTML = buildFallbackTooltipHtml(element, url);
+            useFallbackStyling = true;
+            showTooltip(event, tooltipText, alignment, false, false);
+          }
 
           function onSuccess(newContent) {
             if (typeof (newContent) === 'object' && 'innerHTML' in newContent)
@@ -907,17 +964,15 @@ $(function () {
               showTooltip(event, tooltipText, alignment, isFullPageContent, isTextTooltip);
             }
             else {
-              // Quick navigation from another link with tooltip to this link would keep alive the previous tooltip
-              // force close it, as we don't have tooltip for the current and this is the live hovered one.
-              hideTooltip(false);
+              // No usable rich content -- fall back to the minimal hint
+              // so the user still gets something instead of nothing.
+              showFallback();
             }
           }
 
           function onError(error) {
-            // Quick navigation from another link with tooltip to this failing link would keep alive the previous tooltip
-            // force close it, as we don't have tooltip for the current and this is the live hovered one.
-            hideTooltip(false);
-            window.logger.error('[Navigation] Error loading the tooltip content!' + error);
+            window.logger.warn('[Navigation] Tooltip content unavailable for ' + url + ' (' + error + '); using fallback hint.');
+            showFallback();
           }
           
           if (isTextTooltip) {

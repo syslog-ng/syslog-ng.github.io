@@ -895,6 +895,43 @@
   padding-right: 15px;
 }
 
+/* Minimal fallback preview shown when the rich, fetched-content
+   tooltip cannot be produced (typical case: external CORS-blocked
+   link). Built in JS by buildFallbackTooltipHtml() and rendered
+   with the *plain* `.tooltip` styling (no `text-content-tooltip`
+   class), so the fallback inherits the very same CSS as a regular
+   rich-content tooltip. The width caps below mirror those of
+   `text-content-tooltip` so the compact look is preserved without
+   inheriting its $type-size-9 font-size override. */
+.tooltip:has(.tooltip-fallback) {
+  width: max-content;
+  min-width: 0;
+  max-width: 200px;
+  @include breakpoint($large) {
+    max-width: 255px;
+  }
+  @include breakpoint($x-large) {
+    max-width: 320px;
+  }
+}
+.tooltip-fallback {
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  line-height: 1.35;
+}
+.tooltip-fallback-title {
+  font-weight: bold;
+  margin-bottom: 0.2em;
+}
+.tooltip-fallback-host {
+  opacity: 0.85;
+  margin-bottom: 0.2em;
+}
+.tooltip-fallback-url {
+  opacity: 0.7;
+  word-break: break-all;
+}
+
 .tooltip.visible {
   opacity: 1;
 
