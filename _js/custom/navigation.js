@@ -758,6 +758,12 @@ $(function () {
 
   function showTooltip(event, tooltipText, alignment, isFullPageContent, isTextTooltip) {
 
+    // Globally disabled via the settings panel? Bail out early so no
+    // hover preview ever appears.
+    if (typeof getCookie === 'function'
+        && getCookie('settings-tooltips-enabled', 'true', true) === 'false')
+      return;
+
     // Wrap the content in an inner scroll container so vertical capping
     // (when the tooltip would overflow the viewport) does not clip the
     // .tooltip:before arrow, which lives at a negative top offset.
@@ -818,9 +824,16 @@ $(function () {
 
     if (withDelay) {
       clearTimeout(hideTimeoutFuncID);
+      // User-configurable hide delay (settings panel). Lets the cursor
+      // travel into the tooltip to click links inside it.
+      var hideDelay = 50;
+      if (typeof getCookie === 'function') {
+        var hd = parseInt(getCookie('settings-tooltip-hide-delay', '50', true), 10);
+        if (!isNaN(hd) && hd >= 0) hideDelay = hd;
+      }
       hideTimeoutFuncID = setTimeout(function () {
         doHideTooltip();
-      }, 25); // Give a small chance to move inside the tooltip (e.g. to allow click on links inside it)
+      }, hideDelay);
     }
     else
       doHideTooltip();

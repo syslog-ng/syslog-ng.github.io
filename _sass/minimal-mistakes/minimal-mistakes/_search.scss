@@ -30,12 +30,18 @@
   background-color: rgba($selection-color, 0.15); //transparent;
   
   &.from-masthead {
-    font-size: $type-size-6;    
+    // Keep the masthead height constant when the search panel toggles
+    // open: shrink the input to the same vertical footprint as the
+    // surrounding icon buttons ($nav-toggle-height = 2rem).
+    height: $nav-toggle-height;
+    line-height: 1;
+    padding: 0 0.4em;
+    font-size: $type-size-6;
     @include breakpoint($large) {
-      font-size: $type-size-5;
+      font-size: $type-size-6;
     }
     @include breakpoint($x-large) {
-      font-size: $type-size-5; // 4 is unnecessarily large here
+      font-size: $type-size-5;
     }
   }
 
@@ -114,7 +120,13 @@ input.search-input:focus {
     
     &.from-masthead {
       margin: 0;
-      padding: 0.1em;
+      padding: 0;
+      // Force the search form to share the masthead button height so
+      // toggling it visible does not push the masthead taller.
+      height: $nav-toggle-height;
+      max-height: $nav-toggle-height;
+      align-items: center;
+      overflow: hidden;
 
       width: 70%;
       min-width: 100px;

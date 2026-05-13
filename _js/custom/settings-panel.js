@@ -1,10 +1,20 @@
 // Settings panel popover toggled by the masthead `#settings-button`.
 //
 // Persistence:
-//   - Dark mode  -> reuses the existing `skin-state` cookie owned by skins.html.
-//   - Prefill    -> cookie `settings-prefill-selection` ('true' / 'false', default 'true').
-//   - ESC mode   -> cookie `settings-esc-behavior` ('close' | 'clear-then-close'
-//                  | 'close-and-clear', default 'close').
+//   Appearance:
+//     - Dark mode    -> reuses the existing `skin-state` cookie owned by skins.html.
+//
+//   Tooltips:
+//     - Tooltips on  -> cookie `settings-tooltips-enabled`   ('true' / 'false', default 'true').
+//     - Show delay   -> cookie `settings-tooltip-delay`      (ms, default '100').
+//     - Hide delay   -> cookie `settings-tooltip-hide-delay` (ms, default '50').
+//
+//   Search:
+//     - Prefill      -> cookie `settings-prefill-selection`  ('true' / 'false', default 'true').
+//     - Hotkey       -> cookie `settings-hotkey-search`      (combo string, e.g.
+//                                                            'Ctrl+Shift+F'; empty disables the shortcut).
+//     - ESC mode     -> cookie `settings-esc-behavior`       ('close' | 'clear-then-close'
+//                                                            | 'close-and-clear', default 'close').
 //
 // Consumers:
 //   - navigation.js reads the prefill + ESC cookies on demand at event time.
@@ -15,8 +25,11 @@
   var PREFILL_KEY = 'settings-prefill-selection';
   var ESC_KEY = 'settings-esc-behavior';
   var HOTKEY_KEY = 'settings-hotkey-search';
+  var TOOLTIPS_ENABLED_KEY = 'settings-tooltips-enabled';
   var TOOLTIP_DELAY_KEY = 'settings-tooltip-delay';
+  var TOOLTIP_HIDE_DELAY_KEY = 'settings-tooltip-hide-delay';
   var TOOLTIP_DELAY_DEFAULT = 100;
+  var TOOLTIP_HIDE_DELAY_DEFAULT = 50;
 
   function readBool(name, fallback) {
     var v = getCookie(name, String(fallback), true);
@@ -34,8 +47,11 @@
     var hotkeyDisplay = document.getElementById('settings-hotkey-display');
     var hotkeyRecord = document.getElementById('settings-hotkey-record');
     var hotkeyClear = document.getElementById('settings-hotkey-clear');
+    var tooltipsEnabledChk = document.getElementById('settings-tooltips-enabled');
     var delaySlider = document.getElementById('settings-tooltip-delay');
     var delayValue = document.getElementById('settings-tooltip-delay-value');
+    var hideDelaySlider = document.getElementById('settings-tooltip-hide-delay');
+    var hideDelayValue = document.getElementById('settings-tooltip-hide-delay-value');
     var escRadios = document.querySelectorAll('input[name="settings-esc-behavior"]');
     var skinBtn = document.getElementById('skin-button');
 
@@ -49,6 +65,23 @@
     if (isNaN(currentDelay)) currentDelay = TOOLTIP_DELAY_DEFAULT;
     delaySlider.value = String(currentDelay);
     delayValue.textContent = currentDelay + ' ms';
+    var currentHideDelay = parseInt(getCookie(TOOLTIP_HIDE_DELAY_KEY, String(TOOLTIP_HIDE_DELAY_DEFAULT), true), 10);
+    if (isNaN(currentHideDelay)) currentHideDelay = TOOLTIP_HIDE_DELAY_DEFAULT;
+    hideDelaySlider.value = String(currentHideDelay);
+    hideDelayValue.textContent = currentHideDelay + ' ms';
+    tooltipsEnabledChk.checked = readBool(TOOLTIPS_ENABLED_KEY, true);
+
+    function syncTooltipDelaysDisabled() {
+      var disabled = !tooltipsEnabledChk.checked;
+      delaySlider.disabled = disabled;
+      hideDelaySlider.disabled = disabled;
+      // Dim the whole row (label + value) when disabled.
+      [delaySlider, hideDelaySlider].forEach(function (s) {
+        var row = s.closest('.settings-panel__row');
+        if (row) row.classList.toggle('settings-panel__row--disabled', disabled);
+      });
+    }
+    syncTooltipDelaysDisabled();
 
     function syncDarkCheckbox() {
       // Defer reading the skin cookie -- skins.html owns it.
@@ -217,6 +250,16 @@
     });
     delaySlider.addEventListener('change', function () {
       setCookie(TOOLTIP_DELAY_KEY, delaySlider.value);
+    });
+    hideDelaySlider.addEventListener('input', function () {
+      hideDelayValue.textContent = hideDelaySlider.value + ' ms';
+    });
+    hideDelaySlider.addEventListener('change', function () {
+      setCookie(TOOLTIP_HIDE_DELAY_KEY, hideDelaySlider.value);
+    });
+    tooltipsEnabledChk.addEventListener('change', function () {
+      setCookie(TOOLTIPS_ENABLED_KEY, tooltipsEnabledChk.checked ? 'true' : 'false');
+      syncTooltipDelaysDisabled();
     });
     escRadios.forEach(function (r) {
       r.addEventListener('change', function () {

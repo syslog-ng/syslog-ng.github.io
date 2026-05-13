@@ -1,19 +1,8 @@
 {% comment %}
   Settings panel popover toggled by the masthead `#settings-button`.
 
-  Persistence:
-    - Dark mode    -> reuses the existing `skin-state` cookie owned by skins.html.
-    - Prefill      -> cookie `settings-prefill-selection` ('true' / 'false', default 'true').
-    - ESC mode     -> cookie `settings-esc-behavior` ('close' | 'clear-then-close'
-                      | 'close-and-clear', default 'close').
-    - Hotkey       -> cookie `settings-hotkey-search` (combo string, e.g.
-                      'Ctrl+Shift+F'; empty string disables the shortcut).
-    - Tooltip lag  -> cookie `settings-tooltip-delay` (ms, default '100').
-
-  Consumers:
-    - navigation.js reads these cookies on demand at event time.
-    - The dark-mode checkbox here just forwards the click to `#skin-button`
-      so we do not duplicate skin-state logic.
+  Behavior, persisted cookies, and consumer notes are documented in
+  _js/custom/settings-panel.js (bundled into main.min.js by _tools/pack).
 {% endcomment %}
 
 <div id="settings-panel" class="tooltip full-content-tooltip tooltip-align-left">
@@ -30,13 +19,32 @@
       <input type="checkbox" id="settings-dark-mode" />
       <span class="settings-panel__label">Dark mode</span>
     </label>
+  </section>
+
+  <section class="settings-panel__group">
+    <h3 class="settings-panel__group-title">Tooltips</h3>
+
+    <label class="settings-panel__row"
+           title="Globally enable or disable the hover tooltips that preview linked content.">
+      <input type="checkbox" id="settings-tooltips-enabled" />
+      <span class="settings-panel__label">Show tooltips on link hover</span>
+    </label>
 
     <div class="settings-panel__row settings-panel__row--column"
          title="How long the cursor must hover over an item before its tooltip appears.">
-      <span class="settings-panel__label">Tooltip show delay</span>
+      <span class="settings-panel__label">Show delay</span>
       <div class="settings-panel__slider">
         <input type="range" id="settings-tooltip-delay" min="0" max="1000" step="50" />
         <span class="settings-panel__slider-value" id="settings-tooltip-delay-value">100 ms</span>
+      </div>
+    </div>
+
+    <div class="settings-panel__row settings-panel__row--column"
+         title="How long after the cursor leaves the item the tooltip stays visible (lets you move into the tooltip to click links).">
+      <span class="settings-panel__label">Hide delay</span>
+      <div class="settings-panel__slider">
+        <input type="range" id="settings-tooltip-hide-delay" min="0" max="1000" step="25" />
+        <span class="settings-panel__slider-value" id="settings-tooltip-hide-delay-value">50 ms</span>
       </div>
     </div>
   </section>
@@ -80,7 +88,3 @@
     </div>
   </section>
 </div>
-
-{%- comment -%}
-  Behavior lives in _js/custom/settings-panel.js (bundled into main.min.js by _tools/pack).
-{%- endcomment -%}

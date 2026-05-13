@@ -915,7 +915,7 @@
     align-items: center;
     gap: 0.5em;
     margin: 0.3em 0;
-    padding-left: 0.9em; // indent controls under the group title
+    padding-left: 1.4em; // indent controls under the group title
     cursor: pointer;
   }
   .settings-panel__row--column {
@@ -936,6 +936,14 @@
     }
   }
   .settings-panel__label { user-select: none; }
+
+  // Dim a column-row whose controls are currently disabled (e.g. the
+  // tooltip delay sliders when "Show tooltips on link hover" is off).
+  .settings-panel__row--disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+    > .settings-panel__slider input[type="range"] { cursor: not-allowed; }
+  }
 
   .settings-panel__radio-group {
     display: flex;
