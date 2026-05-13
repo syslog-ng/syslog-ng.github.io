@@ -534,7 +534,7 @@ $(function () {
 
     var viewportHeight = window.innerHeight;
     var viewportWidth = window.innerWidth;
-    var bottomMargin = 10;
+    var bottomMargin = 24;
 
     // Compute the eventual top position (independent of tooltip width)
     // so we can decide whether the tooltip would run off the bottom
@@ -562,7 +562,7 @@ $(function () {
     // Note: This runs regardless of whether the tooltip would overflow
     // vertically -- on tall screens a long tooltip can fit but still look
     // like an ugly narrow strip; widen it anyway for readability.
-    var sideGap = 40;
+    var sideGap = 24;
     var measure = function () { return tooltipRenderer.getBoundingClientRect(); };
     var tooltipRect = measure();
     var widthCap = Math.max(200, Math.min(Math.floor(viewportWidth * 2 / 3), viewportWidth - 2 * sideGap));
