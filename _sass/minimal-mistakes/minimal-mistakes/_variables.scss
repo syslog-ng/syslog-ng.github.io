@@ -101,7 +101,11 @@ $button-color: $primary-color !default;
 $outline-color: rgba($focus-color, 0.5) !default;
 
 $tooltip-arrow-half-size: 10px !default;
-$tooltip-background-color: rgba(color.mix($white, $background-color, 7%), 0.925) !default;
+// Tooltip background is intentionally fully opaque here -- transparency is
+// applied at runtime via the .tooltip.visible `opacity: var(--tooltip-opacity)`
+// rule, controlled by the settings panel slider. Using an alpha here would
+// prevent the slider from ever reaching true 100% opaque.
+$tooltip-background-color: color.mix($white, $background-color, 7%) !default;
 $tooltip-arrow-background-color: $tooltip-background-color !default;
 $tooltip-color: color.mix($gray, $text-color, 50%) !default;
 //$tooltip-text-shadow-color: #111 !default;

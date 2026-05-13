@@ -31,6 +31,15 @@
     </label>
 
     <div class="settings-panel__row settings-panel__row--column"
+         title="Tooltip background and text opacity. Lower values let the page underneath show through.">
+      <span class="settings-panel__label">Opacity</span>
+      <div class="settings-panel__slider">
+        <input type="range" id="settings-tooltip-opacity" min="30" max="100" step="2" />
+        <span class="settings-panel__slider-value" id="settings-tooltip-opacity-value">96 %</span>
+      </div>
+    </div>
+
+    <div class="settings-panel__row settings-panel__row--column"
          title="How long the cursor must hover over an item before its tooltip appears.">
       <span class="settings-panel__label">Show delay</span>
       <div class="settings-panel__slider">

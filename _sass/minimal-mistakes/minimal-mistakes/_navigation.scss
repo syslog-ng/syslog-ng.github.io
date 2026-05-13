@@ -859,6 +859,14 @@
   transform: scale(1);  
 }
 
+/* Hover hint tooltip transparency is user-configurable via the
+   settings panel. Default mirrors the original $tooltip-background-color
+   alpha (~0.925). The slider also tints the settings panel popover
+   (which itself is a .tooltip). */
+.tooltip.visible {
+  opacity: var(--tooltip-opacity, 0.96);
+}
+
 /* Settings panel — reuses the .tooltip surface, so background / border /
    shadow / arrow colours come from the active skin automatically. The rules
    below tint the inner controls (checkboxes, select, divider) with the same

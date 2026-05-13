@@ -6,6 +6,8 @@
 //
 //   Tooltips:
 //     - Tooltips on  -> cookie `settings-tooltips-enabled`   ('true' / 'false', default 'true').
+//     - Opacity      -> cookie `settings-tooltip-opacity`    (%, default '100';
+//                                                            applied via CSS var --tooltip-opacity).
 //     - Show delay   -> cookie `settings-tooltip-delay`      (ms, default '100').
 //     - Hide delay   -> cookie `settings-tooltip-hide-delay` (ms, default '50').
 //
@@ -28,8 +30,10 @@
   var TOOLTIPS_ENABLED_KEY = 'settings-tooltips-enabled';
   var TOOLTIP_DELAY_KEY = 'settings-tooltip-delay';
   var TOOLTIP_HIDE_DELAY_KEY = 'settings-tooltip-hide-delay';
+  var TOOLTIP_OPACITY_KEY = 'settings-tooltip-opacity';
   var TOOLTIP_DELAY_DEFAULT = 100;
   var TOOLTIP_HIDE_DELAY_DEFAULT = 50;
+  var TOOLTIP_OPACITY_DEFAULT = 96;
 
   function readBool(name, fallback) {
     var v = getCookie(name, String(fallback), true);
@@ -52,6 +56,8 @@
     var delayValue = document.getElementById('settings-tooltip-delay-value');
     var hideDelaySlider = document.getElementById('settings-tooltip-hide-delay');
     var hideDelayValue = document.getElementById('settings-tooltip-hide-delay-value');
+    var opacitySlider = document.getElementById('settings-tooltip-opacity');
+    var opacityValue = document.getElementById('settings-tooltip-opacity-value');
     var escRadios = document.querySelectorAll('input[name="settings-esc-behavior"]');
     var skinBtn = document.getElementById('skin-button');
 
@@ -69,6 +75,14 @@
     if (isNaN(currentHideDelay)) currentHideDelay = TOOLTIP_HIDE_DELAY_DEFAULT;
     hideDelaySlider.value = String(currentHideDelay);
     hideDelayValue.textContent = currentHideDelay + ' ms';
+    var currentOpacity = parseInt(getCookie(TOOLTIP_OPACITY_KEY, String(TOOLTIP_OPACITY_DEFAULT), true), 10);
+    if (isNaN(currentOpacity)) currentOpacity = TOOLTIP_OPACITY_DEFAULT;
+    opacitySlider.value = String(currentOpacity);
+    opacityValue.textContent = currentOpacity + ' %';
+    function applyTooltipOpacity(percent) {
+      document.documentElement.style.setProperty('--tooltip-opacity', (percent / 100).toFixed(2));
+    }
+    applyTooltipOpacity(currentOpacity);
     tooltipsEnabledChk.checked = readBool(TOOLTIPS_ENABLED_KEY, true);
 
     function syncTooltipDelaysDisabled() {
@@ -256,6 +270,13 @@
     });
     hideDelaySlider.addEventListener('change', function () {
       setCookie(TOOLTIP_HIDE_DELAY_KEY, hideDelaySlider.value);
+    });
+    opacitySlider.addEventListener('input', function () {
+      opacityValue.textContent = opacitySlider.value + ' %';
+      applyTooltipOpacity(parseInt(opacitySlider.value, 10));
+    });
+    opacitySlider.addEventListener('change', function () {
+      setCookie(TOOLTIP_OPACITY_KEY, opacitySlider.value);
     });
     tooltipsEnabledChk.addEventListener('change', function () {
       setCookie(TOOLTIPS_ENABLED_KEY, tooltipsEnabledChk.checked ? 'true' : 'false');
