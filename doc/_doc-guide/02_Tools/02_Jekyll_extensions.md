@@ -2,14 +2,58 @@
 title: Jekyll extensions, plug-ins
 id: doc-jekyll-extensions
 description:  >-
-    Jekyll is felxible and extendable, accepts various [[plugins|jekyll-plugins]], liquid or markdown extensions, and we are using a bit of all of them.
+    Jekyll is flexible and extendable, accepts various [[plugins|jekyll-plugins]], liquid or markdown extensions, and we are using a bit of all of them.
 # Mandatory on pages with raw Liquid examples or self-rendered content. Details: doc/_doc-guide/02_Tools/02_Jekyll_extensions.md
 render_with_liquid: false
 ---
 
+## generate_links
+
+Our generate_links.rb Jekyll plugin creates the content of the `${PROJECT_ROOT}/_data/links` folder. The generated link files are created from all the H1-H6 headings, named anchors, and the page self-links of our markdown pages. The links are used for autolink/tooltip generation and page navigation ordering.
+
+It is gated by the `JEKYLL_BUILD_LINKS=yes` environment variable and runs on the `:site, :post_render` hook -- i.e. **after** Jekyll has rendered every page to HTML, so it can extract anchor information from the final DOM.
+
+## generate_tooltips
+
+The generate_tooltips.rb Jekyll plugin is responsible for adding autolink/tooltip items to our pages. It is gated by the `JEKYLL_BUILD_TOOLTIPS=yes` environment variable and registers on **two** Jekyll hooks within the same build:
+
+- `:site, :pre_render` -- loads the link dictionary built by `generate_links` from `_data/links/`, sorts entries by title length (longest first to avoid partial-word matches), and applies aliases and exclusions
+- `[:pages, :documents], :pre_render` -- iterates each page's Markdown content, splits it into safe-to-process spans (skipping fenced code blocks, existing links, headings) and injects `<a href="...">title</a>` HTML anchors directly into the Markdown source. kramdown then preserves these inline `<a>` tags as-is when converting Markdown to HTML.
+
+It is far-far not optimal, makes the whole rendering process very slow now and needs enhancements badly, please feel free to contribute to make it more effective!
+
+## autolink/tooltip
+
+This enhancement allows us to create automatic links and Wikiwand like tooltips (previews of linked articles) in the markdown documentation pages to
+
+- other local pages, based on their title text [h1 heading]
+- headings [h2-h6] of any local pages, based on the heading text
+- named anchors of any local pages, based on the anchor text
+- any of the above, via given text parts that enumerated in the `${PROJECT_ROOT}/_data/link_aliases.yml` file
+- any of the above, via given text parts that marked using our custom markdown notation
+- any of the above, via our markdown_link liquid include
+- external pages, via given text parts enumerated in the `${PROJECT_ROOT}/_data/external_links.yml` file
+
+The automatic link and tooltip generation primarily use one-to-one text matching of the given text in the above enumerated cases to the markdown content, from the longest sentence to the shortest one. You can exclude specific sentences from the process using `${PROJECT_ROOT}/_data/excluded_titles.yml`.\
+These can all be overridden by using the [[\[\[title&#124;id\]\] markdown extension|doc-jekyll-extensions#titleid-markdown-extension]], which always has priority over these rules (even over the exclusions!).
+
+The basic flow is as follows:
+
+- in the **first Jekyll build** (`JEKYLL_BUILD_LINKS=yes`)
+  - the Jekyll liquid parser creates named anchors from our `markdown_link` liquid includes
+  - kramdown converts each page's Markdown into HTML
+  - on `:site, :post_render`, `generate_links` parses the rendered HTML with Nokogiri and writes one link descriptor per page (id, url, title, priority) to `${PROJECT_ROOT}/_data/links/`
+
+- in the **second Jekyll build** (`JEKYLL_BUILD_TOOLTIPS=yes`), `generate_tooltips`
+  - on `:site, :pre_render`: loads every `_data/links/*.yml` into a single dictionary, sorted by title length in reverse order, then merges aliases from `${PROJECT_ROOT}/_data/link_aliases.yml` and removes excluded entries listed in `${PROJECT_ROOT}/_data/excluded_titles.yml`
+  - on `[:pages, :documents], :pre_render`: walks the Markdown source of every page/document, finds plain-text matches against the dictionary and rewrites them into inline `<a class="...">title</a>` HTML anchors that kramdown will leave intact
+
+- at runtime
+  - the bundled JS (`_js/custom/navigation.js`, packed into `assets/js/main.min.js`) selects every anchor that carries the authoring class `content-tooltip` and attaches the hover/click tooltip behaviour to it; the rendered tooltip container then receives one of the runtime state classes `text-content-tooltip` or `full-content-tooltip` depending on the previewed content size (these two are **not** authoring classes -- do not write them in Markdown)
+
 ## markdown_link
 
-This pure liquid include file can be used to generate markdown links from the links created by our generate_links plugin with various additionsl parameters.
+This pure liquid include file can be used to generate markdown links from the links created by our generate_links plugin with various additional parameters.
 
 It can declare
 
@@ -25,7 +69,7 @@ or define
 
 a markdown link, where the link url and title is handled automatically using the given ID.
 
-the url and the default title text must not be provided here (though can be overriden if needed), the lookup of them will be automatic based on the given ID, the generate_links collected links in the `${PROJECT_ROOT}/_data/links` folder are also available via the `site.data.links` liquid variable, markdown_link uses this variable as well to search for the given ID and the corresponding title and url.
+the url and the default title text must not be provided here (though can be overridden if needed), the lookup of them will be automatic based on the given ID, the generate_links collected links in the `${PROJECT_ROOT}/_data/links` folder are also available via the `site.data.links` liquid variable, markdown_link uses this variable as well to search for the given ID and the corresponding title and url.
 {: .notice--primary}
 
 The examples below show the **include invocation** (top fence) and the **raw Markdown that the include expands to** (bottom fence). Jekyll then runs kramdown on that Markdown to produce the final HTML `<a>` tag, so what you see is an intermediate representation, not the final rendered output.
@@ -78,7 +122,7 @@ You can use the following parameters to adjust the composition of the above `md_
     [custom title](url){: class="nav-link" }
     ```
 
-- `withTooltip`, a boolean string `'yes'`, `'no'` or value `true`, `false` that controls if the genrated link should have css class style that is treated as [[autolink/tooltip]], e.g.:
+- `withTooltip`, a boolean string `'yes'`, `'no'` or value `true`, `false` that controls if the generated link should have css class style that is treated as [[autolink/tooltip]], e.g.:
 
     ``` liquid
     {% raw %}{% include markdown_link id='id' withTooltip=true %}{% endraw %}
@@ -122,25 +166,6 @@ You can use the following parameters to adjust the composition of the above `md_
     The empty `class=""` IAL means the `nav-link` style is omitted, so the link triggers a full page load instead of an SPA content swap.
     {: .notice--primary}
 
-## liquify
-
-liquify.rb is a nice liquid filter that parses liquid objects to their actual value, it is useful e.g. places wehre it is not happening automatically f.e. in [[page titles|liquify-rb]].
-
-## generate_links
-
-Our generate_links.rb Jekyll plugin creates the content of the `${PROJECT_ROOT}/_data/links` folder. The generated link files are created from all the H1-H6 headings, named anchors, and the page self-links of our markdown pages. The links are used for autolink/tooltip generation and page navigation ordering.
-
-It is gated by the `JEKYLL_BUILD_LINKS=yes` environment variable and runs on the `:site, :post_render` hook -- i.e. **after** Jekyll has rendered every page to HTML, so it can extract anchor information from the final DOM.
-
-## generate_tooltips
-
-The generate_tooltips.rb Jekyll plugin is responsible for adding autolink/tooltip items to our pages. It is gated by the `JEKYLL_BUILD_TOOLTIPS=yes` environment variable and registers on **two** Jekyll hooks within the same build:
-
-- `:site, :pre_render` -- loads the link dictionary built by `generate_links` from `_data/links/`, sorts entries by title length (longest first to avoid partial-word matches), and applies aliases and exclusions
-- `[:pages, :documents], :pre_render` -- iterates each page's Markdown content, splits it into safe-to-process spans (skipping fenced code blocks, existing links, headings) and injects `<a href="...">title</a>` HTML anchors directly into the Markdown source. kramdown then preserves these inline `<a>` tags as-is when converting Markdown to HTML.
-
-It is far-far not optimal, makes the whole rendering process very slow now and needs enhancements badly, please feel free to contribute to make it more effective!
-
 ## \[\[title\|id\]\] markdown extension
 
 The generate_tooltips plugin can interpret this format of markdown linking. It accepts the following formats
@@ -150,7 +175,7 @@ The generate_tooltips plugin can interpret this format of markdown linking. It a
     In the following sentence
 
     ``` text
-    The syslog-ng OSE darwin-oslog() source options explains how you can configure the new native macOS sytem log source.
+    The syslog-ng OSE darwin-oslog() source options explains how you can configure the new native macOS system log source.
     ```
 
     the darwin-oslog() source options normally will become an autolink/tooltip, as we have a page with this title which its own link is part of the `${PROJECT_ROOT}/_data/links` collection produced by generate_links, therefore will be transformed automatically to an autolink/tooltip by generate_tooltips.
@@ -158,23 +183,23 @@ The generate_tooltips plugin can interpret this format of markdown linking. It a
     Using
 
     ``` text
-    The [[syslog-ng OSE]] darwin-oslog() [[source]] options explains how you can configure the new native macOS sytem log source.
+    The [[syslog-ng OSE]] darwin-oslog() [[source]] options explains how you can configure the new native macOS system log source.
     ```
 
     the syslog-ng OSE and the source will become an autolink/tooltip instead.
 
 - `[[title|id]]`
-    This can force autolink/tooltip generation to use a different `title` string for a given link `id`, or a different `id` (that way the link belongs to that `id`) for a given `title` string. This can be useful when the given title is ambigous in a given context, and one would like to force the generated autolink/tooltip point to a (different) specific location. \
+    This can force autolink/tooltip generation to use a different `title` string for a given link `id`, or a different `id` (that way the link belongs to that `id`) for a given `title` string. This can be useful when the given title is ambiguous in a given context, and one would like to force the generated autolink/tooltip to point to a (different) specific location. \
     In the following sentence
 
     ``` text
-    The syslog-ng OSE darwin-oslog() [[source|adm-src-macos]] is a new native macOS sytem log source.
+    The syslog-ng OSE darwin-oslog() [[source|adm-src-macos]] is a new native macOS system log source.
     ```
 
-    the first occrence of `source` will become an autolink/tooltip to the `admin-guide/060_Sources/085_macOS/README.md` page, whilst the second one will point to the default `admin-guide/200_About/002_Glossary#source`.
+    the first occurrence of `source` will become an autolink/tooltip to the `admin-guide/060_Sources/085_macOS/README.md` page, whilst the second one will point to the default `admin-guide/200_About/002_Glossary#source`.
 
 - `[[title|-]]`
-    This is a special case which can be useful in a given context to temporally disable the generation of an autolink/tooltip, using this form the `title` text will not be touched at all, e.g.
+    This is a special case which can be useful in a given context to temporarily disable the generation of an autolink/tooltip, using this form the `title` text will not be touched at all, e.g.
 
     ``` text
     This can lead to the [[source|-]] of a misunderstanding.
@@ -200,13 +225,13 @@ The generate_tooltips plugin can interpret this format of markdown linking. It a
 
 |&nbsp;\[\[&nbsp;case&nbsp;\]\]&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;found&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;success&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;result|
 |-------------------|--------------|-------------|----------------------------------------|
-| \[\[title\|id\]\] | id found     | ok          | the title text transformed to autolink/tootlip, its autolink/tooltip created based by id and the url belongs to that id |
+| \[\[title\|id\]\] | id found     | ok          | the title text transformed to autolink/tooltip, its autolink/tooltip created based by id and the url belongs to that id |
 | \[\[title\|id\]\] | id not found | error msg   | the markdown is included into the HTML output |
-| \[\[title\]\]     | found        | ok          | the title text transformed to autolink/tootlip, its autolink/tooltip created based by the id of the first matching title in the link collection created by generate_links, and the url belongs to the found id |
+| \[\[title\]\]     | found        | ok          | the title text transformed to autolink/tooltip, its autolink/tooltip created based by the id of the first matching title in the link collection created by generate_links, and the url belongs to the found id |
 | \[\[title\]\]     | not found    | error msg   | the markdown is included into the HTML output |
 | \[\[title\|-\]\]  | n/a          | ok          | the exact title text without any modification |
 | \[\[title\|\]\]   | n/a          | error msg   | the markdown is included into the HTML output |
-| \[\[\|id\]\]      | n/a          | error mg    | the markdown is included into the HTML output |
+| \[\[\|id\]\]      | n/a          | error msg   | the markdown is included into the HTML output |
 
 **Example results of above cases from top down**
 
@@ -224,34 +249,29 @@ empty [[id|]] test
 
 empty title [[|doc-jekyll-extensions]] test
 
-## autolink/tooltip
+## liquify
 
-This enhancement allows us to create automatic links and Wikiwand like tooltips (previews of linked articles) in the markdown documentation pages to
+liquify.rb is a nice liquid filter that parses liquid objects to their actual value. It is useful e.g. in places where it is not happening automatically, e.g. in [[page titles|liquify-rb]].
 
-- other local pages, based on their title text [h1 heading]
-- headings [h2-h6] of any local pages, based on the heading text
-- named anchors of any local pages, based on the anchor text
-- any of the above, via given text parts that enumerated in the `${PROJECT_ROOT}/_data/link_aliases.yml` file
-- any of the above, via given text parts that marked using our custom markdown notation
-- any of the above, via our markdown_link liquid include
-- external pages, via given text parts enumerated in the `${PROJECT_ROOT}/_data/external_links.yml` file
+## common_includes
 
-The automatic link and tooltip generation primarily use one-to-one text matching of the given text in the above enumerated cases to the markdown content, from the longest sentence to the shortest one. You can exclude specific sentences from the process using `${PROJECT_ROOT}/_data/excluded_titles.yml`.\
-These can all be overridden by using the [[\[\[title&#124;id\]\] markdown extension|doc-jekyll-extensions#titleid-markdown-extension]], which always has priority over these rules (even over the exclusions!).
+`common_includes.rb` is an unconditional `:site, :pre_render` hook (no env-var gate) that prepends `{% include doc/common_snippets %}` to every Markdown and HTML layout, page, and document. It runs in **both** Jekyll builds (`JEKYLL_BUILD_LINKS=yes` and `JEKYLL_BUILD_TOOLTIPS=yes`) so the link extraction and the tooltip injection see exactly the same content. Any change to `_includes/doc/common_snippets` therefore affects every single page in the site.
 
-The basic flow is as follows:
+## extract_headings
 
-- in the **first Jekyll build** (`JEKYLL_BUILD_LINKS=yes`)
-  - the Jekyll liquid parser creates named anchors from our `markdown_link` liquid includes
-  - kramdown converts each page's Markdown into HTML
-  - on `:site, :post_render`, `generate_links` parses the rendered HTML with Nokogiri and writes one link descriptor per page (id, url, title, priority) to `${PROJECT_ROOT}/_data/links/`
+`extract_headings.rb` registers a Liquid filter (`extract_headings`) that takes a rendered HTML fragment and returns the array of heading anchors found in it (`h2`/`h3`/`h4` with an `id`). It is used by `_js/lunr/lunr-store.js` to add one extra Lunr search-store entry per heading, so a query that exactly matches a section heading (for example `${AMPM}` on the macros page) surfaces as its own top-ranked result that deep-links straight to the anchor instead of being buried inside the parent page's single body-text match.
 
-- in the **second Jekyll build** (`JEKYLL_BUILD_TOOLTIPS=yes`), `generate_tooltips`
-  - on `:site, :pre_render`: loads every `_data/links/*.yml` into a single dictionary, sorted by title length in reverse order, then merges aliases from `${PROJECT_ROOT}/_data/link_aliases.yml` and removes excluded entries listed in `${PROJECT_ROOT}/_data/excluded_titles.yml`
-  - on `[:pages, :documents], :pre_render`: walks the Markdown source of every page/document, finds plain-text matches against the dictionary and rewrites them into inline `<a class="...">title</a>` HTML anchors that kramdown will leave intact
+## site_data_by_path
 
-- at runtime
-  - the bundled JS (`_js/custom/navigation.js`, packed into `assets/js/main.min.js`) selects every anchor that carries the authoring class `content-tooltip` and attaches the hover/click tooltip behaviour to it; the rendered tooltip container then receives one of the runtime state classes `text-content-tooltip` or `full-content-tooltip` depending on the previewed content size (these two are **not** authoring classes -- do not write them in Markdown)
+`site_data_by_path.rb` registers a tiny Liquid filter (`data_by_path`) that walks a dotted path through a hash and returns the nested value, e.g. `{% raw %}{{ site.data | data_by_path: "links.adm-src-network.url" }}{% endraw %}`. It exists so Liquid templates can dereference `_data/...` entries dynamically (with a runtime path string) without having to chain `[]` accessors at template-write time.
+
+## sass_silence_deprecations
+
+`sass_silence_deprecations.rb` is a small monkey-patch on `Jekyll::Converters::Scss` that propagates a `silence_deprecations:` array from `_config.yml` (`sass.silence_deprecations`) into the `sass-embedded` runtime, suppressing the matching SASS deprecation warnings (`import`, `global-builtin`, etc.) during the build. It does not affect rendered output -- only build log noise.
+
+## expand_notice_blocks
+
+`expand_notice_blocks.rb` rewrites the paired `{: .notice--TYPE-start}` / `{: .notice--TYPE-end}` markers into `<div class="notice--TYPE" markdown="1">…</div>` wrappers so a notice can contain lists, fenced code blocks, headings, or multiple paragraphs (the legacy single-block kramdown IAL form `{: .notice--TYPE}` only attaches to the immediately preceding block). It runs in **both** builds (no env gate) so link extraction and tooltip injection see identical DOM, skips markers inside fenced code blocks and HTML comments, and aborts the build with a clear file/line error on any pairing violation (mismatched type, missing `-end`, stray `-end`, nested `-start`). For the authoring conventions (typed variants, `.no-prefix` opt-out, list-first behaviour), see the [Notice blocks](#notice-blocks) section below.
 
 ## Notice blocks
 
