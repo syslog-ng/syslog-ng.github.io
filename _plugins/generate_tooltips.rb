@@ -76,7 +76,7 @@ module Jekyll
           #puts "match_parts: #{match_parts}"
           title = match_parts[0]
           if title.length <= 0
-            puts "Error: Empty title in matching part: '#{match}' -> #{match_parts}"
+            Jekyll.logger.error "tooltip:", "Empty title in matching part: '#{match}' -> #{match_parts}"
             # nil means, show the original markdown part, instead of a half rendered one
             return nil
           end
@@ -92,7 +92,7 @@ module Jekyll
             url = link_data["url"]
             url = prefixed_url(url, page.site.config["baseurl"])
           else
-            puts "Error: Unknown ID in matching part: '#{match}' -> #{match_parts}"
+            Jekyll.logger.error "tooltip:", "Unknown ID in matching part: '#{match}' -> #{match_parts}"
             # nil means, show the original markdown part, instead of a half rendered one
             return nil
           end
@@ -101,12 +101,12 @@ module Jekyll
         end
 
         if id == nil or id.length <= 0
-          puts "Error: Empty ID in matching part: '#{match}' -> #{match_parts}"
+          Jekyll.logger.error "tooltip:", "Empty ID in matching part: '#{match}' -> #{match_parts}"
           # nil means, show the original markdown part, instead of a half rendered one
           return nil
         end
         if url == nil or url.length <= 0
-          puts "Error: Empty URL for ID: '#{id}' in matching part: '#{match}' -> #{match_parts}"
+          Jekyll.logger.error "tooltip:", "Empty URL for ID: '#{id}' in matching part: '#{match}' -> #{match_parts}"
           # nil means, show the original markdown part, instead of a half rendered one
           return nil
         end
@@ -384,7 +384,7 @@ module Jekyll
           page_title = page_title.gsub(/\A[#{Regexp.escape(chars_to_remove)}]+|[#{Regexp.escape(chars_to_remove)}]+\z/, '')
           #puts "page_title: " + page_title
           if page_title.length == 0
-            puts "Error: Page title is empty, ID: #{page_id}"
+            Jekyll.logger.error "tooltip:", "Page title is empty, ID: #{page_id}"
             exit 3
           end
 
@@ -408,7 +408,7 @@ module Jekyll
 
           page_link_data = page_links_dictionary[alias_id]
           if page_link_data == nil
-            puts "Error: Unknown ID (#{alias_id}) in alias definition"
+            Jekyll.logger.error "tooltip:", "Unknown ID (#{alias_id}) in alias definition"
             exit 4
           end
           page_link_data["title"].concat(alias_data["aliases"])
@@ -616,7 +616,8 @@ Jekyll::Hooks.register :site, :pre_render do |site|
       if File.extname(page.relative_path) != ".html" &&
          page.data["render_with_liquid"] != false &&
          page.content.include?("{% raw %}")
-        puts "[render_with_liquid check] WARNING: #{page.relative_path} contains a {% raw %} block but has no `render_with_liquid: false` in its frontmatter. Jekyll's final Liquid pass will re-expand the raw block and the literal example will be lost."
+        Jekyll.logger.warn "liquid:", "*** MISSING `render_with_liquid: false` in #{page.relative_path} ***"
+        Jekyll.logger.warn "liquid:", "    page contains a {% raw %} block; without the flag Jekyll's final Liquid pass will re-expand the raw markers and the literal example will silently disappear from the rendered page."
       end
 
       page_url = page.url.gsub(/\.[^.]+$/, '')
@@ -665,7 +666,7 @@ Jekyll::Hooks.register [:pages, :documents], :pre_render do |page, payload|
   # Generate a manpage input markdown file if manid is defined in the page front-matter
   if page.data['manid']
     if page.data["manname"] == nil
-      puts "Error: manid found without manname in page: #{page.relative_path}"
+      Jekyll.logger.error "manpage:", "manid found without manname in page: #{page.relative_path}"
       exit 5
     end
     Jekyll::ManpageGen.generate_manpage(page, JekyllManpageGen_manpages_folder)

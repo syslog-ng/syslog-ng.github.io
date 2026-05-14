@@ -29,7 +29,7 @@ module Jekyll
       def register_id(page, id, title, ids, titles)
         if id != nil 
           if ids[id]
-            puts "Duplicated 'id: #{id}' in file " + page.relative_path
+            Jekyll.logger.error "links:", "Duplicated 'id: #{id}' in file #{page.relative_path}"
             #exit 2
           else
             ids[id] = id
@@ -37,7 +37,7 @@ module Jekyll
         end
         if title != nil 
           if titles[title]
-            puts "Duplicated 'title: #{title}' in file " + page.relative_path
+            Jekyll.logger.error "links:", "Duplicated 'title: #{title}' in file #{page.relative_path}"
             #exit 2
           else
             titles[title] = title
@@ -163,7 +163,7 @@ module Jekyll
           write_yaml_file(page_file_path, page_link_data)
         
         else
-          puts "Missing 'id:' property in file " + page.relative_path
+          Jekyll.logger.warn "links:", "Missing 'id:' property in file #{page.relative_path}"
           #exit 1
         end
         return page_id
