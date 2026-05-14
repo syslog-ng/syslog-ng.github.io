@@ -2,6 +2,8 @@
    NAVIGATION
    ========================================================================== */
 
+@use "sass:color";
+
 /*
   Breadcrumb navigation links
   ========================================================================== */
@@ -324,6 +326,7 @@
     -webkit-box-flex: 1;
     -ms-flex: 1;
     flex: 1;
+    min-width: 0;
     overflow: hidden;
   }
 
@@ -441,6 +444,20 @@
       -ms-flex-wrap: wrap;
       flex-wrap: wrap;
       overflow: visible;
+    }
+  }
+}
+
+// On very narrow screens, keep the search form's left edge stable while
+// open so narrowing happens from the right side.
+.masthead.search-open {
+  .greedy-nav {
+    @include breakpoint(max-width $small - 1px) {
+      .masthead__menu-center-container {
+        -webkit-box-pack: start;
+        -ms-flex-pack: start;
+        justify-content: flex-start;
+      }
     }
   }
 }
@@ -768,6 +785,13 @@
   
   height: auto;
 
+  /* Viewport-overflow handling is done per-show in navigation.js
+     (setTooltipPos): it sets `max-height` + `overflow-y: auto` ONLY when
+     the rendered tooltip would actually run off the screen. We must NOT
+     enable overflow here unconditionally -- it would clip the `:before`
+     arrow (which sits ABOVE the tooltip via negative `top`), hiding the
+     arrow on every tooltip. */
+
   // FIXME: Get rid of the dependency on size of the container
   width: 500%;
   min-width: 200px;
@@ -792,20 +816,31 @@
   &.text-content-tooltip {
     font-size: $type-size-9;
 
-    min-width: 150px;
-    max-width: 150px;
+    /* Fit the actual short label instead of forcing a 150 px floor.
+       The parent `.tooltip` declares `width: 500%` which would still
+       blow this up, so we override it with `width: max-content` and
+       cap the upper bound per breakpoint so very long labels still
+       wrap nicely. Keep `min-width: 0` to defeat the parent rule. */
+    width: max-content;
+    min-width: 0;
+    max-width: 200px;
     @include breakpoint($large) {
-      max-width: 200px;
+      max-width: 255px;
     }
     @include breakpoint($x-large) {
-      max-width: 255px;
+      max-width: 320px;
     }
   }
   
+  /* Horizontal padding lives on the inner `.tooltip-scroll` wrapper
+     (see rule below) so that, when the tooltip becomes scrollable, the
+     native scrollbar sits flush with the tooltip's outer right edge
+     instead of being indented by the padding. Vertical padding stays
+     here because there's no scrollbar dimension to align on. */
   padding-top: 0;
   padding-bottom: 0;
-  padding-left: 15px;
-  padding-right: 15px;
+  padding-left: 0;
+  padding-right: 0;
   
   border-radius: 5px;
   box-shadow: 0 0 3px $tooltip-box-shadow-color;
@@ -840,6 +875,63 @@
   border-right: var(--tooltip-arrow-border-right, $tooltip-arrow-half-size) solid transparent;
 }
 
+/* Flipped placement: tooltip is rendered above the anchor (when there
+   isn't enough room below). The arrow lives at the bottom edge and
+   points down toward the anchor. JS adds/removes the .tooltip-flipped
+   class on the shared #tooltip element from setTooltipPos. */
+.tooltip.tooltip-flipped:before {
+  top: auto;
+  bottom: calc(-1 * #{$tooltip-arrow-half-size});
+  border-bottom: 0;
+  border-top: $tooltip-arrow-half-size solid $tooltip-arrow-background-color;
+}
+
+/* Inner wrapper around tooltip content (created in JS, see
+   navigation.js -> showTooltip). It carries the horizontal padding so
+   the scrollbar (when JS sets `overflow-y: auto`) renders at the
+   tooltip's outer right edge while text content stays inset. */
+.tooltip-scroll {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+/* Minimal fallback preview shown when the rich, fetched-content
+   tooltip cannot be produced (typical case: external CORS-blocked
+   link). Built in JS by buildFallbackTooltipHtml() and rendered
+   with the *plain* `.tooltip` styling (no `text-content-tooltip`
+   class), so the fallback inherits the very same CSS as a regular
+   rich-content tooltip. The width caps below mirror those of
+   `text-content-tooltip` so the compact look is preserved without
+   inheriting its $type-size-9 font-size override. */
+.tooltip:has(.tooltip-fallback) {
+  width: max-content;
+  min-width: 0;
+  max-width: 200px;
+  @include breakpoint($large) {
+    max-width: 255px;
+  }
+  @include breakpoint($x-large) {
+    max-width: 320px;
+  }
+}
+.tooltip-fallback {
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  line-height: 1.35;
+}
+.tooltip-fallback-title {
+  font-weight: bold;
+  margin-bottom: 0.2em;
+}
+.tooltip-fallback-host {
+  opacity: 0.85;
+  margin-bottom: 0.2em;
+}
+.tooltip-fallback-url {
+  opacity: 0.7;
+  word-break: break-all;
+}
+
 .tooltip.visible {
   opacity: 1;
 
@@ -848,6 +940,197 @@
   -o-transform: scale(1);
   -ms-transform: scale(1);
   transform: scale(1);  
+}
+
+/* Hover hint tooltip transparency is user-configurable via the
+   settings panel. Default mirrors the original $tooltip-background-color
+   alpha (~0.925). The slider also tints the settings panel popover
+   (which itself is a .tooltip). */
+.tooltip.visible {
+  opacity: var(--tooltip-opacity, 0.96);
+}
+
+/* Settings panel — reuses the .tooltip surface, so background / border /
+   shadow / arrow colours come from the active skin automatically. The rules
+   below tint the inner controls (checkboxes, select, divider) with the same
+   $selection-color the search input uses, so light/dark skins look coherent. */
+#settings-panel.tooltip {
+  // Pin to the viewport so we don't depend on the masthead's positioning
+  // context, and so it doesn't scroll away with the page content.
+  position: fixed;
+  z-index: 1000;
+  // Override the inline-tooltip cap that doesn't make sense for a popover.
+  width: auto;
+  min-width: 300px;
+  max-width: 380px;
+  padding: 0.75em 1em 0.9em;
+  font-size: 0.85em;
+  line-height: 1.4;
+  text-align: left;
+
+  .settings-panel__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0.4em;
+    padding-bottom: 0.4em;
+    border-bottom: 1px solid rgba($selection-color, 0.35);
+  }
+  .settings-panel__title {
+    font-weight: 600;
+    font-size: 1.05em;
+  }
+  .settings-panel__close {
+    background: none;
+    border: 0;
+    cursor: pointer;
+    color: inherit;
+    font-size: 1em;
+    padding: 0.1em 0.3em;
+    &:hover { opacity: 0.7; }
+  }
+
+  .settings-panel__group { margin-top: 0.6em; }
+  .settings-panel__group-title {
+    margin: 0 0 0.35em 0;
+    font-size: 0.8em;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    opacity: 0.75;
+    color: $tooltip-color;
+  }
+
+  .settings-panel__row {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    margin: 0.3em 0;
+    padding-left: 1.4em; // indent controls under the group title
+    cursor: pointer;
+  }
+  .settings-panel__row--column {
+    flex-direction: column;
+    align-items: flex-start;
+    cursor: default;
+
+    // The label of a column-row acts as a sub-heading for its grouped
+    // controls (e.g. the ESC key behavior radio group). Render it at
+    // the same scale as the group title so it does not visually
+    // outweigh the section header above it.
+    > .settings-panel__label {
+      font-size: 0.8em;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      opacity: 0.75;
+    }
+  }
+  .settings-panel__label { user-select: none; }
+
+  // Dim a column-row whose controls are currently disabled (e.g. the
+  // tooltip delay sliders when "Show tooltips on link hover" is off).
+  .settings-panel__row--disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+    > .settings-panel__slider input[type="range"] { cursor: not-allowed; }
+  }
+
+  .settings-panel__radio-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15em;
+    width: 100%;
+    margin-top: 0.25em;
+    padding: 0.25em;
+    border-radius: 3px;
+    background-color: rgba($selection-color, 0.15);
+    border: 1px solid rgba($selection-color, 0.45);
+    color: $tooltip-color;
+  }
+  .settings-panel__radio {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    padding: 0.25em 0.4em;
+    margin: 0;
+    border-radius: 3px;
+    cursor: pointer;
+    user-select: none;
+
+    &:hover {
+      background-color: rgba($link-color, 0.18);
+    }
+    // The whole row highlights when its radio is selected, matching the
+    // search panel's tint scheme.
+    &:has(input[type="radio"]:checked) {
+      background-color: rgba($link-color, 0.28);
+      color: $text-color;
+    }
+    input[type="radio"] {
+      accent-color: $link-color;
+      margin: 0;
+      flex-shrink: 0;
+    }
+  }
+  // Match the search panel's checkbox tint (light blue in light skin,
+  // yellow-ish in dark skin); see _search.scss.
+  input[type="checkbox"] {
+    accent-color: $link-color;
+  }
+
+  .settings-panel__slider {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    width: 100%;
+    margin-top: 0.25em;
+    input[type="range"] {
+      flex: 1;
+      accent-color: $link-color;
+      margin: 0;
+    }
+  }
+  .settings-panel__slider-value {
+    font-size: 0.8em;
+    opacity: 0.75;
+    min-width: 4em;
+    text-align: right;
+  }
+
+  .settings-panel__hotkey {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    width: 100%;
+    margin-top: 0.25em;
+    flex-wrap: wrap;
+  }
+  .settings-panel__hotkey-display {
+    font-family: monospace;
+    font-size: 0.85em;
+    padding: 0.15em 0.5em;
+    border-radius: 3px;
+    background-color: rgba($selection-color, 0.15);
+    border: 1px solid rgba($selection-color, 0.45);
+    color: $tooltip-color;
+    min-width: 7em;
+    text-align: center;
+  }
+  .settings-panel__hotkey-btn {
+    font-size: 0.8em;
+    padding: 0.2em 0.6em;
+    border-radius: 3px;
+    border: 1px solid rgba($selection-color, 0.45);
+    background-color: transparent;
+    color: $tooltip-color;
+    cursor: pointer;
+    &:hover { background-color: rgba($link-color, 0.18); }
+  }
+  .settings-panel__hotkey-btn--recording {
+    background-color: rgba($link-color, 0.28);
+    color: $text-color;
+  }
 }
 
 /* These are mandatory to get the tooltipRenderer trick work

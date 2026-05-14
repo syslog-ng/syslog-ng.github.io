@@ -69,6 +69,6 @@ destination d_sorted {
 This sample command for cron removes files older than two weeks from the
 /var/log/remote directory:
 
-```bash
+```shell
 find /var/log/remote/ -daystart -mtime +14 -type f -exec rm {} \;
 ```

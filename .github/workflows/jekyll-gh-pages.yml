@@ -65,7 +65,7 @@ jobs:
           echo "Updating main.min.js and re-pack js scripts"
           pwd
 
-          ./_tools/pack debug
+          ./_tools/pack # debug - option is not needed here as the final minified version is needed for the site in production
           ls -AlR assets/js
 
           # Update the site.config.version info in the _config.yml based on the current syslog-ng version
@@ -97,7 +97,7 @@ jobs:
           #
           echo "Updating main.min.js and re-pack js scripts"
           pwd
-          ./_tools/pack debug
+          ./_tools/pack # debug - option is not needed here as the final minified version is needed for the site in production
           ls -AlR _site/assets/js
 
           # Generate and add Doxygen source documentation

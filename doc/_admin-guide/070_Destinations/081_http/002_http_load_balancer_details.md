@@ -50,8 +50,8 @@ You can use {{ site.product.short_name }} templates in URLs to route messages dy
 - You cannot template the hostname, port, protocol, or credentials (for security and routing stability)
 - Template values are automatically URL-encoded (spaces become `%20`, etc.)
 
-**NOTE:** Dynamic URLs have slightly more processing overhead than static URLs since each message needs URL formatting.
-{: .notice--info}
+Dynamic URLs have slightly more processing overhead than static URLs since each message needs URL formatting.
+{: .notice--primary}
 
 ## Important Limitations to Know
 

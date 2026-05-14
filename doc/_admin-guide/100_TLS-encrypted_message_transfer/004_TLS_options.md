@@ -7,9 +7,9 @@ description: >-
     drivers.
 ---
 
-**NOTE:** The format of the TLS connections used by {{ site.product.short_name }} is similar to
+The format of the TLS connections used by {{ site.product.short_name }} is similar to
 using {{ site.product.short_name }} and stunnel, but the source IP information is not lost.
-{: .notice--info}
+{: .notice--primary}
 
 To encrypt connections, use the **transport(\"tls\")** and **tls()**
 options in the source and destination statements.
@@ -120,7 +120,6 @@ This option is only available with the following drivers:
 - tcp
 - tcp6
 
-![]({{ site.baseurl}}/assets/images/caution.png) **CAUTION:**
 Using keylog-file() makes TLS connections less secure by writing secret key
 materials into the given file. This option should only be enabled for debugging
 purposes and should be disabled after that. It is also recommended to delete
@@ -136,8 +135,8 @@ This option is available in {{ site.product.short_name }} 4.0 and later versions
 
 *Description:* In case the OCSP stapling verification is enabled, {{ site.product.short_name }} requests the server to return its OCSP status. This status response is verified by {{ site.product.short_name }} using the trust store configured by the ca-file(), ca-dir(), or the pkcs12-file() options.
 
-**NOTE:** RFC-6961 multi-stapling and TLS 1.3-provided multiple responses are currently not validated, only the peer certificate is verified.
-{: .notice--info}
+RFC-6961 multi-stapling and TLS 1.3-provided multiple responses are currently not validated, only the peer certificate is verified.
+{: .notice--primary}
 
 ### Example: OCSP stapling verification
 
@@ -158,7 +157,6 @@ destination {
 
 This option is available in {{ site.product.short_name }} 4.0 and later versions.
 
-![]({{ site.baseurl}}/assets/images/caution.png) **CAUTION:**
 openssl-conf-cmds() always has the highest priority. It overrides any other option found in the tls() section.
 {: .notice--warning}
 
@@ -214,7 +212,7 @@ file from the private key, X.509 certificate, and CA certificate files.
 Then, the second half of the example uses the same PKCS \#12 file in the
 {{ site.product.short_name }} configuration.
 
-```bash
+```shell
 openssl pkcs12 -export -inkey server.key -in server.crt -certfile ca.crt -out server.p12
 ```
 
@@ -344,22 +342,23 @@ of the accepted certificates in this parameter.
 For example,
 
 ```config
-trusted-keys(\"SHA1:00:EF:ED:A4:CE:00:D1:14:A4:AB:43:00:EF:00:91:85:FF:89:28:8F\",
-\"SHA1:0C:42:00:3E:B2:60:36:64:00:E2:83:F0:80:46:AD:00:A8:9D:00:15\").
+trusted-keys("SHA1:00:EF:ED:A4:CE:00:D1:14:A4:AB:43:00:EF:00:91:85:FF:89:28:8F",
+             "SHA1:0C:42:00:3E:B2:60:36:64:00:E2:83:F0:80:46:AD:00:A8:9D:00:15")
 ```
 
 To find the fingerprint of a certificate, you can use the following
 command: **openssl x509 -in \<certificate-filename\> -sha1 -noout
 -fingerprint**
 
->**NOTE:** When using the trusted-keys() and trusted-dn() parameters,
->note the following:  
->  
->- First, the trusted-keys() parameter is checked. If the fingerprint  
->    of the peer is listed, the certificate validation is performed.  
->  
->- If the fingerprint of the peer is not listed in the trusted-keys()  
->    parameter, the trusted-dn() parameter is checked. If the DN of the  
->    peer is not listed in the trusted-dn() parameter, the authentication  
->    of the peer fails and the connection is closed.  
-{: .notice--info}
+{: .notice--primary-start}
+
+When using the trusted-keys() and trusted-dn() parameters, note the following:  
+  
+- First, the trusted-keys() parameter is checked. If the fingerprint  
+    of the peer is listed, the certificate validation is performed.
+- If the fingerprint of the peer is not listed in the trusted-keys()  
+    parameter, the trusted-dn() parameter is checked. If the DN of the  
+    peer is not listed in the trusted-dn() parameter, the authentication  
+    of the peer fails and the connection is closed.  
+
+{: .notice--primary-end}

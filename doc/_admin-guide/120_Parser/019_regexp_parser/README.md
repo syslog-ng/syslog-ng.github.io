@@ -10,11 +10,11 @@ description: >-
     of the created name-value pairs.
 ---
 
-**NOTE:** The regexp-parser() can create additional name-value pairs only if
+The regexp-parser() can create additional name-value pairs only if
 \"named capture groups\" are used in the regular expression, for example
 (?\<test\_field\>\\w+). For more information, see \"named capture
 groups\" in PCRE documentation.
-{: .notice--info}
+{: .notice--primary}
 
 For more information about regular expressions in {{ site.product.short_name }}, see
 Regular expressions.
@@ -34,7 +34,9 @@ parser p_regexp {
 
 In the following example, the incoming log message is the following:
 
->Apr 20 11:09:46 test_field -> test_value
+```log
+Apr 20 11:09:46 test_field -> test_value
+```
 
 The regexp-parser inserts the .regexp. prefix before all extracted
 name-value pairs. The destination is a file, that uses the format-json

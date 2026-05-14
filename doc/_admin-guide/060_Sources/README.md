@@ -57,7 +57,7 @@ port, file, and so on) more than once, which might cause problems. For
 example, include the /dev/log file source only in one source statement,
 and use this statement in more than one log path if needed.
 
-![]({{ site.baseurl}}/assets/images/caution.png) **CAUTION:** Sources and
+Sources and
 destinations are initialized only when they are used in a log statement.
 For example, {{ site.product.short_name }} starts listening on a port or starts polling a
 file only if the source is used in a log statement. For details on creating

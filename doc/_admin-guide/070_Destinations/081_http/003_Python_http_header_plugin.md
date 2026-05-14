@@ -16,11 +16,11 @@ requests using the Python programming language.
 
 ## Prerequisites
 
-**NOTE:** Before you use the python-http-header plugin, make sure that your
+Before you use the python-http-header plugin, make sure that your
 {{ site.product.short_name }} appliance was compiled with Python support. If you
 installed {{ site.product.short_name }} from a package, make sure that the subpackage
 containing Python support is also installed.
-{: .notice--info}
+{: .notice--primary}
 
 ## Configuration
 
@@ -45,10 +45,10 @@ destination d_http {
     module, or simply MyClass if the user\'s code is provided inline in
     the configuration, using the python { \... }; keyword.
 
-    **NOTE:** If you put the class implementation into its own module, it
+    If you put the class implementation into its own module, it
     should be put into a standard location, or made available with the
     PYTHONPATH environment variable.
-    {: .notice--info}
+    {: .notice--primary}
 
 - *options(\"key\" \"value\")*: Optional option. Multiple options can be
     specified at the same time. The {{ site.product.short_name }} application will build
@@ -79,11 +79,11 @@ class TestCounter():
 By default, when the signal_http_header_request is emitted by the
 HTTP module, the connected slot automatically executes the Python code.
 
-**NOTE:** If the plugin fails, the HTTP module does not send the HTTP
+If the plugin fails, the HTTP module does not send the HTTP
 request without the header items by default. If you want the HTTP module
 to try sending the request without the header items, disable the
 mark-errors-as-critical function.
-{: .notice--info}
+{: .notice--primary}
 
 ### Methods used in the configuration
 
@@ -158,7 +158,6 @@ log {
 };
 ```
 
-![]({{ site.baseurl}}/assets/images/caution.png) **CAUTION:**
 Although it is possible to configure multiple HTTP workers for {{ site.product.short_name }},
 the {{ site.product.short_name }} application can only embed a single Python interpreter at
 the same time. As a result, if you configure more than one HTTP workers on

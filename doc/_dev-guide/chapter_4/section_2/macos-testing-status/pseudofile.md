@@ -18,8 +18,8 @@ id: dev-macos-mod-sup-pseudofile
 
 The pseudofile() driver has a single required argument, specifying a filename, that is, the file to write messages to, including the path.
 
-{: .notice--info}
-Note: The pseudofile() driver does not support templates in the filename.
+The pseudofile() driver does not support templates in the filename.
+{: .notice--primary}
 
 #### Configuration file used <a href="#configuration-file-used" id="configuration-file-used"></a>
 

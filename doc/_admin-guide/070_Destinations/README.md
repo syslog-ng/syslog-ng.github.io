@@ -11,7 +11,7 @@ description: >-
 **TIP:** If no drivers are defined for a destination, all messages sent to
 the destination are discarded. This is equivalent to omitting the
 destination from the log statement.
-{: .notice--info}
+{: .notice}
 
 To define a destination, add a destination statement to the syslog-ng
 configuration file using the following syntax:
@@ -41,7 +41,7 @@ destination d_tcp {
 };
 ```
 
-- ![]({{ site.baseurl}}/assets/images/caution.png) **CAUTION:**
+-
 - Do not define the same drivers with the same parameters more than once,
     because it will cause problems. For example, do not open the same file in
     multiple destinations.

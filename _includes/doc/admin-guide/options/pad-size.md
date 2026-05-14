@@ -12,4 +12,6 @@ padded to 2048 bytes. If pad-size() was given and the incoming message
 does not fit into pad-size(), {{ site.product.short_name }} will not read anymore from this
 pipe and displays the following error message:
 
->Padding was set, and couldn't read enough bytes
+```log
+Padding was set, and couldn't read enough bytes
+```

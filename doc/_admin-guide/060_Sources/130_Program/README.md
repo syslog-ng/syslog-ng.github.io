@@ -26,5 +26,5 @@ source s_program {
 };
 ```
 
-**NOTE:** The program is restarted automatically if it exits.
-{: .notice--info}
+The program is restarted automatically if it exits.
+{: .notice--primary}

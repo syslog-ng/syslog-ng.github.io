@@ -47,6 +47,6 @@ source apps {
 };
 ```
 
-**NOTE:** For details on the parameters of the nodejs() driver, see
+For details on the parameters of the nodejs() driver, see
 nodejs() source options.
-{: .notice--info}
+{: .notice--primary}

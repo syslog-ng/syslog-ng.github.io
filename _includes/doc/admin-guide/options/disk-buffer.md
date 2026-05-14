@@ -18,8 +18,8 @@ In {{ site.product.short_name }} version 4.2 and earlier, this option was called
 
 *Description:* If set to yes, {{ site.product.short_name }} prunes the unused space in the LogMessage representation, making the disk queue size smaller at the cost of some CPU time. Setting the compaction() argument to yes is recommended when numerous name-value pairs are unset during processing, or when the same names are set multiple times.
 
-**NOTE:** Simply unsetting these name-value pairs by using the unset() rewrite operation is not enough, as due to performance reasons that help when {{ site.product.short_name }} is CPU bound, the internal representation of a LogMessage will not release the memory associated with these name-value pairs. In some cases, however, the size of this overhead becomes significant (the raw message size can grow up to four times its original size), which unnecessarily increases the disk queue file size. For these cases, the compaction will drop unset values, making the LogMessage representation smaller at the cost of some CPU time required to perform compaction.
-{: .notice--info}
+Simply unsetting these name-value pairs by using the unset() rewrite operation is not enough, as due to performance reasons that help when {{ site.product.short_name }} is CPU bound, the internal representation of a LogMessage will not release the memory associated with these name-value pairs. In some cases, however, the size of this overhead becomes significant (the raw message size can grow up to four times its original size), which unnecessarily increases the disk queue file size. For these cases, the compaction will drop unset values, making the LogMessage representation smaller at the cost of some CPU time required to perform compaction.
+{: .notice--primary}
 
 ### dir()
 
@@ -28,7 +28,7 @@ In {{ site.product.short_name }} version 4.2 and earlier, this option was called
 
 *Description:* Defines the folder where the disk-buffer files are stored.
 
-![]({{ site.baseurl}}/assets/images/caution.png) **CAUTION:** When creating a new dir() option for a disk buffer, or modifying an existing one, make sure you delete the persist file.
+When creating a new dir() option for a disk buffer, or modifying an existing one, make sure you delete the persist file.
 {: .notice--warning}
 
 {{ site.product.short_name }} creates disk-buffer files based on the path recorded in the persist file. Therefore, if the persist file is not deleted after modifying the dir() option, then following a restart, {{ site.product.short_name }} will look for or create disk-buffer files in their old location. To ensure that {{ site.product.short_name }} uses the new dir() setting, the persist file must not contain any information about the destinations which the disk-buffer file in question belongs to.
@@ -82,7 +82,7 @@ Available in {{ site.product.short_name }} 4.0 and later.
 
 *Description:* If set to yes, {{ site.product.short_name }} cannot lose logs in case of reload/restart, unreachable destination or {{ site.product.short_name }} crash. This solution provides a slower, but reliable disk-buffer option. It is created and initialized at startup and gradually grows as new messages arrive. If set to no, the normal disk-buffer will be used. This provides a faster, but less reliable disk-buffer option.
 
-![]({{ site.baseurl}}/assets/images/caution.png) **CAUTION:** Hazard of data loss! If you change the value of reliable() option when there are messages in the disk-buffer, the messages stored in the disk-buffer will be lost.
+Hazard of data loss! If you change the value of reliable() option when there are messages in the disk-buffer, the messages stored in the disk-buffer will be lost.
 {: .notice--warning}
 
 ### truncate-size-ratio()
@@ -102,7 +102,7 @@ If you want to avoid performance fluctuations:
 * use truncate-size-ratio(1) (never truncate), or
 * use prealloc(yes) to reserve the entire size of the disk-buffer on disk.
 
-![]({{ site.baseurl}}/assets/images/caution.png) **CAUTION:** It is not recommended to change truncate-size-ratio(). Only change its value if you understand the performance implications of doing so.
+It is not recommended to change truncate-size-ratio(). Only change its value if you understand the performance implications of doing so.
 {: .notice--warning}
 
 ### Example: Examples for using disk-buffer()

@@ -13,10 +13,10 @@ version of the GeoIP2 database, both free and the commercial editions.
 The {{ site.product.short_name }} application works with the mmdb (GeoIP2) format of
 these databases. Other formats, like csv are not supported.
 
-**NOTE:** To access longitude and latitude information, download the City
+To access longitude and latitude information, download the City
 version of the GeoIP2
 database.
-{: .notice--info}
+{: .notice--primary}
 
 There are two types of GeoIP2 databases available.
 

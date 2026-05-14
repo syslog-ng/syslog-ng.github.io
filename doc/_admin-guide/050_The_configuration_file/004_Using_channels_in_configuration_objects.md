@@ -55,19 +55,22 @@ the error log. The log statement references only the **s_apache** source,
 and any other object in the log statement can already use the results of
 the **p_apache_parser** parser.
 
->**NOTE:** You must start the object definition with a **channel** even if
->you will use a junction, for example:
->  
->```config
->parser demo-parser() {
->    channel {
->        junction {
->            channel { ... };
->            channel { ... };
->        };
->    };
->};
->```
+{: .notice--primary-start}
+You must start the object definition with a **channel** even if
+you will use a junction, for example:
+  
+```config
+parser demo-parser() {
+    channel {
+        junction {
+            channel { ... };
+            channel { ... };
+        };
+    };
+};
+```
+
+{: .notice--primary-end}
 
 If you want to embed configuration objects into sources or destinations,
 always use channels, otherwise the source or destination will not behave

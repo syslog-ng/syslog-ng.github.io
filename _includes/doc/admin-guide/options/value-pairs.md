@@ -6,7 +6,7 @@
 *Description:* The value-pairs() option allows you to select specific
 information about a message easily using predefined macro groups. The
 selected information is represented as name-value pairs and can be used
-formatted to JSON format, or directly used in a mongodb() destination.
+formatted to JSON format, or directly used e.g. in a mongodb() destination.
 
 ### Example: Using the value-pairs() option
 
@@ -29,16 +29,16 @@ value-pairs(
 The following example selects the same information as the previous
 example, but converts it into JSON format.
 
-```bash
+```config
 $(format-json --scope everything \
     --exclude R_* --exclude S_* --key .SDATA.meta.sequenceId \
     --pair MSGHDR="${PROGRAM}[${PID}]: ")
 ```
 
-**NOTE:** Every macro is included in the selection only once, but redundant
+Every macro is included in the selection only once, but redundant
 information may appear if multiple macros include the same information
 (for example, including several date-related macros in the selection).
-{: .notice--info}
+{: .notice--primary}
 
 The value-pairs() option has the following parameters. The parameters
 are evaluated in the following order:

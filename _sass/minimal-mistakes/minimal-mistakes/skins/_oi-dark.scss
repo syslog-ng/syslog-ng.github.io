@@ -43,8 +43,24 @@ $base0e: #aa759f !default;
 $base0f: #a3685a !default;
 
 /* notices */
-$notice-background-mix: 75% !default;
-//$code-notice-background-mix: 
+$notice-background-mix: 60% !default;
+$code-notice-background-mix: 65% !default;
+
+// $info-color is not defined locally in this skin; provide a sensible default
+// (matches _variables.scss) so the .notice--info / .notice--primary swap below
+// can reference it (skins are imported before _variables.scss).
+$info-color: #3b9cba !default;
+
+/* warning-color is not part of the original skin definitions; default
+   from _variables.scss (#d67f05) mixed with the dark background
+   turns brown — define a red based one */
+$warning-color: color.scale(#ee5f5b, $lightness: 30%) !default;
+
+/* skins are imported before _variables.scss, so seed the !default values
+   here too — otherwise references below resolve as undefined */
+$success-color: #3fa63f !default;
+$danger-color: #ee5f5b !default;
+$light-gray: color.mix(#fff, #7a8288, 50%) !default;
 
 .page__content {
   .notice,
@@ -59,6 +75,63 @@ $notice-background-mix: 75% !default;
   .notice {
     background-color: $base02;
   }
+
+  // Swap the background colors of these two notice types for better contrast.
+  // The `code` override is scoped with `:not(pre code)` so it only retints the
+  // *inline* <code> background — the fenced code block (<pre><code>) keeps its
+  // own syntax-highlighted background.
+  .notice--primary {
+    background-color: color.mix($background-color, $info-color, $notice-background-mix);
+
+    code:not(pre code) {
+      background-color: color.mix($background-color, $info-color, 40%);
+    }
+  }
+
+  .notice--info {
+    background-color: color.mix($background-color, $primary-color, $notice-background-mix);
+
+    code:not(pre code) {
+      background-color: color.mix($background-color, $primary-color, 40%);
+    }
+  }
+
+  // Make inline <code> in success / warning / danger / plain notices visibly
+  // contrast with the notice background on the dark skin (default mix is too
+  // close to the surrounding tint to be readable).
+  .notice--success code:not(pre code) {
+    background-color: color.mix($background-color, $success-color, 30%);
+  }
+  .notice--warning code:not(pre code) {
+    background-color: color.mix($background-color, $warning-color, 40%);
+  }
+  .notice--danger code:not(pre code) {
+    background-color: color.mix($background-color, $danger-color, 30%);
+  }
+  .notice:not([class*="notice--"]) code:not(pre code) {
+    background-color: color.mix($background-color, $light-gray, 40%);
+  }
+}
+
+/* Slightly lighter background for ```log fences on dark skin */
+/* Slightly lighter background for ```log fences on dark skin.
+   Selectors prefixed with `html` to beat the common `_syntax.scss`
+   rule on specificity, because in `assets/css/main_oi-dark.scss`
+   this skin file is imported BEFORE the main partials — so without
+   the specificity bump, source order would let `_syntax.scss` win. */
+html pre:has(> code.language-log),
+html div.language-log.highlighter-rouge,
+html figure.highlight.language-log {
+  background: color.mix(white, $background-color, 8%);
+}
+
+/* Very subtle brand tint on the masthead to set it apart from content.
+   Applied to both static and sticky variants; uses the skin's primary
+   accent color ($primary-color — the same gold used for headings and links
+   on this dark skin). */
+html .masthead,
+html .masthead.sticky {
+  background-color: rgba($primary-color, 0.07);
 }
 
 .author__urls.social-icons i,

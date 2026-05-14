@@ -40,8 +40,8 @@ The arguments depend on the operating mode.
   * `<host serial number>`: The serial number of the host on which the key is used. Instead of the serial number, any other string that uniquely identifies a host can be supplied, for example, the company inventory number.
   * `<host key file>`: The name of the file to which the host key is written.
 
-  **NOTE:** The newly created host key has its counter set to `0` indicating that it represents the initial host key  `k0)`. This host key must be kept secret and not be disclosed to third parties. It is required to successfully decrypt and verify log archives processed by the secure logging environment. As each log entry is encrypted with its own key, a new host key is created after successful processing of a log entry and replaces the previous key. Therefore, the initial host key needs to be stored in a safe place before starting the secure logging environment, as it is deleted from the log host after processing of the first log entry.
-  {: .notice--info}
+  The newly created host key has its counter set to `0` indicating that it represents the initial host key  `k0)`. This host key must be kept secret and not be disclosed to third parties. It is required to successfully decrypt and verify log archives processed by the secure logging environment. As each log entry is encrypted with its own key, a new host key is created after successful processing of a log entry and replaces the previous key. Therefore, the initial host key needs to be stored in a safe place before starting the secure logging environment, as it is deleted from the log host after processing of the first log entry.
+  {: .notice--primary}
 
   * Sequence counter display
 

@@ -13,7 +13,7 @@ HTTPS connection, as well as password- and certificate-based
 authentication is supported. The content of the events is sent in JSON
 format.
 
-![]({{ site.baseurl}}/assets/images/caution.png) **CAUTION:** When a shard fails to respond to a read request, the coordinating node sends the request to another shard copy in the same replication group. Repeated failures can result in no available shard copies.
+When a shard fails to respond to a read request, the coordinating node sends the request to another shard copy in the same replication group. Repeated failures can result in no available shard copies.
 {: .notice--warning}
 
 To ensure fast responses, the following APIs will respond with partial results if one or more shards fail:
@@ -42,8 +42,8 @@ destination d_elasticsearch {
 };
 ```
 
-**NOTE:** In {{ site.product.short_name }} 4.11 and later versions the `type()` option is deprecated for elasticsearch destinations and including it in the configuration does not affect any functionality.
-{: .notice--info}
+In {{ site.product.short_name }} 4.11 and later versions the `type()` option is deprecated for elasticsearch destinations and including it in the configuration does not affect any functionality.
+{: .notice--primary}
 
 In versions prior to 4.11, you can use an empty string to omit the type from the index: type(" "). For
 example, you need to do that when using Elasticsearch 7 or newer, and

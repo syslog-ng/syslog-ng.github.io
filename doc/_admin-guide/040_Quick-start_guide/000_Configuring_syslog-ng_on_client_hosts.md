@@ -42,12 +42,12 @@ To configure {{ site.product.short_name }} on a client host, complete the follow
     example, the Roundcube webmail client, or the ProFTPD FTP server),
     but can be configured to send them to syslog instead. If possible,
     it is recommended to reconfigure the application that way.
-    {: .notice--info}
+    {: .notice}
 
-    **NOTE:** The default configuration file of {{ site.product.short_name }} collects
+    The default configuration file of {{ site.product.short_name }} collects
     platform-specific log messages and the internal log messages of
     {{ site.product.short_name }}.
-    {: .notice--info}
+    {: .notice--primary}
 
     ```config
     source s_local {
@@ -87,9 +87,9 @@ To configure {{ site.product.short_name }} on a client host, complete the follow
 5. If the logs will also be stored locally on the host, create local
     file destinations.
 
-    **NOTE:** The default configuration of {{ site.product.short_name }} places the
+    The default configuration of {{ site.product.short_name }} places the
     collected messages into the /var/log/messages file:
-    {: .notice--info}
+    {: .notice--primary}
 
     ```config
     destination d_local {
@@ -100,9 +100,9 @@ To configure {{ site.product.short_name }} on a client host, complete the follow
 6. Create a log statement connecting the local sources to the file
     destination.
 
-    **NOTE:** The default configuration of {{ site.product.short_name }} has only one log
+    The default configuration of {{ site.product.short_name }} has only one log
     statement:
-    {: .notice--info}
+    {: .notice--primary}
 
     ```config
     log {

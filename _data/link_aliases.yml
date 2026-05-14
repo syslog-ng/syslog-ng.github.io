@@ -108,6 +108,9 @@ adm-about-glossary#ietf-syslog-protocol:
 adm-src-stats-exporter:
   aliases: [ "stats-exporter-dont-log()" ]
 
+adm-src-int:
+  aliases: [ "internal() source" ]
+
 adm-src-wild:
   aliases: [ "/wildcard-file(?:\\(\\))? source[s]?/" ]
 
@@ -260,6 +263,12 @@ adm-parser-optel:
 
 adm-correlate:
   aliases: [ "grouping-by()" ]
+
+adm-parser-db-elem-rule#attributes:
+  aliases: [ "context-id", "context-scope", "context-timeout" ]
+
+adm-parser-db-elem-create-context#children:
+  aliases: [ "inherit-mode" ]
 
 adm-stats:
   aliases: [ "syslog-ng-ctl stats", "syslog-ng-ctl query" ]

@@ -39,10 +39,10 @@ in the id. The context-id can be a simple string, or can contain macros
 or values extracted from the log messages for further filtering.
 Starting with {{ site.product.short_name }} version 3.5, if a message is added to a
 context, {{ site.product.short_name }} automatically adds the identifier of the context
-to the .classifier.context\_id macro of the message.
+to the `.classifier.context_id` macro of the message.
 
-**NOTE:** Message contexts are persistent and are not lost when {{ site.product.short_name }} is reloaded (SIGHUP), but are lost when {{ site.product.short_name }} is restarted.
-{: .notice--info}
+Message contexts are persistent and are not lost when {{ site.product.short_name }} is reloaded (SIGHUP), but are lost when {{ site.product.short_name }} is restarted.
+{: .notice--primary}
 
 Another parameter of a rule is the context-timeout attribute, which
 determines how long a context is stored, that is, how long {{ site.product.short_name }}
@@ -56,7 +56,7 @@ Note the following points about timeout values:
 - When calculating if the timeout has already expired or not,
     {{ site.product.short_name }} uses the timestamps of the incoming messages, not
     system time elapsed between receiving the two messages (unless the
-    messages do not include a timestamp, or the **keep-timestamp(no)**
+    messages do not include a timestamp, or the `keep-timestamp(no)`
     option is set). That way {{ site.product.short_name }} can be used to process and
     correlate already existing log messages offline. However, the
     timestamps of the messages must be in chronological order (that is,
@@ -69,8 +69,10 @@ Note the following points about timeout values:
 
     Consider the following two messages:
 
-    ><38>1990-01-01T14:45:25 customhostname program6[1234]: program6 testmessage\
-    ><38>1990-01-01T14:46:25 customhostname program6[1234]: program6 testmessage
+    ```log
+    <38>1990-01-01T14:45:25 customhostname program6[1234]: program6 testmessage\
+    <38>1990-01-01T14:46:25 customhostname program6[1234]: program6 testmessage
+    ```
 
     If the context-timeout is 10 seconds and {{ site.product.short_name }} receives the
     messages within 1 second, the timeout event will occour immediately,
@@ -95,5 +97,4 @@ Note the following points about timeout values:
 ```
 
 For details on configuring message correlation, see the
-[[context-id, context-timeout, and context-scope|adm-parser-db-elem-rule#attributes]]
-attributes of pattern database rules.
+context-id, context-timeout, and context-scope attributes of pattern database rules.

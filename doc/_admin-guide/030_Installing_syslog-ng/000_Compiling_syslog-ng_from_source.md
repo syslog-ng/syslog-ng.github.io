@@ -81,23 +81,22 @@ and other platforms, see {{ site.product.name }} installation packages.
     repository from GitHub instead of using a release tarball, execute
     the **./autogen.sh** command.)
 
-    ```bash
-        ./configure
-        make
-        make install
-   
+    ```shell
+    ./configure
+    make
+    make install   
     ```
 
 9. Uncompress the {{ site.product.short_name }} archive using the
 
-    ```bash
-        tar xvfz syslog-ng-x.xx.tar.gz
+    ```shell
+    tar xvfz syslog-ng-x.xx.tar.gz
     ```
 
     or the
 
-    ```bash
-        unzip -c syslog-ng-x.xx.tar.gz | tar xvf -
+    ```shell
+    unzip -c syslog-ng-x.xx.tar.gz | tar xvf -
     ```
 
     command. A new directory containing the source code of syslog-ng
@@ -105,39 +104,38 @@ and other platforms, see {{ site.product.name }} installation packages.
 
 10. Enter the new directory and issue the following commands:
 
-    ```bash
-            ./configure
-            make
-            make install
+    ```shell
+    ./configure
+    make
+    make install   
     ```
 
     These commands will build {{ site.product.short_name }} using its default options.
 
- >**NOTE:** When using the make command, consider the following:
- >
- >- On Solaris, use **gmake** (GNU make) instead of **make**.
- >- To build {{ site.product.short_name }} with less verbose output, use the **make
- >    V=0** command. This results in shorter, less verbose output,
- >    making warnings and other anomalies easier to notice. Note that
- >    silent-rules support is only available in recent automake
- >    versions.
- {: .notice--info}
+    {: .notice--primary-start}
+    When using the make command, consider the following:
+    - On Solaris, use **gmake** (GNU make) instead of **make**.
+    - To build {{ site.product.short_name }} with less verbose output, use the **make
+         V=0** command. This results in shorter, less verbose output,
+         making warnings and other anomalies easier to notice. Note that
+         silent-rules support is only available in recent automake
+         versions.
+    {: .notice--primary-end}
 
 11. If needed, use the following options to change how {{ site.product.short_name }} is
     compiled using the following command syntax:
 
-    ```bash
-        ./configure --compile-time-option-name
+    ```shell
+    ./configure --compile-time-option-name
     ```
 
-    **NOTE:** You can also use *\--disable options*, to explicitly disable a
+    You can also use *\--disable options*, to explicitly disable a
     feature and override autodetection. For example, to disable the
     TCP-wrapper support, use the *\--disable-tcp-wrapper* option. For
     the list of available compiling options, see
     Compiling options of {{ site.product.short_name }}.
-    {: .notice--info}
+    {: .notice--primary}
 
-![]({{ site.baseurl}}/assets/images/caution.png) **CAUTION:**
 The default linking mode of {{ site.product.short_name }} is dynamic. This means that syslog-ng
 might not be able to start up if the /usr directory is on NFS. On platforms
 where {{ site.product.short_name }} is used as a system logger, the \--enable-mixed-linking is preferred.

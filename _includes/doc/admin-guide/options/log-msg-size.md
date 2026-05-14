@@ -10,9 +10,9 @@ fields). The maximal value that can be set is 268435456 bytes (256 MiB).
 For messages using the IETF-syslog message format, the maximal
 size of the value of an `SDATA` field is 64 KiB.
 
-**NOTE:** In most cases, log-msg-size() does not need to be set higher than
+In most cases, log-msg-size() does not need to be set higher than
 10 MiB.
-{: .notice--info}
+{: .notice--primary}
 
 For details on how encoding affects the size of the message, see
 Message size and encoding.

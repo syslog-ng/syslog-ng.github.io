@@ -76,7 +76,7 @@ module Jekyll
           #puts "match_parts: #{match_parts}"
           title = match_parts[0]
           if title.length <= 0
-            puts "Error: Empty title in matching part: '#{match}' -> #{match_parts}"
+            Jekyll.logger.error "tooltip:", "Empty title in matching part: '#{match}' -> #{match_parts}"
             # nil means, show the original markdown part, instead of a half rendered one
             return nil
           end
@@ -92,7 +92,7 @@ module Jekyll
             url = link_data["url"]
             url = prefixed_url(url, page.site.config["baseurl"])
           else
-            puts "Error: Unknown ID in matching part: '#{match}' -> #{match_parts}"
+            Jekyll.logger.error "tooltip:", "Unknown ID in matching part: '#{match}' -> #{match_parts}"
             # nil means, show the original markdown part, instead of a half rendered one
             return nil
           end
@@ -101,12 +101,12 @@ module Jekyll
         end
 
         if id == nil or id.length <= 0
-          puts "Error: Empty ID in matching part: '#{match}' -> #{match_parts}"
+          Jekyll.logger.error "tooltip:", "Empty ID in matching part: '#{match}' -> #{match_parts}"
           # nil means, show the original markdown part, instead of a half rendered one
           return nil
         end
         if url == nil or url.length <= 0
-          puts "Error: Empty URL for ID: '#{id}' in matching part: '#{match}' -> #{match_parts}"
+          Jekyll.logger.error "tooltip:", "Empty URL for ID: '#{id}' in matching part: '#{match}' -> #{match_parts}"
           # nil means, show the original markdown part, instead of a half rendered one
           return nil
         end
@@ -133,20 +133,17 @@ module Jekyll
         return title
       end
 
-      def process_markdown_part(page, markdown_part, page_links, full_pattern, id, url, add_separator)
-
+      def process_markdown_part(page, markdown_part, page_links, full_pattern, id, url)
         markdown_part = markdown_part.gsub(full_pattern) do |match|
-          left_separator = $1
-          matched_text = $2
-          right_separator = $3
-          # puts "\nmatch: #{match}\nleft_separator: #{left_separator}\nmatched_text: #{matched_text}\nright_separator: #{right_separator}"
+          matched_text = $1
+          # puts "\nmatch: #{match}\nmatched_text: #{matched_text}"
 
           replacement_text = make_tooltip(page, page_links, id, url, matched_text)
-          if replacement_text != nil
-            if add_separator
-              replacement_text = left_separator + replacement_text + right_separator
-            end
-          else
+          if replacement_text == nil
+            # Keep the original part untouched, but escape any unescaped pipes
+            # so kramdown won't interpret them as table separators.
+            # NOTE: For the only path that can actually return nil ([[title|id]]),
+            #       markdown_part == match, so this is equivalent to escaping `match`.
             replacement_text = markdown_part.gsub(/(?<!\\)\|/, "\\\|")
           end
           replacement_text
@@ -161,12 +158,18 @@ module Jekyll
 
         # Regular expression pattern to match special Markdown blocks
         # Unlike the others this needs grouping as we use do |match| for enumeration
-        # NOTE: Use multi line matching partially as e.g. code blocks can span to multiple lines
-        markdown_blocks_pattern = /((?m:````.*?````|```.*?```|``.*?``|`.*?`)|\[\[(?:[^\]^\[]|\\\[|\\\])*?\]\]|\[[^\]^\[]*?\]\(.*?\)\{\:.*?\}|\[[^\]^\[]*?\]\(.*?\)|\[[^\]^\[]*?\]:.*?$|\[[^\]^\[]*?\]\s*\[.*?\]|^#+\s.*?$)/
+        # NOTE: Use multi line matching partially as e.g. code blocks and HTML comments can span to multiple lines
+        # NOTE: HTML comments are part of this same alternation (not a separate prior split) so that whichever
+        #       opening delimiter appears first in the source consumes its contents as a unit. This is what
+        #       prevents a fenced code block whose content happens to include '<!-- ... -->' (e.g. XML examples)
+        #       from being sliced apart, and equally prevents an HTML comment whose content happens to include
+        #       '`...`' or '```...```' or '[[...]]' from being interpreted as markdown.
+        markdown_blocks_pattern = /((?m:<!--.*?-->|````.*?````|```.*?```|``.*?``|`.*?`)|\[\[(?:[^\]^\[]|\\\[|\\\])*?\]\]|\[[^\]^\[]*?\]\(.*?\)\{\:.*?\}|\[[^\]^\[]*?\]\(.*?\)|\[[^\]^\[]*?\]:.*?$|\[[^\]^\[]*?\]\s*\[.*?\]|^#+\s.*?$)/
         # TODO: Always sync the bellow with the one-liner version for readability
         # FIXME: Check why the /x version bellow is not working the same way
-        # markdown_blocks_pattern = /(          # Either Code blocks
+        # markdown_blocks_pattern = /(          # Either Code blocks or HTML comments (whichever opens first wins)
         #   (?m:                                #   Even Multiline ones
+        #     <!--.*?--> |                      #     HTML comment (kept inert: contents never reinterpreted)
         #     ````.*?```` |                     #     Code block with 4 backticks
         #     ```.*?``` |                       #     Code block with 3 backticks
         #     ``.*?`` |                         #     Code block with 2 backticks
@@ -208,15 +211,35 @@ module Jekyll
               # NOTE: Using multi line matching here will not help either if the pattern itself is in the middle broken/spaned to multiple lines, so 
               #       using whitespace replacements now inside the patter to handle this, see above!
               # NOTE: Also excludes the reqursively self added <a ...>title</a> tooltips/links
-              full_pattern = /(^|[\s.,;:&'"(])(#{pattern})([\s.,;:&'")]|\z)(?![^<]*?<\/a>)/
-              markdown_part = process_markdown_part(page, markdown_part, page_links, full_pattern, id, url, true)
+              #
+              # Pattern (plain text):
+              #   (?<= ^ | [\s.,;:&'"(}>] )   lookbehind: start-of-string OR one of the allowed left boundary chars.
+              #                                Includes '}' and '>' so that chained tokens like
+              #                                '${HOST}${PROGRAM}' or text right after an already-injected
+              #                                '</a>' tag (from a previous iteration) still match.
+              #   ( #{pattern} )               the title to find (single capture group, becomes $1).
+              #   (?= [\s.,;:&'"\$)<] | \z )  lookahead: end-of-string OR one of the allowed right boundary chars.
+              #                                Includes '$' so '${X}${Y}' chains, and '<' so a token followed
+              #                                by an already-injected '<a ...>' from a previous iteration still matches.
+              #   (?! [^<]*? <\/a> )           negative lookahead: do NOT match if we are currently inside an
+              #                                '<a ...>...</a>' wrapper (prevents recursive re-linking of
+              #                                tooltips injected on earlier passes/iterations).
+              # Lookbehind/lookaround are zero-width: separator chars are NOT consumed and need no re-emission.
+              full_pattern = /(?<=^|[\s.,;:&'"(}>])(#{pattern})(?=[\s.,;:&'"\$)<]|\z)(?![^<]*?<\/a>)/
+              markdown_part = process_markdown_part(page, markdown_part, page_links, full_pattern, id, url)
             else
               # Content inside of Markdown blocks
 
               # Handle our special markdown notation autolink/tooltip links [[title]], but NOT [[title|id]], see bellow why
+              #
+              # Pattern ([[title]]):
+              #   \[\[              consume the opening '[[' (not captured).
+              #   ( #{pattern} )    the title to resolve (single capture group, becomes $1); must equal a known link title.
+              #   \]\]              consume the closing ']]' (not captured).
+              # The whole '[[...]]' is replaced by the rendered <a> tag (or kept untouched on resolution failure).
               if is_modifiable_markdown_part?(markdown_part)
-                full_pattern = /(\[\[)(#{pattern})(\]\])/
-                markdown_part = process_markdown_part(page, markdown_part, page_links, full_pattern, id, url, false)
+                full_pattern = /\[\[(#{pattern})\]\]/
+                markdown_part = process_markdown_part(page, markdown_part, page_links, full_pattern, id, url)
               end
             end
           end
@@ -229,8 +252,18 @@ module Jekyll
             if is_modifiable_markdown_part?(markdown_part)
               # puts "\nmarkdown_index: " + markdown_index.to_s + "\n" + (markdown_index.even? ? "NOT " : "") + "markdown_part: " + markdown_part
               # NOTE: The differences in the patter is intentional, allowing empty part on both sides of | allows the same flow inside process_markdown_part
-              full_pattern = /(\[\[)(.*?(?<!\\)\|.*?)(\]\])/
-              markdown_part = process_markdown_part(page, markdown_part, page_links, full_pattern, nil, nil, false)
+              #
+              # Pattern ([[title|id]]):
+              #   \[\[                       consume the opening '[[' (not captured).
+              #   ( .*?(?<!\\)\|.*? )        single capture group ($1) holding 'title|id' as a whole; non-greedy on
+              #                               both sides so the inner '|' is the separator. The '(?<!\\)' lookbehind
+              #                               allows escaping a literal '|' in the title with '\|'. Both 'title' and
+              #                               'id' may be empty here -- empty/invalid cases are reported by make_tooltip,
+              #                               and the special '[[title|-]]' form (id == '-') is handled there too,
+              #                               which is why this pass is independent from the title-driven one above.
+              #   \]\]                       consume the closing ']]' (not captured).
+              full_pattern = /\[\[(.*?(?<!\\)\|.*?)\]\]/
+              markdown_part = process_markdown_part(page, markdown_part, page_links, full_pattern, nil, nil)
             end
           end
 
@@ -245,22 +278,11 @@ module Jekyll
       # More about rendering insights
       # https://humanwhocodes.com/blog/2019/04/jekyll-hooks-output-markdown/
       #
+      # NOTE: HTML comments are no longer split off here at the page level. They are recognized as one of
+      #       the alternations in markdown_blocks_pattern inside process_markdown_parts so that comments and
+      #       code blocks correctly protect each other's contents (whichever opens first in the source wins).
       def process_page(page)
-        # Split the content by HTML comments
-        parts = page.content.split(/(<!--.*?-->)/m)
-        #puts parts
-        parts.each_with_index do |part, index|
-          #puts "---------------\nindex: " + index.to_s + "\npart: " + part
-
-          if index.even? # Content outside of HTML comments
-            parts[index] = process_markdown_parts(page, part)
-          else
-            #puts "index: " + index.to_s + "\npart: " + part
-          end
-        end
-
-        # Join the parts back together
-        page.content = parts.join
+        page.content = process_markdown_parts(page, page.content)
       end
 
       def process_nav_link_items(items, ndx, nav_links_dictionary)
@@ -362,7 +384,7 @@ module Jekyll
           page_title = page_title.gsub(/\A[#{Regexp.escape(chars_to_remove)}]+|[#{Regexp.escape(chars_to_remove)}]+\z/, '')
           #puts "page_title: " + page_title
           if page_title.length == 0
-            puts "Error: Page title is empty, ID: #{page_id}"
+            Jekyll.logger.error "tooltip:", "Page title is empty, ID: #{page_id}"
             exit 3
           end
 
@@ -386,7 +408,7 @@ module Jekyll
 
           page_link_data = page_links_dictionary[alias_id]
           if page_link_data == nil
-            puts "Error: Unknown ID (#{alias_id}) in alias definition"
+            Jekyll.logger.error "tooltip:", "Unknown ID (#{alias_id}) in alias definition"
             exit 4
           end
           page_link_data["title"].concat(alias_data["aliases"])
@@ -574,6 +596,30 @@ Jekyll::Hooks.register :site, :pre_render do |site|
 
       next if false == $JekyllTooltipGen_markdown_extensions.include?(File.extname(page.relative_path)) && File.extname(page.relative_path) != ".html"
 
+      # render_with_liquid: false check
+      #
+      # Pages that contain raw-Liquid examples ({% raw %}…{% endraw %}) or that
+      # rely on our custom self-rendering (description injection, [[title|id]]
+      # wikilink resolution) MUST set `render_with_liquid: false` in their
+      # frontmatter. Without it, Jekyll's final Liquid pass re-runs over our
+      # already-rendered content and:
+      #   - drops the <---description_start---> marker (visible as
+      #     "<—description_start—>" in the body, not wrapped into the styled
+      #     <p id="page-description"> block)
+      #   - re-expands {% raw %} blocks so the literal example disappears
+      #   - leaves [[title|id]] wikilinks unresolved; kramdown then turns the
+      #     surrounding paragraph into a one-row table because of the `|`
+      #
+      # The heuristic below is intentionally conservative: it only warns on
+      # the strongest signal ({% raw %} blocks). Wikilinks are common on
+      # pages that work fine, so flagging them would produce mostly noise.
+      if File.extname(page.relative_path) != ".html" &&
+         page.data["render_with_liquid"] != false &&
+         page.content.include?("{% raw %}")
+        Jekyll.logger.warn "liquid:", "*** MISSING `render_with_liquid: false` in #{page.relative_path} ***"
+        Jekyll.logger.warn "liquid:", "    page contains a {% raw %} block; without the flag Jekyll's final Liquid pass will re-expand the raw markers and the literal example will silently disappear from the rendered page."
+      end
+
       page_url = page.url.gsub(/\.[^.]+$/, '')
       if (link_data = $JekyllTooltipGen_nav_links[page_url]) != nil
         page.data['nav_ndx'] = link_data['nav_ndx'] # page_pagination.html will use this as sort value for navigation ordering
@@ -620,13 +666,13 @@ Jekyll::Hooks.register [:pages, :documents], :pre_render do |page, payload|
   # Generate a manpage input markdown file if manid is defined in the page front-matter
   if page.data['manid']
     if page.data["manname"] == nil
-      puts "Error: manid found without manname in page: #{page.relative_path}"
+      Jekyll.logger.error "manpage:", "manid found without manname in page: #{page.relative_path}"
       exit 5
     end
     Jekyll::ManpageGen.generate_manpage(page, JekyllManpageGen_manpages_folder)
   end
 
   Jekyll::TooltipGen.generate_tooltips(page, $JekyllTooltipGen_should_build_persistent_tooltips)
-  page.content = page.content.gsub(JekyllTooltipGen_description_start_tag, '<p id="page-description">')
+  page.content = page.content.gsub(JekyllTooltipGen_description_start_tag, '<p id="page-description" markdown="span">')
   page.content = page.content.gsub(JekyllTooltipGen_description_end_tag, '</p>')
 end

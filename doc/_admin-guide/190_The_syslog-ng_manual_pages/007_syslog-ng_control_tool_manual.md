@@ -218,10 +218,10 @@ The stats command has the following options:
   dst.file;#anon-destination0#0;/tmp/2021-08-18.log;a;processed;961
   ```
 
-  **NOTE:** The stats(lifetime()) can be used to do the same
+  The stats(lifetime()) can be used to do the same
   automatically and periodically, but currently stats(lifetime())
   removes only dynamic counters that have a timestamp field set.
-  {: .notice--info}
+  {: .notice--primary}
 
 ### EXAMPLE: STATS
 
@@ -285,8 +285,10 @@ their status. For example:
 syslog-ng-ctl credentials status
 ```
 
->Secret store status:
->/home/user/ssl_test/client-1/client-encrypted.key SUCCESS
+```log
+Secret store status:
+/home/user/ssl_test/client-1/client-encrypted.key SUCCESS
+```
 
 If the status of a key is PENDING, you must provide the passphrase for
 the key, otherwise {{ site.product.short_name }} cannot use it. The sources and
@@ -297,7 +299,9 @@ keys every time {{ site.product.short_name }} is restarted.
 
 The following log message also notifies you of PENDING passphrases:
 
->Waiting for password; keyfile='private.key'
+```log
+Waiting for password; keyfile='private.key'
+```
 
 `--control=<socket>` or `-c`
     Specify the socket to use to access {{ site.product.short_name }}. Only needed when

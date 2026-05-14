@@ -9,7 +9,7 @@ description: >-
 
 ## Restrictions and limitations
 
-- ![]({{ site.baseurl}}/assets/images/caution.png) **CAUTION:**
+-
     *Hazard of data loss!* If you use password-protected keys,
     you must provide the passphrase of the password-protected keys every
     time {{ site.product.short_name }} is restarted ({{ site.product.short_name }} keeps the passphrases
@@ -41,12 +41,14 @@ status of the private keys that {{ site.product.short_name }} uses in the networ
 syslog() drivers. The command returns the list of private keys used, and
 their status. For example:
 
-```bash
+```shell
 syslog-ng-ctl credentials status
 ```
 
->Secret store status:  
->/home/user/ssl_test/client-1/client-encrypted.key SUCCESS
+```log
+Secret store status:
+/home/user/ssl_test/client-1/client-encrypted.key SUCCESS
+```
 
 If the status of a key is PENDING, you must provide the passphrase for
 the key, otherwise {{ site.product.short_name }} cannot use it. The sources and
@@ -57,27 +59,29 @@ keys every time {{ site.product.short_name }} is restarted.
 
 The following log message also notifies you of PENDING passphrases:
 
->Waiting for password; keyfile='private.key'
+```log
+Waiting for password; keyfile='private.key'
+```
 
 You can add the passphrase to a password-protected private key file
 using the following command. {{ site.product.short_name }} will display a prompt for you
 to enter the passphrase. We recommend that you use this method.
 
-```bash
+```shell
 syslog-ng-ctl credentials add --id=<path-to-the-key>
 ```
 
 Alternatively, you can include the passphrase in the \--secret
 parameter:
 
-```bash
+```shell
 syslog-ng-ctl credentials add --id=<path-to-the-key> --secret=<passphrase-of-the-key>
 ```
 
 Or you can pipe the passphrase to the syslog-ng-ctl command, for
 example:
 
-```bash
+```shell
 echo "<passphrase-of-the-key>" | syslog-ng-ctl credentials add --id=<path-to-the-key>
 ```
 

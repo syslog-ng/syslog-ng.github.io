@@ -8,7 +8,6 @@ description: >-
   {{ site.product.short_name }} destinations.
 ---
 
-![]({{ site.baseurl}}/assets/images/caution.png) **CAUTION:**
 Consider that network-load-balancer() is not a destination, only a script that
 generates the example configuration described in
 [[Load balancing with round robin|adm-pract-round-robin]].

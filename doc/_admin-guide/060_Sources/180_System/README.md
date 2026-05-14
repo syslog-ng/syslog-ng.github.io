@@ -10,11 +10,11 @@ description: >-
     following sources to the {{ site.product.short_name }} configuration.
 ---
 
-**NOTE:** {{ site.product.short_name }} versions 3.2-3.3 used an external script to generate
+{{ site.product.short_name }} versions 3.2-3.3 used an external script to generate
 the system() source, but this was problematic in certain situations, for
 example, when the host used a strict AppArmor profile. Therefore, the
 system() source is now generated internally in {{ site.product.short_name }}.
-{: .notice--info}
+{: .notice--primary}
 
 The system() driver is also used in the default configuration file of
 {{ site.product.short_name }}. For details on the default configuration file, see
@@ -23,7 +23,6 @@ command-line utility (which is a shell script, located in the
 modules/system-source/ directory) to display the configuration that the
 system() source will use.
 
-![]({{ site.baseurl}}/assets/images/caution.png) **CAUTION:**
 If {{ site.product.short_name }} does not recognize the platform it is installed on, it does not
 add any sources.
 {: .notice--warning}

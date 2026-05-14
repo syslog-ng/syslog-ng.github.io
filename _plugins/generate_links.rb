@@ -29,7 +29,7 @@ module Jekyll
       def register_id(page, id, title, ids, titles)
         if id != nil 
           if ids[id]
-            puts "Duplicated 'id: #{id}' in file " + page.relative_path
+            Jekyll.logger.error "links:", "Duplicated 'id: #{id}' in file #{page.relative_path}"
             #exit 2
           else
             ids[id] = id
@@ -37,7 +37,7 @@ module Jekyll
         end
         if title != nil 
           if titles[title]
-            puts "Duplicated 'title: #{title}' in file " + page.relative_path
+            Jekyll.logger.error "links:", "Duplicated 'title: #{title}' in file #{page.relative_path}"
             #exit 2
           else
             titles[title] = title
@@ -50,7 +50,14 @@ module Jekyll
         template = Liquid::Template.parse(title)
         return template.render('site' => context)
       end
-    
+
+      def is_function_like_topic(page)
+        # Append "()" automatically to the short_title of function-like topics.
+        # Opt-in: pages must be marked with `function_like_topic: true` (typically
+        # in bulk via the _config.yml `defaults:` for sources, destinations, etc.).
+        page.data.fetch('function_like_topic', false)
+      end
+
     public
 
       def generate_links(page, ids, titles)
@@ -140,10 +147,11 @@ module Jekyll
           # Create links data for the page short_title too
           page_short_title = page.data["short_title"]
           if page_short_title and not page_short_title.empty?
+            is_function = is_function_like_topic(page)
             page_link_data = {
               "id" => page_id + "_short_title",
               "url" => page_url,
-              "title" => '"' + page_short_title + '()"',
+              "title" => '"' + page_short_title + (is_function ? "()" : "") + '"',
               "pri" => 100,
             }
             register_id(page, page_link_data["id"], page_link_data["title"], ids, titles)
@@ -155,7 +163,7 @@ module Jekyll
           write_yaml_file(page_file_path, page_link_data)
         
         else
-          puts "Missing 'id:' property in file " + page.relative_path
+          Jekyll.logger.warn "links:", "Missing 'id:' property in file #{page.relative_path}"
           #exit 1
         end
         return page_id

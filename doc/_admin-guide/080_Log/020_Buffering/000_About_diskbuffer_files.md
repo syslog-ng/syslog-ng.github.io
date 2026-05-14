@@ -45,20 +45,19 @@ would be possible (see the truncate-size-ratio() option). If a large
 disk-buffer file is not desirable, you should set the capacity-bytes()
 option to a smaller value.
 
-![]({{ site.baseurl}}/assets/images/caution.png) **CAUTION:**
 One Identity recommends that you do not build upon the current truncating logic
 of the disk-buffer files, because {{ site.product.short_name }} might pre-allocate the disk-buffer
 files and never truncate them in the future.
 {: .notice--warning}
 
-**NOTE:** The disk-buffer file\'s size does not strictly correlate to the
+The disk-buffer file\'s size does not strictly correlate to the
 number of stored messages. If you want to get information about the
 disk-buffer, use dqtool (for more information, see
 [Getting the status information of disk-buffer files]).
-{: .notice--info}
+{: .notice--primary}
 
-**NOTE:** If a queue file becomes corrupt, {{ site.product.short_name }} starts a new one.
+If a queue file becomes corrupt, {{ site.product.short_name }} starts a new one.
 This might lead to the queue files consuming more space in total than
 their maximal configured size and the number of configured queue files
 multiplied together.
-{: .notice--info}
+{: .notice--primary}

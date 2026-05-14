@@ -31,10 +31,12 @@ log {
 The following code snippet is an example of how the stdin() driver is
 used to collect a test message:
 
-```bash
+```shell
 $ echo "this is a test message" | ./syslog-ng -Fe --no-caps
 ```
 
-> [2017-11-14T13:47:16.757938] syslog-ng starting up; version='3.12.1'  
-> [2017-11-14T13:47:16.758195] syslog-ng shutting down; version='3.12.1'  
-> Nov 14 13:47:16 testserver this is a test message
+```log
+[2017-11-14T13:47:16.757938] syslog-ng starting up; version='3.12.1'
+[2017-11-14T13:47:16.758195] syslog-ng shutting down; version='3.12.1'
+Nov 14 13:47:16 testserver this is a test message
+```

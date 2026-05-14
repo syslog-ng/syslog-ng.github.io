@@ -20,17 +20,17 @@ Depending on how you set the failback() option, {{ site.product.short_name }} be
 
 - **failback mode**: If failback() is set, {{ site.product.short_name }} attempts to return to the primary server.
 
-  **WARNING:** The failback() option works properly only for TCP-based connections; do not use it with the connectionless UDP protocol.
-  {: .notice--warning}
+     The failback() option works properly only for TCP-based connections; do not use it with the connectionless UDP protocol.
+     {: .notice--warning}
 
-    After {{ site.product.short_name }} connects a secondary server during a failover, it sends a probe every tcp-probe-interval() seconds towards the primary server. If the primary logserver responds with a TCP ACK packet, the probe is successful. When the number of successful probes reaches the value set in the successful-probes-required() option, {{ site.product.short_name }} tries to connect the primary server using the last probe.
+     After {{ site.product.short_name }} connects a secondary server during a failover, it sends a probe every tcp-probe-interval() seconds towards the primary server. If the primary logserver responds with a TCP ACK packet, the probe is successful. When the number of successful probes reaches the value set in the successful-probes-required() option, {{ site.product.short_name }} tries to connect the primary server using the last probe.
 
-    **NOTE:** {{ site.product.short_name }} always waits for the result of the last probe before sending the next message. So if one connection attempt takes longer than the configured interval, that is, it waits for connection time out, you may experience longer intervals between actual probes.
-    {: .notice--info}
+     {{ site.product.short_name }} always waits for the result of the last probe before sending the next message. So if one connection attempt takes longer than the configured interval, that is, it waits for connection time out, you may experience longer intervals between actual probes.
+     {: .notice--primary}
 
-    Example: failback mode
+     Example: failback mode
 
-    In the following example {{ site.product.short_name }} attempts to return to the primary logserver, as set in the failback() option: it will check if the server is accessible every tcp-probe-interval() seconds, and reconnect to the primary logserver after three successful connection attempts.
+     In the following example {{ site.product.short_name }} attempts to return to the primary logserver, as set in the failback() option: it will check if the server is accessible every tcp-probe-interval() seconds, and reconnect to the primary logserver after three successful connection attempts.
 
      ```config
      destination d_{{ page.driver | default: "network" }}_2 {

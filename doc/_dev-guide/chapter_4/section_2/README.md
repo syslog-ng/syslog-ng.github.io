@@ -11,8 +11,8 @@ id: dev-platform-build-macos
 
 At present we are not supporting macOS {{ site.product.short_name }} on our [[official repository|gh-syslog-ng]] on GitHub. However, you can compile {{ site.product.short_name }} yourself following this guide.
 
-**Note:** The guide is tested on ARM macOS Sonoma 14.6.1, Ventura 13.4, and Intel macOS Monterey 12.6.6 machines, we do our bests to keep it update, but your actual system may require additional steps or slightly different settings.
-{: .notice}
+The guide is tested on ARM macOS Sonoma 14.6.1, Ventura 13.4, and Intel macOS Monterey 12.6.6 machines, we do our bests to keep it update, but your actual system may require additional steps or slightly different settings.
+{: .notice--primary}
 
 ## Compiling from source
 
@@ -26,11 +26,11 @@ The above mentioned dependencies can be satisfied by compiling every-each libs a
 
 1. Install Homebrew on your system.
 
-   **Hint:** Don't forget to set up the homebrew environment, follow the instructions in your terminal! [[Here|homebrew-inst-detailed]] you can find an even more detailed instruction about the topic.
-   {: .notice--info}
-
-   **Note:** This will install **Command Line Tools for Xcode** as well if not already presented on the system that would also be required anyway for a seamless {{ site.product.short_name }} build.
+   **TIP:** Don't forget to set up the homebrew environment, follow the instructions in your terminal! [[Here|homebrew-inst-detailed]] you can find an even more detailed instruction about the topic.
    {: .notice}
+
+   This will install **Command Line Tools for Xcode** as well if not already presented on the system that would also be required anyway for a seamless {{ site.product.short_name }} build.
+   {: .notice--primary}
 
 2. Perform `brew update` if you have not done it yet.
 3. The following packages should be installed for {{ site.product.short_name }}
@@ -67,8 +67,8 @@ The above mentioned dependencies can be satisfied by compiling every-each libs a
    * criterion
    * ~~gcc@14~~ - See [below](#packages-note)!
 
-**Hint:** If you have [[{{ site.product.short_name }} installed via brew|dev-inst-macos#installation]], as a reference, you can check the dependencies of the brew built version using `brew deps syslog-ng`
-{: .notice--info}
+**TIP:** If you have [[{{ site.product.short_name }} installed via brew|dev-inst-macos#installation]], as a reference, you can check the dependencies of the brew built version using `brew deps syslog-ng`
+{: .notice}
 
 This is how it might look like if you start from the ground:
 
@@ -125,8 +125,8 @@ brew install \
 
 2. Install MacPorts on your system.
 
-   **Hint:** Don't forget to set up the MacPorts environment, [[here|macports-inst-detailed]] you can find an even more detailed instruction about the topic.
-   {: .notice--info}
+   **TIP:** Don't forget to set up the MacPorts environment, [[here|macports-inst-detailed]] you can find an even more detailed instruction about the topic.
+   {: .notice}
 
 3. Perform `port selfupdate` if you have not done it yet.
 4. The following packages should be installed for {{ site.product.short_name }}
@@ -163,8 +163,8 @@ brew install \
    * criterion
    * ~~gcc@14~~ - See [below](#packages-note)!
 
-**Hint:** If you have [[{{ site.product.short_name }} installed via MacPorts|dev-inst-macos#installation-via-macports]], as a reference, you can check the dependencies of the MacPorts built version using `port deps syslog-ng`
-{: .notice--info}
+**TIP:** If you have [[{{ site.product.short_name }} installed via MacPorts|dev-inst-macos#installation-via-macports]], as a reference, you can check the dependencies of the MacPorts built version using `port deps syslog-ng`
+{: .notice}
 
 This is how it might look like if you start from the ground:
 
@@ -225,18 +225,18 @@ sudo port install \
 ---
 <div id="packages-note"></div>
 
-> **Note:**
->
-> * `bison` is required because the version provided by Apple Developer Tools is incomplete (e.g., missing the `-W` option). The reason bison needs to be installed via a package manager is that the `-W` option is supported only in versions after 2.3.
-> * `net-snmp` might also be needed because the options provided by Apple Developer Tools are somewhat incorrect. The reason Net-SNMP might be required from a package manager is that the default `pkg-config` may return incorrect library and include paths.
-> * `openssl` - since macOS provides LibreSSL by default, you may need to expand the search path of `pkg-config` to find the newly installed OpenSSL. (This seems to have been an issue only with OpenSSL version 1.1.x.)
-> * `libdbi` and `libdbi-drivers` are [[maintained and updated|dev-macos-mod-sup-afsql#dependencies]] in {{ site.product.short_name }} repositories, use the latest master version from there. For the repository links, see the note below.
+{: .notice--primary-start}
 
-> * `libesmtp` - Homebrew does not have libesmtp package support yet, but you can build it yourself from source or use the MacPorts version
-> * `riemann-client` - MacPorts does not have riemann-client package support yet, but you can build it yourself from source or use the HomeBrew version
-> * `gcc` - see at [compiler selection](#select-the-compiler)
-> * actual state of supported features and the required dependencies can also be found [[here|dev-macos-mod-sup-status]].
-{: .notice}
+* `bison` is required because the version provided by Apple Developer Tools is incomplete (e.g., missing the `-W` option). The reason bison needs to be installed via a package manager is that the `-W` option is supported only in versions after 2.3.
+* `net-snmp` might also be needed because the options provided by Apple Developer Tools are somewhat incorrect. The reason Net-SNMP might be required from a package manager is that the default `pkg-config` may return incorrect library and include paths.
+* `openssl` - since macOS provides LibreSSL by default, you may need to expand the search path of `pkg-config` to find the newly installed OpenSSL. (This seems to have been an issue only with OpenSSL version 1.1.x.)
+* `libdbi` and `libdbi-drivers` are [[maintained and updated|dev-macos-mod-sup-afsql#dependencies]] in {{ site.product.short_name }} repositories, use the latest master version from there. For the repository links, see the note below.
+
+* `libesmtp` - Homebrew does not have libesmtp package support yet, but you can build it yourself from source or use the MacPorts version
+* `riemann-client` - MacPorts does not have riemann-client package support yet, but you can build it yourself from source or use the HomeBrew version
+* `gcc` - see at [compiler selection](#select-the-compiler)
+* actual state of supported features and the required dependencies can also be found [[here|dev-macos-mod-sup-status]].
+{: .notice--primary-end}
 
 {% include doc/admin-guide/notes/libdb-driver.md %}
 
@@ -315,8 +315,8 @@ sudo port install \
    export LDFLAGS="-L${MACPORTS_PREFIX}/lib ${LDFLAGS}"
    ```
 
-**Note:** Providing further library paths might be necessary. (e.g. for openssl 1.1.x, etc.)
-{: .notice}
+Providing further library paths might be necessary. (e.g. for openssl 1.1.x, etc.)
+{: .notice--primary}
 
 ### Getting the source
 
@@ -332,8 +332,8 @@ git clone https://github.com/syslog-ng/syslog-ng .
 Latest version of {{ site.product.short_name }} [has dropped support of gcc](https://github.com/syslog-ng/syslog-ng/pull/4897), so now the platform default llvm/clang must be used to complie the source.\
 `gcc` still might compile {{ site.product.short_name }} and most of its modules, but there is no guarantie and support of it anymore
 
-**Hint:** You can always turn off any problematic module via its feature switch
-{: .notice--info}
+**TIP:** You can always turn off any problematic module via its feature switch
+{: .notice}
 
 To make sure clang is used you can use (optional):
 
@@ -351,12 +351,12 @@ export CXX=g++    # More precisly, the full path of your installed g++ compiler
 
 ### Configuration
 
-> **Note:**
->
-> * for various reasons not all modules can always be configured, built and used on all macOS versions and architectures
-> * for using all the available modules you might have to install further dependencies as mentioned above
-> * for more details, please see the [[actual state of supported features|dev-macos-mod-sup-status]], and the required [dependencies](#dependencies).
-{: .notice}
+{: .notice--primary-start}
+
+* for various reasons not all modules can always be configured, built and used on all macOS versions and architectures
+* for using all the available modules you might have to install further dependencies as mentioned above
+* for more details, please see the [[actual state of supported features|dev-macos-mod-sup-status]], and the required [dependencies](#dependencies).
+{: .notice--primary-end}
 
 #### Using autotool
 
@@ -372,7 +372,7 @@ mkdir build; cd build
 ../configure --with-ivykis=internal --with-systemd-journal=no --disable-java --disable-java-modules
 ```
 
-**Warning:** By a good chance, you might want to install the self built instance first to a custom location to prevent overwriting a possibly already existing installed version. In that case pass `--prefix /full_path_of_your/installdir/` to the `configure` script in the above steps.
+By a good chance, you might want to install the self built instance first to a custom location to prevent overwriting a possibly already existing installed version. In that case pass `--prefix /full_path_of_your/installdir/` to the `configure` script in the above steps.
 {: .notice--danger}
 
 If you have all the above mentioned dependencies installed, for the full feature set you can simply use for example (excluded the not yet supported modules on macOS)
@@ -467,7 +467,7 @@ If you have all the above mentioned dependencies installed, for the full (curren
 cmake --install-prefix /full_path_of_your/installdir -B build . -Wno-dev -DIVYKIS_SOURCE=internal
 ```
 
-**Warning:** You may want to install the self-built instance to a custom location first to avoid overwriting an existing installed version. In that case, pass the `--install-prefix /full_path_of_your/installdir/` parameter to the `cmake` command, as shown in the steps above.
+You may want to install the self-built instance to a custom location first to avoid overwriting an existing installed version. In that case, pass the `--install-prefix /full_path_of_your/installdir/` parameter to the `cmake` command, as shown in the steps above.
 {: .notice--danger}
 
 At the end of the configure step you should see the module list will be used during the compilation and installation steps, it should look similar to this
@@ -610,8 +610,8 @@ make check -j4
 cmake --build build/. --target check -j4
 ```
 
-**Note:** For more read [[testing|dev-testing]] guide.
-{: .notice}
+For more read [[testing|dev-testing]] guide.
+{: .notice--primary}
 
 ### Run
 
@@ -619,5 +619,5 @@ cmake --build build/. --target check -j4
 `/full_path_of_your/installdir`/syslog-ng -F
 ```
 
-**Note:** For more information read the [[run first|dev-run-first]] guide
-{: .notice}
+For more information read the [[run first|dev-run-first]] guide
+{: .notice--primary}

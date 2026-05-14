@@ -54,13 +54,3 @@ One Identity and the One Identity logo are trademarks and registered
 trademarks of One Identity LLC. in the U.S.A. and other countries. For a
 complete list of One Identity trademarks, please [[visit our website|oi-trademark]].
 All other trademarks are the property of their respective owners.
-
-## Legend
-
-![]({{ site.baseurl}}/assets/images/warning.png) **WARNING:**
-A WARNING icon highlights a potential risk of bodily injury or property damage, for which industry-standard safety precautions are advised. This icon is often associated with electrical hazards related to hardware.
-{: .notice--danger}
-
-![]({{ site.baseurl}}/assets/images/caution.png) **CAUTION:**
-A CAUTION icon indicates potential damage to hardware or loss of data if instructions are not followed.
-{: .notice--warning}

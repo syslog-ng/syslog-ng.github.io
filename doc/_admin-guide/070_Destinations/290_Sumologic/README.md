@@ -20,9 +20,9 @@ destinations with {{ site.product.short_name }} has the following prerequisites:
     If you do not yet have a Sumo Logic account, visit the official
     Sumo Logic website, and click **Start free trial** to create an account.
 
-    **NOTE:** A free trial version of the Sumo Logic account has limited
+    A free trial version of the Sumo Logic account has limited
     functionalities and is only available for 90 days.
-    {: .notice--info}
+    {: .notice--primary}
 
 - A Cloud Syslog Source
     configured with your Sumo Logic account.
@@ -30,8 +30,8 @@ destinations with {{ site.product.short_name }} has the following prerequisites:
     For details, follow the configuration instructions under the
     Configure a Cloud Syslog Source section on the official Sumo Logic website.
 
-    **NOTE:** Transport-level security (TLS) 1.2 over TCP is required.
-    {: .notice--info}
+    Transport-level security (TLS) 1.2 over TCP is required.
+    {: .notice--primary}
 
 - A Cloud Syslog Source Token (from the Cloud Syslog Source side).
 
@@ -41,9 +41,9 @@ destinations with {{ site.product.short_name }} has the following prerequisites:
     account, see the description for setting up TLS on the Sumo Logic
     official website.
 
-    **NOTE:** After you download the **DigiCert** certificate, make sure you follow the certificate setup steps under the syslog-ng
+    After you download the **DigiCert** certificate, make sure you follow the certificate setup steps under the syslog-ng
     section in Cloud Syslog Source chapter.
-    {: .notice--info}
+    {: .notice--primary}
 
 - Your Sumo Logic syslog client, configured to send data to the Sumo
     Logic cloud syslog service, by using {{ site.product.short_name }}.
@@ -54,7 +54,6 @@ destinations with {{ site.product.short_name }} has the following prerequisites:
 - A verified connection and client configuration with the Sumo Logic
     service.
 
-    ![]({{ site.baseurl}}/assets/images/caution.png) **CAUTION:**
     To avoid potential data loss, One Identity strongly recommends that you verify your connection and client configuration with the Sumo Logic service before you start using the sumologic-http() or sumologic-syslog() destination
     with {{ site.product.short_name }} in a production environment.
     {: .notice--warning}
@@ -124,9 +123,9 @@ your {{ site.product.short_name }} configuration:
 @include "scl.conf"
 ```
 
-**NOTE:** The sumologic() driver is actually a reusable configuration
+The sumologic() driver is actually a reusable configuration
 snippet configured to send log messages using the network() and http()
 destination by using a template. For details on using or writing such
 configuration snippets, see Reusing configuration blocks.
 You can find the source of the Sumo Logic configuration snippet on GitHub.
-{: .notice--info}
+{: .notice--primary}

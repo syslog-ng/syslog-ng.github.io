@@ -1,0 +1,63 @@
+---
+title: 'Element: patterns container'
+short_title: patterns container
+id: adm-parser-db-elem-patterns-ruleset
+description: >-
+    An optional container element for `<pattern>` elements under `<ruleset>`.
+    Using `<patterns>` is equivalent to placing `<pattern>` elements directly
+    under `<ruleset>` — the wrapper is transparent and may be omitted.
+---
+
+## Location
+
+/ patterndb / ruleset / patterns
+
+The `<patterns>` wrapper is optional. `<pattern>` elements may appear
+directly under `<ruleset>` with identical effect. Both forms are fully
+supported and can be used interchangeably.
+{: .notice--primary}
+
+## Attributes
+
+N/A
+
+## Children
+
+- *pattern*: The name of the application --- {{ site.product.short_name }} matches this
+    value to the `PROGRAM` header of the syslog message to find the
+    rulesets applicable to the syslog message.
+
+    Specifying multiple patterns is useful if two or more applications
+    have different names (that is, different `PROGRAM` fields), but
+    otherwise send identical log messages.
+
+    It is not necessary to use multiple patterns if only the end of the
+    `PROGRAM` fields is different, use only the beginning of the
+    `PROGRAM` field as the pattern. For example, the Postfix email
+    server sends messages using different process names, but all of them
+    begin with the postfix string.
+
+    You can also use parsers in the program pattern if needed, and use
+    the parsed results later. For example:
+    `<pattern>postfix@ESTRING:.postfix.component:[@</pattern>`
+
+    NOTE: If the `<pattern>` element of a ruleset is not specified,
+    {{ site.product.short_name }} will use this ruleset as a fallback ruleset: it will
+    apply the ruleset to messages that have an empty `PROGRAM` header, or
+    if none of the program patterns matched the `PROGRAM` header of the
+    incoming message.
+
+### Example
+
+```xml
+<patterns>
+    <pattern>firstapplication</pattern>
+    <pattern>otherapplication</pattern>
+</patterns>
+```
+
+Using parsers in the program pattern:
+
+```xml
+<pattern>postfix@ESTRING:.postfix.component:[@</pattern>
+```

@@ -19,11 +19,11 @@ following options.
 *Description:* This option requests the compression of HTTP responses from the server. Only the compression types that are supported by the libcurl and zlib libraries that {{ site.product.short_name }} was built with are reported to the peer.\
 The available values are `gzip`, `deflate`, and `all` to enable all compression types. If no compression is required, use the `identity` value.
 
-**NOTE:** Requires {{ site.product.short_name }} to be compiled with a version of libcurl that has compression support (ZLib).
-{: .notice--info}
+Requires {{ site.product.short_name }} to be compiled with a version of libcurl that has compression support (ZLib).
+{: .notice--primary}
 
-**NOTE:** Since {{ site.product.short_name }} uses ZLib for deflate-type compressions, the `deflate` option also adds a header and footer to the compressed data. For more details consult [RFC1950](https://www.rfc-editor.org/info/rfc1950).
-{: .notice--info}
+Since {{ site.product.short_name }} uses ZLib for deflate-type compressions, the `deflate` option also adds a header and footer to the compressed data. For more details consult [RFC1950](https://www.rfc-editor.org/info/rfc1950).
+{: .notice--primary}
 
 ### Example: configure an http destination with compression
 
@@ -162,9 +162,9 @@ Alternatively, you can leave the HTTP as-is, in which case the driver
 leaves the default http_proxy and https_proxy environment variables
 unmodified.
 
-**NOTE:** Configuring the proxy() option overwrites the default http_proxy
+Configuring the proxy() option overwrites the default http_proxy
 and https_proxy environment variables.
-{: .notice--info}
+{: .notice--primary}
 
 ### Example: the proxy() option in configuration
 

@@ -42,8 +42,14 @@
 }
 
 .masthead.sticky {
-  background-color: $background-color;
+  background-color: rgba($background-color, 0.6);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
   top: 0em;
+
+  .greedy-nav {
+    background: transparent;
+  }
 }
 
 .site-logo img {
@@ -54,22 +60,44 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: inline-flex !important;
-  flex: min-content;
-  max-width: min-content;
-  @include breakpoint($small) {
-    max-width: max-content;
-  }
+  // Size to content but cap the width so the search input keeps a
+  // usable footprint when the masthead gets crowded. Once the title
+  // hits its cap and there is still pressure, it wraps to a second
+  // line instead of pushing the search input off-screen.
+  flex: 0 1 auto;
+  min-width: 0;
+  max-width: 18em;
+  white-space: normal;
+  word-break: break-word;
+  line-height: 1.15;
   @include breakpoint($large) {
-    max-width: max-content;
+    min-width: 0;
+    max-width: 22em;
   }
   @include breakpoint($x-large) {
-    max-width: max-content;
+    min-width: 0;
+    max-width: 28em;
   }
 
   -ms-flex-item-align: center;
   align-self: center;
   font-weight: bold;
   // z-index: 20;
+}
+
+.masthead.search-open {
+  .site-title {
+    max-width: 7.8em;
+    margin-right: 0.35rem;
+
+    @include breakpoint($large) {
+      max-width: 11em;
+    }
+
+    @include breakpoint($x-large) {
+      max-width: 14em;
+    }
+  }
 }
 
 .site-subtitle {

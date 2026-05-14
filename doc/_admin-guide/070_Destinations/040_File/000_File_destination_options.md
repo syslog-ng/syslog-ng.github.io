@@ -9,7 +9,7 @@ description: >-
 
 The file() destination has the following options:
 
-![]({{ site.baseurl}}/assets/images/caution.png) **CAUTION:** When
+When
 creating several thousands separate log files, {{ site.product.name }}
 ({{ site.product.short_name }}) might not be able to open the required number of files.
 This might happen for example, when using the ${HOST} macro in the
@@ -33,9 +33,9 @@ of your operating system.
     destination. For details on multithreading, see
     Multithreading and scaling in {{ site.product.short_name }}.
 
-    **NOTE:** The file destination uses multiple threads only if the
+    The file destination uses multiple threads only if the
     destination filename contains macros.
-    {: .notice--info}
+    {: .notice--primary}
 
 {% include doc/admin-guide/options/flush-lines.md %}
 
@@ -49,8 +49,8 @@ of your operating system.
 *Description:* Forces an fsync() call on the destination fd after each
 write.
 
-**NOTE:** Enabling this option may seriously degrade performance.
-{: .notice--info}
+Enabling this option may seriously degrade performance.
+{: .notice--primary}
 
 {% include doc/admin-guide/options/hook.md %}
 
@@ -135,7 +135,6 @@ without specifying an attribute: owner().
 
 {% include doc/admin-guide/options/pad-size.md %}
 
-![]({{ site.baseurl}}/assets/images/caution.png) **CAUTION:**
 Hazard of data loss! If the size of the incoming message is larger
 than the previously set pad-size() value, {{ site.product.short_name }} will truncate
 the message to the specified size. Therefore, all message content
@@ -164,8 +163,8 @@ file("/var/log/cron.${YEAR}${MONTH}" symlink-as("/var/log/cron"));
 
 In this case the /var/log/cron should point to the current month.
 
-**NOTE:** The symlink uses the same permissions as the file destination.
-{: .notice--info}
+The symlink uses the same permissions as the file destination.
+{: .notice--primary}
 
 {% include doc/admin-guide/options/template-logformat.md %}
 

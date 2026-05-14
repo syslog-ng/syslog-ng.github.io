@@ -98,9 +98,9 @@ Alternatively, you can leave the HTTP as-is, in which case the driver
 leaves the default http_proxy and https_proxy environment variables
 unmodified.
 
-**NOTE:** Configuring the proxy() option overwrites the default http\_proxy
+Configuring the proxy() option overwrites the default http\_proxy
 and https_proxy environment variables.
-{: .notice--info}
+{: .notice--primary}
 
 ### Example: the proxy() option in configuration
 
@@ -119,7 +119,6 @@ destination {
 
 {% include doc/admin-guide/options/template-logformat.md %}
 
-![]({{ site.baseurl}}/assets/images/caution.png) **CAUTION:**
 Hazard of data loss! Make sure to include a fallback value, as if the template
 gets resolved to an empty string, Discord rejects the message.
 {: .notice--danger}

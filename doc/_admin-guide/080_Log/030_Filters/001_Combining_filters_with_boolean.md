@@ -71,4 +71,4 @@ filter function, see match().
 
 **TIP:** Filters are often used together with log path flags. For details,
 see Log path flags.
-{: .notice--info}
+{: .notice}

@@ -8,8 +8,8 @@ description: >-
 * `hypr-audit-trail()`: is a source driver that pulls messages from the Hypr API, associated to any RP Application ID.
 * `hypr-app-audit-trail()`: is a source driver that pulls messages from the Hypr API, but only those associated to a specific RP Application ID.
 
-**Note:** Applications that are registered after syslog-ng is started are not recognized.
-{: .notice--info}
+Applications that are registered after syslog-ng is started are not recognized.
+{: .notice--primary}
 
 ## Hyper Audit Trail
 

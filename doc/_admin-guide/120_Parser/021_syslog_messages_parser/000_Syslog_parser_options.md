@@ -35,10 +35,10 @@ following additional information:
 
 - It sets the contents of the severity field to error.
 
-**NOTE:** With the drop-invalid(no) option syslog-parser() will work in the
+With the drop-invalid(no) option syslog-parser() will work in the
 same way as the sources which receive syslog-protocol/BSD-format
 messages.
-{: .notice--info}
+{: .notice--primary}
 
 ### Example: enabling the drop-invalid() option
 

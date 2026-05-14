@@ -74,7 +74,7 @@ To send out clogMessageGenerated SNMP traps, use the **cisco_snmp()**
 destination driver. The cisco-snmp() destination is actually a modified
 version of the snmp() destination driver.
 
-**NOTE:** The cisco-snmp() driver is actually a reusable configuration
+The cisco-snmp() driver is actually a reusable configuration
 snippet. For details on using or writing SCLs, see
 Reusing configuration blocks.
 The cisco-snmp() driver has the same requirements and options as the
@@ -83,7 +83,7 @@ clogMessageGenerated-specific fields with the data received from parsing
 the Cisco-specific syslog messages using the pattern database. For
 details on the , see the \<INSTALLDIR\>/
 share/include/scl/snmp/plugin.conf file.
-{: .notice--info}
+{: .notice--primary}
 
 **Declaration:**
 

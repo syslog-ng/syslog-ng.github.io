@@ -827,15 +827,8 @@ admin-guide-nav:
     - title: "db-parser"
       url: /admin-guide/120_Parser/006_db_parser/README
       subnav:
-      - title: "Classifying log messages"
-        url: /admin-guide/120_Parser/006_db_parser/000_Classifying_log_messages/README
-        subnav:
-        - title: "The structure of the pattern database"
-          url: /admin-guide/120_Parser/006_db_parser/000_Classifying_log_messages/000_Structure_of_a_patterndb
-        - title: "How pattern matching works"
-          url: /admin-guide/120_Parser/006_db_parser/000_Classifying_log_messages/001_How_pattern_matching_works
-        - title: "Artificial ignorance"
-          url: /admin-guide/120_Parser/006_db_parser/000_Classifying_log_messages/002_Artificial_ignorance
+      - title: "Options of db-parsers"
+        url: /admin-guide/120_Parser/006_db_parser/000_DB_parser_options
       - title: "Using pattern databases"
         url: /admin-guide/120_Parser/006_db_parser/001_Using_pattern_databases/README
         subnav:
@@ -854,59 +847,71 @@ admin-guide-nav:
           url: /admin-guide/120_Parser/006_db_parser/002_Triggering_actions/001_External_actions
         - title: "Actions and message correlation"
           url: /admin-guide/120_Parser/006_db_parser/002_Triggering_actions/002_Actions_and_message_correlation
+      - title: "Classifying log messages"
+        url: /admin-guide/120_Parser/006_db_parser/003_Classifying_log_messages/README
+        subnav:
+        - title: "The structure of the pattern database"
+          url: /admin-guide/120_Parser/006_db_parser/003_Classifying_log_messages/000_Structure_of_a_patterndb
+        - title: "How pattern matching works"
+          url: /admin-guide/120_Parser/006_db_parser/003_Classifying_log_messages/001_How_pattern_matching_works
+        - title: "Artificial ignorance"
+          url: /admin-guide/120_Parser/006_db_parser/003_Classifying_log_messages/002_Artificial_ignorance
       - title: "Creating pattern databases"
-        url: /admin-guide/120_Parser/006_db_parser/003_Creating_pattern_databases/README
+        url: /admin-guide/120_Parser/006_db_parser/004_Creating_pattern_databases/README
         subnav:
         - title: "Using pattern parsers"
-          url: /admin-guide/120_Parser/006_db_parser/003_Creating_pattern_databases/000_Using_pattern_parsers
+          url: /admin-guide/120_Parser/006_db_parser/004_Creating_pattern_databases/000_Using_pattern_parsers
         - title: "Pattern parsers of {{ site.product.short_name }}"
-          url: /admin-guide/120_Parser/006_db_parser/003_Creating_pattern_databases/001_Pattern_parsers
+          url: /admin-guide/120_Parser/006_db_parser/004_Creating_pattern_databases/001_Pattern_parsers
         - title: "What's new in the {{ site.product.short_name }} pattern database format V5"
-          url: /admin-guide/120_Parser/006_db_parser/003_Creating_pattern_databases/002_Whatsnew_in_patterndb_v5
+          url: /admin-guide/120_Parser/006_db_parser/004_Creating_pattern_databases/002_Whatsnew_in_patterndb_v5
       - title: "The {{ site.product.short_name }} pattern database format"
-        url: /admin-guide/120_Parser/006_db_parser/004_The_syslog-ng_patterndb_format/README
+        url: /admin-guide/120_Parser/006_db_parser/005_The_syslog-ng_patterndb_format/README
         subnav:
         - title: "patterndb"
-          url: /admin-guide/120_Parser/006_db_parser/004_The_syslog-ng_patterndb_format/000_patterndb/README
+          url: /admin-guide/120_Parser/006_db_parser/005_The_syslog-ng_patterndb_format/000_patterndb/README
           subnav:
           - title: "ruleset"
-            url: /admin-guide/120_Parser/006_db_parser/004_The_syslog-ng_patterndb_format/000_patterndb/000_ruleset/README
+            url: /admin-guide/120_Parser/006_db_parser/005_The_syslog-ng_patterndb_format/000_patterndb/000_ruleset/README
             subnav:
             - title: "patterns container"
-              url: /admin-guide/120_Parser/006_db_parser/004_The_syslog-ng_patterndb_format/000_patterndb/000_ruleset/000_patterns/README
+              url: /admin-guide/120_Parser/006_db_parser/005_The_syslog-ng_patterndb_format/000_patterndb/000_ruleset/000_patterns/README
               subnav:
             - title: "rules"
-              url: /admin-guide/120_Parser/006_db_parser/004_The_syslog-ng_patterndb_format/000_patterndb/000_ruleset/001_rules/README
+              url: /admin-guide/120_Parser/006_db_parser/005_The_syslog-ng_patterndb_format/000_patterndb/000_ruleset/001_rules/README
               subnav:
               - title: "rule"
-                url: /admin-guide/120_Parser/006_db_parser/004_The_syslog-ng_patterndb_format/000_patterndb/000_ruleset/001_rules/000_rule/README
+                url: /admin-guide/120_Parser/006_db_parser/005_The_syslog-ng_patterndb_format/000_patterndb/000_ruleset/001_rules/000_rule/README
                 subnav:
                 - title: "patterns"
-                  url: /admin-guide/120_Parser/006_db_parser/004_The_syslog-ng_patterndb_format/000_patterndb/000_ruleset/001_rules/000_rule/000_patterns/README
+                  url: /admin-guide/120_Parser/006_db_parser/005_The_syslog-ng_patterndb_format/000_patterndb/000_ruleset/001_rules/000_rule/000_patterns/README
                   subnav:
+                  - title: "pattern"
+                    url: /admin-guide/120_Parser/006_db_parser/005_The_syslog-ng_patterndb_format/000_patterndb/000_ruleset/001_rules/000_rule/000_patterns/000_pattern/README
+                    subnav:
                   - title: "urls"
-                    url: /admin-guide/120_Parser/006_db_parser/004_The_syslog-ng_patterndb_format/000_patterndb/000_ruleset/001_rules/000_rule/000_patterns/000_urls/README
+                    url: /admin-guide/120_Parser/006_db_parser/005_The_syslog-ng_patterndb_format/000_patterndb/000_ruleset/001_rules/000_rule/000_patterns/000_urls/README
                     subnav:
                   - title: "values"
-                    url: /admin-guide/120_Parser/006_db_parser/004_The_syslog-ng_patterndb_format/000_patterndb/000_ruleset/001_rules/000_rule/000_patterns/001_values/README
+                    url: /admin-guide/120_Parser/006_db_parser/005_The_syslog-ng_patterndb_format/000_patterndb/000_ruleset/001_rules/000_rule/000_patterns/001_values/README
                     subnav:
                   - title: "examples"
-                    url: /admin-guide/120_Parser/006_db_parser/004_The_syslog-ng_patterndb_format/000_patterndb/000_ruleset/001_rules/000_rule/000_patterns/002_examples/README
+                    url: /admin-guide/120_Parser/006_db_parser/005_The_syslog-ng_patterndb_format/000_patterndb/000_ruleset/001_rules/000_rule/000_patterns/002_examples/README
                     subnav:
                     - title: "example"
-                      url: /admin-guide/120_Parser/006_db_parser/004_The_syslog-ng_patterndb_format/000_patterndb/000_ruleset/001_rules/000_rule/000_patterns/002_examples/000_example/README
+                      url: /admin-guide/120_Parser/006_db_parser/005_The_syslog-ng_patterndb_format/000_patterndb/000_ruleset/001_rules/000_rule/000_patterns/002_examples/000_example/README
                       subnav:
             - title: "actions"
-              url: /admin-guide/120_Parser/006_db_parser/004_The_syslog-ng_patterndb_format/000_patterndb/000_ruleset/002_actions/README
+              url: /admin-guide/120_Parser/006_db_parser/005_The_syslog-ng_patterndb_format/000_patterndb/000_ruleset/002_actions/README
               subnav:
               - title: "action"
-                url: /admin-guide/120_Parser/006_db_parser/004_The_syslog-ng_patterndb_format/000_patterndb/000_ruleset/002_actions/000_action/README
+                url: /admin-guide/120_Parser/006_db_parser/005_The_syslog-ng_patterndb_format/000_patterndb/000_ruleset/002_actions/000_action/README
                 subnav:
                 - title: "create-context"
-                  url: /admin-guide/120_Parser/006_db_parser/004_The_syslog-ng_patterndb_format/000_patterndb/000_ruleset/002_actions/000_action/000_create_context/README
+                  url: /admin-guide/120_Parser/006_db_parser/005_The_syslog-ng_patterndb_format/000_patterndb/000_ruleset/002_actions/000_action/000_create_context/README
                   subnav:
             - title: "element tags"
-              url: /admin-guide/120_Parser/006_db_parser/004_The_syslog-ng_patterndb_format/000_patterndb/000_ruleset/003_tags/README
+              url: /admin-guide/120_Parser/006_db_parser/005_The_syslog-ng_patterndb_format/000_patterndb/000_ruleset/003_tags/README
               subnav:
     - title: "EWWM message parser"
       url: /admin-guide/120_Parser/007_EWMM_parser

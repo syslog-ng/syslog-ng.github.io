@@ -30,6 +30,6 @@ azure-auth-header(
 
 ## Options
 
-**NOTE:** All these options are mandatory. They are used as input for the
+All these options are mandatory. They are used as input for the
 method that calculates the authorization header.
-{: .notice--info}
+{: .notice--primary}

@@ -17,8 +17,7 @@ triplets (name, type, value). Typing support is available for several
 other components, for example, json-parser() and the $(format-json)
 template function. For more information, see Components supported by data types.
 
-![]({{ site.baseurl}}/assets/images/caution.png)
-**CAUTION:** Hazard of data loss!  
+Hazard of data loss!  
 If {{ site.product.short_name }} cannot convert the data into the specified type, an error occurs,
 and {{ site.product.short_name }} drops the message by default. To change how {{ site.product.short_name }} handles
 data-conversion errors, see on-error().
@@ -88,8 +87,8 @@ The {{ site.product.short_name }} application currently supports the following d
 The following components support data types from {{ site.product.short_name }} 4.0 and
 onwards:
 
-**NOTE:** Component types not listed below process data as string.
-{: .notice--info}
+Component types not listed below process data as string.
+{: .notice--primary}
 
 - Numeric operators in filter expression comparisons are now
     type-aware. The exact comparison depends on the types associated
@@ -121,7 +120,7 @@ type information.
 For more information, see Creating custom `SDATA` fields and
 Setting multiple message fields to specific values.  
 
-### db-parser()
+### db-parser() rules
 
 db-parser() rules can pair types with values using the type attribute.  
 
@@ -168,4 +167,9 @@ version of {{ site.product.short_name }} serialized a message, older versions an
 associated tools are able to read it, however, in this case the type
 information is lost.
 
-{% include doc/admin-guide/options/value-pairs.md %}
+### value-pairs() options
+
+The value-pairs() option allows you to select specific
+information about a message easily using predefined macro groups. The
+selected information is represented as name-value pairs and can be used
+formatted to JSON format, or directly used e.g. in a mongodb() destination.

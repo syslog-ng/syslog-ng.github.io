@@ -10,6 +10,7 @@ failover() has the following sub-options:
 
 {% include doc/admin-guide/options/failback-modes.md %}
 
+<br>
 The above described valid failback() sub-option defaults are:
 
 #### tcp-probe-interval()
@@ -67,6 +68,5 @@ destination d_network_tls{
 *Description:* Specifies a secondary destination server where log messages are sent if the primary server becomes inaccessible. To list several failover servers, separate the address of the servers with comma. By default, {{ site.product.short_name }} waits for the a server before switching to the next failover server is set in the time-reopen() option.  
 If failback() is not set, {{ site.product.short_name }} does not attempt to return to the primary server even if it becomes available. In case the failover server fails, {{ site.product.short_name }} attempts to connect the next failover server in the list in round-robin fashion.  
 
-![]({{ site.baseurl}}/assets/images/caution.png) **CAUTION:**
 The failover servers must be accessible on the same port as the primary server.
 {: .notice--warning}

@@ -10,22 +10,22 @@ description: >-
     below).
 ---
 
-**NOTE:** The sun-streams() driver must be enabled when the syslog-ng
+The sun-streams() driver must be enabled when the syslog-ng
 application is compiled (see **./configure --help**).
-{: .notice--info}
+{: .notice--primary}
 
 The sun-streams() driver has a single required argument specifying the
 STREAMS device to open, and the door() option. For the list of available
 optional parameters, see
 sun-streams() source options. 
 
-**NOTE:** Starting with version 3.7, the {{ site.product.short_name }} system() driver
+Starting with version 3.7, the {{ site.product.short_name }} system() driver
 automatically extracts the msgid from the message (if available), and
 stores it in the .solaris.msgid macro. To extract the msgid from the
 message without using the system() driver, use the
 **extract-solaris-msgid()** parser. You can find the exact source of
 the Solaris parser on GitHub.
-{: .notice--info}
+{: .notice--primary}
 
 **Declaration**
 

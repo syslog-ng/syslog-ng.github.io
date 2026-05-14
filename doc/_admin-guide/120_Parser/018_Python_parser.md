@@ -114,8 +114,9 @@ The following sample code parses the messages of the loggen tool (for
 details, see The loggen manual page.  
 The following is a sample loggen message:
 
-><38>2017-04-05T12:16:46 localhost prg00000[1234]: seq: 0000000000, thread: 0000,  
->runid: 1491387406, stamp: 2017-04-05T12:16:46 >PADDPADDPADDPADDPADDPADDPADDPADDPADDPADDPADDPADDPADDPADDPADDPADDPADDPADDPADDPADDPADDPADDPADDPADDPADDPADDPADDPADDPADDPADDPADDPADD
+```log
+<38>2017-04-05T12:16:46 localhost prg00000[1234]: seq: 0000000000, thread: 0000, runid: 1491387406, stamp: 2017-04-05T12:16:46 >PADDPADDPADDPADDPADDPADDPADDPADDPADDPADDPADDPADDPADDPADDPADDPADDPADDPADDPADDPADDPADDPADDPADDPADDPADDPADDPADDPADDPADDPADDPADDPADD
+```
 
 The {{ site.product.short_name }} parser object references the LoggenParser class and
 passes a set of regular expressions to parse the loggen messages. The

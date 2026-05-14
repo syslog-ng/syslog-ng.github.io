@@ -99,7 +99,7 @@ log {
 };
 ```
 
-**NOTE:** {{ site.product.short_name }} has several parsers that you can use to parse
+{{ site.product.short_name }} has several parsers that you can use to parse
 non-compliant messages. You can even [[write a custom {{ site.product.short_name }} parser in Python|adm-parser-python]].
 For details, see [[parser: Parse and segment structured messages]].
-{: .notice--info}
+{: .notice--primary}

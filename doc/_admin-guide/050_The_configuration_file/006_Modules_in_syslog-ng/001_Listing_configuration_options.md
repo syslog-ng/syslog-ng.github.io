@@ -12,30 +12,30 @@ The syslog-ng-cfg-helper utility has the following options:
 
 - The following command lists the contexts that the utility supports.
 
-    ```bash
+    ```shell
     syslog-ng-cfg-helper
     ```
 
-    **NOTE:** Currently, sources and destinations are supported.
-    {: .notice--info}
+    Currently, sources and destinations are supported.
+    {: .notice--primary}
 
 - The following command lists the available drivers of a context:
 
-    ```bash
+    ```shell
     syslog-ng-cfg-helper -c <source|destination>
     ```
 
 - The following command lists the available options of a specific
     driver and specifies the context and the driver:
 
-    ```bash
+    ```shell
     syslog-ng-cfg-helper -c <source|destination> -d <driver>
     ```
 
     For example, to list the options of the kafka() destination
     driver:
 
-    ```bash
+    ```shell
     syslog-ng-cfg-helper -c destination -d kafka
     ```
 
@@ -107,6 +107,6 @@ The syslog-ng-cfg-helper utility has the following options:
     )
     ```
 
-    **NOTE:** The script caches the list of the options, so if you want to
+    The script caches the list of the options, so if you want to
     rebuild the database, you have to use the -r option.
-    {: .notice--info}
+    {: .notice--primary}

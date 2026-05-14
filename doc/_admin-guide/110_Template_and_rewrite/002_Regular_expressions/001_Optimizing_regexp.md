@@ -16,7 +16,9 @@ description: >-
 Suppose you need a filter that matches the following error message
 logged by the xntpd NTP daemon:
 
-> xntpd[1567]: time error -1159.777379 is too large (set clock manually);
+```log
+xntpd[1567]: time error -1159.777379 is too large (set clock manually);
+```
 
 The following filter uses regular expressions and matches every instance
 and variant of this message.

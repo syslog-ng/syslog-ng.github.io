@@ -1,0 +1,105 @@
+{% comment %}
+  Settings panel popover toggled by the masthead `#settings-button`.
+
+  Behavior, persisted cookies, and consumer notes are documented in
+  _js/custom/settings-panel.js (bundled into main.min.js by _tools/pack).
+{% endcomment %}
+
+<div id="settings-panel" class="tooltip full-content-tooltip tooltip-align-left">
+  <div class="settings-panel__header">
+    <span class="settings-panel__title">Settings</span>
+    <button id="settings-panel-close" class="settings-panel__close" type="button" aria-label="Close settings">
+      <i class="fas fa-times"></i>
+    </button>
+  </div>
+
+  <section class="settings-panel__group">
+    <h3 class="settings-panel__group-title">Appearance</h3>
+    <label class="settings-panel__row" title="Toggle between light and dark color skins. The choice is remembered across visits.">
+      <input type="checkbox" id="settings-dark-mode" />
+      <span class="settings-panel__label">Dark mode</span>
+    </label>
+  </section>
+
+  <section class="settings-panel__group">
+    <h3 class="settings-panel__group-title">Tooltips</h3>
+
+    <label class="settings-panel__row"
+           title="Globally enable or disable the hover tooltips that preview linked content.">
+      <input type="checkbox" id="settings-tooltips-enabled" />
+      <span class="settings-panel__label">Show tooltips on link hover</span>
+    </label>
+
+    <div class="settings-panel__row settings-panel__row--column"
+         title="Tooltip background and text opacity. Lower values let the page underneath show through.">
+      <span class="settings-panel__label">Opacity</span>
+      <div class="settings-panel__slider">
+        <input type="range" id="settings-tooltip-opacity" min="30" max="100" step="2" />
+        <span class="settings-panel__slider-value" id="settings-tooltip-opacity-value">96 %</span>
+      </div>
+    </div>
+
+    <div class="settings-panel__row settings-panel__row--column"
+         title="How long the cursor must hover over an item before its tooltip appears.">
+      <span class="settings-panel__label">Show delay</span>
+      <div class="settings-panel__slider">
+        <input type="range" id="settings-tooltip-delay" min="0" max="1000" step="50" />
+        <span class="settings-panel__slider-value" id="settings-tooltip-delay-value">100 ms</span>
+      </div>
+    </div>
+
+    <div class="settings-panel__row settings-panel__row--column"
+         title="How long after the cursor leaves the item the tooltip stays visible (lets you move into the tooltip to click links).">
+      <span class="settings-panel__label">Hide delay</span>
+      <div class="settings-panel__slider">
+        <input type="range" id="settings-tooltip-hide-delay" min="0" max="1000" step="25" />
+        <span class="settings-panel__slider-value" id="settings-tooltip-hide-delay-value">50 ms</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="settings-panel__group">
+    <h3 class="settings-panel__group-title">Search</h3>
+
+    <label class="settings-panel__row"
+           title="When opening the search panel, copy the page's currently selected text into the search box and run the query automatically.">
+      <input type="checkbox" id="settings-prefill-selection" />
+      <span class="settings-panel__label">Search the selected text automatically</span>
+    </label>
+
+    <div class="settings-panel__row settings-panel__row--column"
+         title="Keyboard shortcut that opens the search panel. Click Change and press the new combination, or Clear to disable.">
+      <span class="settings-panel__label">Search shortcut</span>
+      <div class="settings-panel__hotkey">
+        <kbd id="settings-hotkey-display" class="settings-panel__hotkey-display">Ctrl+Shift+F</kbd>
+        <button id="settings-hotkey-record" type="button" class="settings-panel__hotkey-btn">Change</button>
+        <button id="settings-hotkey-clear"  type="button" class="settings-panel__hotkey-btn">Clear</button>
+      </div>
+    </div>
+
+    <div class="settings-panel__row settings-panel__row--column"
+         title="Choose what pressing ESC does while the search panel is open.">
+      <span class="settings-panel__label">ESC key behavior</span>
+      <div class="settings-panel__radio-group" id="settings-esc-behavior" role="radiogroup" aria-label="ESC key behavior">
+        <label class="settings-panel__radio">
+          <input type="radio" name="settings-esc-behavior" value="close" />
+          <span>Close search (keep text)</span>
+        </label>
+        <label class="settings-panel__radio">
+          <input type="radio" name="settings-esc-behavior" value="clear-then-close" />
+          <span>First clear text, then close on next press</span>
+        </label>
+        <label class="settings-panel__radio">
+          <input type="radio" name="settings-esc-behavior" value="close-and-clear" />
+          <span>Close and clear text</span>
+        </label>
+      </div>
+    </div>
+
+    <label class="settings-panel__row"
+           title="When reopening the search panel with the same query, restore the scroll position you had within the result list. The page content scroll position is always saved and restored regardless of this setting.">
+      <input type="checkbox" id="settings-restore-search-scroll" />
+      <span class="settings-panel__label">Restore search list scroll position</span>
+    </label>
+  </section>
+</div>

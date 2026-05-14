@@ -27,7 +27,6 @@ checked, but it does not have to be valid --- {{ site.product.short_name }} acce
 certificate even if it is expired, signed by an unknown CA, or its CN
 and the name of the machine mismatches.
 
-![]({{ site.baseurl}}/assets/images/caution.png) **CAUTION:**
 When validating a certificate, the entire certificate chain must be valid,
 including the CA certificate. If any certificate of the chain is invalid,
 {{ site.product.short_name }} will reject the connection.

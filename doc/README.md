@@ -30,3 +30,28 @@ In case you have any question, comment, or feedback, you can:
 * use our github to track all of the [[documentation issues|gh-syslog-ng-doc-issue-tracker]]
 
 {% include doc/admin-guide/copyright.md %}
+
+## Legend
+
+A DANGER icon highlights a potential risk of bodily injury or property damage, for which industry-standard safety precautions are advised. This icon is often associated with electrical hazards related to hardware.
+{: .notice--danger}
+
+A WARNING icon indicates potential damage to hardware or loss of data if instructions are not followed.
+{: .notice--warning}
+
+An INFO icon highlights supplementary information that helps you understand the surrounding content but is not strictly required to follow the instructions.
+{: .notice--info}
+
+A NOTE icon marks a primary note that complements the surrounding content with useful context, recommendations, or best practices.
+{: .notice--primary}
+
+A SUCCESS icon confirms that an operation completed correctly or that a recommended configuration has been applied.
+{: .notice--success}
+
+A plain NOTICE is a generic callout box without any severity coloring, and auto-prefix text or any icon. Use it for tips, side remarks, neutral asides, or content that does not fit any of the semantic categories above.
+{: .notice}
+
+```log
+A `log` fenced code block renders verbatim log-output samples (`syslog-ng-ctl` dumps, internal messages, stack traces, etc.) as a soft, slightly-tinted panel with a left accent bar and italic non-monospace text — a modern replacement for the legacy `> log line  ` blockquote pattern, whitespace is preserved.
+```
+

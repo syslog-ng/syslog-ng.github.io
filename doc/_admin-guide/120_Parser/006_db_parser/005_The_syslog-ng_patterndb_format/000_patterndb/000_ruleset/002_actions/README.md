@@ -1,0 +1,64 @@
+---
+title: 'Element: actions'
+short_title: actions
+id: adm-parser-db-elem-actions
+description: >-
+    A container element for actions that are performed if a
+    message is recognized by the pattern. For details on actions, see
+    Triggering actions for identified messages. (optional)
+---
+
+## Location
+
+/ patterndb / ruleset / actions
+
+## Attributes
+
+N/A
+
+## Children
+
+- *action*: An action definition that describes what {{ site.product.short_name }}
+    should do when a message is recognized by a pattern. For details, see
+    Element: action.
+
+### Example: Generating messages for pattern database matches
+
+When inserted in a pattern database rule, the following example
+generates a message when a message matching the rule is received.
+
+```xml
+<actions>
+    <action>
+        <message>
+            <values>
+                <value name="MESSAGE">A log message from `HOST` matched rule number $.classifier.rule_id</value>
+            </values>
+        </message>
+    </action>
+</actions>
+```
+
+To inherit the properties and values of the triggering message, set the
+inherit-mode attribute of the `<message>` element to `last-message`. That
+way the triggering log message is cloned, including name-value pairs and
+tags. If you set any values for the message in the `<action>` element,
+they will override the values of the original message.
+
+### Example: Generating messages with inherited values
+
+The following action generates a message that is identical to the
+original message, but its `PROGRAM` field is set to
+overriding-original-program-name
+
+```xml
+<actions>
+    <action>
+        <message inherit-mode='last-message'>
+            <values>
+                <value name="PROGRAM">overriding-original-program-name</value>
+            </values>
+        </message>
+    </action>
+</actions>
+```

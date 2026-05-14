@@ -22,7 +22,7 @@ a conversion function between {{ site.product.short_name }} lists and match vari
 
 **TIP:** To reset match variables to be empty, use the unset-matches()
 rewrite rule.
-{: .notice--info}
+{: .notice}
 
 **Declaration**
 

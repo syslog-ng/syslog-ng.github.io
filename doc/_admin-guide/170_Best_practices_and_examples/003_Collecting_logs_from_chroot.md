@@ -24,6 +24,6 @@ Complete the following steps:
 
 3. Include the source in a log statement.
 
-    **NOTE:** You need to set up timezone information within your chroot as
+    You need to set up timezone information within your chroot as
     well. This usually means creating a symlink to /etc/localtime.
-    {: .notice--info}
+    {: .notice--primary}

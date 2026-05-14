@@ -17,8 +17,8 @@ First, check [[this|dev-platform-build-macos#dependencies]] if you have not got 
 
 Homebrew has now different home directories on ARM and X86 systems, also the location could depend on your macOS version. We will reference to its home directory as `${HOMEBREW_PREFIX}` in this document, as if you follow the installation instructions above it will be set already correctly independenty of your system.
 
-**Hint**: you can use `export HOMEBREW_PREFIX=$(brew --prefix)` in your scripts or shell environments to get and reference the actual location of your homewbrew installation
-{: .notice--info}
+**TIP:**: you can use `export HOMEBREW_PREFIX=$(brew --prefix)` in your scripts or shell environments to get and reference the actual location of your homewbrew installation
+{: .notice}
 
 #### Checking dependencies
 
@@ -65,8 +65,9 @@ this will give you detailed information of what {{ site.product.short_name }} do
 First, check [[this|dev-platform-build-macos#dependencies]] if you have not got MacPorts installed and pre-configured yet.
 
 The installation location of MacPorts will be referenced as `${MACPORTS_PREFIX}` in this document. If you follow the installation instructions above, it will already be set correctly, regardless of your system.
-**Hint**: you can use `export MACPORTS_PREFIX=/opt/local` in your scripts or shell environments to get and reference the actual location of your MacPorts installation
-{: .notice--info}
+
+**TIP:**: you can use `export MACPORTS_PREFIX=/opt/local` in your scripts or shell environments to get and reference the actual location of your MacPorts installation
+{: .notice}
 
 #### Checking dependencies in MacPorts
 
@@ -76,8 +77,8 @@ For checking [[dependencies|dev-platform-build-macos#dependencies]] of it you ca
 port deps syslog-ng-devel
 ```
 
-**Note**: there is a `syslog-ng` package as well in MacPorts, the one with `-devel` suffix is usually a more fresh version.
-{: .notice--info}
+there is a `syslog-ng` package as well in MacPorts, the one with `-devel` suffix is usually a more fresh version.
+{: .notice--primary}
 
 This will list all the required dependencies are needed to run {{ site.product.short_name }}, and MacPorts would install automatically as needed.
 
@@ -111,10 +112,8 @@ this will give you detailed information of what {{ site.product.short_name }} do
 
 ### Running {{ site.product.short_name }} as daemon
 
-> **Note:**
->
-> Below examples use `YOUR_INSTALLATION_ROOT` which is depending on the package manager you used to install {{ site.product.short_name }}.
-{: .notice}
+Below examples use `YOUR_INSTALLATION_ROOT` which is depending on the package manager you used to install {{ site.product.short_name }}.
+{: .notice--primary}
 
 You can start it manually as a backround daemon
 

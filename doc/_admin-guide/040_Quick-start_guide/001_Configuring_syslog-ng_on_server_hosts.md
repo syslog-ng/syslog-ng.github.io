@@ -48,9 +48,9 @@ To configure {{ site.product.short_name }} on a server host, complete the follow
     For other options, see syslog: Collecting messages using the IETF syslog protocol (syslog() driver and
     tcp, tcp6, udp, udp6: Collecting messages from remote hosts using the BSD syslog protocol --- OBSOLETE.
 
-    **NOTE:** Starting with {{ site.product.short_name }} version 3.2, the syslog() source
+    Starting with {{ site.product.short_name }} version 3.2, the syslog() source
     driver can handle both BSD-syslog (RFC-3164) and IETF-syslog (RFC-5424, RFC-5425, RFC-5426) messages.
-    {: .notice--info}
+    {: .notice--primary}
 
 4. Create local destinations that will store the log messages, for
     example, file- or program destinations. The default configuration of
@@ -87,13 +87,13 @@ To configure {{ site.product.short_name }} on a server host, complete the follow
 6. Set filters, options (for example, TLS encryption) and other
     advanced features as necessary.
 
-    **NOTE:** By default, the {{ site.product.short_name }} server will treat the relayed
+    By default, the {{ site.product.short_name }} server will treat the relayed
     messages as if they were created by the relay host, not the host
     that originally sent them to the relay. In order to use the original
     hostname on the {{ site.product.short_name }} server, use the **keep-hostname(yes)**
     option both on the {{ site.product.short_name }} relay and the {{ site.product.short_name }} server. This
     option can be set individually for every source if needed.
-    {: .notice--info}
+    {: .notice--primary}
 
     If you are relaying log messages and want to resolve IP addresses to
     hostnames, configure the first relay to do the name resolution.

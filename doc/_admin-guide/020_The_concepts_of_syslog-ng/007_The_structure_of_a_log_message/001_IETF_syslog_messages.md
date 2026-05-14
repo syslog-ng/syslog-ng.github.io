@@ -14,11 +14,15 @@ A syslog message consists of the following parts:
 
 The following is a sample syslog message [[(source)|rfc-5424]]:
 
-><34>1 2003-10-11T22:14:15.003Z mymachine.example.com su - ID47 - BOM'su root' failed for lonvick on /dev/pts/8
+```log
+<34>1 2003-10-11T22:14:15.003Z mymachine.example.com su - ID47 - BOM'su root' failed for lonvick on /dev/pts/8
+```
 
 The message corresponds to the following format:
 
->\<priority\>VERSION ISOTIMESTAMP HOSTNAME APPLICATION PID MESSAGEID STRUCTURED-DATA MSG
+```log
+<priority>VERSION ISOTIMESTAMP HOSTNAME APPLICATION PID MESSAGEID STRUCTURED-DATA MSG
+```
 
 - Facility is 4, severity is 2, so `PRI` is 34.
 
@@ -81,11 +85,11 @@ The `HEADER` part contains the following elements:
 
 - *MESSAGEID*: The ID number of the message.
 
-**NOTE:** The {{ site.product.short_name }} application supports other timestamp formats as
+The {{ site.product.short_name }} application supports other timestamp formats as
 well, like ISO, or the PIX extended format. The timestamp used in the
 IETF-syslog protocol is derived from RFC-3339, which is based on ISO8601.
 For details, see the ts-format() option in Global options.
-{: .notice--info}
+{: .notice--primary}
 
 The {{ site.product.short_name }} application will truncate the following fields:
 
@@ -113,7 +117,9 @@ can be referenced in macros (for details, see Macros of {{ site.product.short_na
 
 An example STRUCTURED-DATA block looks like:
 
->\[exampleSDID@0 iut="3" eventSource="Application" eventID="1011"\]\[examplePriority@0 class="high"\]
+```log
+[exampleSDID@0 iut="3" eventSource="Application" eventID="1011"][examplePriority@0 class="high"]
+```
 
 ## The MSG message part
 

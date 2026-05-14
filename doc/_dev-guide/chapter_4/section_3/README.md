@@ -10,8 +10,8 @@ id: dev-platform-build-freebsd
 
 At present we are not supporting FreeBSD {{ site.product.short_name }} on our [[official repository|gh-syslog-ng]] on GitHub. However, you can compile {{ site.product.short_name }} yourself following this guide.
 
-**Note:** The guide is tested on X86_64/amd64 FreeBSD 14 and 13, we do our bests to keep it update, but your actual system may require additional steps or slightly different settings.
-{: .notice}
+The guide is tested on X86_64/amd64 FreeBSD 14 and 13, we do our bests to keep it update, but your actual system may require additional steps or slightly different settings.
+{: .notice--primary}
 
 ## Compiling from source
 
@@ -107,12 +107,13 @@ sudo pkg install \
 ```
 
 <div id="packages-note"></div>
-> **Note:**
->
-> * gcc - see at [compiler selection](#select-the-compiler)
-> * grpc - 
-> * actual state of supported features, and the required dependencies can also be found [[here|dev-macos-mod-sup-status]].
-{: .notice}
+
+{: .notice--primary-start}
+
+* gcc - see at [compiler selection](#select-the-compiler)
+* grpc - 
+* actual state of supported features, and the required dependencies can also be found [[here|dev-macos-mod-sup-status]].
+{: .notice--primary-end}
 
 ### Preparations
 
@@ -141,8 +142,8 @@ export CXXFLAGS="${CFLAGS} ${CXXFLAGS}"
 export LDFLAGS="-L${BSDPORTS_PREFIX}/lib ${LDFLAGS}"
 ```
 
-**Note:** Providing further library paths might be necessary.
-{: .notice}
+Providing further library paths might be necessary.
+{: .notice--primary}
 
 ### Getting the source
 
@@ -158,8 +159,8 @@ git clone https://github.com/syslog-ng/syslog-ng .
 Latest version of {{ site.product.short_name }} [has dropped support of gcc](https://github.com/syslog-ng/syslog-ng/pull/4897), so now the platform default llvm/clang must be used to complie the source.\
 `gcc` still might compile {{ site.product.short_name }} and most of its modules, but there is no guarantee and support of it anymore.
 
-**Hint:** You can always turn off any problematic module via its feature switch.
-{: .notice--info}
+**TIP:** You can always turn off any problematic module via its feature switch.
+{: .notice}
 
 To make sure clang is used you can use (optional):
 
@@ -177,12 +178,12 @@ export CXX=g++    # More precisly, the full path of ypur installed g++ compiler
 
 ### Configuration
 
-> **Note:**
->
-> * for various reasons not all modules can always be configured, built and used on all FreeBSD versions and architectures
-> * for using all the available modules you might have to install further dependencies as mentioned above
-> * for more details, please see the [[actual state of supported features|dev-macos-mod-sup-status]], and the required [dependencies](#dependencies).
-{: .notice}
+{: .notice--primary-start}
+
+* for various reasons not all modules can always be configured, built and used on all FreeBSD versions and architectures
+* for using all the available modules you might have to install further dependencies as mentioned above
+* for more details, please see the [[actual state of supported features|dev-macos-mod-sup-status]], and the required [dependencies](#dependencies).
+{: .notice--primary-end}
 
 #### Using autotool
 
@@ -201,7 +202,7 @@ mkdir build; cd build
 ../configure --enable-extra-warnings --with-ivykis=system --with-systemd-journal=no --disable-java --disable-java-modules
 ```
 
-**Warning:** You may want to install the self-built instance to a custom location first to avoid overwriting an existing installed version. In that case, pass the `--prefix /full_path_of_your/installdir/` parameter to the `configue` command, as shown in the steps above.
+You may want to install the self-built instance to a custom location first to avoid overwriting an existing installed version. In that case, pass the `--prefix /full_path_of_your/installdir/` parameter to the `configue` command, as shown in the steps above.
 {: .notice--danger}
 
 If you have all the above mentioned dependencies installed, for the full feature set you can simply use for example (excluded the not yet supported modules on FreeBSD)
@@ -433,8 +434,8 @@ make check -j4
 cmake --build build/. --target check -j4
 ```
 
-**Note:** For more read [[testing|dev-testing]] guide.
-{: .notice}
+For more read [[testing|dev-testing]] guide.
+{: .notice--primary}
 
 ### Run
 
@@ -442,5 +443,5 @@ cmake --build build/. --target check -j4
 `/full_path_of_your/installdir`/syslog-ng -F
 ```
 
-**Note:** For more information read the [[run first|dev-run-first]] guide
-{: .notice}
+For more information read the [[run first|dev-run-first]] guide
+{: .notice--primary}

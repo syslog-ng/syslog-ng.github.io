@@ -32,10 +32,10 @@ Depending on the settings of syslog-ng-relay, the following can happen.
     address, {{ site.product.short_name }} will rewrite the `HOST` field of the log
     message to client-host.
 
-    **NOTE:** It is also possible to resolve IP addresses locally, without
+    It is also possible to resolve IP addresses locally, without
     relying on the DNS server. For details on local name resolution, see
     Resolving hostnames locally.  
-    {: .notice--info}
+    {: .notice--primary}
 
 - The above points apply to the {{ site.product.short_name }} server
     (syslog-ng-server) as well, so if syslog-ng-relay is configured

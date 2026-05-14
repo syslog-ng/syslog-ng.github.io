@@ -7,22 +7,22 @@ description: >-
     already have a Hadoop and Kerberos infrastructure.
 ---
 
-**NOTE:** If you configure Kerberos authentication for a hdfs() destination,
+If you configure Kerberos authentication for a hdfs() destination,
 it affects all hdfs() destinations. Kerberos and non-Kerberos hdfs()
 destinations cannot be mixed in a {{ site.product.short_name }} configuration. This
 means that if one hdfs() destination uses Kerberos authentication, you
 have to configure all other hdfs() destinations to use Kerberos
 authentication too.
-{: .notice--info}
+{: .notice--primary}
 
 Failing to do so results in non-Kerberos hdfs() destinations being
 unable to authenticate to the HDFS server.
 
-**NOTE:** If you want to configure your hdfs() destination to stop using
+If you want to configure your hdfs() destination to stop using
 Kerberos authentication, namely, to remove Kerberos-related options from
 the hdfs() destination configuration, make sure to restart {{ site.product.short_name }}
 for the changes to take effect.
-{: .notice--info}
+{: .notice--primary}
 
 ## Prerequisites
 

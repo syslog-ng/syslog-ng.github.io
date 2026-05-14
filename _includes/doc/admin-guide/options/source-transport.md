@@ -24,10 +24,10 @@ log {
 * `proxied-tcp`, `proxied-tls`, `proxied-tls-passthrough`: Refers to the HAProxy Proxy Protocol. For more information, see Proxy Protocol support.
 * `text-with-nuls`: Allows embedded `NUL` characters in the message from a TCP source, that is, {{ site.product.short_name }} will not delimiter the incoming messages on `NUL` characters, only on `newline` characters (contrary to tcp transport, which splits the incoming log on `newline` characters and `NUL` characters).
 
-**NOTE:** The {{ site.product.short_name }} application does not support embedded **NUL**
+The {{ site.product.short_name }} application does not support embedded **NUL**
 characters everywhere, so it is recommended that you also use
 flags(no-multi-line) that causes **NUL** characters to be replaced by
 space.
-{: .notice--info}
+{: .notice--primary}
 
 {% include doc/admin-guide/warnings/udp-buffer.md %}

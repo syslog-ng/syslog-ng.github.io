@@ -29,5 +29,5 @@ use the command-line syntax used in the Template functions of {{ site.product.sh
 format-json template function.
 For details on using the payload() option, see graphite-output.
 
-**NOTE:** If left empty, there is no data to be forwarded to Graphite.
-{: .notice--info}
+If left empty, there is no data to be forwarded to Graphite.
+{: .notice--primary}

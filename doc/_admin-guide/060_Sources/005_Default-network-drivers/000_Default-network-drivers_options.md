@@ -45,24 +45,25 @@ source receives RFC-5424 formatted (IETF-syslog) messages.
 *Description:* The TCP port number where the default-network-drivers()
 source receives RFC-5424 formatted (IETF-syslog), TLS-encrypted messages.
 
->![]({{ site.baseurl}}/assets/images/caution.png) **CAUTION:** To receive messages
->using a TLS-encrypted connection, you must set the `tls(key-file() cert-file())`
->options of the **default-network-drivers()** source.
->  
->For example:
->  
->```config
->source s_network {
->    default-network-drivers(
->        tls(
->            key-file("/path/to/ssl-private-key")
->            cert-file("/path/to/ssl-cert")
->        )
->    );
->};
->```
->
-{: .notice--warning}
+{: .notice--warning-start}
+To receive messages
+using a TLS-encrypted connection, you must set the `tls(key-file() cert-file())`
+options of the **default-network-drivers()** source.
+  
+For example:
+  
+```config
+source s_network {
+    default-network-drivers(
+        tls(
+            key-file("/path/to/ssl-private-key")
+            cert-file("/path/to/ssl-cert")
+        )
+    );
+};
+```
+
+{: .notice--warning-end}
 
 ## tcp-port()
 

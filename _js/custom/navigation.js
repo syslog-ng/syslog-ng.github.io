@@ -110,12 +110,68 @@ $(function () {
       });
   }
 
-  function scrollToAnchor(anchorId) {
+  // Returns the live height of any sticky framing that overlays the top of the
+  // content area (currently only the sticky `.masthead`). Measured on demand so
+  // we always get the value matching the current viewport / breakpoint / theme,
+  // instead of relying on a hardcoded magic number.
+  function getStickyTopOffset() {
+    var masthead = document.querySelector('.masthead');
+    if (!masthead)
+      return 0;
+    // Detect overlay behavior from geometry instead of class/position
+    // heuristics: if the masthead currently touches the viewport top and
+    // extends into the viewport, it obscures anchor targets by its height.
+    // This covers theme variants where sticky behavior is provided without
+    // `position: sticky/fixed` on `.masthead` itself.
+    var rect = masthead.getBoundingClientRect();
+    var overlaysTop = (rect.top <= 0 && rect.bottom > 0);
+    if (!overlaysTop)
+      return 0;
+    return Math.ceil(rect.height);
+  }
+
+  function scrollToAnchor(anchorId, instant) {
     var anchorElement = document.getElementById(anchorId);
-    if (anchorElement) {
-      // Use the attached smooth scroll to have a consistent behavior
-      smoothScroll.animateScroll(anchorElement, null, { updateURL: false });
+    if (!anchorElement)
+      return;
+
+    if (instant) {
+      var top = anchorElement.getBoundingClientRect().top + window.pageYOffset - getStickyTopOffset();
+      window.scrollTo({ top: top, left: 0, behavior: 'auto' });
+      return;
     }
+
+    // Smooth-scroll path. Currently unused as call site:
+    //   - finalizeContent() always passes instant=true (post-SPA-swap jump).
+    //   - In-page anchor clicks (TOC links, header permalink anchors) never reach
+    //     this function: the SmoothScroll library binds its own click listener to
+    //     'a[href*="#"]' and handles them directly with the same `getStickyTopOffset`.
+    // Kept here for future programmatic same-page scrolling needs.
+    smoothScroll.animateScroll(anchorElement, null, {
+      updateURL: false,
+      offset: getStickyTopOffset()
+    });
+  }
+
+  function scrollToAnchorSettled(anchorId) {
+    // Cross-page hash navigation can be affected by delayed layout updates
+    // (or native hash alignment) after the first jump. Re-apply the same
+    // masthead-aware anchor positioning on the next frame and once more
+    // shortly after to stabilize the final viewport position.
+    scrollToAnchor(anchorId, true);
+    requestAnimationFrame(function () {
+      scrollToAnchor(anchorId, true);
+    });
+    setTimeout(function () {
+      scrollToAnchor(anchorId, true);
+    }, 70);
+  }
+
+  function scrollContentToTop() {
+    // Reset the page scroll on inner-content navigation when no anchor is given.
+    // Use instant scroll: the page already has a fade-out / fade-in transition,
+    // so animating the scroll on top of it would feel sluggish.
+    window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
   }
 
   function anchorIDFromUrl(url) {
@@ -149,9 +205,18 @@ $(function () {
     // Update contribution buttons to point to the correct source files
     if (typeof updateContributionButtons === 'function')
       updateContributionButtons();
-    // Try to scroll to a giben anchor, if any
-    if (anchorId)
-      scrollToAnchor(anchorId);
+    // Try to scroll to a given anchor, if any
+    // `finalizeContent` runs after a SPA content swap, so anchor jumps are
+    // always cross-page here -- request an instant jump (no smooth scroll).
+    if (anchorId) {
+      // For a cross-page navigation the new content has already faded in, an extra
+      // smooth scroll on top of that just makes the (unavoidable) max-scroll
+      // clamping at the end of the document visible (so, scroll to anchors will not always be accurate).
+      // Jump instantly instead.
+      scrollToAnchorSettled(anchorId);
+    }
+    else
+      scrollContentToTop();
     // Clear any focus (e.g back navigation keeps the previously clicked link focused)
     clearFocus();
     // Forcibly hide the search content that can remain open in certain back and force navigation cases
@@ -233,23 +298,39 @@ $(function () {
       if (anchorElement) {
         var url = new URL(anchorElement.href);
 
+        // The search-help (i) link points to a root-level page (e.g.
+        // `/lunr_search_help.html`) which is not part of any documentation
+        // collection, so `sameCollection()` returns false and we would fall
+        // through to a full page reload. Force the SPA path for it (and any
+        // future link that opts in via the `.spa-load` marker class).
+        var forceSpa = anchorElement.classList.contains('search-help') ||
+                       anchorElement.classList.contains('spa-load');
+
         // Try to load into the inner content frame only if the collection has not changed
         // Otherwise let the original click flow take effect, as the nav bar must be reloaded too
         // for a different collection
-        if (url.origin === window.location.origin && anchorElement.target !== '_blank' && sameCollection(url, window.location)) {
-          // Prevent default navigation behavior, we will use our content load method
-          event.preventDefault();
+        if (url.origin === window.location.origin && anchorElement.target !== '_blank' &&
+            (forceSpa || sameCollection(url, window.location))) {
+          // Same-page click (only the hash differs, or no hash at all):
+          // do NOT enter the SPA content-swap path. Calling preventDefault()
+          // here would also disable the SmoothScroll delegated listener that
+          // animates same-page hash jumps -- the very thing we want to keep.
+          // Just close any open search overlay (covers the search-help (i)
+          // icon clicked while already on /lunr_search_help.html) and let
+          // the click propagate so SmoothScroll handles the anchor jump
+          // exactly as it does for links inside the tooltip preview.
+          if (url.pathname === window.location.pathname) {
+            hideSearch();
+          }
+          else {
+            // Cross-page navigation within the same collection: keep the SPA
+            // content-swap behaviour so the nav bar stays in place.
+            event.preventDefault();
 
-          var urlStr = url.pathname + url.hash;
-          updated = (urlStr != window.location.pathname + window.location.hash);
-
-          // Update the browser URL
-          history.pushState(null, null, url);
-
-          // Load content based on the updated relative URL
-          // but only if the url has changed
-          if (updated)
+            history.pushState(null, null, url);
             updateContentFromUrl(url);
+            updated = true;
+          }
         }
         // Clear focus from the clicked element, as we have other visualization for the selected items
         event.target.blur();
@@ -271,9 +352,11 @@ $(function () {
   // -------------
   // TOC smooth scrolling
   // -------------
-  const smoothScrollTopOffset = 100;
+  // Both SmoothScroll and Gumshoe accept a function for `offset`, evaluated on
+  // every scroll/spy tick, so the offset always reflects the current sticky
+  // masthead height (which varies with viewport / breakpoint / theme).
   var smoothScroll = new SmoothScroll('a[href*="#"]', {
-    offset: smoothScrollTopOffset,
+    offset: getStickyTopOffset,
     speed: 400,
     speedAsDuration: true,
     durationMax: 500
@@ -292,7 +375,7 @@ $(function () {
         nestedClass: "active", // applied to the parent items
 
         // Offset & reflow
-        offset: smoothScrollTopOffset, // how far from the top of the page to activate a content area
+        offset: getStickyTopOffset, // how far from the top of the page to activate a content area
         reflow: true, // if true, listen for reflows
 
         // Event support
@@ -341,6 +424,13 @@ $(function () {
 
       hideTocIfNotNeeded(tempContainer, true);
 
+      // Strip the contribution sidebar (View / Edit / Report buttons from
+      // `_includes/page__contribution.html`) -- it makes no sense inside a
+      // tooltip preview and just clutters the surface.
+      var contribAside = tempContainer.querySelector('.contrib');
+      if (contribAside)
+        contribAside.remove();
+
       // Remove/Override some default title style formatting to look better in the tooltip
       var pageTitle = tempContainer.querySelector('#page-title');
       if (pageTitle == null) {
@@ -351,7 +441,6 @@ $(function () {
         if (firstHeading) {
           // Everything bellow must exist, so intentionally there's no error handling, let it rise
           pageTitle = document.querySelector('#page-title').cloneNode(true);
-          pageTitle.id = firstHeading.id;
 
           const anchorElement = pageTitle.querySelector("a");
           anchorElement.textContent = firstHeading.textContent;
@@ -361,6 +450,12 @@ $(function () {
         }
       }
       pageTitle.style.marginTop = '1em';
+
+      // Tooltip content is preview-only; keep IDs out to avoid duplicate
+      // document-wide IDs that break getElementById(hash)-based scrolling.
+      tempContainer.querySelectorAll('[id]').forEach(function (el) {
+        el.removeAttribute('id');
+      });
 
       newContent = tempContainer.innerHTML
       // remove unnecessary, reqursive inner content tooltips
@@ -455,28 +550,184 @@ $(function () {
     //       To get this work all the animation styles must be removed in the css (_navigations.scss) for #tooltipRenderer
     // TODO: Now we have the correct tooltip content via teh tooltipRenderer trick.
     //       Prevent tooltip overflow on window edges in all directions.
-    var tooltipRect = tooltipRenderer.getBoundingClientRect();
+
+    // Reset any width overrides from a previous, taller tooltip so the
+    // CSS defaults (responsive max-width per .tooltip / .text-content / .full-content variants) apply first.
+    contentTooltip.style.width = '';
+    contentTooltip.style.maxWidth = '';
+    tooltipRenderer.style.width = '';
+    tooltipRenderer.style.maxWidth = '';
+
+    var viewportHeight = window.innerHeight;
+    var viewportWidth = window.innerWidth;
+    var bottomMargin = 24;
+
+    // Compute the eventual top position (independent of tooltip width)
+    // so we can decide whether the tooltip would run off the bottom
+    // and -- if so -- whether widening it would shorten it enough.
+    const mouseX = event.clientX;
+    var multilineUpperPart = false == isTextTooltip
+      && tooltipTarget.getClientRects().length > 1
+      && mouseX > targetRect.x + targetRect.width / 2;
+    var posY = (hasMastHead ? 0 : document.documentElement.scrollTop)
+             + targetRect.top
+             + targetRect.height / (multilineUpperPart ? 2 : 1);
+    var contentTooltipTop = posY + toolTipArrowHalfSize;
+    var visibleTop = hasMastHead ? contentTooltipTop : (contentTooltipTop - document.documentElement.scrollTop);
+    var availableBelow = viewportHeight - visibleTop - bottomMargin;
+
+    // Adaptive width: if the rendered tooltip is taller than it is wide
+    // (a narrow column is hard to read), grow it wider until it becomes
+    // roughly square or hits a sensible cap. Re-measure on the offscreen
+    // tooltipRenderer at each step.
+    // Caps applied (whichever is smaller):
+    //   - 2/3 of the viewport width (full-width tooltips look ugly)
+    //   - viewportWidth - 2*sideGap (keep a margin on both sides)
+    //   - the width at which the box would become wider than tall
+    //     (height should stay >= width)
+    // Note: This runs regardless of whether the tooltip would overflow
+    // vertically -- on tall screens a long tooltip can fit but still look
+    // like an ugly narrow strip; widen it anyway for readability.
+    var sideGap = 24;
+    var measure = function () { return tooltipRenderer.getBoundingClientRect(); };
+    var tooltipRect = measure();
+    var widthCap = Math.max(200, Math.min(Math.floor(viewportWidth * 2 / 3), viewportWidth - 2 * sideGap));
+    var stepFactor = 1.5;
+    var maxSteps = 6;
+    while (tooltipRect.width < widthCap
+           && tooltipRect.width < tooltipRect.height
+           && maxSteps-- > 0) {
+      var nextWidth = Math.min(widthCap, Math.ceil(tooltipRect.width * stepFactor));
+      // Do not let the tooltip become wider than tall.
+      if (nextWidth > tooltipRect.height) nextWidth = Math.floor(tooltipRect.height);
+      if (nextWidth <= tooltipRect.width) break;
+      tooltipRenderer.style.maxWidth = nextWidth + 'px';
+      tooltipRenderer.style.width = nextWidth + 'px';
+      var newRect = measure();
+      if (newRect.height >= tooltipRect.height) {
+        // Extra width did not help (content already on a single line / hard line breaks); revert and stop.
+        tooltipRect = newRect;
+        break;
+      }
+      tooltipRect = newRect;
+    }
+    if (tooltipRenderer.style.width) {
+      contentTooltip.style.maxWidth = tooltipRenderer.style.maxWidth;
+      contentTooltip.style.width = tooltipRenderer.style.width;
+    }
+
     var tooltipWidth = tooltipRect.width;
     var pos = new DOMPoint();
 
-    const mouseX = event.clientX;
     var xShift = (alignment == 'tooltip-align-left' ? tooltipWidth : (alignment == 'tooltip-align-center' ? tooltipWidth / 2 : 0));
     pos.x = mouseX; // Use now mouse X instead - Math.max(0, pos.x + document.documentElement.scrollLeft + targetRect.left);
     pos.x -= xShift;
-    
-    // If the occupied space of the tooltip target is bigger than its line height, it means it spanws to multiple lines
-    // align to the upper line part in that case if the mouse is on the right side of the middle of its targetRect, otherwise align to the bottom row part
-    var multilineUpperPart = false == isTextTooltip && (targetRect.height > lineHeight && mouseX > targetRect.x + targetRect.width / 2);
-    pos.y = pos.y + (hasMastHead ? 0 : document.documentElement.scrollTop) + targetRect.top + targetRect.height / (multilineUpperPart ? 2 : 1);
+
+    pos.y = posY;
 
     var tooltipArrowHorizontalPadding = (4 * toolTipArrowHalfSize) * (alignment == 'tooltip-align-left' ? 1 : (alignment == 'tooltip-align-right' ? -1 : 0));
-    setTooltipArrowPosition('--tooltip-arrow-left', xShift - tooltipArrowHorizontalPadding - toolTipArrowHalfSize);
-    setTooltipArrowPosition('--tooltip-arrow-top', -1 * toolTipArrowHalfSize);
 
     var contentTooltipLeft = pos.x + tooltipArrowHorizontalPadding;
-    var contentTooltipTop = pos.y + toolTipArrowHalfSize;
+    // contentTooltipTop was already computed above (it only depends on
+    // the target geometry, not on the tooltip width).
+
+    // Arrow horizontal anchor: center of the target element. For
+    // multi-line (wrapped) targets only the line fragment under the
+    // cursor matters. getClientRects() returns one DOMRect per line
+    // fragment.
+    var arrowAnchorX = targetRect.left + targetRect.width / 2;
+    var lineRects = tooltipTarget.getClientRects();
+    if (lineRects && lineRects.length > 1) {
+      var mouseY = event.clientY;
+      for (var i = 0; i < lineRects.length; i++) {
+        var lr = lineRects[i];
+        if (mouseY >= lr.top && mouseY <= lr.bottom) {
+          arrowAnchorX = lr.left + lr.width / 2;
+          break;
+        }
+      }
+    }
+
+    // Make sure the tooltip box actually overlaps the anchor X. If the
+    // alignment-derived placement would put the anchor outside the
+    // tooltip's horizontal range (so the arrow could not point at it),
+    // slide the whole tooltip left or right just enough to bring the
+    // anchor inside, leaving room for the arrow on either side.
+    var sideMargin = 3 * toolTipArrowHalfSize;
+    if (arrowAnchorX < contentTooltipLeft + sideMargin) {
+      contentTooltipLeft = arrowAnchorX - sideMargin;
+    }
+    else if (arrowAnchorX > contentTooltipLeft + tooltipWidth - sideMargin) {
+      contentTooltipLeft = arrowAnchorX - tooltipWidth + sideMargin;
+    }
+
+    // Keep the tooltip on-screen horizontally with a visible side gap
+    // (sideGap is the same value used by the width cap above).
+    if (contentTooltipLeft < sideGap) contentTooltipLeft = sideGap;
+    if (contentTooltipLeft + tooltipWidth > viewportWidth - sideGap)
+      contentTooltipLeft = viewportWidth - sideGap - tooltipWidth;
+
     contentTooltip.style.left = contentTooltipLeft + 'px';
-    contentTooltip.style.top = contentTooltipTop + 'px';
+
+    // Flip decision: when there's not enough room below the anchor to
+    // show a meaningful slice of the tooltip, but more room is available
+    // above, place the tooltip above the anchor and let CSS rotate the
+    // arrow (.tooltip-flipped:before) so it points down at the anchor.
+    var renderedHeight = tooltipRect.height;
+    var anchorTopVisible = targetRect.top;
+    var anchorTopAbsolute = (hasMastHead ? 0 : document.documentElement.scrollTop)
+                          + targetRect.top;
+    var availableAbove = anchorTopVisible - bottomMargin - toolTipArrowHalfSize;
+    // "Below is too tight" if we'd show less than half the tooltip and
+    // less than ~180 px in absolute terms; never flip just because
+    // there's a slight overflow when most of the content already fits.
+    var minVisibleBelow = Math.min(180, Math.max(80, renderedHeight * 0.5));
+    var wouldScrollBelow = renderedHeight > availableBelow;
+    var wouldScrollAbove = renderedHeight > availableAbove;
+    // Flip when:
+    //   1. below is squeezed and above offers more room, OR
+    //   2. the tooltip would have to scroll below but fits fully above
+    //      (no scrollbar is nicer than scrollbar when both sides are
+    //      otherwise viable).
+    var flip = (availableBelow < minVisibleBelow && availableAbove > availableBelow)
+            || (wouldScrollBelow && !wouldScrollAbove);
+
+    if (flip) {
+      contentTooltip.classList.add('tooltip-flipped');
+      var heightForAbove = Math.min(renderedHeight, availableAbove);
+      if (heightForAbove < 80) heightForAbove = 80;
+      var topPos = anchorTopAbsolute - toolTipArrowHalfSize - heightForAbove;
+      contentTooltip.style.top = topPos + 'px';
+    }
+    else {
+      contentTooltip.classList.remove('tooltip-flipped');
+      contentTooltip.style.top = contentTooltipTop + 'px';
+    }
+
+    // Place the arrow at the anchor X, relative to the (possibly shifted)
+    // tooltip left edge. The vertical anchor (top vs. bottom of the
+    // tooltip) is driven by the .tooltip / .tooltip-flipped CSS rules.
+    var arrowLeftInTooltip = arrowAnchorX - contentTooltipLeft - toolTipArrowHalfSize;
+    setTooltipArrowPosition('--tooltip-arrow-left', arrowLeftInTooltip);
+    if (!flip) {
+      setTooltipArrowPosition('--tooltip-arrow-top', -1 * toolTipArrowHalfSize);
+    }
+
+    // Vertical fit-to-viewport: cap the inner scroll container to the
+    // currently-used side (above when flipped, below otherwise).
+    var scrollEl = contentTooltip.querySelector('.tooltip-scroll');
+    if (scrollEl) {
+      var availableSpace = flip ? availableAbove : availableBelow;
+      if (availableSpace > 0 && renderedHeight > availableSpace) {
+        scrollEl.style.maxHeight = Math.max(80, availableSpace) + 'px';
+        scrollEl.style.overflowY = 'auto';
+      }
+      else {
+        // Reset so the next, smaller, tooltip is not stuck at a previous max-height.
+        scrollEl.style.maxHeight = '';
+        scrollEl.style.overflowY = '';
+      }
+    }
   }
 
   function getRealZIndex(element) {
@@ -567,8 +818,18 @@ $(function () {
 
   function showTooltip(event, tooltipText, alignment, isFullPageContent, isTextTooltip) {
 
-    contentTooltip.innerHTML = tooltipText.innerHTML;
-    tooltipRenderer.innerHTML = contentTooltip.innerHTML;
+    // Globally disabled via the settings panel? Bail out early so no
+    // hover preview ever appears.
+    if (typeof getCookie === 'function'
+        && getCookie('settings-tooltips-enabled', 'true', true) === 'false')
+      return;
+
+    // Wrap the content in an inner scroll container so vertical capping
+    // (when the tooltip would overflow the viewport) does not clip the
+    // .tooltip:before arrow, which lives at a negative top offset.
+    var wrapped = '<div class="tooltip-scroll">' + tooltipText.innerHTML + '</div>';
+    contentTooltip.innerHTML = wrapped;
+    tooltipRenderer.innerHTML = wrapped;
 
     setTooltipStyle(alignment, isFullPageContent, isTextTooltip);
     setTooltipZIndex();
@@ -578,15 +839,26 @@ $(function () {
     
     clearTimeout(hideTimeoutFuncID);
     clearTimeout(showTimeoutFuncID);
+    // Read the user-configurable tooltip show delay (settings panel).
+    var tooltipDelay = 100;
+    if (typeof getCookie === 'function') {
+      var d = parseInt(getCookie('settings-tooltip-delay', '100', true), 10);
+      if (!isNaN(d) && d >= 0) tooltipDelay = d;
+    }
     showTimeoutFuncID = setTimeout(function () {
       if (shouldShowTooltip) {
         contentTooltip.classList.add('visible');
       }
-    }, 100);
+    }, tooltipDelay);
   }
 
   function shouldHideTooltip(activeTarget) {
-    return ((tooltipTarget == null || activeTarget != tooltipTarget) && (contentTooltip == null || (activeTarget != contentTooltip && activeTarget != null && activeTarget.closest('.tooltip') == null)));
+    // The cursor is still "inside" the hover hint tooltip only when it is
+    // over the hint container itself (#tooltip == contentTooltip) or one
+    // of its descendants. Other .tooltip elements (e.g. the settings
+    // panel popover) are unrelated popovers and must NOT keep the hover
+    // hint visible.
+    return ((tooltipTarget == null || activeTarget != tooltipTarget) && (contentTooltip == null || (activeTarget != contentTooltip && activeTarget != null && false == contentTooltip.contains(activeTarget))));
   }
 
   function hideTooltip(withDelay) {
@@ -612,12 +884,51 @@ $(function () {
 
     if (withDelay) {
       clearTimeout(hideTimeoutFuncID);
+      // User-configurable hide delay (settings panel). Lets the cursor
+      // travel into the tooltip to click links inside it.
+      var hideDelay = 50;
+      if (typeof getCookie === 'function') {
+        var hd = parseInt(getCookie('settings-tooltip-hide-delay', '50', true), 10);
+        if (!isNaN(hd) && hd >= 0) hideDelay = hd;
+      }
       hideTimeoutFuncID = setTimeout(function () {
         doHideTooltip();
-      }, 25); // Give a small chance to move inside the tooltip (e.g. to allow click on links inside it)
+      }, hideDelay);
     }
     else
       doHideTooltip();
+  }
+
+  function buildFallbackTooltipHtml(element, url) {
+    // Minimal preview surface used when the rich, fetched-content
+    // tooltip cannot be produced -- e.g. the link points at an
+    // external site that doesn't allow CORS. Shows the link label,
+    // destination hostname, and full URL so the user still gets a
+    // useful destination hint instead of a silent no-op hover.
+    var label = (element.textContent || '').trim();
+    var hostname = '';
+    try { hostname = new URL(url, window.location.href).hostname; } catch (e) {}
+
+    function esc(s) {
+      return String(s)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;');
+    }
+
+    var html = '<div class="tooltip-fallback">';
+    if (label && label !== url)
+      html += '<div class="tooltip-fallback-title">' + esc(label) + '</div>';
+    if (hostname)
+      html += '<div class="tooltip-fallback-host">' + esc(hostname) + '</div>';
+    html += '<div class="tooltip-fallback-url">'
+         +    '<a href="' + esc(url) + '" target="_blank" rel="noopener noreferrer">'
+         +      esc(url)
+         +    '</a>'
+         +  '</div>';
+    html += '</div>';
+    return html;
   }
 
   function addContentTooltips() {
@@ -632,9 +943,19 @@ $(function () {
       tooltipText.textContent = "";
       element.appendChild(tooltipText);
 
+      // Sticky override: when the rich preview cannot be produced (fetch
+      // failure -- typically a CORS-blocked external page -- or empty
+      // post-`alterContentForTooltip` result), we cache a small text
+      // fallback (label + hostname + URL) and from then on render this
+      // anchor with the *plain* tooltip styling (no extra class). The
+      // CSS rule `.tooltip:has(.tooltip-fallback)` adds width caps so
+      // the compact look is preserved without the font-size override
+      // that `text-content-tooltip` would otherwise force on it.
+      var useFallbackStyling = false;
+
       element.addEventListener('mouseover', function (event) {
-        var isFullPageContent = element.classList.contains('full-content-tooltip');
-        var isTextTooltip = element.classList.contains('text-content-tooltip');
+        var isFullPageContent = !useFallbackStyling && element.classList.contains('full-content-tooltip');
+        var isTextTooltip     = !useFallbackStyling && element.classList.contains('text-content-tooltip');
         var alignment = (element.classList.contains('tooltip-align-left') ? 'tooltip-align-left' : (element.classList.contains('tooltip-align-center') ? 'tooltip-align-center' : 'tooltip-align-right'));
 
         tooltipTarget = element;
@@ -643,6 +964,21 @@ $(function () {
         // Load only once per page load
         if (tooltipText.innerHTML === '') {
           var url = element.href;
+
+          function showFallback() {
+            // Minimal preview hint for links whose content we cannot
+            // load (typical case: external host without CORS, e.g.
+            // mademistakes.com). Better than silently showing nothing
+            // -- the user at least sees the destination domain & URL.
+            // Render with the plain tooltip styling (no text-content
+            // / full-content class) so the fallback inherits the very
+            // same CSS as a normal rich-content tooltip; the compact
+            // width is enforced via `.tooltip:has(.tooltip-fallback)`
+            // in _navigation.scss.
+            tooltipText.innerHTML = buildFallbackTooltipHtml(element, url);
+            useFallbackStyling = true;
+            showTooltip(event, tooltipText, alignment, false, false);
+          }
 
           function onSuccess(newContent) {
             if (typeof (newContent) === 'object' && 'innerHTML' in newContent)
@@ -654,17 +990,15 @@ $(function () {
               showTooltip(event, tooltipText, alignment, isFullPageContent, isTextTooltip);
             }
             else {
-              // Quick navigation from another link with tooltip to this link would keep alive the previous tooltip
-              // force close it, as we don't have tooltip for the current and this is the live hovered one.
-              hideTooltip(false);
+              // No usable rich content -- fall back to the minimal hint
+              // so the user still gets something instead of nothing.
+              showFallback();
             }
           }
 
           function onError(error) {
-            // Quick navigation from another link with tooltip to this failing link would keep alive the previous tooltip
-            // force close it, as we don't have tooltip for the current and this is the live hovered one.
-            hideTooltip(false);
-            window.logger.error('[Navigation] Error loading the tooltip content!' + error);
+            window.logger.warn('[Navigation] Tooltip content unavailable for ' + url + ' (' + error + '); using fallback hint.');
+            showFallback();
           }
           
           if (isTextTooltip) {
@@ -767,34 +1101,164 @@ $(function () {
   // -------------
 
   if (searchEnabled) {
+    // Remember the page scroll offset at the moment the search panel
+    // opens so we can restore it when it closes. The search panel
+    // replaces the in-flow `.initial-content` block but does not pin to
+    // the viewport, so a long page scrolled near the bottom would show
+    // the search panel scrolled too -- the user wouldn't see the search
+    // input or the first results. Saving & restoring fixes both
+    // directions (open at 0, close back to where the user was).
+    var savedPageScrollY = null;
+    // Also remember the scroll offset INSIDE the search panel and the
+    // query that produced it. When the user reopens the panel and the
+    // query is still the same (i.e. the result list is identical), we
+    // restore that scroll position so they land back on the result they
+    // were inspecting. If the query changes in between, we fall back to
+    // scrolling to the top of the panel.
+    var savedSearchScrollY = null;
+    var savedSearchQuery = null;
     // Close search panel with Esc key — capture phase so stopPropagation in inner
-    // elements cannot block it
+    // elements cannot block it. Behavior is controlled by the
+    // `settings-esc-behavior` cookie owned by the settings panel:
+    //   - 'close'             : just close the search panel (default, current behavior)
+    //   - 'close-and-clear'   : close AND wipe the query
+    //   - 'clear-then-close'  : first ESC wipes a non-empty query, next ESC closes
+    //
+    // NOTE: the search input is `<input type="text">` (not `type="search"`)
+    // precisely to avoid the browser's built-in ESC-clear, which would
+    // wipe the field on `keydown` before this handler could decide what
+    // to do.
     document.addEventListener('keyup', function (event) {
       if (event.keyCode === 27) {
-        if ($(".initial-content").hasClass("is--hidden"))
+        if ($(".initial-content").hasClass("is--hidden")) {
+          var mode = (typeof getCookie === 'function')
+            ? getCookie('settings-esc-behavior', 'close', true)
+            : 'close';
+          var input = $('#search');
+          var hasText = input.length > 0 && input.val() && input.val().length > 0;
+
+          if (mode === 'clear-then-close' && hasText) {
+            input.val('');
+            input.trigger('input');
+            return;
+          }
+          if (mode === 'close-and-clear') {
+            input.val('');
+            input.trigger('input');
+          }
           toggleSearch(event);
+        }
       }
     }, true);
 
-    // Toggle search panel with Ctrl+Shift+F — capture phase + preventDefault so the
-    // browser/OS cannot intercept the combination before the page handles it
+    // Toggle search panel with the user-configurable shortcut (default
+    // Ctrl+Shift+F). The combo is stored in the `settings-hotkey-search`
+    // cookie as e.g. 'Ctrl+Shift+F'; an empty value disables it.
+    // Capture phase + preventDefault so the browser/OS cannot intercept
+    // the combination before the page handles it.
+    function eventMatchesCombo(event, combo) {
+      if (!combo) return false;
+      var parts = combo.split('+');
+      var key = parts.pop();
+      var needCtrl = parts.indexOf('Ctrl')  !== -1;
+      var needShift = parts.indexOf('Shift') !== -1;
+      var needAlt = parts.indexOf('Alt')   !== -1;
+      var needMeta = parts.indexOf('Meta')  !== -1;
+      if (!!event.ctrlKey  !== needCtrl)  return false;
+      if (!!event.shiftKey !== needShift) return false;
+      if (!!event.altKey   !== needAlt)   return false;
+      if (!!event.metaKey  !== needMeta)  return false;
+      var evKey = event.key || '';
+      if (evKey.length === 1) evKey = evKey.toUpperCase();
+      return evKey === key;
+    }
     document.addEventListener('keydown', function (event) {
-      if (event.ctrlKey && event.shiftKey &&
-          (event.key.toUpperCase() === 'F' || event.code === 'KeyF')) {
-        event.preventDefault();
-        toggleSearch(event);
-      }
+      var combo = (typeof getCookie === 'function')
+        ? getCookie('settings-hotkey-search', 'Ctrl+Shift+F', true)
+        : 'Ctrl+Shift+F';
+      if (!eventMatchesCombo(event, combo)) return;
+      event.preventDefault();
+      toggleSearch(event);
     }, true);
 
     function toggleSearch(event) {
+      // Capture the current text selection BEFORE the DOM mutations below --
+      // toggling visibility / focus on the search input will collapse any
+      // active selection in the page content, so we have to read it first.
+      // `window.getSelection().toString()` returns plain text only (no HTML),
+      // which is exactly what the search box expects.
+      //
+      // Gated by the `settings-prefill-selection` cookie owned by the
+      // settings panel (default: enabled).
+      var willOpen = !$(".search-content").hasClass("is--visible");
+      var prefillEnabled = (typeof getCookie === 'function')
+        ? getCookie('settings-prefill-selection', 'true', true) === 'true'
+        : true;
+      var selectedText = '';
+      if (willOpen && prefillEnabled) {
+        var sel = window.getSelection ? window.getSelection() : null;
+        if (sel && sel.toString) {
+          selectedText = sel.toString().replace(/\s+/g, ' ').trim();
+        }
+      }
+
+      // Save (on open) / restore (on close) the page scroll position so
+      // the search panel always shows from its top, and the user lands
+      // back exactly where they were when they close it.
+      if (willOpen) {
+        savedPageScrollY = window.pageYOffset || document.documentElement.scrollTop || 0;
+      }
+      else {
+        // About to close: capture the current panel scroll & query so we
+        // can restore them on the next open (if the query stays the same).
+        savedSearchScrollY = window.pageYOffset || document.documentElement.scrollTop || 0;
+        savedSearchQuery = ($('#search').val() || '');
+      }
+
       $(".search-content").toggleClass("is--visible");
       $(".search-content__form").toggleClass("is--visible");      
       $(".initial-content").toggleClass("is--hidden");
+      $(".masthead").toggleClass("search-open", $(".search-content").hasClass("is--visible"));
+
+      if (!willOpen && savedPageScrollY !== null) {
+        window.scrollTo(0, savedPageScrollY);
+        savedPageScrollY = null;
+      }
 
       if ($(".initial-content").hasClass("is--hidden")) {
         // set focus on input
         setTimeout(function () {
-          var input = $(".search-content__form").find("input[type='search']");
+          var input = $('#search');
+          // Prefill from selection (overriding the cookie-restored value), if
+          // any. Triggering `input` causes the live search handler to run
+          // and surface results immediately. If nothing is selected, leave
+          // the previously remembered query intact.
+          if (selectedText.length > 0) {
+            input.val(selectedText);
+            input.trigger("input");
+          }
+          // Decide where to scroll inside the now-visible panel: if the
+          // current query matches the one we saved on the previous close,
+          // restore the previous panel scroll position so the user lands
+          // on the same result. Otherwise show the panel from its top.
+          var currentQuery = (input.val() || '');
+          // Gate the in-panel scroll restore on the user setting
+          // (`settings-restore-search-scroll`, default 'true'). The page
+          // content scroll save/restore is unconditional and handled
+          // above -- only the search-list reposition is optional.
+          var restoreSearchScroll =
+              (typeof getCookie === 'function')
+              ? (getCookie('settings-restore-search-scroll', 'true', true) !== 'false')
+              : true;
+          if (restoreSearchScroll
+              && savedSearchQuery !== null
+              && savedSearchScrollY !== null
+              && currentQuery === savedSearchQuery) {
+            window.scrollTo(0, savedSearchScrollY);
+          }
+          else {
+            window.scrollTo(0, 0);
+          }
           input.trigger("focus");
           input.trigger("select");
         }, 100);
@@ -807,9 +1271,22 @@ $(function () {
     }
 
     function hideSearch() {
+      var wasVisible = $(".search-content").hasClass("is--visible");
+      if (wasVisible) {
+        // Same panel-scroll & query capture as toggleSearch's close branch.
+        savedSearchScrollY = window.pageYOffset || document.documentElement.scrollTop || 0;
+        savedSearchQuery = ($('#search').val() || '');
+      }
       $(".search-content").removeClass("is--visible");
       $(".search-content__form").removeClass("is--visible");
       $(".initial-content").removeClass("is--hidden");
+      $(".masthead").removeClass("search-open");
+      // Restore the page scroll position the user had before opening
+      // the search panel (only when we actually closed something).
+      if (wasVisible && savedPageScrollY !== null) {
+        window.scrollTo(0, savedPageScrollY);
+        savedPageScrollY = null;
+      }
     }
 
     $("#search-button").on('click', toggleSearch);
@@ -823,19 +1300,24 @@ $(function () {
 
   // Make sure everything is initialized correctly on an initial load as well
   // (e.g. when an inner embedded page link is opened directly in a new tab, not via the internal navigational links)
-  finalizeContent();
+  finalizeContent(anchorIDFromUrl(window.location));
 
   hideSearch();
 
   // Listen for popstate events and update content accordingly
   window.addEventListener('popstate', function () {
-    updateContentFromUrl(window.location.pathname);
+    // Keep the hash part as well, otherwise anchored back/forward
+    // navigation loses the target and falls back to top alignment.
+    updateContentFromUrl(window.location);
   });
 
   window.searchResultLinkClickHandler = function (event) {
-    // Clicking a link that url is shown in the active page will not trigger anything
-    // just show the actual pag, hide the search panel
-    hideSearch();
+    // Do NOT call hideSearch() up front: it would remove `.is--hidden` from
+    // `.initial-content` immediately, revealing the still-old page for the
+    // full duration of the fetch + 100 ms swap timeout in updateContentFromUrl.
+    // finalizeContent() calls hideSearch() at the very end of the SPA swap
+    // (after the new article is in the DOM and the anchor jump has happened),
+    // so the search overlay stays put until the new content is ready.
     handleNavLinkClick(event);
   };
 });

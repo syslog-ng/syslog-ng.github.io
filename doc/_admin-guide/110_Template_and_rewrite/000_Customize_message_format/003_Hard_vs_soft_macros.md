@@ -41,7 +41,7 @@ ${PROGRAM}, ${SOURCE}. Custom values created using rewrite rules or parsers
 can be modified as well, just like stored matches of regular expressions
 ($0 \... $255).
 
-**NOTE:** You can modify the timezone of the message, and change the
+You can modify the timezone of the message, and change the
 timezone-related macros that way. For details, see
 Rewrite the timezone of a message.
-{: .notice--info}
+{: .notice--primary}

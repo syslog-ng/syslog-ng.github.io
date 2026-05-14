@@ -16,21 +16,25 @@ The total message cannot be longer than 1024 bytes.
 
 The following is a sample syslog message:
 
-><133>Feb 25 14:09:07 webserver syslogd: restart
+```log
+<133>Feb 25 14:09:07 webserver syslogd: restart
+```
 
 The message corresponds to the following format:
 
->\<priority\>timestamp hostname application: message
+```log
+<priority>timestamp hostname application: message
+```
 
 The different parts of the message are explained in the following
 sections.
 
-**NOTE:** The {{ site.product.short_name }} application
+The {{ site.product.short_name }} application
 supports longer messages as well. For details, see the log-msg-size()
 option in Global options.
 However, it is not recommended to enable messages larger than the packet
 size when using UDP destinations.
-{: .notice--info}
+{: .notice--primary}
 
 ## The PRI message part
 
@@ -45,7 +49,9 @@ of the system sending the message, while Severity marks its importance.
 
 The Priority value is calculated using the following formula:
 
->\<PRI\> = ( \<facility\> * 8) + \<severity\>
+```log
+<PRI> = ( <facility> * 8) + <severity>
+```
 
 That is, you first multiply the Facility number by 8, and then add the
 numerical value of the Severity to the multiplied sum.
@@ -55,16 +61,17 @@ numerical value of the Severity to the multiplied sum.
 The following example illustrates a sample syslog message with a sample
 PRI field (that is, Priority value):
 
->\<133\> Feb 25 14:09:07 webserver syslogd: restart
+```log
+<133> Feb 25 14:09:07 webserver syslogd: restart
+```
 
-In this example, \<133\> represents the `PRI` field (Priority value). The
-syslog message\'s Facility value is 16, and the Severity value is 5.
+In this example, `<133>` represents the `PRI` field (`Priority` value). The
+syslog message's `Facility` value is `16`, and the `Severity` value is `5`.
 
-Substituting the numerical values into the \<PRI\> = ( \<facility\> \*
-8) + \<severity\> formula, the results match the Priority value in our
+Substituting the numerical values into the `<PRI> = (<facility> * 8) + <severity>` formula, the results match the `Priority` value in our
 example:
 
-\<133\> = ( \<16\> \* 8) + \<5\>.
+`<133> = ( <16> * 8) + <5>`
 
 ### Facility and Severity values
 
@@ -89,10 +96,10 @@ the local time in the *Mmm dd hh:mm:ss* format, where:
     24-hour format. Valid entries are between 00 and 23, inclusive. The
     minute (mm) and second (ss) entries are between 00 and 59 inclusive.
 
-**NOTE:** The {{ site.product.short_name }} application
+The {{ site.product.short_name }} application
 supports other timestamp formats as well, like ISO, or the PIX extended
 format. For details, see the ts-format() option in Global options.
-{: .notice--info}
+{: .notice--primary}
 
 ## The MSG message part
 

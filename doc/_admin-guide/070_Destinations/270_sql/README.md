@@ -18,27 +18,25 @@ The sql() driver has the following required parameters:
 type(), [[database()|adm-dest-sql-opt#database]], table(), [[columns()|adm-dest-sql-opt#columns]]
 and values().
 
->![]({{ site.baseurl}}/assets/images/caution.png) **CAUTION:**
->  
->- The {{ site.product.short_name }} application requires read and write access to the SQL table,
->   otherwise it cannot verify that the destination table exists.
->- Currently the {{ site.product.short_name }} application has default schemas for the different
->   databases and uses these defaults if the database schema (for example,
->   columns and column types) is not defined in the configuration file.
->   However, these schemas will be deprecated and specifying the exact
->   database schema will be required in later versions of syslog-ng.
->  
->{: .notice--warning}
+{: .notice--warning-start}
 
-**NOTE:** In addition to the standard {{ site.product.short_name }} packages, the sql()
+- The {{ site.product.short_name }} application requires read and write access to the SQL table,
+   otherwise it cannot verify that the destination table exists.
+- Currently the {{ site.product.short_name }} application has default schemas for the different
+   databases and uses these defaults if the database schema (for example,
+   columns and column types) is not defined in the configuration file.
+   However, these schemas will be deprecated and specifying the exact
+   database schema will be required in later versions of syslog-ng.  
+{: .notice--warning-end}
+
+In addition to the standard {{ site.product.short_name }} packages, the sql()
 destination requires database-specific packages to be installed. These
 packages are automatically installed by the binary {{ site.product.short_name }} installer.
-{: .notice--info}
+{: .notice--primary}
 
 The table and value parameters can include macros to create tables and
 columns dynamically (for details, see Macros of {{ site.product.short_name }}.
 
-![]({{ site.baseurl}}/assets/images/caution.png) **CAUTION:**
 When using macros in table names, note that some databases limit the maximum
 allowed length of table names. Consult the documentation of the database for details.
 {: .notice--warning}

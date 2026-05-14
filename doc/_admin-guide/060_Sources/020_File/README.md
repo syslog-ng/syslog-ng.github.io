@@ -46,8 +46,8 @@ source s_tail {
 };
 ```
 
-**NOTE:** If the message does not have a proper syslog header, syslog-ng
+If the message does not have a proper syslog header, syslog-ng
 treats messages received from files as sent by the kern facility. Use
 the default-facility() and default-priority() options in the
 source definition to assign a different facility if needed.
-{: .notice--info}
+{: .notice--primary}

@@ -13,19 +13,23 @@ Complete the following steps on the {{ site.product.short_name }} server:
 
 1. Create an X.509 certificate for the {{ site.product.short_name }} server.
 
-    >**NOTE:** The subject_alt_name parameter (or the Common Name parameter
-    >if the subject_alt_name parameter is empty) of the server\'s
-    >certificate must contain the hostname or the IP address (as resolved
-    >from the {{ site.product.short_name }} clients and relays) of the server (for example,
-    >syslog-ng.example.com).
-    >  
-    >Alternatively, the Common Name or the subject_alt__name parameter
-    >can contain a generic hostname, for example, *.example.com.
-    >  
-    >Note that if the Common Name of the certificate contains a generic
-    >hostname, do not specify a specific hostname or an IP address in the
-    >subject_alt_name parameter.
-    >{: .notice--info}
+   {: .notice--primary-start}
+
+   The subject_alt_name parameter (or the Common Name parameter
+   if the subject_alt_name parameter is empty) of the server\'s
+   certificate must contain the hostname or the IP address (as resolved
+   from the {{ site.product.short_name }} clients and relays) of the server (for example,
+   `syslog-ng.example.com`).<br>
+   Alternatively, the Common Name or the subject_alt__name parameter
+   can contain a generic hostname, for example, `*.example.com`.<br>
+   Note that if the Common Name of the certificate contains a generic
+   hostname, do not specify a specific hostname or an IP address in the
+   subject_alt_name parameter.
+
+   {: .notice--primary-end}
+
+     For details on creating certificates, see
+     Creating certificates for TLS-encrypted message transfer.
 
 2. Copy the certificate (for example, syslog-ng.cert) of the syslog-ng
     server to the {{ site.product.short_name }} server host, for example, into the
@@ -128,6 +132,5 @@ Complete the following steps on the {{ site.product.short_name }} server:
     };
     ```
 
-    ![]({{ site.baseurl}}/assets/images/caution.png) **CAUTION:**
     Do not forget to update the certificate and key files when they expire.
     {: .notice--warning}

@@ -28,6 +28,6 @@ If you must use name resolution from {{ site.product.short_name }}, consider the
 - If possible, resolve the hostnames locally. For details, see
     Resolving hostnames locally.
 
-**NOTE:** Domain name resolution is important mainly in relay and server
+Domain name resolution is important mainly in relay and server
 mode.
-{: .notice--info}
+{: .notice--primary}

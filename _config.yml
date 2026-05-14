@@ -183,6 +183,17 @@ defaults:
       sidebar:
         nav: "dev-guide-nav"
 
+  # Append "()" automatically to the short_title of function-like topics
+  # (sources, destinations, ...) for tooltips and cross-reference links.
+  - scope:
+      path: "doc/_admin-guide/060_Sources"
+    values:
+      function_like_topic: true
+  - scope:
+      path: "doc/_admin-guide/070_Destinations"
+    values:
+      function_like_topic: true
+
 # Search settings
 search: true
 # Setting search_full_content to true could impact page load performance!

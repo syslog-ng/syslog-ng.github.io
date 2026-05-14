@@ -47,12 +47,12 @@ See Bookmarking in the kafka() source for more details.
 
 *Description:* Specifies the maximum number of messages the main worker will consume and queue from the Kafka broker. This effectively determines the size of the internally used Kafka message queue. If the limit is reached, the kafka() source stops fetching messages from the broker, logs the situation, and waits the amount of time specified by fetch-queue-full-delay() before attempting to fetch new data again.
 
-**NOTE:** If more than 2 workers are configured and separated-worker-queues() is set to `yes`, then all processor workers share this total queue size.  
+If more than 2 workers are configured and separated-worker-queues() is set to `yes`, then all processor workers share this total queue size.  
 For example, with `workers(3)` and `fetch-limit(100000)`, the 2 processor workers (remember, the first of the configured 3 is always the main worker) will each receive their own queue, and neither queue will grow beyond 50,000 messages.
-{: .notice--info}
+{: .notice--primary}
 
-**NOTE:** This options worth align with the kafka config options `queued.min.messages` and `queued.max.messages.kbytes`, For details, refer to the librdkafka documentation.
-{: .notice--info}
+This options worth align with the kafka config options `queued.min.messages` and `queued.max.messages.kbytes`, For details, refer to the librdkafka documentation.
+{: .notice--primary}
 
 ## log-fetch-delay()
 
@@ -107,8 +107,8 @@ See Bookmarking in the kafka() source for more details.
 
 *Description:* When the value of workers() is greater than 2 (meaning multiple processor threads are used to handle queued messages), and `single-worker-queue()` is set to `no`, the main worker of the kafka() source distributes the consumed messages into separate queues, one for each processor worker.
 
-**NOTE:** This approach can improve performance, especially in high-throughput scenarios, but may also lead to significantly increased memory usage.
-{: .notice--info}
+This approach can improve performance, especially in high-throughput scenarios, but may also lead to significantly increased memory usage.
+{: .notice--primary}
 
 ## state-update-timeout()
 
@@ -194,10 +194,9 @@ For details about how the resulting topic names, partitions, and Kafka assign/su
 
 {% include doc/admin-guide/options/kafka-source-workers.md %}
 
-![]({{ site.baseurl}}/assets/images/caution.png) **CAUTION:**
 Only kafka() sources with `workers()` set to less than 3 can guarantee ordered message forwarding.
 {: .notice--warning}
 
-**NOTE:** Kafka clients have their own threadpool, entirely independent from
+Kafka clients have their own threadpool, entirely independent from
 any {{ site.product.short_name }} settings. The `workers()` option has no effect on this threadpool.
-{: .notice--info}
+{: .notice--primary}

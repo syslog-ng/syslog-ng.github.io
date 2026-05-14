@@ -11,7 +11,7 @@ description: >-
 The command syntax for printing the content of the disk-buffer files
 used in {{ site.product.short_name }} looks like the following:
 
-```bash
+```shell
 dqtool cat DISK-BUFFER_FILE
 ```
 
@@ -24,9 +24,8 @@ disk-buffer files used in {{ site.product.short_name }}:
 dqtool cat /opt/syslog-ng/var/syslog-ng-00000.rqf
 ```
 
->Reliable disk-buffer state loaded; filename='/opt/syslog-ng/var/syslog-ng-00000.rqf',
->queue_length='2952', size='-437712'  
->Jul 31 12:33:48.226 10.21.10.10 <382019-07-31T12:33:36 localhost prg00000[1234]:
->seq: 0000000838, thread: 0000, runid: 1564569216, stamp: 2019-07-31T12:33:36
->PADDPADDPADDPADDPADDPADDPADDPADDPADDPADDPADDPADDPADDPADDPADDPADDPADDPADDPADDPADDPADDPADDPADD
->...
+```log
+Reliable disk-buffer state loaded; filename='/opt/syslog-ng/var/syslog-ng-00000.rqf', queue_length='2952', size='-437712'
+Jul 31 12:33:48.226 10.21.10.10 <382019-07-31T12:33:36 localhost prg00000[1234]: seq: 0000000838, thread: 0000, runid: 1564569216, stamp: 019-07-31T12:33:36 PADDPADDPADDPADDPADDPADDPADDPADDPADDPADDPADDPADDPADDPADDPADDPADDPADDPADDPADDPADDPADDPADDPADD
+...
+```

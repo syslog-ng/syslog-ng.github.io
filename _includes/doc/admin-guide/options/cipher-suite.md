@@ -28,7 +28,7 @@ You can also use the following command to automatically list only
 ciphers permitted in a specific encryption protocol, for example,
 TLSv1.2:
 
-```bash
+```shell
 echo "cipher-suite(\"$(openssl ciphers -v | grep TLSv1.2 | awk '{print $1}' | xargs echo -n | sed 's/ /:/g' | sed -e 's/:$//')\")"
 ```
 

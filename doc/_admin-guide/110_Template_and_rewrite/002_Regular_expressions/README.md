@@ -29,9 +29,9 @@ description: >-
     \\\\d expression matches the \\d string.
 
     **TIP:** If you use single quotes, you do not need to escape the
-    backslash, for example, **match(\"\\\\.\")** is equivalent to
-    match(\'\\.\').
-    {: .notice--info}
+    backslash, for example, `match(\"\\\\.\")` is equivalent to
+    `match(\'\\.\')`.
+    {: .notice}
 
 - Enclosing alphanumeric strings between double-quotes
     (**\"string\"**) is not necessary, you can just omit the
@@ -39,15 +39,16 @@ description: >-
     **match(\"sometext\")** and **match(sometext)** will both match for
     the sometext string.
 
-    >**NOTE:** Only strings containing alphanumerical characters can be used  
-    >without quotes or double quotes. If the string contains whitespace  
-    >or any special characters (()\[\].\*?+\^$\|\\ or ;:\#), you must  
-    >use quotes or double quotes.  
-    >  
-    >When using the ;:\# characters, you must use quotes or double  
-    >quotes, but escaping them is not required.  
-    >  
-    {: .notice--info}
+    {: .notice--primary-start}
+
+    Only strings containing alphanumerical characters can be used
+    without quotes or double quotes. If the string contains whitespace
+    or any special characters `(()\[\].\*?+\^$\|\\ or ;:\#)`, you must
+    use quotes or double quotes.<br>
+    When using the `;:\#` characters, you must use quotes or double
+    quotes, but escaping them is not required.
+
+    {: .notice--primary-end}
 
 By default, all regular expressions are case sensitive. To disable the
 case sensitivity of the expression, add the **flags(ignore-case)**
@@ -59,9 +60,9 @@ filter demo_regexp_insensitive {
 };
 ```
 
-**NOTE:** Adding the flags(ignore-case) option to glob patterns does not
+Adding the flags(ignore-case) option to glob patterns does not
 disable case sensitivity.
-{: .notice--info}
+{: .notice--primary}
 
 The regular expressions can use up to 255 regexp matches (**${1} \...
 ${255}**), but only from the last filter and only if the

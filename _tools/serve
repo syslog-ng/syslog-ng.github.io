@@ -24,6 +24,28 @@ stop_dir_watcher() {
     fi
 }
 
+navgen_build() {
+    # tooltips will be built at jekyll serve startup automatically if enabled, do not do it twice
+    JEKYLL_BUILD_TOOLTIPS='no' ./_tools/navgen ./doc ./_data/navigation.yml
+}
+
+print_usage() {
+    # Print a precise build-finished timestamp so it is obvious from the
+    # terminal scrollback exactly when the latest rebuild completed.
+    # `date` with `%N` is GNU-only (not on macOS BSD `date`); try `python3`
+    # for millisecond precision and fall back to second precision.
+    local _ts
+    _ts=$(python3 -c 'from datetime import datetime; print(datetime.now().isoformat(sep=" ", timespec="milliseconds"))' 2>/dev/null) \
+        || _ts=$(date '+%Y-%m-%d %H:%M:%S')
+    echo "Build finished at: ${_ts}"
+    echo "Available hotkeys:"
+    echo "  s - Stop the server"
+    echo "  r - Restart the server"
+    echo "  p - Regenerate JS files using pack"
+    echo "  n - Regenerate navigation data"
+    echo
+}
+
 # Function to start to serve in the background
 start_process() {
     echo ""
@@ -36,27 +58,59 @@ start_process() {
     rm -Rf _site
     rm -Rf .jekyll-cache
 
-    update_js_files
+    if [ "${JEKYLL_USE_AUTO_PACK}" == "yes" ]; then
+        generate_js_files
+    else
+        update_js_files # Might be needed if generate_js_files does not run
+    fi
 
     # Either use navgen or build once with JEKYLL_BUILD_LINKS manually in a separate run
     # as the output of it must already be presented to be able to serve a valid content
     #
     if [ "${JEKYLL_BUILD_LINKS}" == "yes" ]; then
-        # tooltips will be built at jekyll serve startup automatically if enabled, do not do it twice
-        JEKYLL_BUILD_TOOLTIPS='no' ./_tools/navgen ./doc ./_data/navigation.yml
+        navgen_build
     fi
 
     echo -e "\nStarting to serve...\n"
-    JEKYLL_BUILD_LINKS='no' bundle exec jekyll serve ${ALL_PARAMS} &
+
+    # Use a FIFO to tap jekyll's output: echo it to the user's terminal,
+    # and trigger print_usage after each rebuild ("done in X.XX seconds.")
+    # or once the server reports it is up ("Server running").
+    SERVE_FIFO="$(mktemp -u "${TMPDIR:-/tmp}/serve-fifo.XXXXXX")"
+    mkfifo "${SERVE_FIFO}"
+
+    JEKYLL_BUILD_LINKS='no' bundle exec jekyll serve ${ALL_PARAMS} >"${SERVE_FIFO}" 2>&1 &
     PROC_PID=$!
+
+    while IFS= read -r line; do
+        echo "${line}"
+        case "${line}" in
+            *"done in"*)
+                play_sound
+                print_usage
+                ;;
+        esac
+    done <"${SERVE_FIFO}" &
+    READER_PID=$!
 }
 
 stop_process() {
     stop_dir_watcher
 
     echo -e "\nStopping to serve...\n"
-    kill -SIGTERM ${PROC_PID}
+    kill -SIGTERM ${PROC_PID} 2>/dev/null
     wait ${PROC_PID}  >/dev/null 2>&1  # Wait for the process to terminate
+
+    if [[ ${READER_PID} != "" ]]; then
+        kill -SIGTERM ${READER_PID} 2>/dev/null
+        wait ${READER_PID} >/dev/null 2>&1
+        READER_PID=
+    fi
+    if [[ ${SERVE_FIFO} != "" && -p ${SERVE_FIFO} ]]; then
+        rm -f "${SERVE_FIFO}"
+        SERVE_FIFO=
+    fi
+
     rm -f "${REF_FILE}"
 }
 
@@ -116,9 +170,10 @@ handle_file_changes() {
                     echo -e ". Updating js files...\n"
                     if [ "${JEKYLL_USE_AUTO_PACK}" == "yes" ]; then
                         # TODO: ./_tools/pack can generate broken man.min.js on some machines :S
-                        generate_js_files                        
+                        generate_js_files
+                    else
+                        update_js_files
                     fi
-                    update_js_files
 
                     reset_watcher
                     ;;
@@ -169,9 +224,18 @@ while true; do
             start_process
             play_sound
             ;;
+        n)
+            navgen_build
+            reset_watcher
+            play_sound
+            ;;
         p)
             generate_js_files
-            update_js_files
+            # NOTE: do NOT call update_js_files here — pack already wrote
+            # assets/js/main.min.js (and _site + _js mirrors when _site exists);
+            # update_js_files would clobber the fresh bundle with the stale
+            # _js/main.min.js when _site did not exist at pack time.
+            reset_watcher
             play_sound
             ;;
     esac

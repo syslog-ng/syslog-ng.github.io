@@ -33,7 +33,7 @@ successful, it sets the ${.app.name} name-value pair to the name of the
 application that sent the log message. Currently it uses the following
 procedures.
 
-![]({{ site.baseurl}}/assets/images/caution.png) **CAUTION:** If you do not
+If you do not
 configure the TLS keys to dislay to the clients, {{ site.product.short_name }} cannot accept
 encrypted connections. The application starts and listens on TCP:6514, and
 can receive messages on other ports, but will display a warning messages about

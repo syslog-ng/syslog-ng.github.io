@@ -12,6 +12,6 @@ sure that all hosts which may get to {{ site.product.short_name }} are resolvabl
 option can be specified globally, and per-source as well. The local
 setting of the source overrides the global option if available.
 
-**NOTE:** This option has no effect if the keep-hostname() option is enabled
+This option has no effect if the keep-hostname() option is enabled
 (keep-hostname(yes)) and the message contains a hostname.
-{: .notice--info}
+{: .notice--primary}

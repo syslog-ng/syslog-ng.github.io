@@ -28,8 +28,8 @@ log otel_forward_mode_alts {
 };
 ```
 
-**NOTE:** Only the `url()` option is mandatory to definie in the destination, which includes the port number.
-{: .notice--info}
+Only the `url()` option is mandatory to definie in the destination, which includes the port number.
+{: .notice--primary}
 
 ### Example: Sending log messages to an OpenTelemetry destination
 

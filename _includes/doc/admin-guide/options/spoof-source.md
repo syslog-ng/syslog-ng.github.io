@@ -17,10 +17,10 @@ The maximum size of spoofed datagrams in udp() destinations is set to
 1024 bytes by default. To change the maximum size, use the
 spoof-source-max-msglen() option.
 
-**NOTE:** Anything above the size of the maximum transmission unit (MTU),
+Anything above the size of the maximum transmission unit (MTU),
 which is 1500 bytes by default, is not recommended because of
 fragmentation.
-{: .notice--info}
+{: .notice--primary}
 
 The maximum datagram in IP protocols (both IPv4 and IPv6) is 65535 bytes
 including the IP and UDP headers. The minimum size of the IPv4 header is

@@ -12,7 +12,6 @@ ${HOUR}, and so on) have three further variants each:
     represents the date found in the log message, that is, when the
     message was sent by the original application.
 
-    ![]({{ site.baseurl}}/assets/images/caution.png) **CAUTION:**
     To use the S\_ macros, the keep-timestamp() option must be enabled
     (this is the default behavior of {{ site.product.short_name }}).
     {: .notice--warning}

@@ -16,10 +16,10 @@ a new disk-buffer file instead of using the already existing one. In
 these situations, the already existing disk-buffer file becomes a
 so-called orphan disk-buffer file.
 
-**NOTE:** The {{ site.product.short_name }} application does not store messages in orphan
+The {{ site.product.short_name }} application does not store messages in orphan
 disk-buffer files or forward the messages stored in the disk-buffer
 file.
-{: .notice--info}
+{: .notice--primary}
 
 ## Processing the messages from an orphan disk-buffer file by using a separate {{ site.product.short_name }} instance
 
@@ -28,26 +28,19 @@ separate {{ site.product.short_name }} instance parallel to the {{ site.product.
 already running, and use the following resolution process to process the
 messages in the orphan disk-buffer file.
 
->![]({{ site.baseurl}}/assets/images/caution.png) **CAUTION:**
->Before starting a separate {{ site.product.short_name }} instance to process the messages
->from the orphan disk-buffer file, consider the following:
->  
->- During the resolution process, a separate {{ site.product.short_name }}
->    instance will be started with its temporary files beside
->    the {{ site.product.short_name }} instance already running.
->  
->- An incorrect startup command and incorrect configurations  
->    may cause issues for the {{ site.product.short_name }} instance already
->    running.
->  
->- The disk-buffer file stores processed log messages in the  
->    format in which they would have been sent out to the
->    destination.
->  
->- The disk-buffer file doesn\'t store information about the  
->    destination.
->  
-{: .notice--warning}
+{: .notice--warning-start}
+Before starting a separate {{ site.product.short_name }} instance to process the messages
+from the orphan disk-buffer file, consider the following:
+  
+- During the resolution process, a separate {{ site.product.short_name }}
+    instance will be started with its temporary files beside
+    the {{ site.product.short_name }} instance already running.  
+- An incorrect startup command and incorrect configurations  
+    may cause issues for the {{ site.product.short_name }} instance already running.  
+- The disk-buffer file stores processed log messages in the  
+    format in which they would have been sent out to the destination.  
+- The disk-buffer file doesn\'t store information about the destination.  
+{: .notice--warning-end}
 
 To process the messages from an orphan disk-buffer file using a separate
 {{ site.product.short_name }} instance,
@@ -74,11 +67,10 @@ To process the messages from an orphan disk-buffer file using a separate
 3. Create a directory for the temporary instance. In the examples
     during this process, the /tmp/qdisk directory is used.
 
-    ```bash
+    ```shell
     mkdir /tmp/qdisk
     ```
 
-    ![]({{ site.baseurl}}/assets/images/caution.png) **CAUTION:**
     Make sure that there is sufficient disk space in the directory. The minimum
     recommended disk space in the directory is equal to the size of the orphan
     disk-buffer file.
@@ -123,7 +115,6 @@ To process the messages from an orphan disk-buffer file using a separate
     configuration file. You can copy the destination statement from your
     running {{ site.product.short_name }} configuration.
 
-    ![]({{ site.baseurl}}/assets/images/caution.png) **CAUTION:**
     Add the dir() option and set the disk-buffer file\'s destination directory
     to the temporary directory (that is, /tmp/qdisk) in your destination statement.
     {: .notice--warning}
@@ -142,7 +133,7 @@ To process the messages from an orphan disk-buffer file using a separate
 
 6. Start the temporary {{ site.product.short_name }} instance in the foreground.
 
-    ```bash
+    ```shell
     syslog-ng -Fe -f /tmp/qdisk/qdisk.conf -R /tmp/qdisk/qdisk.persist -c /tmp/qdisk/qdisk.ctl
     ```
 
@@ -156,26 +147,28 @@ To process the messages from an orphan disk-buffer file using a separate
     Example: output displaying newly created empty disk-buffer file and
     connection established to remote destination
 
-    >Follow-mode file source not found, deferring open; filename='/no_such_file_or.dir'  
-    >Reliable disk-buffer state saved; filename='/tmp/qdisk/syslog-ng-00000.rqf', qdisk_length='0'  
-    >No server license found, running in client mode;  
-    >syslog-ng starting up; version='7.0.20', cfg-fingerprint='eaa03b9efb88b87d7c1b0ce7efd042ed8ac0c013',  >cfg-nonce-ndx='0', cfg-signature='c0327a7f7e6418ce0399a75089377dfb662bb072'
-    >FIPS information; FIPS-mode='disabled'  
-    >Syslog connection established; fd='7', server='AF_INET(10.21.10.20:514)', local='AF_INET(0.0.0.0:0)'
+    ```log
+    Follow-mode file source not found, deferring open; filename='/no_such_file_or.dir'
+    Reliable disk-buffer state saved; filename='/tmp/qdisk/syslog-ng-00000.rqf', qdisk_length='0'
+    No server license found, running in client mode;
+    syslog-ng starting up; version='7.0.20', cfg-fingerprint='eaa03b9efb88b87d7c1b0ce7efd042ed8ac0c013', cfg-nonce-ndx='0', cfg-signature='c0327a7f7e6418ce0399a75089377dfb662bb072'
+    FIPS information; FIPS-mode='disabled'
+    Syslog connection established; fd='7', server='AF_INET(10.21.10.20:514)', local='AF_INET(0.0.0.0:0)'
+    ```
 
 7. To stop {{ site.product.short_name }}, press CTRL+C.
 
 8. Overwrite the empty disk-buffer file with the orphan disk-buffer
     file.
 
-    ```bash
+    ```shell
     mv /opt/syslog-ng/var/syslog-ng-00005.rqf /tmp/qdisk/syslog-ng-00000.rqf
     ```
 
 9. Start {{ site.product.short_name }} using the command used in Start the temporary
     {{ site.product.short_name }} instance in the foreground step.
 
-    ```bash
+    ```shell
     syslog-ng -Fe -f /tmp/qdisk/qdisk.conf -R /tmp/qdisk/qdisk.persist -c /tmp/qdisk/qdisk.ctl
     ```
 
@@ -185,13 +178,13 @@ To process the messages from an orphan disk-buffer file using a separate
     - Checking the number of stored logs in the disk-buffer (that is,
         the last number from the output).
 
-    ```bash
+    ```shell
     /opt/syslog-ng/sbin/syslog-ng-ctl stats -c /tmp/qdisk/qdisk.ctl | grep 'dst.*queued'
     ```
 
     - Checking the status of the disk-buffer file.
 
-    ```bash
+    ```shell
     dqtool info /tmp/qdisk/syslog-ng-00000.rqf
     ```
 
@@ -203,7 +196,9 @@ To process the messages from an orphan disk-buffer file using a separate
     will display a similar status message for an empty disk-buffer
     file:
 
-    >Reliable disk-buffer state loaded; filename='/tmp/qdisk/syslog-ng-00000.rqf', queue_length='0', size='0'
+    ```log
+    Reliable disk-buffer state loaded; filename='/tmp/qdisk/syslog-ng-00000.rqf', queue_length='0', size='0'
+    ```
 
 11. Press CTRL+C to stop {{ site.product.short_name }}.
 
@@ -222,6 +217,6 @@ To process the messages from an orphan disk-buffer file using a separate
 
     The following command removes the /mp/qdisk temporary directory:
 
-```bash
+```shell
 rm -rf /tmp/qdisk
 ```

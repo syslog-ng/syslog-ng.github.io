@@ -38,7 +38,7 @@ cd build
 ../configure --enable-debug --prefix=${HOME}/install/syslog-ng
 ```
 
-**Warning:** By a good chance, you might want to install the self built instance first to a custom location to prevent overwriting a possibly already existing installation version. In that case always pass `--prefix /full_path_of/installdir/` to the `configure` script.
+By a good chance, you might want to install the self built instance first to a custom location to prevent overwriting a possibly already existing installation version. In that case always pass `--prefix /full_path_of/installdir/` to the `configure` script.
 {: .notice--danger}
 
 You can pass [[additional parameters|dev-comp-opts]] to configure, but these are the most common ones.

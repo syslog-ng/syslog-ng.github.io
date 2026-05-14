@@ -69,12 +69,12 @@ For more info, see [oslog](https://developer.apple.com/documentation/oslog?langu
   - integer value, that limits the number of logs {{ site.product.short_name }} will send in one run
   - default value: `0`, which means no limit
 
-NOTE: the persistent OSLog store is not infinite, depending on your system setting usually,
+the persistent OSLog store is not infinite, depending on your system setting usually,
 it keeps about 7 days of logs on disk, so it could happen that the above options cannot
 operate the way you expect, e.g. if {{ site.product.short_name }} was stopped for about more then a week it
 could happen that will not be able to restart from the last saved bookmark position
 (as that might not be presented in the persistent log anymore)
-{: .notice}
+{: .notice--primary}
 
 ### darwin-oslog-stream()
 
