@@ -28,6 +28,9 @@ a markdown link, where the link url and title is handled automatically using the
 the url and the default title text must not be provided here (though can be overriden if needed), the lookup of them will be automatic based on the given ID, the generate_links collected links in the `${PROJECT_ROOT}/_data/links` folder are also available via the `site.data.links` liquid variable, markdown_link uses this variable as well to search for the given ID and the corresponding title and url.
 {: .notice--primary}
 
+The examples below show the **include invocation** (top fence) and the **raw Markdown that the include expands to** (bottom fence). Jekyll then runs kramdown on that Markdown to produce the final HTML `<a>` tag, so what you see is an intermediate representation, not the final rendered output.
+{: .notice--info}
+
 You can use the following parameters to adjust the composition of the above `md_link_` options:
 
 - `decl`, a boolean string `'yes'`, `'no'` or value `true`, `false` that controls if the generated link is a declaration, or definition, e.g.:
@@ -36,7 +39,7 @@ You can use the following parameters to adjust the composition of the above `md_
     {% raw %}{% include markdown_link id='id' decl=true %}{% endraw %}
     ```
 
-    markdown output
+    Expands to:
 
     ``` markdown
     [ref:id]: url
@@ -54,13 +57,13 @@ You can use the following parameters to adjust the composition of the above `md_
     {% raw %}{% include markdown_link id='id' %}{% endraw %}
     ```
 
-    markdown output
+    Expands to:
 
     ``` markdown
     [title](url){: class="nav-link" }
     ```
 
-    the `class="nav-link"` style is always added to the link, except if `outOfFrame` is set to `yes`
+    the `class="nav-link"` style is always added to the link, except if `outOfFrame` is set to `yes` (or `newPage` is set to `yes`, see below).
     {: .notice--primary}
 
 - `title`, a custom title that can override the one that belongs to the given link ID, e.g.:
@@ -69,7 +72,7 @@ You can use the following parameters to adjust the composition of the above `md_
     {% raw %}{% include markdown_link id='id' title='custom title' %}{% endraw %}
     ```
 
-    markdown output
+    Expands to:
 
     ``` markdown
     [custom title](url){: class="nav-link" }
@@ -81,7 +84,7 @@ You can use the following parameters to adjust the composition of the above `md_
     {% raw %}{% include markdown_link id='id' withTooltip=true %}{% endraw %}
     ```
 
-    markdown output
+    Expands to:
 
     ``` markdown
     [title](url){: class="nav-link content-tooltip" }
@@ -95,11 +98,14 @@ You can use the following parameters to adjust the composition of the above `md_
     {% raw %}{% include markdown_link id='id' newPage=true %}{% endraw %}
     ```
 
-    markdown output
+    Expands to:
 
     ``` markdown
-    [title](url){: class="nav-link" target="_blank" }
+    [title](url){:  target="_blank" }
     ```
+
+    Note: the current include implementation **replaces** the class IAL with `target="_blank"`, so `class="nav-link"` is dropped when `newPage=true`. The link therefore falls out of the SPA navigation flow and triggers a full page load in the new tab -- which is the desired behaviour for new-tab links.
+    {: .notice--primary}
 
 - `outOfFrame`, a boolean string `'yes'`, `'no'` or value `true`, `false` that controls if a navigational click on the generated final HTML anchor element will open the linked content in the right frame of the page, or will trigger a full page load that replacing the current content entirely, e.g.:
 
@@ -107,13 +113,13 @@ You can use the following parameters to adjust the composition of the above `md_
     {% raw %}{% include markdown_link id='id' outOfFrame=true %}{% endraw %}
     ```
 
-    markdown output
+    Expands to:
 
     ``` markdown
-    [title](url){: }
+    [title](url){: class="" }
     ```
 
-    the absence of the `class="nav-link"` style, that will not be added if outOfFrame is `true`
+    The empty `class=""` IAL means the `nav-link` style is omitted, so the link triggers a full page load instead of an SPA content swap.
     {: .notice--primary}
 
 ## liquify
@@ -122,11 +128,18 @@ liquify.rb is a nice liquid filter that parses liquid objects to their actual va
 
 ## generate_links
 
-Our generate_links.rb Jekyll plugin creates the content of the `${PROJECT_ROOT}/_data/link` folder. The generated link files are created from all the H1-H6 headings, named anchors, and the page self-links of our markdown pages. The links are used for autolink/tooltip generation and page navigation ordering.
+Our generate_links.rb Jekyll plugin creates the content of the `${PROJECT_ROOT}/_data/links` folder. The generated link files are created from all the H1-H6 headings, named anchors, and the page self-links of our markdown pages. The links are used for autolink/tooltip generation and page navigation ordering.
+
+It is gated by the `JEKYLL_BUILD_LINKS=yes` environment variable and runs on the `:site, :post_render` hook -- i.e. **after** Jekyll has rendered every page to HTML, so it can extract anchor information from the final DOM.
 
 ## generate_tooltips
 
-The generate_tooltips.rb Jekyll plugin is responsible for adding autolink/tooltip items to our pages. It uses multiple [[page render hook|jekyll-render-hooks]] pases, please see the source-code why it is needed. It is far-far not optimal, makes the whole rendering process very slow now and needs enhancements badly, please feel free to contribute to make it more effective!
+The generate_tooltips.rb Jekyll plugin is responsible for adding autolink/tooltip items to our pages. It is gated by the `JEKYLL_BUILD_TOOLTIPS=yes` environment variable and registers on **two** Jekyll hooks within the same build:
+
+- `:site, :pre_render` -- loads the link dictionary built by `generate_links` from `_data/links/`, sorts entries by title length (longest first to avoid partial-word matches), and applies aliases and exclusions
+- `[:pages, :documents], :pre_render` -- iterates each page's Markdown content, splits it into safe-to-process spans (skipping fenced code blocks, existing links, headings) and injects `<a href="...">title</a>` HTML anchors directly into the Markdown source. kramdown then preserves these inline `<a>` tags as-is when converting Markdown to HTML.
+
+It is far-far not optimal, makes the whole rendering process very slow now and needs enhancements badly, please feel free to contribute to make it more effective!
 
 ## \[\[title\|id\]\] markdown extension
 
@@ -228,21 +241,17 @@ These can all be overridden by using the [[\[\[title&#124;id\]\] markdown extens
 
 The basic flow is as follows:
 
-- in the first site generation pass
-  - the Jekyll liquid parser creates named anchors from our markdown_link liquid includes
-  - the generate_links tool creates the input links in the `${PROJECT_ROOT}/_data/links/` folder from all the page links, [h2-h6] headings, and named anchors of the pages
+- in the **first Jekyll build** (`JEKYLL_BUILD_LINKS=yes`)
+  - the Jekyll liquid parser creates named anchors from our `markdown_link` liquid includes
+  - kramdown converts each page's Markdown into HTML
+  - on `:site, :post_render`, `generate_links` parses the rendered HTML with Nokogiri and writes one link descriptor per page (id, url, title, priority) to `${PROJECT_ROOT}/_data/links/`
 
-- in the second site generation pass, the generate_tooltips tool
-  - builds a link dictionary from all the page links of `${PROJECT_ROOT}/_data/links/` folder sorted by title length in reverse order
-  - adds aliases to the given titles in the link dictionary from the `${PROJECT_ROOT}/_data/link_aliases.yml`
-  - excludes titles from the link dictionary based on the content of the `${PROJECT_ROOT}/_data/external_links.yml` file
-
-- in the third site generation pass, the generate_tooltips tool
-  - finalizes the left navigation sidebar content from `${PROJECT_ROOT}/_data/navigation.yml`
-  - generates the HTML code from the link dictionary for the autolinks and tooltips
+- in the **second Jekyll build** (`JEKYLL_BUILD_TOOLTIPS=yes`), `generate_tooltips`
+  - on `:site, :pre_render`: loads every `_data/links/*.yml` into a single dictionary, sorted by title length in reverse order, then merges aliases from `${PROJECT_ROOT}/_data/link_aliases.yml` and removes excluded entries listed in `${PROJECT_ROOT}/_data/excluded_titles.yml`
+  - on `[:pages, :documents], :pre_render`: walks the Markdown source of every page/document, finds plain-text matches against the dictionary and rewrites them into inline `<a class="...">title</a>` HTML anchors that kramdown will leave intact
 
 - at runtime
-  - .js code parts adds the tooltip code to the named anchors with specific autolink, tooltip class(es)
+  - the bundled JS (`_js/custom/navigation.js`, packed into `assets/js/main.min.js`) selects every anchor that carries the authoring class `content-tooltip` and attaches the hover/click tooltip behaviour to it; the rendered tooltip container then receives one of the runtime state classes `text-content-tooltip` or `full-content-tooltip` depending on the previewed content size (these two are **not** authoring classes -- do not write them in Markdown)
 
 ## Notice blocks
 
@@ -256,14 +265,14 @@ Notice blocks are the gray/colored callout boxes used throughout the documentati
 
 The five typed notice variants get their leading icon and bold label injected automatically by `@mixin notice-prefix`. **Authors must never write the `![](.../icon.png) **LABEL:**` prefix in the source** — doing so would render the icon and label twice. The plain `.notice` class has no auto-prefix; any leading label there is written manually.
 
-| Class               | Auto-injected icon                                                | Auto-injected label |
-|---------------------|-------------------------------------------------------------------|---------------------|
-| `.notice--primary`  | ![](/assets/images/note.png)    `/assets/images/note.png`         | **NOTE:**           |
-| `.notice--info`     | ![](/assets/images/info.png)    `/assets/images/info.png`         | **INFO:**           |
-| `.notice--warning`  | ![](/assets/images/caution.png) `/assets/images/caution.png`      | **WARNING:**        |
-| `.notice--danger`   | ![](/assets/images/warning.png) `/assets/images/warning.png`      | **DANGER:**         |
-| `.notice--success`  | ![](/assets/images/success.png) `/assets/images/success.png`      | **SUCCESS:**        |
-| `.notice` (plain)   | — none —                                                          | — none —            |
+| Class               | Auto-injected icon                                            | Auto-injected label |
+|---------------------|---------------------------------------------------------------|---------------------|
+| `.notice--primary`  | ![](/assets/images/note.png)    `/assets/images/note.png`     | **NOTE:**           |
+| `.notice--info`     | ![](/assets/images/info.png)    `/assets/images/info.png`     | **INFO:**           |
+| `.notice--warning`  | ![](/assets/images/caution.png) `/assets/images/caution.png`  | **WARNING:**        |
+| `.notice--danger`   | ![](/assets/images/warning.png) `/assets/images/warning.png`  | **DANGER:**         |
+| `.notice--success`  | ![](/assets/images/success.png) `/assets/images/success.png`  | **SUCCESS:**        |
+| `.notice` (plain)   | — none —                                                      | — none —            |
 
 The auto-injected prefix flows inline with the first line of the body text. To change an icon or a label, edit `@mixin notice-prefix` invocations near the bottom of `_sass/minimal-mistakes/minimal-mistakes/_notices.scss`.
 

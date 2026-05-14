@@ -15,7 +15,7 @@ render_with_liquid: false
  5. If you modify a file in the `_includes/doc/` directory, it is probably included to multiple parts of the documentation. Make sure that your changes make sense in each context.
  6. Modify the files as you need (following our markup conventions). For example, you can add new examples, correct typos, and so on.
  7. Validate the files to make sure that the `markdown` is well-formed.
- 8. Commit and sign off your changes. If your changes apply only to {{ site.product.short_name }}, begin the commit message with the `ose` prefix. If the changes apply only to specific versions, indicate them in the tag, for example, `ose 3.35`
+ 8. Commit and sign off your changes. Use a clear, descriptive commit subject (Conventional Commits style is welcome but not mandatory).
  9. Push your changes, for example, `git push origin my-typo-fixes`
  10. Submit a pull request.
  11. Sign the {{ site.product.name }} Documentation Contributor License Agreement when prompted.
@@ -23,7 +23,8 @@ render_with_liquid: false
 
 ## Basic rules, conventions we try to follow
 
-The full set of conventions, build details, and infrastructure notes lives in the agent instruction files of the repository. The points below are the day-to-day essentials for human contributors.
+The full set of conventions, build details, and infrastructure notes lives in the agent instruction files of the repository, and -- in human-readable form with further examples -- in the Jekyll extensions, plug-ins, and Self made helper tools pages.\
+The points below are the day-to-day essentials for human contributors.
 
 ### Page metadata (frontmatter)
 
@@ -31,9 +32,9 @@ Every page begins with YAML frontmatter:
 
 ```yaml
 ---
-title: Page Title           # globally unique
-short_title: Short Nav Title  # optional, falls back to title
-id: unique-kebab-id         # globally unique, used for cross-references
+title: Page Title            # globally unique
+short_title: Short Nav Title # optional, falls back to title
+id: unique-kebab-id          # globally unique, used for cross-references
 description: >-
     Brief description here.
 ---
@@ -83,9 +84,9 @@ render_with_liquid: false
 
 Without this flag, Jekyll's final Liquid pass re-runs over our plugin-rendered content and:
 
-- drops the description marker, leaving `<—description_start—>` visible verbatim
-- re-expands {% raw %}`{% raw %}`{% endraw %} blocks (so the literal {% raw %}`{{ site.product.name }}`{% endraw %} example disappears)
-- leaves `[[title|id]]` wikilinks unresolved — kramdown then turns the surrounding paragraph into a single-row table because of the `|`
+- drops the description marker, leaving `<---description_start--->` visible verbatim in the body (instead of being wrapped into the styled `<p id="page-description">` element)
+- re-expands `{% raw %}` blocks, so both the protective markers and the literal example they were protecting (for instance a literal `{{ site.product.name }}` snippet meant to be shown as source) silently disappear from the rendered page
+- leaves `[[title|id]]` wikilinks unresolved -- kramdown then turns the surrounding paragraph into a single-row table because of the `|`
 
 The build emits a `[render_with_liquid check] WARNING:` line on STDOUT for any page that matches this pattern but lacks the flag.
 
@@ -102,11 +103,13 @@ When editing an include, remember that it appears on multiple pages — make sur
 
 ### Code blocks — pick the right language tag
 
-| Tag      | Use for                                                            |
-|----------|--------------------------------------------------------------------|
-| `config` | {{ site.product.short_name }} configuration snippets (`source`, `destination`, `filter`, templates, etc.) |
-| `shell`  | Shell commands (`./configure`, `systemctl`, `openssl`, `syslog-ng-ctl`, …) |
-| `log`    | Sample log lines, internal output, stack traces, `syslog-ng-ctl` dumps — anything verbatim. Renders as a soft light-gray box with a left accent bar and italic, non-monospace text. |
+| Tag        | Use for                                                            |
+|------------|--------------------------------------------------------------------|
+| `config`   | {{ site.product.short_name }} configuration snippets (`source`, `destination`, `filter`, templates, etc.) |
+| `shell`    | Shell commands (`./configure`, `systemctl`, `openssl`, `syslog-ng-ctl`, …) |
+| `log`      | Sample log lines, internal output, stack traces, `syslog-ng-ctl` dumps -- anything verbatim. Renders as a soft light-gray box with a left accent bar and italic, non-monospace text. |
+| `markdown` | Raw Markdown source shown for documentation purposes (e.g. in [[Jekyll extensions, plug-ins\|doc-jekyll-extensions]]). |
+| `liquid`   | Raw Liquid source shown for documentation purposes (include invocations, template snippets). Combine with `{% raw %}…{% endraw %}` and `` so the page does not execute the example. |
 
 Inside `log` fenced code blocks, do **not** backslash-escape `<`, `>`, `[`, `]` — the fence is inert, escapes render literally. Do not use the legacy `> log line` blockquote form for new log/output samples.
 
@@ -147,7 +150,13 @@ For the full reference (typed variants, the `.no-prefix` opt-out, strict pairing
 
 ### Cross-references
 
-Use the `[[title|id]]` markdown extension (handled by `_plugins/generate_tooltips.rb`) for internal links — it renders as an auto-linked tooltip. See [[Jekyll extensions, plug-ins|doc-jekyll-extensions]] for the full syntax.
+Three mechanisms exist for internal links; all of them are documented in full in [[Jekyll extensions, plug-ins|doc-jekyll-extensions]] (and the surrounding tooling -- `navgen`, `linkcheck`, `pack`, `mangen`, the `serve` wrapper, and so on -- is described in [[Self-made tools|doc-own-tools]]):
+
+- **Fully automatic** -- `_plugins/generate_tooltips.rb` scans the plain-text portions of every page and turns any phrase that matches a known page title, heading, named anchor, or alias into an auto-link with a tooltip preview. No markup is required in the source -- just write the title text naturally and it becomes a link. Use `${PROJECT_ROOT}/_data/excluded_titles.yml` to opt a phrase out, or `${PROJECT_ROOT}/_data/link_aliases.yml` to add extra trigger phrases.
+- The `[[title|id]]` markdown extension (also handled by `_plugins/generate_tooltips.rb`) -- use it when you need to disambiguate, force a different target, or override the displayed text. The `[[title|-]]` form temporarily disables auto-linking for a single occurrence.
+- The `markdown_link` Liquid include (`{% include markdown_link id='…' %}`, with optional `withTooltip=true`, `newPage=true`, `outOfFrame=true`) -- use it when you need to override the title or control the link's navigation behaviour.
+
+For more background on the rendering pipeline (Liquid passes, the `JEKYLL_BUILD_LINKS` / `JEKYLL_BUILD_TOOLTIPS` two-pass build, `_data/links/`, the `expand_notice_blocks` plugin, etc.) see [[Jekyll extensions, plug-ins|doc-jekyll-extensions]]; for the build-time helpers under `_tools/` see [[Self made helper tools|doc-own-tools]].
 
 ### Linting and local validation
 
