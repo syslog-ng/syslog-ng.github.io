@@ -80,9 +80,9 @@ format string: **format(\"%d/%b/%Y:%H:%M:%S %Z\")**
 | Default:         | `stamp`          |
 
 *Description:* Determines if the parsed date values are treated as sent
-or received date. If you use time-stamp(), {{ site.product.short_name }} adds the parsed
+or received date. If you use `time-stamp(stamp)`, {{ site.product.short_name }} adds the parsed
 date to the S\_ macros (corresponding to the sent date). If you use
-**time-zone(recvd)**, {{ site.product.short_name }} adds the parsed date to the R\_
+`time-stamp(recvd)`, {{ site.product.short_name }} adds the parsed date to the R\_
 macros (corresponding to the received date).
 
 {% include doc/admin-guide/options/time-zone.md %}
