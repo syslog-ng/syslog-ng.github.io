@@ -25,7 +25,7 @@ releases. The current documentation applies to version 3.38.
     `--worker-threads` settings of {{ site.product.short_name }}.
 
 The maximum number of worker threads {{ site.product.short_name }} uses is the number of
-CPUs or cores in the host running {{ site.product.short_name }} (up to 64). You can
+CPUs or cores in the host running {{ site.product.short_name }} (up to 256). You can
 limit this value using the `--worker-threads` command-line option
 that sets the maximum total number of threads {{ site.product.short_name }} can use,
 including the main {{ site.product.short_name }} thread. However, the `--worker-threads`
