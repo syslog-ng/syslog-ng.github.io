@@ -17,11 +17,18 @@ asterisk **\*** to specify every user currently logged in to the system.
 usertty(username);
 ```
 
-The usertty() does not have any further options nor does it support
-templates.
+The usertty() does not support templates, and has a single optional parameter.
+
+## escaping()
+
+| Accepted values: | `yes`, `no` |
+| Default:         | `no`        |
+
+*Description:* If this parameter is set to `yes`, {{ site.product.short_name }} escapes the message part of the
+usertty() output using the default template-escaping rules.
 
 ### Example: Using the usertty() driver
 
 ```config
-destination d_usertty { usertty("root"); };
+destination d_usertty { usertty("root" escaping(yes)); };
 ```
