@@ -54,7 +54,7 @@ expression is the following:
 source s_file{
     file("/var/log/tomcat6/catalina.2010-06-09.log"
     follow-freq(0) 
-    multi-line-mode(regexp) 
+    multi-line-mode(prefix-garbage)
     multi-line-prefix("[0-9]{4}\.[0-9]{2}\.[0-9]{2}\.") 
     flags(no-parse));
 };
