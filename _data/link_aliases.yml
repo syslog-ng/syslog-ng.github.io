@@ -93,6 +93,12 @@ adm-temp-macro-ose#year-c_year-r_year-s_year:
 adm-temp-macro-ose#year_day-c_year_day-r_year_day-s_year_day:
   aliases: [ "/\\${YEAR_DAY}|\\${[CRS]_YEAR_DAY}/" ]
 
+adm-temp-map-value:
+  aliases: [ "map-value-pairs()" ]
+
+adm-enrich-meta-ext:
+  aliases: [ "add-contextual-data()" ]
+
 adm-log-flow#log-paths-with-flow-control:
   aliases: [ "Managing incoming and outgoing messages with flow-control" ]
 
