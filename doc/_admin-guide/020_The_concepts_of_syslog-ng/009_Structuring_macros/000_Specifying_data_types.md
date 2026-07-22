@@ -90,10 +90,12 @@ onwards:
 Component types not listed below process data as string.
 {: .notice--primary}
 
-- Numeric operators in filter expression comparisons are now
-    type-aware. The exact comparison depends on the types associated
-    with the values compared. For more information, see Comparing macro
-    values in filters.
+### Numeric operators
+
+Numeric operators in filter expression comparisons are now
+type-aware. The exact comparison depends on the types associated
+with the values compared. For more information, see Comparing macro
+values in filters.
 
 ### json-parser() and the format-json template function
 
@@ -133,12 +135,12 @@ type. The internal parsers of db-parser() (for example, @NUMBER@)
 automatically couple type information to the parsed name-value
 pair. For more information, see Using pattern databases.
 
-### add-contextual-data()  
+### add-contextual-data() parser
 
 Name-value pairs that are populated using add-contextual-data() propagate type
 information, similarly to db-parser().
 
-### map-value-pairs()
+### map-value-pairs() parser
 
 map-value-pairs() propagates type information.
 

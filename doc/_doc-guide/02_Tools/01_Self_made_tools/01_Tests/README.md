@@ -13,12 +13,15 @@ subtitle: >-
     One more [[destination|adm-about-glossary#bom]] id=adm-about-glossary#bom override test from subtitle.<br>
     Macros test ${HOST}.<br>
     Liquid test `{{ site.title }}` - {{ site.title }}.<br>
-    Markdown formatting should work as well, for example, **bold** and `inline code` tests.
+    Markdown formatting should work as well, for example, **bold** and `inline code` tests.<br>
+    ![]({{ img_folder | append: '/caution.png'}}) - {% raw %}`![]({{ img_folder | append: '/caution.png'}})`{% endraw %} declared variables in include files will not be rendered in front matter, use `_config.yml` global variables for such purpose<br>
 # this can be tested as well, but do not send to the final version
 search: false
 # Mandatory on pages with raw Liquid examples or self-rendered content. Details: doc/_doc-guide/02_Tools/02_Jekyll_extensions.md
 render_with_liquid: false
 ---
+
+![]({{ img_folder | append: '/caution.png'}}) - {% raw %}`![]({{ img_folder | append: '/caution.png'}})`{% endraw %} declared variables in include files must be rendered in the page correctly, unlike in front matter.<br>
 
 ## H2 test row
 
