@@ -53,7 +53,7 @@ Use the following example to format the same fields into JSON.
 
 Use the following example to format the `MESSAGE` field as a JSON list.
 
-`$$(format-json message=list(${MESSAGE}))`
+`$(format-json message=list(${MESSAGE}))`
 
 The {{ site.product.short_name }} application currently supports the following data-types.
 
