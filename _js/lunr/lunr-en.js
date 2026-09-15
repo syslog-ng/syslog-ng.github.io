@@ -3,7 +3,7 @@ layout: none
 ---
 
 // VERSION COUNTER - increment on each change to verify latest code is loaded
-var SEARCH_VERSION = 45;
+var SEARCH_VERSION = 48;
 window.logger.log('========================================');
 window.logger.log('LUNR SEARCH ENGINE LOADED - VERSION: ' + SEARCH_VERSION);
 window.logger.log('========================================');
@@ -97,9 +97,102 @@ window.logger.log('========================================');
 // Compound term separators (used for compound pattern detection)
 var COMPOUND_SEPARATORS = '-_.';  // Hyphen, underscore, dot
 var COMPOUND_SEPARATORS_ESCAPED = COMPOUND_SEPARATORS.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+var COMPOUND_SEPARATOR_CLASS = '[' + COMPOUND_SEPARATORS_ESCAPED + ']';
 
 // Shared pattern for detecting compound terms (words joined by COMPOUND_SEPARATORS)
 var compoundPattern = new RegExp('[\\w]+([' + COMPOUND_SEPARATORS_ESCAPED + '][\\w]+)+', 'g');
+
+// Detects "flag-like" terms: one or more leading separators directly
+// followed by a word, e.g. "--scope" or "__internal". Unlike compoundPattern
+// this requires no word char before the separator run, so it also matches a
+// token at the very start of a string. Capture group 2 is the flag itself;
+// group 1 is the boundary (start-of-string or a preceding delimiter) that
+// had to be consumed to anchor the match without needing lookbehind.
+var leadingFlagPattern = /(^|[\s"'(),])([-_.]+[\w]+)/g;
+
+// Canonicalize a compound term so "selected-macros", "selected_macros" and
+// "selected.macros" all resolve to the SAME index token / search term.
+// Without this, hyphen/underscore/dot variants of the same identifier are
+// indexed and searched as different strings and never rank equally.
+function normalizeCompoundTerm(term) {
+  return term.replace(new RegExp(COMPOUND_SEPARATOR_CLASS, 'g'), '-');
+}
+
+// Strip leading/trailing separator characters from a raw user-typed term.
+// The tokenizer treats '-', '_' and '.' purely as word boundaries, so a
+// literal search like "--scope" (a CLI flag) has no matching "--scope"
+// token in the index at all - only "scope" does. Trimming the separators
+// before searching lets exact/wildcard/fuzzy strategies find that token,
+// while a separate compound-term regex check (see compoundTermMatches)
+// still verifies the separator-bearing form actually appears in the text.
+function stripLeadingTrailingSeparators(term) {
+  var re = new RegExp('^' + COMPOUND_SEPARATOR_CLASS + '+|' + COMPOUND_SEPARATOR_CLASS + '+$', 'g');
+  return term.replace(re, '');
+}
+
+// Builds a separator-tolerant regex source for a (possibly compound) term:
+// any run of '-'/'_'/'.' in the term matches any run of those characters in
+// the target text, so "selected-macros" also matches "selected_macros" and
+// "--scope" also matches "---scope" or "__scope".
+function buildCompoundTermPattern(term) {
+  return term
+    .split(new RegExp(COMPOUND_SEPARATOR_CLASS + '+'))
+    .map(function (part) { return part.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); })
+    .join(COMPOUND_SEPARATOR_CLASS + '+');
+}
+
+// Separator-tolerant "does this text contain this compound term" check.
+// Treats '-', '_' and '.' as interchangeable so "selected-macros" matches
+// text containing "selected_macros" (and vice versa).
+function compoundTermMatches(text, term) {
+  if (!term) {
+    return false;
+  }
+  return new RegExp(buildCompoundTermPattern(term)).test(text);
+}
+
+// Like compoundTermMatches, but returns the match index (or -1), for
+// snippet-positioning code that needs to know WHERE the term was found.
+function compoundTermIndexOf(text, term) {
+  if (!term) {
+    return -1;
+  }
+  var match = new RegExp(buildCompoundTermPattern(term)).exec(text);
+  return match ? match.index : -1;
+}
+
+// Safe wrapper around lunr's programmatic query API. Unlike idx.search(str),
+// this never re-parses the term for '+'/'-' presence operators, 'field:'
+// selectors, or hyphen-based term splitting - the term is matched literally,
+// which is what every automatic strategy below actually needs.
+function safeTermQuery(term, options) {
+  try {
+    return idx.query(function (q) {
+      q.term(term, options);
+    });
+  } catch (e) {
+    window.logger.error('safeTermQuery error for "' + term + '":', e);
+    return [];
+  }
+}
+
+// Score tiers for the strategies below, spaced far enough apart that Lunr's
+// raw BM25 score (added on top, as a tiebreaker) can never bump a result
+// from a lower tier above a higher one. BM25 scores vary wildly by document
+// length/term-frequency - e.g. a long options-reference page mentioning the
+// compound term once can score LOWER on raw BM25 than a short heading page
+// matching only a component part, which broke the intended strategy
+// hierarchy when boosts were applied as multipliers on that raw score.
+var SCORE_TIER = {
+  COMPOUND_TITLE: 1000000,
+  COMPOUND_EXCERPT_START: 500000,
+  COMPOUND_MENTION: 100000,
+  LITERAL_QUERY: 90000,
+  FULL_QUERY: 10000,
+  COMPOUND_PART: 1000,
+  WILDCARD: 100,
+  FUZZY: 1
+};
 
 var idx = lunr(function () {
   this.field('title', { boost: 10 })
@@ -136,8 +229,23 @@ var idx = lunr(function () {
     var compoundTokens = [];
     
     while (match = compoundPattern.exec(str)) {
-      compoundTokens.push(new lunr.Token(match[0], {
+      // Index the canonical (hyphen-normalized) form so "selected-macros",
+      // "selected_macros" and "selected.macros" all become ONE index token.
+      compoundTokens.push(new lunr.Token(normalizeCompoundTerm(match[0]), {
         position: [match.index, match[0].length],
+        index: tokens.length
+      }));
+    }
+
+    // Also index "flag-like" terms (leading separators + word, e.g.
+    // "--scope"), so literal CLI-flag mentions in the text get their own
+    // exact-match index token instead of only the bare word ("scope").
+    var flagMatch;
+    leadingFlagPattern.lastIndex = 0;
+    while (flagMatch = leadingFlagPattern.exec(str)) {
+      var flagStart = flagMatch.index + flagMatch[1].length;
+      compoundTokens.push(new lunr.Token(normalizeCompoundTerm(flagMatch[2]), {
+        position: [flagStart, flagMatch[2].length],
         index: tokens.length
       }));
     }
@@ -233,7 +341,7 @@ function generateContextualSnippet(text, query, compoundTerms, maxWords, title, 
   
   // PRIORITY 1: Try compound terms first in excerpt (HIGHEST PRIORITY)
   for (var i = 0; i < compoundTerms.length; i++) {
-    var pos = textLower.indexOf(compoundTerms[i]);
+    var pos = compoundTermIndexOf(textLower, compoundTerms[i]);
     if (pos !== -1) {
       matchPos = pos;
       matchTerm = compoundTerms[i];
@@ -250,7 +358,7 @@ function generateContextualSnippet(text, query, compoundTerms, maxWords, title, 
     // First check for full compound term in title
     for (var i = 0; i < compoundTerms.length; i++) {
       window.logger.log('[Snippet] Checking if title contains full compound: "' + compoundTerms[i] + '"');
-      if (titleLower.indexOf(compoundTerms[i]) !== -1) {
+      if (compoundTermMatches(titleLower, compoundTerms[i])) {
         matchInTitle = true;
         matchTerm = compoundTerms[i];
         window.logger.log('[Snippet] ✓ FULL compound term "' + compoundTerms[i] + '" found in TITLE only');
@@ -578,8 +686,9 @@ function highlightTerms(text, query, compoundTerms, fuzzyEnabled) {
   compoundTerms.forEach(function(term) {
     if (term.length > 0) {
       termsToHighlight.push(term);
-      // Check if this compound term actually exists in the text
-      if (textLower.indexOf(term) !== -1) {
+      // Check if this compound term actually exists in the text (separator-tolerant,
+      // so "selected-macros" also counts a "selected_macros" occurrence as found).
+      if (compoundTermMatches(textLower, term)) {
         hasCompoundInText = true;
         window.logger.log('[Highlight] ✓ Found compound term "' + term + '" in text');
       } else {
@@ -638,8 +747,10 @@ function highlightTerms(text, query, compoundTerms, fuzzyEnabled) {
     
     if (hasCompoundSep) {
       window.logger.log('[Highlight] Term has compound separator, matching directly');
-      // For compound terms, match directly (hyphens aren't word boundaries)
-      var regex = new RegExp('(' + escapedTerm + ')', 'gi');
+      // For compound terms, match directly (hyphens aren't word boundaries).
+      // Separator-tolerant so a hyphenated query term still highlights an
+      // underscore-spelled (or double-dash) occurrence in the actual text.
+      var regex = new RegExp('(' + buildCompoundTermPattern(term) + ')', 'gi');
       var matchCount = 0;
       result = result.replace(regex, function(match, p1, offset, string) {
         // Don't highlight if inside existing <mark> tags
@@ -958,14 +1069,39 @@ $(document).ready(function() {
       var queryLower = query.toLowerCase();
       
       // Find compound terms using
+      // Normalized (canonical hyphen form) so "selected-macros" and
+      // "selected_macros" are treated as the SAME term (dedup via seen set).
       var match;
       var pattern = new RegExp(compoundPattern.source, 'g');
+      var seenCompoundTerms = new Set();
       while (match = pattern.exec(queryLower)) {
-        compoundTerms.push(match[0]);
+        var normalized = normalizeCompoundTerm(match[0]);
+        if (!seenCompoundTerms.has(normalized)) {
+          seenCompoundTerms.add(normalized);
+          compoundTerms.push(normalized);
+        }
+      }
+
+      // Also detect flag-like terms ("--scope"): without this, a query for
+      // a literal CLI flag falls back to matching the bare word ("scope")
+      // everywhere it appears, with no way to prefer/verify pages that
+      // actually contain the "--scope" form over unrelated "scope" mentions.
+      var flagPattern = new RegExp(leadingFlagPattern.source, 'g');
+      var flagMatch;
+      while (flagMatch = flagPattern.exec(queryLower)) {
+        var normalizedFlag = normalizeCompoundTerm(flagMatch[2]);
+        if (!seenCompoundTerms.has(normalizedFlag)) {
+          seenCompoundTerms.add(normalizedFlag);
+          compoundTerms.push(normalizedFlag);
+        }
       }
       
-      // Get all individual terms
-      allTerms = queryLower.split(/\s+/).filter(function(t) { return t.length > 0; });
+      // Get all individual terms, trimmed of leading/trailing separators so
+      // literal CLI-flag-style queries like "--scope" search for the actual
+      // indexed token ("scope") instead of a string that has no match at all.
+      allTerms = queryLower.split(/\s+/)
+        .map(function (t) { return stripLeadingTrailingSeparators(t); })
+        .filter(function(t) { return t.length > 0; });
       
       window.logger.log('========== SEARCH: ' + query + ' ==========');
       if (compoundTerms.length > 0) {
@@ -975,7 +1111,7 @@ $(document).ready(function() {
       // Strategy 1: Exact compound term match with title detection (HIGHEST PRIORITY)
       compoundTerms.forEach(function(term) {
         try {
-          var compoundResults = idx.search(term);
+          var compoundResults = safeTermQuery(term);
           var strategy1Added = 0;
           
           compoundResults.forEach(function(res) {
@@ -985,22 +1121,21 @@ $(document).ready(function() {
               
               // CRITICAL: Check if the FULL compound term actually appears in the content
               // (Lunr may return pages with only individual parts like "hostnames" of "normalize-hostnames")
-              var hasFullTerm = titleLower.includes(term) || excerptLower.includes(term);
+              // Separator-tolerant so "selected-macros" also matches text with "selected_macros".
+              var hasFullTerm = compoundTermMatches(titleLower, term) || compoundTermMatches(excerptLower, term);
               
               if (hasFullTerm) {
-                var inTitle = titleLower.includes(term);
+                var inTitle = compoundTermMatches(titleLower, term);
                 
                 // Check if term appears in first 100 characters of excerpt (primary topic)
                 var excerptStart = excerptLower.substring(0, 100);
-                var inExcerptStart = excerptStart.includes(term);
+                var inExcerptStart = compoundTermMatches(excerptStart, term);
                 
-                // Boost hierarchy:
-                // 1. In title = 100000 (highest - canonical page)
-                // 2. In first 100 chars of excerpt = 50000 (primary documentation)
-                // 3. Anywhere else in content = 1000 (just mentioned)
-                var boost = inTitle ? 100000 : (inExcerptStart ? 50000 : 1000);
+                // Tier hierarchy (see SCORE_TIER): title > excerpt start > mention.
+                // Raw BM25 score is added only as an in-tier tiebreaker.
+                var tier = inTitle ? SCORE_TIER.COMPOUND_TITLE : (inExcerptStart ? SCORE_TIER.COMPOUND_EXCERPT_START : SCORE_TIER.COMPOUND_MENTION);
                 
-                res.score *= boost;
+                res.score = tier + res.score;
                 result.push(res);
                 seenRefs.add(res.ref);
                 strategy1Added++;
@@ -1030,11 +1165,11 @@ $(document).ready(function() {
               var excerptLower = store[res.ref].excerpt.toLowerCase();
               // Check if at least one compound term exists
               shouldAdd = compoundTerms.some(function(term) {
-                return titleLower.includes(term) || excerptLower.includes(term);
+                return compoundTermMatches(titleLower, term) || compoundTermMatches(excerptLower, term);
               });
             }
             if (shouldAdd) {
-              res.score *= 100;
+              res.score = SCORE_TIER.FULL_QUERY + res.score;
               result.push(res);
               seenRefs.add(res.ref);
               addedCount++;
@@ -1046,6 +1181,33 @@ $(document).ready(function() {
         }
       } catch(e) {
         window.logger.error('Strategy 2 error:', e);
+      }
+
+      // Strategy 2b: Literal exact query term (boost 90)
+      // Lunr's raw query-string parser (Strategy 2, above) treats a leading
+      // '-' as a "term must be absent" operator and splits on '-' entirely,
+      // so a literal CLI-flag-style query like "--scope" never matches via
+      // idx.search(query). Re-run the (separator-trimmed) query as a single
+      // literal term through the safe query-builder API to cover that case.
+      try {
+        var literalQueryTerm = stripLeadingTrailingSeparators(queryLower);
+        if (literalQueryTerm.length > 0 && literalQueryTerm !== queryLower.trim()) {
+          var literalResults = safeTermQuery(literalQueryTerm);
+          var strategy2bAdded = 0;
+          literalResults.forEach(function(res) {
+            if (!seenRefs.has(res.ref)) {
+              res.score = SCORE_TIER.LITERAL_QUERY + res.score;
+              result.push(res);
+              seenRefs.add(res.ref);
+              strategy2bAdded++;
+            }
+          });
+          if (strategy2bAdded > 0) {
+            window.logger.log('Strategy 2b: ' + strategy2bAdded + ' results');
+          }
+        }
+      } catch(e) {
+        window.logger.error('Strategy 2b error:', e);
       }
       
       // Strategy 3: Individual parts of compound terms (boost 10)
@@ -1061,7 +1223,7 @@ $(document).ready(function() {
         parts.forEach(function(part) {
           if (part.length > 2) {
             try {
-              var partResults = idx.search(part);
+              var partResults = safeTermQuery(part);
               partResults.forEach(function(res) {
                 if (!seenRefs.has(res.ref)) {
                   var titleLower = store[res.ref].title.toLowerCase();
@@ -1069,14 +1231,14 @@ $(document).ready(function() {
                   
                   // CRITICAL: Don't add if full compound term exists (already handled by Strategy 1)
                   // This prevents "hostnames" in title from ranking above "normalize-hostnames" in body
-                  var hasFullTerm = titleLower.includes(term) || excerptLower.includes(term);
+                  var hasFullTerm = compoundTermMatches(titleLower, term) || compoundTermMatches(excerptLower, term);
                   
                   // ALSO CRITICAL: Verify the exact part exists (not just stemmed match)
                   // This prevents "normal" from matching "normalize" searches (stemmer issue)
                   var hasExactPart = titleLower.includes(part) || excerptLower.includes(part);
                   
                   if (!hasFullTerm && hasExactPart) {
-                    res.score *= 10;
+                    res.score = SCORE_TIER.COMPOUND_PART + res.score;
                     result.push(res);
                     seenRefs.add(res.ref);
                     strategy3Added++;
@@ -1102,10 +1264,10 @@ $(document).ready(function() {
         allTerms.forEach(function(term) {
           if (term.length > 2) {
             try {
-              var wildcardResults = idx.search(term + '*');
+              var wildcardResults = safeTermQuery(term, { wildcard: lunr.Query.wildcard.TRAILING });
               wildcardResults.forEach(function(res) {
                 if (!seenRefs.has(res.ref)) {
-                  res.score *= 5;
+                  res.score = SCORE_TIER.WILDCARD + res.score;
                   result.push(res);
                   seenRefs.add(res.ref);
                   strategy4Added++;
@@ -1125,10 +1287,10 @@ $(document).ready(function() {
         allTerms.forEach(function(term) {
           if (term.length > 3) {
             try {
-              var fuzzyResults = idx.search(term + '~1');
+              var fuzzyResults = safeTermQuery(term, { editDistance: 1 });
               fuzzyResults.forEach(function(res) {
                 if (!seenRefs.has(res.ref)) {
-                  res.score *= 0.01;
+                  res.score = SCORE_TIER.FUZZY + (res.score * 0.01);
                   result.push(res);
                   seenRefs.add(res.ref);
                   strategy5Added++;
