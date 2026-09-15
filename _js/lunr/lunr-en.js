@@ -3,7 +3,7 @@ layout: none
 ---
 
 // VERSION COUNTER - increment on each change to verify latest code is loaded
-var SEARCH_VERSION = 46;
+var SEARCH_VERSION = 47;
 window.logger.log('========================================');
 window.logger.log('LUNR SEARCH ENGINE LOADED - VERSION: ' + SEARCH_VERSION);
 window.logger.log('========================================');
@@ -150,6 +150,24 @@ function safeTermQuery(term, options) {
     return [];
   }
 }
+
+// Score tiers for the strategies below, spaced far enough apart that Lunr's
+// raw BM25 score (added on top, as a tiebreaker) can never bump a result
+// from a lower tier above a higher one. BM25 scores vary wildly by document
+// length/term-frequency - e.g. a long options-reference page mentioning the
+// compound term once can score LOWER on raw BM25 than a short heading page
+// matching only a component part, which broke the intended strategy
+// hierarchy when boosts were applied as multipliers on that raw score.
+var SCORE_TIER = {
+  COMPOUND_TITLE: 1000000,
+  COMPOUND_EXCERPT_START: 500000,
+  COMPOUND_MENTION: 100000,
+  LITERAL_QUERY: 90000,
+  FULL_QUERY: 10000,
+  COMPOUND_PART: 1000,
+  WILDCARD: 100,
+  FUZZY: 1
+};
 
 var idx = lunr(function () {
   this.field('title', { boost: 10 })
@@ -1058,13 +1076,11 @@ $(document).ready(function() {
                 var excerptStart = excerptLower.substring(0, 100);
                 var inExcerptStart = compoundTermMatches(excerptStart, term);
                 
-                // Boost hierarchy:
-                // 1. In title = 100000 (highest - canonical page)
-                // 2. In first 100 chars of excerpt = 50000 (primary documentation)
-                // 3. Anywhere else in content = 1000 (just mentioned)
-                var boost = inTitle ? 100000 : (inExcerptStart ? 50000 : 1000);
+                // Tier hierarchy (see SCORE_TIER): title > excerpt start > mention.
+                // Raw BM25 score is added only as an in-tier tiebreaker.
+                var tier = inTitle ? SCORE_TIER.COMPOUND_TITLE : (inExcerptStart ? SCORE_TIER.COMPOUND_EXCERPT_START : SCORE_TIER.COMPOUND_MENTION);
                 
-                res.score *= boost;
+                res.score = tier + res.score;
                 result.push(res);
                 seenRefs.add(res.ref);
                 strategy1Added++;
@@ -1098,7 +1114,7 @@ $(document).ready(function() {
               });
             }
             if (shouldAdd) {
-              res.score *= 100;
+              res.score = SCORE_TIER.FULL_QUERY + res.score;
               result.push(res);
               seenRefs.add(res.ref);
               addedCount++;
@@ -1125,7 +1141,7 @@ $(document).ready(function() {
           var strategy2bAdded = 0;
           literalResults.forEach(function(res) {
             if (!seenRefs.has(res.ref)) {
-              res.score *= 90;
+              res.score = SCORE_TIER.LITERAL_QUERY + res.score;
               result.push(res);
               seenRefs.add(res.ref);
               strategy2bAdded++;
@@ -1167,7 +1183,7 @@ $(document).ready(function() {
                   var hasExactPart = titleLower.includes(part) || excerptLower.includes(part);
                   
                   if (!hasFullTerm && hasExactPart) {
-                    res.score *= 10;
+                    res.score = SCORE_TIER.COMPOUND_PART + res.score;
                     result.push(res);
                     seenRefs.add(res.ref);
                     strategy3Added++;
@@ -1196,7 +1212,7 @@ $(document).ready(function() {
               var wildcardResults = safeTermQuery(term, { wildcard: lunr.Query.wildcard.TRAILING });
               wildcardResults.forEach(function(res) {
                 if (!seenRefs.has(res.ref)) {
-                  res.score *= 5;
+                  res.score = SCORE_TIER.WILDCARD + res.score;
                   result.push(res);
                   seenRefs.add(res.ref);
                   strategy4Added++;
@@ -1219,7 +1235,7 @@ $(document).ready(function() {
               var fuzzyResults = safeTermQuery(term, { editDistance: 1 });
               fuzzyResults.forEach(function(res) {
                 if (!seenRefs.has(res.ref)) {
-                  res.score *= 0.01;
+                  res.score = SCORE_TIER.FUZZY + (res.score * 0.01);
                   result.push(res);
                   seenRefs.add(res.ref);
                   strategy5Added++;
