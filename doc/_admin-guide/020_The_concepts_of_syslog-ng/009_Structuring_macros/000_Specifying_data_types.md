@@ -169,9 +169,4 @@ version of {{ site.product.short_name }} serialized a message, older versions an
 associated tools are able to read it, however, in this case the type
 information is lost.
 
-### value-pairs() options
-
-The value-pairs() option allows you to select specific
-information about a message easily using predefined macro groups. The
-selected information is represented as name-value pairs and can be used
-formatted to JSON format, or directly used e.g. in a mongodb() destination.
+{% include doc/admin-guide/value-pairs-options.md %}
