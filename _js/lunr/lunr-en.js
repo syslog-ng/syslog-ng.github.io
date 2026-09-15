@@ -3,7 +3,7 @@ layout: none
 ---
 
 // VERSION COUNTER - increment on each change to verify latest code is loaded
-var SEARCH_VERSION = 45;
+var SEARCH_VERSION = 46;
 window.logger.log('========================================');
 window.logger.log('LUNR SEARCH ENGINE LOADED - VERSION: ' + SEARCH_VERSION);
 window.logger.log('========================================');
@@ -97,9 +97,59 @@ window.logger.log('========================================');
 // Compound term separators (used for compound pattern detection)
 var COMPOUND_SEPARATORS = '-_.';  // Hyphen, underscore, dot
 var COMPOUND_SEPARATORS_ESCAPED = COMPOUND_SEPARATORS.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+var COMPOUND_SEPARATOR_CLASS = '[' + COMPOUND_SEPARATORS_ESCAPED + ']';
 
 // Shared pattern for detecting compound terms (words joined by COMPOUND_SEPARATORS)
 var compoundPattern = new RegExp('[\\w]+([' + COMPOUND_SEPARATORS_ESCAPED + '][\\w]+)+', 'g');
+
+// Canonicalize a compound term so "selected-macros", "selected_macros" and
+// "selected.macros" all resolve to the SAME index token / search term.
+// Without this, hyphen/underscore/dot variants of the same identifier are
+// indexed and searched as different strings and never rank equally.
+function normalizeCompoundTerm(term) {
+  return term.replace(new RegExp(COMPOUND_SEPARATOR_CLASS, 'g'), '-');
+}
+
+// Strip leading/trailing separator characters from a raw user-typed term.
+// The tokenizer treats '-', '_' and '.' purely as word boundaries, so a
+// literal search like "--scope" (a CLI flag) has no matching "--scope"
+// token in the index at all - only "scope" does. Trimming the separators
+// before searching lets exact/wildcard/fuzzy strategies find that token,
+// while a separate compound-term regex check (see compoundTermMatches)
+// still verifies the separator-bearing form actually appears in the text.
+function stripLeadingTrailingSeparators(term) {
+  var re = new RegExp('^' + COMPOUND_SEPARATOR_CLASS + '+|' + COMPOUND_SEPARATOR_CLASS + '+$', 'g');
+  return term.replace(re, '');
+}
+
+// Separator-tolerant "does this text contain this compound term" check.
+// Treats '-', '_' and '.' as interchangeable so "selected-macros" matches
+// text containing "selected_macros" (and vice versa).
+function compoundTermMatches(text, term) {
+  if (!term) {
+    return false;
+  }
+  var pattern = term
+    .split(new RegExp(COMPOUND_SEPARATOR_CLASS))
+    .map(function (part) { return part.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); })
+    .join(COMPOUND_SEPARATOR_CLASS);
+  return new RegExp(pattern).test(text);
+}
+
+// Safe wrapper around lunr's programmatic query API. Unlike idx.search(str),
+// this never re-parses the term for '+'/'-' presence operators, 'field:'
+// selectors, or hyphen-based term splitting - the term is matched literally,
+// which is what every automatic strategy below actually needs.
+function safeTermQuery(term, options) {
+  try {
+    return idx.query(function (q) {
+      q.term(term, options);
+    });
+  } catch (e) {
+    window.logger.error('safeTermQuery error for "' + term + '":', e);
+    return [];
+  }
+}
 
 var idx = lunr(function () {
   this.field('title', { boost: 10 })
@@ -136,7 +186,9 @@ var idx = lunr(function () {
     var compoundTokens = [];
     
     while (match = compoundPattern.exec(str)) {
-      compoundTokens.push(new lunr.Token(match[0], {
+      // Index the canonical (hyphen-normalized) form so "selected-macros",
+      // "selected_macros" and "selected.macros" all become ONE index token.
+      compoundTokens.push(new lunr.Token(normalizeCompoundTerm(match[0]), {
         position: [match.index, match[0].length],
         index: tokens.length
       }));
@@ -958,14 +1010,25 @@ $(document).ready(function() {
       var queryLower = query.toLowerCase();
       
       // Find compound terms using
+      // Normalized (canonical hyphen form) so "selected-macros" and
+      // "selected_macros" are treated as the SAME term (dedup via seen set).
       var match;
       var pattern = new RegExp(compoundPattern.source, 'g');
+      var seenCompoundTerms = new Set();
       while (match = pattern.exec(queryLower)) {
-        compoundTerms.push(match[0]);
+        var normalized = normalizeCompoundTerm(match[0]);
+        if (!seenCompoundTerms.has(normalized)) {
+          seenCompoundTerms.add(normalized);
+          compoundTerms.push(normalized);
+        }
       }
       
-      // Get all individual terms
-      allTerms = queryLower.split(/\s+/).filter(function(t) { return t.length > 0; });
+      // Get all individual terms, trimmed of leading/trailing separators so
+      // literal CLI-flag-style queries like "--scope" search for the actual
+      // indexed token ("scope") instead of a string that has no match at all.
+      allTerms = queryLower.split(/\s+/)
+        .map(function (t) { return stripLeadingTrailingSeparators(t); })
+        .filter(function(t) { return t.length > 0; });
       
       window.logger.log('========== SEARCH: ' + query + ' ==========');
       if (compoundTerms.length > 0) {
@@ -975,7 +1038,7 @@ $(document).ready(function() {
       // Strategy 1: Exact compound term match with title detection (HIGHEST PRIORITY)
       compoundTerms.forEach(function(term) {
         try {
-          var compoundResults = idx.search(term);
+          var compoundResults = safeTermQuery(term);
           var strategy1Added = 0;
           
           compoundResults.forEach(function(res) {
@@ -985,14 +1048,15 @@ $(document).ready(function() {
               
               // CRITICAL: Check if the FULL compound term actually appears in the content
               // (Lunr may return pages with only individual parts like "hostnames" of "normalize-hostnames")
-              var hasFullTerm = titleLower.includes(term) || excerptLower.includes(term);
+              // Separator-tolerant so "selected-macros" also matches text with "selected_macros".
+              var hasFullTerm = compoundTermMatches(titleLower, term) || compoundTermMatches(excerptLower, term);
               
               if (hasFullTerm) {
-                var inTitle = titleLower.includes(term);
+                var inTitle = compoundTermMatches(titleLower, term);
                 
                 // Check if term appears in first 100 characters of excerpt (primary topic)
                 var excerptStart = excerptLower.substring(0, 100);
-                var inExcerptStart = excerptStart.includes(term);
+                var inExcerptStart = compoundTermMatches(excerptStart, term);
                 
                 // Boost hierarchy:
                 // 1. In title = 100000 (highest - canonical page)
@@ -1030,7 +1094,7 @@ $(document).ready(function() {
               var excerptLower = store[res.ref].excerpt.toLowerCase();
               // Check if at least one compound term exists
               shouldAdd = compoundTerms.some(function(term) {
-                return titleLower.includes(term) || excerptLower.includes(term);
+                return compoundTermMatches(titleLower, term) || compoundTermMatches(excerptLower, term);
               });
             }
             if (shouldAdd) {
@@ -1047,6 +1111,33 @@ $(document).ready(function() {
       } catch(e) {
         window.logger.error('Strategy 2 error:', e);
       }
+
+      // Strategy 2b: Literal exact query term (boost 90)
+      // Lunr's raw query-string parser (Strategy 2, above) treats a leading
+      // '-' as a "term must be absent" operator and splits on '-' entirely,
+      // so a literal CLI-flag-style query like "--scope" never matches via
+      // idx.search(query). Re-run the (separator-trimmed) query as a single
+      // literal term through the safe query-builder API to cover that case.
+      try {
+        var literalQueryTerm = stripLeadingTrailingSeparators(queryLower);
+        if (literalQueryTerm.length > 0 && literalQueryTerm !== queryLower.trim()) {
+          var literalResults = safeTermQuery(literalQueryTerm);
+          var strategy2bAdded = 0;
+          literalResults.forEach(function(res) {
+            if (!seenRefs.has(res.ref)) {
+              res.score *= 90;
+              result.push(res);
+              seenRefs.add(res.ref);
+              strategy2bAdded++;
+            }
+          });
+          if (strategy2bAdded > 0) {
+            window.logger.log('Strategy 2b: ' + strategy2bAdded + ' results');
+          }
+        }
+      } catch(e) {
+        window.logger.error('Strategy 2b error:', e);
+      }
       
       // Strategy 3: Individual parts of compound terms (boost 10)
       // Searches for explicit "normalize" and "hostnames" from "normalize-hostnames"
@@ -1061,7 +1152,7 @@ $(document).ready(function() {
         parts.forEach(function(part) {
           if (part.length > 2) {
             try {
-              var partResults = idx.search(part);
+              var partResults = safeTermQuery(part);
               partResults.forEach(function(res) {
                 if (!seenRefs.has(res.ref)) {
                   var titleLower = store[res.ref].title.toLowerCase();
@@ -1069,7 +1160,7 @@ $(document).ready(function() {
                   
                   // CRITICAL: Don't add if full compound term exists (already handled by Strategy 1)
                   // This prevents "hostnames" in title from ranking above "normalize-hostnames" in body
-                  var hasFullTerm = titleLower.includes(term) || excerptLower.includes(term);
+                  var hasFullTerm = compoundTermMatches(titleLower, term) || compoundTermMatches(excerptLower, term);
                   
                   // ALSO CRITICAL: Verify the exact part exists (not just stemmed match)
                   // This prevents "normal" from matching "normalize" searches (stemmer issue)
@@ -1102,7 +1193,7 @@ $(document).ready(function() {
         allTerms.forEach(function(term) {
           if (term.length > 2) {
             try {
-              var wildcardResults = idx.search(term + '*');
+              var wildcardResults = safeTermQuery(term, { wildcard: lunr.Query.wildcard.TRAILING });
               wildcardResults.forEach(function(res) {
                 if (!seenRefs.has(res.ref)) {
                   res.score *= 5;
@@ -1125,7 +1216,7 @@ $(document).ready(function() {
         allTerms.forEach(function(term) {
           if (term.length > 3) {
             try {
-              var fuzzyResults = idx.search(term + '~1');
+              var fuzzyResults = safeTermQuery(term, { editDistance: 1 });
               fuzzyResults.forEach(function(res) {
                 if (!seenRefs.has(res.ref)) {
                   res.score *= 0.01;
