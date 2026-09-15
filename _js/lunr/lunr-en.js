@@ -3,7 +3,7 @@ layout: none
 ---
 
 // VERSION COUNTER - increment on each change to verify latest code is loaded
-var SEARCH_VERSION = 47;
+var SEARCH_VERSION = 48;
 window.logger.log('========================================');
 window.logger.log('LUNR SEARCH ENGINE LOADED - VERSION: ' + SEARCH_VERSION);
 window.logger.log('========================================');
@@ -102,6 +102,14 @@ var COMPOUND_SEPARATOR_CLASS = '[' + COMPOUND_SEPARATORS_ESCAPED + ']';
 // Shared pattern for detecting compound terms (words joined by COMPOUND_SEPARATORS)
 var compoundPattern = new RegExp('[\\w]+([' + COMPOUND_SEPARATORS_ESCAPED + '][\\w]+)+', 'g');
 
+// Detects "flag-like" terms: one or more leading separators directly
+// followed by a word, e.g. "--scope" or "__internal". Unlike compoundPattern
+// this requires no word char before the separator run, so it also matches a
+// token at the very start of a string. Capture group 2 is the flag itself;
+// group 1 is the boundary (start-of-string or a preceding delimiter) that
+// had to be consumed to anchor the match without needing lookbehind.
+var leadingFlagPattern = /(^|[\s"'(),])([-_.]+[\w]+)/g;
+
 // Canonicalize a compound term so "selected-macros", "selected_macros" and
 // "selected.macros" all resolve to the SAME index token / search term.
 // Without this, hyphen/underscore/dot variants of the same identifier are
@@ -122,6 +130,17 @@ function stripLeadingTrailingSeparators(term) {
   return term.replace(re, '');
 }
 
+// Builds a separator-tolerant regex source for a (possibly compound) term:
+// any run of '-'/'_'/'.' in the term matches any run of those characters in
+// the target text, so "selected-macros" also matches "selected_macros" and
+// "--scope" also matches "---scope" or "__scope".
+function buildCompoundTermPattern(term) {
+  return term
+    .split(new RegExp(COMPOUND_SEPARATOR_CLASS + '+'))
+    .map(function (part) { return part.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); })
+    .join(COMPOUND_SEPARATOR_CLASS + '+');
+}
+
 // Separator-tolerant "does this text contain this compound term" check.
 // Treats '-', '_' and '.' as interchangeable so "selected-macros" matches
 // text containing "selected_macros" (and vice versa).
@@ -129,11 +148,17 @@ function compoundTermMatches(text, term) {
   if (!term) {
     return false;
   }
-  var pattern = term
-    .split(new RegExp(COMPOUND_SEPARATOR_CLASS))
-    .map(function (part) { return part.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); })
-    .join(COMPOUND_SEPARATOR_CLASS);
-  return new RegExp(pattern).test(text);
+  return new RegExp(buildCompoundTermPattern(term)).test(text);
+}
+
+// Like compoundTermMatches, but returns the match index (or -1), for
+// snippet-positioning code that needs to know WHERE the term was found.
+function compoundTermIndexOf(text, term) {
+  if (!term) {
+    return -1;
+  }
+  var match = new RegExp(buildCompoundTermPattern(term)).exec(text);
+  return match ? match.index : -1;
 }
 
 // Safe wrapper around lunr's programmatic query API. Unlike idx.search(str),
@@ -208,6 +233,19 @@ var idx = lunr(function () {
       // "selected_macros" and "selected.macros" all become ONE index token.
       compoundTokens.push(new lunr.Token(normalizeCompoundTerm(match[0]), {
         position: [match.index, match[0].length],
+        index: tokens.length
+      }));
+    }
+
+    // Also index "flag-like" terms (leading separators + word, e.g.
+    // "--scope"), so literal CLI-flag mentions in the text get their own
+    // exact-match index token instead of only the bare word ("scope").
+    var flagMatch;
+    leadingFlagPattern.lastIndex = 0;
+    while (flagMatch = leadingFlagPattern.exec(str)) {
+      var flagStart = flagMatch.index + flagMatch[1].length;
+      compoundTokens.push(new lunr.Token(normalizeCompoundTerm(flagMatch[2]), {
+        position: [flagStart, flagMatch[2].length],
         index: tokens.length
       }));
     }
@@ -303,7 +341,7 @@ function generateContextualSnippet(text, query, compoundTerms, maxWords, title, 
   
   // PRIORITY 1: Try compound terms first in excerpt (HIGHEST PRIORITY)
   for (var i = 0; i < compoundTerms.length; i++) {
-    var pos = textLower.indexOf(compoundTerms[i]);
+    var pos = compoundTermIndexOf(textLower, compoundTerms[i]);
     if (pos !== -1) {
       matchPos = pos;
       matchTerm = compoundTerms[i];
@@ -320,7 +358,7 @@ function generateContextualSnippet(text, query, compoundTerms, maxWords, title, 
     // First check for full compound term in title
     for (var i = 0; i < compoundTerms.length; i++) {
       window.logger.log('[Snippet] Checking if title contains full compound: "' + compoundTerms[i] + '"');
-      if (titleLower.indexOf(compoundTerms[i]) !== -1) {
+      if (compoundTermMatches(titleLower, compoundTerms[i])) {
         matchInTitle = true;
         matchTerm = compoundTerms[i];
         window.logger.log('[Snippet] ✓ FULL compound term "' + compoundTerms[i] + '" found in TITLE only');
@@ -648,8 +686,9 @@ function highlightTerms(text, query, compoundTerms, fuzzyEnabled) {
   compoundTerms.forEach(function(term) {
     if (term.length > 0) {
       termsToHighlight.push(term);
-      // Check if this compound term actually exists in the text
-      if (textLower.indexOf(term) !== -1) {
+      // Check if this compound term actually exists in the text (separator-tolerant,
+      // so "selected-macros" also counts a "selected_macros" occurrence as found).
+      if (compoundTermMatches(textLower, term)) {
         hasCompoundInText = true;
         window.logger.log('[Highlight] ✓ Found compound term "' + term + '" in text');
       } else {
@@ -708,8 +747,10 @@ function highlightTerms(text, query, compoundTerms, fuzzyEnabled) {
     
     if (hasCompoundSep) {
       window.logger.log('[Highlight] Term has compound separator, matching directly');
-      // For compound terms, match directly (hyphens aren't word boundaries)
-      var regex = new RegExp('(' + escapedTerm + ')', 'gi');
+      // For compound terms, match directly (hyphens aren't word boundaries).
+      // Separator-tolerant so a hyphenated query term still highlights an
+      // underscore-spelled (or double-dash) occurrence in the actual text.
+      var regex = new RegExp('(' + buildCompoundTermPattern(term) + ')', 'gi');
       var matchCount = 0;
       result = result.replace(regex, function(match, p1, offset, string) {
         // Don't highlight if inside existing <mark> tags
@@ -1038,6 +1079,20 @@ $(document).ready(function() {
         if (!seenCompoundTerms.has(normalized)) {
           seenCompoundTerms.add(normalized);
           compoundTerms.push(normalized);
+        }
+      }
+
+      // Also detect flag-like terms ("--scope"): without this, a query for
+      // a literal CLI flag falls back to matching the bare word ("scope")
+      // everywhere it appears, with no way to prefer/verify pages that
+      // actually contain the "--scope" form over unrelated "scope" mentions.
+      var flagPattern = new RegExp(leadingFlagPattern.source, 'g');
+      var flagMatch;
+      while (flagMatch = flagPattern.exec(queryLower)) {
+        var normalizedFlag = normalizeCompoundTerm(flagMatch[2]);
+        if (!seenCompoundTerms.has(normalizedFlag)) {
+          seenCompoundTerms.add(normalizedFlag);
+          compoundTerms.push(normalizedFlag);
         }
       }
       
