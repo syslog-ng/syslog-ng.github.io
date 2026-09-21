@@ -198,6 +198,12 @@ that are supported for three years after their original release.
 
 ## N
 
+### name-value pair
+
+A named field stored with a log message. Parsers, rewrite rules, sources, and
+other {{ site.product.short_name }} components can create name-value pairs, and
+destinations or template functions can use them when formatting output.
+
 ### name server
 
 A network computer storing the IP addresses corresponding to domain names.
@@ -205,6 +211,13 @@ A network computer storing the IP addresses corresponding to domain names.
 ### Note
 
 Circumstance that needs special attention.
+
+### NVHandle
+
+An internal numeric identifier that {{ site.product.short_name }} uses to refer
+to a registered name-value pair name. The hard NVHandle limit is the absolute
+upper bound of such identifiers: after it is reached, no additional name-value
+pair names can be registered, regardless of dynamic name limits.
 
 ## O
 
