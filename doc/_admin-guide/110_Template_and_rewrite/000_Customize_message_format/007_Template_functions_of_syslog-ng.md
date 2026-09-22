@@ -212,7 +212,8 @@ The following is a sample log message in EWMM format.
 the format-json template function, but nested JSON objects are flattened
 in the output. If you have to forward your log messages in JSON format,
 but the receiving application cannot handle nested JSON objects, use the
-format-flat-json template function.
+format-flat-json template function. It supports the same `--order`
+parameter as format-json.
 
 ### Example: Flattened JSON output
 
@@ -254,6 +255,11 @@ to store selected information about a log message (that is, its content,
 macros, or other metadata) in JSON format. Note that the input log
 message does not have to be in JSON format to use format-json, you can
 reformat any incoming message as JSON.
+
+By default, keys are emitted in descending order. Use `--order=ascending`
+to sort keys alphabetically, or `--order=as-written` to keep the first
+position of each key as it was added. If a name appears more than once,
+the last value wins in every order.
 
 You can use the value-pairs
 that {{ site.product.short_name }} stores about the log message as JSON fields. Using
