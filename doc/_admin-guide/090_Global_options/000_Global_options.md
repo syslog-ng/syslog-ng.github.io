@@ -212,6 +212,46 @@ in {{ site.product.short_name }} and is instantaneous.
 
 *Description:* Number of hostnames in the DNS cache.
 
+## dynamic-nv-name-limit()
+
+| Accepted values: | non-negative integer |
+| Default:         | `10000`              |
+
+Available in {{ site.product.short_name }} 4.13 and later versions.
+
+*Description:* Limits how many new dynamic name-value pairs {{ site.product.short_name }}
+can register. Dynamic names are field names extracted from untrusted message
+content, for example RFC5424 SDATA names, key-value parser keys, or JSON object
+keys.
+
+Use this option to limit permanent memory growth caused by messages that contain
+many different field names. When the limit is reached, {{ site.product.short_name }}
+does not register further new dynamic names. Names that are already registered
+remain available, and `dynamic-nv-name-limit(0)` rejects registering any new
+dynamic field names.
+
+This option limits only new dynamic field-name registration. It is not a
+`value-pairs()` selection limit and it does not limit dynamic statistics counters.
+When {{ site.product.short_name }} deserializes internal state, for example from
+a disk-buffer, it restores the already serialized field names. The hard NVHandle
+limit and the field-name length limit still apply.
+
+## dynamic-nv-name-overflow()
+
+| Accepted values: | `drop`, `reject-message` |
+| Default:         | `drop`                   |
+
+Available in {{ site.product.short_name }} 4.13 and later versions.
+
+*Description:* Controls what happens when a parser would register a new dynamic
+name-value pair after `dynamic-nv-name-limit()` has been reached.
+
+Possible values:
+
+- `drop`: Drop only the overflowing name-value pair from the message.
+
+- `reject-message`: Reject the whole message when registering the overflowing name-value pair fails.
+
 ## file-template()
 
 | Accepted values: | string |

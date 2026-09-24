@@ -3,9 +3,6 @@
 | Type:    | parameter list of the value-pairs() option |
 | Default: | scope("selected-macros" "nv-pairs")        |
 
-*Description:* The value-pairs() option creates structured name-value
-pairs from the data and metadata of the log message. For details on
-using value-pairs(), see Structuring macros, metadata, and other value-pairs.
+*Description:*
 
-Empty keys are not logged.
-{: .notice--primary}
+{% include doc/admin-guide/value-pairs-description.md %}
