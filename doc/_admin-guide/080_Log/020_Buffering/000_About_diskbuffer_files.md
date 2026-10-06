@@ -60,4 +60,10 @@ If a queue file becomes corrupt, {{ site.product.short_name }} starts a new one.
 This might lead to the queue files consuming more space in total than
 their maximal configured size and the number of configured queue files
 multiplied together.
+
+For reliable disk-buffers, a queue file is also treated as corrupt if the oldest
+unacknowledged record survives 3 consecutive {{ site.product.short_name }} restarts
+without ever being acknowledged. This is treated as a sign that this specific
+record is the cause of those restarts, and the queue file is quarantined the
+same way, instead of repeating the same failure indefinitely.
 {: .notice--primary}

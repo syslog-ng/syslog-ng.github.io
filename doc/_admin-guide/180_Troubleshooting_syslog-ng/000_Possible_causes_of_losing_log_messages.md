@@ -73,3 +73,11 @@ losing messages:
     receives a signal (SIG) while writing log messages to file, the log
     message that is processed by the *write* call can be lost if the
     flush\_lines parameter is higher than 1.
+
+- When a disk-buffer file becomes corrupt: {{ site.product.short_name }} renames the affected
+    queue file to `.corrupted` and starts a new, empty one. This can happen
+    because of structural corruption in the file, or, for reliable
+    disk-buffers, because the oldest unacknowledged record survives 3
+    consecutive restarts without ever being acknowledged. The messages stored
+    in the quarantined file are not forwarded automatically. For more
+    information, see About disk queue files.
