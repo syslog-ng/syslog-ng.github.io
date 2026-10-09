@@ -340,6 +340,15 @@ driver.
 information (that is, the `PID`, user ID, and group of the sender process)
 for messages received using UNIX domain sockets.
 
+## store-debug-macros()
+
+| Accepted values: | `yes`, `no` |
+| Default:         | `yes`       |
+
+*Description:* Controls whether {{ site.product.short_name }} stores the
+`TRANSPORT` and `MSGFORMAT` macros in log messages. Set this option to
+`no` to omit these macros from messages and reduce message metadata.
+
 ## stats()
 
 Available in {{ site.product.short_name }} 4.1 and later versions.
