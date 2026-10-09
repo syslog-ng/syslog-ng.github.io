@@ -13,6 +13,24 @@ description: >-
 
 For more information, see Managing incoming and outgoing messages with flow-control
 
+## Disk-queue record was still being processed when syslog-ng last stopped
+
+| Error message: | Disk-queue record was still being processed when syslog-ng last stopped, this might indicate a crash caused by this specific record; filename='/opt/syslog-ng/var/syslog-ng-00000.rqf', pending_read_head='4096', pending_read_crash_count='1' |
+| Description:   | A reliable disk-buffer popped this record for processing, but the previous {{ site.product.short_name }} run ended before it was acknowledged. This can happen after a crash or shutdown unrelated to the record itself, or because this specific record is the reason {{ site.product.short_name }} keeps stopping. |
+| Solution:      | No action is needed for a single occurrence. If this message keeps appearing for the same file across further restarts, the file will eventually be quarantined automatically, see Disk-queue quarantined after repeatedly crashing while processing the same record. |
+
+## Disk-queue quarantined after repeatedly crashing while processing the same record
+
+| Error message: | Disk-queue quarantined after repeatedly crashing while processing the same record; filename='/opt/syslog-ng/var/syslog-ng-00000.rqf', pending_read_crash_count='3' |
+| Description:   | The oldest unacknowledged record survived 3 consecutive {{ site.product.short_name }} restarts without ever being acknowledged, so {{ site.product.short_name }} assumes this specific record is the cause and stops retrying it. The queue file is renamed to `.corrupted` and a new, empty one is started, the same way a structurally corrupt queue file is handled. |
+| Solution:      | The messages stored in the quarantined `.corrupted` file are not forwarded automatically. Use dqtool cat to inspect its contents if you need to recover the other messages stored in it. |
+
+## Incoming frame larger than log_msg_size()
+
+| Error message: | Incoming frame larger than log_msg_size(); log_msg_size='65536', frame_length='103745' |
+| Description:   | The receiving {{ site.product.short_name }} source received an RFC 6587 frame whose declared message length exceeds its effective `log-msg-size()` limit. By default, the receiver rejects the oversized frame and closes the TCP or TLS connection. Repeated oversized messages can cause repeated reconnects and a growing sender-side queue. |
+| Solution:      | Increase `log-msg-size()` on the receiving source to accommodate the largest expected forwarded message, including syslog headers and structured data. For example, `log-msg-size(131072)` accommodates the frame shown above. A source-specific value overrides the global setting. Reload the receiver configuration and verify that the error and connection drops stop. Increasing only the sender's limit does not resolve this receiving-side error. |
+
 ## Alert unknown CA
 
 | Error message: | SSL error while writing stream; tls_error='SSL routines:ssl3_read_bytes:tlsv1 alert unknown ca'                                                                |
