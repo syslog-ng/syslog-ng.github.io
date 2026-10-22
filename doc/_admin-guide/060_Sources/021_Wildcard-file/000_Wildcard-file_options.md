@@ -190,6 +190,8 @@ To force {{ site.product.short_name }} to poll the file changes even if `inotify
 
 {% include doc/admin-guide/options/program-override.md %}
 
+{% include doc/admin-guide/options/read-old-records.md read_old_records='yes' %}
+
 ## recursive()
 
 | Accepted values: | `yes`, `no` |

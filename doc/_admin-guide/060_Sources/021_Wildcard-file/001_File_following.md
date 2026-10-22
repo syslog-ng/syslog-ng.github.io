@@ -9,6 +9,15 @@ description:  >-
     monitoring changes in the followed files.
 ---
 
+## Initial file position
+
+By default, file() and wildcard-file() read existing content from the beginning when no saved position exists. Set `read-old-records(no)` to skip the existing content and start at the end of the file instead. A position saved in the persist file takes precedence over either value of read-old-records(). The skipped end-of-file position is also saved, even if no new messages arrive before shutdown.
+
+For wildcard-file(), `read-old-records(no)` applies only to files whose readers are created during source initialization. Files discovered later, including files in newly discovered subdirectories when `recursive(yes)` is enabled, are read from the beginning unless a saved position exists.
+
+Files found during source initialization but deferred by max-files() are read from the beginning when a reader becomes available, unless a saved position exists. This exception also reads their old content with `read-old-records(no)`, so records appended while waiting are not skipped.
+{: .notice--primary}
+
 ## Directory monitoring
 
 The detection method for directory changes can be controlled via monitor-method(). If the method is `poll`, {{ site.product.short_name }} will set up an (ivykis) timer that periodically checks and compares the content of the given directory at the frequency specified by monitor-freq(). This periodic polling can be resource-intensive (mainly CPU), so selecting the proper value for monitor-freq() is important!\
@@ -19,12 +28,14 @@ Setting the `auto` method will select the best available method on the given OS.
 
 Detecting file content changes involves more factors that can affect resource usage and overall performance. {{ site.product.short_name }} uses two main methods to monitor file content changes.
 
-The first method is automatically selected in pre-4.9 version of {{ site.product.short_name }} if the follow-freq() option has a value greater than 0, or in version 4.9 or higher if follow-method() `legacy` or `poll` selected. It works like the directory monitoring `poll` monitor-method() and uses an (ivykis) timer with the frequency of follow-freq(). It tries to detect changes in the file content (as well as state, file deletion, and moves) each time the timer fires.\
+The first method is automatically selected in pre-4.9 versions of {{ site.product.short_name }} if follow-freq() has a value greater than 0. In version 4.9 or higher, it is selected by `follow-method(poll)`, or by `follow-method(legacy)` with a positive follow-freq(). It works like the directory monitoring `poll` monitor-method() and uses an (ivykis) timer with the frequency of follow-freq(). It tries to detect changes in the file content (as well as state, file deletion, and moves) each time the timer fires.\
 Similar to directory change monitoring, this process can be resource-intensive, so you should find the proper setting to balance performance, resource usage, and fault tolerance (such as avoiding log message loss).
 
-The second method is activated in pre-4.9 versions of {{ site.product.short_name }} if the follow-freq() option is set to 0, or in version 4.9 and higher if follow-method() is set to `inotify`, `system` or (on version 4.11 and higher) `auto`.\
+The second method is activated in pre-4.9 versions of {{ site.product.short_name }} if follow-freq() is set to 0. In version 4.9 and higher, it is selected by `follow-method(legacy)` with `follow-freq(0)`, or by follow-method() set to `inotify` or `system`. In version 4.11 and higher, `auto` can also select it.\
 If inotify is available on the system and selected in both follow-method() and monitor-method(), it will be used, resulting in significantly lower resource usage (especially on Linux). This option is accessible only on version 4.9 or later.\
 Otherwise, {{ site.product.short_name }} uses ivykis polling methods, which sometimes resemble the polling method used for directory change watching described above (with its associated performance penalties), but can also operate similarly to the `kqueue` version (offering seamless performance).
+
+When `inotify` is the effective file follow method, directory notifications trigger reading appended records whether follow-method() is set to `inotify`, `auto`, or `legacy`. In `legacy` mode, `follow-freq(0)` is required to select `inotify`; a positive value selects timer-based polling instead.
 
 The following table shows which method is selected in different cases.
 
@@ -237,4 +248,7 @@ From {{ site.product.short_name }} version 4.11 and higher, a new follow-method(
 - the best available (or the `IV_SELECT_POLL_METHOD` or `IV_EXCLUDE_POLL_METHOD` forced) `system` (ivykis) poll of the platform is used; if none is available,
 - the old `poll` method is used
 
+A file() source can use `follow-method("auto")` even if the file does not exist yet. {{ site.product.short_name }} waits for the file to appear, then starts reading it according to read-old-records() and any saved position. If `inotify` cannot be used, set a positive follow-freq() so timer-based polling can check for the missing file.
+
 Unfortunately, for backward compatibility reasons, the new `auto` option could not become the default for follow-method(), but for new configurations, we recommend using monitor-method("auto") and follow-method("auto") to achieve the best available performance on the given platform.
+{: .notice--primary}
