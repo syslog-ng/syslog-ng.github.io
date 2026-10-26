@@ -60,6 +60,8 @@ The file() driver has the following options:
 
 {% include doc/admin-guide/options/program-override.md %}
 
+{% include doc/admin-guide/options/read-old-records.md read_old_records='yes' %}
+
 {% include doc/admin-guide/options/sdata-prefix.md %}
 
 {% include doc/admin-guide/options/tags.md %}

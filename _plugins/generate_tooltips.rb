@@ -598,21 +598,8 @@ Jekyll::Hooks.register :site, :pre_render do |site|
 
       # render_with_liquid: false check
       #
-      # Pages that contain raw-Liquid examples ({% raw %}…{% endraw %}) or that
-      # rely on our custom self-rendering (description injection, [[title|id]]
-      # wikilink resolution) MUST set `render_with_liquid: false` in their
-      # frontmatter. Without it, Jekyll's final Liquid pass re-runs over our
-      # already-rendered content and:
-      #   - drops the <---description_start---> marker (visible as
-      #     "<—description_start—>" in the body, not wrapped into the styled
-      #     <p id="page-description"> block)
-      #   - re-expands {% raw %} blocks so the literal example disappears
-      #   - leaves [[title|id]] wikilinks unresolved; kramdown then turns the
-      #     surrounding paragraph into a one-row table because of the `|`
-      #
-      # The heuristic below is intentionally conservative: it only warns on
-      # the strongest signal ({% raw %} blocks). Wikilinks are common on
-      # pages that work fine, so flagging them would produce mostly noise.
+      # We render Liquid ourselves in the per-page :pre_render hook; Jekyll re-runs
+      # Liquid only if the result still has `{{`/`{%`, i.e. output of {% raw %} blocks.
       if File.extname(page.relative_path) != ".html" &&
          page.data["render_with_liquid"] != false &&
          page.content.include?("{% raw %}")
